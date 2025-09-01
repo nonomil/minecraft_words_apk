@@ -155,7 +155,7 @@ body.kindergarten-mode {
 }
 
 .kindergarten-mode .word-card {
-    background: linear-gradient(135deg, rgba(255, 249, 196, 0.8) 0%, rgba(240, 147, 251, 0.8) 100%), url('background.jpg?v=2');
+    background: url('background.jpg?v=2');
     background-size: cover;
     background-position: center;
     border: 3px solid #ff6b6b;
@@ -340,9 +340,9 @@ body.kindergarten-mode {
 }
 
 .kindergarten-mode #quizMode .quiz-question {
-    background: linear-gradient(135deg, rgba(255, 249, 196, 0.8) 0%, rgba(240, 147, 251, 0.8) 100%), url('background-2.jpg?v=2');
-    background-size: cover;
-    background-position: center;
-    border: 3px solid #ff6b6b;
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+    background: none;
+}
+.kindergarten-mode #quizMode .quiz-container,
+.kindergarten-mode #quizMode .quiz-option {
+    background: white;
 }
