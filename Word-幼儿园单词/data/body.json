@@ -1,0 +1,434 @@
+[
+  {
+    "english": "body",
+    "chinese": "身体",
+    "imageUrl": "images/body_8e4b7600.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400",
+    "chinesePhrase": "健康的身体",
+    "englishPhrase": "Healthy body"
+  },
+  {
+    "english": "head",
+    "chinese": "头",
+    "imageUrl": "images/head_c99f80a0.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1541710430735-5fca14c95b00?w=400",
+    "chinesePhrase": "摸摸你的头",
+    "englishPhrase": "Touch your head"
+  },
+  {
+    "english": "face",
+    "chinese": "脸",
+    "imageUrl": "images/face_ab894005.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=400",
+    "chinesePhrase": "洗脸",
+    "englishPhrase": "Wash face"
+  },
+  {
+    "english": "hair",
+    "chinese": "头发",
+    "imageUrl": "images/hair_55017fbc.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400",
+    "chinesePhrase": "梳头发",
+    "englishPhrase": "Comb hair"
+  },
+  {
+    "english": "eye",
+    "chinese": "眼睛",
+    "imageUrl": "images/eye_b80c8e43.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1559570278-eb8d71d06403?w=400",
+    "chinesePhrase": "闭上一只眼睛",
+    "englishPhrase": "Close one eye"
+  },
+  {
+    "english": "eyes",
+    "chinese": "眼睛（复数）",
+    "imageUrl": "images/eyes_0f1e8cb0.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1549483952-83137fc93915?w=400",
+    "chinesePhrase": "用眼睛看",
+    "englishPhrase": "See with eyes"
+  },
+  {
+    "english": "ear",
+    "chinese": "耳朵",
+    "imageUrl": "images/ear_4dd177af.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1583305727488-8da1df18bbb8?w=400",
+    "chinesePhrase": "摸摸你的耳朵",
+    "englishPhrase": "Touch your ear"
+  },
+  {
+    "english": "ears",
+    "chinese": "耳朵（复数）",
+    "imageUrl": "images/ears_8a9c0eee.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400",
+    "chinesePhrase": "兔子的长耳朵",
+    "englishPhrase": "Rabbit's long ears"
+  },
+  {
+    "english": "nose",
+    "chinese": "鼻子",
+    "imageUrl": "images/nose_8610e856.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1594546325110-a530729c91a5?w=400",
+    "chinesePhrase": "用鼻子闻",
+    "englishPhrase": "Smell with nose"
+  },
+  {
+    "english": "mouth",
+    "chinese": "嘴巴",
+    "imageUrl": "images/mouth_1e7f0150.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1574108233789-37703871c684?w=400",
+    "chinesePhrase": "用嘴巴吃东西",
+    "englishPhrase": "Eat with mouth"
+  },
+  {
+    "english": "lip",
+    "chinese": "嘴唇",
+    "imageUrl": "images/lip_ea998cc3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1611606013478-4175863c3f4d?w=400",
+    "chinesePhrase": "红红的嘴唇",
+    "englishPhrase": "Red lip"
+  },
+  {
+    "english": "tongue",
+    "chinese": "舌头",
+    "imageUrl": "images/tongue_1ee0798a.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1610851717026-e5aa880c5b7b?w=400",
+    "chinesePhrase": "伸舌头",
+    "englishPhrase": "Stick out tongue"
+  },
+  {
+    "english": "tooth",
+    "chinese": "牙齿",
+    "imageUrl": "images/tooth_f88cd502.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1594495894542-a46cc73e081a?w=400",
+    "chinesePhrase": "白白的牙齿",
+    "englishPhrase": "White tooth"
+  },
+  {
+    "english": "teeth",
+    "chinese": "牙齿（复数）",
+    "imageUrl": "images/teeth_71631290.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1599055762868-4c4718a1c1f7?w=400",
+    "chinesePhrase": "刷牙齿",
+    "englishPhrase": "Brush teeth"
+  },
+  {
+    "english": "cheek",
+    "chinese": "脸颊",
+    "imageUrl": "images/cheek_bf797c1c.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1597809090043-60f30c1b658f?w=400",
+    "chinesePhrase": "红红的脸颊",
+    "englishPhrase": "Rosy cheek"
+  },
+  {
+    "english": "chin",
+    "chinese": "下巴",
+    "imageUrl": "images/chin_8cd60fd3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1589130658882-4c9e3666e134?w=400",
+    "chinesePhrase": "尖尖的下巴",
+    "englishPhrase": "Pointed chin"
+  },
+  {
+    "english": "neck",
+    "chinese": "脖子",
+    "imageUrl": "images/neck_2b1651dd.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=400",
+    "chinesePhrase": "长颈鹿的长脖子",
+    "englishPhrase": "Giraffe's long neck"
+  },
+  {
+    "english": "shoulder",
+    "chinese": "肩膀",
+    "imageUrl": "images/shoulder_e64e58b8.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1597547980284-6b405d17e14d?w=400",
+    "chinesePhrase": "拍拍肩膀",
+    "englishPhrase": "Pat on the shoulder"
+  },
+  {
+    "english": "arm",
+    "chinese": "手臂",
+    "imageUrl": "images/arm_0794fa1e.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400",
+    "chinesePhrase": "举起手臂",
+    "englishPhrase": "Raise your arm"
+  },
+  {
+    "english": "elbow",
+    "chinese": "肘部",
+    "imageUrl": "images/elbow_88093473.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1564758453489-18c0b1ea2b81?w=400",
+    "chinesePhrase": "弯曲肘部",
+    "englishPhrase": "Bend the elbow"
+  },
+  {
+    "english": "hand",
+    "chinese": "手",
+    "imageUrl": "images/hand_1df82439.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1580130379623-3a8057a6369a?w=400",
+    "chinesePhrase": "拍拍手",
+    "englishPhrase": "Clap hands"
+  },
+  {
+    "english": "finger",
+    "chinese": "手指",
+    "imageUrl": "images/finger_0ac61f72.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1524601503-f4c86e7895cc?w=400",
+    "chinesePhrase": "动动手指",
+    "englishPhrase": "Wiggle fingers"
+  },
+  {
+    "english": "thumb",
+    "chinese": "拇指",
+    "imageUrl": "images/thumb_c8618207.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1590341435179-097a612a42c6?w=400",
+    "chinesePhrase": "竖起大拇指",
+    "englishPhrase": "Thumbs up"
+  },
+  {
+    "english": "nail",
+    "chinese": "指甲",
+    "imageUrl": "images/nail_8ff21d95.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1604903288356-70b54c96d1dc?w=400",
+    "chinesePhrase": "剪指甲",
+    "englishPhrase": "Cut nails"
+  },
+  {
+    "english": "chest",
+    "chinese": "胸部",
+    "imageUrl": "images/chest_07788c3f.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1613818178208-70087f351b83?w=400",
+    "chinesePhrase": "拍拍胸脯",
+    "englishPhrase": "Pat chest"
+  },
+  {
+    "english": "tummy",
+    "chinese": "肚子",
+    "imageUrl": "images/tummy_5ed882f4.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1582719201901-65591430753a?w=400",
+    "chinesePhrase": "摸摸肚子",
+    "englishPhrase": "Rub tummy"
+  },
+  {
+    "english": "belly",
+    "chinese": "肚子",
+    "imageUrl": "images/belly_5ed882f4.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1604176428447-a0d530d47f14?w=400",
+    "chinesePhrase": "圆圆的肚子",
+    "englishPhrase": "Round belly"
+  },
+  {
+    "english": "back",
+    "chinese": "背部",
+    "imageUrl": "images/back_aebb2a97.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1579114343509-5ddf7d3a3013?w=400",
+    "chinesePhrase": "挺直背部",
+    "englishPhrase": "Straighten back"
+  },
+  {
+    "english": "leg",
+    "chinese": "腿",
+    "imageUrl": "images/leg_cee360b4.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1550948507-13a30b856937?w=400",
+    "chinesePhrase": "抬起腿",
+    "englishPhrase": "Lift leg"
+  },
+  {
+    "english": "knee",
+    "chinese": "膝盖",
+    "imageUrl": "images/knee_3623ed90.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1591141469856-f39d2c4b4132?w=400",
+    "chinesePhrase": "弯曲膝盖",
+    "englishPhrase": "Bend knee"
+  },
+  {
+    "english": "foot",
+    "chinese": "脚",
+    "imageUrl": "images/foot_9d9374e0.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1520674039363-a02a92f6f5e5?w=400",
+    "chinesePhrase": "跺跺脚",
+    "englishPhrase": "Stomp foot"
+  },
+  {
+    "english": "feet",
+    "chinese": "脚（复数）",
+    "imageUrl": "images/feet_5c66434a.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1535955242533-e26064789544?w=400",
+    "chinesePhrase": "两只脚走路",
+    "englishPhrase": "Walk with two feet"
+  },
+  {
+    "english": "toe",
+    "chinese": "脚趾",
+    "imageUrl": "images/toe_ac46ee68.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1603104522422-817dde301e78?w=400",
+    "chinesePhrase": "动动脚趾",
+    "englishPhrase": "Wiggle toes"
+  },
+  {
+    "english": "skin",
+    "chinese": "皮肤",
+    "imageUrl": "images/skin_bbc986fb.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1580241732149-ac3b67085a97?w=400",
+    "chinesePhrase": "光滑的皮肤",
+    "englishPhrase": "Smooth skin"
+  },
+  {
+    "english": "heart",
+    "chinese": "心脏",
+    "imageUrl": "images/heart_386b9961.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1581182800629-7d900925ad30?w=400",
+    "chinesePhrase": "爱心形状",
+    "englishPhrase": "Heart shape"
+  },
+  {
+    "english": "smile",
+    "chinese": "微笑",
+    "imageUrl": "images/smile_d41a9a11.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?w=400",
+    "chinesePhrase": "露出微笑",
+    "englishPhrase": "Show a smile"
+  },
+  {
+    "english": "laugh",
+    "chinese": "笑",
+    "imageUrl": "images/laugh_e68955ed.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1541312700143-755af13f354d?w=400",
+    "chinesePhrase": "哈哈大笑",
+    "englishPhrase": "Laugh out loud"
+  },
+  {
+    "english": "cry",
+    "chinese": "哭",
+    "imageUrl": "images/cry_242f4f38.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1590962141741-9a432a991f1d?w=400",
+    "chinesePhrase": "伤心地哭",
+    "englishPhrase": "Cry sadly"
+  },
+  {
+    "english": "look",
+    "chinese": "看",
+    "imageUrl": "images/look_1f4c9cd6.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=400",
+    "chinesePhrase": "看这边",
+    "englishPhrase": "Look here"
+  },
+  {
+    "english": "see",
+    "chinese": "看见",
+    "imageUrl": "images/see_9a9f21a3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1531548890186-e81d108cca7c?w=400",
+    "chinesePhrase": "我看见一只鸟",
+    "englishPhrase": "I see a bird"
+  },
+  {
+    "english": "hear",
+    "chinese": "听见",
+    "imageUrl": "images/hear_7bb2c70a.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1585224251665-9e257e074a63?w=400",
+    "chinesePhrase": "听见音乐",
+    "englishPhrase": "Hear music"
+  },
+  {
+    "english": "touch",
+    "chinese": "触摸",
+    "imageUrl": "images/touch_7b67bba7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1471341993603-56c0940c7c61?w=400",
+    "chinesePhrase": "触摸柔软的毯子",
+    "englishPhrase": "Touch the soft blanket"
+  },
+  {
+    "english": "eyebrow",
+    "chinese": "眉毛",
+    "imageUrl": "images/eyebrow_00000001.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1583001809873-a128495da465?w=400",
+    "chinesePhrase": "浓浓的眉毛",
+    "englishPhrase": "Thick eyebrows"
+  },
+  {
+    "english": "forehead",
+    "chinese": "额头",
+    "imageUrl": "images/forehead_00000002.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1597327844033-6e36e3f358f3?w=400",
+    "chinesePhrase": "擦擦额头",
+    "englishPhrase": "Wipe forehead"
+  },
+  {
+    "english": "wrist",
+    "chinese": "手腕",
+    "imageUrl": "images/wrist_00000003.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1609743522653-52354461eb27?w=400",
+    "chinesePhrase": "转动手腕",
+    "englishPhrase": "Rotate wrist"
+  },
+  {
+    "english": "ankle",
+    "chinese": "脚踝",
+    "imageUrl": "images/ankle_00000004.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1586847778572-50f63b68089f?w=400",
+    "chinesePhrase": "扭到脚踝",
+    "englishPhrase": "Twist ankle"
+  },
+  {
+    "english": "heel",
+    "chinese": "脚后跟",
+    "imageUrl": "images/heel_00000005.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1615397349754-cfa2066a298e?w=400",
+    "chinesePhrase": "抬起脚后跟",
+    "englishPhrase": "Lift heel"
+  },
+  {
+    "english": "palm",
+    "chinese": "手掌",
+    "imageUrl": "images/palm_00000006.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1588802773345-31ecbe9c2f6c?w=400",
+    "chinesePhrase": "张开手掌",
+    "englishPhrase": "Open palm"
+  },
+  {
+    "english": "brain",
+    "chinese": "大脑",
+    "imageUrl": "images/brain_00000007.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400",
+    "chinesePhrase": "聪明的大脑",
+    "englishPhrase": "Smart brain"
+  },
+  {
+    "english": "bone",
+    "chinese": "骨头",
+    "imageUrl": "images/bone_00000008.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1560427450-56ce43fd0a09?w=400",
+    "chinesePhrase": "坚硬的骨头",
+    "englishPhrase": "Hard bone"
+  },
+  {
+    "english": "muscle",
+    "chinese": "肌肉",
+    "imageUrl": "images/muscle_00000009.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?w=400",
+    "chinesePhrase": "强壮的肌肉",
+    "englishPhrase": "Strong muscle"
+  },
+  {
+    "english": "blink",
+    "chinese": "眨眼",
+    "imageUrl": "images/blink_00000010.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
+    "chinesePhrase": "眨眨眼睛",
+    "englishPhrase": "Blink eyes"
+  },
+  {
+    "english": "breathe",
+    "chinese": "呼吸",
+    "imageUrl": "images/breathe_00000011.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1518011886970-a41ad14de670?w=400",
+    "chinesePhrase": "深呼吸",
+    "englishPhrase": "Deep breath"
+  },
+  {
+    "english": "sneeze",
+    "chinese": "打喷嚏",
+    "imageUrl": "images/sneeze_00000012.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?w=400",
+    "chinesePhrase": "捂嘴打喷嚏",
+    "englishPhrase": "Cover mouth when sneezing"
+  }
+]

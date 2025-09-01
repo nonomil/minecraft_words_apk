@@ -1,0 +1,58 @@
+[
+  {
+    "english": "ball",
+    "chinese": "球",
+    "imageUrl": "images/toy_6e0d193c.jpg",
+    "chinesePhrase": "弹跳的球",
+    "englishPhrase": "Bouncing ball"
+  },
+  {
+    "english": "doll",
+    "chinese": "娃娃",
+    "imageUrl": "images/toy_6e0d193c.jpg",
+    "chinesePhrase": "可爱的娃娃",
+    "englishPhrase": "Cute doll"
+  },
+  {
+    "english": "car",
+    "chinese": "小汽车",
+    "imageUrl": "images/toy_6e0d193c.jpg",
+    "chinesePhrase": "小小汽车",
+    "englishPhrase": "Little car"
+  },
+  {
+    "english": "block",
+    "chinese": "积木",
+    "imageUrl": "images/toy_6e0d193c.jpg",
+    "chinesePhrase": "彩色积木",
+    "englishPhrase": "Colorful blocks"
+  },
+  {
+    "english": "puzzle",
+    "chinese": "拼图",
+    "imageUrl": "images/toy_6e0d193c.jpg",
+    "chinesePhrase": "有趣的拼图",
+    "englishPhrase": "Fun puzzle"
+  },
+  {
+    "english": "teddy",
+    "chinese": "泰迪熊",
+    "imageUrl": "images/toy_6e0d193c.jpg",
+    "chinesePhrase": "软软的泰迪熊",
+    "englishPhrase": "Soft teddy bear"
+  },
+  {
+    "english": "robot",
+    "chinese": "机器人",
+    "imageUrl": "images/toy_6e0d193c.jpg",
+    "chinesePhrase": "酷酷的机器人",
+    "englishPhrase": "Cool robot"
+  },
+  {
+    "english": "train",
+    "chinese": "火车",
+    "imageUrl": "images/toy_6e0d193c.jpg",
+    "chinesePhrase": "小火车",
+    "englishPhrase": "Little train"
+  }
+]

@@ -1,0 +1,338 @@
+[
+  {
+    "english": "shirt",
+    "chinese": "衬衫",
+    "imageUrl": "images/shirt_a03853e8.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400",
+    "chinesePhrase": "穿上衬衫",
+    "englishPhrase": "Put on a shirt"
+  },
+  {
+    "english": "t-shirt",
+    "chinese": "T恤",
+    "imageUrl": "images/tshirt_d41ac51f.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+    "chinesePhrase": "一件T恤",
+    "englishPhrase": "A t-shirt"
+  },
+  {
+    "english": "pants",
+    "chinese": "裤子",
+    "imageUrl": "images/pants_cee360b4.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400",
+    "chinesePhrase": "穿上裤子",
+    "englishPhrase": "Put on pants"
+  },
+  {
+    "english": "shorts",
+    "chinese": "短裤",
+    "imageUrl": "images/shorts_79977e7b.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=400",
+    "chinesePhrase": "夏天穿短裤",
+    "englishPhrase": "Wear shorts in summer"
+  },
+  {
+    "english": "dress",
+    "chinese": "连衣裙",
+    "imageUrl": "images/dress_713358902.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1595777457583-45e0b64d8e5e?w=400",
+    "chinesePhrase": "漂亮的连衣裙",
+    "englishPhrase": "Pretty dress"
+  },
+  {
+    "english": "skirt",
+    "chinese": "裙子",
+    "imageUrl": "images/skirt_ff36b8e1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1583407730218-a59bd49646c1?w=400",
+    "chinesePhrase": "穿上裙子",
+    "englishPhrase": "Put on a skirt"
+  },
+  {
+    "english": "coat",
+    "chinese": "外套",
+    "imageUrl": "images/coat_320194983.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1591047139829-d916bb69a45f?w=400",
+    "chinesePhrase": "冬天穿外套",
+    "englishPhrase": "Wear a coat in winter"
+  },
+  {
+    "english": "jacket",
+    "chinese": "夹克",
+    "imageUrl": "images/jacket_810360379.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400",
+    "chinesePhrase": "一件夹克",
+    "englishPhrase": "A jacket"
+  },
+  {
+    "english": "sweater",
+    "chinese": "毛衣",
+    "imageUrl": "images/sweater_22bf5deb.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1611936021802-cccab79d1d3a?w=400",
+    "chinesePhrase": "温暖的毛衣",
+    "englishPhrase": "Warm sweater"
+  },
+  {
+    "english": "socks",
+    "chinese": "袜子",
+    "imageUrl": "images/socks_f543534b.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1586350977417-14639e6b43cc?w=400",
+    "chinesePhrase": "穿上袜子",
+    "englishPhrase": "Put on socks"
+  },
+  {
+    "english": "shoes",
+    "chinese": "鞋子",
+    "imageUrl": "images/shoes_4c714cf3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+    "chinesePhrase": "穿上鞋子",
+    "englishPhrase": "Put on shoes"
+  },
+  {
+    "english": "hat",
+    "chinese": "帽子",
+    "imageUrl": "images/hat_413245779.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?w=400",
+    "chinesePhrase": "戴上帽子",
+    "englishPhrase": "Put on a hat"
+  },
+  {
+    "english": "gloves",
+    "chinese": "手套",
+    "imageUrl": "images/gloves_6ed1c95e.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1519701006931-d8d270d71c3c?w=400",
+    "chinesePhrase": "戴上手套",
+    "englishPhrase": "Put on gloves"
+  },
+  {
+    "english": "scarf",
+    "chinese": "围巾",
+    "imageUrl": "images/scarf_c617b5d4.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1608099975971-3816d14cb17c?w=400",
+    "chinesePhrase": "戴上围巾",
+    "englishPhrase": "Put on a scarf"
+  },
+  {
+    "english": "clothes",
+    "chinese": "衣服",
+    "imageUrl": "images/clothes_622287565.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=400",
+    "chinesePhrase": "穿上衣服",
+    "englishPhrase": "Put on clothes"
+  },
+  {
+    "english": "pajamas",
+    "chinese": "睡衣",
+    "imageUrl": "images/pajamas_57483921.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1612913844674-c78af7ffcdaa?w=400",
+    "chinesePhrase": "穿睡衣",
+    "englishPhrase": "Wear pajamas"
+  },
+  {
+    "english": "uniform",
+    "chinese": "制服",
+    "imageUrl": "images/uniform_68493721.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1580626193011-e8926cc0f889?w=400",
+    "chinesePhrase": "穿上制服",
+    "englishPhrase": "Put on a uniform"
+  },
+  {
+    "english": "raincoat",
+    "chinese": "雨衣",
+    "imageUrl": "images/raincoat_56748392.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1522759869940-5c0783056237?w=400",
+    "chinesePhrase": "下雨穿雨衣",
+    "englishPhrase": "Wear a raincoat when it rains"
+  },
+  {
+    "english": "boots",
+    "chinese": "靴子",
+    "imageUrl": "images/boots_87465392.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1542838077-da906c3184ce?w=400",
+    "chinesePhrase": "穿上靴子",
+    "englishPhrase": "Put on boots"
+  },
+  {
+    "english": "sneakers",
+    "chinese": "运动鞋",
+    "imageUrl": "images/sneakers_93728465.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400",
+    "chinesePhrase": "穿运动鞋",
+    "englishPhrase": "Wear sneakers"
+  },
+  {
+    "english": "sandals",
+    "chinese": "凉鞋",
+    "imageUrl": "images/sandals_38495726.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1617689763346-0879061a3b24?w=400",
+    "chinesePhrase": "夏天穿凉鞋",
+    "englishPhrase": "Wear sandals in summer"
+  },
+  {
+    "english": "slippers",
+    "chinese": "拖鞋",
+    "imageUrl": "images/slippers_56782394.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1531925470851-1b5896b67dcd?w=400",
+    "chinesePhrase": "穿拖鞋",
+    "englishPhrase": "Wear slippers"
+  },
+  {
+    "english": "jeans",
+    "chinese": "牛仔裤",
+    "imageUrl": "images/jeans_28374965.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400",
+    "chinesePhrase": "穿牛仔裤",
+    "englishPhrase": "Wear jeans"
+  },
+  {
+    "english": "sweatshirt",
+    "chinese": "卫衣",
+    "imageUrl": "images/sweatshirt_57382694.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1578763397601-ad8a0e8f1c77?w=400",
+    "chinesePhrase": "穿卫衣",
+    "englishPhrase": "Wear a sweatshirt"
+  },
+  {
+    "english": "vest",
+    "chinese": "背心",
+    "imageUrl": "images/vest_48372956.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1494228766058-1430438d10fc?w=400",
+    "chinesePhrase": "穿背心",
+    "englishPhrase": "Wear a vest"
+  },
+  {
+    "english": "hoodie",
+    "chinese": "连帽衫",
+    "imageUrl": "images/hoodie_58473926.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1565693413579-8a41f978d8e5?w=400",
+    "chinesePhrase": "穿连帽衫",
+    "englishPhrase": "Wear a hoodie"
+  },
+  {
+    "english": "tie",
+    "chinese": "领带",
+    "imageUrl": "images/tie_68493275.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1532661291810-d46f96c0007d?w=400",
+    "chinesePhrase": "打领带",
+    "englishPhrase": "Wear a tie"
+  },
+  {
+    "english": "cap",
+    "chinese": "鸭舌帽",
+    "imageUrl": "images/cap_37694825.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400",
+    "chinesePhrase": "戴鸭舌帽",
+    "englishPhrase": "Wear a cap"
+  },
+  {
+    "english": "beanie",
+    "chinese": "毛线帽",
+    "imageUrl": "images/beanie_59738264.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1519431940854-8b998f7b5350?w=400",
+    "chinesePhrase": "戴毛线帽",
+    "englishPhrase": "Wear a beanie"
+  },
+  {
+    "english": "sunglasses",
+    "chinese": "太阳镜",
+    "imageUrl": "images/sunglasses_43769825.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1577803645773-f96470509666?w=400",
+    "chinesePhrase": "戴太阳镜",
+    "englishPhrase": "Wear sunglasses"
+  },
+  {
+    "english": "mittens",
+    "chinese": "连指手套",
+    "imageUrl": "images/mittens_69437825.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1611523657503-8509f130803d?w=400",
+    "chinesePhrase": "戴连指手套",
+    "englishPhrase": "Wear mittens"
+  },
+  {
+    "english": "swimsuit",
+    "chinese": "泳衣",
+    "imageUrl": "images/swimsuit_43976825.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1563291589-4e9a1757428d?w=400",
+    "chinesePhrase": "穿泳衣",
+    "englishPhrase": "Wear a swimsuit"
+  },
+  {
+    "english": "apron",
+    "chinese": "围裙",
+    "imageUrl": "images/apron_58437926.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1516211815472-a517a2be35e9?w=400",
+    "chinesePhrase": "系围裙",
+    "englishPhrase": "Wear an apron"
+  },
+  {
+    "english": "belt",
+    "chinese": "腰带",
+    "imageUrl": "images/belt_53978264.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1624026676760-53603406ac94?w=400",
+    "chinesePhrase": "系腰带",
+    "englishPhrase": "Wear a belt"
+  },
+  {
+    "english": "overalls",
+    "chinese": "工装裤",
+    "imageUrl": "images/overalls_49376825.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1551854838-212c9c812186?w=400",
+    "chinesePhrase": "穿工装裤",
+    "englishPhrase": "Wear overalls"
+  },
+  {
+    "english": "polo shirt",
+    "chinese": "polo衫",
+    "imageUrl": "images/polo_shirt_76948352.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1618354691551-44de113f0164?w=400",
+    "chinesePhrase": "穿polo衫",
+    "englishPhrase": "Wear a polo shirt"
+  },
+  {
+    "english": "cardigan",
+    "chinese": "开衫",
+    "imageUrl": "images/cardigan_58374926.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1597176116047-876a32798fcc?w=400",
+    "chinesePhrase": "穿开衫",
+    "englishPhrase": "Wear a cardigan"
+  },
+  {
+    "english": "leggings",
+    "chinese": "打底裤",
+    "imageUrl": "images/leggings_58376492.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400",
+    "chinesePhrase": "穿打底裤",
+    "englishPhrase": "Wear leggings"
+  },
+  {
+    "english": "bow tie",
+    "chinese": "蝴蝶结",
+    "imageUrl": "images/bow_tie_56839274.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1571346686046-7a21578077d6?w=400",
+    "chinesePhrase": "系蝴蝶结",
+    "englishPhrase": "Wear a bow tie"
+  },
+  {
+    "english": "backpack",
+    "chinese": "背包",
+    "imageUrl": "images/backpack_47639285.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+    "chinesePhrase": "背上背包",
+    "englishPhrase": "Wear a backpack"
+  },
+  {
+    "english": "earmuffs",
+    "chinese": "耳罩",
+    "imageUrl": "images/earmuffs_53728945.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1511814258749-24481efed7f7?w=400",
+    "chinesePhrase": "戴耳罩",
+    "englishPhrase": "Wear earmuffs"
+  },
+  {
+    "english": "bandana",
+    "chinese": "头巾",
+    "imageUrl": "images/bandana_48376925.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1582791883196-33a804b2ee2c?w=400",
+    "chinesePhrase": "戴头巾",
+    "englishPhrase": "Wear a bandana"
+  }
+]

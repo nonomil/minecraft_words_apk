@@ -1,0 +1,242 @@
+[
+  {
+    "english": "circle",
+    "chinese": "圆形",
+    "imageUrl": "images/circle_239714310.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1517454339641-e531f8aa496b?w=400",
+    "chinesePhrase": "圆圆的球",
+    "englishPhrase": "Round circle ball"
+  },
+  {
+    "english": "square",
+    "chinese": "正方形",
+    "imageUrl": "images/square_841736523.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1604147706283-d7119b5b822c?w=400",
+    "chinesePhrase": "方方的盒子",
+    "englishPhrase": "Square box"
+  },
+  {
+    "english": "triangle",
+    "chinese": "三角形",
+    "imageUrl": "images/triangle_e6088543.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1567237034741-3a1c58283142?w=400",
+    "chinesePhrase": "三角形状的屋顶",
+    "englishPhrase": "Triangle roof"
+  },
+  {
+    "english": "rectangle",
+    "chinese": "长方形",
+    "imageUrl": "images/rectangle_9ea3c361.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1521932781097-086b0f73f6e7?w=400",
+    "chinesePhrase": "长方形的门",
+    "englishPhrase": "Rectangle door"
+  },
+  {
+    "english": "star",
+    "chinese": "星星形状",
+    "imageUrl": "images/star_shape_9592d8e0.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1506501139174-0990204d4d0a?w=400",
+    "chinesePhrase": "闪亮的星星",
+    "englishPhrase": "Shiny star shape"
+  },
+  {
+    "english": "heart",
+    "chinese": "心形",
+    "imageUrl": "images/heart_shape_386b9961.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1581182800629-7d900925ad30?w=400",
+    "chinesePhrase": "红色的心",
+    "englishPhrase": "Red heart shape"
+  },
+  {
+    "english": "oval",
+    "chinese": "椭圆形",
+    "imageUrl": "images/oval_egg_3676a8a3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400",
+    "chinesePhrase": "椭圆形的鸡蛋",
+    "englishPhrase": "Oval egg"
+  },
+  {
+    "english": "diamond",
+    "chinese": "菱形",
+    "imageUrl": "images/diamond_shape_fbc4e9de.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1599218229089-3477a98c1507?w=400",
+    "chinesePhrase": "菱形的风筝",
+    "englishPhrase": "Diamond kite"
+  },
+  {
+    "english": "shape",
+    "chinese": "形状",
+    "imageUrl": "images/shape_fbc4e9de.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1558537348-a4f3b2151a8f?w=400",
+    "chinesePhrase": "各种形状",
+    "englishPhrase": "Different shapes"
+  },
+  {
+    "english": "pentagon",
+    "chinese": "五边形",
+    "imageUrl": "images/pentagon_00000001.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1551524358-f34c0214781d?w=400",
+    "chinesePhrase": "五角的星星",
+    "englishPhrase": "Five-sided pentagon"
+  },
+  {
+    "english": "hexagon",
+    "chinese": "六边形",
+    "imageUrl": "images/hexagon_00000002.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1557683311-eac922347aa1?w=400",
+    "chinesePhrase": "蜂窝的六边形",
+    "englishPhrase": "Hexagon honeycomb"
+  },
+  {
+    "english": "octagon",
+    "chinese": "八边形",
+    "imageUrl": "images/octagon_00000003.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1566795608507-a06b4755958f?w=400",
+    "chinesePhrase": "八角标志",
+    "englishPhrase": "Octagon stop sign"
+  },
+  {
+    "english": "crescent",
+    "chinese": "新月形",
+    "imageUrl": "images/crescent_00000004.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1504497719279-9c4148e7b9e0?w=400",
+    "chinesePhrase": "弯弯的月亮",
+    "englishPhrase": "Crescent moon"
+  },
+  {
+    "english": "semicircle",
+    "chinese": "半圆形",
+    "imageUrl": "images/semicircle_00000005.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1555679486-e341a3e7b6de?w=400",
+    "chinesePhrase": "半圆形的窗户",
+    "englishPhrase": "Semicircle window"
+  },
+  {
+    "english": "cube",
+    "chinese": "立方体",
+    "imageUrl": "images/cube_00000006.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1603841957162-923422fed9e6?w=400",
+    "chinesePhrase": "积木立方体",
+    "englishPhrase": "Cube building block"
+  },
+  {
+    "english": "sphere",
+    "chinese": "球体",
+    "imageUrl": "images/sphere_00000007.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1522961469856-c8548b5fad55?w=400",
+    "chinesePhrase": "圆圆的球体",
+    "englishPhrase": "Round sphere"
+  },
+  {
+    "english": "cylinder",
+    "chinese": "圆柱体",
+    "imageUrl": "images/cylinder_00000008.jpg", 
+    "unsplashUrl": "https://images.unsplash.com/photo-1558346648-9757f2fa4474?w=400",
+    "chinesePhrase": "罐子是圆柱体",
+    "englishPhrase": "Can is a cylinder"
+  },
+  {
+    "english": "cone",
+    "chinese": "圆锥体",
+    "imageUrl": "images/cone_00000009.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1561317854-11effdcaaa75?w=400",
+    "chinesePhrase": "冰淇淋圆锥筒",
+    "englishPhrase": "Ice cream cone"
+  },
+  {
+    "english": "pyramid",
+    "chinese": "金字塔",
+    "imageUrl": "images/pyramid_00000010.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=400",
+    "chinesePhrase": "埃及金字塔",
+    "englishPhrase": "Egyptian pyramid"
+  },
+  {
+    "english": "curve",
+    "chinese": "曲线",
+    "imageUrl": "images/curve_00000011.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1502101872923-d48509bff386?w=400",
+    "chinesePhrase": "弯弯的曲线",
+    "englishPhrase": "Curved line"
+  },
+  {
+    "english": "straight",
+    "chinese": "直线",
+    "imageUrl": "images/straight_00000012.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?w=400",
+    "chinesePhrase": "直直的线",
+    "englishPhrase": "Straight line"
+  },
+  {
+    "english": "zigzag",
+    "chinese": "锯齿形",
+    "imageUrl": "images/zigzag_00000013.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1594285766471-d34d8104602d?w=400",
+    "chinesePhrase": "锯齿形的线",
+    "englishPhrase": "Zigzag line"
+  },
+  {
+    "english": "spiral",
+    "chinese": "螺旋形",
+    "imageUrl": "images/spiral_00000014.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1554210404-6d1bf8959e1f?w=400",
+    "chinesePhrase": "螺旋形的贝壳",
+    "englishPhrase": "Spiral shell"
+  },
+  {
+    "english": "wavy",
+    "chinese": "波浪形",
+    "imageUrl": "images/wavy_00000015.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1501984235400-5fbf5f2f4904?w=400",
+    "chinesePhrase": "波浪形的线",
+    "englishPhrase": "Wavy line"
+  },
+  {
+    "english": "flat",
+    "chinese": "平面",
+    "imageUrl": "images/flat_00000016.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1603624840737-8b63e59e3117?w=400",
+    "chinesePhrase": "平平的表面",
+    "englishPhrase": "Flat surface"
+  },
+  {
+    "english": "round",
+    "chinese": "圆形的",
+    "imageUrl": "images/round_00000017.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1525606011361-87e400ce011c?w=400",
+    "chinesePhrase": "圆圆的石头",
+    "englishPhrase": "Round stone"
+  },
+  {
+    "english": "cross",
+    "chinese": "十字形",
+    "imageUrl": "images/cross_00000018.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1519642918688-7e43b19245d8?w=400",
+    "chinesePhrase": "十字路口",
+    "englishPhrase": "Crossroads"
+  },
+  {
+    "english": "pattern",
+    "chinese": "图案",
+    "imageUrl": "images/pattern_00000019.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1562886877-f12251816e01?w=400",
+    "chinesePhrase": "漂亮的图案",
+    "englishPhrase": "Beautiful pattern"
+  },
+  {
+    "english": "symmetry",
+    "chinese": "对称",
+    "imageUrl": "images/symmetry_00000020.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1498429089284-41f8cf3ffd39?w=400",
+    "chinesePhrase": "对称的图形",
+    "englishPhrase": "Symmetrical figure"
+  },
+  {
+    "english": "angle",
+    "chinese": "角度",
+    "imageUrl": "images/angle_00000021.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1551269901-5c5e14c25df7?w=400",
+    "chinesePhrase": "直角",
+    "englishPhrase": "Right angle"
+  }
+]

@@ -1,0 +1,2190 @@
+[
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": []
+  },
+  {
+    "word": "dad / daddy",
+    "standardized": "dad / daddy",
+    "chinese": "爸爸",
+    "phonetic": "",
+    "phrase": "I love my dad",
+    "phraseTranslation": "我爱我的爸爸",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": [
+      {
+        "filename": "dad.png",
+        "url": "https://img.icons8.com/color/48/dad.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "mom / mommy",
+    "standardized": "mom / mommy",
+    "chinese": "妈妈",
+    "phonetic": "",
+    "phrase": "Mom is cooking",
+    "phraseTranslation": "妈妈在做饭",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": [
+      {
+        "filename": "mom.png",
+        "url": "https://img.icons8.com/color/48/mom.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "boy",
+    "standardized": "boy",
+    "chinese": "男孩",
+    "phonetic": "",
+    "phrase": "He is a good boy",
+    "phraseTranslation": "他是个好男孩",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": [
+      {
+        "filename": "boy.png",
+        "url": "https://img.icons8.com/color/48/boy.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "girl",
+    "standardized": "girl",
+    "chinese": "女孩",
+    "phonetic": "",
+    "phrase": "She is a cute girl",
+    "phraseTranslation": "她是个可爱的女孩",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": [
+      {
+        "filename": "girl.png",
+        "url": "https://img.icons8.com/color/48/girl.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "baby",
+    "standardized": "baby",
+    "chinese": "婴儿",
+    "phonetic": "",
+    "phrase": "The baby is sleeping",
+    "phraseTranslation": "婴儿在睡觉",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": [
+      {
+        "filename": "baby.png",
+        "url": "https://img.icons8.com/color/48/baby.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "grandpa",
+    "standardized": "grandpa",
+    "chinese": "爷爷",
+    "phonetic": "",
+    "phrase": "Grandpa tells stories",
+    "phraseTranslation": "爷爷讲故事",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": [
+      {
+        "filename": "grandfather.png",
+        "url": "https://img.icons8.com/color/48/grandfather.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "grandma",
+    "standardized": "grandma",
+    "chinese": "奶奶",
+    "phonetic": "",
+    "phrase": "Grandma makes cookies",
+    "phraseTranslation": "奶奶做饼干",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": [
+      {
+        "filename": "grandmother.png",
+        "url": "https://img.icons8.com/color/48/grandmother.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "brother",
+    "standardized": "brother",
+    "chinese": "哥哥/弟弟",
+    "phonetic": "",
+    "phrase": "My brother plays with me",
+    "phraseTranslation": "我哥哥和我玩",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": [
+      {
+        "filename": "brother.png",
+        "url": "https://img.icons8.com/color/48/brother.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "sister",
+    "standardized": "sister",
+    "chinese": "姐姐/妹妹",
+    "phonetic": "",
+    "phrase": "Sister helps me",
+    "phraseTranslation": "姐姐帮助我",
+    "difficulty": "basic",
+    "category": "family_members",
+    "imageURLs": [
+      {
+        "filename": "sister.png",
+        "url": "https://img.icons8.com/color/48/sister.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": []
+  },
+  {
+    "word": "house",
+    "standardized": "house",
+    "chinese": "房子",
+    "phonetic": "",
+    "phrase": "This is my house",
+    "phraseTranslation": "这是我的房子",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": [
+      {
+        "filename": "house.png",
+        "url": "https://img.icons8.com/color/48/house.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "door",
+    "standardized": "door",
+    "chinese": "门",
+    "phonetic": "",
+    "phrase": "Open the door",
+    "phraseTranslation": "打开门",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": [
+      {
+        "filename": "door.png",
+        "url": "https://img.icons8.com/color/48/door.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "window",
+    "standardized": "window",
+    "chinese": "窗户",
+    "phonetic": "",
+    "phrase": "Look out the window",
+    "phraseTranslation": "看窗外",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": [
+      {
+        "filename": "window.png",
+        "url": "https://img.icons8.com/color/48/window.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "bed",
+    "standardized": "bed",
+    "chinese": "床",
+    "phonetic": "",
+    "phrase": "I sleep in my bed",
+    "phraseTranslation": "我在我的床上睡觉",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": [
+      {
+        "filename": "bed.png",
+        "url": "https://img.icons8.com/color/48/bed.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "chair",
+    "standardized": "chair",
+    "chinese": "椅子",
+    "phonetic": "",
+    "phrase": "Sit on the chair",
+    "phraseTranslation": "坐在椅子上",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": [
+      {
+        "filename": "chair.png",
+        "url": "https://img.icons8.com/color/48/chair.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "table",
+    "standardized": "table",
+    "chinese": "桌子",
+    "phonetic": "",
+    "phrase": "Books are on the table",
+    "phraseTranslation": "书在桌子上",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": [
+      {
+        "filename": "table.png",
+        "url": "https://img.icons8.com/color/48/table.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "kitchen",
+    "standardized": "kitchen",
+    "chinese": "厨房",
+    "phonetic": "",
+    "phrase": "Mom cooks in the kitchen",
+    "phraseTranslation": "妈妈在厨房做饭",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": [
+      {
+        "filename": "kitchen.png",
+        "url": "https://img.icons8.com/color/48/kitchen.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "bathroom",
+    "standardized": "bathroom",
+    "chinese": "浴室",
+    "phonetic": "",
+    "phrase": "Wash hands in bathroom",
+    "phraseTranslation": "在浴室洗手",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": [
+      {
+        "filename": "bathroom.png",
+        "url": "https://img.icons8.com/color/48/bathroom.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "living room",
+    "standardized": "living room",
+    "chinese": "客厅",
+    "phonetic": "",
+    "phrase": "We watch TV in living room",
+    "phraseTranslation": "我们在客厅看电视",
+    "difficulty": "basic",
+    "category": "home",
+    "imageURLs": [
+      {
+        "filename": "sofa.png",
+        "url": "https://img.icons8.com/color/48/sofa.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": []
+  },
+  {
+    "word": "apple",
+    "standardized": "apple",
+    "chinese": "苹果",
+    "phonetic": "",
+    "phrase": "I eat an apple",
+    "phraseTranslation": "我吃一个苹果",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "apple.png",
+        "url": "https://img.icons8.com/color/48/apple.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "banana",
+    "standardized": "banana",
+    "chinese": "香蕉",
+    "phonetic": "",
+    "phrase": "Yellow banana is sweet",
+    "phraseTranslation": "黄香蕉很甜",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "banana.png",
+        "url": "https://img.icons8.com/color/48/banana.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "orange",
+    "standardized": "orange",
+    "chinese": "橙子",
+    "phonetic": "",
+    "phrase": "Orange is juicy",
+    "phraseTranslation": "橙子很多汁",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "orange.png",
+        "url": "https://img.icons8.com/color/48/orange.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "milk",
+    "standardized": "milk",
+    "chinese": "牛奶",
+    "phonetic": "",
+    "phrase": "Drink milk every day",
+    "phraseTranslation": "每天喝牛奶",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "milk.png",
+        "url": "https://img.icons8.com/color/48/milk.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "bread",
+    "standardized": "bread",
+    "chinese": "面包",
+    "phonetic": "",
+    "phrase": "I have bread for breakfast",
+    "phraseTranslation": "我早餐吃面包",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "bread.png",
+        "url": "https://img.icons8.com/color/48/bread.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "egg",
+    "standardized": "egg",
+    "chinese": "鸡蛋",
+    "phonetic": "",
+    "phrase": "Cook an egg",
+    "phraseTranslation": "煮一个鸡蛋",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "egg.png",
+        "url": "https://img.icons8.com/color/48/egg.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "rice",
+    "standardized": "rice",
+    "chinese": "米饭",
+    "phonetic": "",
+    "phrase": "We eat rice for dinner",
+    "phraseTranslation": "我们晚餐吃米饭",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "rice.png",
+        "url": "https://img.icons8.com/color/48/rice.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "water",
+    "standardized": "water",
+    "chinese": "水",
+    "phonetic": "",
+    "phrase": "Drink water when thirsty",
+    "phraseTranslation": "渴了就喝水",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "water.png",
+        "url": "https://img.icons8.com/color/48/water.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "cake",
+    "standardized": "cake",
+    "chinese": "蛋糕",
+    "phonetic": "",
+    "phrase": "Birthday cake is yummy",
+    "phraseTranslation": "生日蛋糕很好吃",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "cake.png",
+        "url": "https://img.icons8.com/color/48/cake.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "cookie",
+    "standardized": "cookie",
+    "chinese": "饼干",
+    "phonetic": "",
+    "phrase": "Share cookies with friends",
+    "phraseTranslation": "和朋友分享饼干",
+    "difficulty": "basic",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "cookie.png",
+        "url": "https://img.icons8.com/color/48/cookie.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": []
+  },
+  {
+    "word": "dog",
+    "standardized": "dog",
+    "chinese": "狗",
+    "phonetic": "",
+    "phrase": "The dog is friendly",
+    "phraseTranslation": "狗很友好",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "dog.png",
+        "url": "https://img.icons8.com/color/48/dog.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "cat",
+    "standardized": "cat",
+    "chinese": "猫",
+    "phonetic": "",
+    "phrase": "Cat likes to play",
+    "phraseTranslation": "猫喜欢玩",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "cat.png",
+        "url": "https://img.icons8.com/color/48/cat.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "bird",
+    "standardized": "bird",
+    "chinese": "鸟",
+    "phonetic": "",
+    "phrase": "Bird can fly",
+    "phraseTranslation": "鸟会飞",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "bird.png",
+        "url": "https://img.icons8.com/color/48/bird.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "fish",
+    "standardized": "fish",
+    "chinese": "鱼",
+    "phonetic": "",
+    "phrase": "Fish swim in water",
+    "phraseTranslation": "鱼在水里游",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "fish.png",
+        "url": "https://img.icons8.com/color/48/fish.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "rabbit",
+    "standardized": "rabbit",
+    "chinese": "兔子",
+    "phonetic": "",
+    "phrase": "Rabbit has long ears",
+    "phraseTranslation": "兔子有长耳朵",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "rabbit.png",
+        "url": "https://img.icons8.com/color/48/rabbit.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "duck",
+    "standardized": "duck",
+    "chinese": "鸭子",
+    "phonetic": "",
+    "phrase": "Duck swims in pond",
+    "phraseTranslation": "鸭子在池塘游泳",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "duck.png",
+        "url": "https://img.icons8.com/color/48/duck.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "cow",
+    "standardized": "cow",
+    "chinese": "奶牛",
+    "phonetic": "",
+    "phrase": "Cow gives us milk",
+    "phraseTranslation": "奶牛给我们牛奶",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "cow.png",
+        "url": "https://img.icons8.com/color/48/cow.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "pig",
+    "standardized": "pig",
+    "chinese": "猪",
+    "phonetic": "",
+    "phrase": "Pig is pink",
+    "phraseTranslation": "猪是粉色的",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "pig.png",
+        "url": "https://img.icons8.com/color/48/pig.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "horse",
+    "standardized": "horse",
+    "chinese": "马",
+    "phonetic": "",
+    "phrase": "Horse runs fast",
+    "phraseTranslation": "马跑得快",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "horse.png",
+        "url": "https://img.icons8.com/color/48/horse.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "elephant",
+    "standardized": "elephant",
+    "chinese": "大象",
+    "phonetic": "",
+    "phrase": "Elephant is big",
+    "phraseTranslation": "大象很大",
+    "difficulty": "basic",
+    "category": "animals",
+    "imageURLs": [
+      {
+        "filename": "elephant.png",
+        "url": "https://img.icons8.com/color/48/elephant.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": []
+  },
+  {
+    "word": "red",
+    "standardized": "red",
+    "chinese": "红色",
+    "phonetic": "",
+    "phrase": "Apple is red",
+    "phraseTranslation": "苹果是红色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "red-circle.png",
+        "url": "https://img.icons8.com/color/48/red-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "blue",
+    "standardized": "blue",
+    "chinese": "蓝色",
+    "phonetic": "",
+    "phrase": "Sky is blue",
+    "phraseTranslation": "天空是蓝色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "blue-circle.png",
+        "url": "https://img.icons8.com/color/48/blue-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "yellow",
+    "standardized": "yellow",
+    "chinese": "黄色",
+    "phonetic": "",
+    "phrase": "Sun is yellow",
+    "phraseTranslation": "太阳是黄色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "yellow-circle.png",
+        "url": "https://img.icons8.com/color/48/yellow-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "green",
+    "standardized": "green",
+    "chinese": "绿色",
+    "phonetic": "",
+    "phrase": "Grass is green",
+    "phraseTranslation": "草是绿色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "green-circle.png",
+        "url": "https://img.icons8.com/color/48/green-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "orange",
+    "standardized": "orange",
+    "chinese": "橙色",
+    "phonetic": "",
+    "phrase": "Orange fruit is orange",
+    "phraseTranslation": "橙子是橙色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "orange-circle.png",
+        "url": "https://img.icons8.com/color/48/orange-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "purple",
+    "standardized": "purple",
+    "chinese": "紫色",
+    "phonetic": "",
+    "phrase": "Grapes are purple",
+    "phraseTranslation": "葡萄是紫色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "purple-circle.png",
+        "url": "https://img.icons8.com/color/48/purple-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "pink",
+    "standardized": "pink",
+    "chinese": "粉色",
+    "phonetic": "",
+    "phrase": "Flowers can be pink",
+    "phraseTranslation": "花可以是粉色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "pink-circle.png",
+        "url": "https://img.icons8.com/color/48/pink-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "black",
+    "standardized": "black",
+    "chinese": "黑色",
+    "phonetic": "",
+    "phrase": "Cat is black",
+    "phraseTranslation": "猫是黑色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "black-circle.png",
+        "url": "https://img.icons8.com/color/48/black-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "white",
+    "standardized": "white",
+    "chinese": "白色",
+    "phonetic": "",
+    "phrase": "Snow is white",
+    "phraseTranslation": "雪是白色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "white-circle.png",
+        "url": "https://img.icons8.com/color/48/white-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "brown",
+    "standardized": "brown",
+    "chinese": "棕色",
+    "phonetic": "",
+    "phrase": "Bear is brown",
+    "phraseTranslation": "熊是棕色的",
+    "difficulty": "basic",
+    "category": "colors",
+    "imageURLs": [
+      {
+        "filename": "brown-circle.png",
+        "url": "https://img.icons8.com/color/48/brown-circle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": []
+  },
+  {
+    "word": "one",
+    "standardized": "one",
+    "chinese": "一",
+    "phonetic": "",
+    "phrase": "I have one apple",
+    "phraseTranslation": "我有一个苹果",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "1.png",
+        "url": "https://img.icons8.com/color/48/1.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "two",
+    "standardized": "two",
+    "chinese": "二",
+    "phonetic": "",
+    "phrase": "Two hands, two eyes",
+    "phraseTranslation": "两只手，两只眼睛",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "2.png",
+        "url": "https://img.icons8.com/color/48/2.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "three",
+    "standardized": "three",
+    "chinese": "三",
+    "phonetic": "",
+    "phrase": "Three little pigs",
+    "phraseTranslation": "三只小猪",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "3.png",
+        "url": "https://img.icons8.com/color/48/3.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "four",
+    "standardized": "four",
+    "chinese": "四",
+    "phonetic": "",
+    "phrase": "Dog has four legs",
+    "phraseTranslation": "狗有四条腿",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "4.png",
+        "url": "https://img.icons8.com/color/48/4.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "five",
+    "standardized": "five",
+    "chinese": "五",
+    "phonetic": "",
+    "phrase": "I have five fingers",
+    "phraseTranslation": "我有五根手指",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "5.png",
+        "url": "https://img.icons8.com/color/48/5.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "six",
+    "standardized": "six",
+    "chinese": "六",
+    "phonetic": "",
+    "phrase": "Six toy cars",
+    "phraseTranslation": "六辆玩具车",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "6.png",
+        "url": "https://img.icons8.com/color/48/6.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "seven",
+    "standardized": "seven",
+    "chinese": "七",
+    "phonetic": "",
+    "phrase": "Seven days a week",
+    "phraseTranslation": "一周七天",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "7.png",
+        "url": "https://img.icons8.com/color/48/7.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "eight",
+    "standardized": "eight",
+    "chinese": "八",
+    "phonetic": "",
+    "phrase": "Eight legs on spider",
+    "phraseTranslation": "蜘蛛有八条腿",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "8.png",
+        "url": "https://img.icons8.com/color/48/8.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "nine",
+    "standardized": "nine",
+    "chinese": "九",
+    "phonetic": "",
+    "phrase": "Nine balloons",
+    "phraseTranslation": "九个气球",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "9.png",
+        "url": "https://img.icons8.com/color/48/9.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "ten",
+    "standardized": "ten",
+    "chinese": "十",
+    "phonetic": "",
+    "phrase": "Ten little ducks",
+    "phraseTranslation": "十只小鸭子",
+    "difficulty": "basic",
+    "category": "numbers",
+    "imageURLs": [
+      {
+        "filename": "10.png",
+        "url": "https://img.icons8.com/color/48/10.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "transportation",
+    "imageURLs": []
+  },
+  {
+    "word": "car",
+    "standardized": "car",
+    "chinese": "汽车",
+    "phonetic": "",
+    "phrase": "Dad drives a car",
+    "phraseTranslation": "爸爸开汽车",
+    "difficulty": "basic",
+    "category": "transportation",
+    "imageURLs": [
+      {
+        "filename": "car.png",
+        "url": "https://img.icons8.com/color/48/car.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "bus",
+    "standardized": "bus",
+    "chinese": "公共汽车",
+    "phonetic": "",
+    "phrase": "We take bus to school",
+    "phraseTranslation": "我们坐公交车上学",
+    "difficulty": "basic",
+    "category": "transportation",
+    "imageURLs": [
+      {
+        "filename": "bus.png",
+        "url": "https://img.icons8.com/color/48/bus.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "train",
+    "standardized": "train",
+    "chinese": "火车",
+    "phonetic": "",
+    "phrase": "Train goes choo-choo",
+    "phraseTranslation": "火车发出嘟嘟声",
+    "difficulty": "basic",
+    "category": "transportation",
+    "imageURLs": [
+      {
+        "filename": "train.png",
+        "url": "https://img.icons8.com/color/48/train.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "plane",
+    "standardized": "plane",
+    "chinese": "飞机",
+    "phonetic": "",
+    "phrase": "Plane flies in sky",
+    "phraseTranslation": "飞机在天空飞",
+    "difficulty": "basic",
+    "category": "transportation",
+    "imageURLs": [
+      {
+        "filename": "airplane.png",
+        "url": "https://img.icons8.com/color/48/airplane.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "boat",
+    "standardized": "boat",
+    "chinese": "船",
+    "phonetic": "",
+    "phrase": "Boat sails on water",
+    "phraseTranslation": "船在水上航行",
+    "difficulty": "basic",
+    "category": "transportation",
+    "imageURLs": [
+      {
+        "filename": "boat.png",
+        "url": "https://img.icons8.com/color/48/boat.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "bike",
+    "standardized": "bike",
+    "chinese": "自行车",
+    "phonetic": "",
+    "phrase": "I can ride a bike",
+    "phraseTranslation": "我会骑自行车",
+    "difficulty": "basic",
+    "category": "transportation",
+    "imageURLs": [
+      {
+        "filename": "bicycle.png",
+        "url": "https://img.icons8.com/color/48/bicycle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "clothes",
+    "imageURLs": []
+  },
+  {
+    "word": "shirt",
+    "standardized": "shirt",
+    "chinese": "衬衫",
+    "phonetic": "",
+    "phrase": "I wear a blue shirt",
+    "phraseTranslation": "我穿蓝色衬衫",
+    "difficulty": "basic",
+    "category": "clothes",
+    "imageURLs": [
+      {
+        "filename": "shirt.png",
+        "url": "https://img.icons8.com/color/48/shirt.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "pants",
+    "standardized": "pants",
+    "chinese": "裤子",
+    "phonetic": "",
+    "phrase": "My pants are clean",
+    "phraseTranslation": "我的裤子很干净",
+    "difficulty": "basic",
+    "category": "clothes",
+    "imageURLs": [
+      {
+        "filename": "pants.png",
+        "url": "https://img.icons8.com/color/48/pants.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "dress",
+    "standardized": "dress",
+    "chinese": "连衣裙",
+    "phonetic": "",
+    "phrase": "She wears a pretty dress",
+    "phraseTranslation": "她穿着漂亮的连衣裙",
+    "difficulty": "basic",
+    "category": "clothes",
+    "imageURLs": [
+      {
+        "filename": "dress.png",
+        "url": "https://img.icons8.com/color/48/dress.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "shoes",
+    "standardized": "shoes",
+    "chinese": "鞋子",
+    "phonetic": "",
+    "phrase": "Put on your shoes",
+    "phraseTranslation": "穿上你的鞋子",
+    "difficulty": "basic",
+    "category": "clothes",
+    "imageURLs": [
+      {
+        "filename": "shoes.png",
+        "url": "https://img.icons8.com/color/48/shoes.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "socks",
+    "standardized": "socks",
+    "chinese": "袜子",
+    "phonetic": "",
+    "phrase": "Socks keep feet warm",
+    "phraseTranslation": "袜子让脚保暖",
+    "difficulty": "basic",
+    "category": "clothes",
+    "imageURLs": [
+      {
+        "filename": "socks.png",
+        "url": "https://img.icons8.com/color/48/socks.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "hat",
+    "standardized": "hat",
+    "chinese": "帽子",
+    "phonetic": "",
+    "phrase": "Hat protects from sun",
+    "phraseTranslation": "帽子防晒",
+    "difficulty": "basic",
+    "category": "clothes",
+    "imageURLs": [
+      {
+        "filename": "hat.png",
+        "url": "https://img.icons8.com/color/48/hat.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "toys",
+    "imageURLs": []
+  },
+  {
+    "word": "ball",
+    "standardized": "ball",
+    "chinese": "球",
+    "phonetic": "",
+    "phrase": "Throw the ball to me",
+    "phraseTranslation": "把球扔给我",
+    "difficulty": "basic",
+    "category": "toys",
+    "imageURLs": [
+      {
+        "filename": "ball.png",
+        "url": "https://img.icons8.com/color/48/ball.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "doll",
+    "standardized": "doll",
+    "chinese": "娃娃",
+    "phonetic": "",
+    "phrase": "I love my doll",
+    "phraseTranslation": "我爱我的娃娃",
+    "difficulty": "basic",
+    "category": "toys",
+    "imageURLs": [
+      {
+        "filename": "doll.png",
+        "url": "https://img.icons8.com/color/48/doll.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "teddy bear",
+    "standardized": "teddy bear",
+    "chinese": "泰迪熊",
+    "phonetic": "",
+    "phrase": "Teddy bear is soft",
+    "phraseTranslation": "泰迪熊很软",
+    "difficulty": "basic",
+    "category": "toys",
+    "imageURLs": [
+      {
+        "filename": "teddy-bear.png",
+        "url": "https://img.icons8.com/color/48/teddy-bear.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "blocks",
+    "standardized": "blocks",
+    "chinese": "积木",
+    "phonetic": "",
+    "phrase": "Build house with blocks",
+    "phraseTranslation": "用积木建房子",
+    "difficulty": "basic",
+    "category": "toys",
+    "imageURLs": [
+      {
+        "filename": "blocks.png",
+        "url": "https://img.icons8.com/color/48/blocks.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "puzzle",
+    "standardized": "puzzle",
+    "chinese": "拼图",
+    "phonetic": "",
+    "phrase": "Puzzle has many pieces",
+    "phraseTranslation": "拼图有很多片",
+    "difficulty": "basic",
+    "category": "toys",
+    "imageURLs": [
+      {
+        "filename": "puzzle.png",
+        "url": "https://img.icons8.com/color/48/puzzle.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "toy car",
+    "standardized": "toy car",
+    "chinese": "玩具车",
+    "phonetic": "",
+    "phrase": "Toy car goes vroom",
+    "phraseTranslation": "玩具车发出嗡嗡声",
+    "difficulty": "basic",
+    "category": "toys",
+    "imageURLs": [
+      {
+        "filename": "toy-car.png",
+        "url": "https://img.icons8.com/color/48/toy-car.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "school_supplies",
+    "imageURLs": []
+  },
+  {
+    "word": "book",
+    "standardized": "book",
+    "chinese": "书",
+    "phonetic": "",
+    "phrase": "Read a story book",
+    "phraseTranslation": "读故事书",
+    "difficulty": "basic",
+    "category": "school_supplies",
+    "imageURLs": [
+      {
+        "filename": "book.png",
+        "url": "https://img.icons8.com/color/48/book.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "pencil",
+    "standardized": "pencil",
+    "chinese": "铅笔",
+    "phonetic": "",
+    "phrase": "Write with pencil",
+    "phraseTranslation": "用铅笔写字",
+    "difficulty": "basic",
+    "category": "school_supplies",
+    "imageURLs": [
+      {
+        "filename": "pencil.png",
+        "url": "https://img.icons8.com/color/48/pencil.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "crayon",
+    "standardized": "crayon",
+    "chinese": "蜡笔",
+    "phonetic": "",
+    "phrase": "Draw with crayons",
+    "phraseTranslation": "用蜡笔画画",
+    "difficulty": "basic",
+    "category": "school_supplies",
+    "imageURLs": [
+      {
+        "filename": "crayon.png",
+        "url": "https://img.icons8.com/color/48/crayon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "paper",
+    "standardized": "paper",
+    "chinese": "纸",
+    "phonetic": "",
+    "phrase": "Draw on paper",
+    "phraseTranslation": "在纸上画画",
+    "difficulty": "basic",
+    "category": "school_supplies",
+    "imageURLs": [
+      {
+        "filename": "paper.png",
+        "url": "https://img.icons8.com/color/48/paper.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "bag",
+    "standardized": "bag",
+    "chinese": "书包",
+    "phonetic": "",
+    "phrase": "Put books in bag",
+    "phraseTranslation": "把书放进书包",
+    "difficulty": "basic",
+    "category": "school_supplies",
+    "imageURLs": [
+      {
+        "filename": "school-bag.png",
+        "url": "https://img.icons8.com/color/48/school-bag.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "ruler",
+    "standardized": "ruler",
+    "chinese": "尺子",
+    "phonetic": "",
+    "phrase": "Use ruler to draw lines",
+    "phraseTranslation": "用尺子画线",
+    "difficulty": "basic",
+    "category": "school_supplies",
+    "imageURLs": [
+      {
+        "filename": "ruler.png",
+        "url": "https://img.icons8.com/color/48/ruler.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": []
+  },
+  {
+    "word": "sun",
+    "standardized": "sun",
+    "chinese": "太阳",
+    "phonetic": "",
+    "phrase": "Sun is bright",
+    "phraseTranslation": "太阳很亮",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "sun.png",
+        "url": "https://img.icons8.com/color/48/sun.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "moon",
+    "standardized": "moon",
+    "chinese": "月亮",
+    "phonetic": "",
+    "phrase": "Moon comes out at night",
+    "phraseTranslation": "月亮在夜晚出现",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "moon.png",
+        "url": "https://img.icons8.com/color/48/moon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "star",
+    "standardized": "star",
+    "chinese": "星星",
+    "phonetic": "",
+    "phrase": "Stars twinkle in sky",
+    "phraseTranslation": "星星在天空闪烁",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "star.png",
+        "url": "https://img.icons8.com/color/48/star.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "tree",
+    "standardized": "tree",
+    "chinese": "树",
+    "phonetic": "",
+    "phrase": "Tree has green leaves",
+    "phraseTranslation": "树有绿色的叶子",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "tree.png",
+        "url": "https://img.icons8.com/color/48/tree.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "flower",
+    "standardized": "flower",
+    "chinese": "花",
+    "phonetic": "",
+    "phrase": "Flower smells nice",
+    "phraseTranslation": "花闻起来很香",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "flower.png",
+        "url": "https://img.icons8.com/color/48/flower.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "grass",
+    "standardized": "grass",
+    "chinese": "草",
+    "phonetic": "",
+    "phrase": "Grass grows in park",
+    "phraseTranslation": "草在公园里生长",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "grass.png",
+        "url": "https://img.icons8.com/color/48/grass.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "cloud",
+    "standardized": "cloud",
+    "chinese": "云",
+    "phonetic": "",
+    "phrase": "White clouds in blue sky",
+    "phraseTranslation": "蓝天上的白云",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "cloud.png",
+        "url": "https://img.icons8.com/color/48/cloud.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "rain",
+    "standardized": "rain",
+    "chinese": "雨",
+    "phonetic": "",
+    "phrase": "Rain makes plants grow",
+    "phraseTranslation": "雨水让植物生长",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "rain.png",
+        "url": "https://img.icons8.com/color/48/rain.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "emotions",
+    "imageURLs": []
+  },
+  {
+    "word": "happy",
+    "standardized": "happy",
+    "chinese": "开心",
+    "phonetic": "",
+    "phrase": "I am happy today",
+    "phraseTranslation": "我今天很开心",
+    "difficulty": "basic",
+    "category": "emotions",
+    "imageURLs": [
+      {
+        "filename": "happy.png",
+        "url": "https://img.icons8.com/color/48/happy.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "sad",
+    "standardized": "sad",
+    "chinese": "伤心",
+    "phonetic": "",
+    "phrase": "Don't be sad",
+    "phraseTranslation": "不要伤心",
+    "difficulty": "basic",
+    "category": "emotions",
+    "imageURLs": [
+      {
+        "filename": "sad.png",
+        "url": "https://img.icons8.com/color/48/sad.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "angry",
+    "standardized": "angry",
+    "chinese": "生气",
+    "phonetic": "",
+    "phrase": "Why are you angry?",
+    "phraseTranslation": "你为什么生气？",
+    "difficulty": "basic",
+    "category": "emotions",
+    "imageURLs": [
+      {
+        "filename": "angry.png",
+        "url": "https://img.icons8.com/color/48/angry.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "surprised",
+    "standardized": "surprised",
+    "chinese": "惊讶",
+    "phonetic": "",
+    "phrase": "I am surprised!",
+    "phraseTranslation": "我很惊讶！",
+    "difficulty": "basic",
+    "category": "emotions",
+    "imageURLs": [
+      {
+        "filename": "surprised.png",
+        "url": "https://img.icons8.com/color/48/surprised.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "tired",
+    "standardized": "tired",
+    "chinese": "累",
+    "phonetic": "",
+    "phrase": "I feel tired",
+    "phraseTranslation": "我觉得累",
+    "difficulty": "basic",
+    "category": "emotions",
+    "imageURLs": [
+      {
+        "filename": "tired.png",
+        "url": "https://img.icons8.com/color/48/tired.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": []
+  },
+  {
+    "word": "run",
+    "standardized": "run",
+    "chinese": "跑",
+    "phonetic": "",
+    "phrase": "I can run fast",
+    "phraseTranslation": "我能跑得快",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": [
+      {
+        "filename": "running.png",
+        "url": "https://img.icons8.com/color/48/running.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "walk",
+    "standardized": "walk",
+    "chinese": "走",
+    "phonetic": "",
+    "phrase": "Walk to school",
+    "phraseTranslation": "走路上学",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": [
+      {
+        "filename": "walking.png",
+        "url": "https://img.icons8.com/color/48/walking.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "jump",
+    "standardized": "jump",
+    "chinese": "跳",
+    "phonetic": "",
+    "phrase": "Jump high",
+    "phraseTranslation": "跳得高",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": [
+      {
+        "filename": "jumping.png",
+        "url": "https://img.icons8.com/color/48/jumping.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "sleep",
+    "standardized": "sleep",
+    "chinese": "睡觉",
+    "phonetic": "",
+    "phrase": "I sleep at night",
+    "phraseTranslation": "我晚上睡觉",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": [
+      {
+        "filename": "sleeping.png",
+        "url": "https://img.icons8.com/color/48/sleeping.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "eat",
+    "standardized": "eat",
+    "chinese": "吃",
+    "phonetic": "",
+    "phrase": "Eat your breakfast",
+    "phraseTranslation": "吃早餐",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": [
+      {
+        "filename": "eating.png",
+        "url": "https://img.icons8.com/color/48/eating.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "drink",
+    "standardized": "drink",
+    "chinese": "喝",
+    "phonetic": "",
+    "phrase": "Drink water",
+    "phraseTranslation": "喝水",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": [
+      {
+        "filename": "drinking.png",
+        "url": "https://img.icons8.com/color/48/drinking.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "play",
+    "standardized": "play",
+    "chinese": "玩",
+    "phonetic": "",
+    "phrase": "Let's play together",
+    "phraseTranslation": "我们一起玩",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": [
+      {
+        "filename": "playing.png",
+        "url": "https://img.icons8.com/color/48/playing.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "sing",
+    "standardized": "sing",
+    "chinese": "唱歌",
+    "phonetic": "",
+    "phrase": "Sing a song",
+    "phraseTranslation": "唱首歌",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": [
+      {
+        "filename": "singing.png",
+        "url": "https://img.icons8.com/color/48/singing.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "dance",
+    "standardized": "dance",
+    "chinese": "跳舞",
+    "phonetic": "",
+    "phrase": "Dance to music",
+    "phraseTranslation": "跟着音乐跳舞",
+    "difficulty": "basic",
+    "category": "actions",
+    "imageURLs": [
+      {
+        "filename": "dancing.png",
+        "url": "https://img.icons8.com/color/48/dancing.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "例句",
+    "phraseTranslation": "",
+    "difficulty": "basic",
+    "category": "body_parts",
+    "imageURLs": []
+  },
+  {
+    "word": "head",
+    "standardized": "head",
+    "chinese": "头",
+    "phonetic": "",
+    "phrase": "Touch your head",
+    "phraseTranslation": "摸摸你的头",
+    "difficulty": "basic",
+    "category": "body_parts",
+    "imageURLs": [
+      {
+        "filename": "head.png",
+        "url": "https://img.icons8.com/color/48/head.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "eyes",
+    "standardized": "eyes",
+    "chinese": "眼睛",
+    "phonetic": "",
+    "phrase": "I see with my eyes",
+    "phraseTranslation": "我用眼睛看",
+    "difficulty": "basic",
+    "category": "body_parts",
+    "imageURLs": [
+      {
+        "filename": "eyes.png",
+        "url": "https://img.icons8.com/color/48/eyes.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "nose",
+    "standardized": "nose",
+    "chinese": "鼻子",
+    "phonetic": "",
+    "phrase": "Smell with nose",
+    "phraseTranslation": "用鼻子闻",
+    "difficulty": "basic",
+    "category": "body_parts",
+    "imageURLs": [
+      {
+        "filename": "nose.png",
+        "url": "https://img.icons8.com/color/48/nose.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "mouth",
+    "standardized": "mouth",
+    "chinese": "嘴巴",
+    "phonetic": "",
+    "phrase": "Eat with mouth",
+    "phraseTranslation": "用嘴巴吃",
+    "difficulty": "basic",
+    "category": "body_parts",
+    "imageURLs": [
+      {
+        "filename": "mouth.png",
+        "url": "https://img.icons8.com/color/48/mouth.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "ears",
+    "standardized": "ears",
+    "chinese": "耳朵",
+    "phonetic": "",
+    "phrase": "Listen with ears",
+    "phraseTranslation": "用耳朵听",
+    "difficulty": "basic",
+    "category": "body_parts",
+    "imageURLs": [
+      {
+        "filename": "ear.png",
+        "url": "https://img.icons8.com/color/48/ear.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "hands",
+    "standardized": "hands",
+    "chinese": "手",
+    "phonetic": "",
+    "phrase": "Clap your hands",
+    "phraseTranslation": "拍拍手",
+    "difficulty": "basic",
+    "category": "body_parts",
+    "imageURLs": [
+      {
+        "filename": "hand.png",
+        "url": "https://img.icons8.com/color/48/hand.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "feet",
+    "standardized": "feet",
+    "chinese": "脚",
+    "phonetic": "",
+    "phrase": "Walk with feet",
+    "phraseTranslation": "用脚走路",
+    "difficulty": "basic",
+    "category": "body_parts",
+    "imageURLs": [
+      {
+        "filename": "foot.png",
+        "url": "https://img.icons8.com/color/48/foot.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "英文",
+    "standardized": "英文",
+    "chinese": "中文",
+    "phonetic": "",
+    "phrase": "英文",
+    "phraseTranslation": "中文",
+    "difficulty": "basic",
+    "category": "common_phrases",
+    "imageURLs": []
+  },
+  {
+    "word": "Hello!",
+    "standardized": "Hello!",
+    "chinese": "你好！",
+    "phonetic": "",
+    "phrase": "Hello!",
+    "phraseTranslation": "你好！",
+    "difficulty": "basic",
+    "category": "common_phrases",
+    "imageURLs": [
+      {
+        "filename": "waving-hand.png",
+        "url": "https://img.icons8.com/color/48/waving-hand.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Goodbye!",
+    "standardized": "Goodbye!",
+    "chinese": "再见！",
+    "phonetic": "",
+    "phrase": "Goodbye!",
+    "phraseTranslation": "再见！",
+    "difficulty": "basic",
+    "category": "common_phrases",
+    "imageURLs": [
+      {
+        "filename": "goodbye.png",
+        "url": "https://img.icons8.com/color/48/goodbye.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Please",
+    "standardized": "Please",
+    "chinese": "请",
+    "phonetic": "",
+    "phrase": "Please",
+    "phraseTranslation": "请",
+    "difficulty": "basic",
+    "category": "common_phrases",
+    "imageURLs": [
+      {
+        "filename": "please.png",
+        "url": "https://img.icons8.com/color/48/please.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Thank you",
+    "standardized": "Thank you",
+    "chinese": "谢谢",
+    "phonetic": "",
+    "phrase": "Thank you",
+    "phraseTranslation": "谢谢",
+    "difficulty": "basic",
+    "category": "common_phrases",
+    "imageURLs": [
+      {
+        "filename": "thank-you.png",
+        "url": "https://img.icons8.com/color/48/thank-you.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sorry",
+    "standardized": "Sorry",
+    "chinese": "对不起",
+    "phonetic": "",
+    "phrase": "Sorry",
+    "phraseTranslation": "对不起",
+    "difficulty": "basic",
+    "category": "common_phrases",
+    "imageURLs": [
+      {
+        "filename": "sorry.png",
+        "url": "https://img.icons8.com/color/48/sorry.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Good morning",
+    "standardized": "Good morning",
+    "chinese": "早上好",
+    "phonetic": "",
+    "phrase": "Good morning",
+    "phraseTranslation": "早上好",
+    "difficulty": "basic",
+    "category": "common_phrases",
+    "imageURLs": [
+      {
+        "filename": "good-morning.png",
+        "url": "https://img.icons8.com/color/48/good-morning.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Good night",
+    "standardized": "Good night",
+    "chinese": "晚安",
+    "phonetic": "",
+    "phrase": "Good night",
+    "phraseTranslation": "晚安",
+    "difficulty": "basic",
+    "category": "common_phrases",
+    "imageURLs": [
+      {
+        "filename": "good-night.png",
+        "url": "https://img.icons8.com/color/48/good-night.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "I love you",
+    "standardized": "I love you",
+    "chinese": "我爱你",
+    "phonetic": "",
+    "phrase": "I love you",
+    "phraseTranslation": "我爱你",
+    "difficulty": "basic",
+    "category": "common_phrases",
+    "imageURLs": [
+      {
+        "filename": "love.png",
+        "url": "https://img.icons8.com/color/48/love.png",
+        "type": "Default"
+      }
+    ]
+  }
+]

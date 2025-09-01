@@ -1,0 +1,114 @@
+{
+  "category": "learning_shapes",
+  "description": "幼儿园学习与形状词汇 - 包含学校用品和基础几何形状",
+  "words": [
+    {
+      "word": "school",
+      "standardized": "school",
+      "chinese": "学校",
+      "phonetic": "/sku?l/",
+      "phrase": "go to school",
+      "phraseTranslation": "去上学",
+      "difficulty": "basic",
+      "category": "education_place",
+      "subcategory": "buildings",
+      "imageURLs": [
+        {
+          "filename": "school_new.jpg",
+          "url": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400",
+          "type": "Building Image"
+        }
+      ]
+    },
+    {
+      "word": "classroom",
+      "standardized": "classroom",
+      "chinese": "教室",
+      "phonetic": "/?kl?sru?m/",
+      "phrase": "bright classroom",
+      "phraseTranslation": "明亮的教室",
+      "difficulty": "intermediate",
+      "category": "education_place",
+      "subcategory": "rooms",
+      "imageURLs": [
+        {
+          "filename": "classroom_new.jpg",
+          "url": "https://images.unsplash.com/photo-1580237072263-9d542fa56d61?w=400",
+          "type": "Room Image"
+        }
+      ]
+    },
+    {
+      "word": "book",
+      "standardized": "book",
+      "chinese": "书",
+      "phonetic": "/b?k/",
+      "phrase": "read a book",
+      "phraseTranslation": "读一本书",
+      "difficulty": "basic",
+      "category": "school_supply",
+      "subcategory": "reading_materials",
+      "imageURLs": [
+        {
+          "filename": "book_default.jpg",
+          "url": "images/default.jpg",
+          "type": "Object Image"
+        }
+      ]
+    },
+    {
+      "word": "circle",
+      "standardized": "circle",
+      "chinese": "圆形",
+      "phonetic": "/?s??rk?l/",
+      "phrase": "round circle ball",
+      "phraseTranslation": "圆圆的球",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "basic_shapes",
+      "imageURLs": [
+        {
+          "filename": "circle_239714310.jpg",
+          "url": "https://images.unsplash.com/photo-1517454339641-e531f8aa496b?w=400",
+          "type": "Shape Image"
+        }
+      ]
+    },
+    {
+      "word": "square",
+      "standardized": "square",
+      "chinese": "正方形",
+      "phonetic": "/skwer/",
+      "phrase": "square box",
+      "phraseTranslation": "方方的盒子",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "basic_shapes",
+      "imageURLs": [
+        {
+          "filename": "square_841736523.jpg",
+          "url": "https://images.unsplash.com/photo-1604147706283-d7119b5b822c?w=400",
+          "type": "Shape Image"
+        }
+      ]
+    },
+    {
+      "word": "triangle",
+      "standardized": "triangle",
+      "chinese": "三角形",
+      "phonetic": "/?tra???ɡ?l/",
+      "phrase": "pointed triangle",
+      "phraseTranslation": "尖尖的三角形",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "basic_shapes",
+      "imageURLs": [
+        {
+          "filename": "triangle_default.jpg",
+          "url": "images/default.jpg",
+          "type": "Shape Image"
+        }
+      ]
+    }
+  ]
+}

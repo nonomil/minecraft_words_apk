@@ -1,0 +1,4794 @@
+[
+  {
+    "word": "Ancient",
+    "standardized": "Ancient",
+    "chinese": "远古残骸",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Ancient_Debris.png",
+        "url": "https://minecraft.wiki/w/File:Ancient_Debris.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Barrier",
+    "standardized": "Barrier",
+    "chinese": "Barrier",
+    "phonetic": "",
+    "phrase": "find barrier",
+    "phraseTranslation": "找到Barrier",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Barrier.png",
+        "url": "https://minecraft.wiki/w/File:Barrier.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Barrier.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Barrier.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Barrier.png",
+        "url": "https://minecraft.wiki/w/File:Block Barrier.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Barrier.png",
+        "url": "https://minecraft.wiki/w/File:Item Barrier.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Barrier.png",
+        "url": "https://minecraft.wiki/w/File:Entity Barrier.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Basalt",
+    "standardized": "Basalt",
+    "chinese": "玄武岩",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Basalt.png",
+        "url": "https://minecraft.wiki/w/File:Basalt.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bat",
+    "standardized": "Bat",
+    "chinese": "Bat",
+    "phonetic": "",
+    "phrase": "find bat",
+    "phraseTranslation": "找到Bat",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Bat.png",
+        "url": "https://minecraft.wiki/w/File:Bat.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Bat.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Bat.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Bat.png",
+        "url": "https://minecraft.wiki/w/File:Block Bat.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Bat.png",
+        "url": "https://minecraft.wiki/w/File:Item Bat.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Bat.png",
+        "url": "https://minecraft.wiki/w/File:Entity Bat.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Beacon",
+    "standardized": "Beacon",
+    "chinese": "信标",
+    "difficulty": "advanced",
+    "category": "utility",
+    "imageURLs": [
+      {
+        "filename": "Beacon.png",
+        "url": "https://minecraft.wiki/w/File:Beacon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bear",
+    "standardized": "Bear",
+    "chinese": "Bear",
+    "phonetic": "",
+    "phrase": "find bear",
+    "phraseTranslation": "找到Bear",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Bear.png",
+        "url": "https://minecraft.wiki/w/File:Bear.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Bear.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Bear.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Bear.png",
+        "url": "https://minecraft.wiki/w/File:Block Bear.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Bear.png",
+        "url": "https://minecraft.wiki/w/File:Item Bear.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Bear.png",
+        "url": "https://minecraft.wiki/w/File:Entity Bear.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "bee",
+    "standardized": "Bee",
+    "chinese": "Bee",
+    "phonetic": "",
+    "phrase": "find bee",
+    "phraseTranslation": "找到Bee",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Bee.png",
+        "url": "https://minecraft.wiki/w/File:Bee.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Bee.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Bee.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Bee.png",
+        "url": "https://minecraft.wiki/w/File:Block Bee.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Bee.png",
+        "url": "https://minecraft.wiki/w/File:Item Bee.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Bee.png",
+        "url": "https://minecraft.wiki/w/File:Entity Bee.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Beef",
+    "standardized": "Beef",
+    "chinese": "牛肉",
+    "phonetic": "",
+    "phrase": "find beef",
+    "phraseTranslation": "找到牛肉",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Beef.png",
+        "url": "https://minecraft.wiki/w/File:Beef.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Beef.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Beef.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Beef.png",
+        "url": "https://minecraft.wiki/w/File:Block Beef.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Beef.png",
+        "url": "https://minecraft.wiki/w/File:Item Beef.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Beef.png",
+        "url": "https://minecraft.wiki/w/File:Entity Beef.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "beehive",
+    "standardized": "Beehive",
+    "chinese": "Beehive",
+    "phonetic": "",
+    "phrase": "find beehive",
+    "phraseTranslation": "找到Beehive",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Beehive.png",
+        "url": "https://minecraft.wiki/w/File:Beehive.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Beehive.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Beehive.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Beehive.png",
+        "url": "https://minecraft.wiki/w/File:Block Beehive.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Beehive.png",
+        "url": "https://minecraft.wiki/w/File:Item Beehive.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Beehive.png",
+        "url": "https://minecraft.wiki/w/File:Entity Beehive.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Blackstone",
+    "standardized": "Blackstone",
+    "chinese": "黑石",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Blackstone.png",
+        "url": "https://minecraft.wiki/w/File:Blackstone.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Blaze",
+    "standardized": "Blaze",
+    "chinese": "烈焰人",
+    "phonetic": "/bleɪz/",
+    "phrase": "blaze rod",
+    "phraseTranslation": "烈焰棒",
+    "difficulty": "advanced",
+    "category": "monster",
+    "imageURLs": [
+      {
+        "filename": "Blaze.png",
+        "url": "https://minecraft.wiki/w/File:Blaze.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Breath",
+    "standardized": "Breath",
+    "chinese": "Breath",
+    "phonetic": "",
+    "phrase": "find breath",
+    "phraseTranslation": "找到Breath",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Breath.png",
+        "url": "https://minecraft.wiki/w/File:Breath.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Breath.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Breath.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Breath.png",
+        "url": "https://minecraft.wiki/w/File:Block Breath.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Breath.png",
+        "url": "https://minecraft.wiki/w/File:Item Breath.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Breath.png",
+        "url": "https://minecraft.wiki/w/File:Entity Breath.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "breathing",
+    "standardized": "Breathing",
+    "chinese": "Breathing",
+    "phonetic": "",
+    "phrase": "find breathing",
+    "phraseTranslation": "找到Breathing",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Breathing.png",
+        "url": "https://minecraft.wiki/w/File:Breathing.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Breathing.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Breathing.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Breathing.png",
+        "url": "https://minecraft.wiki/w/File:Block Breathing.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Breathing.png",
+        "url": "https://minecraft.wiki/w/File:Item Breathing.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Breathing.png",
+        "url": "https://minecraft.wiki/w/File:Entity Breathing.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Cat",
+    "standardized": "Cat",
+    "chinese": "猫",
+    "phonetic": "",
+    "phrase": "find cat",
+    "phraseTranslation": "找到猫",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Cat.png",
+        "url": "https://minecraft.wiki/w/File:Cat.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Cat.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Cat.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Cat.png",
+        "url": "https://minecraft.wiki/w/File:Block Cat.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Cat.png",
+        "url": "https://minecraft.wiki/w/File:Item Cat.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Cat.png",
+        "url": "https://minecraft.wiki/w/File:Entity Cat.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Catalyst",
+    "standardized": "Catalyst",
+    "chinese": "幽匿催发体",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Sculk_Catalyst.png",
+        "url": "https://minecraft.wiki/w/File:Sculk_Catalyst.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Chain",
+    "standardized": "Chain",
+    "chinese": "Chain",
+    "phonetic": "",
+    "phrase": "find chain",
+    "phraseTranslation": "找到Chain",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Chain.png",
+        "url": "https://minecraft.wiki/w/File:Chain.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Chain.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Chain.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Chain.png",
+        "url": "https://minecraft.wiki/w/File:Block Chain.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Chain.png",
+        "url": "https://minecraft.wiki/w/File:Item Chain.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Chain.png",
+        "url": "https://minecraft.wiki/w/File:Entity Chain.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "chaincommandblock",
+    "standardized": "Chaincommand Block",
+    "chinese": "Chaincommand块",
+    "phonetic": "",
+    "phrase": "mine chaincommandblock",
+    "phraseTranslation": "挖掘Chaincommand块",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Chaincommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:Chaincommand_Block.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Chaincommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Chaincommand_Block.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Chaincommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:Block Chaincommand_Block.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Chaincommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:Item Chaincommand_Block.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Chaincommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:Entity Chaincommand_Block.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Chainmail",
+    "standardized": "Chainmail",
+    "chinese": "锁链",
+    "phonetic": "",
+    "phrase": "find chainmail",
+    "phraseTranslation": "找到锁链",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Chainmail.png",
+        "url": "https://minecraft.wiki/w/File:Chainmail.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Chainmail.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Chainmail.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Chainmail.png",
+        "url": "https://minecraft.wiki/w/File:Block Chainmail.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Chainmail.png",
+        "url": "https://minecraft.wiki/w/File:Item Chainmail.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Chainmail.png",
+        "url": "https://minecraft.wiki/w/File:Entity Chainmail.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Charge",
+    "standardized": "Charge",
+    "chinese": "Charge",
+    "phonetic": "",
+    "phrase": "find charge",
+    "phraseTranslation": "找到Charge",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Charge.png",
+        "url": "https://minecraft.wiki/w/File:Charge.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Charge.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Charge.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Charge.png",
+        "url": "https://minecraft.wiki/w/File:Block Charge.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Charge.png",
+        "url": "https://minecraft.wiki/w/File:Item Charge.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Charge.png",
+        "url": "https://minecraft.wiki/w/File:Entity Charge.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "chorusfruit",
+    "standardized": "Chorusfruit",
+    "chinese": "Chorusfruit",
+    "phonetic": "",
+    "phrase": "find chorusfruit",
+    "phraseTranslation": "找到Chorusfruit",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Chorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:Chorusfruit.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Chorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Chorusfruit.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Chorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:Block Chorusfruit.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Chorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:Item Chorusfruit.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Chorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:Entity Chorusfruit.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "chorusplant",
+    "standardized": "Chorusplant",
+    "chinese": "Chorusplant",
+    "phonetic": "",
+    "phrase": "find chorusplant",
+    "phraseTranslation": "找到Chorusplant",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Chorusplant.png",
+        "url": "https://minecraft.wiki/w/File:Chorusplant.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Chorusplant.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Chorusplant.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Chorusplant.png",
+        "url": "https://minecraft.wiki/w/File:Block Chorusplant.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Chorusplant.png",
+        "url": "https://minecraft.wiki/w/File:Item Chorusplant.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Chorusplant.png",
+        "url": "https://minecraft.wiki/w/File:Entity Chorusplant.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Clownfish",
+    "standardized": "Clownfish",
+    "chinese": "Clownfish",
+    "phonetic": "",
+    "phrase": "eat clownfish",
+    "phraseTranslation": "吃Clownfish",
+    "difficulty": "advanced",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "Clownfish.png",
+        "url": "https://minecraft.wiki/w/File:Clownfish.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Clownfish.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Clownfish.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Clownfish.png",
+        "url": "https://minecraft.wiki/w/File:Block Clownfish.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Clownfish.png",
+        "url": "https://minecraft.wiki/w/File:Item Clownfish.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Clownfish.png",
+        "url": "https://minecraft.wiki/w/File:Entity Clownfish.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "cod",
+    "standardized": "Cod",
+    "chinese": "鳕鱼",
+    "phonetic": "",
+    "phrase": "find cod",
+    "phraseTranslation": "找到鳕鱼",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Cod.png",
+        "url": "https://minecraft.wiki/w/File:Cod.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Cod.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Cod.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Cod.png",
+        "url": "https://minecraft.wiki/w/File:Block Cod.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Cod.png",
+        "url": "https://minecraft.wiki/w/File:Item Cod.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Cod.png",
+        "url": "https://minecraft.wiki/w/File:Entity Cod.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Command",
+    "standardized": "Command",
+    "chinese": "Command",
+    "phonetic": "",
+    "phrase": "find command",
+    "phraseTranslation": "找到Command",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Command.png",
+        "url": "https://minecraft.wiki/w/File:Command.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Command.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Command.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Command.png",
+        "url": "https://minecraft.wiki/w/File:Block Command.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Command.png",
+        "url": "https://minecraft.wiki/w/File:Item Command.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Command.png",
+        "url": "https://minecraft.wiki/w/File:Entity Command.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "commandblock",
+    "standardized": "Command Block",
+    "chinese": "Command块",
+    "phonetic": "",
+    "phrase": "mine commandblock",
+    "phraseTranslation": "挖掘Command块",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Command_Block.png",
+        "url": "https://minecraft.wiki/w/File:Command_Block.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Command_Block.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Command_Block.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Command_Block.png",
+        "url": "https://minecraft.wiki/w/File:Block Command_Block.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Command_Block.png",
+        "url": "https://minecraft.wiki/w/File:Item Command_Block.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Command_Block.png",
+        "url": "https://minecraft.wiki/w/File:Entity Command_Block.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Conduit",
+    "standardized": "Conduit",
+    "chinese": "潮涌核心",
+    "difficulty": "advanced",
+    "category": "utility",
+    "imageURLs": [
+      {
+        "filename": "Conduit.png",
+        "url": "https://minecraft.wiki/w/File:Conduit.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Conduit",
+    "standardized": "Conduit",
+    "chinese": "潮涌核心",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Conduit.png",
+        "url": "https://minecraft.wiki/w/File:Conduit.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "cookedbeef",
+    "standardized": "Cooked Beef",
+    "chinese": "熟牛肉",
+    "phonetic": "",
+    "phrase": "find cookedbeef",
+    "phraseTranslation": "找到熟牛肉",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Cooked_Beef.png",
+        "url": "https://minecraft.wiki/w/File:Cooked_Beef.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Cooked_Beef.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Cooked_Beef.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Cooked_Beef.png",
+        "url": "https://minecraft.wiki/w/File:Block Cooked_Beef.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Cooked_Beef.png",
+        "url": "https://minecraft.wiki/w/File:Item Cooked_Beef.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Cooked_Beef.png",
+        "url": "https://minecraft.wiki/w/File:Entity Cooked_Beef.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "cookedcod",
+    "standardized": "Cooked Cod",
+    "chinese": "熟鳕鱼",
+    "phonetic": "",
+    "phrase": "find cookedcod",
+    "phraseTranslation": "找到熟鳕鱼",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Cooked_Cod.png",
+        "url": "https://minecraft.wiki/w/File:Cooked_Cod.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Cooked_Cod.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Cooked_Cod.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Cooked_Cod.png",
+        "url": "https://minecraft.wiki/w/File:Block Cooked_Cod.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Cooked_Cod.png",
+        "url": "https://minecraft.wiki/w/File:Item Cooked_Cod.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Cooked_Cod.png",
+        "url": "https://minecraft.wiki/w/File:Entity Cooked_Cod.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "cookedrabbit",
+    "standardized": "Cooked Rabbit",
+    "chinese": "熟兔肉",
+    "phonetic": "",
+    "phrase": "find cookedrabbit",
+    "phraseTranslation": "找到熟兔肉",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Cooked_Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:Cooked_Rabbit.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Cooked_Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Cooked_Rabbit.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Cooked_Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:Block Cooked_Rabbit.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Cooked_Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:Item Cooked_Rabbit.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Cooked_Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:Entity Cooked_Rabbit.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "cookedsalmon",
+    "standardized": "Cooked Salmon",
+    "chinese": "熟鲑鱼",
+    "phonetic": "",
+    "phrase": "find cookedsalmon",
+    "phraseTranslation": "找到熟鲑鱼",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Cooked_Salmon.png",
+        "url": "https://minecraft.wiki/w/File:Cooked_Salmon.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Cooked_Salmon.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Cooked_Salmon.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Cooked_Salmon.png",
+        "url": "https://minecraft.wiki/w/File:Block Cooked_Salmon.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Cooked_Salmon.png",
+        "url": "https://minecraft.wiki/w/File:Item Cooked_Salmon.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Cooked_Salmon.png",
+        "url": "https://minecraft.wiki/w/File:Entity Cooked_Salmon.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Crimson",
+    "standardized": "Crimson",
+    "chinese": "绯红",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Crimson_Stem.png",
+        "url": "https://minecraft.wiki/w/File:Crimson_Stem.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Crossbow",
+    "standardized": "Crossbow",
+    "chinese": "弩",
+    "difficulty": "advanced",
+    "category": "weapon",
+    "imageURLs": [
+      {
+        "filename": "Crossbow.png",
+        "url": "https://minecraft.wiki/w/File:Crossbow.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Crossbow",
+    "standardized": "Crossbow",
+    "chinese": "弩",
+    "difficulty": "advanced",
+    "category": "tool",
+    "imageURLs": [
+      {
+        "filename": "Crossbow.png",
+        "url": "https://minecraft.wiki/w/File:Crossbow.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Crying",
+    "standardized": "Crying",
+    "chinese": "哭泣黑曜石",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Crying_Obsidian.png",
+        "url": "https://minecraft.wiki/w/File:Crying_Obsidian.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Crystal",
+    "standardized": "Crystal",
+    "chinese": "Crystal",
+    "phonetic": "",
+    "phrase": "find crystal",
+    "phraseTranslation": "找到Crystal",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Crystal.png",
+        "url": "https://minecraft.wiki/w/File:Crystal.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Crystal.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Crystal.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Crystal.png",
+        "url": "https://minecraft.wiki/w/File:Block Crystal.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Crystal.png",
+        "url": "https://minecraft.wiki/w/File:Item Crystal.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Crystal.png",
+        "url": "https://minecraft.wiki/w/File:Entity Crystal.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Crystals",
+    "standardized": "Crystals",
+    "chinese": "Crystals",
+    "phonetic": "",
+    "phrase": "find crystals",
+    "phraseTranslation": "找到Crystals",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Crystals.png",
+        "url": "https://minecraft.wiki/w/File:Crystals.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Crystals.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Crystals.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Crystals.png",
+        "url": "https://minecraft.wiki/w/File:Block Crystals.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Crystals.png",
+        "url": "https://minecraft.wiki/w/File:Item Crystals.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Crystals.png",
+        "url": "https://minecraft.wiki/w/File:Entity Crystals.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "cut",
+    "standardized": "Cut",
+    "chinese": "Cut",
+    "phonetic": "",
+    "phrase": "find cut",
+    "phraseTranslation": "找到Cut",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Cut.png",
+        "url": "https://minecraft.wiki/w/File:Cut.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Cut.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Cut.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Cut.png",
+        "url": "https://minecraft.wiki/w/File:Block Cut.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Cut.png",
+        "url": "https://minecraft.wiki/w/File:Item Cut.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Cut.png",
+        "url": "https://minecraft.wiki/w/File:Entity Cut.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "dolphin",
+    "standardized": "Dolphin",
+    "chinese": "Dolphin",
+    "phonetic": "",
+    "phrase": "find dolphin",
+    "phraseTranslation": "找到Dolphin",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Dolphin.png",
+        "url": "https://minecraft.wiki/w/File:Dolphin.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Dolphin.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Dolphin.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Dolphin.png",
+        "url": "https://minecraft.wiki/w/File:Block Dolphin.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Dolphin.png",
+        "url": "https://minecraft.wiki/w/File:Item Dolphin.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Dolphin.png",
+        "url": "https://minecraft.wiki/w/File:Entity Dolphin.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Donkey",
+    "standardized": "Donkey",
+    "chinese": "Donkey",
+    "phonetic": "",
+    "phrase": "find donkey",
+    "phraseTranslation": "找到Donkey",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Donkey.png",
+        "url": "https://minecraft.wiki/w/File:Donkey.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Donkey.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Donkey.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Donkey.png",
+        "url": "https://minecraft.wiki/w/File:Block Donkey.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Donkey.png",
+        "url": "https://minecraft.wiki/w/File:Item Donkey.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Donkey.png",
+        "url": "https://minecraft.wiki/w/File:Entity Donkey.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Dragon",
+    "standardized": "Ender Dragon",
+    "chinese": "末影龙",
+    "phonetic": "/ˈdræɡən/",
+    "phrase": "final boss",
+    "phraseTranslation": "最终Boss",
+    "difficulty": "advanced",
+    "category": "boss",
+    "imageURLs": [
+      {
+        "filename": "Ender_Dragon.png",
+        "url": "https://minecraft.wiki/w/File:Ender_Dragon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dragon",
+    "standardized": "Dragon",
+    "chinese": "龙息",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Dragon_Breath.png",
+        "url": "https://minecraft.wiki/w/File:Dragon_Breath.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dragon's",
+    "standardized": "Dragon's",
+    "chinese": "Dragon's",
+    "phonetic": "",
+    "phrase": "find dragon's",
+    "phraseTranslation": "找到Dragon's",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Dragon's.png",
+        "url": "https://minecraft.wiki/w/File:Dragon's.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Dragon's.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Dragon's.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Dragon's.png",
+        "url": "https://minecraft.wiki/w/File:Block Dragon's.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Dragon's.png",
+        "url": "https://minecraft.wiki/w/File:Item Dragon's.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Dragon's.png",
+        "url": "https://minecraft.wiki/w/File:Entity Dragon's.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "dragonbreath",
+    "standardized": "Dragonbreath",
+    "chinese": "Dragonbreath",
+    "phonetic": "",
+    "phrase": "find dragonbreath",
+    "phraseTranslation": "找到Dragonbreath",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Dragonbreath.png",
+        "url": "https://minecraft.wiki/w/File:Dragonbreath.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Dragonbreath.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Dragonbreath.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Dragonbreath.png",
+        "url": "https://minecraft.wiki/w/File:Block Dragonbreath.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Dragonbreath.png",
+        "url": "https://minecraft.wiki/w/File:Item Dragonbreath.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Dragonbreath.png",
+        "url": "https://minecraft.wiki/w/File:Entity Dragonbreath.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Elder",
+    "standardized": "Elder",
+    "chinese": "远古守卫者",
+    "difficulty": "advanced",
+    "category": "mob",
+    "imageURLs": [
+      {
+        "filename": "Elder_Guardian.png",
+        "url": "https://minecraft.wiki/w/File:Elder_Guardian.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Elytra",
+    "standardized": "Elytra",
+    "chinese": "鞘翅",
+    "phonetic": "/ˈelaɪtrə/",
+    "phrase": "flying elytra",
+    "phraseTranslation": "飞行鞘翅",
+    "difficulty": "advanced",
+    "category": "equipment",
+    "imageURLs": [
+      {
+        "filename": "Elytra.png",
+        "url": "https://minecraft.wiki/w/File:Elytra.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Elytra",
+    "standardized": "Elytra",
+    "chinese": "鞘翅",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Elytra.png",
+        "url": "https://minecraft.wiki/w/File:Elytra.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Enchanted",
+    "standardized": "Enchanted",
+    "chinese": "附魔金苹果",
+    "difficulty": "advanced",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "Enchanted_Golden_Apple.png",
+        "url": "https://minecraft.wiki/w/File:Enchanted_Golden_Apple.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Enchantment",
+    "standardized": "Enchanting Table",
+    "chinese": "附魔台",
+    "difficulty": "advanced",
+    "category": "utility",
+    "imageURLs": [
+      {
+        "filename": "Enchanting_Table.png",
+        "url": "https://minecraft.wiki/w/File:Enchanting_Table.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "End",
+    "standardized": "End",
+    "chinese": "末影水晶",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "End_Crystal.png",
+        "url": "https://minecraft.wiki/w/File:End_Crystal.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "endcrystal",
+    "standardized": "Endcrystal",
+    "chinese": "Endcrystal",
+    "phonetic": "",
+    "phrase": "find endcrystal",
+    "phraseTranslation": "找到Endcrystal",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Endcrystal.png",
+        "url": "https://minecraft.wiki/w/File:Endcrystal.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Endcrystal.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Endcrystal.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Endcrystal.png",
+        "url": "https://minecraft.wiki/w/File:Block Endcrystal.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Endcrystal.png",
+        "url": "https://minecraft.wiki/w/File:Item Endcrystal.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Endcrystal.png",
+        "url": "https://minecraft.wiki/w/File:Entity Endcrystal.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "endereye",
+    "standardized": "Ender Eye",
+    "chinese": "末影之眼",
+    "phonetic": "",
+    "phrase": "find endereye",
+    "phraseTranslation": "找到末影之眼",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Ender_Eye.png",
+        "url": "https://minecraft.wiki/w/File:Ender_Eye.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Ender_Eye.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Ender_Eye.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Ender_Eye.png",
+        "url": "https://minecraft.wiki/w/File:Block Ender_Eye.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Ender_Eye.png",
+        "url": "https://minecraft.wiki/w/File:Item Ender_Eye.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Ender_Eye.png",
+        "url": "https://minecraft.wiki/w/File:Entity Ender_Eye.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Enderman",
+    "standardized": "Enderman",
+    "chinese": "末影人",
+    "phonetic": "/ˈendərmæn/",
+    "phrase": "teleporting enderman",
+    "phraseTranslation": "传送的末影人",
+    "difficulty": "advanced",
+    "category": "monster",
+    "imageURLs": [
+      {
+        "filename": "Enderman.png",
+        "url": "https://minecraft.wiki/w/File:Enderman.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "endermite",
+    "standardized": "Ender Mite",
+    "chinese": "末影Mite",
+    "phonetic": "",
+    "phrase": "find endermite",
+    "phraseTranslation": "找到末影Mite",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Ender_Mite.png",
+        "url": "https://minecraft.wiki/w/File:Ender_Mite.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Ender_Mite.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Ender_Mite.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Ender_Mite.png",
+        "url": "https://minecraft.wiki/w/File:Block Ender_Mite.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Ender_Mite.png",
+        "url": "https://minecraft.wiki/w/File:Item Ender_Mite.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Ender_Mite.png",
+        "url": "https://minecraft.wiki/w/File:Entity Ender_Mite.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "enderpearl",
+    "standardized": "Ender Pearl",
+    "chinese": "末影珍珠",
+    "phonetic": "",
+    "phrase": "find enderpearl",
+    "phraseTranslation": "找到末影珍珠",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Ender_Pearl.png",
+        "url": "https://minecraft.wiki/w/File:Ender_Pearl.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Ender_Pearl.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Ender_Pearl.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Ender_Pearl.png",
+        "url": "https://minecraft.wiki/w/File:Block Ender_Pearl.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Ender_Pearl.png",
+        "url": "https://minecraft.wiki/w/File:Item Ender_Pearl.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Ender_Pearl.png",
+        "url": "https://minecraft.wiki/w/File:Entity Ender_Pearl.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Evoker",
+    "standardized": "Evoker",
+    "chinese": "Evoker",
+    "phonetic": "",
+    "phrase": "find evoker",
+    "phraseTranslation": "找到Evoker",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Evoker.png",
+        "url": "https://minecraft.wiki/w/File:Evoker.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Evoker.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Evoker.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Evoker.png",
+        "url": "https://minecraft.wiki/w/File:Block Evoker.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Evoker.png",
+        "url": "https://minecraft.wiki/w/File:Item Evoker.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Evoker.png",
+        "url": "https://minecraft.wiki/w/File:Entity Evoker.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "firecharge",
+    "standardized": "Firecharge",
+    "chinese": "Firecharge",
+    "phonetic": "",
+    "phrase": "find firecharge",
+    "phraseTranslation": "找到Firecharge",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Firecharge.png",
+        "url": "https://minecraft.wiki/w/File:Firecharge.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Firecharge.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Firecharge.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Firecharge.png",
+        "url": "https://minecraft.wiki/w/File:Block Firecharge.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Firecharge.png",
+        "url": "https://minecraft.wiki/w/File:Item Firecharge.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Firecharge.png",
+        "url": "https://minecraft.wiki/w/File:Entity Firecharge.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "fireworkstar",
+    "standardized": "Fireworkstar",
+    "chinese": "Fireworkstar",
+    "phonetic": "",
+    "phrase": "find fireworkstar",
+    "phraseTranslation": "找到Fireworkstar",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Fireworkstar.png",
+        "url": "https://minecraft.wiki/w/File:Fireworkstar.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Fireworkstar.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Fireworkstar.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Fireworkstar.png",
+        "url": "https://minecraft.wiki/w/File:Block Fireworkstar.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Fireworkstar.png",
+        "url": "https://minecraft.wiki/w/File:Item Fireworkstar.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Fireworkstar.png",
+        "url": "https://minecraft.wiki/w/File:Entity Fireworkstar.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Fish",
+    "standardized": "Fish",
+    "chinese": "Fish",
+    "phonetic": "",
+    "phrase": "eat fish",
+    "phraseTranslation": "吃Fish",
+    "difficulty": "advanced",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "Fish.png",
+        "url": "https://minecraft.wiki/w/File:Fish.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Fish.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Fish.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Fish.png",
+        "url": "https://minecraft.wiki/w/File:Block Fish.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Fish.png",
+        "url": "https://minecraft.wiki/w/File:Item Fish.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Fish.png",
+        "url": "https://minecraft.wiki/w/File:Entity Fish.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Fishing",
+    "standardized": "Fishing",
+    "chinese": "Fishing",
+    "phonetic": "",
+    "phrase": "eat fishing",
+    "phraseTranslation": "吃Fishing",
+    "difficulty": "advanced",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "Fishing.png",
+        "url": "https://minecraft.wiki/w/File:Fishing.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Fishing.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Fishing.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Fishing.png",
+        "url": "https://minecraft.wiki/w/File:Block Fishing.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Fishing.png",
+        "url": "https://minecraft.wiki/w/File:Item Fishing.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Fishing.png",
+        "url": "https://minecraft.wiki/w/File:Entity Fishing.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Flowing",
+    "standardized": "Flowing",
+    "chinese": "流动",
+    "phonetic": "",
+    "phrase": "find flowing",
+    "phraseTranslation": "找到流动",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Flowing.png",
+        "url": "https://minecraft.wiki/w/File:Flowing.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Flowing.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Flowing.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Flowing.png",
+        "url": "https://minecraft.wiki/w/File:Block Flowing.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Flowing.png",
+        "url": "https://minecraft.wiki/w/File:Item Flowing.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Flowing.png",
+        "url": "https://minecraft.wiki/w/File:Entity Flowing.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "fox",
+    "standardized": "Fox",
+    "chinese": "Fox",
+    "phonetic": "",
+    "phrase": "find fox",
+    "phraseTranslation": "找到Fox",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Fox.png",
+        "url": "https://minecraft.wiki/w/File:Fox.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Fox.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Fox.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Fox.png",
+        "url": "https://minecraft.wiki/w/File:Block Fox.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Fox.png",
+        "url": "https://minecraft.wiki/w/File:Item Fox.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Fox.png",
+        "url": "https://minecraft.wiki/w/File:Entity Fox.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Ghast",
+    "standardized": "Ghast",
+    "chinese": "恶魂",
+    "phonetic": "/ɡæst/",
+    "phrase": "ghast fireball",
+    "phraseTranslation": "恶魂火球",
+    "difficulty": "advanced",
+    "category": "monster",
+    "imageURLs": [
+      {
+        "filename": "Ghast.png",
+        "url": "https://minecraft.wiki/w/File:Ghast.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Gilded",
+    "standardized": "Gilded",
+    "chinese": "镶金黑石",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Gilded_Blackstone.png",
+        "url": "https://minecraft.wiki/w/File:Gilded_Blackstone.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "golden",
+    "standardized": "Golden",
+    "chinese": "金",
+    "phonetic": "",
+    "phrase": "find golden",
+    "phraseTranslation": "找到金",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Golden.png",
+        "url": "https://minecraft.wiki/w/File:Golden.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Golden.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Golden.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Golden.png",
+        "url": "https://minecraft.wiki/w/File:Block Golden.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Golden.png",
+        "url": "https://minecraft.wiki/w/File:Item Golden.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Golden.png",
+        "url": "https://minecraft.wiki/w/File:Entity Golden.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Guardian",
+    "standardized": "Guardian",
+    "chinese": "守卫者",
+    "difficulty": "advanced",
+    "category": "mob",
+    "imageURLs": [
+      {
+        "filename": "Guardian.png",
+        "url": "https://minecraft.wiki/w/File:Guardian.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Heart",
+    "standardized": "Heart",
+    "chinese": "海洋之心",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Heart_of_the_Sea.png",
+        "url": "https://minecraft.wiki/w/File:Heart_of_the_Sea.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "heartofthesea",
+    "standardized": "Heartofthesea",
+    "chinese": "Heartofthesea",
+    "phonetic": "",
+    "phrase": "find heartofthesea",
+    "phraseTranslation": "找到Heartofthesea",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Heartofthesea.png",
+        "url": "https://minecraft.wiki/w/File:Heartofthesea.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Heartofthesea.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Heartofthesea.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Heartofthesea.png",
+        "url": "https://minecraft.wiki/w/File:Block Heartofthesea.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Heartofthesea.png",
+        "url": "https://minecraft.wiki/w/File:Item Heartofthesea.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Heartofthesea.png",
+        "url": "https://minecraft.wiki/w/File:Entity Heartofthesea.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "heavy",
+    "standardized": "Heavy",
+    "chinese": "Heavy",
+    "phonetic": "",
+    "phrase": "find heavy",
+    "phraseTranslation": "找到Heavy",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Heavy.png",
+        "url": "https://minecraft.wiki/w/File:Heavy.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Heavy.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Heavy.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Heavy.png",
+        "url": "https://minecraft.wiki/w/File:Block Heavy.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Heavy.png",
+        "url": "https://minecraft.wiki/w/File:Item Heavy.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Heavy.png",
+        "url": "https://minecraft.wiki/w/File:Entity Heavy.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Hoglin",
+    "standardized": "Hoglin",
+    "chinese": "疣猪兽",
+    "difficulty": "advanced",
+    "category": "monster",
+    "imageURLs": [
+      {
+        "filename": "Hoglin.png",
+        "url": "https://minecraft.wiki/w/File:Hoglin.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hoglin",
+    "standardized": "Hoglin",
+    "chinese": "疣猪兽",
+    "difficulty": "advanced",
+    "category": "mob",
+    "imageURLs": [
+      {
+        "filename": "Hoglin.png",
+        "url": "https://minecraft.wiki/w/File:Hoglin.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Horse",
+    "standardized": "Horse",
+    "chinese": "马",
+    "phonetic": "",
+    "phrase": "find horse",
+    "phraseTranslation": "找到马",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Horse.png",
+        "url": "https://minecraft.wiki/w/File:Horse.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Horse.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Horse.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Horse.png",
+        "url": "https://minecraft.wiki/w/File:Block Horse.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Horse.png",
+        "url": "https://minecraft.wiki/w/File:Item Horse.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Horse.png",
+        "url": "https://minecraft.wiki/w/File:Entity Horse.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "infested",
+    "standardized": "Infested",
+    "chinese": "Infested",
+    "phonetic": "",
+    "phrase": "find infested",
+    "phraseTranslation": "找到Infested",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Infested.png",
+        "url": "https://minecraft.wiki/w/File:Infested.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Infested.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Infested.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Infested.png",
+        "url": "https://minecraft.wiki/w/File:Block Infested.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Infested.png",
+        "url": "https://minecraft.wiki/w/File:Item Infested.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Infested.png",
+        "url": "https://minecraft.wiki/w/File:Entity Infested.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "jigsaw",
+    "standardized": "Jigsaw",
+    "chinese": "Jigsaw",
+    "phonetic": "",
+    "phrase": "find jigsaw",
+    "phraseTranslation": "找到Jigsaw",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Jigsaw.png",
+        "url": "https://minecraft.wiki/w/File:Jigsaw.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Jigsaw.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Jigsaw.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Jigsaw.png",
+        "url": "https://minecraft.wiki/w/File:Block Jigsaw.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Jigsaw.png",
+        "url": "https://minecraft.wiki/w/File:Item Jigsaw.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Jigsaw.png",
+        "url": "https://minecraft.wiki/w/File:Entity Jigsaw.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Knowledge",
+    "standardized": "Knowledge",
+    "chinese": "Knowledge",
+    "phonetic": "",
+    "phrase": "find knowledge",
+    "phraseTranslation": "找到Knowledge",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Knowledge.png",
+        "url": "https://minecraft.wiki/w/File:Knowledge.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Knowledge.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Knowledge.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Knowledge.png",
+        "url": "https://minecraft.wiki/w/File:Block Knowledge.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Knowledge.png",
+        "url": "https://minecraft.wiki/w/File:Item Knowledge.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Knowledge.png",
+        "url": "https://minecraft.wiki/w/File:Entity Knowledge.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Lingering",
+    "standardized": "Lingering",
+    "chinese": "滞留药水",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Lingering_Potion.png",
+        "url": "https://minecraft.wiki/w/File:Lingering_Potion.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Llama",
+    "standardized": "Llama",
+    "chinese": "Llama",
+    "phonetic": "",
+    "phrase": "find llama",
+    "phraseTranslation": "找到Llama",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Llama.png",
+        "url": "https://minecraft.wiki/w/File:Llama.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Llama.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Llama.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Llama.png",
+        "url": "https://minecraft.wiki/w/File:Block Llama.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Llama.png",
+        "url": "https://minecraft.wiki/w/File:Item Llama.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Llama.png",
+        "url": "https://minecraft.wiki/w/File:Entity Llama.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Lodestone",
+    "standardized": "Lodestone",
+    "chinese": "磁石",
+    "difficulty": "advanced",
+    "category": "utility",
+    "imageURLs": [
+      {
+        "filename": "Lodestone.png",
+        "url": "https://minecraft.wiki/w/File:Lodestone.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lodestone",
+    "standardized": "Lodestone",
+    "chinese": "磁石",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Lodestone.png",
+        "url": "https://minecraft.wiki/w/File:Lodestone.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "membrane",
+    "standardized": "Membrane",
+    "chinese": "Membrane",
+    "phonetic": "",
+    "phrase": "find membrane",
+    "phraseTranslation": "找到Membrane",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Membrane.png",
+        "url": "https://minecraft.wiki/w/File:Membrane.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Membrane.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Membrane.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Membrane.png",
+        "url": "https://minecraft.wiki/w/File:Block Membrane.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Membrane.png",
+        "url": "https://minecraft.wiki/w/File:Item Membrane.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Membrane.png",
+        "url": "https://minecraft.wiki/w/File:Entity Membrane.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "mendelevium",
+    "standardized": "Mendelevium",
+    "chinese": "Mendelevium",
+    "phonetic": "",
+    "phrase": "find mendelevium",
+    "phraseTranslation": "找到Mendelevium",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Mendelevium.png",
+        "url": "https://minecraft.wiki/w/File:Mendelevium.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Mendelevium.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Mendelevium.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Mendelevium.png",
+        "url": "https://minecraft.wiki/w/File:Block Mendelevium.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Mendelevium.png",
+        "url": "https://minecraft.wiki/w/File:Item Mendelevium.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Mendelevium.png",
+        "url": "https://minecraft.wiki/w/File:Entity Mendelevium.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "mite",
+    "standardized": "Mite",
+    "chinese": "Mite",
+    "phonetic": "",
+    "phrase": "find mite",
+    "phraseTranslation": "找到Mite",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Mite.png",
+        "url": "https://minecraft.wiki/w/File:Mite.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Mite.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Mite.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Mite.png",
+        "url": "https://minecraft.wiki/w/File:Block Mite.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Mite.png",
+        "url": "https://minecraft.wiki/w/File:Item Mite.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Mite.png",
+        "url": "https://minecraft.wiki/w/File:Entity Mite.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "mobspawner",
+    "standardized": "Mobspawner",
+    "chinese": "Mobspawner",
+    "phonetic": "",
+    "phrase": "find mobspawner",
+    "phraseTranslation": "找到Mobspawner",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Mobspawner.png",
+        "url": "https://minecraft.wiki/w/File:Mobspawner.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Mobspawner.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Mobspawner.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Mobspawner.png",
+        "url": "https://minecraft.wiki/w/File:Block Mobspawner.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Mobspawner.png",
+        "url": "https://minecraft.wiki/w/File:Item Mobspawner.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Mobspawner.png",
+        "url": "https://minecraft.wiki/w/File:Entity Mobspawner.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "mooshroom",
+    "standardized": "Mooshroom",
+    "chinese": "Mooshroom",
+    "phonetic": "",
+    "phrase": "find mooshroom",
+    "phraseTranslation": "找到Mooshroom",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Mooshroom.png",
+        "url": "https://minecraft.wiki/w/File:Mooshroom.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Mooshroom.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Mooshroom.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Mooshroom.png",
+        "url": "https://minecraft.wiki/w/File:Block Mooshroom.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Mooshroom.png",
+        "url": "https://minecraft.wiki/w/File:Item Mooshroom.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Mooshroom.png",
+        "url": "https://minecraft.wiki/w/File:Entity Mooshroom.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Mule",
+    "standardized": "Mule",
+    "chinese": "Mule",
+    "phonetic": "",
+    "phrase": "find mule",
+    "phraseTranslation": "找到Mule",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Mule.png",
+        "url": "https://minecraft.wiki/w/File:Mule.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Mule.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Mule.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Mule.png",
+        "url": "https://minecraft.wiki/w/File:Block Mule.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Mule.png",
+        "url": "https://minecraft.wiki/w/File:Item Mule.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Mule.png",
+        "url": "https://minecraft.wiki/w/File:Entity Mule.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "musicdisccat",
+    "standardized": "Musicdisccat",
+    "chinese": "Musicdisccat",
+    "phonetic": "",
+    "phrase": "find musicdisccat",
+    "phraseTranslation": "找到Musicdisccat",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Musicdisccat.png",
+        "url": "https://minecraft.wiki/w/File:Musicdisccat.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Musicdisccat.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Musicdisccat.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Musicdisccat.png",
+        "url": "https://minecraft.wiki/w/File:Block Musicdisccat.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Musicdisccat.png",
+        "url": "https://minecraft.wiki/w/File:Item Musicdisccat.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Musicdisccat.png",
+        "url": "https://minecraft.wiki/w/File:Entity Musicdisccat.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Nautilus",
+    "standardized": "Nautilus",
+    "chinese": "鹦鹉螺壳",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Nautilus_Shell.png",
+        "url": "https://minecraft.wiki/w/File:Nautilus_Shell.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "nautilusshell",
+    "standardized": "Nautilusshell",
+    "chinese": "Nautilusshell",
+    "phonetic": "",
+    "phrase": "find nautilusshell",
+    "phraseTranslation": "找到Nautilusshell",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Nautilusshell.png",
+        "url": "https://minecraft.wiki/w/File:Nautilusshell.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Nautilusshell.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Nautilusshell.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Nautilusshell.png",
+        "url": "https://minecraft.wiki/w/File:Block Nautilusshell.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Nautilusshell.png",
+        "url": "https://minecraft.wiki/w/File:Item Nautilusshell.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Nautilusshell.png",
+        "url": "https://minecraft.wiki/w/File:Entity Nautilusshell.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Nether",
+    "standardized": "Nether",
+    "chinese": "下界之星",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Nether_Star.png",
+        "url": "https://minecraft.wiki/w/File:Nether_Star.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Netherite",
+    "standardized": "Netherite Ingot",
+    "chinese": "下界合金锭",
+    "phonetic": "/ˈneðəraɪt/",
+    "phrase": "strongest material",
+    "phraseTranslation": "最强材料",
+    "difficulty": "advanced",
+    "category": "material",
+    "imageURLs": [
+      {
+        "filename": "Netherite_Ingot.png",
+        "url": "https://minecraft.wiki/w/File:Netherite_Ingot.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Netherite",
+    "standardized": "Netherite",
+    "chinese": "下界合金",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Netherite_Ingot.png",
+        "url": "https://minecraft.wiki/w/File:Netherite_Ingot.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Obsidian",
+    "standardized": "Obsidian",
+    "chinese": "黑曜石",
+    "phonetic": "/əbˈsɪdiən/",
+    "phrase": "build portal",
+    "phraseTranslation": "建造传送门",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Obsidian.png",
+        "url": "https://minecraft.wiki/w/File:Obsidian.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ocelot",
+    "standardized": "Ocelot",
+    "chinese": "Ocelot",
+    "phonetic": "",
+    "phrase": "find ocelot",
+    "phraseTranslation": "找到Ocelot",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Ocelot.png",
+        "url": "https://minecraft.wiki/w/File:Ocelot.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Ocelot.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Ocelot.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Ocelot.png",
+        "url": "https://minecraft.wiki/w/File:Block Ocelot.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Ocelot.png",
+        "url": "https://minecraft.wiki/w/File:Item Ocelot.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Ocelot.png",
+        "url": "https://minecraft.wiki/w/File:Entity Ocelot.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "panda",
+    "standardized": "Panda",
+    "chinese": "Panda",
+    "phonetic": "",
+    "phrase": "find panda",
+    "phraseTranslation": "找到Panda",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Panda.png",
+        "url": "https://minecraft.wiki/w/File:Panda.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Panda.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Panda.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Panda.png",
+        "url": "https://minecraft.wiki/w/File:Block Panda.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Panda.png",
+        "url": "https://minecraft.wiki/w/File:Item Panda.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Panda.png",
+        "url": "https://minecraft.wiki/w/File:Entity Panda.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Parrot",
+    "standardized": "Parrot",
+    "chinese": "Parrot",
+    "phonetic": "",
+    "phrase": "find parrot",
+    "phraseTranslation": "找到Parrot",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Parrot.png",
+        "url": "https://minecraft.wiki/w/File:Parrot.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Parrot.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Parrot.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Parrot.png",
+        "url": "https://minecraft.wiki/w/File:Block Parrot.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Parrot.png",
+        "url": "https://minecraft.wiki/w/File:Item Parrot.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Parrot.png",
+        "url": "https://minecraft.wiki/w/File:Entity Parrot.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Phantom",
+    "standardized": "Phantom",
+    "chinese": "幻翼",
+    "difficulty": "advanced",
+    "category": "mob",
+    "imageURLs": [
+      {
+        "filename": "Phantom.png",
+        "url": "https://minecraft.wiki/w/File:Phantom.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Phantom",
+    "standardized": "Phantom",
+    "chinese": "幻翼膜",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Phantom_Membrane.png",
+        "url": "https://minecraft.wiki/w/File:Phantom_Membrane.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "phantommembrane",
+    "standardized": "Phantommembrane",
+    "chinese": "Phantommembrane",
+    "phonetic": "",
+    "phrase": "find phantommembrane",
+    "phraseTranslation": "找到Phantommembrane",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Phantommembrane.png",
+        "url": "https://minecraft.wiki/w/File:Phantommembrane.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Phantommembrane.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Phantommembrane.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Phantommembrane.png",
+        "url": "https://minecraft.wiki/w/File:Block Phantommembrane.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Phantommembrane.png",
+        "url": "https://minecraft.wiki/w/File:Item Phantommembrane.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Phantommembrane.png",
+        "url": "https://minecraft.wiki/w/File:Entity Phantommembrane.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Piglin",
+    "standardized": "Piglin",
+    "chinese": "猪灵",
+    "difficulty": "advanced",
+    "category": "monster",
+    "imageURLs": [
+      {
+        "filename": "Piglin.png",
+        "url": "https://minecraft.wiki/w/File:Piglin.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Piglin",
+    "standardized": "Piglin",
+    "chinese": "猪灵",
+    "difficulty": "advanced",
+    "category": "mob",
+    "imageURLs": [
+      {
+        "filename": "Piglin.png",
+        "url": "https://minecraft.wiki/w/File:Piglin.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "pillager",
+    "standardized": "Pillager",
+    "chinese": "Pillager",
+    "phonetic": "",
+    "phrase": "find pillager",
+    "phraseTranslation": "找到Pillager",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Pillager.png",
+        "url": "https://minecraft.wiki/w/File:Pillager.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Pillager.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Pillager.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Pillager.png",
+        "url": "https://minecraft.wiki/w/File:Block Pillager.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Pillager.png",
+        "url": "https://minecraft.wiki/w/File:Item Pillager.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Pillager.png",
+        "url": "https://minecraft.wiki/w/File:Entity Pillager.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Polar",
+    "standardized": "Polar",
+    "chinese": "Polar",
+    "phonetic": "",
+    "phrase": "find polar",
+    "phraseTranslation": "找到Polar",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Polar.png",
+        "url": "https://minecraft.wiki/w/File:Polar.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Polar.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Polar.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Polar.png",
+        "url": "https://minecraft.wiki/w/File:Block Polar.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Polar.png",
+        "url": "https://minecraft.wiki/w/File:Item Polar.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Polar.png",
+        "url": "https://minecraft.wiki/w/File:Entity Polar.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "poppedchorusfruit",
+    "standardized": "Poppedchorusfruit",
+    "chinese": "Poppedchorusfruit",
+    "phonetic": "",
+    "phrase": "find poppedchorusfruit",
+    "phraseTranslation": "找到Poppedchorusfruit",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Poppedchorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:Poppedchorusfruit.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Poppedchorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Poppedchorusfruit.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Poppedchorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:Block Poppedchorusfruit.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Poppedchorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:Item Poppedchorusfruit.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Poppedchorusfruit.png",
+        "url": "https://minecraft.wiki/w/File:Entity Poppedchorusfruit.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Portal",
+    "standardized": "Nether Portal",
+    "chinese": "下界传送门",
+    "phonetic": "/ˈpɔːrtəl/",
+    "phrase": "enter nether",
+    "phraseTranslation": "进入下界",
+    "difficulty": "advanced",
+    "category": "structure",
+    "imageURLs": [
+      {
+        "filename": "Nether_Portal.png",
+        "url": "https://minecraft.wiki/w/File:Nether_Portal.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pufferfish",
+    "standardized": "Pufferfish",
+    "chinese": "Pufferfish",
+    "phonetic": "",
+    "phrase": "eat pufferfish",
+    "phraseTranslation": "吃Pufferfish",
+    "difficulty": "advanced",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "Pufferfish.png",
+        "url": "https://minecraft.wiki/w/File:Pufferfish.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Pufferfish.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Pufferfish.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Pufferfish.png",
+        "url": "https://minecraft.wiki/w/File:Block Pufferfish.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Pufferfish.png",
+        "url": "https://minecraft.wiki/w/File:Item Pufferfish.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Pufferfish.png",
+        "url": "https://minecraft.wiki/w/File:Entity Pufferfish.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Purpur",
+    "standardized": "Purpur",
+    "chinese": "Purpur",
+    "phonetic": "",
+    "phrase": "find purpur",
+    "phraseTranslation": "找到Purpur",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Purpur.png",
+        "url": "https://minecraft.wiki/w/File:Purpur.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Purpur.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Purpur.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Purpur.png",
+        "url": "https://minecraft.wiki/w/File:Block Purpur.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Purpur.png",
+        "url": "https://minecraft.wiki/w/File:Item Purpur.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Purpur.png",
+        "url": "https://minecraft.wiki/w/File:Entity Purpur.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "purpurblock",
+    "standardized": "Purpur Block",
+    "chinese": "Purpur块",
+    "phonetic": "",
+    "phrase": "mine purpurblock",
+    "phraseTranslation": "挖掘Purpur块",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Purpur_Block.png",
+        "url": "https://minecraft.wiki/w/File:Purpur_Block.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Purpur_Block.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Purpur_Block.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Purpur_Block.png",
+        "url": "https://minecraft.wiki/w/File:Block Purpur_Block.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Purpur_Block.png",
+        "url": "https://minecraft.wiki/w/File:Item Purpur_Block.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Purpur_Block.png",
+        "url": "https://minecraft.wiki/w/File:Entity Purpur_Block.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Rabbit",
+    "standardized": "Rabbit",
+    "chinese": "兔肉",
+    "phonetic": "",
+    "phrase": "find rabbit",
+    "phraseTranslation": "找到兔肉",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:Rabbit.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Rabbit.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:Block Rabbit.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:Item Rabbit.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Rabbit.png",
+        "url": "https://minecraft.wiki/w/File:Entity Rabbit.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Rabbit's",
+    "standardized": "Rabbit's",
+    "chinese": "Rabbit's",
+    "phonetic": "",
+    "phrase": "find rabbit's",
+    "phraseTranslation": "找到Rabbit's",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Rabbit's.png",
+        "url": "https://minecraft.wiki/w/File:Rabbit's.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Rabbit's.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Rabbit's.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Rabbit's.png",
+        "url": "https://minecraft.wiki/w/File:Block Rabbit's.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Rabbit's.png",
+        "url": "https://minecraft.wiki/w/File:Item Rabbit's.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Rabbit's.png",
+        "url": "https://minecraft.wiki/w/File:Entity Rabbit's.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "rabbitfoot",
+    "standardized": "Rabbitfoot",
+    "chinese": "Rabbitfoot",
+    "phonetic": "",
+    "phrase": "find rabbitfoot",
+    "phraseTranslation": "找到Rabbitfoot",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Rabbitfoot.png",
+        "url": "https://minecraft.wiki/w/File:Rabbitfoot.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Rabbitfoot.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Rabbitfoot.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Rabbitfoot.png",
+        "url": "https://minecraft.wiki/w/File:Block Rabbitfoot.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Rabbitfoot.png",
+        "url": "https://minecraft.wiki/w/File:Item Rabbitfoot.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Rabbitfoot.png",
+        "url": "https://minecraft.wiki/w/File:Entity Rabbitfoot.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "rabbithide",
+    "standardized": "Rabbithide",
+    "chinese": "Rabbithide",
+    "phonetic": "",
+    "phrase": "find rabbithide",
+    "phraseTranslation": "找到Rabbithide",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Rabbithide.png",
+        "url": "https://minecraft.wiki/w/File:Rabbithide.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Rabbithide.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Rabbithide.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Rabbithide.png",
+        "url": "https://minecraft.wiki/w/File:Block Rabbithide.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Rabbithide.png",
+        "url": "https://minecraft.wiki/w/File:Item Rabbithide.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Rabbithide.png",
+        "url": "https://minecraft.wiki/w/File:Entity Rabbithide.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "rabbitstew",
+    "standardized": "Rabbitstew",
+    "chinese": "Rabbitstew",
+    "phonetic": "",
+    "phrase": "find rabbitstew",
+    "phraseTranslation": "找到Rabbitstew",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Rabbitstew.png",
+        "url": "https://minecraft.wiki/w/File:Rabbitstew.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Rabbitstew.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Rabbitstew.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Rabbitstew.png",
+        "url": "https://minecraft.wiki/w/File:Block Rabbitstew.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Rabbitstew.png",
+        "url": "https://minecraft.wiki/w/File:Item Rabbitstew.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Rabbitstew.png",
+        "url": "https://minecraft.wiki/w/File:Entity Rabbitstew.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "ravager",
+    "standardized": "Ravager",
+    "chinese": "Ravager",
+    "phonetic": "",
+    "phrase": "find ravager",
+    "phraseTranslation": "找到Ravager",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Ravager.png",
+        "url": "https://minecraft.wiki/w/File:Ravager.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Ravager.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Ravager.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Ravager.png",
+        "url": "https://minecraft.wiki/w/File:Block Ravager.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Ravager.png",
+        "url": "https://minecraft.wiki/w/File:Item Ravager.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Ravager.png",
+        "url": "https://minecraft.wiki/w/File:Entity Ravager.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Repeating",
+    "standardized": "Repeating",
+    "chinese": "Repeating",
+    "phonetic": "",
+    "phrase": "find repeating",
+    "phraseTranslation": "找到Repeating",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Repeating.png",
+        "url": "https://minecraft.wiki/w/File:Repeating.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Repeating.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Repeating.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Repeating.png",
+        "url": "https://minecraft.wiki/w/File:Block Repeating.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Repeating.png",
+        "url": "https://minecraft.wiki/w/File:Item Repeating.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Repeating.png",
+        "url": "https://minecraft.wiki/w/File:Entity Repeating.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "repeatingcommandblock",
+    "standardized": "Repeatingcommand Block",
+    "chinese": "Repeatingcommand块",
+    "phonetic": "",
+    "phrase": "mine repeatingcommandblock",
+    "phraseTranslation": "挖掘Repeatingcommand块",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Repeatingcommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:Repeatingcommand_Block.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Repeatingcommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Repeatingcommand_Block.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Repeatingcommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:Block Repeatingcommand_Block.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Repeatingcommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:Item Repeatingcommand_Block.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Repeatingcommand_Block.png",
+        "url": "https://minecraft.wiki/w/File:Entity Repeatingcommand_Block.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Respawn",
+    "standardized": "Respawn Anchor",
+    "chinese": "重生锚",
+    "difficulty": "advanced",
+    "category": "utility",
+    "imageURLs": [
+      {
+        "filename": "Respawn_Anchor.png",
+        "url": "https://minecraft.wiki/w/File:Respawn_Anchor.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Respawn",
+    "standardized": "Respawn",
+    "chinese": "重生锚",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Respawn_Anchor.png",
+        "url": "https://minecraft.wiki/w/File:Respawn_Anchor.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Salmon",
+    "standardized": "Salmon",
+    "chinese": "鲑鱼",
+    "phonetic": "",
+    "phrase": "find salmon",
+    "phraseTranslation": "找到鲑鱼",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Salmon.png",
+        "url": "https://minecraft.wiki/w/File:Salmon.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Salmon.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Salmon.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Salmon.png",
+        "url": "https://minecraft.wiki/w/File:Block Salmon.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Salmon.png",
+        "url": "https://minecraft.wiki/w/File:Item Salmon.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Salmon.png",
+        "url": "https://minecraft.wiki/w/File:Entity Salmon.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "scrap",
+    "standardized": "Scrap",
+    "chinese": "Scrap",
+    "phonetic": "",
+    "phrase": "find scrap",
+    "phraseTranslation": "找到Scrap",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Scrap.png",
+        "url": "https://minecraft.wiki/w/File:Scrap.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Scrap.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Scrap.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Scrap.png",
+        "url": "https://minecraft.wiki/w/File:Block Scrap.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Scrap.png",
+        "url": "https://minecraft.wiki/w/File:Item Scrap.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Scrap.png",
+        "url": "https://minecraft.wiki/w/File:Entity Scrap.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Sculk",
+    "standardized": "Sculk",
+    "chinese": "幽匿",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Sculk.png",
+        "url": "https://minecraft.wiki/w/File:Sculk.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Scute",
+    "standardized": "Scute",
+    "chinese": "鳞甲",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Scute.png",
+        "url": "https://minecraft.wiki/w/File:Scute.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sea",
+    "standardized": "Sea",
+    "chinese": "Sea",
+    "phonetic": "",
+    "phrase": "find sea",
+    "phraseTranslation": "找到Sea",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Sea.png",
+        "url": "https://minecraft.wiki/w/File:Sea.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Sea.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Sea.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Sea.png",
+        "url": "https://minecraft.wiki/w/File:Block Sea.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Sea.png",
+        "url": "https://minecraft.wiki/w/File:Item Sea.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Sea.png",
+        "url": "https://minecraft.wiki/w/File:Entity Sea.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "seaborgium",
+    "standardized": "Seaborgium",
+    "chinese": "Seaborgium",
+    "phonetic": "",
+    "phrase": "find seaborgium",
+    "phraseTranslation": "找到Seaborgium",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Seaborgium.png",
+        "url": "https://minecraft.wiki/w/File:Seaborgium.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Seaborgium.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Seaborgium.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Seaborgium.png",
+        "url": "https://minecraft.wiki/w/File:Block Seaborgium.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Seaborgium.png",
+        "url": "https://minecraft.wiki/w/File:Item Seaborgium.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Seaborgium.png",
+        "url": "https://minecraft.wiki/w/File:Entity Seaborgium.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "seapickle",
+    "standardized": "Seapickle",
+    "chinese": "Seapickle",
+    "phonetic": "",
+    "phrase": "find seapickle",
+    "phraseTranslation": "找到Seapickle",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Seapickle.png",
+        "url": "https://minecraft.wiki/w/File:Seapickle.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Seapickle.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Seapickle.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Seapickle.png",
+        "url": "https://minecraft.wiki/w/File:Block Seapickle.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Seapickle.png",
+        "url": "https://minecraft.wiki/w/File:Item Seapickle.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Seapickle.png",
+        "url": "https://minecraft.wiki/w/File:Entity Seapickle.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Sensor",
+    "standardized": "Sensor",
+    "chinese": "幽匿感测体",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Sculk_Sensor.png",
+        "url": "https://minecraft.wiki/w/File:Sculk_Sensor.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shell",
+    "standardized": "Shell",
+    "chinese": "Shell",
+    "phonetic": "",
+    "phrase": "find shell",
+    "phraseTranslation": "找到Shell",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Shell.png",
+        "url": "https://minecraft.wiki/w/File:Shell.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Shell.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Shell.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Shell.png",
+        "url": "https://minecraft.wiki/w/File:Block Shell.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Shell.png",
+        "url": "https://minecraft.wiki/w/File:Item Shell.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Shell.png",
+        "url": "https://minecraft.wiki/w/File:Entity Shell.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Shriek",
+    "standardized": "Shriek",
+    "chinese": "幽匿尖啸体",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Sculk_Shrieker.png",
+        "url": "https://minecraft.wiki/w/File:Sculk_Shrieker.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shulker",
+    "standardized": "Shulker",
+    "chinese": "潜影贝",
+    "phonetic": "/ˈʃʌlkər/",
+    "phrase": "shulker box",
+    "phraseTranslation": "潜影盒",
+    "difficulty": "advanced",
+    "category": "monster",
+    "imageURLs": [
+      {
+        "filename": "Shulker.png",
+        "url": "https://minecraft.wiki/w/File:Shulker.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "shulkerbox",
+    "standardized": "Shulkerbox",
+    "chinese": "Shulkerbox",
+    "phonetic": "",
+    "phrase": "find shulkerbox",
+    "phraseTranslation": "找到Shulkerbox",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Shulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:Shulkerbox.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Shulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Shulkerbox.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Shulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:Block Shulkerbox.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Shulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:Item Shulkerbox.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Shulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:Entity Shulkerbox.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "shulkershell",
+    "standardized": "Shulkershell",
+    "chinese": "Shulkershell",
+    "phonetic": "",
+    "phrase": "find shulkershell",
+    "phraseTranslation": "找到Shulkershell",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Shulkershell.png",
+        "url": "https://minecraft.wiki/w/File:Shulkershell.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Shulkershell.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Shulkershell.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Shulkershell.png",
+        "url": "https://minecraft.wiki/w/File:Block Shulkershell.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Shulkershell.png",
+        "url": "https://minecraft.wiki/w/File:Item Shulkershell.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Shulkershell.png",
+        "url": "https://minecraft.wiki/w/File:Entity Shulkershell.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "silver",
+    "standardized": "Silver",
+    "chinese": "Silver",
+    "phonetic": "",
+    "phrase": "find silver",
+    "phraseTranslation": "找到Silver",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Silver.png",
+        "url": "https://minecraft.wiki/w/File:Silver.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Silver.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Silver.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Silver.png",
+        "url": "https://minecraft.wiki/w/File:Block Silver.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Silver.png",
+        "url": "https://minecraft.wiki/w/File:Item Silver.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Silver.png",
+        "url": "https://minecraft.wiki/w/File:Entity Silver.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Silverfish",
+    "standardized": "Silverfish",
+    "chinese": "Silverfish",
+    "phonetic": "",
+    "phrase": "eat silverfish",
+    "phraseTranslation": "吃Silverfish",
+    "difficulty": "advanced",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "Silverfish.png",
+        "url": "https://minecraft.wiki/w/File:Silverfish.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Silverfish.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Silverfish.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Silverfish.png",
+        "url": "https://minecraft.wiki/w/File:Block Silverfish.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Silverfish.png",
+        "url": "https://minecraft.wiki/w/File:Item Silverfish.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Silverfish.png",
+        "url": "https://minecraft.wiki/w/File:Entity Silverfish.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Soul",
+    "standardized": "Soul",
+    "chinese": "灵魂沙",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Soul_Sand.png",
+        "url": "https://minecraft.wiki/w/File:Soul_Sand.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "spawner",
+    "standardized": "Spawner",
+    "chinese": "Spawner",
+    "phonetic": "",
+    "phrase": "find spawner",
+    "phraseTranslation": "找到Spawner",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Spawner.png",
+        "url": "https://minecraft.wiki/w/File:Spawner.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Spawner.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Spawner.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Spawner.png",
+        "url": "https://minecraft.wiki/w/File:Block Spawner.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Spawner.png",
+        "url": "https://minecraft.wiki/w/File:Item Spawner.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Spawner.png",
+        "url": "https://minecraft.wiki/w/File:Entity Spawner.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Spectral",
+    "standardized": "Spectral",
+    "chinese": "光灵箭",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Spectral_Arrow.png",
+        "url": "https://minecraft.wiki/w/File:Spectral_Arrow.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Splash",
+    "standardized": "Splash",
+    "chinese": "喷溅药水",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Splash_Potion.png",
+        "url": "https://minecraft.wiki/w/File:Splash_Potion.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Stal",
+    "standardized": "Stal",
+    "chinese": "Stal",
+    "phonetic": "",
+    "phrase": "find stal",
+    "phraseTranslation": "找到Stal",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Stal.png",
+        "url": "https://minecraft.wiki/w/File:Stal.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Stal.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Stal.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Stal.png",
+        "url": "https://minecraft.wiki/w/File:Block Stal.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Stal.png",
+        "url": "https://minecraft.wiki/w/File:Item Stal.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Stal.png",
+        "url": "https://minecraft.wiki/w/File:Entity Stal.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Star",
+    "standardized": "Star",
+    "chinese": "Star",
+    "phonetic": "",
+    "phrase": "find star",
+    "phraseTranslation": "找到Star",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Star.png",
+        "url": "https://minecraft.wiki/w/File:Star.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Star.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Star.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Star.png",
+        "url": "https://minecraft.wiki/w/File:Block Star.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Star.png",
+        "url": "https://minecraft.wiki/w/File:Item Star.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Star.png",
+        "url": "https://minecraft.wiki/w/File:Entity Star.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Strider",
+    "standardized": "Strider",
+    "chinese": "炽足兽",
+    "difficulty": "advanced",
+    "category": "mob",
+    "imageURLs": [
+      {
+        "filename": "Strider.png",
+        "url": "https://minecraft.wiki/w/File:Strider.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Structure",
+    "standardized": "Structure",
+    "chinese": "Structure",
+    "phonetic": "",
+    "phrase": "find structure",
+    "phraseTranslation": "找到Structure",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Structure.png",
+        "url": "https://minecraft.wiki/w/File:Structure.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Structure.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Structure.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Structure.png",
+        "url": "https://minecraft.wiki/w/File:Block Structure.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Structure.png",
+        "url": "https://minecraft.wiki/w/File:Item Structure.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Structure.png",
+        "url": "https://minecraft.wiki/w/File:Entity Structure.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "structureblock",
+    "standardized": "Structure Block",
+    "chinese": "Structure块",
+    "phonetic": "",
+    "phrase": "mine structureblock",
+    "phraseTranslation": "挖掘Structure块",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Structure_Block.png",
+        "url": "https://minecraft.wiki/w/File:Structure_Block.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Structure_Block.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Structure_Block.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Structure_Block.png",
+        "url": "https://minecraft.wiki/w/File:Block Structure_Block.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Structure_Block.png",
+        "url": "https://minecraft.wiki/w/File:Item Structure_Block.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Structure_Block.png",
+        "url": "https://minecraft.wiki/w/File:Entity Structure_Block.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Tipped",
+    "standardized": "Tipped",
+    "chinese": "药箭",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Tipped_Arrow.png",
+        "url": "https://minecraft.wiki/w/File:Tipped_Arrow.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Totem",
+    "standardized": "Totem of Undying",
+    "chinese": "不死图腾",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Totem_of_Undying.png",
+        "url": "https://minecraft.wiki/w/File:Totem_of_Undying.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Totem",
+    "standardized": "Totem",
+    "chinese": "不死图腾",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Totem_of_Undying.png",
+        "url": "https://minecraft.wiki/w/File:Totem_of_Undying.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "totemofundying",
+    "standardized": "Totemofundying",
+    "chinese": "Totemofundying",
+    "phonetic": "",
+    "phrase": "find totemofundying",
+    "phraseTranslation": "找到Totemofundying",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Totemofundying.png",
+        "url": "https://minecraft.wiki/w/File:Totemofundying.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Totemofundying.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Totemofundying.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Totemofundying.png",
+        "url": "https://minecraft.wiki/w/File:Block Totemofundying.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Totemofundying.png",
+        "url": "https://minecraft.wiki/w/File:Item Totemofundying.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Totemofundying.png",
+        "url": "https://minecraft.wiki/w/File:Entity Totemofundying.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "trader",
+    "standardized": "Trader",
+    "chinese": "Trader",
+    "phonetic": "",
+    "phrase": "find trader",
+    "phraseTranslation": "找到Trader",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Trader.png",
+        "url": "https://minecraft.wiki/w/File:Trader.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Trader.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Trader.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Trader.png",
+        "url": "https://minecraft.wiki/w/File:Block Trader.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Trader.png",
+        "url": "https://minecraft.wiki/w/File:Item Trader.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Trader.png",
+        "url": "https://minecraft.wiki/w/File:Entity Trader.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Trident",
+    "standardized": "Trident",
+    "chinese": "三叉戟",
+    "difficulty": "advanced",
+    "category": "weapon",
+    "imageURLs": [
+      {
+        "filename": "Trident.png",
+        "url": "https://minecraft.wiki/w/File:Trident.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Trident",
+    "standardized": "Trident",
+    "chinese": "三叉戟",
+    "difficulty": "advanced",
+    "category": "tool",
+    "imageURLs": [
+      {
+        "filename": "Trident.png",
+        "url": "https://minecraft.wiki/w/File:Trident.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "tropical",
+    "standardized": "Tropical",
+    "chinese": "Tropical",
+    "phonetic": "",
+    "phrase": "find tropical",
+    "phraseTranslation": "找到Tropical",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Tropical.png",
+        "url": "https://minecraft.wiki/w/File:Tropical.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Tropical.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Tropical.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Tropical.png",
+        "url": "https://minecraft.wiki/w/File:Block Tropical.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Tropical.png",
+        "url": "https://minecraft.wiki/w/File:Item Tropical.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Tropical.png",
+        "url": "https://minecraft.wiki/w/File:Entity Tropical.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "tropicalfish",
+    "standardized": "Tropicalfish",
+    "chinese": "Tropicalfish",
+    "phonetic": "",
+    "phrase": "eat tropicalfish",
+    "phraseTranslation": "吃Tropicalfish",
+    "difficulty": "advanced",
+    "category": "food",
+    "imageURLs": [
+      {
+        "filename": "Tropicalfish.png",
+        "url": "https://minecraft.wiki/w/File:Tropicalfish.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Tropicalfish.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Tropicalfish.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Tropicalfish.png",
+        "url": "https://minecraft.wiki/w/File:Block Tropicalfish.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Tropicalfish.png",
+        "url": "https://minecraft.wiki/w/File:Item Tropicalfish.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Tropicalfish.png",
+        "url": "https://minecraft.wiki/w/File:Entity Tropicalfish.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "turtle",
+    "standardized": "Turtle",
+    "chinese": "Turtle",
+    "phonetic": "",
+    "phrase": "find turtle",
+    "phraseTranslation": "找到Turtle",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Turtle.png",
+        "url": "https://minecraft.wiki/w/File:Turtle.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Turtle.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Turtle.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Turtle.png",
+        "url": "https://minecraft.wiki/w/File:Block Turtle.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Turtle.png",
+        "url": "https://minecraft.wiki/w/File:Item Turtle.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Turtle.png",
+        "url": "https://minecraft.wiki/w/File:Entity Turtle.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "undyedshulkerbox",
+    "standardized": "Undyedshulkerbox",
+    "chinese": "Undyedshulkerbox",
+    "phonetic": "",
+    "phrase": "find undyedshulkerbox",
+    "phraseTranslation": "找到Undyedshulkerbox",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Undyedshulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:Undyedshulkerbox.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Undyedshulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Undyedshulkerbox.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Undyedshulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:Block Undyedshulkerbox.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Undyedshulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:Item Undyedshulkerbox.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Undyedshulkerbox.png",
+        "url": "https://minecraft.wiki/w/File:Entity Undyedshulkerbox.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Undying",
+    "standardized": "Undying",
+    "chinese": "Undying",
+    "phonetic": "",
+    "phrase": "find undying",
+    "phraseTranslation": "找到Undying",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Undying.png",
+        "url": "https://minecraft.wiki/w/File:Undying.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Undying.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Undying.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Undying.png",
+        "url": "https://minecraft.wiki/w/File:Block Undying.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Undying.png",
+        "url": "https://minecraft.wiki/w/File:Item Undying.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Undying.png",
+        "url": "https://minecraft.wiki/w/File:Entity Undying.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Vex",
+    "standardized": "Vex",
+    "chinese": "Vex",
+    "phonetic": "",
+    "phrase": "find vex",
+    "phraseTranslation": "找到Vex",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Vex.png",
+        "url": "https://minecraft.wiki/w/File:Vex.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Vex.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Vex.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Vex.png",
+        "url": "https://minecraft.wiki/w/File:Block Vex.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Vex.png",
+        "url": "https://minecraft.wiki/w/File:Item Vex.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Vex.png",
+        "url": "https://minecraft.wiki/w/File:Entity Vex.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Villager",
+    "standardized": "Villager",
+    "chinese": "村民",
+    "phonetic": "",
+    "phrase": "find villager",
+    "phraseTranslation": "找到村民",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Villager.png",
+        "url": "https://minecraft.wiki/w/File:Villager.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Villager.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Villager.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Villager.png",
+        "url": "https://minecraft.wiki/w/File:Block Villager.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Villager.png",
+        "url": "https://minecraft.wiki/w/File:Item Villager.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Villager.png",
+        "url": "https://minecraft.wiki/w/File:Entity Villager.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Vindicator",
+    "standardized": "Vindicator",
+    "chinese": "Vindicator",
+    "phonetic": "",
+    "phrase": "find vindicator",
+    "phraseTranslation": "找到Vindicator",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Vindicator.png",
+        "url": "https://minecraft.wiki/w/File:Vindicator.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Vindicator.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Vindicator.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Vindicator.png",
+        "url": "https://minecraft.wiki/w/File:Block Vindicator.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Vindicator.png",
+        "url": "https://minecraft.wiki/w/File:Item Vindicator.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Vindicator.png",
+        "url": "https://minecraft.wiki/w/File:Entity Vindicator.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Void",
+    "standardized": "Void",
+    "chinese": "Void",
+    "phonetic": "",
+    "phrase": "find void",
+    "phraseTranslation": "找到Void",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Void.png",
+        "url": "https://minecraft.wiki/w/File:Void.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Void.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Void.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Void.png",
+        "url": "https://minecraft.wiki/w/File:Block Void.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Void.png",
+        "url": "https://minecraft.wiki/w/File:Item Void.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Void.png",
+        "url": "https://minecraft.wiki/w/File:Entity Void.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "wandering",
+    "standardized": "Wandering",
+    "chinese": "Wandering",
+    "phonetic": "",
+    "phrase": "find wandering",
+    "phraseTranslation": "找到Wandering",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Wandering.png",
+        "url": "https://minecraft.wiki/w/File:Wandering.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Wandering.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Wandering.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Wandering.png",
+        "url": "https://minecraft.wiki/w/File:Block Wandering.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Wandering.png",
+        "url": "https://minecraft.wiki/w/File:Item Wandering.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Wandering.png",
+        "url": "https://minecraft.wiki/w/File:Entity Wandering.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Warden",
+    "standardized": "Warden",
+    "chinese": "监守者",
+    "difficulty": "advanced",
+    "category": "mob",
+    "imageURLs": [
+      {
+        "filename": "Warden.png",
+        "url": "https://minecraft.wiki/w/File:Warden.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Warped",
+    "standardized": "Warped",
+    "chinese": "诡异",
+    "difficulty": "advanced",
+    "category": "block",
+    "imageURLs": [
+      {
+        "filename": "Warped_Stem.png",
+        "url": "https://minecraft.wiki/w/File:Warped_Stem.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Witch",
+    "standardized": "Witch",
+    "chinese": "Witch",
+    "phonetic": "",
+    "phrase": "find witch",
+    "phraseTranslation": "找到Witch",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Witch.png",
+        "url": "https://minecraft.wiki/w/File:Witch.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Witch.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Witch.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Witch.png",
+        "url": "https://minecraft.wiki/w/File:Block Witch.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Witch.png",
+        "url": "https://minecraft.wiki/w/File:Item Witch.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Witch.png",
+        "url": "https://minecraft.wiki/w/File:Entity Witch.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "with",
+    "standardized": "With",
+    "chinese": "With",
+    "phonetic": "",
+    "phrase": "find with",
+    "phraseTranslation": "找到With",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "With.png",
+        "url": "https://minecraft.wiki/w/File:With.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon With.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon With.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block With.png",
+        "url": "https://minecraft.wiki/w/File:Block With.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item With.png",
+        "url": "https://minecraft.wiki/w/File:Item With.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity With.png",
+        "url": "https://minecraft.wiki/w/File:Entity With.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Wither",
+    "standardized": "Wither",
+    "chinese": "凋零",
+    "phonetic": "/ˈwɪðər/",
+    "phrase": "wither boss",
+    "phraseTranslation": "凋零Boss",
+    "difficulty": "advanced",
+    "category": "boss",
+    "imageURLs": [
+      {
+        "filename": "Wither.png",
+        "url": "https://minecraft.wiki/w/File:Wither.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "witherrose",
+    "standardized": "Witherrose",
+    "chinese": "Witherrose",
+    "phonetic": "",
+    "phrase": "find witherrose",
+    "phraseTranslation": "找到Witherrose",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Witherrose.png",
+        "url": "https://minecraft.wiki/w/File:Witherrose.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Witherrose.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Witherrose.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Witherrose.png",
+        "url": "https://minecraft.wiki/w/File:Block Witherrose.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Witherrose.png",
+        "url": "https://minecraft.wiki/w/File:Item Witherrose.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Witherrose.png",
+        "url": "https://minecraft.wiki/w/File:Entity Witherrose.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Wolf",
+    "standardized": "Wolf",
+    "chinese": "狼",
+    "phonetic": "",
+    "phrase": "find wolf",
+    "phraseTranslation": "找到狼",
+    "difficulty": "advanced",
+    "category": "item",
+    "imageURLs": [
+      {
+        "filename": "Wolf.png",
+        "url": "https://minecraft.wiki/w/File:Wolf.png",
+        "type": "Default"
+      },
+      {
+        "filename": "InvIcon Wolf.png",
+        "url": "https://minecraft.wiki/w/File:InvIcon Wolf.png",
+        "type": "Inventory Icon"
+      },
+      {
+        "filename": "Block Wolf.png",
+        "url": "https://minecraft.wiki/w/File:Block Wolf.png",
+        "type": "Block"
+      },
+      {
+        "filename": "Item Wolf.png",
+        "url": "https://minecraft.wiki/w/File:Item Wolf.png",
+        "type": "Item"
+      },
+      {
+        "filename": "Entity Wolf.png",
+        "url": "https://minecraft.wiki/w/File:Entity Wolf.png",
+        "type": "Entity"
+      }
+    ]
+  },
+  {
+    "word": "Zoglin",
+    "standardized": "Zoglin",
+    "chinese": "僵尸疣猪兽",
+    "difficulty": "advanced",
+    "category": "mob",
+    "imageURLs": [
+      {
+        "filename": "Zoglin.png",
+        "url": "https://minecraft.wiki/w/File:Zoglin.png",
+        "type": "Default"
+      }
+    ]
+  }
+]

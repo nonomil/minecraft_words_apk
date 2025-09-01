@@ -1,0 +1,51 @@
+[
+  {
+    "english": "father",
+    "chinese": "爸爸",
+    "imageUrl": "images/father_11d012df.jpg",
+    "chinesePhrase": "亲爱的爸爸",
+    "englishPhrase": "Dear father"
+  },
+  {
+    "english": "mother",
+    "chinese": "妈妈",
+    "imageUrl": "images/mother_c617b5d4.jpg",
+    "chinesePhrase": "温柔的妈妈",
+    "englishPhrase": "Gentle mother"
+  },
+  {
+    "english": "brother",
+    "chinese": "哥哥",
+    "imageUrl": "images/brother_67a7d0f5.jpg",
+    "chinesePhrase": "帅气的哥哥",
+    "englishPhrase": "Handsome brother"
+  },
+  {
+    "english": "sister",
+    "chinese": "姐姐",
+    "imageUrl": "images/sister_22bf5deb.jpg",
+    "chinesePhrase": "美丽的姐姐",
+    "englishPhrase": "Beautiful sister"
+  },
+  {
+    "english": "baby",
+    "chinese": "宝宝",
+    "imageUrl": "images/baby_5b2231ee.jpg",
+    "chinesePhrase": "可爱的宝宝",
+    "englishPhrase": "Cute baby"
+  },
+  {
+    "english": "grandpa",
+    "chinese": "爷爷",
+    "imageUrl": "images/grandpa_a9a9a9d8.jpg",
+    "chinesePhrase": "慈祥的爷爷",
+    "englishPhrase": "Kind grandpa"
+  },
+  {
+    "english": "grandma",
+    "chinese": "奶奶",
+    "imageUrl": "images/grandma_cd3ed85e.jpg",
+    "chinesePhrase": "慈祥的奶奶",
+    "englishPhrase": "Kind grandma"
+  }
+]

@@ -1,0 +1,778 @@
+[
+  {
+    "english": "hello",
+    "chinese": "你好",
+    "imageUrl": "images/hello_b461d6f0.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1539952748325-70507c733093?w=400",
+    "chinesePhrase": "你好呀",
+    "englishPhrase": "Hello there"
+  },
+  {
+    "english": "bye",
+    "chinese": "再见",
+    "imageUrl": "images/bye_43122193.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1582212742970-56d43f396a1a?w=400",
+    "chinesePhrase": "挥手说再见",
+    "englishPhrase": "Wave goodbye"
+  },
+  {
+    "english": "yes",
+    "chinese": "是",
+    "imageUrl": "images/yes_2afcd060.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1572888195250-3624b0c2f404?w=400",
+    "chinesePhrase": "点头说是",
+    "englishPhrase": "Nod yes"
+  },
+  {
+    "english": "no",
+    "chinese": "不",
+    "imageUrl": "images/no_a3de949b.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=400",
+    "chinesePhrase": "摇头说不",
+    "englishPhrase": "Shake head no"
+  },
+  {
+    "english": "please",
+    "chinese": "请",
+    "imageUrl": "images/please_feacdfe9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1532010940201-c31e6beacd39?w=400",
+    "chinesePhrase": "请给我苹果",
+    "englishPhrase": "Apple, please"
+  },
+  {
+    "english": "thank you",
+    "chinese": "谢谢",
+    "imageUrl": "images/thank_you_9b73f68c.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1520900094979-074f1f3a4463?w=400",
+    "chinesePhrase": "谢谢你的帮助",
+    "englishPhrase": "Thank you for your help"
+  },
+  {
+    "english": "sorry",
+    "chinese": "对不起",
+    "imageUrl": "images/sorry_5aa762cc.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1541450805268-4822a3a774ca?w=400",
+    "chinesePhrase": "对不起，我错了",
+    "englishPhrase": "Sorry, I am wrong"
+  },
+  {
+    "english": "I",
+    "chinese": "我",
+    "imageUrl": "images/I_8d848d09.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400",
+    "chinesePhrase": "我是个好孩子",
+    "englishPhrase": "I am a good kid"
+  },
+  {
+    "english": "you",
+    "chinese": "你",
+    "imageUrl": "images/you_5ea9e996.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?w=400",
+    "chinesePhrase": "你好吗？",
+    "englishPhrase": "How are you?"
+  },
+  {
+    "english": "he",
+    "chinese": "他",
+    "imageUrl": "images/he_ddd20431.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400",
+    "chinesePhrase": "他是我的朋友",
+    "englishPhrase": "He is my friend"
+  },
+  {
+    "english": "she",
+    "chinese": "她",
+    "imageUrl": "images/she_42d88efc.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
+    "chinesePhrase": "她是我的老师",
+    "englishPhrase": "She is my teacher"
+  },
+  {
+    "english": "it",
+    "chinese": "它",
+    "imageUrl": "images/it_8d858311.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400",
+    "chinesePhrase": "它是一只猫",
+    "englishPhrase": "It is a cat"
+  },
+  {
+    "english": "we",
+    "chinese": "我们",
+    "imageUrl": "images/we_39a6ca6a.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=400",
+    "chinesePhrase": "我们一起玩",
+    "englishPhrase": "We play together"
+  },
+  {
+    "english": "they",
+    "chinese": "他们/她们/它们",
+    "imageUrl": "images/they_3ed62bd5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1462896033254-96f0b33667a0?w=400",
+    "chinesePhrase": "他们在读书",
+    "englishPhrase": "They are reading"
+  },
+  {
+    "english": "what",
+    "chinese": "什么",
+    "imageUrl": "images/what_bb66b005.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1527474389742-a235d090b890?w=400",
+    "chinesePhrase": "这是什么？",
+    "englishPhrase": "What is this?"
+  },
+  {
+    "english": "who",
+    "chinese": "谁",
+    "imageUrl": "images/who_e631c69e.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400",
+    "chinesePhrase": "他是谁？",
+    "englishPhrase": "Who is he?"
+  },
+  {
+    "english": "where",
+    "chinese": "哪里",
+    "imageUrl": "images/where_fa860083.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1516302752635-382ed1a53351?w=400",
+    "chinesePhrase": "我的球在哪里？",
+    "englishPhrase": "Where is my ball?"
+  },
+  {
+    "english": "when",
+    "chinese": "何时",
+    "imageUrl": "images/when_a8d75f8c.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1495107334305-f85feda1df45?w=400",
+    "chinesePhrase": "我们什么时候吃饭？",
+    "englishPhrase": "When do we eat?"
+  },
+  {
+    "english": "why",
+    "chinese": "为什么",
+    "imageUrl": "images/why_328f828c.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1506477335329-3371f3c1d836?w=400",
+    "chinesePhrase": "为什么天空是蓝的？",
+    "englishPhrase": "Why is the sky blue?"
+  },
+  {
+    "english": "how",
+    "chinese": "怎样",
+    "imageUrl": "images/how_f10a3302.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1526666923107-9757c07660b0?w=400",
+    "chinesePhrase": "你好吗？",
+    "englishPhrase": "How are you?"
+  },
+  {
+    "english": "big",
+    "chinese": "大的",
+    "imageUrl": "images/big_e68955ed.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=400",
+    "chinesePhrase": "一个大象",
+    "englishPhrase": "A big elephant"
+  },
+  {
+    "english": "small",
+    "chinese": "小的",
+    "imageUrl": "images/small_2dea02ab.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1425082661705-1834bfd09dca?w=400",
+    "chinesePhrase": "一只小老鼠",
+    "englishPhrase": "A small mouse"
+  },
+  {
+    "english": "tall",
+    "chinese": "高的",
+    "imageUrl": "images/tall_0785c454.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=400",
+    "chinesePhrase": "高高的长颈鹿",
+    "englishPhrase": "Tall giraffe"
+  },
+  {
+    "english": "short",
+    "chinese": "矮的",
+    "imageUrl": "images/short_a03853e8.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1593179357196-add6bc00b8d6?w=400",
+    "chinesePhrase": "矮矮的小猪",
+    "englishPhrase": "Short little pig"
+  },
+  {
+    "english": "long",
+    "chinese": "长的",
+    "imageUrl": "images/long_edce4d46.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=400",
+    "chinesePhrase": "长长的蛇",
+    "englishPhrase": "Long snake"
+  },
+  {
+    "english": "hot",
+    "chinese": "热的",
+    "imageUrl": "images/hot_ecc2b5a7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1504370805625-d32c54b16100?w=400",
+    "chinesePhrase": "热热的太阳",
+    "englishPhrase": "Hot sun"
+  },
+  {
+    "english": "cold",
+    "chinese": "冷的",
+    "imageUrl": "images/cold_205399e5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1477601263568-180e2c6d046e?w=400",
+    "chinesePhrase": "冷冷的冰淇淋",
+    "englishPhrase": "Cold ice cream"
+  },
+  {
+    "english": "happy",
+    "chinese": "开心的",
+    "imageUrl": "images/happy_61adcdc2.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1517256673342-2546a36e5c35?w=400",
+    "chinesePhrase": "开心的小朋友",
+    "englishPhrase": "Happy child"
+  },
+  {
+    "english": "sad",
+    "chinese": "难过的",
+    "imageUrl": "images/sad_4dfc70c4.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1541233421392-8d44455a4aee?w=400",
+    "chinesePhrase": "难过的表情",
+    "englishPhrase": "Sad face"
+  },
+  {
+    "english": "angry",
+    "chinese": "生气的",
+    "imageUrl": "images/angry_d473ba12.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1581991826543-44a737798e10?w=400",
+    "chinesePhrase": "生气的猫咪",
+    "englishPhrase": "Angry cat"
+  },
+  {
+    "english": "hungry",
+    "chinese": "饿的",
+    "imageUrl": "images/hungry_eed32a0b.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1516100882582-96c3a05fe590?w=400",
+    "chinesePhrase": "我饿了，想吃饭",
+    "englishPhrase": "I'm hungry, want to eat"
+  },
+  {
+    "english": "thirsty",
+    "chinese": "渴的",
+    "imageUrl": "images/thirsty_f861551f.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1561633862-169854214672?w=400",
+    "chinesePhrase": "我渴了，想喝水",
+    "englishPhrase": "I'm thirsty, want water"
+  },
+  {
+    "english": "good",
+    "chinese": "好的",
+    "imageUrl": "images/good_2afcd060.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1590341435179-097a612a42c6?w=400",
+    "chinesePhrase": "做得好！",
+    "englishPhrase": "Good job!"
+  },
+  {
+    "english": "bad",
+    "chinese": "坏的",
+    "imageUrl": "images/bad_47b0e8cb.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=400",
+    "chinesePhrase": "坏天气",
+    "englishPhrase": "Bad weather"
+  },
+  {
+    "english": "new",
+    "chinese": "新的",
+    "imageUrl": "images/new_4c714cf3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+    "chinesePhrase": "一双新鞋",
+    "englishPhrase": "A pair of new shoes"
+  },
+  {
+    "english": "old",
+    "chinese": "旧的/老的",
+    "imageUrl": "images/old_332e5225.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=400",
+    "chinesePhrase": "一位老爷爷",
+    "englishPhrase": "An old grandpa"
+  },
+  {
+    "english": "clean",
+    "chinese": "干净的",
+    "imageUrl": "images/clean_af4e7177.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1583845112099-04a14a22cf9f?w=400",
+    "chinesePhrase": "干净的手",
+    "englishPhrase": "Clean hands"
+  },
+  {
+    "english": "dirty",
+    "chinese": "脏的",
+    "imageUrl": "images/dirty_2e5fd55f.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1596801783547-9547e0abe77f?w=400",
+    "chinesePhrase": "脏脏的鞋",
+    "englishPhrase": "Dirty shoes"
+  },
+  {
+    "english": "fast",
+    "chinese": "快的",
+    "imageUrl": "images/fast_677d61bd.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1446941611757-91d2c3bd3d45?w=400",
+    "chinesePhrase": "跑得快",
+    "englishPhrase": "Run fast"
+  },
+  {
+    "english": "slow",
+    "chinese": "慢的",
+    "imageUrl": "images/slow_2b06a1d0.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=400",
+    "chinesePhrase": "慢吞吞的乌龟",
+    "englishPhrase": "Slow turtle"
+  },
+  {
+    "english": "easy",
+    "chinese": "容易的",
+    "imageUrl": "images/easy_e5277922.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=400",
+    "chinesePhrase": "简单的积木",
+    "englishPhrase": "Easy blocks"
+  },
+  {
+    "english": "hard",
+    "chinese": "困难的/硬的",
+    "imageUrl": "images/hard_be718289.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1587197203247-68a5f7d556d8?w=400",
+    "chinesePhrase": "硬硬的石头",
+    "englishPhrase": "Hard stone"
+  },
+  {
+    "english": "beautiful",
+    "chinese": "美丽的",
+    "imageUrl": "images/beautiful_c1270e74.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400",
+    "chinesePhrase": "美丽的花",
+    "englishPhrase": "Beautiful flower"
+  },
+  {
+    "english": "cute",
+    "chinese": "可爱的",
+    "imageUrl": "images/cute_ef9174e2.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1570458410228-7ac945aca0ac?w=400",
+    "chinesePhrase": "可爱的小猫",
+    "englishPhrase": "Cute kitten"
+  },
+  {
+    "english": "pretty",
+    "chinese": "漂亮的",
+    "imageUrl": "images/pretty_8a6a9082.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=400",
+    "chinesePhrase": "漂亮的蝴蝶",
+    "englishPhrase": "Pretty butterfly"
+  },
+  {
+    "english": "funny",
+    "chinese": "有趣的/好笑的",
+    "imageUrl": "images/funny_aba89fdb.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1599839570018-27fd5a2a0e3e?w=400",
+    "chinesePhrase": "有趣的猴子",
+    "englishPhrase": "Funny monkey"
+  },
+  {
+    "english": "friendly",
+    "chinese": "友好的",
+    "imageUrl": "images/friendly_a3b7c8d9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400",
+    "chinesePhrase": "友好的狗狗",
+    "englishPhrase": "Friendly dog"
+  },
+  {
+    "english": "quiet",
+    "chinese": "安静的",
+    "imageUrl": "images/quiet_e4f5g6h7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1513682121497-80211f36a7d3?w=400",
+    "chinesePhrase": "安静的图书馆",
+    "englishPhrase": "Quiet library"
+  },
+  {
+    "english": "loud",
+    "chinese": "吵闹的",
+    "imageUrl": "images/loud_i8j9k0l1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1546058256-8fb40c029049?w=400",
+    "chinesePhrase": "吵闹的操场",
+    "englishPhrase": "Loud playground"
+  },
+  {
+    "english": "kind",
+    "chinese": "善良的",
+    "imageUrl": "images/kind_m2n3o4p5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1531379410502-63bfe8cdaf6f?w=400",
+    "chinesePhrase": "善良的老师",
+    "englishPhrase": "Kind teacher"
+  },
+  {
+    "english": "brave",
+    "chinese": "勇敢的",
+    "imageUrl": "images/brave_q6r7s8t9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1553267751-1c148a7280a1?w=400",
+    "chinesePhrase": "勇敢的消防员",
+    "englishPhrase": "Brave firefighter"
+  },
+  {
+    "english": "scared",
+    "chinese": "害怕的",
+    "imageUrl": "images/scared_u0v1w2x3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1590080664082-820508e8d92d?w=400",
+    "chinesePhrase": "害怕黑暗",
+    "englishPhrase": "Scared of the dark"
+  },
+  {
+    "english": "tired",
+    "chinese": "累的",
+    "imageUrl": "images/tired_y4z5a6b7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1519003300449-424ad0405076?w=400",
+    "chinesePhrase": "跑完步很累",
+    "englishPhrase": "Tired after running"
+  },
+  {
+    "english": "sleepy",
+    "chinese": "困的",
+    "imageUrl": "images/sleepy_c8d9e0f1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1566598462779-36de58414be4?w=400",
+    "chinesePhrase": "小狗困了",
+    "englishPhrase": "Puppy is sleepy"
+  },
+  {
+    "english": "strong",
+    "chinese": "强壮的",
+    "imageUrl": "images/strong_g2h3i4j5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1533681904393-9ab6eee7e408?w=400",
+    "chinesePhrase": "强壮的大象",
+    "englishPhrase": "Strong elephant"
+  },
+  {
+    "english": "weak",
+    "chinese": "虚弱的",
+    "imageUrl": "images/weak_k6l7m8n9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1575377569318-4c3f43589cd3?w=400",
+    "chinesePhrase": "生病了很虚弱",
+    "englishPhrase": "Weak when sick"
+  },
+  {
+    "english": "soft",
+    "chinese": "柔软的",
+    "imageUrl": "images/soft_o0p1q2r3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1583514566726-2521f3a4409c?w=400",
+    "chinesePhrase": "柔软的枕头",
+    "englishPhrase": "Soft pillow"
+  },
+  {
+    "english": "heavy",
+    "chinese": "重的",
+    "imageUrl": "images/heavy_s4t5u6v7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=400",
+    "chinesePhrase": "重重的石头",
+    "englishPhrase": "Heavy stone"
+  },
+  {
+    "english": "light",
+    "chinese": "轻的",
+    "imageUrl": "images/light_w8x9y0z1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1533267501337-86ba0c65a969?w=400",
+    "chinesePhrase": "轻轻的羽毛",
+    "englishPhrase": "Light feather"
+  },
+  {
+    "english": "round",
+    "chinese": "圆的",
+    "imageUrl": "images/round_a2b3c4d5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1517466129843-9c983be928b8?w=400",
+    "chinesePhrase": "圆圆的球",
+    "englishPhrase": "Round ball"
+  },
+  {
+    "english": "square",
+    "chinese": "方的",
+    "imageUrl": "images/square_e6f7g8h9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1563074409-24e8329fc263?w=400",
+    "chinesePhrase": "方方的积木",
+    "englishPhrase": "Square block"
+  },
+  {
+    "english": "empty",
+    "chinese": "空的",
+    "imageUrl": "images/empty_i0j1k2l3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1563903555957-005bb2a7064b?w=400",
+    "chinesePhrase": "空空的杯子",
+    "englishPhrase": "Empty cup"
+  },
+  {
+    "english": "full",
+    "chinese": "满的",
+    "imageUrl": "images/full_m4n5o6p7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1499744937866-d7e566a20a61?w=400",
+    "chinesePhrase": "装满水的杯子",
+    "englishPhrase": "Cup full of water"
+  },
+  {
+    "english": "wet",
+    "chinese": "湿的",
+    "imageUrl": "images/wet_q8r9s0t1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1579656451528-8cd83b950974?w=400",
+    "chinesePhrase": "湿湿的雨伞",
+    "englishPhrase": "Wet umbrella"
+  },
+  {
+    "english": "dry",
+    "chinese": "干的",
+    "imageUrl": "images/dry_u2v3w4x5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1564500601346-c9b664bd3a8e?w=400",
+    "chinesePhrase": "干燥的毛巾",
+    "englishPhrase": "Dry towel"
+  },
+  {
+    "english": "far",
+    "chinese": "远的",
+    "imageUrl": "images/far_y6z7a8b9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1490682143684-14369e18dce8?w=400",
+    "chinesePhrase": "远处的山",
+    "englishPhrase": "Far mountains"
+  },
+  {
+    "english": "near",
+    "chinese": "近的",
+    "imageUrl": "images/near_c0d1e2f3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1570537336474-9898da5ca040?w=400",
+    "chinesePhrase": "近在眼前",
+    "englishPhrase": "Near at hand"
+  },
+  {
+    "english": "open",
+    "chinese": "开着的",
+    "imageUrl": "images/open_g4h5i6j7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1517824806704-9040b037703b?w=400",
+    "chinesePhrase": "开着的门",
+    "englishPhrase": "Open door"
+  },
+  {
+    "english": "closed",
+    "chinese": "关着的",
+    "imageUrl": "images/closed_k8l9m0n1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1558542095-1334687dcae4?w=400",
+    "chinesePhrase": "关着的窗户",
+    "englishPhrase": "Closed window"
+  },
+  {
+    "english": "sweet",
+    "chinese": "甜的",
+    "imageUrl": "images/sweet_o2p3q4r5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1535141192574-5d4897695767?w=400",
+    "chinesePhrase": "甜甜的糖果",
+    "englishPhrase": "Sweet candy"
+  },
+  {
+    "english": "sour",
+    "chinese": "酸的",
+    "imageUrl": "images/sour_s6t7u8v9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1566391273310-14fe5c61838b?w=400",
+    "chinesePhrase": "酸酸的柠檬",
+    "englishPhrase": "Sour lemon"
+  },
+  {
+    "english": "young",
+    "chinese": "年轻的",
+    "imageUrl": "images/young_w0x1y2z3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1627976581588-a7cd0d208376?w=400",
+    "chinesePhrase": "年轻的妈妈",
+    "englishPhrase": "Young mother"
+  },
+  {
+    "english": "many",
+    "chinese": "许多",
+    "imageUrl": "images/many_a4b5c6d7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1481437642641-2f0ae875f836?w=400",
+    "chinesePhrase": "许多小星星",
+    "englishPhrase": "Many little stars"
+  },
+  {
+    "english": "few",
+    "chinese": "几个",
+    "imageUrl": "images/few_e8f9g0h1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=400",
+    "chinesePhrase": "几个苹果",
+    "englishPhrase": "A few apples"
+  },
+  {
+    "english": "first",
+    "chinese": "第一",
+    "imageUrl": "images/first_i2j3k4l5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=400",
+    "chinesePhrase": "第一名",
+    "englishPhrase": "First place"
+  },
+  {
+    "english": "last",
+    "chinese": "最后",
+    "imageUrl": "images/last_m6n7o8p9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1589998059171-988d887df646?w=400",
+    "chinesePhrase": "最后一个",
+    "englishPhrase": "The last one"
+  },
+  {
+    "english": "morning",
+    "chinese": "早上",
+    "imageUrl": "images/morning_q0r1s2t3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1507802975741-6edcb5a51518?w=400",
+    "chinesePhrase": "早上好",
+    "englishPhrase": "Good morning"
+  },
+  {
+    "english": "night",
+    "chinese": "晚上",
+    "imageUrl": "images/night_u4v5w6x7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1505322022379-7c3353ee6291?w=400",
+    "chinesePhrase": "晚上好",
+    "englishPhrase": "Good night"
+  },
+  {
+    "english": "today",
+    "chinese": "今天",
+    "imageUrl": "images/today_y8z9a0b1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1508030930907-539056bbe7a8?w=400",
+    "chinesePhrase": "今天天气好",
+    "englishPhrase": "Today's weather is good"
+  },
+  {
+    "english": "tomorrow",
+    "chinese": "明天",
+    "imageUrl": "images/tomorrow_c2d3e4f5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1566228015668-4c45dbc4e2f5?w=400",
+    "chinesePhrase": "明天见",
+    "englishPhrase": "See you tomorrow"
+  },
+  {
+    "english": "one",
+    "chinese": "一",
+    "imageUrl": "images/one_g6h7i8j9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1611457663357-0e445da942b5?w=400",
+    "chinesePhrase": "一只小鸟",
+    "englishPhrase": "One little bird"
+  },
+  {
+    "english": "two",
+    "chinese": "二",
+    "imageUrl": "images/two_k0l1m2n3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1469571486292-b53e53c3d3a5?w=400",
+    "chinesePhrase": "两个朋友",
+    "englishPhrase": "Two friends"
+  },
+  {
+    "english": "three",
+    "chinese": "三",
+    "imageUrl": "images/three_o4p5q6r7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400",
+    "chinesePhrase": "三颗星星",
+    "englishPhrase": "Three stars"
+  },
+  {
+    "english": "mom",
+    "chinese": "妈妈",
+    "imageUrl": "images/mom_s8t9u0v1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=400",
+    "chinesePhrase": "我爱妈妈",
+    "englishPhrase": "I love mom"
+  },
+  {
+    "english": "dad",
+    "chinese": "爸爸",
+    "imageUrl": "images/dad_w2x3y4z5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1509506489701-dfe23b067808?w=400",
+    "chinesePhrase": "爸爸抱我",
+    "englishPhrase": "Dad hugs me"
+  },
+  {
+    "english": "family",
+    "chinese": "家人",
+    "imageUrl": "images/family_a6b7c8d9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
+    "chinesePhrase": "我的家人",
+    "englishPhrase": "My family"
+  },
+  {
+    "english": "friend",
+    "chinese": "朋友",
+    "imageUrl": "images/friend_e0f1g2h3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1496354265829-17b1c7b7c363?w=400",
+    "chinesePhrase": "好朋友",
+    "englishPhrase": "Good friend"
+  },
+  {
+    "english": "teacher",
+    "chinese": "老师",
+    "imageUrl": "images/teacher_i4j5k6l7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400",
+    "chinesePhrase": "李老师",
+    "englishPhrase": "Teacher Li"
+  },
+  {
+    "english": "student",
+    "chinese": "学生",
+    "imageUrl": "images/student_m8n9o0p1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1532649842991-60f6a4349695?w=400",
+    "chinesePhrase": "好学生",
+    "englishPhrase": "Good student"
+  },
+  {
+    "english": "school",
+    "chinese": "学校",
+    "imageUrl": "images/school_q2r3s4t5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400",
+    "chinesePhrase": "去学校",
+    "englishPhrase": "Go to school"
+  },
+  {
+    "english": "home",
+    "chinese": "家",
+    "imageUrl": "images/home_u6v7w8x9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400",
+    "chinesePhrase": "回家",
+    "englishPhrase": "Go home"
+  },
+  {
+    "english": "red",
+    "chinese": "红色",
+    "imageUrl": "images/red_y0z1a2b3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=400",
+    "chinesePhrase": "红色的花",
+    "englishPhrase": "Red flower"
+  },
+  {
+    "english": "blue",
+    "chinese": "蓝色",
+    "imageUrl": "images/blue_c4d5e6f7.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1606676539940-12768ce0e762?w=400",
+    "chinesePhrase": "蓝色的天空",
+    "englishPhrase": "Blue sky"
+  },
+  {
+    "english": "green",
+    "chinese": "绿色",
+    "imageUrl": "images/green_g8h9i0j1.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=400",
+    "chinesePhrase": "绿色的草",
+    "englishPhrase": "Green grass"
+  },
+  {
+    "english": "yellow",
+    "chinese": "黄色",
+    "imageUrl": "images/yellow_k2l3m4n5.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1589566058133-63e7583e3ed1?w=400",
+    "chinesePhrase": "黄色的香蕉",
+    "englishPhrase": "Yellow banana"
+  },
+  {
+    "english": "black",
+    "chinese": "黑色",
+    "imageUrl": "images/black_o6p7q8r9.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1605362814095-d6833c2d7ba5?w=400",
+    "chinesePhrase": "黑色的猫",
+    "englishPhrase": "Black cat"
+  },
+  {
+    "english": "white",
+    "chinese": "白色",
+    "imageUrl": "images/white_s0t1u2v3.jpg",
+    "unsplashUrl": "https://images.unsplash.com/photo-1603571516742-6af0b0849b3c?w=400",
+    "chinesePhrase": "白色的云",
+    "englishPhrase": "White cloud"
+  }
+]

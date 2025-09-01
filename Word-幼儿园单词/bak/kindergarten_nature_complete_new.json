@@ -1,0 +1,1022 @@
+[
+  {
+    "word": "comb hair",
+    "standardized": "comb hair",
+    "chinese": "梳头",
+    "phonetic": "/comb hair/",
+    "phrase": "Comb the hair",
+    "phraseTranslation": "梳头发",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "comb hair.jpg",
+        "url": "https://images.unsplash.com/photo-1620983550244-d977df220d4a?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "plant",
+    "standardized": "plant",
+    "chinese": "种植",
+    "phonetic": "/plant/",
+    "phrase": "Plant a flower",
+    "phraseTranslation": "种一朵花",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "plant.jpg",
+        "url": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "catch",
+    "standardized": "catch",
+    "chinese": "接住",
+    "phonetic": "/catch/",
+    "phrase": "Catch the ball",
+    "phraseTranslation": "接住球",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "catch.jpg",
+        "url": "https://images.unsplash.com/photo-1501686637-b7aa9c48a882?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "rabbit",
+    "standardized": "rabbit",
+    "chinese": "兔子",
+    "phonetic": "/rabbit/",
+    "phrase": "Hopping rabbit",
+    "phraseTranslation": "蹦蹦跳跳的兔子",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "rabbit.jpg",
+        "url": "https://images.unsplash.com/photo-1500000000000-000000000000?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "elephant",
+    "standardized": "elephant",
+    "chinese": "大象",
+    "phonetic": "/elephant/",
+    "phrase": "Big elephant",
+    "phraseTranslation": "巨大的大象",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "elephant.jpg",
+        "url": "https://images.unsplash.com/photo-1500000000000-000000000000?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "tiger",
+    "standardized": "tiger",
+    "chinese": "老虎",
+    "phonetic": "/tiger/",
+    "phrase": "Mighty tiger",
+    "phraseTranslation": "威猛的老虎",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "tiger.jpg",
+        "url": "https://images.unsplash.com/photo-1500000000000-000000000000?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "monkey",
+    "standardized": "monkey",
+    "chinese": "猴子",
+    "phonetic": "/monkey/",
+    "phrase": "Playful monkey",
+    "phraseTranslation": "顽皮的猴子",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "monkey.jpg",
+        "url": "https://images.unsplash.com/photo-1500000000000-000000000000?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "hot",
+    "standardized": "hot",
+    "chinese": "热的",
+    "phonetic": "/hot/",
+    "phrase": "Hot sun",
+    "phraseTranslation": "热热的太阳",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "hot.jpg",
+        "url": "https://images.unsplash.com/photo-1504370805625-d32c54b16100?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "cold",
+    "standardized": "cold",
+    "chinese": "冷的",
+    "phonetic": "/cold/",
+    "phrase": "Cold ice cream",
+    "phraseTranslation": "冷冷的冰淇淋",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "cold.jpg",
+        "url": "https://images.unsplash.com/photo-1477601263568-180e2c6d046e?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "today",
+    "standardized": "today",
+    "chinese": "今天",
+    "phonetic": "/today/",
+    "phrase": "Today's weather is good",
+    "phraseTranslation": "今天天气好",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "today.jpg",
+        "url": "https://images.unsplash.com/photo-1508030930907-539056bbe7a8?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "hair",
+    "standardized": "hair",
+    "chinese": "头发",
+    "phonetic": "/hair/",
+    "phrase": "Comb hair",
+    "phraseTranslation": "梳头发",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "hair.jpg",
+        "url": "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "pants",
+    "standardized": "pants",
+    "chinese": "裤子",
+    "phonetic": "/pants/",
+    "phrase": "Put on pants",
+    "phraseTranslation": "穿上裤子",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "pants.jpg",
+        "url": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "sunglasses",
+    "standardized": "sunglasses",
+    "chinese": "太阳镜",
+    "phonetic": "/sunglasses/",
+    "phrase": "Wear sunglasses",
+    "phraseTranslation": "戴太阳镜",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "sunglasses.jpg",
+        "url": "https://images.unsplash.com/photo-1577803645773-f96470509666?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "grass",
+    "standardized": "grass",
+    "chinese": "草",
+    "phonetic": "/grass/",
+    "phrase": "Green grass",
+    "phraseTranslation": "绿绿的草",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "grass.jpg",
+        "url": "https://images.unsplash.com/photo-1500000000000-000000000000?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "chair",
+    "standardized": "chair",
+    "chinese": "椅子",
+    "phonetic": "/chair/",
+    "phrase": "Sit on a chair",
+    "phraseTranslation": "坐在椅子上",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "chair.jpg",
+        "url": "https://images.unsplash.com/photo-1581539250439-c96689b516dd?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "pair",
+    "standardized": "pair",
+    "chinese": "一对",
+    "phonetic": "/pair/",
+    "phrase": "A pair of gloves",
+    "phraseTranslation": "一对手套",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "pair.jpg",
+        "url": "https://images.unsplash.com/photo-1515347619252-60a4bf4fff4f?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "gold",
+    "standardized": "gold",
+    "chinese": "金色",
+    "phonetic": "/gold/",
+    "phrase": "Gold star",
+    "phraseTranslation": "金色的星星",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "gold.jpg",
+        "url": "https://images.unsplash.com/photo-1610286168483-1c52e8198d7f?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "sky",
+    "standardized": "sky",
+    "chinese": "天空",
+    "phonetic": "/sky/",
+    "phrase": "Blue sky",
+    "phraseTranslation": "蓝蓝的天空",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "sky.jpg",
+        "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "sunny",
+    "standardized": "sunny",
+    "chinese": "晴朗的",
+    "phonetic": "/sunny/",
+    "phrase": "Sunny weather",
+    "phraseTranslation": "晴朗的天气",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "sunny.jpg",
+        "url": "https://images.unsplash.com/photo-1566228015668-4c45dbc4e2f5?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "season",
+    "standardized": "season",
+    "chinese": "季节",
+    "phonetic": "/season/",
+    "phrase": "Four seasons",
+    "phraseTranslation": "四个季节",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "season.jpg",
+        "url": "https://images.unsplash.com/photo-1497219470303-2cb52634b686?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "day",
+    "standardized": "day",
+    "chinese": "白天",
+    "phonetic": "/day/",
+    "phrase": "We play during the day",
+    "phraseTranslation": "白天我们玩耍",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "day.jpg",
+        "url": "https://images.unsplash.com/photo-1565676873283-91ader35c5f?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "yesterday",
+    "standardized": "yesterday",
+    "chinese": "昨天",
+    "phonetic": "/yesterday/",
+    "phrase": "We watched a movie yesterday",
+    "phraseTranslation": "昨天我们看电影",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "yesterday.jpg",
+        "url": "https://images.unsplash.com/photo-1567817766691-97c6eb803923?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "hill",
+    "standardized": "hill",
+    "chinese": "小山",
+    "phonetic": "/hill/",
+    "phrase": "Green hill",
+    "phraseTranslation": "绿色的小山",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "hill.jpg",
+        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "sea",
+    "standardized": "sea",
+    "chinese": "海",
+    "phonetic": "/sea/",
+    "phrase": "The sea is deep",
+    "phraseTranslation": "大海很深",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "sea.jpg",
+        "url": "https://images.unsplash.com/photo-1509305717900-84f40e786d82?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "mud",
+    "standardized": "mud",
+    "chinese": "泥",
+    "phonetic": "/mud/",
+    "phrase": "Mud is dirty",
+    "phraseTranslation": "泥巴很脏",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "mud.jpg",
+        "url": "https://images.unsplash.com/photo-1518854648721-39d965448a13?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "water",
+    "standardized": "water",
+    "chinese": "水",
+    "phonetic": "/water/",
+    "phrase": "Clear water",
+    "phraseTranslation": "清澈的水",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "water.jpg",
+        "url": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "fire",
+    "standardized": "fire",
+    "chinese": "火",
+    "phonetic": "/fire/",
+    "phrase": "Fire is hot",
+    "phraseTranslation": "火很热",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "fire.jpg",
+        "url": "https://images.unsplash.com/photo-1554188248-986adbb73809?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "air",
+    "standardized": "air",
+    "chinese": "空气",
+    "phonetic": "/air/",
+    "phrase": "Fresh air",
+    "phraseTranslation": "新鲜的空气",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "air.jpg",
+        "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "nature",
+    "standardized": "nature",
+    "chinese": "自然",
+    "phonetic": "/nature/",
+    "phrase": "Protect nature",
+    "phraseTranslation": "爱护自然",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "nature.jpg",
+        "url": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "frog",
+    "standardized": "frog",
+    "chinese": "青蛙",
+    "phonetic": "/frog/",
+    "phrase": "Croaking frog",
+    "phraseTranslation": "呱呱叫的青蛙",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "frog.jpg",
+        "url": "https://images.unsplash.com/photo-1622566359362-f7bc0172c762?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "duck",
+    "standardized": "duck",
+    "chinese": "鸭子",
+    "phonetic": "/duck/",
+    "phrase": "Swimming duck",
+    "phraseTranslation": "游泳的鸭子",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "duck.jpg",
+        "url": "https://images.unsplash.com/photo-1560713782-e5e138d1a214?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "cow",
+    "standardized": "cow",
+    "chinese": "奶牛",
+    "phonetic": "/cow/",
+    "phrase": "Mooing cow",
+    "phraseTranslation": "哞哞叫的奶牛",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "cow.jpg",
+        "url": "https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "pig",
+    "standardized": "pig",
+    "chinese": "猪",
+    "phonetic": "/pig/",
+    "phrase": "Pink pig",
+    "phraseTranslation": "粉红色的猪",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "pig.jpg",
+        "url": "https://images.unsplash.com/photo-1593179357196-add6bc00b8d6?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "goat",
+    "standardized": "goat",
+    "chinese": "山羊",
+    "phonetic": "/goat/",
+    "phrase": "Climbing goat",
+    "phraseTranslation": "爬山的山羊",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "goat.jpg",
+        "url": "https://images.unsplash.com/photo-1560814304-4f05b62af116?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "t tiger",
+    "standardized": "t tiger",
+    "chinese": "老虎",
+    "phonetic": "/t tiger/",
+    "phrase": "Fierce tiger",
+    "phraseTranslation": "凶猛的老虎",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "t tiger.jpg",
+        "url": "https://images.unsplash.com/photo-1549366021-9f761d450615?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "fox",
+    "standardized": "fox",
+    "chinese": "狐狸",
+    "phonetic": "/fox/",
+    "phrase": "Sly fox",
+    "phraseTranslation": "狡猾的狐狸",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "fox.jpg",
+        "url": "https://images.unsplash.com/photo-1516934024742-b461fba47600?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "deer",
+    "standardized": "deer",
+    "chinese": "鹿",
+    "phonetic": "/deer/",
+    "phrase": "Gentle deer",
+    "phraseTranslation": "温顺的鹿",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "deer.jpg",
+        "url": "https://images.unsplash.com/photo-1484406566174-9da000fda645?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "bee",
+    "standardized": "bee",
+    "chinese": "蜜蜂",
+    "phonetic": "/bee/",
+    "phrase": "Buzzing bee",
+    "phraseTranslation": "嗡嗡叫的蜜蜂",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "bee.jpg",
+        "url": "https://images.unsplash.com/photo-1592088222673-c23261347919?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "ant",
+    "standardized": "ant",
+    "chinese": "蚂蚁",
+    "phonetic": "/ant/",
+    "phrase": "Tiny ant",
+    "phraseTranslation": "小小的蚂蚁",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "ant.jpg",
+        "url": "https://images.unsplash.com/photo-1566407528919-78d6a270dcf1?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "crab",
+    "standardized": "crab",
+    "chinese": "螃蟹",
+    "phonetic": "/crab/",
+    "phrase": "Sideways crab",
+    "phraseTranslation": "横行的螃蟹",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "crab.jpg",
+        "url": "https://images.unsplash.com/photo-1550253530-a80dd10d5337?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "owl",
+    "standardized": "owl",
+    "chinese": "猫头鹰",
+    "phonetic": "/owl/",
+    "phrase": "Night owl",
+    "phraseTranslation": "夜里的猫头鹰",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "owl.jpg",
+        "url": "https://images.unsplash.com/photo-1543549790-8b9f7a6e8989?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "pet",
+    "standardized": "pet",
+    "chinese": "宠物",
+    "phonetic": "/pet/",
+    "phrase": "My pet",
+    "phraseTranslation": "我的宠物",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "pet.jpg",
+        "url": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "farm animal",
+    "standardized": "farm animal",
+    "chinese": "农场动物",
+    "phonetic": "/farm animal/",
+    "phrase": "Animal on the farm",
+    "phraseTranslation": "农场里的动物",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "farm animal.jpg",
+        "url": "https://images.unsplash.com/photo-1500595046743-cd271d694e30?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "wild animal",
+    "standardized": "wild animal",
+    "chinese": "野生动物",
+    "phonetic": "/wild animal/",
+    "phrase": "Wild animal",
+    "phraseTranslation": "野生的动物",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "wild animal.jpg",
+        "url": "https://images.unsplash.com/photo-1504173010664-32509aeebb62?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "animal",
+    "standardized": "animal",
+    "chinese": "动物",
+    "phonetic": "/animal/",
+    "phrase": "Many animals",
+    "phraseTranslation": "各种动物",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "animal.jpg",
+        "url": "https://images.unsplash.com/photo-1500479694472-551d1fb6258d?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "baby animal",
+    "standardized": "baby animal",
+    "chinese": "幼崽",
+    "phonetic": "/baby animal/",
+    "phrase": "Baby animal",
+    "phraseTranslation": "动物宝宝",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "baby animal.jpg",
+        "url": "https://images.unsplash.com/photo-1535930891776-0c2dfb7fda1a?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "zoo",
+    "standardized": "zoo",
+    "chinese": "动物园",
+    "phonetic": "/zoo/",
+    "phrase": "See animals at the zoo",
+    "phraseTranslation": "看动物",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "zoo.jpg",
+        "url": "https://images.unsplash.com/photo-1560070629-c7565f296b76?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "farm",
+    "standardized": "farm",
+    "chinese": "农场",
+    "phonetic": "/farm/",
+    "phrase": "Visit the farm",
+    "phraseTranslation": "参观农场",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "farm.jpg",
+        "url": "https://images.unsplash.com/photo-1534534634972-2482a99e47a6?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "restaurant",
+    "standardized": "restaurant",
+    "chinese": "餐厅",
+    "phonetic": "/restaurant/",
+    "phrase": "Eat at the restaurant",
+    "phraseTranslation": "去餐厅吃饭",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "restaurant.jpg",
+        "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "cat",
+    "standardized": "cat",
+    "chinese": "猫",
+    "phonetic": "",
+    "phrase": "Fluffy little cat",
+    "phraseTranslation": "毛茸茸的小猫",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "cat.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "dog",
+    "standardized": "dog",
+    "chinese": "狗",
+    "phonetic": "",
+    "phrase": "Cute little dog",
+    "phraseTranslation": "可爱的小狗",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "dog.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "bird",
+    "standardized": "bird",
+    "chinese": "鸟",
+    "phonetic": "",
+    "phrase": "Singing little bird",
+    "phraseTranslation": "唱歌的小鸟",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "bird.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "fish",
+    "standardized": "fish",
+    "chinese": "鱼",
+    "phonetic": "",
+    "phrase": "Swimming fish",
+    "phraseTranslation": "游泳的鱼",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "fish.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "lion",
+    "standardized": "lion",
+    "chinese": "狮子",
+    "phonetic": "",
+    "phrase": "Brave lion",
+    "phraseTranslation": "勇敢的狮子",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "lion.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "bear",
+    "standardized": "bear",
+    "chinese": "熊",
+    "phonetic": "",
+    "phrase": "Cute bear",
+    "phraseTranslation": "可爱的熊",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "bear.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "tree",
+    "standardized": "tree",
+    "chinese": "树",
+    "phonetic": "",
+    "phrase": "Tall tree",
+    "phraseTranslation": "高大的树",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "tree.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "flower",
+    "standardized": "flower",
+    "chinese": "花",
+    "phonetic": "",
+    "phrase": "Beautiful flower",
+    "phraseTranslation": "美丽的花",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "flower.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "sun",
+    "standardized": "sun",
+    "chinese": "太阳",
+    "phonetic": "",
+    "phrase": "Warm sun",
+    "phraseTranslation": "温暖的太阳",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "sun.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "moon",
+    "standardized": "moon",
+    "chinese": "月亮",
+    "phonetic": "",
+    "phrase": "Round moon",
+    "phraseTranslation": "圆圆的月亮",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "moon.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "star",
+    "standardized": "star",
+    "chinese": "星星",
+    "phonetic": "",
+    "phrase": "Shining star",
+    "phraseTranslation": "闪亮的星星",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "star.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  }
+]

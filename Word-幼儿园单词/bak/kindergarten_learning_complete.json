@@ -1,0 +1,349 @@
+{
+  "category": "learning_shapes",
+  "description": "Learning and shapes vocabulary",
+  "totalWords": 19,
+  "words": [
+    {
+      "word": "square",
+      "standardized": "square",
+      "chinese": "方的",
+      "phonetic": "/square/",
+      "phrase": "Square block",
+      "phraseTranslation": "方方的积木",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "square.jpg",
+          "url": "https://images.unsplash.com/photo-1563074409-24e8329fc263?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "school",
+      "standardized": "school",
+      "chinese": "学校",
+      "phonetic": "/sku?l/",
+      "phrase": "Go to school",
+      "phraseTranslation": "去学校",
+      "difficulty": "intermediate",
+      "category": "place",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "school.jpg",
+          "url": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "home",
+      "standardized": "home",
+      "chinese": "家",
+      "phonetic": "/ho?m/",
+      "phrase": "Go home",
+      "phraseTranslation": "回家",
+      "difficulty": "basic",
+      "category": "place",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "home.jpg",
+          "url": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "school",
+      "standardized": "school",
+      "chinese": "学校",
+      "phonetic": "/sku?l/",
+      "phrase": "Go to school",
+      "phraseTranslation": "去上学",
+      "difficulty": "intermediate",
+      "category": "place",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "school.jpg",
+          "url": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "book",
+      "standardized": "book",
+      "chinese": "书",
+      "phonetic": "/book/",
+      "phrase": "Read a book",
+      "phraseTranslation": "读书",
+      "difficulty": "basic",
+      "category": "school_supply",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "book.jpg",
+          "url": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "pen",
+      "standardized": "pen",
+      "chinese": "钢笔",
+      "phonetic": "/pen/",
+      "phrase": "Black pen",
+      "phraseTranslation": "黑色的钢笔",
+      "difficulty": "basic",
+      "category": "school_supply",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "pen.jpg",
+          "url": "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "desk",
+      "standardized": "desk",
+      "chinese": "课桌",
+      "phonetic": "/desk/",
+      "phrase": "Clean desk",
+      "phraseTranslation": "干净的课桌",
+      "difficulty": "basic",
+      "category": "school_supply",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "desk.jpg",
+          "url": "https://images.unsplash.com/photo-1567016376408-0226e4d0b046?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "circle",
+      "standardized": "circle",
+      "chinese": "圆形",
+      "phonetic": "/circle/",
+      "phrase": "Round circle ball",
+      "phraseTranslation": "圆圆的球",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "circle.jpg",
+          "url": "https://images.unsplash.com/photo-1517454339641-e531f8aa496b?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "square",
+      "standardized": "square",
+      "chinese": "正方形",
+      "phonetic": "/square/",
+      "phrase": "Square box",
+      "phraseTranslation": "方方的盒子",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "square.jpg",
+          "url": "https://images.unsplash.com/photo-1604147706283-d7119b5b822c?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "triangle",
+      "standardized": "triangle",
+      "chinese": "三角形",
+      "phonetic": "/triangle/",
+      "phrase": "Triangle roof",
+      "phraseTranslation": "三角形状的屋顶",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "triangle.jpg",
+          "url": "https://images.unsplash.com/photo-1567237034741-3a1c58283142?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "circle",
+      "standardized": "circle",
+      "chinese": "圆形",
+      "phonetic": "/circle/",
+      "phrase": "Round circle ball",
+      "phraseTranslation": "圆圆的球",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "circle.jpg",
+          "url": "https://images.unsplash.com/photo-1517454339641-e531f8aa496b?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "square",
+      "standardized": "square",
+      "chinese": "正方形",
+      "phonetic": "/square/",
+      "phrase": "Square box",
+      "phraseTranslation": "方方的盒子",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "square.jpg",
+          "url": "https://images.unsplash.com/photo-1604147706283-d7119b5b822c?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "triangle",
+      "standardized": "triangle",
+      "chinese": "三角形",
+      "phonetic": "/triangle/",
+      "phrase": "Triangle roof",
+      "phraseTranslation": "三角形状的屋顶",
+      "difficulty": "intermediate",
+      "category": "geometric_shape",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "triangle.jpg",
+          "url": "https://images.unsplash.com/photo-1567237034741-3a1c58283142?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "home",
+      "standardized": "home",
+      "chinese": "家",
+      "phonetic": "/ho?m/",
+      "phrase": "Go home",
+      "phraseTranslation": "回到家",
+      "difficulty": "basic",
+      "category": "place",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "home.jpg",
+          "url": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "school",
+      "standardized": "school",
+      "chinese": "学校",
+      "phonetic": "/sku?l/",
+      "phrase": "Go to school",
+      "phraseTranslation": "去上学",
+      "difficulty": "intermediate",
+      "category": "place",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "school.jpg",
+          "url": "https://images.unsplash.com/photo-1560439514-4e9645039924?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "park",
+      "standardized": "park",
+      "chinese": "公园",
+      "phonetic": "/park/",
+      "phrase": "Play in the park",
+      "phraseTranslation": "在公园玩",
+      "difficulty": "basic",
+      "category": "place",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "park.jpg",
+          "url": "https://images.unsplash.com/photo-1546902494-07a841b3476a?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "book",
+      "standardized": "book",
+      "chinese": "书",
+      "phonetic": "/book/",
+      "phrase": "Read a book",
+      "phraseTranslation": "读书",
+      "difficulty": "basic",
+      "category": "school_supply",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "book.jpg",
+          "url": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "pen",
+      "standardized": "pen",
+      "chinese": "钢笔",
+      "phonetic": "/pen/",
+      "phrase": "Black pen",
+      "phraseTranslation": "黑色的钢笔",
+      "difficulty": "basic",
+      "category": "school_supply",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "pen.jpg",
+          "url": "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    },
+    {
+      "word": "desk",
+      "standardized": "desk",
+      "chinese": "课桌",
+      "phonetic": "/desk/",
+      "phrase": "Clean desk",
+      "phraseTranslation": "干净的课桌",
+      "difficulty": "basic",
+      "category": "school_supply",
+      "subcategory": "learning_shapes",
+      "imageURLs": [
+        {
+          "filename": "desk.jpg",
+          "url": "https://images.unsplash.com/photo-1567016376408-0226e4d0b046?w=400",
+          "type": "Concept Image"
+        }
+      ]
+    }
+  ]
+}

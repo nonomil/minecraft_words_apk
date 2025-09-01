@@ -1,0 +1,257 @@
+[
+  {
+    "word": "cat",
+    "standardized": "cat",
+    "chinese": "猫",
+    "phonetic": "/k?t/",
+    "phrase": "fluffy little cat",
+    "phraseTranslation": "毛茸茸的小猫",
+    "difficulty": "basic",
+    "category": "animal",
+    "imageURLs": [
+      {
+        "filename": "cat.jpg",
+        "url": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400",
+        "type": "Animal Image"
+      }
+    ]
+  },
+  {
+    "word": "dog",
+    "standardized": "dog",
+    "chinese": "狗",
+    "phonetic": "/d??ɡ/",
+    "phrase": "cute little dog",
+    "phraseTranslation": "可爱的小狗",
+    "difficulty": "basic",
+    "category": "animal",
+    "imageURLs": [
+      {
+        "filename": "dog.jpg",
+        "url": "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400",
+        "type": "Animal Image"
+      }
+    ]
+  },
+  {
+    "word": "bird",
+    "standardized": "bird",
+    "chinese": "鸟",
+    "phonetic": "/b??rd/",
+    "phrase": "singing little bird",
+    "phraseTranslation": "唱歌的小鸟",
+    "difficulty": "basic",
+    "category": "animal",
+    "imageURLs": [
+      {
+        "filename": "bird.jpg",
+        "url": "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=400",
+        "type": "Animal Image"
+      }
+    ]
+  },
+  {
+    "word": "fish",
+    "standardized": "fish",
+    "chinese": "鱼",
+    "phonetic": "/f??/",
+    "phrase": "fish in water",
+    "phraseTranslation": "水里的鱼",
+    "difficulty": "basic",
+    "category": "animal",
+    "imageURLs": [
+      {
+        "filename": "fish.jpg",
+        "url": "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?w=400",
+        "type": "Animal Image"
+      }
+    ]
+  },
+  {
+    "word": "lion",
+    "standardized": "lion",
+    "chinese": "狮子",
+    "phonetic": "/?la??n/",
+    "phrase": "king lion",
+    "phraseTranslation": "狮子王",
+    "difficulty": "intermediate",
+    "category": "animal",
+    "imageURLs": [
+      {
+        "filename": "lion.jpg",
+        "url": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=400",
+        "type": "Animal Image"
+      }
+    ]
+  },
+  {
+    "word": "bear",
+    "standardized": "bear",
+    "chinese": "熊",
+    "phonetic": "/ber/",
+    "phrase": "brown bear",
+    "phraseTranslation": "棕色的熊",
+    "difficulty": "intermediate",
+    "category": "animal",
+    "imageURLs": [
+      {
+        "filename": "bear.jpg",
+        "url": "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=400",
+        "type": "Animal Image"
+      }
+    ]
+  },
+  {
+    "word": "rabbit",
+    "standardized": "rabbit",
+    "chinese": "兔子",
+    "phonetic": "/?r?b?t/",
+    "phrase": "hopping rabbit",
+    "phraseTranslation": "蹦蹦跳跳的兔子",
+    "difficulty": "intermediate",
+    "category": "animal",
+    "imageURLs": [
+      {
+        "filename": "rabbit.jpg",
+        "url": "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400",
+        "type": "Animal Image"
+      }
+    ]
+  },
+  {
+    "word": "elephant",
+    "standardized": "elephant",
+    "chinese": "大象",
+    "phonetic": "/?el?f?nt/",
+    "phrase": "big elephant",
+    "phraseTranslation": "巨大的大象",
+    "difficulty": "intermediate",
+    "category": "animal",
+    "imageURLs": [
+      {
+        "filename": "elephant.jpg",
+        "url": "https://images.unsplash.com/photo-1533681904393-9ab6eee7e408?w=400",
+        "type": "Animal Image"
+      }
+    ]
+  },
+  {
+    "word": "tree",
+    "standardized": "tree",
+    "chinese": "树",
+    "phonetic": "/tri?/",
+    "phrase": "tall tree",
+    "phraseTranslation": "高大的树",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "tree.jpg",
+        "url": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=400",
+        "type": "Nature Image"
+      }
+    ]
+  },
+  {
+    "word": "flower",
+    "standardized": "flower",
+    "chinese": "花",
+    "phonetic": "/?fla??r/",
+    "phrase": "beautiful flower",
+    "phraseTranslation": "美丽的花",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "flower.jpg",
+        "url": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400",
+        "type": "Nature Image"
+      }
+    ]
+  },
+  {
+    "word": "sun",
+    "standardized": "sun",
+    "chinese": "太阳",
+    "phonetic": "/s?n/",
+    "phrase": "bright sun",
+    "phraseTranslation": "明亮的太阳",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "sun.jpg",
+        "url": "https://images.unsplash.com/photo-1504370805625-d32c54b16100?w=400",
+        "type": "Nature Image"
+      }
+    ]
+  },
+  {
+    "word": "moon",
+    "standardized": "moon",
+    "chinese": "月亮",
+    "phonetic": "/mu?n/",
+    "phrase": "round moon",
+    "phraseTranslation": "圆圆的月亮",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "moon.jpg",
+        "url": "https://images.unsplash.com/photo-1532767153582-b1a0e5145009?w=400",
+        "type": "Nature Image"
+      }
+    ]
+  },
+  {
+    "word": "star",
+    "standardized": "star",
+    "chinese": "星星",
+    "phonetic": "/stɑ?r/",
+    "phrase": "twinkling star",
+    "phraseTranslation": "闪闪的星星",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "star.jpg",
+        "url": "https://images.unsplash.com/photo-1506501139174-0990204d4d0a?w=400",
+        "type": "Nature Image"
+      }
+    ]
+  },
+  {
+    "word": "water",
+    "standardized": "water",
+    "chinese": "水",
+    "phonetic": "/?w??t?r/",
+    "phrase": "clean water",
+    "phraseTranslation": "干净的水",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "water.jpg",
+        "url": "https://images.unsplash.com/photo-1499744937866-d7e566a20a61?w=400",
+        "type": "Nature Image"
+      }
+    ]
+  },
+  {
+    "word": "grass",
+    "standardized": "grass",
+    "chinese": "草",
+    "phonetic": "/ɡr?s/",
+    "phrase": "green grass",
+    "phraseTranslation": "绿色的草",
+    "difficulty": "basic",
+    "category": "nature",
+    "imageURLs": [
+      {
+        "filename": "grass.jpg",
+        "url": "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=400",
+        "type": "Nature Image"
+      }
+    ]
+  }
+]

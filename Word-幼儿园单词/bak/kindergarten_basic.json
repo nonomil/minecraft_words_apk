@@ -1,0 +1,393 @@
+[
+  {
+    "word": "hello",
+    "standardized": "hello",
+    "chinese": "你好",
+    "phonetic": "/h??lo?/",
+    "phrase": "hello there",
+    "phraseTranslation": "你好呀",
+    "difficulty": "basic",
+    "category": "greeting",
+    "imageURLs": [
+      {
+        "filename": "hello.jpg",
+        "url": "https://images.unsplash.com/photo-1539952748325-70507c733093?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "bye",
+    "standardized": "bye",
+    "chinese": "再见",
+    "phonetic": "/ba?/",
+    "phrase": "wave goodbye",
+    "phraseTranslation": "挥手说再见",
+    "difficulty": "basic",
+    "category": "greeting",
+    "imageURLs": [
+      {
+        "filename": "bye.jpg",
+        "url": "https://images.unsplash.com/photo-1582212742970-56d43f396a1a?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "yes",
+    "standardized": "yes",
+    "chinese": "是",
+    "phonetic": "/yes/",
+    "phrase": "nod yes",
+    "phraseTranslation": "点头说是",
+    "difficulty": "basic",
+    "category": "response",
+    "imageURLs": [
+      {
+        "filename": "yes.jpg",
+        "url": "https://images.unsplash.com/photo-1572888195250-3624b0c2f404?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "no",
+    "standardized": "no",
+    "chinese": "不",
+    "phonetic": "/no/",
+    "phrase": "shake head no",
+    "phraseTranslation": "摇头说不",
+    "difficulty": "basic",
+    "category": "response",
+    "imageURLs": [
+      {
+        "filename": "no.jpg",
+        "url": "https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "please",
+    "standardized": "please",
+    "chinese": "请",
+    "phonetic": "/pli?z/",
+    "phrase": "apple, please",
+    "phraseTranslation": "请给我苹果",
+    "difficulty": "basic",
+    "category": "politeness",
+    "imageURLs": [
+      {
+        "filename": "please.jpg",
+        "url": "https://images.unsplash.com/photo-1532010940201-c31e6beacd39?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "thank you",
+    "standardized": "thank you",
+    "chinese": "谢谢",
+    "phonetic": "/θ??k ju?/",
+    "phrase": "thank you for your help",
+    "phraseTranslation": "谢谢你的帮助",
+    "difficulty": "basic",
+    "category": "politeness",
+    "imageURLs": [
+      {
+        "filename": "thank_you.jpg",
+        "url": "https://images.unsplash.com/photo-1520900094979-074f1f3a4463?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "sorry",
+    "standardized": "sorry",
+    "chinese": "对不起",
+    "phonetic": "/?s?ri/",
+    "phrase": "sorry, I am wrong",
+    "phraseTranslation": "对不起，我错了",
+    "difficulty": "basic",
+    "category": "politeness",
+    "imageURLs": [
+      {
+        "filename": "sorry.jpg",
+        "url": "https://images.unsplash.com/photo-1541450805268-4822a3a774ca?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "smile",
+    "standardized": "smile",
+    "chinese": "微笑",
+    "phonetic": "/sma?l/",
+    "phrase": "smile happily",
+    "phraseTranslation": "开心地微笑",
+    "difficulty": "basic",
+    "category": "emotion",
+    "imageURLs": [
+      {
+        "filename": "smile.jpg",
+        "url": "https://images.unsplash.com/photo-1531177071257-4c92f1e877f8?w=400",
+        "type": "Action Image"
+      }
+    ]
+  },
+  {
+    "word": "cry",
+    "standardized": "cry",
+    "chinese": "哭",
+    "phonetic": "/kra?/",
+    "phrase": "the child is crying",
+    "phraseTranslation": "小孩在哭",
+    "difficulty": "basic",
+    "category": "emotion",
+    "imageURLs": [
+      {
+        "filename": "cry.jpg",
+        "url": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400",
+        "type": "Action Image"
+      }
+    ]
+  },
+  {
+    "word": "happy",
+    "standardized": "happy",
+    "chinese": "开心的",
+    "phonetic": "/?h?pi/",
+    "phrase": "happy child",
+    "phraseTranslation": "开心的小朋友",
+    "difficulty": "basic",
+    "category": "emotion",
+    "imageURLs": [
+      {
+        "filename": "happy.jpg",
+        "url": "https://images.unsplash.com/photo-1517256673342-2546a36e5c35?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "sad",
+    "standardized": "sad",
+    "chinese": "难过的",
+    "phonetic": "/s?d/",
+    "phrase": "sad face",
+    "phraseTranslation": "难过的表情",
+    "difficulty": "basic",
+    "category": "emotion",
+    "imageURLs": [
+      {
+        "filename": "sad.jpg",
+        "url": "https://images.unsplash.com/photo-1541233421392-8d44455a4aee?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "mom",
+    "standardized": "mom",
+    "chinese": "妈妈",
+    "phonetic": "/m?m/",
+    "phrase": "I love mom",
+    "phraseTranslation": "我爱妈妈",
+    "difficulty": "basic",
+    "category": "family",
+    "imageURLs": [
+      {
+        "filename": "mom.jpg",
+        "url": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=400",
+        "type": "Person Image"
+      }
+    ]
+  },
+  {
+    "word": "dad",
+    "standardized": "dad",
+    "chinese": "爸爸",
+    "phonetic": "/d?d/",
+    "phrase": "dad hugs me",
+    "phraseTranslation": "爸爸抱我",
+    "difficulty": "basic",
+    "category": "family",
+    "imageURLs": [
+      {
+        "filename": "dad.jpg",
+        "url": "https://images.unsplash.com/photo-1509506489701-dfe23b067808?w=400",
+        "type": "Person Image"
+      }
+    ]
+  },
+  {
+    "word": "family",
+    "standardized": "family",
+    "chinese": "家人",
+    "phonetic": "/?f?m?li/",
+    "phrase": "my family",
+    "phraseTranslation": "我的家人",
+    "difficulty": "basic",
+    "category": "family",
+    "imageURLs": [
+      {
+        "filename": "family.jpg",
+        "url": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "friend",
+    "standardized": "friend",
+    "chinese": "朋友",
+    "phonetic": "/frend/",
+    "phrase": "good friend",
+    "phraseTranslation": "好朋友",
+    "difficulty": "basic",
+    "category": "relationship",
+    "imageURLs": [
+      {
+        "filename": "friend.jpg",
+        "url": "https://images.unsplash.com/photo-1496354265829-17b1c7b7c363?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "teacher",
+    "standardized": "teacher",
+    "chinese": "老师",
+    "phonetic": "/?ti?t??r/",
+    "phrase": "teacher Li",
+    "phraseTranslation": "李老师",
+    "difficulty": "basic",
+    "category": "people",
+    "imageURLs": [
+      {
+        "filename": "teacher.jpg",
+        "url": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400",
+        "type": "Person Image"
+      }
+    ]
+  },
+  {
+    "word": "red",
+    "standardized": "red",
+    "chinese": "红色",
+    "phonetic": "/red/",
+    "phrase": "red flower",
+    "phraseTranslation": "红色的花",
+    "difficulty": "basic",
+    "category": "color",
+    "imageURLs": [
+      {
+        "filename": "red.jpg",
+        "url": "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=400",
+        "type": "Color Image"
+      }
+    ]
+  },
+  {
+    "word": "blue",
+    "standardized": "blue",
+    "chinese": "蓝色",
+    "phonetic": "/blu?/",
+    "phrase": "blue sky",
+    "phraseTranslation": "蓝色的天空",
+    "difficulty": "basic",
+    "category": "color",
+    "imageURLs": [
+      {
+        "filename": "blue.jpg",
+        "url": "https://images.unsplash.com/photo-1606676539940-12768ce0e762?w=400",
+        "type": "Color Image"
+      }
+    ]
+  },
+  {
+    "word": "green",
+    "standardized": "green",
+    "chinese": "绿色",
+    "phonetic": "/ɡri?n/",
+    "phrase": "green grass",
+    "phraseTranslation": "绿色的草",
+    "difficulty": "basic",
+    "category": "color",
+    "imageURLs": [
+      {
+        "filename": "green.jpg",
+        "url": "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=400",
+        "type": "Color Image"
+      }
+    ]
+  },
+  {
+    "word": "yellow",
+    "standardized": "yellow",
+    "chinese": "黄色",
+    "phonetic": "/?jelo?/",
+    "phrase": "yellow banana",
+    "phraseTranslation": "黄色的香蕉",
+    "difficulty": "basic",
+    "category": "color",
+    "imageURLs": [
+      {
+        "filename": "yellow.jpg",
+        "url": "https://images.unsplash.com/photo-1589566058133-63e7583e3ed1?w=400",
+        "type": "Color Image"
+      }
+    ]
+  },
+  {
+    "word": "one",
+    "standardized": "one",
+    "chinese": "一",
+    "phonetic": "/w?n/",
+    "phrase": "one little bird",
+    "phraseTranslation": "一只小鸟",
+    "difficulty": "basic",
+    "category": "number",
+    "imageURLs": [
+      {
+        "filename": "one.jpg",
+        "url": "https://images.unsplash.com/photo-1611457663357-0e445da942b5?w=400",
+        "type": "Number Image"
+      }
+    ]
+  },
+  {
+    "word": "two",
+    "standardized": "two",
+    "chinese": "二",
+    "phonetic": "/tu?/",
+    "phrase": "two friends",
+    "phraseTranslation": "两个朋友",
+    "difficulty": "basic",
+    "category": "number",
+    "imageURLs": [
+      {
+        "filename": "two.jpg",
+        "url": "https://images.unsplash.com/photo-1469571486292-b53e53c3d3a5?w=400",
+        "type": "Number Image"
+      }
+    ]
+  },
+  {
+    "word": "three",
+    "standardized": "three",
+    "chinese": "三",
+    "phonetic": "/θri?/",
+    "phrase": "three stars",
+    "phraseTranslation": "三颗星星",
+    "difficulty": "basic",
+    "category": "number",
+    "imageURLs": [
+      {
+        "filename": "three.jpg",
+        "url": "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=400",
+        "type": "Number Image"
+      }
+    ]
+  }
+]

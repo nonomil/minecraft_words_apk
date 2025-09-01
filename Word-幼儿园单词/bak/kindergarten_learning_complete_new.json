@@ -1,0 +1,1141 @@
+[
+  {
+    "word": "wash hands",
+    "standardized": "wash hands",
+    "chinese": "洗手",
+    "phonetic": "/wash hands/",
+    "phrase": "Wash hands before eating",
+    "phraseTranslation": "吃饭前洗手",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "wash hands.jpg",
+        "url": "https://images.unsplash.com/photo-1584634731339-252e5223ee2e?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "open",
+    "standardized": "open",
+    "chinese": "打开",
+    "phonetic": "/open/",
+    "phrase": "Open the book",
+    "phraseTranslation": "打开书",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "open.jpg",
+        "url": "https://images.unsplash.com/photo-1577083552431-6e5fd6c6b81e?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "what",
+    "standardized": "what",
+    "chinese": "什么",
+    "phonetic": "/what/",
+    "phrase": "What is this?",
+    "phraseTranslation": "这是什么？",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "what.jpg",
+        "url": "https://images.unsplash.com/photo-1527474389742-a235d090b890?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "scared",
+    "standardized": "scared",
+    "chinese": "害怕的",
+    "phonetic": "/scared/",
+    "phrase": "Scared of the dark",
+    "phraseTranslation": "害怕黑暗",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "scared.jpg",
+        "url": "https://images.unsplash.com/photo-1590080664082-820508e8d92d?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "near",
+    "standardized": "near",
+    "chinese": "近的",
+    "phonetic": "/near/",
+    "phrase": "Near at hand",
+    "phraseTranslation": "近在眼前",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "near.jpg",
+        "url": "https://images.unsplash.com/photo-1570537336474-9898da5ca040?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "teacher",
+    "standardized": "teacher",
+    "chinese": "老师",
+    "phonetic": "/teacher/",
+    "phrase": "Teacher Li",
+    "phraseTranslation": "李老师",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "teacher.jpg",
+        "url": "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "body",
+    "standardized": "body",
+    "chinese": "身体",
+    "phonetic": "/body/",
+    "phrase": "Healthy body",
+    "phraseTranslation": "健康的身体",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "body.jpg",
+        "url": "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "face",
+    "standardized": "face",
+    "chinese": "脸",
+    "phonetic": "/face/",
+    "phrase": "Wash face",
+    "phraseTranslation": "洗脸",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "face.jpg",
+        "url": "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "eyes",
+    "standardized": "eyes",
+    "chinese": "眼睛（复数）",
+    "phonetic": "/eyes/",
+    "phrase": "See with eyes",
+    "phraseTranslation": "用眼睛看",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "eyes.jpg",
+        "url": "https://images.unsplash.com/photo-1549483952-83137fc93915?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "ear",
+    "standardized": "ear",
+    "chinese": "耳朵",
+    "phonetic": "/ear/",
+    "phrase": "Touch your ear",
+    "phraseTranslation": "摸摸你的耳朵",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "ear.jpg",
+        "url": "https://images.unsplash.com/photo-1583305727488-8da1df18bbb8?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "ears",
+    "standardized": "ears",
+    "chinese": "耳朵（复数）",
+    "phonetic": "/ears/",
+    "phrase": "Rabbit's long ears",
+    "phraseTranslation": "兔子的长耳朵",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "ears.jpg",
+        "url": "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "mouth",
+    "standardized": "mouth",
+    "chinese": "嘴巴",
+    "phonetic": "/mouth/",
+    "phrase": "Eat with mouth",
+    "phraseTranslation": "用嘴巴吃东西",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "mouth.jpg",
+        "url": "https://images.unsplash.com/photo-1574108233789-37703871c684?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "chin",
+    "standardized": "chin",
+    "chinese": "下巴",
+    "phonetic": "/chin/",
+    "phrase": "Pointed chin",
+    "phraseTranslation": "尖尖的下巴",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "chin.jpg",
+        "url": "https://images.unsplash.com/photo-1589130658882-4c9e3666e134?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "neck",
+    "standardized": "neck",
+    "chinese": "脖子",
+    "phonetic": "/neck/",
+    "phrase": "Giraffe's long neck",
+    "phraseTranslation": "长颈鹿的长脖子",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "neck.jpg",
+        "url": "https://images.unsplash.com/photo-1547721064-da6cfb341d50?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "arm",
+    "standardized": "arm",
+    "chinese": "手臂",
+    "phonetic": "/arm/",
+    "phrase": "Raise your arm",
+    "phraseTranslation": "举起手臂",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "arm.jpg",
+        "url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "back",
+    "standardized": "back",
+    "chinese": "背部",
+    "phonetic": "/back/",
+    "phrase": "Straighten back",
+    "phraseTranslation": "挺直背部",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "back.jpg",
+        "url": "https://images.unsplash.com/photo-1579114343509-5ddf7d3a3013?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "leg",
+    "standardized": "leg",
+    "chinese": "腿",
+    "phonetic": "/leg/",
+    "phrase": "Lift leg",
+    "phraseTranslation": "抬起腿",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "leg.jpg",
+        "url": "https://images.unsplash.com/photo-1550948507-13a30b856937?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "heart",
+    "standardized": "heart",
+    "chinese": "心脏",
+    "phonetic": "/heart/",
+    "phrase": "Heart shape",
+    "phraseTranslation": "爱心形状",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "heart.jpg",
+        "url": "https://images.unsplash.com/photo-1581182800629-7d900925ad30?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "hear",
+    "standardized": "hear",
+    "chinese": "听见",
+    "phonetic": "/hear/",
+    "phrase": "Hear music",
+    "phraseTranslation": "听见音乐",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "hear.jpg",
+        "url": "https://images.unsplash.com/photo-1585224251665-9e257e074a63?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "eyebrow",
+    "standardized": "eyebrow",
+    "chinese": "眉毛",
+    "phonetic": "/eyebrow/",
+    "phrase": "Thick eyebrows",
+    "phraseTranslation": "浓浓的眉毛",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "eyebrow.jpg",
+        "url": "https://images.unsplash.com/photo-1583001809873-a128495da465?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "forehead",
+    "standardized": "forehead",
+    "chinese": "额头",
+    "phonetic": "/forehead/",
+    "phrase": "Wipe forehead",
+    "phraseTranslation": "擦擦额头",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "forehead.jpg",
+        "url": "https://images.unsplash.com/photo-1597327844033-6e36e3f358f3?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "t-shirt",
+    "standardized": "t-shirt",
+    "chinese": "T恤",
+    "phonetic": "/t-shirt/",
+    "phrase": "A t-shirt",
+    "phraseTranslation": "一件T恤",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "t-shirt.jpg",
+        "url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "dress",
+    "standardized": "dress",
+    "chinese": "连衣裙",
+    "phonetic": "/dress/",
+    "phrase": "Pretty dress",
+    "phraseTranslation": "漂亮的连衣裙",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "dress.jpg",
+        "url": "https://images.unsplash.com/photo-1595777457583-45e0b64d8e5e?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "coat",
+    "standardized": "coat",
+    "chinese": "外套",
+    "phonetic": "/coat/",
+    "phrase": "Wear a coat in winter",
+    "phraseTranslation": "冬天穿外套",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "coat.jpg",
+        "url": "https://images.unsplash.com/photo-1591047139829-d916bb69a45f?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "scarf",
+    "standardized": "scarf",
+    "chinese": "围巾",
+    "phonetic": "/scarf/",
+    "phrase": "Put on a scarf",
+    "phraseTranslation": "戴上围巾",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "scarf.jpg",
+        "url": "https://images.unsplash.com/photo-1608099975971-3816d14cb17c?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "pajamas",
+    "standardized": "pajamas",
+    "chinese": "睡衣",
+    "phonetic": "/pajamas/",
+    "phrase": "Wear pajamas",
+    "phraseTranslation": "穿睡衣",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "pajamas.jpg",
+        "url": "https://images.unsplash.com/photo-1612913844674-c78af7ffcdaa?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "raincoat",
+    "standardized": "raincoat",
+    "chinese": "雨衣",
+    "phonetic": "/raincoat/",
+    "phrase": "Wear a raincoat when it rains",
+    "phraseTranslation": "下雨穿雨衣",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "raincoat.jpg",
+        "url": "https://images.unsplash.com/photo-1522759869940-5c0783056237?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "sweatshirt",
+    "standardized": "sweatshirt",
+    "chinese": "卫衣",
+    "phonetic": "/sweatshirt/",
+    "phrase": "Wear a sweatshirt",
+    "phraseTranslation": "穿卫衣",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "sweatshirt.jpg",
+        "url": "https://images.unsplash.com/photo-1578763397601-ad8a0e8f1c77?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "polo shirt",
+    "standardized": "polo shirt",
+    "chinese": "polo衫",
+    "phonetic": "/polo shirt/",
+    "phrase": "Wear a polo shirt",
+    "phraseTranslation": "穿polo衫",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "polo shirt.jpg",
+        "url": "https://images.unsplash.com/photo-1618354691551-44de113f0164?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "cardigan",
+    "standardized": "cardigan",
+    "chinese": "开衫",
+    "phonetic": "/cardigan/",
+    "phrase": "Wear a cardigan",
+    "phraseTranslation": "穿开衫",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "cardigan.jpg",
+        "url": "https://images.unsplash.com/photo-1597176116047-876a32798fcc?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "leggings",
+    "standardized": "leggings",
+    "chinese": "打底裤",
+    "phonetic": "/leggings/",
+    "phrase": "Wear leggings",
+    "phraseTranslation": "穿打底裤",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "leggings.jpg",
+        "url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "backpack",
+    "standardized": "backpack",
+    "chinese": "背包",
+    "phonetic": "/backpack/",
+    "phrase": "Wear a backpack",
+    "phraseTranslation": "背上背包",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "backpack.jpg",
+        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "earmuffs",
+    "standardized": "earmuffs",
+    "chinese": "耳罩",
+    "phonetic": "/earmuffs/",
+    "phrase": "Wear earmuffs",
+    "phraseTranslation": "戴耳罩",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "earmuffs.jpg",
+        "url": "https://images.unsplash.com/photo-1511814258749-24481efed7f7?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "cake",
+    "standardized": "cake",
+    "chinese": "蛋糕",
+    "phonetic": "/cake/",
+    "phrase": "Sweet cake",
+    "phraseTranslation": "甜甜的蛋糕",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "cake.jpg",
+        "url": "https://images.unsplash.com/photo-1500000000000-000000000000?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "egg",
+    "standardized": "egg",
+    "chinese": "鸡蛋",
+    "phonetic": "/egg/",
+    "phrase": "White egg",
+    "phraseTranslation": "白色的鸡蛋",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "egg.jpg",
+        "url": "https://images.unsplash.com/photo-1500000000000-000000000000?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "pencil",
+    "standardized": "pencil",
+    "chinese": "铅笔",
+    "phonetic": "/pencil/",
+    "phrase": "Write with a pencil",
+    "phraseTranslation": "用铅笔写字",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "pencil.jpg",
+        "url": "https://images.unsplash.com/photo-1583485088034-697b5bc54712?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "learn",
+    "standardized": "learn",
+    "chinese": "学习",
+    "phonetic": "/learn/",
+    "phrase": "Learn knowledge",
+    "phraseTranslation": "学习知识",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "learn.jpg",
+        "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "Chinese",
+    "standardized": "Chinese",
+    "chinese": "中文",
+    "phonetic": "/chinese/",
+    "phrase": "Speak Chinese",
+    "phraseTranslation": "说中文",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "chinese.jpg",
+        "url": "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "shape",
+    "standardized": "shape",
+    "chinese": "形状",
+    "phonetic": "/shape/",
+    "phrase": "Different shapes",
+    "phraseTranslation": "各种形状",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "shape.jpg",
+        "url": "https://images.unsplash.com/photo-1558537348-a4f3b2151a8f?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "pentagon",
+    "standardized": "pentagon",
+    "chinese": "五边形",
+    "phonetic": "/pentagon/",
+    "phrase": "Five-sided pentagon",
+    "phraseTranslation": "五角的星星",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "pentagon.jpg",
+        "url": "https://images.unsplash.com/photo-1551524358-f34c0214781d?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "semicircle",
+    "standardized": "semicircle",
+    "chinese": "半圆形",
+    "phonetic": "/semicircle/",
+    "phrase": "Semicircle window",
+    "phraseTranslation": "半圆形的窗户",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "semicircle.jpg",
+        "url": "https://images.unsplash.com/photo-1555679486-e341a3e7b6de?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "warm",
+    "standardized": "warm",
+    "chinese": "温暖的",
+    "phonetic": "/warm/",
+    "phrase": "Warm weather",
+    "phraseTranslation": "温暖的天气",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "warm.jpg",
+        "url": "https://images.unsplash.com/photo-1521813727940-f3fdfa8d1322?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "earth",
+    "standardized": "earth",
+    "chinese": "地球",
+    "phonetic": "/earth/",
+    "phrase": "Beautiful earth",
+    "phraseTranslation": "美丽的地球",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "earth.jpg",
+        "url": "https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "soil",
+    "standardized": "soil",
+    "chinese": "土壤",
+    "phonetic": "/soil/",
+    "phrase": "Fertile soil",
+    "phraseTranslation": "肥沃的土壤",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "soil.jpg",
+        "url": "https://images.unsplash.com/photo-1593324991818-59031161a1f3?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "penguin",
+    "standardized": "penguin",
+    "chinese": "企鹅",
+    "phonetic": "/penguin/",
+    "phrase": "Waddling penguin",
+    "phraseTranslation": "摇摆的企鹅",
+    "difficulty": "intermediate",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "penguin.jpg",
+        "url": "https://images.unsplash.com/photo-1551986782-d0169b3f8fa7?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "square",
+    "standardized": "square",
+    "chinese": "方的",
+    "phonetic": "",
+    "phrase": "Square block",
+    "phraseTranslation": "方方的积木",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "square.jpg",
+        "url": "https://images.unsplash.com/photo-1563074409-24e8329fc263?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "school",
+    "standardized": "school",
+    "chinese": "学校",
+    "phonetic": "",
+    "phrase": "Go to school",
+    "phraseTranslation": "去学校",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "school.jpg",
+        "url": "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "head",
+    "standardized": "head",
+    "chinese": "头",
+    "phonetic": "",
+    "phrase": "Touch your head",
+    "phraseTranslation": "摸摸你的头",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "head.jpg",
+        "url": "https://images.unsplash.com/photo-1541710430735-5fca14c95b00?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "eye",
+    "standardized": "eye",
+    "chinese": "眼睛",
+    "phonetic": "",
+    "phrase": "Close one eye",
+    "phraseTranslation": "闭上一只眼睛",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "eye.jpg",
+        "url": "https://images.unsplash.com/photo-1559570278-eb8d71d06403?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "nose",
+    "standardized": "nose",
+    "chinese": "鼻子",
+    "phonetic": "",
+    "phrase": "Smell with nose",
+    "phraseTranslation": "用鼻子闻",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "nose.jpg",
+        "url": "https://images.unsplash.com/photo-1594546325110-a530729c91a5?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "hand",
+    "standardized": "hand",
+    "chinese": "手",
+    "phonetic": "",
+    "phrase": "Clap hands",
+    "phraseTranslation": "拍拍手",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "hand.jpg",
+        "url": "https://images.unsplash.com/photo-1580130379623-3a8057a6369a?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "foot",
+    "standardized": "foot",
+    "chinese": "脚",
+    "phonetic": "",
+    "phrase": "Stomp foot",
+    "phraseTranslation": "跺跺脚",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "foot.jpg",
+        "url": "https://images.unsplash.com/photo-1520674039363-a02a92f6f5e5?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "shirt",
+    "standardized": "shirt",
+    "chinese": "衬衫",
+    "phonetic": "",
+    "phrase": "Put on a shirt",
+    "phraseTranslation": "穿上衬衫",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "shirt.jpg",
+        "url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "shoes",
+    "standardized": "shoes",
+    "chinese": "鞋子",
+    "phonetic": "",
+    "phrase": "Put on shoes",
+    "phraseTranslation": "穿上鞋子",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "shoes.jpg",
+        "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "hat",
+    "standardized": "hat",
+    "chinese": "帽子",
+    "phonetic": "",
+    "phrase": "Put on a hat",
+    "phraseTranslation": "戴上帽子",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "hat.jpg",
+        "url": "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "apple",
+    "standardized": "apple",
+    "chinese": "苹果",
+    "phonetic": "",
+    "phrase": "Red apple",
+    "phraseTranslation": "红红的苹果",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "apple.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "banana",
+    "standardized": "banana",
+    "chinese": "香蕉",
+    "phonetic": "",
+    "phrase": "Yellow banana",
+    "phraseTranslation": "黄色的香蕉",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "banana.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "bread",
+    "standardized": "bread",
+    "chinese": "面包",
+    "phonetic": "",
+    "phrase": "Fresh bread",
+    "phraseTranslation": "新鲜的面包",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "bread.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "milk",
+    "standardized": "milk",
+    "chinese": "牛奶",
+    "phonetic": "",
+    "phrase": "White milk",
+    "phraseTranslation": "白白的牛奶",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "milk.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "book",
+    "standardized": "book",
+    "chinese": "书",
+    "phonetic": "",
+    "phrase": "Read a book",
+    "phraseTranslation": "读书",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "book.jpg",
+        "url": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "pen",
+    "standardized": "pen",
+    "chinese": "钢笔",
+    "phonetic": "",
+    "phrase": "Black pen",
+    "phraseTranslation": "黑色的钢笔",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "pen.jpg",
+        "url": "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "desk",
+    "standardized": "desk",
+    "chinese": "课桌",
+    "phonetic": "",
+    "phrase": "Clean desk",
+    "phraseTranslation": "干净的课桌",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "desk.jpg",
+        "url": "https://images.unsplash.com/photo-1567016376408-0226e4d0b046?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "circle",
+    "standardized": "circle",
+    "chinese": "圆形",
+    "phonetic": "",
+    "phrase": "Round circle ball",
+    "phraseTranslation": "圆圆的球",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "circle.jpg",
+        "url": "https://images.unsplash.com/photo-1517454339641-e531f8aa496b?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "triangle",
+    "standardized": "triangle",
+    "chinese": "三角形",
+    "phonetic": "",
+    "phrase": "Triangle roof",
+    "phraseTranslation": "三角形状的屋顶",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "triangle.jpg",
+        "url": "https://images.unsplash.com/photo-1567237034741-3a1c58283142?w=400",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "ball",
+    "standardized": "ball",
+    "chinese": "球",
+    "phonetic": "",
+    "phrase": "Bouncing ball",
+    "phraseTranslation": "弹跳的球",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "ball.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "doll",
+    "standardized": "doll",
+    "chinese": "娃娃",
+    "phonetic": "",
+    "phrase": "Cute doll",
+    "phraseTranslation": "可爱的娃娃",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "doll.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  },
+  {
+    "word": "car",
+    "standardized": "car",
+    "chinese": "小汽车",
+    "phonetic": "",
+    "phrase": "Little car",
+    "phraseTranslation": "小小汽车",
+    "difficulty": "basic",
+    "category": "general",
+    "imageURLs": [
+      {
+        "filename": "car.jpg",
+        "url": "",
+        "type": "Concept Image"
+      }
+    ]
+  }
+]
