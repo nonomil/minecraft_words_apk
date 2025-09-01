@@ -1,14 +1,14 @@
-// ä¸»æ¸¸æˆé€»è¾‘ç›¸å…³å‡½æ•°
+// Ö÷ÓÎÏ·Âß¼­Ïà¹Øº¯Êı
 
-// æ¨¡å¼åˆ‡æ¢
+// Ä£Ê½ÇĞ»»
 function switchMode(mode) {
     currentMode = mode;
     
-    // æ›´æ–°æŒ‰é’®çŠ¶æ€
+    // ¸üĞÂ°´Å¥×´Ì¬
     document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelector(`.mode-btn.${mode}`).classList.add('active');
     
-    // æ˜¾ç¤ºå¯¹åº”åŒºåŸŸ
+    // ÏÔÊ¾¶ÔÓ¦ÇøÓò
     document.getElementById('learnMode').style.display = mode === 'learn' ? 'block' : 'none';
     document.getElementById('quizMode').style.display = mode === 'quiz' ? 'block' : 'none';
     document.getElementById('settingsMode').style.display = mode === 'settings' ? 'block' : 'none';
@@ -18,21 +18,21 @@ function switchMode(mode) {
     }
 }
 
-// æ›´æ–°å•è¯æ˜¾ç¤º
+// ¸üĞÂµ¥´ÊÏÔÊ¾
 function updateWordDisplay() {
     if (currentVocabulary.length === 0) return;
     
     const word = getCurrentWord();
     if (!word) return;
     
-    // ä¿®å¤è¯æ±‡æ•°æ®
+    // ĞŞ¸´´Ê»ãÊı¾İ
     const fixedWord = fixWordData(word);
     
-    // æ›´æ–°åŸºæœ¬ä¿¡æ¯
+    // ¸üĞÂ»ù±¾ĞÅÏ¢
     document.getElementById('wordEnglish').textContent = fixedWord.standardized || fixedWord.word;
-    document.getElementById('wordCategory').textContent = `${fixedWord.category || 'æœªåˆ†ç±»'} - ${fixedWord.difficulty || 'æœªçŸ¥éš¾åº¦'}`;
+    document.getElementById('wordCategory').textContent = `${fixedWord.category || 'Î´·ÖÀà'} - ${fixedWord.difficulty || 'Î´ÖªÄÑ¶È'}`;
     
-    // æ˜¾ç¤ºéŸ³æ ‡
+    // ÏÔÊ¾Òô±ê
     const phoneticElement = document.getElementById('wordPhonetic');
     if (fixedWord.phonetic) {
         phoneticElement.textContent = fixedWord.phonetic;
@@ -41,21 +41,21 @@ function updateWordDisplay() {
         phoneticElement.style.display = 'none';
     }
     
-    // é‡ç½®æ˜¾ç¤ºçŠ¶æ€
+    // ÖØÖÃÏÔÊ¾×´Ì¬
     document.getElementById('learnOptions').style.display = 'block';
     document.getElementById('wordChinese').style.display = 'none';
     document.getElementById('learnResult').style.display = 'none';
     document.getElementById('wordPhrase').style.display = 'none';
     
-    // ç”Ÿæˆå­¦ä¹ é€‰é¡¹
+    // Éú³ÉÑ§Ï°Ñ¡Ïî
     generateLearnChoices(fixedWord);
     
-    // æ›´æ–°å›¾ç‰‡
+    // ¸üĞÂÍ¼Æ¬
     updateWordImage(fixedWord);
     
-    // è‡ªåŠ¨æ’­æ”¾å‘éŸ³ï¼ˆç«‹å³è§¦å‘ï¼Œæ— å»¶è¿Ÿï¼‰
+    // ×Ô¶¯²¥·Å·¢Òô£¨Á¢¼´´¥·¢£¬ÎŞÑÓ³Ù£©
     if (getSettings().autoPlay) {
-        // ç¡®ä¿è¯­éŸ³åˆæˆå·²å‡†å¤‡å¥½
+        // È·±£ÓïÒôºÏ³ÉÒÑ×¼±¸ºÃ
         if (speechSynthesis.getVoices().length === 0) {
             speechSynthesis.addEventListener('voiceschanged', () => {
                 playAudio();
@@ -65,19 +65,19 @@ function updateWordDisplay() {
         }
     }
     
-    // æ›´æ–°è¿›åº¦æ¡
+    // ¸üĞÂ½ø¶ÈÌõ
     updateProgressBar();
     
-    // æ›´æ–°æŒ‰é’®çŠ¶æ€
+    // ¸üĞÂ°´Å¥×´Ì¬
     updateNavigationButtons();
     
-    // å¦‚æœæ˜¯å¹¼å„¿å›­æ¨¡å¼ï¼Œæ›´æ–°åˆ†ç»„æ˜¾ç¤º
+    // Èç¹ûÊÇÓ×¶ùÔ°Ä£Ê½£¬¸üĞÂ·Ö×éÏÔÊ¾
     if (getSettings().kindergartenMode) {
         updateGroupDisplay();
     }
 }
 
-// æ›´æ–°å•è¯å›¾ç‰‡
+// ¸üĞÂµ¥´ÊÍ¼Æ¬
 function updateWordImage(word) {
     const imageElement = document.getElementById('wordImage');
     if (!imageElement) return;
@@ -85,7 +85,7 @@ function updateWordImage(word) {
     if (word.imageURLs && word.imageURLs.length > 0 && getSettings().showImages) {
         imageElement.style.display = 'block';
         
-        // å¼‚æ­¥è·å–çœŸå®å›¾ç‰‡URL
+        // Òì²½»ñÈ¡ÕæÊµÍ¼Æ¬URL
         convertToDirectImageUrl(word.imageURLs[0].url, word.imageURLs[0].filename)
             .then(imageUrl => {
                 imageElement.src = imageUrl;
@@ -103,7 +103,7 @@ function updateWordImage(word) {
     }
 }
 
-// æ›´æ–°è¿›åº¦æ¡
+// ¸üĞÂ½ø¶ÈÌõ
 function updateProgressBar() {
     const progressFill = document.getElementById('progressFill');
     if (!progressFill) return;
@@ -112,7 +112,7 @@ function updateProgressBar() {
     progressFill.style.width = progress + '%';
 }
 
-// æ›´æ–°å¯¼èˆªæŒ‰é’®
+// ¸üĞÂµ¼º½°´Å¥
 function updateNavigationButtons() {
     const prevBtn = document.querySelector('.control-btn.prev');
     const nextBtn = document.querySelector('.control-btn.next');
@@ -126,11 +126,11 @@ function updateNavigationButtons() {
     }
 }
 
-// ç”Ÿæˆå­¦ä¹ é€‰é¡¹
+// Éú³ÉÑ§Ï°Ñ¡Ïî
 function generateLearnChoices(correctWord) {
     const choices = [correctWord.chinese];
     
-    // è·å–ç›¸ä¼¼è¯æ±‡ä½œä¸ºé”™è¯¯é€‰é¡¹
+    // »ñÈ¡ÏàËÆ´Ê»ã×÷Îª´íÎóÑ¡Ïî
     const similarWords = getSimilarWords(correctWord, 3);
     similarWords.forEach(word => {
         if (!choices.includes(word.chinese)) {
@@ -138,7 +138,7 @@ function generateLearnChoices(correctWord) {
         }
     });
     
-    // å¦‚æœé€‰é¡¹ä¸å¤Ÿï¼Œä»å…¶ä»–è¯æ±‡ä¸­éšæœºé€‰æ‹©
+    // Èç¹ûÑ¡Ïî²»¹»£¬´ÓÆäËû´Ê»ãÖĞËæ»úÑ¡Ôñ
     while (choices.length < 4 && currentVocabulary.length > choices.length) {
         const otherWords = currentVocabulary.filter(w => 
             w.chinese !== correctWord.chinese && !choices.includes(w.chinese)
@@ -152,23 +152,23 @@ function generateLearnChoices(correctWord) {
         }
     }
     
-    // éšæœºæ’åºé€‰é¡¹
+    // Ëæ»úÅÅĞòÑ¡Ïî
     const shuffledChoices = shuffleArray(choices);
     
-    // ç”Ÿæˆé€‰é¡¹HTML
+    // Éú³ÉÑ¡ÏîHTML
     const choicesContainer = document.getElementById('learnChoices');
     if (!choicesContainer) return;
     
     choicesContainer.innerHTML = '';
     
-    // é€ä¸ªåˆ›å»ºé€‰é¡¹ï¼Œå¹¶ä¸ºæ¯ä¸ªé€‰é¡¹æ·»åŠ â€œæ‚¬åœæœ—è¯»ä¸­æ–‡â€
+    // Öğ¸ö´´½¨Ñ¡Ïî£¬²¢ÎªÃ¿¸öÑ¡ÏîÌí¼Ó¡°ĞüÍ£ÀÊ¶ÁÖĞÎÄ¡±
     shuffledChoices.forEach(choice => {
         const choiceElement = document.createElement('div');
         choiceElement.className = 'learn-choice';
         choiceElement.textContent = choice;
         choiceElement.onclick = () => selectLearnChoice(choiceElement, choice, correctWord.chinese);
         
-        // æ‚¬åœæ—¶æœ—è¯»è¯¥é€‰é¡¹å¯¹åº”çš„ä¸­æ–‡ï¼ˆè½»å¾®é˜²æŠ–ï¼Œé¿å…é¢‘ç¹è§¦å‘ï¼‰
+        // ĞüÍ£Ê±ÀÊ¶Á¸ÃÑ¡Ïî¶ÔÓ¦µÄÖĞÎÄ£¨ÇáÎ¢·À¶¶£¬±ÜÃâÆµ·±´¥·¢£©
         const speakOnHover = debounce(() => {
             try { playChinese(choice); } catch (e) { /* ignore */ }
         }, 300);
@@ -178,9 +178,9 @@ function generateLearnChoices(correctWord) {
     });
 }
 
-// å¤„ç†å­¦ä¹ é€‰æ‹©
+// ´¦ÀíÑ§Ï°Ñ¡Ôñ
 function selectLearnChoice(element, selected, correct) {
-    // ç¦ç”¨æ‰€æœ‰é€‰é¡¹
+    // ½ûÓÃËùÓĞÑ¡Ïî
     document.querySelectorAll('.learn-choice').forEach(choice => {
         choice.style.pointerEvents = 'none';
         if (choice.textContent === correct) {
@@ -190,30 +190,30 @@ function selectLearnChoice(element, selected, correct) {
         }
     });
     
-    // æ˜¾ç¤ºç»“æœ
+    // ÏÔÊ¾½á¹û
     const resultElement = document.getElementById('learnResult');
     if (resultElement) {
         resultElement.style.display = 'block';
         
         if (selected === correct) {
-            resultElement.textContent = 'âœ… å›ç­”æ­£ç¡®ï¼';
+            resultElement.textContent = '? »Ø´ğÕıÈ·£¡';
             resultElement.className = 'learn-result correct';
             
-            // åˆ›å»ºæ˜Ÿæ˜ŸåŠ¨ç”»
+            // ´´½¨ĞÇĞÇ¶¯»­
             createStarAnimation();
             
-            // å¹¼å„¿å›­æ¨¡å¼å¥–åŠ±å¤„ç†
+            // Ó×¶ùÔ°Ä£Ê½½±Àø´¦Àí
             if (getSettings().kindergartenMode) {
                 handleCorrectAnswer();
             }
             
         } else {
-            resultElement.textContent = `âŒ å›ç­”é”™è¯¯ï¼æ­£ç¡®ç­”æ¡ˆæ˜¯ï¼š${correct}`;
+            resultElement.textContent = `? »Ø´ğ´íÎó£¡ÕıÈ·´ğ°¸ÊÇ£º${correct}`;
             resultElement.className = 'learn-result wrong';
         }
     }
     
-    // å¦‚æœå›ç­”æ­£ç¡®ï¼Œæ˜¾ç¤ºçŸ­è¯­
+    // Èç¹û»Ø´ğÕıÈ·£¬ÏÔÊ¾¶ÌÓï
     if (selected === correct) {
         const currentWord = getCurrentWord();
         if (currentWord && currentWord.phrase && currentWord.phraseTranslation) {
@@ -229,7 +229,7 @@ function selectLearnChoice(element, selected, correct) {
         }
     }
     
-    // å»¶è¿Ÿæ˜¾ç¤ºå®Œæ•´ç­”æ¡ˆ
+    // ÑÓ³ÙÏÔÊ¾ÍêÕû´ğ°¸
     setTimeout(() => {
         const wordChinese = document.getElementById('wordChinese');
         if (wordChinese) {
@@ -237,18 +237,18 @@ function selectLearnChoice(element, selected, correct) {
             wordChinese.style.display = 'block';
         }
         
-        // å¦‚æœå›ç­”æ­£ç¡®ï¼Œè‡ªåŠ¨è·³è½¬åˆ°ä¸‹ä¸€é¢˜
+        // Èç¹û»Ø´ğÕıÈ·£¬×Ô¶¯Ìø×ªµ½ÏÂÒ»Ìâ
         if (selected === correct) {
             setTimeout(() => {
                 if (currentWordIndex < currentVocabulary.length - 1) {
                     nextWord();
                 }
-            }, 2000); // æ˜¾ç¤ºç­”æ¡ˆ2ç§’åè‡ªåŠ¨è·³è½¬
+            }, 2000); // ÏÔÊ¾´ğ°¸2Ãëºó×Ô¶¯Ìø×ª
         }
     }, CONFIG.ANIMATION.ANSWER_DELAY);
 }
 
-// ä¸Šä¸€ä¸ªå•è¯
+// ÉÏÒ»¸öµ¥´Ê
 function previousWord() {
     if (currentWordIndex > 0) {
         currentWordIndex--;
@@ -257,19 +257,19 @@ function previousWord() {
     }
 }
 
-// ä¸‹ä¸€ä¸ªå•è¯
+// ÏÂÒ»¸öµ¥´Ê
 function nextWord() {
     if (currentWordIndex < currentVocabulary.length - 1) {
         currentWordIndex++;
         updateWordDisplay();
         updateStats();
         
-        // è®°å½•å­¦ä¹ è¿›åº¦
+        // ¼ÇÂ¼Ñ§Ï°½ø¶È
         saveProgress();
     }
 }
 
-// æ’­æ”¾å‘éŸ³
+// ²¥·Å·¢Òô
 function playAudio() {
     const word = getCurrentWord();
     if (!word) return;
@@ -283,13 +283,13 @@ function playAudio() {
     currentUtterance = new SpeechSynthesisUtterance(text);
     const settings = getSettings();
     
-    // ä½¿ç”¨æ›´æ¸…æ™°çš„å¥³å£°ï¼Œé™ä½è¯­é€Ÿ
-    currentUtterance.rate = Math.max(0.6, settings.speechRate * 0.8); // é™ä½è¯­é€Ÿ
+    // Ê¹ÓÃ¸üÇåÎúµÄÅ®Éù£¬½µµÍÓïËÙ
+    currentUtterance.rate = Math.max(0.6, settings.speechRate * 0.8); // ½µµÍÓïËÙ
     currentUtterance.pitch = settings.speechPitch;
     currentUtterance.volume = settings.speechVolume;
     currentUtterance.lang = 'en-US';
     
-    // å°è¯•é€‰æ‹©æ›´å¥½çš„å¥³å£°
+    // ³¢ÊÔÑ¡Ôñ¸üºÃµÄÅ®Éù
     const voices = speechSynthesis.getVoices();
     const preferredVoices = voices.filter(voice => 
         voice.lang.startsWith('en') && 
@@ -303,7 +303,7 @@ function playAudio() {
     if (preferredVoices.length > 0) {
         currentUtterance.voice = preferredVoices[0];
     } else {
-        // å¦‚æœæ²¡æœ‰æ‰¾åˆ°ç‰¹å®šå¥³å£°ï¼Œé€‰æ‹©ç¬¬ä¸€ä¸ªè‹±è¯­å¥³å£°
+        // Èç¹ûÃ»ÓĞÕÒµ½ÌØ¶¨Å®Éù£¬Ñ¡ÔñµÚÒ»¸öÓ¢ÓïÅ®Éù
         const englishVoices = voices.filter(voice => 
             voice.lang.startsWith('en') && !voice.name.toLowerCase().includes('male')
         );
@@ -315,7 +315,7 @@ function playAudio() {
     speechSynthesis.speak(currentUtterance);
 }
 
-// ä¸­æ–‡å‘éŸ³ï¼šç”¨äºå­¦ä¹ æ¨¡å¼ä¸­â€œæ‚¬åœé€‰é¡¹æ—¶æœ—è¯»ä¸­æ–‡â€
+// ÖĞÎÄ·¢Òô£ºÓÃÓÚÑ§Ï°Ä£Ê½ÖĞ¡°ĞüÍ£Ñ¡ÏîÊ±ÀÊ¶ÁÖĞÎÄ¡±
 function playChinese(text) {
     if (!text) return;
 
@@ -326,7 +326,7 @@ function playChinese(text) {
     currentUtterance = new SpeechSynthesisUtterance(text);
     const settings = getSettings();
 
-    // ä¸­æ–‡ä¸€èˆ¬è¯­é€Ÿç•¥æ…¢æ›´æ¸…æ™°
+    // ÖĞÎÄÒ»°ãÓïËÙÂÔÂı¸üÇåÎú
     currentUtterance.rate = Math.max(0.6, settings.speechRate * 0.9);
     currentUtterance.pitch = settings.speechPitch;
     currentUtterance.volume = settings.speechVolume;
@@ -346,7 +346,7 @@ function playChinese(text) {
     speechSynthesis.speak(currentUtterance);
 }
 
-// æ›´æ–°ç»Ÿè®¡ä¿¡æ¯
+// ¸üĞÂÍ³¼ÆĞÅÏ¢
 function updateStats() {
     const currentIndexElement = document.getElementById('currentIndex');
     const totalWordsElement = document.getElementById('totalWords');
@@ -365,7 +365,7 @@ function updateStats() {
     }
 }
 
-// é”®ç›˜å¿«æ·é”®å¤„ç†
+// ¼üÅÌ¿ì½İ¼ü´¦Àí
 function handleKeyboardShortcuts(e) {
     if (currentMode === 'learn') {
         switch(e.key) {
@@ -396,59 +396,59 @@ function handleKeyboardShortcuts(e) {
     }
 }
 
-// åˆå§‹åŒ–æ¸¸æˆ
+// ³õÊ¼»¯ÓÎÏ·
 function initializeGame() {
-    // æ·»åŠ é”®ç›˜äº‹ä»¶ç›‘å¬
+    // Ìí¼Ó¼üÅÌÊÂ¼ş¼àÌı
     document.addEventListener('keydown', handleKeyboardShortcuts);
     
-    // é¡µé¢å¸è½½æ—¶ä¿å­˜è¿›åº¦
+    // Ò³ÃæĞ¶ÔØÊ±±£´æ½ø¶È
     window.addEventListener('beforeunload', function() {
         saveProgress();
     });
     
-    // åˆå§‹åŒ–å¹¼å„¿å›­æ¨¡å¼ï¼ˆå¦‚æœå¯ç”¨ï¼‰
+    // ³õÊ¼»¯Ó×¶ùÔ°Ä£Ê½£¨Èç¹ûÆôÓÃ£©
     if (getSettings().kindergartenMode) {
         initializeKindergartenMode();
     }
     
-    // åŠ è½½é»˜è®¤è¯åº“
+    // ¼ÓÔØÄ¬ÈÏ´Ê¿â
     const defaultVocab = document.getElementById('vocabSelect').value;
-    if (defaultVocab === 'kindergarten_vocabulary') {
+    if (defaultVocab.includes('Ó×¶ùÔ°') || defaultVocab === 'kindergarten_vocabulary') {
         loadVocabulary();
     }
 }
 
 
-// æ¨¡å¼åˆ‡æ¢
+// Ä£Ê½ÇĞ»»
 function setLearnType(type) {
   if (!['word','phrase_en','phrase_zh'].includes(type)) return;
   try { localStorage.setItem(CONFIG.STORAGE_KEYS.LEARN_TYPE, type); } catch(e) {}
   if (typeof learnType !== 'undefined') { learnType = type; } else { window.learnType = type; }
-  // æ¿€æ´»æŒ‰é’®æ ·å¼
+  // ¼¤»î°´Å¥ÑùÊ½
   const btns = document.querySelectorAll('.learn-type-btn');
   btns.forEach(b => b.classList.remove('active'));
   const map = {word: '.learn-type-btn.word', phrase_en: '.learn-type-btn.phrase_en', phrase_zh: '.learn-type-btn.phrase_zh'};
   const activeBtn = document.querySelector(map[type]);
   if (activeBtn) activeBtn.classList.add('active');
-  // æ ¹æ®ç±»å‹é‡è½½è¿›åº¦ä¸ç•Œé¢
+  // ¸ù¾İÀàĞÍÖØÔØ½ø¶ÈÓë½çÃæ
   if (currentVocabulary && currentVocabulary.length) {
-    // é‡æ–°ç”Ÿæˆå­¦ä¹ é€‰é¡¹ä¸ç´¢å¼•
+    // ÖØĞÂÉú³ÉÑ§Ï°Ñ¡ÏîÓëË÷Òı
     loadProgress();
     updateWordDisplay();
     generateLearnChoices(getCurrentWord());
     updateNavigationButtons();
   }
-  // åŒæ­¥å¹¼å„¿å›­å¥–åŠ±ï¼ˆä»…åœ¨å¼€å¯å¹¼å„¿å›­æ¨¡å¼æ—¶ï¼‰
+  // Í¬²½Ó×¶ùÔ°½±Àø£¨½öÔÚ¿ªÆôÓ×¶ùÔ°Ä£Ê½Ê±£©
   try {
     if (getSettings().kindergartenMode) {
       loadKindergartenProgress();
       updateGroupDisplay();
       updateRewardDisplay();
     }
-  } catch(e) { console.warn('åˆ·æ–°å¹¼å„¿å›­å¥–åŠ±å¤±è´¥', e); }
+  } catch(e) { console.warn('Ë¢ĞÂÓ×¶ùÔ°½±ÀøÊ§°Ü', e); }
 }
 
-// åˆå§‹åŒ–åŒæ­¥æŒ‰é’®æ¿€æ´»çŠ¶æ€ï¼ˆåœ¨é¡µé¢åŠ è½½å®Œæˆåæ‰§è¡Œï¼‰
+// ³õÊ¼»¯Í¬²½°´Å¥¼¤»î×´Ì¬£¨ÔÚÒ³Ãæ¼ÓÔØÍê³ÉºóÖ´ĞĞ£©
 document.addEventListener('DOMContentLoaded', () => {
   try {
     const stored = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
