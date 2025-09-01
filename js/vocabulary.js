@@ -5,14 +5,23 @@ async function loadVocabulary() {
     const selectedVocab = document.getElementById('vocabSelect').value;
     
     try {
-        const vocabUrl = `${CONFIG.VOCAB_PATH}${selectedVocab}.json`;
-        console.log('Loading vocabulary from:', vocabUrl);
-        const response = await fetch(vocabUrl);
-        if (!response.ok) {
-            throw new Error(`词库文件未找到: ${vocabUrl} (状态: ${response.status})`);
+        let data;
+        
+        // 检测是否为file://协议，如果是则使用内嵌数据
+        if (window.location.protocol === 'file:' && typeof loadEmbeddedVocabulary === 'function') {
+            console.log('Loading embedded vocabulary for file:// protocol:', selectedVocab);
+            data = await loadEmbeddedVocabulary(selectedVocab);
+        } else {
+            // 使用原来的fetch方式
+            const vocabUrl = `${CONFIG.VOCAB_PATH}${selectedVocab}.json`;
+            console.log('Loading vocabulary from:', vocabUrl);
+            const response = await fetch(vocabUrl);
+            if (!response.ok) {
+                throw new Error(`词库文件未找到: ${vocabUrl} (状态: ${response.status})`);
+            }
+            data = await response.json();
         }
         
-        const data = await response.json();
         validateVocabularyJSON(data);
         
         currentVocabulary = data;
