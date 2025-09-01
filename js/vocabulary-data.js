@@ -3,11 +3,18 @@
 
 // Load embedded vocabulary data
 async function loadEmbeddedVocabulary(vocabName) {
-    if (window.location.protocol === 'file:' && vocabName === 'words-basic') {
-        console.log('Using embedded vocabulary data for file:// protocol');
-        return getWordsBasicData();
+    // For file:// protocol, only words-basic is available as embedded data
+    if (window.location.protocol === 'file:') {
+        if (vocabName === 'words-basic') {
+            console.log('Using embedded vocabulary data for file:// protocol');
+            return getWordsBasicData();
+        } else {
+            // For other vocabularies in file:// protocol, show helpful error
+            throw new Error(`词库 "${vocabName}" 在离线模式下不可用。请选择"基础词汇"或在服务器环境下使用其他词库。`);
+        }
     }
     
+    // For http:// protocol, try to fetch the vocabulary file
     const vocabUrl = `${CONFIG.VOCAB_PATH}${vocabName}.json`;
     const response = await fetch(vocabUrl);
     if (!response.ok) {
