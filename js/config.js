@@ -1,7 +1,7 @@
 // 全局配置和常量
 const CONFIG = {
     // 词库路径
-    VOCAB_PATH: 'Word-幼儿园单词/',
+    VOCAB_PATH: '',
     
     // 默认设置
     DEFAULT_SETTINGS: {
@@ -43,6 +43,7 @@ const CONFIG = {
     
     // 可用词库
     VOCABULARIES: {
+        'words-basic': { name: '基础词汇', count: 157 },
         '1.幼儿园--基础词汇': { name: '幼儿园基础词汇', count: 157 },
         '2.幼儿园--学习词汇': { name: '幼儿园学习词汇', count: 202 },
         '3.幼儿园--自然词汇': { name: '幼儿园自然词汇', count: 212 },
@@ -50,9 +51,9 @@ const CONFIG = {
         '5.日常词汇': { name: '日常词汇', count: 138 },
         '6.幼儿园词汇': { name: '幼儿园综合词汇', count: 157 },
         'kindergarten_vocabulary': { name: '原幼儿园词汇', count: 50 },
-        'minecraft_basic': { name: '基础词汇', count: 62 },
-        'minecraft_intermediate': { name: '中级词汇', count: 60 },
-        'minecraft_advanced': { name: '高级词汇', count: 60 },
+        'minecraft_basic': { name: 'Minecraft基础词汇', count: 62 },
+        'minecraft_intermediate': { name: 'Minecraft中级词汇', count: 60 },
+        'minecraft_advanced': { name: 'Minecraft高级词汇', count: 60 },
         'common_vocabulary': { name: '通用词汇', count: 80 },
         'minecraft_image_links': { name: '完整词库', count: 2000 }
     }

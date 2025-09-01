@@ -1,6 +1,6 @@
-// ´Ê¿â¹ÜÀíÏà¹Øº¯Êı
+// è¯åº“ç®¡ç†ç›¸å…³å‡½æ•°
 
-// ¼ÓÔØÔ¤Éè´Ê¿â
+// åŠ è½½é¢„è®¾è¯åº“
 async function loadVocabulary() {
     const selectedVocab = document.getElementById('vocabSelect').value;
     
@@ -9,7 +9,7 @@ async function loadVocabulary() {
         console.log('Loading vocabulary from:', vocabUrl);
         const response = await fetch(vocabUrl);
         if (!response.ok) {
-            throw new Error(`´Ê¿âÎÄ¼şÎ´ÕÒµ½: ${vocabUrl} (×´Ì¬: ${response.status})`);
+            throw new Error(`è¯åº“æ–‡ä»¶æœªæ‰¾åˆ°: ${vocabUrl} (çŠ¶æ€: ${response.status})`);
         }
         
         const data = await response.json();
@@ -18,34 +18,34 @@ async function loadVocabulary() {
         currentVocabulary = data;
         currentWordIndex = 0;
         
-        // Èç¹ûÊÇÓ×¶ùÔ°Ä£Ê½£¬³õÊ¼»¯·Ö×é
-        if (getSettings().kindergartenMode && (selectedVocab.includes('Ó×¶ùÔ°') || selectedVocab === 'kindergarten_vocabulary')) {
+        // å¦‚æœæ˜¯å¹¼å„¿å›­æ¨¡å¼ï¼Œåˆå§‹åŒ–åˆ†ç»„
+        if (getSettings().kindergartenMode && (selectedVocab.includes('å¹¼å„¿å›­') || selectedVocab === 'kindergarten_vocabulary')) {
             initializeKindergartenMode();
         }
         
-        showNotification(`³É¹¦¼ÓÔØ ${currentVocabulary.length} ¸öµ¥´Ê£¡`);
+        showNotification(`æˆåŠŸåŠ è½½ ${currentVocabulary.length} ä¸ªå•è¯ï¼`);
         updateWordDisplay();
         updateStats();
         enableControls();
         
     } catch (error) {
-        showNotification('¼ÓÔØ´Ê¿âÊ§°Ü: ' + error.message, 'error');
+        showNotification('åŠ è½½è¯åº“å¤±è´¥: ' + error.message, 'error');
         console.error('Error loading vocabulary:', error);
     }
 }
 
-// ¼ÓÔØ×Ô¶¨Òå´Ê¿â
+// åŠ è½½è‡ªå®šä¹‰è¯åº“
 function loadCustomVocabulary() {
     const fileInput = document.getElementById('customVocabFile');
     const file = fileInput.files[0];
     
     if (!file) {
-        showNotification('ÇëÏÈÑ¡ÔñÒ»¸öJSONÎÄ¼ş', 'error');
+        showNotification('è¯·å…ˆé€‰æ‹©ä¸€ä¸ªJSONæ–‡ä»¶', 'error');
         return;
     }
     
     if (!file.name.toLowerCase().endsWith('.json')) {
-        showNotification('ÇëÑ¡ÔñJSON¸ñÊ½µÄÎÄ¼ş', 'error');
+        showNotification('è¯·é€‰æ‹©JSONæ ¼å¼çš„æ–‡ä»¶', 'error');
         return;
     }
     
@@ -58,33 +58,33 @@ function loadCustomVocabulary() {
             currentVocabulary = jsonData;
             currentWordIndex = 0;
             
-            // ¼ì²éÊÇ·ñÆôÓÃÓ×¶ùÔ°Ä£Ê½
+            // æ£€æŸ¥æ˜¯å¦å¯ç”¨å¹¼å„¿å›­æ¨¡å¼
             if (getSettings().kindergartenMode) {
                 initializeKindergartenMode();
             }
             
-            showNotification(`³É¹¦¼ÓÔØ×Ô¶¨Òå´Ê¿â£º${currentVocabulary.length} ¸öµ¥´Ê£¡`);
+            showNotification(`æˆåŠŸåŠ è½½è‡ªå®šä¹‰è¯åº“ï¼š${currentVocabulary.length} ä¸ªå•è¯ï¼`);
             updateWordDisplay();
             updateStats();
             enableControls();
             
         } catch (error) {
-            showNotification('¼ÓÔØ×Ô¶¨Òå´Ê¿âÊ§°Ü: ' + error.message, 'error');
+            showNotification('åŠ è½½è‡ªå®šä¹‰è¯åº“å¤±è´¥: ' + error.message, 'error');
             console.error('Error loading custom vocabulary:', error);
         }
     };
     
     reader.onerror = function() {
-        showNotification('ÎÄ¼ş¶ÁÈ¡Ê§°Ü', 'error');
+        showNotification('æ–‡ä»¶è¯»å–å¤±è´¥', 'error');
     };
     
     reader.readAsText(file, 'UTF-8');
 }
 
-// µ¼³öµ±Ç°´Ê¿â
+// å¯¼å‡ºå½“å‰è¯åº“
 function exportCurrentVocab() {
     if (currentVocabulary.length === 0) {
-        showNotification('Ã»ÓĞ´Ê¿â¿Éµ¼³ö', 'error');
+        showNotification('æ²¡æœ‰è¯åº“å¯å¯¼å‡º', 'error');
         return;
     }
     
@@ -98,29 +98,29 @@ function exportCurrentVocab() {
     a.click();
     
     URL.revokeObjectURL(url);
-    showNotification('´Ê¿âÒÑµ¼³ö');
+    showNotification('è¯åº“å·²å¯¼å‡º');
 }
 
-// Ëæ»úÅÅĞò´Ê»ã
+// éšæœºæ’åºè¯æ±‡
 function shuffleWords() {
     if (currentVocabulary.length === 0) {
-        showNotification('ÇëÏÈ¼ÓÔØ´Ê¿â', 'error');
+        showNotification('è¯·å…ˆåŠ è½½è¯åº“', 'error');
         return;
     }
     
     currentVocabulary = shuffleArray(currentVocabulary);
     currentWordIndex = 0;
     
-    // ÖØĞÂ³õÊ¼»¯Ó×¶ùÔ°Ä£Ê½
+    // é‡æ–°åˆå§‹åŒ–å¹¼å„¿å›­æ¨¡å¼
     if (getSettings().kindergartenMode) {
         initializeKindergartenMode();
     }
     
     updateWordDisplay();
-    showNotification('´Ê»ãÒÑËæ»úÅÅĞò£¡');
+    showNotification('è¯æ±‡å·²éšæœºæ’åºï¼');
 }
 
-// ÆôÓÃ¿ØÖÆ°´Å¥
+// å¯ç”¨æ§åˆ¶æŒ‰é’®
 function enableControls() {
     const nextBtn = document.querySelector('.control-btn.next');
     const prevBtn = document.querySelector('.control-btn.prev');
@@ -131,7 +131,7 @@ function enableControls() {
     if (exportBtn) exportBtn.disabled = false;
 }
 
-// »ñÈ¡µ±Ç°µ¥´Ê
+// è·å–å½“å‰å•è¯
 function getCurrentWord() {
     if (currentVocabulary.length === 0 || currentWordIndex >= currentVocabulary.length) {
         return null;
@@ -139,7 +139,7 @@ function getCurrentWord() {
     return currentVocabulary[currentWordIndex];
 }
 
-// »ñÈ¡´Ê¿âÍ³¼ÆĞÅÏ¢
+// è·å–è¯åº“ç»Ÿè®¡ä¿¡æ¯
 function getVocabularyStats() {
     if (currentVocabulary.length === 0) {
         return {
@@ -156,41 +156,41 @@ function getVocabularyStats() {
     };
     
     currentVocabulary.forEach(word => {
-        // Í³¼Æ·ÖÀà
-        const category = word.category || 'Î´·ÖÀà';
+        // ç»Ÿè®¡åˆ†ç±»
+        const category = word.category || 'æœªåˆ†ç±»';
         stats.categories[category] = (stats.categories[category] || 0) + 1;
         
-        // Í³¼ÆÄÑ¶È
-        const difficulty = word.difficulty || 'Î´Öª';
+        // ç»Ÿè®¡éš¾åº¦
+        const difficulty = word.difficulty || 'æœªçŸ¥';
         stats.difficulties[difficulty] = (stats.difficulties[difficulty] || 0) + 1;
     });
     
     return stats;
 }
 
-// °´·ÖÀàÉ¸Ñ¡´Ê»ã
+// æŒ‰åˆ†ç±»ç­›é€‰è¯æ±‡
 function filterByCategory(category) {
     if (!category || category === 'all') {
         return currentVocabulary;
     }
     
     return currentVocabulary.filter(word => 
-        (word.category || 'Î´·ÖÀà') === category
+        (word.category || 'æœªåˆ†ç±»') === category
     );
 }
 
-// °´ÄÑ¶ÈÉ¸Ñ¡´Ê»ã
+// æŒ‰éš¾åº¦ç­›é€‰è¯æ±‡
 function filterByDifficulty(difficulty) {
     if (!difficulty || difficulty === 'all') {
         return currentVocabulary;
     }
     
     return currentVocabulary.filter(word => 
-        (word.difficulty || 'Î´Öª') === difficulty
+        (word.difficulty || 'æœªçŸ¥') === difficulty
     );
 }
 
-// ËÑË÷´Ê»ã
+// æœç´¢è¯æ±‡
 function searchVocabulary(query) {
     if (!query) {
         return currentVocabulary;
@@ -204,7 +204,7 @@ function searchVocabulary(query) {
     );
 }
 
-// »ñÈ¡ÏàËÆ´Ê»ã£¨ÓÃÓÚÉú³ÉÑ¡ÔñÌâÑ¡Ïî£©
+// è·å–ç›¸ä¼¼è¯æ±‡ï¼ˆç”¨äºç”Ÿæˆé€‰æ‹©é¢˜é€‰é¡¹ï¼‰
 function getSimilarWords(targetWord, count = 3) {
     const otherWords = currentVocabulary.filter(word => 
         word.chinese !== targetWord.chinese
@@ -214,7 +214,7 @@ function getSimilarWords(targetWord, count = 3) {
         return [];
     }
     
-    // ÓÅÏÈÑ¡ÔñÍ¬Àà±ğµÄ´Ê»ã
+    // ä¼˜å…ˆé€‰æ‹©åŒç±»åˆ«çš„è¯æ±‡
     const sameCategory = otherWords.filter(word => 
         word.category === targetWord.category
     );
@@ -223,15 +223,15 @@ function getSimilarWords(targetWord, count = 3) {
         word.difficulty === targetWord.difficulty
     );
     
-    // ×éºÏºòÑ¡´Ê»ã
+    // ç»„åˆå€™é€‰è¯æ±‡
     let candidates = [];
     
-    // Ìí¼ÓÍ¬Àà±ğ´Ê»ã
+    // æ·»åŠ åŒç±»åˆ«è¯æ±‡
     if (sameCategory.length > 0) {
         candidates.push(...getRandomElements(sameCategory, Math.min(count, sameCategory.length)));
     }
     
-    // Èç¹û²»¹»£¬Ìí¼ÓÍ¬ÄÑ¶È´Ê»ã
+    // å¦‚æœä¸å¤Ÿï¼Œæ·»åŠ åŒéš¾åº¦è¯æ±‡
     if (candidates.length < count && sameDifficulty.length > 0) {
         const needed = count - candidates.length;
         const additional = sameDifficulty.filter(word => 
@@ -240,7 +240,7 @@ function getSimilarWords(targetWord, count = 3) {
         candidates.push(...getRandomElements(additional, Math.min(needed, additional.length)));
     }
     
-    // Èç¹û»¹²»¹»£¬Ëæ»úÌí¼ÓÆäËû´Ê»ã
+    // å¦‚æœè¿˜ä¸å¤Ÿï¼Œéšæœºæ·»åŠ å…¶ä»–è¯æ±‡
     if (candidates.length < count) {
         const needed = count - candidates.length;
         const remaining = otherWords.filter(word => 
@@ -252,34 +252,34 @@ function getSimilarWords(targetWord, count = 3) {
     return candidates.slice(0, count);
 }
 
-// ¼ì²é´Ê»ãÍêÕûĞÔ
+// æ£€æŸ¥è¯æ±‡å®Œæ•´æ€§
 function validateWordData(word) {
     const required = ['word', 'chinese'];
     const missing = required.filter(field => !word[field]);
     
     if (missing.length > 0) {
-        console.warn(`´Ê»ãÊı¾İ²»ÍêÕû£¬È±ÉÙ×Ö¶Î: ${missing.join(', ')}`, word);
+        console.warn(`è¯æ±‡æ•°æ®ä¸å®Œæ•´ï¼Œç¼ºå°‘å­—æ®µ: ${missing.join(', ')}`, word);
         return false;
     }
     
     return true;
 }
 
-// ĞŞ¸´´Ê»ãÊı¾İ
+// ä¿®å¤è¯æ±‡æ•°æ®
 function fixWordData(word) {
     const fixed = { ...word };
     
-    // È·±£ÓĞ±ê×¼»¯µ¥´Ê
+    // ç¡®ä¿æœ‰æ ‡å‡†åŒ–å•è¯
     if (!fixed.standardized) {
         fixed.standardized = fixed.word;
     }
     
-    // È·±£ÓĞ·ÖÀà
+    // ç¡®ä¿æœ‰åˆ†ç±»
     if (!fixed.category) {
-        fixed.category = 'Î´·ÖÀà';
+        fixed.category = 'æœªåˆ†ç±»';
     }
     
-    // È·±£ÓĞÄÑ¶È
+    // ç¡®ä¿æœ‰éš¾åº¦
     if (!fixed.difficulty) {
         fixed.difficulty = 'basic';
     }

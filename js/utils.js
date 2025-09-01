@@ -1,6 +1,6 @@
-// ¹¤¾ßº¯Êı
+// å·¥å…·å‡½æ•°
 
-// ÏÔÊ¾Í¨Öª
+// æ˜¾ç¤ºé€šçŸ¥
 function showNotification(message, type = 'success') {
     const notification = document.getElementById('notification');
     notification.textContent = message;
@@ -17,7 +17,7 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// Ëæ»úÅÅĞòÊı×é
+// éšæœºæ’åºæ•°ç»„
 function shuffleArray(array) {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -27,31 +27,31 @@ function shuffleArray(array) {
     return newArray;
 }
 
-// »ñÈ¡Ëæ»úÔªËØ
+// è·å–éšæœºå…ƒç´ 
 function getRandomElements(array, count) {
     const shuffled = shuffleArray(array);
     return shuffled.slice(0, count);
 }
 
-// ×ª»»Minecraft WikiÎÄ¼şÒ³ÃæÁ´½ÓÎªÖ±½ÓÍ¼Æ¬Á´½Ó
+// è½¬æ¢Minecraft Wikiæ–‡ä»¶é¡µé¢é“¾æ¥ä¸ºç›´æ¥å›¾ç‰‡é“¾æ¥
 async function convertToDirectImageUrl(filePageUrl, filename) {
-    // Èç¹ûÒÑ¾­ÊÇÖ±½ÓÍ¼Æ¬Á´½Ó£¬Ö±½Ó·µ»Ø
+    // å¦‚æœå·²ç»æ˜¯ç›´æ¥å›¾ç‰‡é“¾æ¥ï¼Œç›´æ¥è¿”å›
     if (filePageUrl.includes('/images/') || filePageUrl.includes('format=original')) {
         return filePageUrl;
     }
     
-    // ¼ì²é»º´æ
+    // æ£€æŸ¥ç¼“å­˜
     if (imageUrlCache.has(filePageUrl)) {
         return imageUrlCache.get(filePageUrl);
     }
     
-    // Èç¹ûÊÇÎÄ¼şÒ³ÃæÁ´½Ó£¬Í¨¹ıAPI»ñÈ¡ÕæÊµÍ¼Æ¬Á´½Ó
+    // å¦‚æœæ˜¯æ–‡ä»¶é¡µé¢é“¾æ¥ï¼Œé€šè¿‡APIè·å–çœŸå®å›¾ç‰‡é“¾æ¥
     if (filePageUrl.includes('/w/File:')) {
         try {
-            // ÌáÈ¡ÎÄ¼şÃû
+            // æå–æ–‡ä»¶å
             const fileName = filename || filePageUrl.split('/File:')[1];
             if (fileName) {
-                // Ê¹ÓÃMediaWiki API»ñÈ¡Í¼Æ¬ĞÅÏ¢
+                // ä½¿ç”¨MediaWiki APIè·å–å›¾ç‰‡ä¿¡æ¯
                 const apiUrl = `https://minecraft.wiki/api.php?action=query&titles=File:${encodeURIComponent(fileName)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
                 const response = await fetch(apiUrl);
                 const data = await response.json();
@@ -61,7 +61,7 @@ async function convertToDirectImageUrl(filePageUrl, filename) {
                     const pageId = Object.keys(pages)[0];
                     const imageUrl = pages[pageId]?.imageinfo?.[0]?.url;
                     if (imageUrl) {
-                        // »º´æ½á¹û
+                        // ç¼“å­˜ç»“æœ
                         imageUrlCache.set(filePageUrl, imageUrl);
                         return imageUrl;
                     }
@@ -72,11 +72,11 @@ async function convertToDirectImageUrl(filePageUrl, filename) {
         }
     }
     
-    // Èç¹ûÎŞ·¨×ª»»£¬·µ»ØÔ­Á´½Ó
+    // å¦‚æœæ— æ³•è½¬æ¢ï¼Œè¿”å›åŸé“¾æ¥
     return filePageUrl;
 }
 
-// Ê¹ÓÃ UTF-8 ¶Ô×Ö·û´®½øĞĞ Base64 ±àÂë£¬¼æÈİÖĞÎÄ
+// ä½¿ç”¨ UTF-8 å¯¹å­—ç¬¦ä¸²è¿›è¡Œ Base64 ç¼–ç ï¼Œå…¼å®¹ä¸­æ–‡
 function toBase64Utf8(str) {
     const bytes = new TextEncoder().encode(str);
     let binary = '';
@@ -86,8 +86,8 @@ function toBase64Utf8(str) {
     return btoa(binary);
 }
 
-// ´´½¨Õ¼Î»·ûÍ¼Æ¬£¨¼æÈİÖĞÎÄ×Ö·û£©
-function createPlaceholderImage(text = 'Í¼Æ¬ÎŞ·¨¼ÓÔØ') {
+// åˆ›å»ºå ä½ç¬¦å›¾ç‰‡ï¼ˆå…¼å®¹ä¸­æ–‡å­—ç¬¦ï¼‰
+function createPlaceholderImage(text = 'å›¾ç‰‡æ— æ³•åŠ è½½') {
     const svg = `
         <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="200" height="200" fill="#f0f0f0"/>
@@ -97,7 +97,7 @@ function createPlaceholderImage(text = 'Í¼Æ¬ÎŞ·¨¼ÓÔØ') {
     return `data:image/svg+xml;base64,${toBase64Utf8(svg)}`;
 }
 
-// ·À¶¶º¯Êı
+// é˜²æŠ–å‡½æ•°
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -110,7 +110,7 @@ function debounce(func, wait) {
     };
 }
 
-// ½ÚÁ÷º¯Êı
+// èŠ‚æµå‡½æ•°
 function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -124,27 +124,27 @@ function throttle(func, limit) {
     }
 }
 
-// ¸ñÊ½»¯Ê±¼ä
+// æ ¼å¼åŒ–æ—¶é—´
 function formatTime(milliseconds) {
     const seconds = Math.floor(milliseconds / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
     
     if (hours > 0) {
-        return `${hours}Ğ¡Ê±${minutes % 60}·ÖÖÓ`;
+        return `${hours}å°æ—¶${minutes % 60}åˆ†é’Ÿ`;
     } else if (minutes > 0) {
-        return `${minutes}·ÖÖÓ`;
+        return `${minutes}åˆ†é’Ÿ`;
     } else {
-        return `${seconds}Ãë`;
+        return `${seconds}ç§’`;
     }
 }
 
-// »ñÈ¡µ±Ç°ÈÕÆÚ×Ö·û´®
+// è·å–å½“å‰æ—¥æœŸå­—ç¬¦ä¸²
 function getCurrentDateString() {
     return new Date().toISOString().slice(0, 10);
 }
 
-// Éî¿½±´¶ÔÏó
+// æ·±æ‹·è´å¯¹è±¡
 function deepClone(obj) {
     if (obj === null || typeof obj !== 'object') {
         return obj;
@@ -169,18 +169,18 @@ function deepClone(obj) {
     }
 }
 
-// ¼ì²éÊÇ·ñÎªÒÆ¶¯Éè±¸
+// æ£€æŸ¥æ˜¯å¦ä¸ºç§»åŠ¨è®¾å¤‡
 function isMobileDevice() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-// »ñÈ¡Ëæ»úÑÕÉ«
+// è·å–éšæœºé¢œè‰²
 function getRandomColor() {
     const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3', '#54a0ff', '#5f27cd'];
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
-// ¼ÆËãÁ½¸öÈÕÆÚÖ®¼äµÄÌìÊı²î
+// è®¡ç®—ä¸¤ä¸ªæ—¥æœŸä¹‹é—´çš„å¤©æ•°å·®
 function daysBetween(date1, date2) {
     const oneDay = 24 * 60 * 60 * 1000;
     const firstDate = new Date(date1);
@@ -188,25 +188,25 @@ function daysBetween(date1, date2) {
     return Math.round(Math.abs((firstDate - secondDate) / oneDay));
 }
 
-// ÑéÖ¤JSON¸ñÊ½
+// éªŒè¯JSONæ ¼å¼
 function validateVocabularyJSON(data) {
     if (!Array.isArray(data)) {
-        throw new Error('´Ê¿âÎÄ¼ş¸ñÊ½´íÎó£ºÓ¦¸ÃÊÇÊı×é¸ñÊ½');
+        throw new Error('è¯åº“æ–‡ä»¶æ ¼å¼é”™è¯¯ï¼šåº”è¯¥æ˜¯æ•°ç»„æ ¼å¼');
     }
     
     if (data.length === 0) {
-        throw new Error('´Ê¿âÎÄ¼şÎª¿Õ');
+        throw new Error('è¯åº“æ–‡ä»¶ä¸ºç©º');
     }
     
     const firstItem = data[0];
     if (!firstItem.word || !firstItem.chinese) {
-        throw new Error('´Ê¿âÎÄ¼ş¸ñÊ½´íÎó£ºÈ±ÉÙ±ØÒª×Ö¶Î word »ò chinese');
+        throw new Error('è¯åº“æ–‡ä»¶æ ¼å¼é”™è¯¯ï¼šç¼ºå°‘å¿…è¦å­—æ®µ word æˆ– chinese');
     }
     
     return true;
 }
 
-// Éú³ÉÎ¨Ò»ID
+// ç”Ÿæˆå”¯ä¸€ID
 function generateUniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
