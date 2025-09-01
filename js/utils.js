@@ -1,6 +1,6 @@
-// å·¥å…·å‡½æ•°
+// ¹¤¾ßº¯Êı
 
-// æ˜¾ç¤ºé€šçŸ¥
+// ÏÔÊ¾Í¨Öª
 function showNotification(message, type = 'success') {
     const notification = document.getElementById('notification');
     notification.textContent = message;
@@ -17,7 +17,7 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// éšæœºæ’åºæ•°ç»„
+// Ëæ»úÅÅĞòÊı×é
 function shuffleArray(array) {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -27,31 +27,31 @@ function shuffleArray(array) {
     return newArray;
 }
 
-// è·å–éšæœºå…ƒç´ 
+// »ñÈ¡Ëæ»úÔªËØ
 function getRandomElements(array, count) {
     const shuffled = shuffleArray(array);
     return shuffled.slice(0, count);
 }
 
-// è½¬æ¢Minecraft Wikiæ–‡ä»¶é¡µé¢é“¾æ¥ä¸ºç›´æ¥å›¾ç‰‡é“¾æ¥
+// ×ª»»Minecraft WikiÎÄ¼şÒ³ÃæÁ´½ÓÎªÖ±½ÓÍ¼Æ¬Á´½Ó
 async function convertToDirectImageUrl(filePageUrl, filename) {
-    // å¦‚æœå·²ç»æ˜¯ç›´æ¥å›¾ç‰‡é“¾æ¥ï¼Œç›´æ¥è¿”å›
+    // Èç¹ûÒÑ¾­ÊÇÖ±½ÓÍ¼Æ¬Á´½Ó£¬Ö±½Ó·µ»Ø
     if (filePageUrl.includes('/images/') || filePageUrl.includes('format=original')) {
         return filePageUrl;
     }
     
-    // æ£€æŸ¥ç¼“å­˜
+    // ¼ì²é»º´æ
     if (imageUrlCache.has(filePageUrl)) {
         return imageUrlCache.get(filePageUrl);
     }
     
-    // å¦‚æœæ˜¯æ–‡ä»¶é¡µé¢é“¾æ¥ï¼Œé€šè¿‡APIè·å–çœŸå®å›¾ç‰‡é“¾æ¥
+    // Èç¹ûÊÇÎÄ¼şÒ³ÃæÁ´½Ó£¬Í¨¹ıAPI»ñÈ¡ÕæÊµÍ¼Æ¬Á´½Ó
     if (filePageUrl.includes('/w/File:')) {
         try {
-            // æå–æ–‡ä»¶å
+            // ÌáÈ¡ÎÄ¼şÃû
             const fileName = filename || filePageUrl.split('/File:')[1];
             if (fileName) {
-                // ä½¿ç”¨MediaWiki APIè·å–å›¾ç‰‡ä¿¡æ¯
+                // Ê¹ÓÃMediaWiki API»ñÈ¡Í¼Æ¬ĞÅÏ¢
                 const apiUrl = `https://minecraft.wiki/api.php?action=query&titles=File:${encodeURIComponent(fileName)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
                 const response = await fetch(apiUrl);
                 const data = await response.json();
@@ -61,7 +61,7 @@ async function convertToDirectImageUrl(filePageUrl, filename) {
                     const pageId = Object.keys(pages)[0];
                     const imageUrl = pages[pageId]?.imageinfo?.[0]?.url;
                     if (imageUrl) {
-                        // ç¼“å­˜ç»“æœ
+                        // »º´æ½á¹û
                         imageUrlCache.set(filePageUrl, imageUrl);
                         return imageUrl;
                     }
@@ -72,21 +72,32 @@ async function convertToDirectImageUrl(filePageUrl, filename) {
         }
     }
     
-    // å¦‚æœæ— æ³•è½¬æ¢ï¼Œè¿”å›åŸé“¾æ¥
+    // Èç¹ûÎŞ·¨×ª»»£¬·µ»ØÔ­Á´½Ó
     return filePageUrl;
 }
 
-// åˆ›å»ºå ä½ç¬¦å›¾ç‰‡
-function createPlaceholderImage(text = 'å›¾ç‰‡æ— æ³•åŠ è½½') {
-    return `data:image/svg+xml;base64,${btoa(`
+// Ê¹ÓÃ UTF-8 ¶Ô×Ö·û´®½øĞĞ Base64 ±àÂë£¬¼æÈİÖĞÎÄ
+function toBase64Utf8(str) {
+    const bytes = new TextEncoder().encode(str);
+    let binary = '';
+    for (let i = 0; i < bytes.length; i++) {
+        binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
+}
+
+// ´´½¨Õ¼Î»·ûÍ¼Æ¬£¨¼æÈİÖĞÎÄ×Ö·û£©
+function createPlaceholderImage(text = 'Í¼Æ¬ÎŞ·¨¼ÓÔØ') {
+    const svg = `
         <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="200" height="200" fill="#f0f0f0"/>
             <text x="100" y="100" font-family="Arial" font-size="14" fill="#999" text-anchor="middle" dominant-baseline="middle">${text}</text>
         </svg>
-    `)}`;
+    `;
+    return `data:image/svg+xml;base64,${toBase64Utf8(svg)}`;
 }
 
-// é˜²æŠ–å‡½æ•°
+// ·À¶¶º¯Êı
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -99,7 +110,7 @@ function debounce(func, wait) {
     };
 }
 
-// èŠ‚æµå‡½æ•°
+// ½ÚÁ÷º¯Êı
 function throttle(func, limit) {
     let inThrottle;
     return function() {
@@ -113,27 +124,27 @@ function throttle(func, limit) {
     }
 }
 
-// æ ¼å¼åŒ–æ—¶é—´
+// ¸ñÊ½»¯Ê±¼ä
 function formatTime(milliseconds) {
     const seconds = Math.floor(milliseconds / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
     
     if (hours > 0) {
-        return `${hours}å°æ—¶${minutes % 60}åˆ†é’Ÿ`;
+        return `${hours}Ğ¡Ê±${minutes % 60}·ÖÖÓ`;
     } else if (minutes > 0) {
-        return `${minutes}åˆ†é’Ÿ`;
+        return `${minutes}·ÖÖÓ`;
     } else {
-        return `${seconds}ç§’`;
+        return `${seconds}Ãë`;
     }
 }
 
-// è·å–å½“å‰æ—¥æœŸå­—ç¬¦ä¸²
+// »ñÈ¡µ±Ç°ÈÕÆÚ×Ö·û´®
 function getCurrentDateString() {
     return new Date().toISOString().slice(0, 10);
 }
 
-// æ·±æ‹·è´å¯¹è±¡
+// Éî¿½±´¶ÔÏó
 function deepClone(obj) {
     if (obj === null || typeof obj !== 'object') {
         return obj;
@@ -158,18 +169,18 @@ function deepClone(obj) {
     }
 }
 
-// æ£€æŸ¥æ˜¯å¦ä¸ºç§»åŠ¨è®¾å¤‡
+// ¼ì²éÊÇ·ñÎªÒÆ¶¯Éè±¸
 function isMobileDevice() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-// è·å–éšæœºé¢œè‰²
+// »ñÈ¡Ëæ»úÑÕÉ«
 function getRandomColor() {
     const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3', '#54a0ff', '#5f27cd'];
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
-// è®¡ç®—ä¸¤ä¸ªæ—¥æœŸä¹‹é—´çš„å¤©æ•°å·®
+// ¼ÆËãÁ½¸öÈÕÆÚÖ®¼äµÄÌìÊı²î
 function daysBetween(date1, date2) {
     const oneDay = 24 * 60 * 60 * 1000;
     const firstDate = new Date(date1);
@@ -177,25 +188,25 @@ function daysBetween(date1, date2) {
     return Math.round(Math.abs((firstDate - secondDate) / oneDay));
 }
 
-// éªŒè¯JSONæ ¼å¼
+// ÑéÖ¤JSON¸ñÊ½
 function validateVocabularyJSON(data) {
     if (!Array.isArray(data)) {
-        throw new Error('è¯åº“æ–‡ä»¶æ ¼å¼é”™è¯¯ï¼šåº”è¯¥æ˜¯æ•°ç»„æ ¼å¼');
+        throw new Error('´Ê¿âÎÄ¼ş¸ñÊ½´íÎó£ºÓ¦¸ÃÊÇÊı×é¸ñÊ½');
     }
     
     if (data.length === 0) {
-        throw new Error('è¯åº“æ–‡ä»¶ä¸ºç©º');
+        throw new Error('´Ê¿âÎÄ¼şÎª¿Õ');
     }
     
     const firstItem = data[0];
     if (!firstItem.word || !firstItem.chinese) {
-        throw new Error('è¯åº“æ–‡ä»¶æ ¼å¼é”™è¯¯ï¼šç¼ºå°‘å¿…è¦å­—æ®µ word æˆ– chinese');
+        throw new Error('´Ê¿âÎÄ¼ş¸ñÊ½´íÎó£ºÈ±ÉÙ±ØÒª×Ö¶Î word »ò chinese');
     }
     
     return true;
 }
 
-// ç”Ÿæˆå”¯ä¸€ID
+// Éú³ÉÎ¨Ò»ID
 function generateUniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }

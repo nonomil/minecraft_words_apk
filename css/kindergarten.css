@@ -340,7 +340,7 @@ body.kindergarten-mode {
 }
 
 .kindergarten-mode #quizMode .quiz-question {
-    background: url('background-2.jpg?v=2');
+    background: url('background.jpg?v=2');
     background-size: cover;
     background-position: center;
 }

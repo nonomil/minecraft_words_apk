@@ -367,16 +367,37 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* 新增：统一的测试卡片容器，题干与选项放在同一背景框中 */
+.quiz-card {
+    text-align: center;
+    padding: 25px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    margin: 15px 0;
+    background: url('background.jpg?v=2');
+    background-size: cover;
+    background-position: center;
+}
+
 .quiz-question {
     text-align: center;
     margin-bottom: 30px;
-    background: url('background-2.jpg');
-    background-size: cover;
-    background-position: center;
+    /* 原题干背景改为透明，由 .quiz-card 统一提供背景 */
+    background: none;
     border-radius: 12px;
     padding: 20px;
 }
 
+/* 新增：题目文本采用与学习模式相似的白色气泡背景 */
+#quizMode .quiz-question h3 {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 12px 16px;
+    border-radius: 10px;
+    display: inline-block;
+}
 .quiz-word {
     font-size: 2em;
     font-weight: bold;
