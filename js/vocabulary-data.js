@@ -66,7 +66,13 @@ async function loadEmbeddedVocabulary(vocabName) {
         '3.幼儿园--自然词汇': { file: '3.幼儿园--自然词汇.js', variable: 'VOCAB_3__________' },
         '4.交流词汇': { file: '4.交流词汇.js', variable: 'VOCAB_4_____' },
         '5.日常词汇': { file: '5.日常词汇.js', variable: 'VOCAB_5_____' },
-        '6.幼儿园词汇': { file: '6.幼儿园词汇.js', variable: 'VOCAB_6______' }
+        '6.幼儿园词汇': { file: '6.幼儿园词汇.js', variable: 'VOCAB_6______' },
+        'kindergarten_vocabulary': { file: 'kindergarten_vocabulary.js', variable: 'KINDERGARTEN_VOCABULARY' },
+        'minecraft_basic': { file: '1.minecraft_基础_basic.js', variable: 'VOCAB_1_MINECRAFT_____BASIC' },
+        'minecraft_intermediate': { file: '2.minecraft_中级_basic.js', variable: 'VOCAB_2_MINECRAFT_____BASIC' },
+        'minecraft_advanced': { file: '3.minecraft_高级_advanced.js', variable: 'VOCAB_3_MINECRAFT_____ADVANCED' },
+        'common_vocabulary': { file: '1.普通_common.js', variable: 'VOCAB_1____COMMON' },
+        'minecraft_image_links': { file: 'minecraft_3.单词汇总.js', variable: 'MINECRAFT_3_______' }
     };
     
     if (!targetFile && fallbackMappings[vocabName]) {
