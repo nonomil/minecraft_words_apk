@@ -3,7 +3,7 @@ package com.example.mcwords;
 import com.getcapacitor.BridgeActivity;
 import com.getcapacitor.Plugin;
 import java.util.ArrayList;
-import com.capacitorcommunity.texttospeech.TextToSpeech;
+import com.getcapacitor.community.tts.TextToSpeech;
 
 public class MainActivity extends BridgeActivity {
     @Override
