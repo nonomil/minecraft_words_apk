@@ -280,6 +280,7 @@
     <!-- 脚本文件 -->
     <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/tts-adapter.js"></script>
     <script src="js/vocabulary-data.js"></script>
     <script src="js/vocabulary.js"></script>
     <script src="js/rewards.js"></script>
@@ -288,7 +289,31 @@
     <script src="js/quiz.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/main.js"></script>
-</body>
+
+    <script>
+      // 提供一个可选的启用语音按钮（移动端更稳）
+      (function(){
+        try {
+          var btn = document.createElement('button');
+          btn.textContent = '🔓 启用语音';
+          btn.style.cssText = 'position:fixed;right:12px;bottom:12px;padding:8px 12px;border-radius:8px;border:1px solid #ddd;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.15);z-index:9999;';
+          btn.onclick = function(){
+            if (window.TTS && typeof window.TTS.enable === 'function') {
+              window.TTS.enable();
+              btn.textContent = '✅ 语音已启用';
+              setTimeout(function(){ btn.remove(); }, 800);
+            } else {
+              btn.remove();
+            }
+          };
+          // 仅在移动端显示
+          if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            document.body.appendChild(btn);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </body>
 </html>
 
 

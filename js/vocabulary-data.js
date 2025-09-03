@@ -159,3 +159,4 @@ VOCABULARY_DATA['words-basic'] = [
 ];
 
 console.log('Vocabulary data loaded successfully');
+

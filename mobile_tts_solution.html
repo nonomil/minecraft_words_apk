@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端TTS解决方案</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        .tts-button {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        .tts-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .success { background: rgba(46, 204, 113, 0.3); }
+        .error { background: rgba(231, 76, 60, 0.3); }
+        .warning { background: rgba(241, 196, 15, 0.3); }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+        
+        .voice-selector {
+            margin: 15px 0;
+        }
+        
+        select {
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            width: 100%;
+        }
+        .section {
+            margin-top: 30px;
+        }
+        pre {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        .muted { opacity: 0.85; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 移动端TTS解决方案</h1>
+        
+        <div id="status" class="status warning">
+            检测中...
+        </div>
+        
+        <div>
+            <textarea id="textInput" rows="4" placeholder="输入要朗读的文字...">Hello! 这是一个移动端兼容的TTS测试。</textarea>
+        </div>
+        
+        <div class="voice-selector">
+            <label for="voiceSelect">选择语音：</label>
+            <select id="voiceSelect"></select>
+            <div class="muted" id="voiceInfo"></div>
+        </div>
+        
+        <div>
+            <label for="rateSlider">语速：</label>
+            <input type="range" id="rateSlider" min="0.5" max="2" step="0.1" value="1">
+            <span id="rateValue">1.0</span>
+        </div>
+        
+        <div>
+            <label for="pitchSlider">音调：</label>
+            <input type="range" id="pitchSlider" min="0" max="2" step="0.1" value="1">
+            <span id="pitchValue">1.0</span>
+        </div>
+
+        <div>
+            <label for="volumeSlider">音量：</label>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+            <span id="volumeValue">1.0</span>
+        </div>
+        
+        <div>
+            <button class="tts-button" onclick="activateTTS()">✅ 启用语音（首次点击）</button>
+            <button class="tts-button" onclick="speakText()">🔊 朗读</button>
+            <button class="tts-button" onclick="stopSpeaking()">⏹️ 停止</button>
+            <button class="tts-button" onclick="testTTS()">🧪 兼容性测试</button>
+        </div>
+        
+        <div id="fallbackSection" style="display: none;">
+            <h3>🔧 备用方案</h3>
+            <button class="tts-button" onclick="useOnlineTTS()">使用在线TTS</button>
+            <button class="tts-button" onclick="downloadAudio()">下载音频文件</button>
+        </div>
+        
+        <div class="section">
+            <h3>📱 集成到你的应用（网页与APP统一适配）</h3>
+            <p class="muted">下方提供两部分：1）可直接复用的网页TTS适配器；2）推荐的Capacitor打包及原生TTS集成步骤。</p>
+            <button class="tts-button" onclick="showCode()">显示代码与步骤</button>
+        </div>
+        
+        <div id="codeSection" style="display: none; margin-top: 20px;">
+            <pre><code id="codeContent">// 加载中...</code></pre>
+        </div>
+    </div>
+
+    <script>
+        class MobileTTS {
+            constructor() {
+                this.synth = window.speechSynthesis;
+                this.voices = [];
+                this.isSupported = false;
+                this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                this.userActivated = false; // 需要用户手势解锁
+                this.currentUtterance = null;
+                this.init();
+            }
+
+            async init() {
+                await this.checkSupport();
+                await this.loadVoices();
+                this.updateUI();
+                this.updateStatus();
+            }
+
+            async checkSupport() {
+                const statusEl = document.getElementById('status');
+                if (!('speechSynthesis' in window)) {
+                    statusEl.className = 'status error';
+                    statusEl.innerHTML = '❌ 当前浏览器不支持TTS';
+                    document.getElementById('fallbackSection').style.display = 'block';
+                    this.isSupported = false;
+                    return false;
+                }
+
+                if (this.isMobile) {
+                    if (this.isIOS) {
+                        statusEl.className = 'status warning';
+                        statusEl.innerHTML = '⚠️ iOS 需要用户点击“启用语音”后才能播放';
+                    } else {
+                        statusEl.className = 'status warning';
+                        statusEl.innerHTML = '⚠️ Android 某些浏览器需要手势激活，请点击“启用语音”';
+                    }
+                } else {
+                    statusEl.className = 'status success';
+                    statusEl.innerHTML = '✅ 桌面浏览器 TTS 支持正常，可直接朗读';
+                }
+                this.isSupported = true;
+                return true;
+            }
+
+            async loadVoices() {
+                return new Promise((resolve) => {
+                    const updateList = () => {
+                        this.voices = this.synth.getVoices();
+                        const infoEl = document.getElementById('voiceInfo');
+                        if (infoEl) {
+                            const langs = Array.from(new Set(this.voices.map(v => v.lang))).join(', ');
+                            infoEl.textContent = `可用语音：${this.voices.length} 个；语种：${langs}`;
+                        }
+                        if (this.voices.length > 0) {
+                            this.populateVoiceList();
+                            resolve();
+                        } else {
+                            setTimeout(updateList, 150);
+                        }
+                    };
+                    if (this.synth.onvoiceschanged !== undefined) {
+                        this.synth.onvoiceschanged = updateList;
+                    }
+                    updateList();
+                });
+            }
+
+            populateVoiceList() {
+                const voiceSelect = document.getElementById('voiceSelect');
+                if (!voiceSelect) return;
+                voiceSelect.innerHTML = '';
+
+                const zhVoices = this.voices.filter(v => (v.lang||'').toLowerCase().includes('zh'));
+                const otherVoices = this.voices.filter(v => !(v.lang||'').toLowerCase().includes('zh'));
+
+                [...zhVoices, ...otherVoices].forEach((voice, index) => {
+                    const option = document.createElement('option');
+                    option.value = String(index);
+                    option.textContent = `${voice.name} (${voice.lang})`;
+                    voiceSelect.appendChild(option);
+                });
+            }
+
+            // 用户手势激活，解决移动端限制
+            async activate() {
+                if (!this.isSupported) return false;
+                try {
+                    // 用极短、音量为0的发声进行“解锁”
+                    const utter = new SpeechSynthesisUtterance(' ');
+                    utter.volume = 0;
+                    utter.rate = 1;
+                    utter.lang = 'en-US';
+                    const done = new Promise(res => { utter.onend = () => res(true); });
+                    this.synth.speak(utter);
+                    await done;
+                    this.userActivated = true;
+                    this.updateStatus('✅ 语音已启用，可正常播放');
+                    return true;
+                } catch (e) {
+                    console.warn('激活失败，尝试直接朗读时再处理', e);
+                    return false;
+                }
+            }
+
+            chooseVoiceForText(text) {
+                if (!this.voices || this.voices.length === 0) return null;
+                const hasChinese = /[\u4e00-\u9fa5]/.test(text || '');
+                const prefer = hasChinese
+                    ? (v => (v.lang||'').toLowerCase().startsWith('zh'))
+                    : (v => (v.lang||'').toLowerCase().startsWith('en'));
+                const candidates = this.voices.filter(prefer);
+                return candidates[0] || this.voices[0];
+            }
+
+            speak(text) {
+                if (!this.isSupported) {
+                    this.fallbackTTS(text);
+                    return;
+                }
+                if (!this.userActivated && this.isMobile) {
+                    this.updateStatus('请先点击“启用语音”，以开启移动端播放权限');
+                    return;
+                }
+
+                // 停止当前播放
+                this.stop();
+
+                const utterance = new SpeechSynthesisUtterance(text);
+
+                const voiceSelect = document.getElementById('voiceSelect');
+                const idx = voiceSelect && voiceSelect.value !== '' ? parseInt(voiceSelect.value, 10) : -1;
+                if (idx >= 0 && this.voices[idx]) {
+                    utterance.voice = this.voices[idx];
+                } else {
+                    const v = this.chooseVoiceForText(text);
+                    if (v) utterance.voice = v;
+                }
+
+                utterance.rate = parseFloat(document.getElementById('rateSlider').value || '1');
+                utterance.pitch = parseFloat(document.getElementById('pitchSlider').value || '1');
+                utterance.volume = parseFloat(document.getElementById('volumeSlider').value || '1');
+
+                // iOS 调整（更稳定）
+                if (this.isIOS) {
+                    utterance.rate = Math.max(0.7, utterance.rate);
+                    utterance.volume = Math.min(1, Math.max(0.1, utterance.volume));
+                }
+
+                utterance.onerror = (event) => {
+                    console.error('TTS错误:', event.error);
+                    this.fallbackTTS(text);
+                };
+
+                this.currentUtterance = utterance;
+                try {
+                    this.synth.speak(utterance);
+                } catch (error) {
+                    console.error('TTS播放失败:', error);
+                    this.fallbackTTS(text);
+                }
+            }
+
+            stop() {
+                if (this.synth && this.synth.speaking) {
+                    this.synth.cancel();
+                }
+            }
+
+            // 在线备用方案（示例）
+            async fallbackTTS(text) {
+                try {
+                    const resp = await fetch(`https://translate.googleapis.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(text)}&tl=zh&client=tw-ob`);
+                    if (resp.ok) {
+                        const blob = await resp.blob();
+                        const url = URL.createObjectURL(blob);
+                        const audio = new Audio(url);
+                        await audio.play();
+                        return;
+                    }
+                } catch (err) {
+                    console.warn('在线TTS失败:', err);
+                }
+                alert(`TTS不可用，内容：${text}`);
+            }
+
+            updateUI() {
+                const rate = document.getElementById('rateSlider');
+                const pitch = document.getElementById('pitchSlider');
+                const volume = document.getElementById('volumeSlider');
+                if (rate) rate.oninput = (e) => document.getElementById('rateValue').textContent = e.target.value;
+                if (pitch) pitch.oninput = (e) => document.getElementById('pitchValue').textContent = e.target.value;
+                if (volume) volume.oninput = (e) => document.getElementById('volumeValue').textContent = e.target.value;
+            }
+
+            updateStatus(text) {
+                const statusEl = document.getElementById('status');
+                if (!statusEl) return;
+                if (text) {
+                    statusEl.className = 'status success';
+                    statusEl.textContent = text;
+                } else {
+                    // 默认状态已在 checkSupport 设置
+                }
+            }
+        }
+
+        // 导出全局，便于集成到项目
+        window.MobileTTS = MobileTTS;
+        let ttsInstance;
+
+        // 页面加载完成后初始化
+        window.addEventListener('load', () => {
+            ttsInstance = new MobileTTS();
+            window.ttsInstance = ttsInstance;
+        });
+
+        // 界面函数
+        function activateTTS() {
+            if (ttsInstance) ttsInstance.activate();
+        }
+        function speakText() {
+            const text = document.getElementById('textInput').value;
+            if (text.trim()) {
+                ttsInstance.speak(text);
+            }
+        }
+        function stopSpeaking() { if (ttsInstance) ttsInstance.stop(); }
+        function testTTS() {
+            const tests = [ '这是中文测试', 'This is English test', '日本語のテスト', '한국어 테스트' ];
+            let i = 0;
+            const run = () => {
+                if (i >= tests.length) return;
+                ttsInstance.speak(tests[i]);
+                i += 1;
+                setTimeout(run, 2500);
+            };
+            run();
+        }
+        function useOnlineTTS() {
+            const text = document.getElementById('textInput').value;
+            window.open(`https://ttsmaker.com/zh-cn?text=${encodeURIComponent(text)}`, '_blank');
+        }
+        function downloadAudio() {
+            alert('可使用 Azure TTS / AWS Polly 等服务生成音频文件');
+        }
+
+        function showCode() {
+            const codeSection = document.getElementById('codeSection');
+            const codeContent = document.getElementById('codeContent');
+            codeContent.textContent = `// 1) 网页端 TTS 适配器（原生优先，Web 兜底）
+export class TTSAdapter {
+  constructor() {
+    this.isNative = !!(window.Capacitor && window.Capacitor.isNativePlatform);
+    this.web = window.speechSynthesis;
+  }
+  async speak(text, opts = {}) {
+    // 先走原生（Capacitor）
+    if (this.isNative && window.TextToSpeech) {
+      return window.TextToSpeech.speak({
+        text,
+        lang: /[\u4e00-\u9fa5]/.test(text) ? 'zh-CN' : 'en-US',
+        rate: opts.rate ?? 1.0,
+        pitch: opts.pitch ?? 1.0,
+        volume: opts.volume ?? 1.0,
+        category: 'ambient',
+      });
+    }
+    // 回退 Web Speech API
+    const u = new SpeechSynthesisUtterance(text);
+    u.rate = opts.rate ?? 1.0; u.pitch = opts.pitch ?? 1.0; u.volume = opts.volume ?? 1.0;
+    u.lang = /[\u4e00-\u9fa5]/.test(text) ? 'zh-CN' : 'en-US';
+    this.web.cancel(); this.web.speak(u);
+  }
+  stop() { if (this.isNative && window.TextToSpeech) return window.TextToSpeech.stop(); this.web.cancel(); }
+}
+
+// 2) 使用方式（项目中）
+// const tts = new TTSAdapter();
+// tts.speak('Hello');
+
+// 3) Capacitor 集成步骤
+// npm install -g @capacitor/cli
+// npm i @capacitor/core @capacitor/android
+// npx cap init "Words Game" "com.yourname.wordsgame"
+// npx cap add android
+// 构建你的网页产物（如 /dist），然后：
+// npx cap copy android
+// npx cap open android
+
+// 4) 安装 TTS 插件（社区版）
+// npm i @capacitor-community/text-to-speech
+// 在应用启动处：
+// import { TextToSpeech } from '@capacitor-community/text-to-speech';
+// window.TextToSpeech = TextToSpeech; // 暴露到全局以便直接调用
+// 使用：
+// await TextToSpeech.speak({ text: '你好', lang: 'zh-CN', rate: 1.0, pitch: 1.0, volume: 1.0, category: 'ambient' });
+`;
+            codeSection.style.display = (codeSection.style.display === 'none' ? 'block' : 'none');
+        }
+    </script>
+</body>
+</html>
