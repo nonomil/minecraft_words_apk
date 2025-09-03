@@ -293,10 +293,10 @@ function updateQuizAudioButton() {
     const audioBtn = document.querySelector('#quizMode .control-btn.play');
     if (audioBtn) {
         if (currentQuizAudioLang === 'zh') {
-            audioBtn.innerHTML = '? 听中文';
+            audioBtn.innerHTML = '🔊 听中文';
             audioBtn.title = '点击播放中文发音';
         } else {
-            audioBtn.innerHTML = '? 听英文';
+            audioBtn.innerHTML = '🔊 听英文';
             audioBtn.title = '点击播放英文发音';
         }
     }

@@ -189,7 +189,7 @@ function selectLearnChoice(element, selected, correct) {
         resultElement.style.display = 'block';
         
         if (selected === correct) {
-            resultElement.textContent = '? 回答正确！';
+            resultElement.textContent = '✅ 回答正确！';
             resultElement.className = 'learn-result correct';
             
             // 创建星星动画
@@ -201,7 +201,7 @@ function selectLearnChoice(element, selected, correct) {
             }
             
         } else {
-            resultElement.textContent = `? 回答错误！正确答案是：${correct}`;
+            resultElement.textContent = `❌ 回答错误！正确答案是：${correct}`;
             resultElement.className = 'learn-result wrong';
         }
     }

@@ -1,9 +1,9 @@
-// ²âÊÔÄ£Ê½Ïà¹Øº¯Êý
+// ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½Øºï¿½ï¿½ï¿½
 
-// ¿ªÊ¼²âÊÔ
+// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 function startQuiz() {
     if (currentVocabulary.length === 0) {
-        showNotification('ÇëÏÈ¼ÓÔØ´Ê¿â', 'error');
+        showNotification('ï¿½ï¿½ï¿½È¼ï¿½ï¿½Ø´Ê¿ï¿½', 'error');
         return;
     }
     
@@ -12,14 +12,14 @@ function startQuiz() {
     currentQuizIndex = 0;
     quizScore = 0;
     
-    // ³õÊ¼»¯ÏÔÊ¾
+    // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ê¾
     updateQuizDisplay();
     updateQuizGroupDisplay();
     updateQuizStats();
     updateQuizProgressBar();
 }
 
-// ¸üÐÂ²âÊÔÏÔÊ¾
+// ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 function updateQuizDisplay() {
     if (currentQuizIndex >= quizWords.length) {
         showQuizResults();
@@ -29,80 +29,80 @@ function updateQuizDisplay() {
     const word = quizWords[currentQuizIndex];
     quizAnswered = false;
     
-    // ÖØÖÃ·¢ÒôÓïÑÔ×´Ì¬ÎªÖÐÎÄ
+    // ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬Îªï¿½ï¿½ï¿½ï¿½
     currentQuizAudioLang = 'zh';
     
-    // ¸üÐÂÌâ¸ÉÎªÖÐÎÄ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
     const questionTitle = document.querySelector('.quiz-question h3');
     if (questionTitle) {
-        questionTitle.textContent = word.chinese || 'ÇëÑ¡Ôñ¶ÔÓ¦µÄÓ¢ÎÄ';
+        questionTitle.textContent = word.chinese || 'ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ó¢ï¿½ï¿½';
     }
     
-    // ¸üÐÂÍ¼Æ¬
+    // ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
     updateQuizImage(word);
     
-    // Éú³ÉÑ¡Ïî£¨Ó¢ÎÄ£©
+    // ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½î£¨Ó¢ï¿½Ä£ï¿½
     generateQuizOptions(word);
     
-    // ¸üÐÂ·ÖÊýÏÔÊ¾
+    // ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
     updateQuizScore();
     
-    // ¸üÐÂ·Ö×é½ø¶ÈÏÔÊ¾
+    // ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
     updateQuizGroupDisplay();
     
-    // ¸üÐÂÍ³¼ÆÐÅÏ¢
+    // ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
     updateQuizStats();
     
-    // ¸üÐÂ½ø¶ÈÌõ
+    // ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½
     updateQuizProgressBar();
     
-    // ½ûÓÃÏÂÒ»Ìâ°´Å¥
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½â°´Å¥
     const nextQuizBtn = document.getElementById('nextQuizBtn');
     if (nextQuizBtn) {
         nextQuizBtn.disabled = true;
     }
     
-    // ¸üÐÂ·¢Òô°´Å¥ÎÄ±¾
+    // ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½Ä±ï¿½
     updateQuizAudioButton();
     
-    // ×Ô¶¯²¥·ÅÖÐÎÄ·¢Òô
+    // ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
     setTimeout(() => {
         playQuizAudio();
     }, 500);
 }
 
-// ¸üÐÂ²âÊÔÍ¼Æ¬
+// ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½Í¼Æ¬
 function updateQuizImage(word) {
     const imageElement = document.getElementById('quizImage');
     if (!imageElement) return;
     
     if (word.imageURLs && word.imageURLs.length > 0) {
-        // Òì²½»ñÈ¡ÕæÊµÍ¼Æ¬URL
+        // ï¿½ì²½ï¿½ï¿½È¡ï¿½ï¿½ÊµÍ¼Æ¬URL
         convertToDirectImageUrl(word.imageURLs[0].url, word.imageURLs[0].filename)
             .then(imageUrl => {
                 imageElement.src = imageUrl;
             })
             .catch(error => {
                 console.warn('Failed to load quiz image:', error);
-                imageElement.src = createPlaceholderImage('Í¼Æ¬ÎÞ·¨¼ÓÔØ');
+                imageElement.src = createPlaceholderImage('Í¼Æ¬ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½');
             });
             
         imageElement.onerror = function() {
-            this.src = createPlaceholderImage('Í¼Æ¬ÎÞ·¨¼ÓÔØ');
+            this.src = createPlaceholderImage('Í¼Æ¬ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½');
         };
     } else {
-        imageElement.src = createPlaceholderImage('ÔÝÎÞÍ¼Æ¬');
+        imageElement.src = createPlaceholderImage('ï¿½ï¿½ï¿½ï¿½Í¼Æ¬');
     }
 }
 
-// Éú³É²âÊÔÑ¡Ïî
+// ï¿½ï¿½ï¿½É²ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½
 function generateQuizOptions(correctWord) {
-    // ÕýÈ·Ó¢ÎÄ
+    // ï¿½ï¿½È·Ó¢ï¿½ï¿½
     const correctEnglish = (correctWord.word || correctWord.standardized || '').trim();
     const options = [];
     if (correctEnglish) options.push(correctEnglish);
     
-    // »ñÈ¡ÏàËÆ´Ê»ã×÷Îª´íÎóÑ¡Ïî£¨È¡Ó¢ÎÄ£©
+    // ï¿½ï¿½È¡ï¿½ï¿½ï¿½Æ´Ê»ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½î£¨È¡Ó¢ï¿½Ä£ï¿½
     const similarWords = getSimilarWords(correctWord, 6) || [];
     similarWords.forEach(w => {
         const en = (w.word || w.standardized || '').trim();
@@ -111,7 +111,7 @@ function generateQuizOptions(correctWord) {
         }
     });
     
-    // Èç¹û²»×ã4¸ö£¬´ÓÍêÕû´Ê¿â²¹Æë
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¿â²¹ï¿½ï¿½
     while (options.length < 4) {
         const pool = currentVocabulary || [];
         if (!pool.length) break;
@@ -120,13 +120,13 @@ function generateQuizOptions(correctWord) {
         if (en && !options.includes(en) && en !== correctEnglish) {
             options.push(en);
         }
-        if (pool.length <= options.length + 1) break; // ·ÀÖ¹ËÀÑ­»·
+        if (pool.length <= options.length + 1) break; // ï¿½ï¿½Ö¹ï¿½ï¿½Ñ­ï¿½ï¿½
     }
     
-    // Ëæ»úÅÅÐòÑ¡Ïî
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½
     const shuffledOptions = shuffleArray(options);
     
-    // Éú³ÉÑ¡ÏîHTML£¬²¢½ÓÈë¡°ÐüÍ£²¥Ó¢¡±
+    // ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½HTMLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¡°ï¿½ï¿½Í£ï¿½ï¿½Ó¢ï¿½ï¿½
     const optionsContainer = document.getElementById('quizOptions');
     if (!optionsContainer) return;
     optionsContainer.innerHTML = '';
@@ -137,7 +137,7 @@ function generateQuizOptions(correctWord) {
         optionElement.textContent = optionText;
         optionElement.onclick = () => selectQuizOption(optionElement, optionText, correctEnglish);
         
-        // ÐüÍ£Ó¢ÎÄ·¢Òô£º300ms ·À¶¶
+        // ï¿½ï¿½Í£Ó¢ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½300ms ï¿½ï¿½ï¿½ï¿½
         const onHover = debounce(() => {
             playEnglishOnHover(optionText);
         }, 300);
@@ -147,13 +147,13 @@ function generateQuizOptions(correctWord) {
     });
 }
 
-// Ñ¡Ôñ²âÊÔÑ¡Ïî
+// Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½
 function selectQuizOption(element, selected, correct) {
     if (quizAnswered) return;
     
     quizAnswered = true;
     
-    // ÏÔÊ¾ËùÓÐÑ¡ÏîµÄÕýÈ·ÐÔ
+    // ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½
     document.querySelectorAll('.quiz-option').forEach(option => {
         option.style.pointerEvents = 'none';
         if (option.textContent === correct) {
@@ -163,49 +163,49 @@ function selectQuizOption(element, selected, correct) {
         }
     });
     
-    // ¸üÐÂ·ÖÊýºÍÏÔÊ¾·´À¡
+    // ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
     if (selected === correct) {
         quizScore++;
-        showNotification('»Ø´ðÕýÈ·£¡', 'success');
+        showNotification('ï¿½Ø´ï¿½ï¿½ï¿½È·ï¿½ï¿½', 'success');
         if (getSettings().kindergartenMode) {
             createStarAnimation();
             createPulseEffect(element);
             
-            // ½±ÀøÏµÍ³£º´ð¶ÔÌâÄ¿»ñµÃ×êÊ¯
+            // ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½Ê¯
             awardDiamond();
             
-            // ¼ì²éÊÇ·ñ´ïµ½×êÊ¯½£½±ÀøÌõ¼þ
+            // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ïµ½ï¿½ï¿½Ê¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (totalDiamonds > 0 && totalDiamonds % CONFIG.KINDERGARTEN.SWORD_REWARD_THRESHOLD === 0) {
                 awardSword();
-                showNotification('?? ¹§Ï²»ñµÃ×êÊ¯½££¡', 'achievement');
+                showNotification('?? ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½Ê¯ï¿½ï¿½ï¿½ï¿½', 'achievement');
             }
         }
     } else {
-        showNotification(`»Ø´ð´íÎó£¡ÕýÈ·´ð°¸ÊÇ£º${correct}`, 'error');
+        showNotification(`ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½Ç£ï¿½${correct}`, 'error');
         if (getSettings().kindergartenMode) {
             element.style.animation = 'wrongShake 0.6s ease-in-out';
         }
     }
     
-    // ¸üÐÂ·ÖÊýÏÔÊ¾
+    // ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
     updateQuizScore();
     
-    // ¸üÐÂÍ³¼ÆÐÅÏ¢£¨°üÀ¨´ð¶ÔÌâÊý£©
+    // ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     updateQuizStats();
     
-    // ÆôÓÃÏÂÒ»Ìâ°´Å¥
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½â°´Å¥
     const nextQuizBtn = document.getElementById('nextQuizBtn');
     if (nextQuizBtn) {
         nextQuizBtn.disabled = false;
     }
     
-    // ×Ô¶¯½øÈëÏÂÒ»Ìâ£¨1.2s ºó£©
+    // ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½â£¨1.2s ï¿½ï¿½
     setTimeout(() => {
         nextQuiz();
     }, 1200);
 }
 
-// ¸üÐÂ²âÊÔ·ÖÊýÏÔÊ¾
+// ï¿½ï¿½ï¿½Â²ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 function updateQuizScore() {
     const quizScoreElement = document.getElementById('quizScore');
     const quizTotalElement = document.getElementById('quizTotal');
@@ -226,35 +226,35 @@ function updateQuizScore() {
     }
 }
 
-// ÏÂÒ»Ìâ
+// ï¿½ï¿½Ò»ï¿½ï¿½
 function nextQuiz() {
     currentQuizIndex++;
     updateQuizDisplay();
 }
 
-// ²¥·Å²âÊÔÒôÆµ
-// µ±Ç°·¢ÒôÓïÑÔ×´Ì¬
-let currentQuizAudioLang = 'zh'; // 'zh' ÎªÖÐÎÄ£¬'en' ÎªÓ¢ÎÄ
+// ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½Æµ
+// ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+let currentQuizAudioLang = 'zh'; // 'zh' Îªï¿½ï¿½ï¿½Ä£ï¿½'en' ÎªÓ¢ï¿½ï¿½
 
 function playQuizAudio() {
     if (quizWords.length === 0 || currentQuizIndex >= quizWords.length) return;
     const word = quizWords[currentQuizIndex];
     
-    // ¸ù¾Ýµ±Ç°ÓïÑÔ×´Ì¬²¥·Å¶ÔÓ¦·¢Òô
+    // ï¿½ï¿½ï¿½Ýµï¿½Ç°ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½Å¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
     if (currentQuizAudioLang === 'zh') {
         playQuizChinese(word);
     } else {
         playQuizEnglish(word);
     }
     
-    // ÇÐ»»µ½ÏÂÒ»ÖÖÓïÑÔ
+    // ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     currentQuizAudioLang = currentQuizAudioLang === 'zh' ? 'en' : 'zh';
     
-    // ¸üÐÂ°´Å¥ÎÄ±¾ÌáÊ¾
+    // ï¿½ï¿½ï¿½Â°ï¿½Å¥ï¿½Ä±ï¿½ï¿½ï¿½Ê¾
     updateQuizAudioButton();
 }
 
-// ²¥·ÅÖÐÎÄ·¢Òô
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 function playQuizChinese(word) {
     const text = (word.chinese || '').trim();
     if (!text) return;
@@ -271,7 +271,7 @@ function playQuizChinese(word) {
     }
 }
 
-// ²¥·ÅÓ¢ÎÄ·¢Òô
+// ï¿½ï¿½ï¿½ï¿½Ó¢ï¿½Ä·ï¿½ï¿½ï¿½
 function playQuizEnglish(word) {
     const text = (word.standardized || word.word || '').trim();
     if (!text) return;
@@ -288,21 +288,21 @@ function playQuizEnglish(word) {
     }
 }
 
-// ¸üÐÂ·¢Òô°´Å¥ÎÄ±¾
+// ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½Ä±ï¿½
 function updateQuizAudioButton() {
     const audioBtn = document.querySelector('#quizMode .control-btn.play');
     if (audioBtn) {
         if (currentQuizAudioLang === 'zh') {
-            audioBtn.innerHTML = '? ÌýÖÐÎÄ';
-            audioBtn.title = 'µã»÷²¥·ÅÖÐÎÄ·¢Òô';
+            audioBtn.innerHTML = 'ðŸ”Š å¬ä¸­æ–‡';
+            audioBtn.title = 'ç‚¹å‡»æ’­æ”¾ä¸­æ–‡å‘éŸ³';
         } else {
-            audioBtn.innerHTML = '? ÌýÓ¢ÎÄ';
-            audioBtn.title = 'µã»÷²¥·ÅÓ¢ÎÄ·¢Òô';
+            audioBtn.innerHTML = 'ðŸ”Š å¬è‹±æ–‡';
+            audioBtn.title = 'ç‚¹å‡»æ’­æ”¾è‹±æ–‡å‘éŸ³';
         }
     }
 }
 
-// ¸üÐÂ²âÊÔ·Ö×é½ø¶ÈÏÔÊ¾
+// ï¿½ï¿½ï¿½Â²ï¿½ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 function updateQuizGroupDisplay() {
     if (!getSettings().kindergartenMode) return;
     
@@ -328,7 +328,7 @@ function updateQuizGroupDisplay() {
     }
 }
 
-// ¸üÐÂ²âÊÔÍ³¼ÆÐÅÏ¢
+// ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 function updateQuizStats() {
     const currentQuizIndexElement = document.getElementById('currentQuizIndex');
     const totalQuizWordsElement = document.getElementById('totalQuizWords');
@@ -347,7 +347,7 @@ function updateQuizStats() {
     }
 }
 
-// ¸üÐÂ²âÊÔ½ø¶ÈÌõ
+// ï¿½ï¿½ï¿½Â²ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½ï¿½
 function updateQuizProgressBar() {
     const progressFill = document.getElementById('quizProgressFill');
     if (progressFill && quizWords.length > 0) {
@@ -356,27 +356,27 @@ function updateQuizProgressBar() {
     }
 }
 
-// ÏÔÊ¾²âÊÔ½á¹û
+// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ô½ï¿½ï¿½
 function showQuizResults() {
     const accuracy = Math.round((quizScore / quizWords.length) * 100);
-    let message = `²âÊÔÍê³É£¡\nµÃ·Ö£º${quizScore}/${quizWords.length}\nÕýÈ·ÂÊ£º${accuracy}%`;
+    let message = `ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½\nï¿½Ã·Ö£ï¿½${quizScore}/${quizWords.length}\nï¿½ï¿½È·ï¿½Ê£ï¿½${accuracy}%`;
     let emoji = '';
     
     if (accuracy >= 90) {
-        message += '\n? ÓÅÐã£¡';
+        message += '\n? ï¿½ï¿½ï¿½ã£¡';
         emoji = '?';
     } else if (accuracy >= 70) {
-        message += '\n? Á¼ºÃ£¡';
+        message += '\n? ï¿½ï¿½ï¿½Ã£ï¿½';
         emoji = '?';
     } else if (accuracy >= 60) {
-        message += '\n? ¼ÌÐøÅ¬Á¦£¡';
+        message += '\n? ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½';
         emoji = '?';
     } else {
-        message += '\n? ¶àÁ·Ï°»á¸üºÃ£¡';
+        message += '\n? ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ï¿½Ã£ï¿½';
         emoji = '?';
     }
     
-    // Ó×¶ùÔ°Ä£Ê½µÄÌØÊâÐ§¹û
+    // ï¿½×¶ï¿½Ô°Ä£Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
     if (getSettings().kindergartenMode) {
         if (accuracy >= 80) {
             createFireworks();
@@ -385,29 +385,29 @@ function showQuizResults() {
             createRainbowParticles();
         }
         
-        // ÏÔÊ¾³É¾Í
-        showAchievement(`${emoji} ²âÊÔÍê³É£¡\nµÃ·Ö£º${quizScore}/${quizWords.length}\nÕýÈ·ÂÊ£º${accuracy}%`);
+        // ï¿½ï¿½Ê¾ï¿½É¾ï¿½
+        showAchievement(`${emoji} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½\nï¿½Ã·Ö£ï¿½${quizScore}/${quizWords.length}\nï¿½ï¿½È·ï¿½Ê£ï¿½${accuracy}%`);
     } else {
         alert(message);
     }
     
-    // ±£´æ²âÊÔ¼ÇÂ¼
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½Â¼
     saveQuizResult(quizScore, quizWords.length, accuracy);
 }
 
-// ÖØÐÂ¿ªÊ¼²âÊÔ
+// ï¿½ï¿½ï¿½Â¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 function restartQuiz() {
     if (currentVocabulary.length === 0) {
-        showNotification('ÇëÏÈ¼ÓÔØ´Ê¿â', 'error');
+        showNotification('ï¿½ï¿½ï¿½È¼ï¿½ï¿½Ø´Ê¿ï¿½', 'error');
         return;
     }
     
     startQuiz();
 }
 
-// ±£´æ²âÊÔ½á¹û
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½
 function saveQuizResult(score, total, accuracy) {
-    // ¸ù¾ÝÑ§Ï°ÀàÐÍÑ¡Ôñ½ø¶È¼ü£¬Ä¬ÈÏ»ØÍËµ½µ¥´Ê¼ü
+    // ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½Ä¬ï¿½Ï»ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½Ê¼ï¿½
     const lt = (function(){
         try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
     })();
@@ -426,7 +426,7 @@ function saveQuizResult(score, total, accuracy) {
         learnType: lt
     });
     
-    // Ö»±£Áô×î½ü50´Î²âÊÔ¼ÇÂ¼
+    // Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½50ï¿½Î²ï¿½ï¿½Ô¼ï¿½Â¼
     if (progress.quizResults.length > 50) {
         progress.quizResults = progress.quizResults.slice(-50);
     }
@@ -434,7 +434,7 @@ function saveQuizResult(score, total, accuracy) {
     localStorage.setItem(progressKey, JSON.stringify(progress));
 }
 
-// »ñÈ¡²âÊÔÍ³¼Æ
+// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½
 function getQuizStats() {
     const lt = (function(){
         try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
@@ -468,11 +468,11 @@ function getQuizStats() {
     };
 }
 
-// µ¼³ö²âÊÔÊý¾Ý
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function exportQuizData() {
     const stats = getQuizStats();
     if (!stats) {
-        showNotification('Ã»ÓÐ²âÊÔÊý¾Ý¿Éµ¼³ö', 'error');
+        showNotification('Ã»ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿Éµï¿½ï¿½ï¿½', 'error');
         return;
     }
     const lt = (function(){
@@ -501,21 +501,21 @@ function exportQuizData() {
     a.click();
     
     URL.revokeObjectURL(url);
-    showNotification('²âÊÔÊý¾ÝÒÑµ¼³ö');
+    showNotification('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñµï¿½ï¿½ï¿½');
 }
 
-// ÐüÍ£·¢Òô×´Ì¬£¨ÓÃÓÚ½ÚÁ÷/ÌáÊ¾£©
+// ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½ï¿½/ï¿½ï¿½Ê¾ï¿½ï¿½
 let hoverPlayTimestamps = {};
 
-// ÐüÍ£Ó¢ÎÄ·¢Òô£º´øÀäÈ´£¬±ÜÃâÆµ·±´¥·¢
+// ï¿½ï¿½Í£Ó¢ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function playEnglishOnHover(text) {
     if (!text) return;
-    const COOL_DOWN_MS = 1000; // ÀäÈ´ 1s
+    const COOL_DOWN_MS = 1000; // ï¿½ï¿½È´ 1s
     const key = text.toLowerCase();
     const now = Date.now();
 
     if (hoverPlayTimestamps[key] && now - hoverPlayTimestamps[key] < COOL_DOWN_MS) {
-        try { showNotification && showNotification('ÉÔµÈÒ»ÏÂ£¬ÓïÒôÀäÈ´ÖÐ¡­', 'info'); } catch (e) {}
+        try { showNotification && showNotification('ï¿½Ôµï¿½Ò»ï¿½Â£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½Ð¡ï¿½', 'info'); } catch (e) {}
         return;
     }
     hoverPlayTimestamps[key] = now;
