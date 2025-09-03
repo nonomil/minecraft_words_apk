@@ -7,19 +7,12 @@ async function loadVocabulary() {
     try {
         let data;
         
-        // 检测是否为file://协议，如果是则使用内嵌数据
-        if (window.location.protocol === 'file:' && typeof loadEmbeddedVocabulary === 'function') {
-            console.log('Loading embedded vocabulary for file:// protocol:', selectedVocab);
+        // 统一走内置JS词库加载，优先使用动态映射，其次fallback
+        if (typeof loadEmbeddedVocabulary === 'function') {
+            console.log('Loading vocabulary via embedded JS loader:', selectedVocab);
             data = await loadEmbeddedVocabulary(selectedVocab);
         } else {
-            // 使用原来的fetch方式
-            const vocabUrl = `${CONFIG.VOCAB_PATH}${selectedVocab}.json`;
-            console.log('Loading vocabulary from:', vocabUrl);
-            const response = await fetch(vocabUrl);
-            if (!response.ok) {
-                throw new Error(`词库文件未找到: ${vocabUrl} (状态: ${response.status})`);
-            }
-            data = await response.json();
+            throw new Error('词库加载器未初始化');
         }
         
         validateVocabularyJSON(data);

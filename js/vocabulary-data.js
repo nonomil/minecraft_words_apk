@@ -1,22 +1,22 @@
 // Embedded vocabulary data for file:// protocol support
 // Auto-generated file, do not edit manually
 
-// 词库数据存储
+// �ʿ����ݴ洢
 const VOCABULARY_DATA = {
-    'words-basic': null, // 将在下面定义
-    '1.幼儿园--基础词汇': null,
-    '2.幼儿园--学习词汇': null,
-    '3.幼儿园--自然词汇': null,
-    '4.交流词汇': null,
-    '5.日常词汇': null,
-    '6.幼儿园词汇': null
+    'words-basic': null, // �������涨��
+    '1.�׶�԰--�����ʻ�': null,
+    '2.�׶�԰--ѧϰ�ʻ�': null,
+    '3.�׶�԰--��Ȼ�ʻ�': null,
+    '4.�����ʻ�': null,
+    '5.�ճ��ʻ�': null,
+    '6.�׶�԰�ʻ�': null
 };
 
-// 动态加载词库文件
+// ��̬���شʿ��ļ�
 async function loadVocabularyFile(filename) {
     try {
         const script = document.createElement('script');
-        script.src = `js/vocabularies/${filename}`;
+        script.src = encodeURI(`js/vocabularies/${filename}`);
         document.head.appendChild(script);
         
         return new Promise((resolve, reject) => {
@@ -33,7 +33,7 @@ async function loadVocabularyFile(filename) {
 async function loadEmbeddedVocabulary(vocabName) {
     console.log(`Loading vocabulary: ${vocabName}`);
     
-    // 首先尝试加载映射配置
+    // ���ȳ��Լ���ӳ������
     if (!window.VOCABULARY_MAPPINGS) {
         try {
             await loadVocabularyFile('mappings.js');
@@ -42,12 +42,12 @@ async function loadEmbeddedVocabulary(vocabName) {
         }
     }
     
-    // 动态查找词库文件
+    // ��̬���Ҵʿ��ļ�
     let targetFile = null;
     let targetVariable = null;
     
     if (window.VOCABULARY_MAPPINGS) {
-        // 在所有类别中查找匹配的词库
+        // ����������в���ƥ��Ĵʿ�
         for (const [category, vocabularies] of Object.entries(window.VOCABULARY_MAPPINGS)) {
             const found = vocabularies.find(vocab => vocab.original_name === vocabName);
             if (found) {
@@ -58,21 +58,21 @@ async function loadEmbeddedVocabulary(vocabName) {
         }
     }
     
-    // 备用映射（用于向后兼容）
+    // ����ӳ�䣨���������ݣ�
     const fallbackMappings = {
         'words-basic': { file: 'basic.js', variable: 'BASIC_VOCABULARY' },
-        '1.幼儿园--基础词汇': { file: '1.幼儿园--基础词汇.js', variable: 'VOCAB_1__________' },
-        '2.幼儿园--学习词汇': { file: '2.幼儿园--学习词汇.js', variable: 'VOCAB_2__________' },
-        '3.幼儿园--自然词汇': { file: '3.幼儿园--自然词汇.js', variable: 'VOCAB_3__________' },
-        '4.交流词汇': { file: '4.交流词汇.js', variable: 'VOCAB_4_____' },
-        '5.日常词汇': { file: '5.日常词汇.js', variable: 'VOCAB_5_____' },
-        '6.幼儿园词汇': { file: '6.幼儿园词汇.js', variable: 'VOCAB_6______' },
-        'kindergarten_vocabulary': { file: 'kindergarten_vocabulary.js', variable: 'KINDERGARTEN_VOCABULARY' },
-        'minecraft_basic': { file: '1.minecraft_基础_basic.js', variable: 'VOCAB_1_MINECRAFT_____BASIC' },
-        'minecraft_intermediate': { file: '2.minecraft_中级_basic.js', variable: 'VOCAB_2_MINECRAFT_____BASIC' },
-        'minecraft_advanced': { file: '3.minecraft_高级_advanced.js', variable: 'VOCAB_3_MINECRAFT_____ADVANCED' },
-        'common_vocabulary': { file: '1.普通_common.js', variable: 'VOCAB_1____COMMON' },
-        'minecraft_image_links': { file: 'minecraft_3.单词汇总.js', variable: 'MINECRAFT_3_______' }
+        '1.�׶�԰--�����ʻ�': { file: 'kindergarten_1_basic.js', variable: 'VOCAB_1__________' },
+        '2.�׶�԰--ѧϰ�ʻ�': { file: 'kindergarten_2_study.js', variable: 'VOCAB_2__________' },
+        '3.�׶�԰--��Ȼ�ʻ�': { file: 'kindergarten_3_nature.js', variable: 'VOCAB_3__________' },
+        '4.�����ʻ�': { file: 'kindergarten_4_communication.js', variable: 'VOCAB_4_____' },
+        '5.�ճ��ʻ�': { file: 'kindergarten_5_daily.js', variable: 'VOCAB_5_____' },
+        '6.�׶�԰�ʻ�': { file: 'kindergarten_6_general.js', variable: 'VOCAB_6______' },
+        'kindergarten_vocabulary': { file: 'kindergarten_6_general.js', variable: 'VOCAB_6______' },
+        'minecraft_basic': { file: 'minecraft_basic.js', variable: 'VOCAB_1_MINECRAFT____BASIC' },
+        'minecraft_intermediate': { file: 'minecraft_intermediate.js', variable: 'VOCAB_2_MINECRAFT____BASIC' },
+        'minecraft_advanced': { file: 'minecraft_advanced.js', variable: 'VOCAB_3_MINECRAFT____ADVANCED' },
+        'common_vocabulary': { file: 'common_vocabulary.js', variable: 'VOCAB_1____COMMON' },
+        'minecraft_image_links': { file: 'minecraft_words_full.js', variable: 'MINECRAFT_3_____' }
     };
     
     if (!targetFile && fallbackMappings[vocabName]) {
@@ -80,13 +80,13 @@ async function loadEmbeddedVocabulary(vocabName) {
         targetVariable = fallbackMappings[vocabName].variable;
     }
     
-    // 检查是否有对应的词库数据
+    // ����Ƿ��ж�Ӧ�Ĵʿ�����
     if (VOCABULARY_DATA.hasOwnProperty(vocabName) && VOCABULARY_DATA[vocabName]) {
         console.log(`Using cached vocabulary data: ${vocabName}`);
         return VOCABULARY_DATA[vocabName];
     }
     
-    // 尝试从新的词库文件夹加载
+    // ���Դ��µĴʿ��ļ��м���
     if (targetFile && targetVariable) {
         try {
             await loadVocabularyFile(targetFile);
@@ -100,48 +100,18 @@ async function loadEmbeddedVocabulary(vocabName) {
         }
     }
     
-    // 如果是file://协议且没有找到词库，提供友好的错误信息
-    if (window.location.protocol === 'file:') {
-        const availableVocabs = [];
-        if (window.VOCABULARY_MAPPINGS) {
-            for (const [category, vocabularies] of Object.entries(window.VOCABULARY_MAPPINGS)) {
-                availableVocabs.push(...vocabularies.map(v => v.original_name));
-            }
-        }
-        availableVocabs.push(...Object.keys(fallbackMappings));
-        const uniqueVocabs = [...new Set(availableVocabs)];
-        throw new Error(`词库 "${vocabName}" 在离线模式下不可用。可用的词库：${uniqueVocabs.join(', ')}`);
-    }
-    
-    // 对于http://协议，尝试从服务器加载JSON文件
-    const vocabUrl = `${CONFIG.VOCAB_PATH}${vocabName}.json`;
-    try {
-        const response = await fetch(vocabUrl);
-        if (!response.ok) {
-            throw new Error(`Vocabulary file not found: ${vocabUrl} (status: ${response.status})`);
-        }
-        const data = await response.json();
-        VOCABULARY_DATA[vocabName] = data;
-        return data;
-    } catch (error) {
-        // 如果服务器加载失败，检查是否有内置数据作为备用
-        if (VOCABULARY_DATA.hasOwnProperty(vocabName) && VOCABULARY_DATA[vocabName]) {
-            console.log(`Fallback to embedded data for: ${vocabName}`);
-            return VOCABULARY_DATA[vocabName];
-        }
-        throw error;
-    }
+    throw new Error(`�ʿ��ļ�δ�ҵ�: ${vocabName}����ȷ�� vocabularies Ŀ¼�´��ڶ�Ӧ JS �ļ������� mappings.js / fallbackMappings ���á�`);
 }
 
-// 基础词汇数据
+// �����ʻ�����
 VOCABULARY_DATA['words-basic'] = [
   {
     "word": "smile",
     "standardized": "smile",
-    "chinese": "微笑",
+    "chinese": "΢Ц",
     "phonetic": "/smile/",
     "phrase": "Smile happily",
-    "phraseTranslation": "开心地微笑",
+    "phraseTranslation": "���ĵ�΢Ц",
     "difficulty": "basic",
     "category": "general",
     "imageURLs": [
@@ -155,10 +125,10 @@ VOCABULARY_DATA['words-basic'] = [
   {
     "word": "hello",
     "standardized": "hello",
-    "chinese": "你好",
-    "phonetic": "/həˈloʊ/",
+    "chinese": "���",
+    "phonetic": "/h??lo?/",
     "phrase": "Hello there",
-    "phraseTranslation": "你好呀",
+    "phraseTranslation": "���ѽ",
     "difficulty": "basic",
     "category": "greeting",
     "imageURLs": [
@@ -172,10 +142,10 @@ VOCABULARY_DATA['words-basic'] = [
   {
     "word": "happy",
     "standardized": "happy",
-    "chinese": "开心的",
-    "phonetic": "/ˈhæpi/",
+    "chinese": "���ĵ�",
+    "phonetic": "/?h?pi/",
     "phrase": "Happy child",
-    "phraseTranslation": "开心的小朋友",
+    "phraseTranslation": "���ĵ�С����",
     "difficulty": "basic",
     "category": "general",
     "imageURLs": [
@@ -187,15 +157,5 @@ VOCABULARY_DATA['words-basic'] = [
     ]
   }
 ];
-
-// 暂时为其他词库提供空数组，避免加载错误
-VOCABULARY_DATA['1.幼儿园--基础词汇'] = [];
-VOCABULARY_DATA['2.幼儿园--学习词汇'] = [];
-VOCABULARY_DATA['3.幼儿园--自然词汇'] = [];
-VOCABULARY_DATA['4.交流词汇'] = [];
-VOCABULARY_DATA['5.日常词汇'] = [];
-VOCABULARY_DATA['6.幼儿园词汇'] = [];
-
-
 
 console.log('Vocabulary data loaded successfully');

@@ -1,7 +1,7 @@
 // 全局配置和常量
 const CONFIG = {
     // 词库路径
-    VOCAB_PATH: '',
+    VOCAB_PATH: 'js/vocabularies/',
     
     // 默认设置
     DEFAULT_SETTINGS: {
@@ -71,7 +71,7 @@ let quizWords = [];
 let currentQuizIndex = 0;
 let quizScore = 0;
 let quizAnswered = false;
-let studyStartTime = Date.now();
+studyStartTime = Date.now();
 
 // 幼儿园模式相关变量
 let currentGroup = 1;

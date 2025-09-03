@@ -161,19 +161,35 @@
                     <div class="setting-item">
                         <label>预设词库:</label>
                         <select id="vocabSelect">
-                            <option value="words-basic">基础词汇 (157词)</option>
-                            <option value="1.幼儿园--基础词汇">幼儿园基础词汇 (157词)</option>
-                            <option value="2.幼儿园--学习词汇">幼儿园学习词汇 (202词)</option>
-                            <option value="3.幼儿园--自然词汇">幼儿园自然词汇 (212词)</option>
-                            <option value="4.交流词汇">交流词汇 (149词)</option>
-                            <option value="5.日常词汇">日常词汇 (138词)</option>
-                            <option value="6.幼儿园词汇">幼儿园综合词汇 (157词)</option>
-                            <option value="kindergarten_vocabulary">原幼儿园词汇 (50词)</option>
-                            <option value="minecraft_basic">Minecraft基础词汇 (62词)</option>
-                            <option value="minecraft_intermediate">Minecraft中级词汇 (60词)</option>
-                            <option value="minecraft_advanced">Minecraft高级词汇 (60词)</option>
-                            <option value="common_vocabulary">通用词汇 (80词)</option>
-                            <option value="minecraft_image_links">完整词库 (2000+词)</option>
+                            <!-- 幼儿园词库 -->
+                            <optgroup label="🎒 幼儿园词库">
+                                <option value="1.幼儿园--基础词汇">幼儿园基础词汇 (157词)</option>
+                                <option value="2.幼儿园--学习词汇">幼儿园学习词汇 (202词)</option>
+                                <option value="3.幼儿园--自然词汇">幼儿园自然词汇 (212词)</option>
+                                <option value="4.交流词汇">交流词汇 (149词)</option>
+                                <option value="5.日常词汇">日常词汇 (138词)</option>
+                                <option value="6.幼儿园词汇">幼儿园综合词汇 (157词)</option>
+                            </optgroup>
+                            <!-- Minecraft 标准词库 -->
+                            <optgroup label="⛏️ Minecraft 标准词库">
+                                <option value="minecraft_1.blocks_方块">方块词汇 (130词)</option>
+                                <option value="minecraft_2.items_物品">物品词汇 (221词)</option>
+                                <option value="minecraft_2.items_物品2">物品词汇2 (106词)</option>
+                                <option value="minecraft_3.entities_实体">实体词汇 (107词)</option>
+                                <option value="minecraft_4.environment_环境">环境词汇 (128词)</option>
+                                <option value="minecraft_5.biomes_生物群系">生物群系词汇 (69词)</option>
+                                <option value="minecraft_6.状态效果 (Status Effects)">状态效果词汇 (84词)</option>
+                                <option value="minecraft_7.魔咒 (Enchantments)">魔咒词汇 (77词)</option>
+                                <option value="minecraft_8.进度 (Advancements)">进度词汇 (110词)</option>
+                            </optgroup>
+                            <!-- Minecraft 简化词库 -->
+                            <optgroup label="🎮 Minecraft 简化词库">
+                                <option value="1.minecraft_基础_basic">Minecraft基础词汇 (63词)</option>
+                                <option value="1.普通_common">通用词汇 (84词)</option>
+                                <option value="2.minecraft_中级_basic">Minecraft中级词汇 (60词)</option>
+                                <option value="3.minecraft_高级_advanced">Minecraft高级词汇 (60词)</option>
+                                <option value="minecraft_3.单词汇总">Minecraft完整词库 (1174词)</option>
+                            </optgroup>
                         </select>
                         <button onclick="loadVocabulary()" style="margin-left: 5px;">加载词库</button>
                     </div>
