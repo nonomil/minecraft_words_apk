@@ -150,3 +150,163 @@
     _pickVoice: pickVoice,
   };
 })(window);
+(function (global) {
+  'use strict';
+
+  // 简单防抖：避免在快速连续调用时重复 speak
+  var lastSpeakAt = 0;
+  var SPEAK_COOLDOWN_MS = 120; // 可按需调整
+
+  // 兼容读取设置
+  function getSettingsSafe() {
+    try {
+      if (typeof getSettings === 'function') return getSettings();
+      if (global.CONFIG && global.CONFIG.DEFAULT_SETTINGS) return global.CONFIG.DEFAULT_SETTINGS;
+    } catch (e) {}
+    return {
+      speechRate: 1,
+      speechPitch: 1,
+      speechVolume: 1,
+      enableTTS: true,
+    };
+  }
+
+  // 判断是否处于 Capacitor 原生环境且安装了 TextToSpeech 插件
+  function isNativeTTSAvailable() {
+    try {
+      var Cap = global.Capacitor;
+      if (!Cap || typeof Cap.isNativePlatform !== 'function') return false;
+      if (!Cap.isNativePlatform()) return false;
+      var plugins = (Cap.Plugins || {});
+      return !!plugins.TextToSpeech;
+    } catch (e) { return false; }
+  }
+
+  function getNativeTTS() {
+    try {
+      return global.Capacitor && global.Capacitor.Plugins && global.Capacitor.Plugins.TextToSpeech;
+    } catch (e) { return null; }
+  }
+
+  // Web Speech 相关（作为回退）
+  var synth = global.speechSynthesis;
+
+  function cancelWebSpeech(){ try { synth && synth.cancel(); } catch(e) {} }
+  function pauseWebSpeech(){ try { synth && synth.pause(); } catch(e) {} }
+  function resumeWebSpeech(){ try { synth && synth.resume(); } catch(e) {} }
+  function isSpeakingWebSpeech(){ return !!(synth && synth.speaking); }
+
+  // 语言猜测：简单基于字符范围
+  function guessLang(text) {
+    if (!text) return 'en-US';
+    var hasCJK = /[\u4e00-\u9fa5]/.test(text);
+    return hasCJK ? 'zh-CN' : 'en-US';
+  }
+
+  // 主体 API
+  var TTS = {
+    enable: function () {
+      // 对于 WebSpeech：通过一次空发声“解锁”音频上下文；对于原生无需特殊处理
+      try {
+        if (isNativeTTSAvailable()) {
+          return Promise.resolve(true);
+        }
+        if (!('speechSynthesis' in global)) return Promise.resolve(false);
+        var u = new SpeechSynthesisUtterance('');
+        synth && synth.speak(u);
+        return Promise.resolve(true);
+      } catch (e) {
+        return Promise.resolve(false);
+      }
+    },
+
+    speak: function (text, opts) {
+      var now = Date.now();
+      if (now - lastSpeakAt < SPEAK_COOLDOWN_MS) {
+        // 冷却期内丢弃，避免抖动
+        return Promise.resolve(false);
+      }
+      lastSpeakAt = now;
+
+      var settings = getSettingsSafe();
+      if (settings && settings.enableTTS === false) return Promise.resolve(false);
+
+      var lang = (opts && opts.lang) || guessLang(text);
+      var rate = (opts && opts.rate) || settings.speechRate || 1;
+      var pitch = (opts && opts.pitch) || settings.speechPitch || 1;
+      var volume = (opts && opts.volume) || settings.speechVolume || 1;
+
+      // 优先使用原生 TTS
+      if (isNativeTTSAvailable()) {
+        var nativeTTS = getNativeTTS();
+        if (nativeTTS && typeof nativeTTS.speak === 'function') {
+          // @capacitor-community/text-to-speech 接口：speak({ text, lang, rate, pitch, volume, category? })
+          return nativeTTS.speak({ text: String(text || ''), lang: lang, rate: rate, pitch: pitch, volume: volume })
+            .then(function(){ return true; })
+            .catch(function(err){ console.warn('[TTS] native speak failed, fallback to web', err); return TTS._speakWeb(text, { lang, rate, pitch, volume }); });
+        }
+      }
+
+      // 回退至 Web Speech
+      return TTS._speakWeb(text, { lang: lang, rate: rate, pitch: pitch, volume: volume });
+    },
+
+    _speakWeb: function (text, opts) {
+      try {
+        cancelWebSpeech(); // 先停止之前的发音，减少叠音
+        var utter = new SpeechSynthesisUtterance(String(text || ''));
+        utter.lang = opts.lang || guessLang(text);
+        utter.rate = Math.max(0.1, Math.min(10, Number(opts.rate) || 1));
+        utter.pitch = Math.max(0, Math.min(2, Number(opts.pitch) || 1));
+        utter.volume = Math.max(0, Math.min(1, Number(opts.volume) || 1));
+        synth && synth.speak(utter);
+        return Promise.resolve(true);
+      } catch (e) {
+        console.warn('[TTS] web speak failed', e);
+        return Promise.resolve(false);
+      }
+    },
+
+    cancel: function () {
+      // 原生优先
+      if (isNativeTTSAvailable()) {
+        var nativeTTS = getNativeTTS();
+        if (nativeTTS && typeof nativeTTS.stop === 'function') {
+          return nativeTTS.stop().catch(function(){ cancelWebSpeech(); });
+        }
+      }
+      cancelWebSpeech();
+      return Promise.resolve();
+    },
+
+    pause: function () {
+      // 原生插件无 pause 接口，尽量 stop；否则使用 WebSpeech 暂停
+      if (isNativeTTSAvailable()) {
+        var nativeTTS = getNativeTTS();
+        if (nativeTTS && typeof nativeTTS.stop === 'function') {
+          return nativeTTS.stop().catch(function(){ pauseWebSpeech(); });
+        }
+      }
+      pauseWebSpeech();
+      return Promise.resolve();
+    },
+
+    resume: function () {
+      // 原生插件没有 resume；WebSpeech 则尝试恢复
+      if (!isNativeTTSAvailable()) {
+        resumeWebSpeech();
+      }
+      return Promise.resolve();
+    },
+
+    isSpeaking: function () {
+      if (isNativeTTSAvailable()) {
+        // 社区 TTS 插件没有提供 speaking 状态，保守返回 false，避免误判
+        return false;
+      }
+      return isSpeakingWebSpeech();
+    }
+  };
+
+  global.TTS = TTS;
+})(window);
