@@ -4,7 +4,7 @@
   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
   var isAndroid = /Android/.test(navigator.userAgent);
 
-  // Ê¹ÓÃ CONFIG.DEFAULT_SETTINGS£¨Èç¹û´æÔÚ£©£¬·ñÔòÍË»Øµ½ DEFAULT_SETTINGS »òÄ¬ÈÏÖµ
+  // ä½¿ç”¨ CONFIG.DEFAULT_SETTINGSï¼ˆå¦‚æœå­˜åœ¨ï¼‰ï¼Œå¦åˆ™é€€å›åˆ° DEFAULT_SETTINGS æˆ–é»˜è®¤å€¼
   var settings = ((global.CONFIG && global.CONFIG.DEFAULT_SETTINGS) || global.DEFAULT_SETTINGS || {
     speechRate: 1,
     speechPitch: 1,
@@ -43,17 +43,17 @@
   function pickVoice(lang){
     lang = (lang || '').toLowerCase();
     if (!state.voices || !state.voices.length) return null;
-    // ÓÅÏÈÆ¥ÅäÍêÕû lang£¬Æä´ÎÇ°×º
+    // ä¼˜å…ˆåŒ¹é…å®Œæ•´ langï¼Œå…¶æ¬¡å‰ç¼€
     var exact = state.voices.find(function(v){ return (v.lang||'').toLowerCase() === lang; });
     if (exact) return exact;
     var prefix = state.voices.find(function(v){ return (v.lang||'').toLowerCase().startsWith(lang.split('-')[0]); });
     if (prefix) return prefix;
-    // ÖĞÎÄÓÅÏÈÑ¡Ôñ zh-CN/zh-Hans
+    // ä¸­æ–‡ä¼˜å…ˆé€‰æ‹© zh-CN/zh-Hans
     if (lang.startsWith('zh')) {
-      var zhVoice = state.voices.find(function(v){ return /zh|cmn|chi/i.test(v.lang) || /Chinese|Zh|ÖĞ/i.test(v.name); });
+      var zhVoice = state.voices.find(function(v){ return /zh|cmn|chi/i.test(v.lang) || /Chinese|Zh|ä¸­/i.test(v.name); });
       if (zhVoice) return zhVoice;
     }
-    // Ó¢ÓïÓÅÏÈ en-US/en-GB
+    // è‹±è¯­ä¼˜å…ˆ en-US/en-GB
     if (lang.startsWith('en')) {
       var enVoice = state.voices.find(function(v){ return /en/i.test(v.lang); });
       if (enVoice) return enVoice;
@@ -63,9 +63,9 @@
 
   function guessLangByText(text){
     if (!text) return 'en-US';
-    // ¼òµ¥ÅĞ¶Ï£ºº¬ÖĞÎÄ×Ö·û
+    // ç®€å•åˆ¤æ–­ï¼šå«ä¸­æ–‡å­—ç¬¦
     if (/\u4e00-\u9fa5/.test(text)) return 'zh-CN';
-    // º¬ÓĞÆ´Òô×Ö·û»ò×ÖÄ¸
+    // å«æœ‰æ‹¼éŸ³å­—ç¬¦æˆ–å­—æ¯
     return 'en-US';
   }
 
@@ -76,7 +76,7 @@
   }
 
   async function enable(){
-    // Í¨¹ıÒ»´Î¿ÕµÄ speak À´¼¤»îÒÆ¶¯¶ËÒôÆµ²ßÂÔ£¨²»ÉÙä¯ÀÀÆ÷ĞèÒªÊÖÊÆ´¥·¢£©
+    // é€šè¿‡ä¸€æ¬¡ç©ºçš„ speak æ¥æ¿€æ´»ç§»åŠ¨ç«¯éŸ³é¢‘ç­–ç•¥ï¼ˆä¸å°‘æµè§ˆå™¨éœ€è¦æ‰‹åŠ¿è§¦å‘ï¼‰
     state.enabled = true;
     try {
       var ok = await ensureReady();
@@ -101,14 +101,14 @@
   async function speak(text, opts){
     opts = opts || {};
     if (!state.enabled && (isAndroid || isIOS)) {
-      // ÒÆ¶¯¶ËÎ´ÆôÓÃÊ±Ö±½Ó·µ»Ø false£¬±ÜÃâ±¨´í
+      // ç§»åŠ¨ç«¯æœªå¯ç”¨æ—¶ç›´æ¥è¿”å› falseï¼Œé¿å…æŠ¥é”™
       return false;
     }
     var ok = await ensureReady();
     if (!ok) return false;
     cancel();
 
-    // Ã¿´Î·¢ÉùÊ±»ñÈ¡×îĞÂÉèÖÃ£¨ÈôÌá¹© getSettings£©
+    // æ¯æ¬¡å‘å£°æ—¶è·å–æœ€æ–°è®¾ç½®ï¼ˆè‹¥æä¾› getSettingsï¼‰
     var currentSettings = (typeof global.getSettings === 'function') ? global.getSettings() : settings;
 
     var lang = (opts.lang) || guessLangByText(text);
@@ -134,9 +134,9 @@
     });
   }
 
-  // Ô¤Áô Capacitor Ô­Éú TTS ½Ó¿ÚÎ»ÖÃ£¨Èç¹ûºóĞø¼ÓÈë£¬¿ÉÔÚ´ËÇĞ»»ÊµÏÖ£©
+  // é¢„ç•™ Capacitor åŸç”Ÿ TTS æ¥å£ä½ç½®ï¼ˆå¦‚æœåç»­åŠ å…¥ï¼Œå¯åœ¨æ­¤åˆ‡æ¢å®ç°ï¼‰
   // if (global.Capacitor && global.Capacitor.isNativePlatform) {
-  //   // ¿ÉÔÚ´Ë´¦ÓÅÏÈµ÷ÓÃ @capacitor-community/text-to-speech
+  //   // å¯åœ¨æ­¤å¤„ä¼˜å…ˆè°ƒç”¨ @capacitor-community/text-to-speech
   // }
 
   global.TTS = {
@@ -146,18 +146,18 @@
     pause: pause,
     resume: resume,
     isSpeaking: isSpeaking,
-    _loadVoices: loadVoices, // ²âÊÔ¸¨Öú
+    _loadVoices: loadVoices, // æµ‹è¯•è¾…åŠ©
     _pickVoice: pickVoice,
   };
 })(window);
 (function (global) {
   'use strict';
 
-  // ¼òµ¥·À¶¶£º±ÜÃâÔÚ¿ìËÙÁ¬Ğøµ÷ÓÃÊ±ÖØ¸´ speak
+  // ç®€å•é˜²æŠ–ï¼šé¿å…åœ¨å¿«é€Ÿè¿ç»­è°ƒç”¨æ—¶é‡å¤ speak
   var lastSpeakAt = 0;
-  var SPEAK_COOLDOWN_MS = 120; // ¿É°´Ğèµ÷Õû
+  var SPEAK_COOLDOWN_MS = 120; // å¯æŒ‰éœ€è°ƒæ•´
 
-  // ¼æÈİ¶ÁÈ¡ÉèÖÃ
+  // å…¼å®¹è¯»å–è®¾ç½®
   function getSettingsSafe() {
     try {
       if (typeof getSettings === 'function') return getSettings();
@@ -171,7 +171,7 @@
     };
   }
 
-  // ÅĞ¶ÏÊÇ·ñ´¦ÓÚ Capacitor Ô­Éú»·¾³ÇÒ°²×°ÁË TextToSpeech ²å¼ş
+  // åˆ¤æ–­æ˜¯å¦å¤„äº Capacitor åŸç”Ÿç¯å¢ƒä¸”å®‰è£…äº† TextToSpeech æ’ä»¶
   function isNativeTTSAvailable() {
     try {
       var Cap = global.Capacitor;
@@ -188,7 +188,7 @@
     } catch (e) { return null; }
   }
 
-  // Web Speech Ïà¹Ø£¨×÷Îª»ØÍË£©
+  // Web Speech ç›¸å…³ï¼ˆä½œä¸ºå›é€€ï¼‰
   var synth = global.speechSynthesis;
 
   function cancelWebSpeech(){ try { synth && synth.cancel(); } catch(e) {} }
@@ -196,17 +196,17 @@
   function resumeWebSpeech(){ try { synth && synth.resume(); } catch(e) {} }
   function isSpeakingWebSpeech(){ return !!(synth && synth.speaking); }
 
-  // ÓïÑÔ²Â²â£º¼òµ¥»ùÓÚ×Ö·û·¶Î§
+  // è¯­è¨€çŒœæµ‹ï¼šç®€å•åŸºäºå­—ç¬¦èŒƒå›´
   function guessLang(text) {
     if (!text) return 'en-US';
     var hasCJK = /[\u4e00-\u9fa5]/.test(text);
     return hasCJK ? 'zh-CN' : 'en-US';
   }
 
-  // Ö÷Ìå API
+  // ä¸»ä½“ API
   var TTS = {
     enable: function () {
-      // ¶ÔÓÚ WebSpeech£ºÍ¨¹ıÒ»´Î¿Õ·¢Éù¡°½âËø¡±ÒôÆµÉÏÏÂÎÄ£»¶ÔÓÚÔ­ÉúÎŞĞèÌØÊâ´¦Àí
+      // å¯¹äº WebSpeechï¼šé€šè¿‡ä¸€æ¬¡ç©ºå‘å£°â€œè§£é”â€éŸ³é¢‘ä¸Šä¸‹æ–‡ï¼›å¯¹äºåŸç”Ÿæ— éœ€ç‰¹æ®Šå¤„ç†
       try {
         if (isNativeTTSAvailable()) {
           return Promise.resolve(true);
@@ -223,7 +223,7 @@
     speak: function (text, opts) {
       var now = Date.now();
       if (now - lastSpeakAt < SPEAK_COOLDOWN_MS) {
-        // ÀäÈ´ÆÚÄÚ¶ªÆú£¬±ÜÃâ¶¶¶¯
+        // å†·å´æœŸå†…ä¸¢å¼ƒï¼Œé¿å…æŠ–åŠ¨
         return Promise.resolve(false);
       }
       lastSpeakAt = now;
@@ -236,24 +236,24 @@
       var pitch = (opts && opts.pitch) || settings.speechPitch || 1;
       var volume = (opts && opts.volume) || settings.speechVolume || 1;
 
-      // ÓÅÏÈÊ¹ÓÃÔ­Éú TTS
+      // ä¼˜å…ˆä½¿ç”¨åŸç”Ÿ TTS
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.speak === 'function') {
-          // @capacitor-community/text-to-speech ½Ó¿Ú£ºspeak({ text, lang, rate, pitch, volume, category? })
+          // @capacitor-community/text-to-speech æ¥å£ï¼šspeak({ text, lang, rate, pitch, volume, category? })
           return nativeTTS.speak({ text: String(text || ''), lang: lang, rate: rate, pitch: pitch, volume: volume })
             .then(function(){ return true; })
             .catch(function(err){ console.warn('[TTS] native speak failed, fallback to web', err); return TTS._speakWeb(text, { lang, rate, pitch, volume }); });
         }
       }
 
-      // »ØÍËÖÁ Web Speech
+      // å›é€€è‡³ Web Speech
       return TTS._speakWeb(text, { lang: lang, rate: rate, pitch: pitch, volume: volume });
     },
 
     _speakWeb: function (text, opts) {
       try {
-        cancelWebSpeech(); // ÏÈÍ£Ö¹Ö®Ç°µÄ·¢Òô£¬¼õÉÙµşÒô
+        cancelWebSpeech(); // å…ˆåœæ­¢ä¹‹å‰çš„å‘éŸ³ï¼Œå‡å°‘å éŸ³
         var utter = new SpeechSynthesisUtterance(String(text || ''));
         utter.lang = opts.lang || guessLang(text);
         utter.rate = Math.max(0.1, Math.min(10, Number(opts.rate) || 1));
@@ -268,7 +268,7 @@
     },
 
     cancel: function () {
-      // Ô­ÉúÓÅÏÈ
+      // åŸç”Ÿä¼˜å…ˆ
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.stop === 'function') {
@@ -280,7 +280,7 @@
     },
 
     pause: function () {
-      // Ô­Éú²å¼şÎŞ pause ½Ó¿Ú£¬¾¡Á¿ stop£»·ñÔòÊ¹ÓÃ WebSpeech ÔİÍ£
+      // åŸç”Ÿæ’ä»¶æ—  pause æ¥å£ï¼Œå°½é‡ stopï¼›å¦åˆ™ä½¿ç”¨ WebSpeech æš‚åœ
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.stop === 'function') {
@@ -292,7 +292,7 @@
     },
 
     resume: function () {
-      // Ô­Éú²å¼şÃ»ÓĞ resume£»WebSpeech Ôò³¢ÊÔ»Ö¸´
+      // åŸç”Ÿæ’ä»¶æ²¡æœ‰ resumeï¼›WebSpeech åˆ™å°è¯•æ¢å¤
       if (!isNativeTTSAvailable()) {
         resumeWebSpeech();
       }
@@ -301,7 +301,7 @@
 
     isSpeaking: function () {
       if (isNativeTTSAvailable()) {
-        // ÉçÇø TTS ²å¼şÃ»ÓĞÌá¹© speaking ×´Ì¬£¬±£ÊØ·µ»Ø false£¬±ÜÃâÎóÅĞ
+        // ç¤¾åŒº TTS æ’ä»¶æ²¡æœ‰æä¾› speaking çŠ¶æ€ï¼Œä¿å®ˆè¿”å› falseï¼Œé¿å…è¯¯åˆ¤
         return false;
       }
       return isSpeakingWebSpeech();

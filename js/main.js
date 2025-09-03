@@ -1,183 +1,183 @@
-// Ö÷Èë¿ÚÎÄ¼ş - ÕûºÏËùÓĞÄ£¿é
+// ä¸»å…¥å£æ–‡ä»¶ - æ•´åˆæ‰€æœ‰æ¨¡å—
 
-// Ò³Ãæ¼ÓÔØÍê³Éºó³õÊ¼»¯
+// é¡µé¢åŠ è½½å®Œæˆååˆå§‹åŒ–
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('? Minecraft µ¥´ÊÑ§Ï°ÓÎÏ·Æô¶¯ÖĞ...');
+    console.log('ğŸ® Minecraft å•è¯å­¦ä¹ æ¸¸æˆå¯åŠ¨ä¸­...');
     
-    // ³õÊ¼»¯¸÷¸öÄ£¿é
+    // åˆå§‹åŒ–å„ä¸ªæ¨¡å—
     initializeApplication();
 });
 
-// ³õÊ¼»¯Ó¦ÓÃ³ÌĞò
+// åˆå§‹åŒ–åº”ç”¨ç¨‹åº
 function initializeApplication() {
     try {
-        // 1. ¼ÓÔØÉèÖÃ
-        console.log('? ¼ÓÔØÉèÖÃ...');
+        // 1. åŠ è½½è®¾ç½®
+        console.log('ğŸ“‹ åŠ è½½è®¾ç½®...');
         loadSettings();
         
-        // 2. ¼ÓÔØÑ§Ï°½ø¶È
-        console.log('? ¼ÓÔØÑ§Ï°½ø¶È...');
+        // 2. åŠ è½½å­¦ä¹ è¿›åº¦
+        console.log('ğŸ“Š åŠ è½½å­¦ä¹ è¿›åº¦...');
         loadProgress();
         
-        // 3. ³õÊ¼»¯ÉèÖÃÊÂ¼ş¼àÌıÆ÷
-        console.log('?? ³õÊ¼»¯ÉèÖÃ¼àÌıÆ÷...');
+        // 3. åˆå§‹åŒ–è®¾ç½®äº‹ä»¶ç›‘å¬å™¨
+        console.log('ğŸ›ï¸ åˆå§‹åŒ–è®¾ç½®ç›‘å¬å™¨...');
         initializeSettingsEventListeners();
         
-        // 4. ³õÊ¼»¯ÓÎÏ·
-        console.log('? ³õÊ¼»¯ÓÎÏ·...');
+        // 4. åˆå§‹åŒ–æ¸¸æˆ
+        console.log('ğŸ® åˆå§‹åŒ–æ¸¸æˆ...');
         initializeGame();
         
-        // 5. ¸üĞÂÉèÖÃÏÔÊ¾
-        console.log('? ¸üĞÂÉèÖÃÏÔÊ¾...');
+        // 5. æ›´æ–°è®¾ç½®æ˜¾ç¤º
+        console.log('ğŸ”§ æ›´æ–°è®¾ç½®æ˜¾ç¤º...');
         updateSettingsDisplay();
         
-        // 6. ¼ì²éÊÇ·ñÆôÓÃÓ×¶ùÔ°Ä£Ê½
+        // 6. æ£€æŸ¥æ˜¯å¦å¯ç”¨å¹¼å„¿å›­æ¨¡å¼
         const settings = getSettings();
         if (settings.kindergartenMode) {
-            console.log('? ÆôÓÃÓ×¶ùÔ°Ä£Ê½...');
+            console.log('ğŸ‘¶ å¯ç”¨å¹¼å„¿å›­æ¨¡å¼...');
             applyKindergartenMode(true);
         }
         
-        // 7. ×Ô¶¯¼ÓÔØÄ¬ÈÏ´Ê¿â
+        // 7. è‡ªåŠ¨åŠ è½½é»˜è®¤è¯åº“
         const vocabSelect = document.getElementById('vocabSelect');
-        if (vocabSelect && (vocabSelect.value.includes('Ó×¶ùÔ°') || vocabSelect.value === 'kindergarten_vocabulary')) {
-            console.log('? ×Ô¶¯¼ÓÔØÓ×¶ùÔ°´Ê¿â...');
+        if (vocabSelect && (vocabSelect.value.includes('å¹¼å„¿å›­') || vocabSelect.value === 'kindergarten_vocabulary')) {
+            console.log('ğŸ“š è‡ªåŠ¨åŠ è½½å¹¼å„¿å›­è¯åº“...');
             setTimeout(() => {
                 loadVocabulary();
             }, 500);
         }
         
-        console.log('? Ó¦ÓÃ³ÌĞò³õÊ¼»¯Íê³É£¡');
-        showNotification('? ÓÎÏ·ÒÑ×¼±¸¾ÍĞ÷£¡', 'success');
+        console.log('âœ… åº”ç”¨ç¨‹åºåˆå§‹åŒ–å®Œæˆï¼');
+        showNotification('ğŸ® æ¸¸æˆå·²å‡†å¤‡å°±ç»ªï¼', 'success');
         
     } catch (error) {
-        console.error('? ³õÊ¼»¯Ê§°Ü:', error);
-        showNotification('³õÊ¼»¯Ê§°Ü: ' + error.message, 'error');
+        console.error('âŒ åˆå§‹åŒ–å¤±è´¥:', error);
+        showNotification('åˆå§‹åŒ–å¤±è´¥: ' + error.message, 'error');
     }
 }
 
-// È«¾Ö´íÎó´¦Àí
+// å…¨å±€é”™è¯¯å¤„ç†
 window.addEventListener('error', function(event) {
-    console.error('È«¾Ö´íÎó:', event.error);
-    showNotification('·¢Éú´íÎó: ' + event.error.message, 'error');
+    console.error('å…¨å±€é”™è¯¯:', event.error);
+    showNotification('å‘ç”Ÿé”™è¯¯: ' + event.error.message, 'error');
 });
 
-// Î´´¦ÀíµÄPromise¾Ü¾ø
+// æœªå¤„ç†çš„Promiseæ‹’ç»
 window.addEventListener('unhandledrejection', function(event) {
-    console.error('Î´´¦ÀíµÄPromise¾Ü¾ø:', event.reason);
-    showNotification('Òì²½²Ù×÷Ê§°Ü: ' + event.reason, 'error');
+    console.error('æœªå¤„ç†çš„Promiseæ‹’ç»:', event.reason);
+    showNotification('å¼‚æ­¥æ“ä½œå¤±è´¥: ' + event.reason, 'error');
     event.preventDefault();
 });
 
-// Ò³Ãæ¿É¼ûĞÔ±ä»¯´¦Àí
+// é¡µé¢å¯è§æ€§å˜åŒ–å¤„ç†
 document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
-        // Ò³ÃæÒş²ØÊ±ÔİÍ£ÓïÒô
+        // é¡µé¢éšè—æ—¶æš‚åœè¯­éŸ³
         if (window.TTS && TTS.isSpeaking()) {
             TTS.pause();
         }
     } else {
-        // Ò³ÃæÏÔÊ¾Ê±»Ö¸´ÓïÒô
+        // é¡µé¢æ˜¾ç¤ºæ—¶æ¢å¤è¯­éŸ³
         if (window.TTS) {
             TTS.resume();
         }
     }
 });
 
-// ´°¿Ú´óĞ¡±ä»¯´¦Àí
+// çª—å£å¤§å°å˜åŒ–å¤„ç†
 window.addEventListener('resize', debounce(function() {
-    // ÖØĞÂ¼ÆËã¶¯»­Î»ÖÃ
+    // é‡æ–°è®¡ç®—åŠ¨ç”»ä½ç½®
     if (getSettings().kindergartenMode) {
         updateRewardDisplay();
     }
 }, 250));
 
-// ÔÚÏß×´Ì¬±ä»¯´¦Àí
+// åœ¨çº¿çŠ¶æ€å˜åŒ–å¤„ç†
 window.addEventListener('online', function() {
-    showNotification('ÍøÂçÁ¬½ÓÒÑ»Ö¸´', 'success');
+    showNotification('ç½‘ç»œè¿æ¥å·²æ¢å¤', 'success');
 });
 
 window.addEventListener('offline', function() {
-    showNotification('ÍøÂçÁ¬½ÓÒÑ¶Ï¿ª£¬²¿·Ö¹¦ÄÜ¿ÉÄÜÊÜÏŞ', 'error');
+    showNotification('ç½‘ç»œè¿æ¥å·²æ–­å¼€ï¼Œéƒ¨åˆ†åŠŸèƒ½å¯èƒ½å—é™', 'error');
 });
 
-// µ¼³öÈ«¾ÖAPI£¨ÓÃÓÚµ÷ÊÔºÍÀ©Õ¹£©
+// å¯¼å‡ºå…¨å±€APIï¼ˆç”¨äºè°ƒè¯•å’Œæ‰©å±•ï¼‰
 window.MinecraftWordGame = {
-    // ºËĞÄ¹¦ÄÜ
+    // æ ¸å¿ƒåŠŸèƒ½
     loadVocabulary,
     switchMode,
     playAudio,
     nextWord,
     previousWord,
     
-    // ²âÊÔ¹¦ÄÜ
+    // æµ‹è¯•åŠŸèƒ½
     startQuiz,
     restartQuiz,
     
-    // ÉèÖÃ¹¦ÄÜ
+    // è®¾ç½®åŠŸèƒ½
     getSettings,
     saveSettings,
     resetSettings,
     
-    // ½ø¶È¹¦ÄÜ
+    // è¿›åº¦åŠŸèƒ½
     saveProgress,
     clearProgress,
     exportProgress,
     
-    // Ó×¶ùÔ°Ä£Ê½
+    // å¹¼å„¿å›­æ¨¡å¼
     initializeKindergartenMode,
     resetKindergartenProgress,
     getRewardStats,
     
-    // ¶¯»­¹¦ÄÜ
+    // åŠ¨ç”»åŠŸèƒ½
     createStarAnimation,
     createFireworks,
     createHeartAnimation,
     
-    // ¹¤¾ßº¯Êı
+    // å·¥å…·å‡½æ•°
     showNotification,
     shuffleArray,
     getRandomElements,
     
-    // Êı¾İ·ÃÎÊ
+    // æ•°æ®è®¿é—®
     getCurrentWord,
     getVocabularyStats,
     getQuizStats,
     getLearningStats,
     
-    // °æ±¾ĞÅÏ¢
+    // ç‰ˆæœ¬ä¿¡æ¯
     version: '2.0.0',
     buildDate: new Date().toISOString()
 };
 
-// ¿ª·¢Ä£Ê½ÏÂµÄµ÷ÊÔĞÅÏ¢
+// å¼€å‘æ¨¡å¼ä¸‹çš„è°ƒè¯•ä¿¡æ¯
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    console.log('? ¿ª·¢Ä£Ê½ÒÑÆôÓÃ');
-    console.log('? È«¾ÖAPIÒÑ¹ÒÔØµ½ window.MinecraftWordGame');
-    console.log('? ¿ÉÓÃµÄµ÷ÊÔÃüÁî:');
-    console.log('  - MinecraftWordGame.getSettings() // »ñÈ¡µ±Ç°ÉèÖÃ');
-    console.log('  - MinecraftWordGame.getVocabularyStats() // »ñÈ¡´Ê¿âÍ³¼Æ');
-    console.log('  - MinecraftWordGame.getLearningStats() // »ñÈ¡Ñ§Ï°Í³¼Æ');
-    console.log('  - MinecraftWordGame.createFireworks() // ´´½¨ÑÌ»¨Ğ§¹û');
-    console.log('  - MinecraftWordGame.resetKindergartenProgress() // ÖØÖÃÓ×¶ùÔ°½ø¶È');
+    console.log('ğŸ”§ å¼€å‘æ¨¡å¼å·²å¯ç”¨');
+    console.log('ğŸ® å…¨å±€APIå·²æŒ‚è½½åˆ° window.MinecraftWordGame');
+    console.log('ğŸ“Š å¯ç”¨çš„è°ƒè¯•å‘½ä»¤:');
+    console.log('  - MinecraftWordGame.getSettings() // è·å–å½“å‰è®¾ç½®');
+    console.log('  - MinecraftWordGame.getVocabularyStats() // è·å–è¯åº“ç»Ÿè®¡');
+    console.log('  - MinecraftWordGame.getLearningStats() // è·å–å­¦ä¹ ç»Ÿè®¡');
+    console.log('  - MinecraftWordGame.createFireworks() // åˆ›å»ºçƒŸèŠ±æ•ˆæœ');
+    console.log('  - MinecraftWordGame.resetKindergartenProgress() // é‡ç½®å¹¼å„¿å›­è¿›åº¦');
 }
 
-// ĞÔÄÜ¼à¿Ø
+// æ€§èƒ½ç›‘æ§
 if ('performance' in window) {
     window.addEventListener('load', function() {
         setTimeout(function() {
             const perfData = performance.timing;
             const loadTime = perfData.loadEventEnd - perfData.navigationStart;
-            console.log(`? Ò³Ãæ¼ÓÔØÊ±¼ä: ${loadTime}ms`);
+            console.log(`ğŸ“ˆ é¡µé¢åŠ è½½æ—¶é—´: ${loadTime}ms`);
             
             if (loadTime > 3000) {
-                console.warn('?? Ò³Ãæ¼ÓÔØÊ±¼ä½Ï³¤£¬½¨ÒéÓÅ»¯');
+                console.warn('âš ï¸ é¡µé¢åŠ è½½æ—¶é—´è¾ƒé•¿ï¼Œå»ºè®®ä¼˜åŒ–');
             }
         }, 0);
     });
 }
 
-// ÄÚ´æÊ¹ÓÃ¼à¿Ø£¨Èç¹ûÖ§³Ö£©
+// å†…å­˜ä½¿ç”¨ç›‘æ§ï¼ˆå¦‚æœæ”¯æŒï¼‰
 if ('memory' in performance) {
     setInterval(function() {
         const memory = performance.memory;
@@ -185,26 +185,26 @@ if ('memory' in performance) {
         const limitMB = Math.round(memory.jsHeapSizeLimit / 1048576);
         
         if (usedMB > limitMB * 0.8) {
-            console.warn(`?? ÄÚ´æÊ¹ÓÃÂÊ½Ï¸ß: ${usedMB}MB / ${limitMB}MB`);
+            console.warn(`âš ï¸ å†…å­˜ä½¿ç”¨ç‡è¾ƒé«˜: ${usedMB}MB / ${limitMB}MB`);
         }
-    }, 30000); // Ã¿30Ãë¼ì²éÒ»´Î
+    }, 30000); // æ¯30ç§’æ£€æŸ¥ä¸€æ¬¡
 }
 
-// ÓÃ»§»î¶¯¸ú×Ù£¨ÓÃÓÚ×Ô¶¯±£´æ£©
+// ç”¨æˆ·æ´»åŠ¨è·Ÿè¸ªï¼ˆç”¨äºè‡ªåŠ¨ä¿å­˜ï¼‰
 let lastActivityTime = Date.now();
 let activityTimer;
 
 function trackUserActivity() {
     lastActivityTime = Date.now();
     
-    // Çå³ıÖ®Ç°µÄ¶¨Ê±Æ÷
+    // æ¸…é™¤ä¹‹å‰çš„å®šæ—¶å™¨
     if (activityTimer) {
         clearTimeout(activityTimer);
     }
     
-    // 5·ÖÖÓÎŞ»î¶¯ºó×Ô¶¯±£´æ
+    // 5åˆ†é’Ÿæ— æ´»åŠ¨åè‡ªåŠ¨ä¿å­˜
     activityTimer = setTimeout(function() {
-        console.log('? ×Ô¶¯±£´æ½ø¶È...');
+        console.log('ğŸ’¾ è‡ªåŠ¨ä¿å­˜è¿›åº¦...');
         saveProgress();
         if (getSettings().kindergartenMode) {
             saveKindergartenProgress();
@@ -212,37 +212,37 @@ function trackUserActivity() {
     }, 5 * 60 * 1000);
 }
 
-// ¼àÌıÓÃ»§»î¶¯
+// ç›‘å¬ç”¨æˆ·æ´»åŠ¨
 ['click', 'keydown', 'mousemove', 'touchstart'].forEach(eventType => {
     document.addEventListener(eventType, trackUserActivity, { passive: true });
 });
 
-// Ó¦ÓÃ³ÌĞòÉúÃüÖÜÆÚ¹ÜÀí
+// åº”ç”¨ç¨‹åºç”Ÿå‘½å‘¨æœŸç®¡ç†
 const AppLifecycle = {
-    // Ó¦ÓÃÆô¶¯
+    // åº”ç”¨å¯åŠ¨
     startup() {
-        console.log('? Ó¦ÓÃÆô¶¯');
+        console.log('ğŸš€ åº”ç”¨å¯åŠ¨');
         trackUserActivity();
     },
     
-    // Ó¦ÓÃÔİÍ£
+    // åº”ç”¨æš‚åœ
     pause() {
-        console.log('?? Ó¦ÓÃÔİÍ£');
+        console.log('â¸ï¸ åº”ç”¨æš‚åœ');
         saveProgress();
         if (getSettings().kindergartenMode) {
             saveKindergartenProgress();
         }
     },
     
-    // Ó¦ÓÃ»Ö¸´
+    // åº”ç”¨æ¢å¤
     resume() {
-        console.log('?? Ó¦ÓÃ»Ö¸´');
+        console.log('â–¶ï¸ åº”ç”¨æ¢å¤');
         trackUserActivity();
     },
     
-    // Ó¦ÓÃ¹Ø±Õ
+    // åº”ç”¨å…³é—­
     shutdown() {
-        console.log('? Ó¦ÓÃ¹Ø±Õ');
+        console.log('ğŸ›‘ åº”ç”¨å…³é—­');
         saveProgress();
         if (getSettings().kindergartenMode) {
             saveKindergartenProgress();
@@ -250,7 +250,7 @@ const AppLifecycle = {
     }
 };
 
-// °ó¶¨ÉúÃüÖÜÆÚÊÂ¼ş
+// ç»‘å®šç”Ÿå‘½å‘¨æœŸäº‹ä»¶
 document.addEventListener('DOMContentLoaded', AppLifecycle.startup);
 document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
@@ -261,10 +261,10 @@ document.addEventListener('visibilitychange', function() {
 });
 window.addEventListener('beforeunload', AppLifecycle.shutdown);
 
-// µ¼³öÉúÃüÖÜÆÚ¹ÜÀíÆ÷
+// å¯¼å‡ºç”Ÿå‘½å‘¨æœŸç®¡ç†å™¨
 window.MinecraftWordGame.AppLifecycle = AppLifecycle;
 
-console.log('? Ö÷Ä£¿é¼ÓÔØÍê³É');
-console.log('? Minecraft µ¥´ÊÑ§Ï°ÓÎÏ· v2.0.0 - Ó×¶ùÔ°ÌØ±ğ°æ');
-console.log('? ×¨Îª3-6Ëê¶ùÍ¯Éè¼Æ£¬°üº¬½±ÀøÏµÍ³ºÍ¶¯»­Ğ§¹û');
-console.log('? ĞÂ¹¦ÄÜ: ´Ê»ã·Ö×é¡¢×êÊ¯½±Àø¡¢×êÊ¯½£³É¾Í¡¢ĞÇĞÇ¶¯»­');
+console.log('ğŸ¯ ä¸»æ¨¡å—åŠ è½½å®Œæˆ');
+console.log('ğŸ® Minecraft å•è¯å­¦ä¹ æ¸¸æˆ v2.0.0 - å¹¼å„¿å›­ç‰¹åˆ«ç‰ˆ');
+console.log('ğŸ‘¶ ä¸“ä¸º3-6å²å„¿ç«¥è®¾è®¡ï¼ŒåŒ…å«å¥–åŠ±ç³»ç»Ÿå’ŒåŠ¨ç”»æ•ˆæœ');
+console.log('âœ¨ æ–°åŠŸèƒ½: è¯æ±‡åˆ†ç»„ã€é’»çŸ³å¥–åŠ±ã€é’»çŸ³å‰‘æˆå°±ã€æ˜Ÿæ˜ŸåŠ¨ç”»');
