@@ -95,6 +95,24 @@ function updateSettingsDisplay() {
     if (volumeValue && speechVolume) {
         volumeValue.textContent = parseFloat(speechVolume.value).toFixed(1);
     }
+
+    // 刷新 TTS 引擎标签
+    try {
+        const label = document.getElementById('ttsEngineLabel');
+        if (label && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) {
+            const plugin = window.Capacitor.Plugins && (window.Capacitor.Plugins.SystemTTS || window.Capacitor.Plugins['SystemTTS']);
+            if (plugin && typeof plugin.getCurrentEngine === 'function') {
+                plugin.getCurrentEngine().then(res => {
+                    const name = res && (res.label || res.engine) || '未知';
+                    label.textContent = name;
+                }).catch(() => { label.textContent = '未检测'; });
+            } else {
+                label.textContent = '需要原生环境';
+            }
+        } else if (label) {
+            label.textContent = 'Web 环境';
+        }
+    } catch (e) {}
 }
 
 // 应用幼儿园模式
@@ -324,6 +342,32 @@ function initializeSettingsEventListeners() {
         });
     }
     
+    // 选择/设置 TTS 引擎按钮
+    const selectBtn = document.getElementById('selectTTSEngineBtn');
+    if (selectBtn) {
+        selectBtn.addEventListener('click', function(){
+            try {
+                if (window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) {
+                    const plugin = window.Capacitor.Plugins && (window.Capacitor.Plugins.SystemTTS || window.Capacitor.Plugins['SystemTTS']);
+                    if (plugin && typeof plugin.openSettings === 'function') {
+                        plugin.openSettings().then(() => {
+                            // 打开设置后，稍后刷新当前引擎显示
+                            setTimeout(updateSettingsDisplay, 1500);
+                        }).catch(() => {
+                            showNotification('无法打开系统 TTS 设置', 'error');
+                        });
+                    } else {
+                        showNotification('原生插件未加载', 'error');
+                    }
+                } else {
+                    showNotification('请在已安装的安卓 App 内使用此功能', 'error');
+                }
+            } catch (e) {
+                showNotification('打开设置失败', 'error');
+            }
+        });
+    }
+
     // 游戏设置复选框
     const checkboxes = ['autoPlay', 'showImages', 'kindergartenMode'];
     checkboxes.forEach(id => {
@@ -338,6 +382,9 @@ function initializeSettingsEventListeners() {
     if (quizCount) {
         quizCount.addEventListener('change', saveSettings);
     }
+
+    // 初始化时刷新一次引擎标签
+    updateSettingsDisplay();
 }
 
 // 获取学习统计（基于当前学习类型）

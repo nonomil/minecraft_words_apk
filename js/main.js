@@ -49,7 +49,24 @@ function initializeApplication() {
         
         console.log('✅ 应用程序初始化完成！');
         showNotification('🎮 游戏已准备就绪！', 'success');
-        
+
+        // 解锁移动端音频策略：优先等到首次点击再初始化；若无点击也尝试一次
+        try {
+            const unlockTTS = async () => {
+                if (window.TTS && typeof TTS.enable === 'function') {
+                    const ok = await TTS.enable();
+                    console.log('🔊 TTS.enable() 执行结果:', ok);
+                    document.removeEventListener('click', unlockTTS);
+                    document.removeEventListener('touchstart', unlockTTS);
+                }
+            };
+            document.addEventListener('click', unlockTTS, { once: true, passive: true });
+            document.addEventListener('touchstart', unlockTTS, { once: true, passive: true });
+            // 兜底：1秒后自动尝试一次（部分安卓允许自动调用）
+            setTimeout(unlockTTS, 1000);
+        } catch (e) {
+            console.warn('TTS 启用尝试失败：', e);
+        }
     } catch (error) {
         console.error('❌ 初始化失败:', error);
         showNotification('初始化失败: ' + error.message, 'error');

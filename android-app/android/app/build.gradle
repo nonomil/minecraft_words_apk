@@ -22,6 +22,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    
+    // 添加 Java 工具链配置，确保与 JDK 21 兼容
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    
+    // 明确指定 Java 工具链
+    // 移除无效的 toolchain 配置，Android 插件不在此处使用该块，由 gradle.properties 管理 JDK 版本
+    // toolchain {
+    //     languageVersion = JavaLanguageVersion.of(17)
+    // }
 }
 
 repositories {
