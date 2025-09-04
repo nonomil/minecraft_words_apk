@@ -16,7 +16,7 @@ import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.annotation.CapacitorPlugin;
-import com.getcapacitor.annotation.PluginMethod;
+import com.getcapacitor.PluginMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class SystemTTSPlugin extends Plugin {
 
     @PluginMethod
     public void openSettings(PluginCall call) {
-        getBridge().runOnMainThread(() -> {
+        getActivity().runOnUiThread(() -> {
             Activity activity = getActivity();
             try {
                 // 首选直达 TTS 设置页
@@ -93,19 +93,22 @@ public class SystemTTSPlugin extends Plugin {
     @PluginMethod
     public void getAvailableEngines(PluginCall call) {
         Context context = getContext();
-        Intent intent = new Intent(TextToSpeech.Engine.ACTION_TTS_SERVICE);
-        PackageManager pm = context.getPackageManager();
-        // 使用旧版签名以兼容 API < 33 的设备
-        List<ResolveInfo> resolveInfos = pm.queryIntentServices(intent, 0);
         JSArray arr = new JSArray();
-        if (resolveInfos != null) {
-            for (ResolveInfo info : resolveInfos) {
-                String pkg = info.serviceInfo != null ? info.serviceInfo.packageName : null;
-                JSObject item = new JSObject();
-                item.put("engine", pkg);
-                item.put("label", getAppLabel(context, pkg));
-                arr.put(item);
+        try {
+            TextToSpeech tts = new TextToSpeech(context, status -> {});
+            List<TextToSpeech.EngineInfo> engines = tts.getEngines();
+            if (engines != null) {
+                for (TextToSpeech.EngineInfo info : engines) {
+                    String pkg = info != null ? info.name : null;
+                    JSObject item = new JSObject();
+                    item.put("engine", pkg);
+                    item.put("label", (info != null && info.label != null) ? info.label : getAppLabel(context, pkg));
+                    arr.put(item);
+                }
             }
+            tts.shutdown();
+        } catch (Exception e) {
+            // ignore and return empty list
         }
         JSObject ret = new JSObject();
         ret.put("engines", arr);
