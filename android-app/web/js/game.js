@@ -228,7 +228,7 @@ function generateLearnChoices(correctWord) {
         choiceElement.addEventListener('mouseenter', speakOnHover);
 
         // 支持长按发音
-        let pressTimer = null; let longPressed = false;
+        let pressTimer = null; let longPressed = false; let selectedOnce = false;
         const clearPress = () => { if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; } };
         const startPress = () => {
             longPressed = false;
@@ -244,18 +244,25 @@ function generateLearnChoices(correctWord) {
         const endPress = () => {
             if (pressTimer) {
                 clearTimeout(pressTimer);
-                if (!longPressed) {
-                    // 短按即选择
+                if (!longPressed && !selectedOnce) {
+                    // 短按即选择（仅触发一次）
+                    selectedOnce = true;
                     selectLearnChoice(choiceElement, choice, correctAnswer);
                 }
             }
+            clearPress();
         };
         choiceElement.addEventListener('pointerdown', startPress);
         choiceElement.addEventListener('pointerup', endPress);
         choiceElement.addEventListener('pointerleave', () => { clearPress(); });
         choiceElement.addEventListener('pointercancel', () => { clearPress(); });
 
-        choiceElement.onclick = () => selectLearnChoice(choiceElement, choice, correctAnswer);
+        // 避免 pointer 事件后触发 click 造成二次选择；在不支持 pointer 的环境下作为兜底
+        choiceElement.addEventListener('click', (evt) => {
+            if (longPressed || selectedOnce) { evt.preventDefault(); evt.stopPropagation(); return; }
+            selectedOnce = true;
+            selectLearnChoice(choiceElement, choice, correctAnswer);
+        });
         choicesContainer.appendChild(choiceElement);
     });
 }
@@ -332,6 +339,7 @@ function selectLearnChoice(element, selected, correct) {
 
 // 上一个单词
 function previousWord() {
+    if (window.TTS) { try { TTS.cancel(); } catch(e){} }
     if (currentWordIndex > 0) {
         currentWordIndex--;
         updateWordDisplay();
@@ -341,6 +349,7 @@ function previousWord() {
 
 // 下一个单词
 function nextWord() {
+    if (window.TTS) { try { TTS.cancel(); } catch(e){} }
     if (currentWordIndex < currentVocabulary.length - 1) {
         currentWordIndex++;
         updateWordDisplay();
@@ -356,7 +365,11 @@ function playAudio() {
     const word = getCurrentWord();
     if (!word) return;
     
-    const text = word.standardized || word.word;
+    // 根据学习类型决定朗读内容：短语模式优先读 phrase
+    const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
+    const text = (lt === 'phrase_en' || lt === 'phrase_zh')
+        ? (word.phrase || word.standardized || word.word)
+        : (word.standardized || word.word);
     const settings = getSettings();
     
     // 使用 TTS 适配器发音（英文）
