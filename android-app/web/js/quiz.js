@@ -29,46 +29,35 @@ function updateQuizDisplay() {
     const word = quizWords[currentQuizIndex];
     quizAnswered = false;
     
-    // ���÷�������״̬Ϊ����
+    // 设定发音顺序：先中文后英文
     currentQuizAudioLang = 'zh';
     
-    // �������Ϊ����
+    // 设置题干：提示拼写英文
     const questionTitle = document.querySelector('.quiz-question h3');
     if (questionTitle) {
-        questionTitle.textContent = word.chinese || '��ѡ���Ӧ��Ӣ��';
+        const cn = word.chinese || '';
+        questionTitle.textContent = cn ? `请拼写：${cn} 的英文` : '请根据发音拼写英文';
     }
     
-    // ����ͼƬ
+    // 更新图片
     updateQuizImage(word);
     
-    // ����ѡ�Ӣ�ģ�
-    generateQuizOptions(word);
+    // 生成拼写交互
+    generateSpellingTask(word);
     
-    // ���·�����ʾ
+    // 更新分数/分组/统计/进度
     updateQuizScore();
-    
-    // ���·��������ʾ
     updateQuizGroupDisplay();
-    
-    // ����ͳ����Ϣ
     updateQuizStats();
-    
-    // ���½�����
     updateQuizProgressBar();
     
-    // ������һ�ⰴť
+    // 重置下一题按钮
     const nextQuizBtn = document.getElementById('nextQuizBtn');
-    if (nextQuizBtn) {
-        nextQuizBtn.disabled = true;
-    }
+    if (nextQuizBtn) nextQuizBtn.disabled = true;
     
-    // ���·�����ť�ı�
+    // 更新播放按钮文案并自动播放提示
     updateQuizAudioButton();
-    
-    // �Զ��������ķ���
-    setTimeout(() => {
-        playQuizAudio();
-    }, 500);
+    setTimeout(() => { playQuizAudio(); }, 500);
 }
 
 // ���²���ͼƬ
@@ -84,14 +73,14 @@ function updateQuizImage(word) {
             })
             .catch(error => {
                 console.warn('Failed to load quiz image:', error);
-                imageElement.src = createPlaceholderImage('ͼƬ�޷�����');
+                imageElement.src = createPlaceholderImage('图片无法加载');
             });
             
         imageElement.onerror = function() {
-            this.src = createPlaceholderImage('ͼƬ�޷�����');
+            this.src = createPlaceholderImage('图片无法加载');
         };
     } else {
-        imageElement.src = createPlaceholderImage('����ͼƬ');
+        imageElement.src = createPlaceholderImage('暂无图片');
     }
 }
 
@@ -137,18 +126,33 @@ function generateQuizOptions(correctWord) {
         optionElement.textContent = optionText;
         optionElement.onclick = () => selectQuizOption(optionElement, optionText, correctEnglish);
         
-        // ��ͣӢ�ķ�����300ms ����
+        // 悬停英文的发音，使用可配置延时
+        const hoverDelay = (function(){
+          const s = (typeof getSettings === 'function') ? getSettings() : null;
+          return (s && typeof s.hoverDelayMs === 'number') ? s.hoverDelayMs : ((CONFIG.ANIMATION && CONFIG.ANIMATION.HOVER_TTS_DELAY) ? CONFIG.ANIMATION.HOVER_TTS_DELAY : 150);
+        })();
         const onHover = debounce(() => {
             playEnglishOnHover(optionText);
-        }, 300);
+        }, hoverDelay);
         optionElement.addEventListener('mouseenter', onHover);
         
         optionsContainer.appendChild(optionElement);
     });
 }
 
-// ѡ�����ѡ��
-function selectQuizOption(element, selected, correct) {
+// 选择答案选项
+async function selectQuizOption(element, selected, correct) {
+    // 选择时先发音被选项
+    try {
+        const settings = getSettings();
+        if (window.TTS) {
+            const toSpeak = selected || '';
+            const lang = (/[\u4e00-\u9fa5]/.test(toSpeak)) ? 'zh-CN' : 'en-US';
+            await TTS.speak(toSpeak, { lang, rate: Math.max(0.6, settings.speechRate * 0.9), pitch: settings.speechPitch, volume: settings.speechVolume });
+        }
+    } catch(e) { /* ignore */ }
+
+    // 原有选择处理逻辑
     if (quizAnswered) return;
     
     quizAnswered = true;
@@ -164,24 +168,34 @@ function selectQuizOption(element, selected, correct) {
     });
     
     // ���·�������ʾ����
+    const resultEl = document.getElementById('quizResult');
     if (selected === correct) {
         quizScore++;
-        showNotification('�ش���ȷ��', 'success');
+        if (resultEl) {
+            resultEl.style.display = 'block';
+            resultEl.textContent = '✅ 回答正确！';
+            resultEl.className = 'learn-result correct';
+        }
         if (getSettings().kindergartenMode) {
             createStarAnimation();
             createPulseEffect(element);
             
-            // ����ϵͳ�������Ŀ�����ʯ
+            // 奖励系统：答对题目获得钻石
             awardDiamond();
             
-            // ����Ƿ�ﵽ��ʯ����������
+            // 检查是否达到钻石剑奖励条件
             if (totalDiamonds > 0 && totalDiamonds % CONFIG.KINDERGARTEN.SWORD_REWARD_THRESHOLD === 0) {
                 awardSword();
-                showNotification('?? ��ϲ�����ʯ����', 'achievement');
+                // 成就提示仍使用通知
+                showNotification('🎉 恭喜获得钻石剑！', 'achievement');
             }
         }
     } else {
-        showNotification(`�ش������ȷ���ǣ�${correct}`, 'error');
+        if (resultEl) {
+            resultEl.style.display = 'block';
+            resultEl.textContent = `❌ 回答错误！正确答案是：${correct}`;
+            resultEl.className = 'learn-result wrong';
+        }
         if (getSettings().kindergartenMode) {
             element.style.animation = 'wrongShake 0.6s ease-in-out';
         }
@@ -359,24 +373,24 @@ function updateQuizProgressBar() {
 // ��ʾ���Խ��
 function showQuizResults() {
     const accuracy = Math.round((quizScore / quizWords.length) * 100);
-    let message = `������ɣ�\n�÷֣�${quizScore}/${quizWords.length}\n��ȷ�ʣ�${accuracy}%`;
+    let message = `测试完成！\n得分：${quizScore}/${quizWords.length}\n正确率：${accuracy}%`;
     let emoji = '';
     
     if (accuracy >= 90) {
-        message += '\n? ���㣡';
-        emoji = '?';
+        message += '\n太棒了！';
+        emoji = '🏆';
     } else if (accuracy >= 70) {
-        message += '\n? ���ã�';
-        emoji = '?';
+        message += '\n做得好！';
+        emoji = '✨';
     } else if (accuracy >= 60) {
-        message += '\n? ����Ŭ����';
-        emoji = '?';
+        message += '\n继续努力~';
+        emoji = '🙂';
     } else {
-        message += '\n? ����ϰ����ã�';
-        emoji = '?';
+        message += '\n多多练习会更好哦~';
+        emoji = '💪';
     }
     
-    // �׶�԰ģʽ������Ч��
+    // 幼儿园模式下的奖励与特效
     if (getSettings().kindergartenMode) {
         if (accuracy >= 80) {
             createFireworks();
@@ -385,20 +399,20 @@ function showQuizResults() {
             createRainbowParticles();
         }
         
-        // ��ʾ�ɾ�
-        showAchievement(`${emoji} ������ɣ�\n�÷֣�${quizScore}/${quizWords.length}\n��ȷ�ʣ�${accuracy}%`);
+        // 显示成就
+        showAchievement(`${emoji} 测试完成！\n得分：${quizScore}/${quizWords.length}\n正确率：${accuracy}%`);
     } else {
         alert(message);
     }
     
-    // ������Լ�¼
+    // 保存测试记录
     saveQuizResult(quizScore, quizWords.length, accuracy);
 }
 
 // ���¿�ʼ����
 function restartQuiz() {
     if (currentVocabulary.length === 0) {
-        showNotification('���ȼ��شʿ�', 'error');
+        showNotification('请先加载词库', 'error');
         return;
     }
     
@@ -407,11 +421,11 @@ function restartQuiz() {
 
 // ������Խ��
 function saveQuizResult(score, total, accuracy) {
-    // ����ѧϰ����ѡ����ȼ���Ĭ�ϻ��˵����ʼ�
+    // 根据学习类型选择进度键，兼容 word_zh
     const lt = (function(){
         try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
     })();
-    const progressKey = lt === 'word' ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
+    const progressKey = (lt === 'word' || lt === 'word_zh') ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
 
     const saved = localStorage.getItem(progressKey) || localStorage.getItem(CONFIG.STORAGE_KEYS.PROGRESS);
     const progress = saved ? JSON.parse(saved) : {};
@@ -439,7 +453,7 @@ function getQuizStats() {
     const lt = (function(){
         try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
     })();
-    const progressKey = lt === 'word' ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
+    const progressKey = (lt === 'word' || lt === 'word_zh') ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
 
     const saved = localStorage.getItem(progressKey) || localStorage.getItem(CONFIG.STORAGE_KEYS.PROGRESS);
     if (!saved) return null;
@@ -472,14 +486,13 @@ function getQuizStats() {
 function exportQuizData() {
     const stats = getQuizStats();
     if (!stats) {
-        showNotification('û�в������ݿɵ���', 'error');
+        showNotification('请先加载词库', 'error');
         return;
     }
     const lt = (function(){
         try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
     })();
-    const progressKey = lt === 'word' ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
-    
+    const progressKey = (lt === 'word' || lt === 'word_zh') ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
     const saved = localStorage.getItem(progressKey) || localStorage.getItem(CONFIG.STORAGE_KEYS.PROGRESS);
     const progress = JSON.parse(saved);
     
@@ -501,13 +514,12 @@ function exportQuizData() {
     a.click();
     
     URL.revokeObjectURL(url);
-    showNotification('���������ѵ���');
+    showNotification('测试数据已导出');
 }
 
-// ��ͣ����״̬�����ڽ���/��ʾ��
+// 悬停发音状态（用于节流/提示）
 let hoverPlayTimestamps = {};
-
-// ��ͣӢ�ķ���������ȴ������Ƶ������
+// 悬停英文发音：带冷却，避免频繁触发
 function playEnglishOnHover(text) {
     if (!text) return;
     const COOL_DOWN_MS = 1000; // ��ȴ 1s
@@ -515,7 +527,7 @@ function playEnglishOnHover(text) {
     const now = Date.now();
 
     if (hoverPlayTimestamps[key] && now - hoverPlayTimestamps[key] < COOL_DOWN_MS) {
-        try { showNotification && showNotification('�Ե�һ�£�������ȴ�С�', 'info'); } catch (e) {}
+        try { showNotification && showNotification('稍等一下，正在准备发音…', 'info'); } catch (e) {}
         return;
     }
     hoverPlayTimestamps[key] = now;

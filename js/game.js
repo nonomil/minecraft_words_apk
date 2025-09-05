@@ -27,18 +27,40 @@ function updateWordDisplay() {
     
     // 修复词汇数据
     const fixedWord = fixWordData(word);
+
+    // 学习类型（兼容全局与本地存储）
+    const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
+
+    // 根据学习类型更新题干标题
+    const titleEl = document.querySelector('#learnOptions h3');
+    if (titleEl) {
+        if (lt === 'word') titleEl.textContent = '这个单词的中文意思是？';
+        else if (lt === 'word_zh') titleEl.textContent = '请选择对应的英文';
+        else if (lt === 'phrase_en') titleEl.textContent = '这个短语的中文意思是？';
+        else if (lt === 'phrase_zh') titleEl.textContent = '请选择对应的英文短语';
+    }
     
-    // 更新基本信息
-    document.getElementById('wordEnglish').textContent = fixedWord.standardized || fixedWord.word;
+    // 更新主标题（根据学习类型显示英文/中文/短语）
+    const primaryEl = document.getElementById('wordEnglish');
+    if (primaryEl) {
+        if (lt === 'word') primaryEl.textContent = fixedWord.standardized || fixedWord.word;
+        else if (lt === 'word_zh') primaryEl.textContent = fixedWord.chinese || '';
+        else if (lt === 'phrase_en') primaryEl.textContent = fixedWord.phrase || (fixedWord.standardized || fixedWord.word || '');
+        else if (lt === 'phrase_zh') primaryEl.textContent = fixedWord.phraseTranslation || fixedWord.chinese || '';
+    }
+
+    // 分类/难度
     document.getElementById('wordCategory').textContent = `${fixedWord.category || '未分类'} - ${fixedWord.difficulty || '未知难度'}`;
     
-    // 显示音标
+    // 音标仅在英文单词模式下显示
     const phoneticElement = document.getElementById('wordPhonetic');
-    if (fixedWord.phonetic) {
-        phoneticElement.textContent = fixedWord.phonetic;
-        phoneticElement.style.display = 'block';
-    } else {
-        phoneticElement.style.display = 'none';
+    if (phoneticElement) {
+        if (lt === 'word' && fixedWord.phonetic) {
+            phoneticElement.textContent = fixedWord.phonetic;
+            phoneticElement.style.display = 'block';
+        } else {
+            phoneticElement.style.display = 'none';
+        }
     }
     
     // 重置显示状态
@@ -53,9 +75,16 @@ function updateWordDisplay() {
     // 更新图片
     updateWordImage(fixedWord);
     
-    // 自动播放发音（使用统一 TTS 适配器）
+    // 自动播放发音：英文模式播放英文；中文模式播放中文
     if (getSettings().autoPlay) {
-        try { playAudio(); } catch (e) {}
+        try {
+            if (lt === 'word' || lt === 'phrase_en') {
+                playAudio();
+            } else if (lt === 'word_zh' || lt === 'phrase_zh') {
+                const zhText = (lt === 'word_zh') ? (fixedWord.chinese || '') : (fixedWord.phraseTranslation || fixedWord.chinese || '');
+                if (zhText) { try { playChinese(zhText); } catch(e){} }
+            }
+        } catch (e) {}
     }
     
     // 更新进度条
@@ -121,52 +150,112 @@ function updateNavigationButtons() {
 
 // 生成学习选项
 function generateLearnChoices(correctWord) {
-    const choices = [correctWord.chinese];
-    
-    // 获取相似词汇作为错误选项
-    const similarWords = getSimilarWords(correctWord, 3);
-    similarWords.forEach(word => {
-        if (!choices.includes(word.chinese)) {
-            choices.push(word.chinese);
+    // 根据学习类型生成不同方向的选项与正确答案
+    const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
+    const choices = [];
+    let correctAnswer = '';
+
+    const pickRandom = (arr, n) => {
+        const pool = arr.slice();
+        const res = [];
+        while (pool.length && res.length < n) {
+            const i = Math.floor(Math.random() * pool.length);
+            res.push(pool.splice(i,1)[0]);
         }
-    });
-    
-    // 如果选项不够，从其他词汇中随机选择
-    while (choices.length < 4 && currentVocabulary.length > choices.length) {
-        const otherWords = currentVocabulary.filter(w => 
-            w.chinese !== correctWord.chinese && !choices.includes(w.chinese)
-        );
-        
-        if (otherWords.length > 0) {
-            const randomWord = otherWords[Math.floor(Math.random() * otherWords.length)];
-            choices.push(randomWord.chinese);
-        } else {
-            break;
-        }
+        return res;
+    };
+
+    if (lt === 'word') {
+        // 看英文选中文
+        correctAnswer = correctWord.chinese;
+        choices.push(correctAnswer);
+        const similar = getSimilarWords(correctWord, 6).map(w => w.chinese).filter(Boolean);
+        pickRandom([...new Set(similar)], 6).forEach(c => { if (!choices.includes(c)) choices.push(c); });
+    } else if (lt === 'word_zh') {
+        // 看中文选英文
+        correctAnswer = correctWord.standardized || correctWord.word;
+        choices.push(correctAnswer);
+        const similar = getSimilarWords(correctWord, 6).map(w => (w.standardized || w.word)).filter(Boolean);
+        pickRandom([...new Set(similar)], 6).forEach(c => { if (!choices.includes(c)) choices.push(c); });
+    } else if (lt === 'phrase_en') {
+        // 看英文短语选中文
+        correctAnswer = correctWord.phraseTranslation || correctWord.chinese || '';
+        choices.push(correctAnswer);
+        const pool = currentVocabulary.filter(w => (w.phraseTranslation || w.chinese)).map(w => (w.phraseTranslation || w.chinese)).filter(Boolean);
+        pickRandom(pool.filter(t => t !== correctAnswer), 6).forEach(c => { if (!choices.includes(c)) choices.push(c); });
+    } else if (lt === 'phrase_zh') {
+        // 看中文短语选英文短语
+        correctAnswer = correctWord.phrase || correctWord.standardized || correctWord.word || '';
+        choices.push(correctAnswer);
+        const pool = currentVocabulary.filter(w => (w.phrase || w.standardized || w.word)).map(w => (w.phrase || w.standardized || w.word)).filter(Boolean);
+        pickRandom(pool.filter(t => t !== correctAnswer), 6).forEach(c => { if (!choices.includes(c)) choices.push(c); });
     }
-    
-    // 随机排序选项
-    const shuffledChoices = shuffleArray(choices);
-    
-    // 生成选项HTML
+
+    // 补足到4项
+    while (choices.length < 4 && currentVocabulary.length > 0) {
+        const any = (lt === 'word' || lt === 'phrase_en')
+            ? (currentVocabulary[Math.floor(Math.random()*currentVocabulary.length)].chinese)
+            : ((currentVocabulary[Math.floor(Math.random()*currentVocabulary.length)].standardized || currentVocabulary[Math.floor(Math.random()*currentVocabulary.length)].word));
+        if (any && !choices.includes(any)) choices.push(any);
+        if (choices.length > 10) break;
+    }
+
+    const shuffledChoices = shuffleArray(choices.slice(0, 4));
+
     const choicesContainer = document.getElementById('learnChoices');
     if (!choicesContainer) return;
-    
     choicesContainer.innerHTML = '';
-    
-    // 逐个创建选项，并为每个选项添加“悬停朗读中文”
+
+    const settings = getSettings();
+    const hoverDelay = (settings && typeof settings.hoverDelayMs === 'number') ? settings.hoverDelayMs : ((CONFIG.ANIMATION && CONFIG.ANIMATION.HOVER_TTS_DELAY) ? CONFIG.ANIMATION.HOVER_TTS_DELAY : 150);
+    const optionIsEnglish = (lt === 'word_zh' || lt === 'phrase_zh');
+
     shuffledChoices.forEach(choice => {
         const choiceElement = document.createElement('div');
         choiceElement.className = 'learn-choice';
         choiceElement.textContent = choice;
-        choiceElement.onclick = () => selectLearnChoice(choiceElement, choice, correctWord.chinese);
-        
-        // 悬停时朗读该选项对应的中文（轻微防抖，避免频繁触发）
+
+        // 悬停发音（根据选项语言）
         const speakOnHover = debounce(() => {
-            try { playChinese(choice); } catch (e) { /* ignore */ }
-        }, 300);
+            try {
+                if (optionIsEnglish) {
+                    if (window.TTS) TTS.speak(choice, { lang: 'en-US', rate: Math.max(0.6, settings.speechRate * 0.8), pitch: settings.speechPitch, volume: settings.speechVolume });
+                } else {
+                    if (window.TTS) TTS.speak(choice, { lang: 'zh-CN', rate: Math.max(0.6, settings.speechRate * 0.9), pitch: settings.speechPitch, volume: settings.speechVolume });
+                }
+            } catch(e){}
+        }, hoverDelay);
         choiceElement.addEventListener('mouseenter', speakOnHover);
-        
+
+        // 支持长按发音
+        let pressTimer = null; let longPressed = false;
+        const clearPress = () => { if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; } };
+        const startPress = () => {
+            longPressed = false;
+            const threshold = Math.max(200, Math.min(1000, (getSettings().longPressMs || 320)));
+            pressTimer = setTimeout(() => {
+                longPressed = true;
+                try {
+                    if (optionIsEnglish) { if (window.TTS) TTS.speak(choice, { lang: 'en-US', rate: Math.max(0.6, settings.speechRate * 0.8), pitch: settings.speechPitch, volume: settings.speechVolume }); }
+                    else { if (window.TTS) TTS.speak(choice, { lang: 'zh-CN', rate: Math.max(0.6, settings.speechRate * 0.9), pitch: settings.speechPitch, volume: settings.speechVolume }); }
+                } catch(e){}
+            }, threshold);
+        };
+        const endPress = () => {
+            if (pressTimer) {
+                clearTimeout(pressTimer);
+                if (!longPressed) {
+                    // 短按即选择
+                    selectLearnChoice(choiceElement, choice, correctAnswer);
+                }
+            }
+        };
+        choiceElement.addEventListener('pointerdown', startPress);
+        choiceElement.addEventListener('pointerup', endPress);
+        choiceElement.addEventListener('pointerleave', () => { clearPress(); });
+        choiceElement.addEventListener('pointercancel', () => { clearPress(); });
+
+        choiceElement.onclick = () => selectLearnChoice(choiceElement, choice, correctAnswer);
         choicesContainer.appendChild(choiceElement);
     });
 }
@@ -373,15 +462,37 @@ function initializeGame() {
 
 // 模式切换
 function setLearnType(type) {
-  if (!['word','phrase_en','phrase_zh'].includes(type)) return;
+  // 支持四种类型，短语不拼写
+  if (!['word','word_zh','phrase_en','phrase_zh'].includes(type)) return;
   try { localStorage.setItem(CONFIG.STORAGE_KEYS.LEARN_TYPE, type); } catch(e) {}
   if (typeof learnType !== 'undefined') { learnType = type; } else { window.learnType = type; }
   // 激活按钮样式
   const btns = document.querySelectorAll('.learn-type-btn');
   btns.forEach(b => b.classList.remove('active'));
-  const map = {word: '.learn-type-btn.word', phrase_en: '.learn-type-btn.phrase_en', phrase_zh: '.learn-type-btn.phrase_zh'};
+  const map = {word: '.learn-type-btn.word', word_zh: '.learn-type-btn.word_zh', phrase_en: '.learn-type-btn.phrase_en', phrase_zh: '.learn-type-btn.phrase_zh'};
   const activeBtn = document.querySelector(map[type]);
   if (activeBtn) activeBtn.classList.add('active');
+
+  // 短语不需要拼写：禁用“拼写模式”按钮并在需要时切回学习模式
+  try {
+    const quizBtn = document.querySelector('.mode-btn.quiz');
+    if (quizBtn) {
+      const isPhrase = (type === 'phrase_en' || type === 'phrase_zh');
+      if (isPhrase) {
+        quizBtn.setAttribute('disabled', 'disabled');
+        quizBtn.title = '短语不需要拼写';
+        quizBtn.style.opacity = '0.6';
+        if (typeof currentMode !== 'undefined' && currentMode === 'quiz') {
+          switchMode('learn');
+        }
+      } else {
+        quizBtn.removeAttribute('disabled');
+        quizBtn.title = '';
+        quizBtn.style.opacity = '';
+      }
+    }
+  } catch(e) { /* ignore */ }
+
   // 根据类型重载进度与界面
   if (currentVocabulary && currentVocabulary.length) {
     // 重新生成学习选项与索引

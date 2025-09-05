@@ -1,4 +1,4 @@
-/* »ù´¡ÑùÊ½ÖØÖÃ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ */
 * {
     margin: 0;
     padding: 0;
@@ -19,10 +19,10 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 10px;
-    padding-top: 60px; /* Îª½±ÀøÏµÍ³Áô³ö¿Õ¼ä */
+    padding-top: 60px; /* Îªï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ */
 }
 
-/* Í·²¿ÑùÊ½ */
+/* Í·ï¿½ï¿½ï¿½ï¿½Ê½ */
 .header {
     text-align: center;
     margin-bottom: 15px;
@@ -40,7 +40,7 @@ body {
     margin-bottom: 0;
 }
 
-/* ÓÎÏ·Ä£Ê½°´Å¥ */
+/* ï¿½ï¿½Ï·Ä£Ê½ï¿½ï¿½Å¥ */
 .game-modes {
     display: flex;
     justify-content: center;
@@ -50,8 +50,8 @@ body {
 }
 
 .mode-btn {
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 8px 16px;
+    font-size: 0.95em;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -83,7 +83,7 @@ body {
     box-shadow: 0 0 20px rgba(255,255,255,0.3);
 }
 
-/* ÓÎÏ·ÇøÓò */
+/* ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ */
 .game-area {
     background: white;
     border-radius: 12px;
@@ -92,7 +92,7 @@ body {
     min-height: 400px;
 }
 
-/* ´Ê¿âÑ¡ÔñÆ÷ */
+/* ï¿½Ê¿ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ */
 .vocab-selector {
     margin-bottom: 20px;
     text-align: center;
@@ -149,7 +149,7 @@ body {
     font-size: 1em;
 }
 
-/* µ¥´Ê¿¨Æ¬ */
+/* ï¿½ï¿½ï¿½Ê¿ï¿½Æ¬ */
 .word-card {
     text-align: center;
     padding: 25px;
@@ -166,8 +166,8 @@ body {
     height: 150px;
     object-fit: contain;
     border-radius: 8px;
-    margin: 0 auto 15px auto; /* ¾ÓÖÐÏÔÊ¾Í¼Æ¬ */
-    display: block; /* Ê¹ auto margin ÉúÐ§ */
+    margin: 0 auto 15px auto; /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Í¼Æ¬ */
+    display: block; /* Ê¹ auto margin ï¿½ï¿½Ð§ */
     background: #f0f0f0;
     border: 2px solid #ddd;
 }
@@ -229,7 +229,7 @@ body {
     font-style: italic;
 }
 
-/* Ñ§Ï°Ñ¡Ïî */
+/* Ñ§Ï°Ñ¡ï¿½ï¿½ */
 .learn-options {
     margin: 15px 0;
 }
@@ -308,7 +308,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* ¿ØÖÆ°´Å¥ */
+/* ï¿½ï¿½ï¿½Æ°ï¿½Å¥ */
 .control-buttons {
     display: flex;
     justify-content: center;
@@ -350,7 +350,7 @@ body {
     transform: none;
 }
 
-/* ²âÊÔÄ£Ê½ */
+/* ï¿½ï¿½ï¿½ï¿½Ä£Ê½ */
 .quiz-area {
     display: none;
 }
@@ -367,7 +367,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ÐÂÔö£ºÍ³Ò»µÄ²âÊÔ¿¨Æ¬ÈÝÆ÷£¬Ìâ¸ÉÓëÑ¡Ïî·ÅÔÚÍ¬Ò»±³¾°¿òÖÐ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³Ò»ï¿½Ä²ï¿½ï¿½Ô¿ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .quiz-card {
     text-align: center;
     padding: 25px;
@@ -382,13 +382,13 @@ body {
 .quiz-question {
     text-align: center;
     margin-bottom: 30px;
-    /* Ô­Ìâ¸É±³¾°¸ÄÎªÍ¸Ã÷£¬ÓÉ .quiz-card Í³Ò»Ìá¹©±³¾° */
+    /* Ô­ï¿½ï¿½É±ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÍ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ .quiz-card Í³Ò»ï¿½á¹©ï¿½ï¿½ï¿½ï¿½ */
     background: none;
     border-radius: 12px;
     padding: 20px;
 }
 
-/* ÐÂÔö£ºÌâÄ¿ÎÄ±¾²ÉÓÃÓëÑ§Ï°Ä£Ê½ÏàËÆµÄ°×É«ÆøÅÝ±³¾° */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°Ä£Ê½ï¿½ï¿½ï¿½ÆµÄ°ï¿½É«ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ */
 #quizMode .quiz-question h3 {
     font-size: 1.2em;
     color: #2c3e50;
@@ -403,7 +403,7 @@ body {
     font-weight: bold;
     color: #2c3e50;
     margin-bottom: 10px;
-    /* ÒÆ³ý²âÊÔÄ£Ê½µÄÎÄ×ÖÒõÓ°ÒÔ¶ÔÆëÑ§Ï°Ä£Ê½ */
+    /* ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½Ô¶ï¿½ï¿½ï¿½Ñ§Ï°Ä£Ê½ */
     background: rgba(255, 255, 255, 0.8);
     padding: 15px 20px;
     border-radius: 10px;
@@ -475,7 +475,7 @@ body {
     border-radius: 10px;
 }
 
-/* ½ø¶ÈÌõ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .progress-bar {
     width: 100%;
     height: 15px;
@@ -491,7 +491,7 @@ body {
     transition: width 0.3s ease;
 }
 
-/* Í³¼ÆÐÅÏ¢ */
+/* Í³ï¿½ï¿½ï¿½ï¿½Ï¢ */
 .stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -519,7 +519,7 @@ body {
     margin-top: 3px;
 }
 
-/* ÉèÖÃÒ³Ãæ */
+/* ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ */
 .settings-area {
     display: none;
 }
@@ -573,7 +573,7 @@ body {
     transform: translateX(0);
 }
 
-/***** Ñ§Ï°ÀàÐÍÇÐ»»°´Å¥ÑùÊ½ *****/
+/***** Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½Å¥ï¿½ï¿½Ê½ *****/
 .learn-type-switch {
     display: flex;
     gap: 8px;
@@ -581,12 +581,13 @@ body {
 }
 
 .learn-type-btn {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
     background: #fff;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 .learn-type-btn:hover {
@@ -599,7 +600,7 @@ body {
     border-color: #4CAF50;
 }
 
-/* ÏìÓ¦Ê½Éè¼Æ */
+/* ï¿½ï¿½Ó¦Ê½ï¿½ï¿½ï¿½ */
 @media (max-width: 768px) {
     .container {
         padding: 10px;
@@ -629,4 +630,18 @@ body {
     .quiz-options {
         grid-template-columns: 1fr;
     }
+}
+.spelling-area { margin-top: 10px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.spelling-answer { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; padding: 10px; background: rgba(255,255,255,0.85); border-radius: 10px; }
+.spelling-slot { width: 34px; height: 44px; display: flex; align-items: center; justify-content: center; border: 2px dashed #bbb; border-radius: 8px; font-size: 1.2em; font-weight: 700; color: #2c3e50; background: #fff; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); }
+.spelling-slot.fixed { border-style: solid; background: #eef7ff; color: #1a237e; }
+.spelling-slot.filled { border-color: #4CAF50; }
+.letter-bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.letter-tile { min-width: 36px; height: 42px; padding: 0 8px; border-radius: 8px; background: linear-gradient(180deg, #fafafa, #eeeeee); border: 2px solid #ddd; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: 800; color: #37474F; box-shadow: 0 2px 4px rgba(0,0,0,0.1); user-select: none; }
+.letter-tile:hover { transform: translateY(-2px); background: #ffffff; }
+.letter-tile.used { opacity: 0.4; pointer-events: none; }
+.spelling-tools { display: flex; gap: 10px; justify-content: center; }
+@media (max-width: 768px){
+  .spelling-slot{ width: 30px; height: 40px; font-size: 1.1em; }
+  .letter-tile{ min-width: 32px; height: 38px; }
 }

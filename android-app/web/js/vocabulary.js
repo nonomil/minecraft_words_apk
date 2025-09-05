@@ -1,5 +1,14 @@
 // 词库管理相关函数
 
+// 构造每词库+学习类型的索引键
+function getPerVocabIndexKey(vocabId, lt) {
+    try {
+        return CONFIG.STORAGE_KEYS.PROGRESS_INDEX_PREFIX + String(vocabId) + '::' + String(lt);
+    } catch(e) {
+        return 'wordGameIndex::' + String(vocabId) + '::' + String(lt);
+    }
+}
+
 // 加载预设词库
 async function loadVocabulary() {
     const selectedVocab = document.getElementById('vocabSelect').value;
@@ -19,6 +28,19 @@ async function loadVocabulary() {
         
         currentVocabulary = data;
         currentWordIndex = 0;
+        
+        // 如果存在已保存的索引，按 词库ID + 学习类型 恢复
+        try {
+            const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
+            const key = getPerVocabIndexKey(selectedVocab, lt);
+            const saved = localStorage.getItem(key);
+            if (saved != null) {
+                const idx = parseInt(saved, 10);
+                if (!Number.isNaN(idx) && idx >= 0 && idx < currentVocabulary.length) {
+                    currentWordIndex = idx;
+                }
+            }
+        } catch(e) { /* ignore */ }
         
         // 如果是幼儿园模式，初始化分组
         if (getSettings().kindergartenMode && (selectedVocab.includes('幼儿园') || selectedVocab === 'kindergarten_vocabulary')) {
@@ -59,6 +81,20 @@ function loadCustomVocabulary() {
             
             currentVocabulary = jsonData;
             currentWordIndex = 0;
+            
+            // 自定义词库无法确定 vocabId，使用文件名作为ID
+            try {
+                const vocabId = file.name || 'custom_vocabulary';
+                const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
+                const key = getPerVocabIndexKey(vocabId, lt);
+                const saved = localStorage.getItem(key);
+                if (saved != null) {
+                    const idx = parseInt(saved, 10);
+                    if (!Number.isNaN(idx) && idx >= 0 && idx < currentVocabulary.length) {
+                        currentWordIndex = idx;
+                    }
+                }
+            } catch(e) { /* ignore */ }
             
             // 检查是否启用幼儿园模式
             if (getSettings().kindergartenMode) {
@@ -117,6 +153,20 @@ function shuffleWords() {
     if (getSettings().kindergartenMode) {
         initializeKindergartenMode();
     }
+    
+    // 随机后如存在保存索引，可选择重置为0或继续使用已保存索引。这里选择恢复为保存位置。
+    try {
+        const vocabId = document.getElementById('vocabSelect').value;
+        const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
+        const key = getPerVocabIndexKey(vocabId, lt);
+        const saved = localStorage.getItem(key);
+        if (saved != null) {
+            const idx = parseInt(saved, 10);
+            if (!Number.isNaN(idx) && idx >= 0 && idx < currentVocabulary.length) {
+                currentWordIndex = idx;
+            }
+        }
+    } catch(e) { /* ignore */ }
     
     updateWordDisplay();
     showNotification('词汇已随机排序！');
@@ -198,12 +248,10 @@ function searchVocabulary(query) {
         return currentVocabulary;
     }
     
-    const lowerQuery = query.toLowerCase();
-    return currentVocabulary.filter(word => 
-        word.word.toLowerCase().includes(lowerQuery) ||
-        word.chinese.toLowerCase().includes(lowerQuery) ||
-        (word.standardized && word.standardized.toLowerCase().includes(lowerQuery))
-    );
+    return currentVocabulary.filter(word => {
+        const text = `${word.word || ''} ${word.chinese || ''} ${word.category || ''} ${word.difficulty || ''}`.toLowerCase();
+        return text.includes(query.toLowerCase());
+    });
 }
 
 // 获取相似词汇（用于生成选择题选项）

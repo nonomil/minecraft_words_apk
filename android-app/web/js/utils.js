@@ -210,3 +210,14 @@ function validateVocabularyJSON(data) {
 function generateUniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
+
+// 获取当前学习类型（全局可用）
+function getLT() {
+    try {
+        if (typeof learnType !== 'undefined' && learnType) return learnType;
+        const saved = localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE);
+        return saved || 'word';
+    } catch (e) {
+        return 'word';
+    }
+}

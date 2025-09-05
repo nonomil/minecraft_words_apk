@@ -24,12 +24,13 @@
 
         <div class="game-modes">
             <button class="mode-btn learn active" onclick="switchMode('learn')">📚 学习模式</button>
-            <button class="mode-btn quiz" onclick="switchMode('quiz')">🎯 测试模式</button>
+            <button class="mode-btn quiz" onclick="switchMode('quiz')">🔤 拼写模式</button>
             <button class="mode-btn settings" onclick="switchMode('settings')">⚙️ 设置</button>
             <button onclick="shuffleWords()" style="margin-left: 10px; padding: 8px 15px; border-radius: 5px; border: 1px solid #ddd; background: #f8f9fa; cursor: pointer;">🔀 随机排序</button>
-            <!-- 暂时隐藏学习类型切换 -->
-            <div class="learn-type-switch" style="margin-top:8px; display: none;">
+            <!-- 学习类型切换（直接打开也可用） -->
+            <div class="learn-type-switch" style="margin-top:8px;">
               <button class="learn-type-btn word" onclick="setLearnType('word')">单词</button>
+              <button class="learn-type-btn word_zh" onclick="setLearnType('word_zh')">中文单词</button>
               <button class="learn-type-btn phrase_en" onclick="setLearnType('phrase_en')">英文短语</button>
               <button class="learn-type-btn phrase_zh" onclick="setLearnType('phrase_zh')">中文短语</button>
             </div>
@@ -127,6 +128,7 @@
                     <div class="quiz-options" id="quizOptions">
                         <!-- 选项将通过JavaScript动态生成 -->
                     </div>
+                    <div class="learn-result" id="quizResult" style="display: none;"></div>
                 </div>
 
                 <div class="control-buttons">
@@ -286,7 +288,7 @@
     <script src="js/rewards.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/game.js"></script>
-    <script src="js/quiz.js"></script>
+    <script src="js/spelling.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/main.js"></script>
 

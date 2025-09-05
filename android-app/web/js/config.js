@@ -11,7 +11,14 @@ const CONFIG = {
         autoPlay: true,
         showImages: true,
         kindergartenMode: true,
-        quizCount: '10'
+        quizCount: '10',
+        // 新增：点击策略与时长
+        // pressMode: 'shortSelect' | 'shortSpeak'
+        pressMode: 'shortSelect',
+        // 长按阈值（毫秒）
+        longPressMs: 320,
+        // 悬停发音延时（毫秒）
+        hoverDelayMs: 150
     },
     
     // 幼儿园模式设置
@@ -27,7 +34,8 @@ const CONFIG = {
         STAR_DURATION: 2000,
         ACHIEVEMENT_DURATION: 3000,
         PHRASE_DELAY: 1500,
-        ANSWER_DELAY: 2000
+        ANSWER_DELAY: 2000,
+        HOVER_TTS_DELAY: 150
     },
     
     // 本地存储键名
@@ -38,7 +46,9 @@ const CONFIG = {
         // 短语模式：独立的进度与奖励存储键
         PROGRESS_PHRASE: 'wordGameProgress_phrase',
         KINDERGARTEN_PROGRESS_PHRASE: 'kindergartenProgress_phrase',
-        LEARN_TYPE: 'learnType'
+        LEARN_TYPE: 'learnType',
+        // 新增：每个词库 + 学习类型的当前位置索引
+        PROGRESS_INDEX_PREFIX: 'wordGameIndex::'
     },
     
     // 可用词库
@@ -63,7 +73,7 @@ const CONFIG = {
 let currentVocabulary = [];
 let currentWordIndex = 0;
 let currentMode = 'learn';
-// 学习类型：'word' | 'phrase_en' | 'phrase_zh'
+// 学习类型：'word' | 'word_zh' | 'phrase_en' | 'phrase_zh'
 let learnType = (function(){
     try { return localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'; } catch(e) { return 'word'; }
 })();

@@ -342,11 +342,12 @@ function initializeSettingsEventListeners() {
 
 // 获取学习统计（基于当前学习类型）
 function getLearningStats() {
-    const lt = (function(){
-        try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
-    })();
-    const progressKey = lt === 'word' ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
-    const kgKey = lt === 'word' ? CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS : CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE;
+  const lt = (function(){
+    try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
+  })();
+  const isWord = (lt === 'word' || lt === 'word_zh');
+  const progressKey = isWord ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
+  const kgKey = isWord ? CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS : CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE;
     
     const progress = localStorage.getItem(progressKey);
     const kindergartenProgress = localStorage.getItem(kgKey);

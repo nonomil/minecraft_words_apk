@@ -63,15 +63,16 @@ const CONFIG = {
 let currentVocabulary = [];
 let currentWordIndex = 0;
 let currentMode = 'learn';
-// 学习类型：'word' | 'phrase_en' | 'phrase_zh'
+// 学习类型：'word' | 'word_zh' | 'phrase_en' | 'phrase_zh'
 let learnType = (function(){
     try { return localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'; } catch(e) { return 'word'; }
 })();
-let quizWords = [];
-let currentQuizIndex = 0;
-let quizScore = 0;
-let quizAnswered = false;
-studyStartTime = Date.now();
+// 测试相关状态由拼写模块维护并依赖同名全局变量在首次使用时创建
+if (typeof quizWords === 'undefined') window.quizWords = [];
+if (typeof currentQuizIndex === 'undefined') window.currentQuizIndex = 0;
+if (typeof quizScore === 'undefined') window.quizScore = 0;
+if (typeof quizAnswered === 'undefined') window.quizAnswered = false;
+window.studyStartTime = Date.now();
 
 // 幼儿园模式相关变量
 let currentGroup = 1;

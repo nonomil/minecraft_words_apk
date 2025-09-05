@@ -4,7 +4,7 @@
   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
   var isAndroid = /Android/.test(navigator.userAgent);
 
-  // Ê¹ÓÃ CONFIG.DEFAULT_SETTINGS£¨Èç¹û´æÔÚ£©£¬·ñÔòÍË»Øµ½ DEFAULT_SETTINGS »òÄ¬ÈÏÖµ
+  // Ê¹ï¿½ï¿½ CONFIG.DEFAULT_SETTINGSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë»Øµï¿½ DEFAULT_SETTINGS ï¿½ï¿½Ä¬ï¿½ï¿½Öµ
   var settings = ((global.CONFIG && global.CONFIG.DEFAULT_SETTINGS) || global.DEFAULT_SETTINGS || {
     speechRate: 1,
     speechPitch: 1,
@@ -43,17 +43,17 @@
   function pickVoice(lang){
     lang = (lang || '').toLowerCase();
     if (!state.voices || !state.voices.length) return null;
-    // ÓÅÏÈÆ¥ÅäÍêÕû lang£¬Æä´ÎÇ°×º
+    // ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ langï¿½ï¿½ï¿½ï¿½ï¿½Ç°×º
     var exact = state.voices.find(function(v){ return (v.lang||'').toLowerCase() === lang; });
     if (exact) return exact;
     var prefix = state.voices.find(function(v){ return (v.lang||'').toLowerCase().startsWith(lang.split('-')[0]); });
     if (prefix) return prefix;
-    // ÖĞÎÄÓÅÏÈÑ¡Ôñ zh-CN/zh-Hans
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ zh-CN/zh-Hans
     if (lang.startsWith('zh')) {
-      var zhVoice = state.voices.find(function(v){ return /zh|cmn|chi/i.test(v.lang) || /Chinese|Zh|ÖĞ/i.test(v.name); });
+      var zhVoice = state.voices.find(function(v){ return /zh|cmn|chi/i.test(v.lang) || /Chinese|Zh|ï¿½ï¿½/i.test(v.name); });
       if (zhVoice) return zhVoice;
     }
-    // Ó¢ÓïÓÅÏÈ en-US/en-GB
+    // Ó¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ en-US/en-GB
     if (lang.startsWith('en')) {
       var enVoice = state.voices.find(function(v){ return /en/i.test(v.lang); });
       if (enVoice) return enVoice;
@@ -63,9 +63,9 @@
 
   function guessLangByText(text){
     if (!text) return 'en-US';
-    // ¼òµ¥ÅĞ¶Ï£ºº¬ÖĞÎÄ×Ö·û
+    // ï¿½ï¿½ï¿½Ğ¶Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
     if (/\u4e00-\u9fa5/.test(text)) return 'zh-CN';
-    // º¬ÓĞÆ´Òô×Ö·û»ò×ÖÄ¸
+    // ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸
     return 'en-US';
   }
 
@@ -76,7 +76,7 @@
   }
 
   async function enable(){
-    // Í¨¹ıÒ»´Î¿ÕµÄ speak À´¼¤»îÒÆ¶¯¶ËÒôÆµ²ßÂÔ£¨²»ÉÙä¯ÀÀÆ÷ĞèÒªÊÖÊÆ´¥·¢£©
+    // Í¨ï¿½ï¿½Ò»ï¿½Î¿Õµï¿½ speak ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½
     state.enabled = true;
     try {
       var ok = await ensureReady();
@@ -101,14 +101,14 @@
   async function speak(text, opts){
     opts = opts || {};
     if (!state.enabled && (isAndroid || isIOS)) {
-      // ÒÆ¶¯¶ËÎ´ÆôÓÃÊ±Ö±½Ó·µ»Ø false£¬±ÜÃâ±¨´í
+      // ï¿½Æ¶ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½Ê±Ö±ï¿½Ó·ï¿½ï¿½ï¿½ falseï¿½ï¿½ï¿½ï¿½ï¿½â±¨ï¿½ï¿½
       return false;
     }
     var ok = await ensureReady();
     if (!ok) return false;
     cancel();
 
-    // Ã¿´Î·¢ÉùÊ±»ñÈ¡×îĞÂÉèÖÃ£¨ÈôÌá¹© getSettings£©
+    // Ã¿ï¿½Î·ï¿½ï¿½ï¿½Ê±ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½á¹© getSettingsï¿½ï¿½
     var currentSettings = (typeof global.getSettings === 'function') ? global.getSettings() : settings;
 
     var lang = (opts.lang) || guessLangByText(text);
@@ -134,9 +134,9 @@
     });
   }
 
-  // Ô¤Áô Capacitor Ô­Éú TTS ½Ó¿ÚÎ»ÖÃ£¨Èç¹ûºóĞø¼ÓÈë£¬¿ÉÔÚ´ËÇĞ»»ÊµÏÖ£©
+  // Ô¤ï¿½ï¿½ Capacitor Ô­ï¿½ï¿½ TTS ï¿½Ó¿ï¿½Î»ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½Ú´ï¿½ï¿½Ğ»ï¿½Êµï¿½Ö£ï¿½
   // if (global.Capacitor && global.Capacitor.isNativePlatform) {
-  //   // ¿ÉÔÚ´Ë´¦ÓÅÏÈµ÷ÓÃ @capacitor-community/text-to-speech
+  //   // ï¿½ï¿½ï¿½Ú´Ë´ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½ @capacitor-community/text-to-speech
   // }
 
   global.TTS = {
@@ -146,18 +146,14 @@
     pause: pause,
     resume: resume,
     isSpeaking: isSpeaking,
-    _loadVoices: loadVoices, // ²âÊÔ¸¨Öú
+    _loadVoices: loadVoices, // ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
     _pickVoice: pickVoice,
   };
 })(window);
 (function (global) {
   'use strict';
 
-  // ¼òµ¥·À¶¶£º±ÜÃâÔÚ¿ìËÙÁ¬Ğøµ÷ÓÃÊ±ÖØ¸´ speak
-  var lastSpeakAt = 0;
-  var SPEAK_COOLDOWN_MS = 120; // ¿É°´Ğèµ÷Õû
-
-  // ¼æÈİ¶ÁÈ¡ÉèÖÃ
+  // ç®€æ˜“è¾…åŠ©ï¼šå®‰å…¨è¯»å–è®¾ç½®
   function getSettingsSafe() {
     try {
       if (typeof getSettings === 'function') return getSettings();
@@ -167,11 +163,10 @@
       speechRate: 1,
       speechPitch: 1,
       speechVolume: 1,
-      enableTTS: true,
     };
   }
 
-  // ÅĞ¶ÏÊÇ·ñ´¦ÓÚ Capacitor Ô­Éú»·¾³ÇÒ°²×°ÁË TextToSpeech ²å¼ş
+  // åˆ¤æ–­æ˜¯å¦ä¸º Capacitor åŸç”Ÿå¹³å°ä¸”å­˜åœ¨ TextToSpeech æ’ä»¶
   function isNativeTTSAvailable() {
     try {
       var Cap = global.Capacitor;
@@ -188,7 +183,7 @@
     } catch (e) { return null; }
   }
 
-  // Web Speech Ïà¹Ø£¨×÷Îª»ØÍË£©
+  // Web Speech å¥æŸ„
   var synth = global.speechSynthesis;
 
   function cancelWebSpeech(){ try { synth && synth.cancel(); } catch(e) {} }
@@ -196,17 +191,15 @@
   function resumeWebSpeech(){ try { synth && synth.resume(); } catch(e) {} }
   function isSpeakingWebSpeech(){ return !!(synth && synth.speaking); }
 
-  // ÓïÑÔ²Â²â£º¼òµ¥»ùÓÚ×Ö·û·¶Î§
+  // ç®€å•çŒœæµ‹è¯­è¨€ï¼šå«ä¸­æ—¥éŸ©ç»Ÿä¸€è®¤ä¸º zh-CN
   function guessLang(text) {
     if (!text) return 'en-US';
     var hasCJK = /[\u4e00-\u9fa5]/.test(text);
     return hasCJK ? 'zh-CN' : 'en-US';
   }
 
-  // Ö÷Ìå API
   var TTS = {
     enable: function () {
-      // ¶ÔÓÚ WebSpeech£ºÍ¨¹ıÒ»´Î¿Õ·¢Éù¡°½âËø¡±ÒôÆµÉÏÏÂÎÄ£»¶ÔÓÚÔ­ÉúÎŞĞèÌØÊâ´¦Àí
       try {
         if (isNativeTTSAvailable()) {
           return Promise.resolve(true);
@@ -221,54 +214,49 @@
     },
 
     speak: function (text, opts) {
-      var now = Date.now();
-      if (now - lastSpeakAt < SPEAK_COOLDOWN_MS) {
-        // ÀäÈ´ÆÚÄÚ¶ªÆú£¬±ÜÃâ¶¶¶¯
-        return Promise.resolve(false);
-      }
-      lastSpeakAt = now;
-
       var settings = getSettingsSafe();
-      if (settings && settings.enableTTS === false) return Promise.resolve(false);
-
       var lang = (opts && opts.lang) || guessLang(text);
-      var rate = (opts && opts.rate) || settings.speechRate || 1;
-      var pitch = (opts && opts.pitch) || settings.speechPitch || 1;
-      var volume = (opts && opts.volume) || settings.speechVolume || 1;
+      var rate = (opts && opts.rate);
+      if (typeof rate !== 'number') rate = settings.speechRate || 1;
+      var pitch = (opts && opts.pitch);
+      if (typeof pitch !== 'number') pitch = settings.speechPitch || 1;
+      var volume = (opts && opts.volume);
+      if (typeof volume !== 'number') volume = settings.speechVolume || 1;
 
-      // ÓÅÏÈÊ¹ÓÃÔ­Éú TTS
+      // åŸç”Ÿä¼˜å…ˆ
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.speak === 'function') {
-          // @capacitor-community/text-to-speech ½Ó¿Ú£ºspeak({ text, lang, rate, pitch, volume, category? })
           return nativeTTS.speak({ text: String(text || ''), lang: lang, rate: rate, pitch: pitch, volume: volume })
             .then(function(){ return true; })
-            .catch(function(err){ console.warn('[TTS] native speak failed, fallback to web', err); return TTS._speakWeb(text, { lang, rate, pitch, volume }); });
+            .catch(function(err){ console.warn('[TTS] native speak failed, fallback to web', err); return TTS._speakWeb(text, { lang: lang, rate: rate, pitch: pitch, volume: volume }); });
         }
       }
 
-      // »ØÍËÖÁ Web Speech
+      // Web Speech å›é€€
       return TTS._speakWeb(text, { lang: lang, rate: rate, pitch: pitch, volume: volume });
     },
 
     _speakWeb: function (text, opts) {
-      try {
-        cancelWebSpeech(); // ÏÈÍ£Ö¹Ö®Ç°µÄ·¢Òô£¬¼õÉÙµşÒô
-        var utter = new SpeechSynthesisUtterance(String(text || ''));
-        utter.lang = opts.lang || guessLang(text);
-        utter.rate = Math.max(0.1, Math.min(10, Number(opts.rate) || 1));
-        utter.pitch = Math.max(0, Math.min(2, Number(opts.pitch) || 1));
-        utter.volume = Math.max(0, Math.min(1, Number(opts.volume) || 1));
-        synth && synth.speak(utter);
-        return Promise.resolve(true);
-      } catch (e) {
-        console.warn('[TTS] web speak failed', e);
-        return Promise.resolve(false);
-      }
+      return new Promise(function(resolve){
+        try {
+          cancelWebSpeech();
+          var utter = new SpeechSynthesisUtterance(String(text || ''));
+          utter.lang = opts.lang || guessLang(text);
+          utter.rate = Math.max(0.1, Math.min(10, Number(opts.rate) || 1));
+          utter.pitch = Math.max(0, Math.min(2, Number(opts.pitch) || 1));
+          utter.volume = Math.max(0, Math.min(1, Number(opts.volume) || 1));
+          utter.onend = function(){ resolve(true); };
+          utter.onerror = function(){ resolve(false); };
+          synth && synth.speak(utter);
+        } catch (e) {
+          console.warn('[TTS] web speak failed', e);
+          resolve(false);
+        }
+      });
     },
 
     cancel: function () {
-      // Ô­ÉúÓÅÏÈ
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.stop === 'function') {
@@ -280,7 +268,6 @@
     },
 
     pause: function () {
-      // Ô­Éú²å¼şÎŞ pause ½Ó¿Ú£¬¾¡Á¿ stop£»·ñÔòÊ¹ÓÃ WebSpeech ÔİÍ£
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.stop === 'function') {
@@ -292,7 +279,6 @@
     },
 
     resume: function () {
-      // Ô­Éú²å¼şÃ»ÓĞ resume£»WebSpeech Ôò³¢ÊÔ»Ö¸´
       if (!isNativeTTSAvailable()) {
         resumeWebSpeech();
       }
@@ -301,8 +287,7 @@
 
     isSpeaking: function () {
       if (isNativeTTSAvailable()) {
-        // ÉçÇø TTS ²å¼şÃ»ÓĞÌá¹© speaking ×´Ì¬£¬±£ÊØ·µ»Ø false£¬±ÜÃâÎóÅĞ
-        return false;
+        return false; // è‹¥æ’ä»¶æ— çŠ¶æ€æ¥å£ï¼Œè¿”å› false
       }
       return isSpeakingWebSpeech();
     }
