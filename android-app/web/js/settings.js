@@ -9,11 +9,7 @@ function getSettings() {
         autoPlay: document.getElementById('autoPlay')?.checked ?? CONFIG.DEFAULT_SETTINGS.autoPlay,
         showImages: document.getElementById('showImages')?.checked ?? CONFIG.DEFAULT_SETTINGS.showImages,
         kindergartenMode: document.getElementById('kindergartenMode')?.checked ?? CONFIG.DEFAULT_SETTINGS.kindergartenMode,
-        quizCount: document.getElementById('quizCount')?.value || CONFIG.DEFAULT_SETTINGS.quizCount,
-        // 新增设置项
-        pressMode: document.getElementById('pressMode')?.value || CONFIG.DEFAULT_SETTINGS.pressMode,
-        longPressMs: parseInt(document.getElementById('longPressMs')?.value || CONFIG.DEFAULT_SETTINGS.longPressMs, 10),
-        hoverDelayMs: parseInt(document.getElementById('hoverDelayMs')?.value || CONFIG.DEFAULT_SETTINGS.hoverDelayMs, 10)
+        quizCount: document.getElementById('quizCount')?.value || CONFIG.DEFAULT_SETTINGS.quizCount
     };
     
     return settings;
@@ -47,11 +43,7 @@ function applySettingsToUI(settings) {
         autoPlay: document.getElementById('autoPlay'),
         showImages: document.getElementById('showImages'),
         kindergartenMode: document.getElementById('kindergartenMode'),
-        quizCount: document.getElementById('quizCount'),
-        // 新增设置项
-        pressMode: document.getElementById('pressMode'),
-        longPressMs: document.getElementById('longPressMs'),
-        hoverDelayMs: document.getElementById('hoverDelayMs')
+        quizCount: document.getElementById('quizCount')
     };
     
     Object.keys(elements).forEach(key => {
@@ -103,24 +95,6 @@ function updateSettingsDisplay() {
     if (volumeValue && speechVolume) {
         volumeValue.textContent = parseFloat(speechVolume.value).toFixed(1);
     }
-
-    // 刷新 TTS 引擎标签
-    try {
-        const label = document.getElementById('ttsEngineLabel');
-        if (label && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) {
-            const plugin = window.Capacitor.Plugins && (window.Capacitor.Plugins.SystemTTS || window.Capacitor.Plugins['SystemTTS']);
-            if (plugin && typeof plugin.getCurrentEngine === 'function') {
-                plugin.getCurrentEngine().then(res => {
-                    const name = res && (res.label || res.engine) || '未知';
-                    label.textContent = name;
-                }).catch(() => { label.textContent = '未检测'; });
-            } else {
-                label.textContent = '需要原生环境';
-            }
-        } else if (label) {
-            label.textContent = 'Web 环境';
-        }
-    } catch (e) {}
 }
 
 // 应用幼儿园模式
@@ -204,33 +178,52 @@ function importSettings() {
 }
 
 // 进度相关函数
-// 读取进度
 function loadProgress() {
-    try {
-        const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
-        const currentVocab = document.getElementById('vocabSelect').value;
-        const perKey = (typeof getPerVocabIndexKey === 'function')
-            ? getPerVocabIndexKey(currentVocab, lt)
-            : ((CONFIG.STORAGE_KEYS.PROGRESS_INDEX_PREFIX || 'wordGameIndex::') + String(currentVocab) + '::' + String(lt));
-        const savedIdx = localStorage.getItem(perKey);
-        if (savedIdx != null) {
-            const idx = parseInt(savedIdx, 10);
-            if (!Number.isNaN(idx)) currentWordIndex = idx;
-        } else {
-            currentWordIndex = 0;
+    const key = (function(){
+        try {
+            const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
+            return lt === 'word' ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
+        } catch(e) { return CONFIG.STORAGE_KEYS.PROGRESS; }
+    })();
+    const saved = localStorage.getItem(key);
+    if (saved) {
+        try {
+            const progress = JSON.parse(saved);
+            updateProgressDisplay(progress);
+        } catch (error) {
+            console.warn('加载进度失败:', error);
         }
-    } catch (error) {
-        console.warn('加载进度失败：', error);
+    } else {
+        updateProgressDisplay({});
     }
 }
 
-// 保存进度（统计+索引）
+// 更新进度显示
+function updateProgressDisplay(progress) {
+    const totalStudyTime = document.getElementById('totalStudyTime');
+    const studyDays = document.getElementById('studyDays');
+    const masteredWords = document.getElementById('masteredWords');
+    
+    if (totalStudyTime) {
+        const timeInMinutes = Math.round((progress.totalTime || 0) / 60000);
+        totalStudyTime.textContent = formatTime(progress.totalTime || 0);
+    }
+    
+    if (studyDays) {
+        studyDays.textContent = (progress.studyDays || 0) + ' 天';
+    }
+    
+    if (masteredWords) {
+        masteredWords.textContent = (progress.masteredWords || 0) + ' 个';
+    }
+}
+
+// 保存进度
 function saveProgress() {
     const key = (function(){
         try {
             const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
-            const isWord = (lt === 'word' || lt === 'word_zh');
-            return isWord ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
+            return lt === 'word' ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
         } catch(e) { return CONFIG.STORAGE_KEYS.PROGRESS; }
     })();
     const saved = localStorage.getItem(key);
@@ -250,19 +243,9 @@ function saveProgress() {
     studyStartTime = Date.now();
     
     updateProgressDisplay(progress);
-
-    // 同步保存每词库+学习类型索引
-    try {
-        const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
-        const currentVocab = document.getElementById('vocabSelect').value;
-        const perKey = (typeof getPerVocabIndexKey === 'function')
-            ? getPerVocabIndexKey(currentVocab, lt)
-            : ((CONFIG.STORAGE_KEYS.PROGRESS_INDEX_PREFIX || 'wordGameIndex::') + String(currentVocab) + '::' + String(lt));
-        localStorage.setItem(perKey, String(currentWordIndex));
-    } catch (e) { /* ignore */ }
 }
 
-// 清除进度（统计+索引+幼儿园）
+// 清除进度
 function clearProgress() {
     if (confirm('确定要清除所有学习记录吗？此操作不可恢复。')) {
         // 同时清理单词与短语两套键
@@ -270,49 +253,23 @@ function clearProgress() {
         localStorage.removeItem(CONFIG.STORAGE_KEYS.PROGRESS_PHRASE);
         localStorage.removeItem(CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS);
         localStorage.removeItem(CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE);
-
-        // 清理每词库+类型索引
-        try {
-            const prefix = CONFIG.STORAGE_KEYS.PROGRESS_INDEX_PREFIX || 'wordGameIndex::';
-            const keysToRemove = [];
-            for (let i = 0; i < localStorage.length; i++) {
-                const k = localStorage.key(i);
-                if (k && k.startsWith(prefix)) keysToRemove.push(k);
-            }
-            keysToRemove.forEach(k => localStorage.removeItem(k));
-        } catch (e) { /* ignore */ }
         
         // 重置显示
-        currentWordIndex = 0;
         updateProgressDisplay({});
         resetKindergartenProgress();
-        updateWordDisplay();
-        updateStats();
         
         showNotification('学习记录已清除');
     }
 }
 
-// 导出进度数据（含每词库+类型索引）
+// 导出进度数据
 function exportProgress() {
     const progress_word = localStorage.getItem(CONFIG.STORAGE_KEYS.PROGRESS);
     const progress_phrase = localStorage.getItem(CONFIG.STORAGE_KEYS.PROGRESS_PHRASE);
     const kindergarten_word = localStorage.getItem(CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS);
     const kindergarten_phrase = localStorage.getItem(CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE);
-
-    // 导出每词库+类型索引
-    const indexPrefix = CONFIG.STORAGE_KEYS.PROGRESS_INDEX_PREFIX || 'wordGameIndex::';
-    const perIndex = {};
-    try {
-        for (let i = 0; i < localStorage.length; i++) {
-            const k = localStorage.key(i);
-            if (k && k.startsWith(indexPrefix)) {
-                perIndex[k] = localStorage.getItem(k);
-            }
-        }
-    } catch(e) { /* ignore */ }
     
-    if (!progress_word && !progress_phrase && !kindergarten_word && !kindergarten_phrase && Object.keys(perIndex).length === 0) {
+    if (!progress_word && !progress_phrase && !kindergarten_word && !kindergarten_phrase) {
         showNotification('没有学习数据可导出', 'error');
         return;
     }
@@ -322,9 +279,8 @@ function exportProgress() {
         progress_phrase: progress_phrase ? JSON.parse(progress_phrase) : null,
         kindergarten_word: kindergarten_word ? JSON.parse(kindergarten_word) : null,
         kindergarten_phrase: kindergarten_phrase ? JSON.parse(kindergarten_phrase) : null,
-        perIndex,
         exportDate: new Date().toISOString(),
-        version: '1.2'
+        version: '1.1'
     };
     
     const dataStr = JSON.stringify(exportData, null, 2);
@@ -368,32 +324,6 @@ function initializeSettingsEventListeners() {
         });
     }
     
-    // 选择/设置 TTS 引擎按钮
-    const selectBtn = document.getElementById('selectTTSEngineBtn');
-    if (selectBtn) {
-        selectBtn.addEventListener('click', function(){
-            try {
-                if (window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) {
-                    const plugin = window.Capacitor.Plugins && (window.Capacitor.Plugins.SystemTTS || window.Capacitor.Plugins['SystemTTS']);
-                    if (plugin && typeof plugin.openSettings === 'function') {
-                        plugin.openSettings().then(() => {
-                            // 打开设置后，稍后刷新当前引擎显示
-                            setTimeout(updateSettingsDisplay, 1500);
-                        }).catch(() => {
-                            showNotification('无法打开系统 TTS 设置', 'error');
-                        });
-                    } else {
-                        showNotification('原生插件未加载', 'error');
-                    }
-                } else {
-                    showNotification('请在已安装的安卓 App 内使用此功能', 'error');
-                }
-            } catch (e) {
-                showNotification('打开设置失败', 'error');
-            }
-        });
-    }
-
     // 游戏设置复选框
     const checkboxes = ['autoPlay', 'showImages', 'kindergartenMode'];
     checkboxes.forEach(id => {
@@ -408,27 +338,16 @@ function initializeSettingsEventListeners() {
     if (quizCount) {
         quizCount.addEventListener('change', saveSettings);
     }
-
-    // 新增：交互策略与延时
-    const pressMode = document.getElementById('pressMode');
-    const longPressMs = document.getElementById('longPressMs');
-    const hoverDelayMs = document.getElementById('hoverDelayMs');
-    [pressMode, longPressMs, hoverDelayMs].forEach(el => {
-        if (el) el.addEventListener('change', saveSettings);
-    });
-
-    // 初始化时刷新一次引擎标签
-    updateSettingsDisplay();
 }
 
 // 获取学习统计（基于当前学习类型）
 function getLearningStats() {
-    const lt = (function(){
-        try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
-    })();
-    const isWord = (lt === 'word' || lt === 'word_zh');
-    const progressKey = isWord ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
-    const kgKey = isWord ? CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS : CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE;
+  const lt = (function(){
+    try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
+  })();
+  const isWord = (lt === 'word' || lt === 'word_zh');
+  const progressKey = isWord ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
+  const kgKey = isWord ? CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS : CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE;
     
     const progress = localStorage.getItem(progressKey);
     const kindergartenProgress = localStorage.getItem(kgKey);
@@ -472,18 +391,3 @@ function getLearningStats() {
     
     return stats;
 }
-
-// 更新学习进度显示（顶部统计栏）
-window.updateProgressDisplay = function(progress = {}) {
-    try {
-        const totalTimeEl = document.getElementById('totalStudyTime');
-        const studyDaysEl = document.getElementById('studyDays');
-        const masteredEl = document.getElementById('masteredWords');
-        const totalTime = progress.totalTime || 0;
-        const studyDays = progress.studyDays || 0;
-        const mastered = progress.masteredWords || 0;
-        if (totalTimeEl) totalTimeEl.textContent = formatTime(totalTime);
-        if (studyDaysEl) studyDaysEl.textContent = `${studyDays} 天`;
-        if (masteredEl) masteredEl.textContent = `${mastered} 个`;
-    } catch (e) { /* ignore */ }
-};

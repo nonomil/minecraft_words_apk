@@ -645,3 +645,7 @@ body {
   .spelling-slot{ width: 30px; height: 40px; font-size: 1.1em; }
   .letter-tile{ min-width: 32px; height: 38px; }
 }
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}

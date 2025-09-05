@@ -4,7 +4,7 @@
   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
   var isAndroid = /Android/.test(navigator.userAgent);
 
-  // ʹ�� CONFIG.DEFAULT_SETTINGS��������ڣ��������˻ص� DEFAULT_SETTINGS ��Ĭ��ֵ
+  // 使用 CONFIG.DEFAULT_SETTINGS（如果存在），否则退回到 DEFAULT_SETTINGS 或默认值
   var settings = ((global.CONFIG && global.CONFIG.DEFAULT_SETTINGS) || global.DEFAULT_SETTINGS || {
     speechRate: 1,
     speechPitch: 1,
@@ -43,17 +43,17 @@
   function pickVoice(lang){
     lang = (lang || '').toLowerCase();
     if (!state.voices || !state.voices.length) return null;
-    // ����ƥ������ lang�����ǰ׺
+    // 优先匹配完整 lang，其次前缀
     var exact = state.voices.find(function(v){ return (v.lang||'').toLowerCase() === lang; });
     if (exact) return exact;
     var prefix = state.voices.find(function(v){ return (v.lang||'').toLowerCase().startsWith(lang.split('-')[0]); });
     if (prefix) return prefix;
-    // ��������ѡ�� zh-CN/zh-Hans
+    // 中文优先选择 zh-CN/zh-Hans
     if (lang.startsWith('zh')) {
-      var zhVoice = state.voices.find(function(v){ return /zh|cmn|chi/i.test(v.lang) || /Chinese|Zh|��/i.test(v.name); });
+      var zhVoice = state.voices.find(function(v){ return /zh|cmn|chi/i.test(v.lang) || /Chinese|Zh|中/i.test(v.name); });
       if (zhVoice) return zhVoice;
     }
-    // Ӣ������ en-US/en-GB
+    // 英语优先 en-US/en-GB
     if (lang.startsWith('en')) {
       var enVoice = state.voices.find(function(v){ return /en/i.test(v.lang); });
       if (enVoice) return enVoice;
@@ -63,9 +63,9 @@
 
   function guessLangByText(text){
     if (!text) return 'en-US';
-    // ���жϣ��������ַ�
+    // 简单判断：含中文字符
     if (/\u4e00-\u9fa5/.test(text)) return 'zh-CN';
-    // ����ƴ���ַ�����ĸ
+    // 含有拼音字符或字母
     return 'en-US';
   }
 
@@ -76,7 +76,7 @@
   }
 
   async function enable(){
-    // ͨ��һ�οյ� speak �������ƶ�����Ƶ���ԣ������������Ҫ���ƴ�����
+    // 通过一次空的 speak 来激活移动端音频策略（不少浏览器需要手势触发）
     state.enabled = true;
     try {
       var ok = await ensureReady();
@@ -101,14 +101,14 @@
   async function speak(text, opts){
     opts = opts || {};
     if (!state.enabled && (isAndroid || isIOS)) {
-      // �ƶ���δ����ʱֱ�ӷ��� false�����ⱨ��
+      // 移动端未启用时直接返回 false，避免报错
       return false;
     }
     var ok = await ensureReady();
     if (!ok) return false;
     cancel();
 
-    // ÿ�η���ʱ��ȡ�������ã����ṩ getSettings��
+    // 每次发声时获取最新设置（若提供 getSettings）
     var currentSettings = (typeof global.getSettings === 'function') ? global.getSettings() : settings;
 
     var lang = (opts.lang) || guessLangByText(text);
@@ -134,9 +134,9 @@
     });
   }
 
-  // Ԥ�� Capacitor ԭ�� TTS �ӿ�λ�ã�����������룬���ڴ��л�ʵ�֣�
+  // 预留 Capacitor 原生 TTS 接口位置（如果后续加入，可在此切换实现）
   // if (global.Capacitor && global.Capacitor.isNativePlatform) {
-  //   // ���ڴ˴����ȵ��� @capacitor-community/text-to-speech
+  //   // 可在此处优先调用 @capacitor-community/text-to-speech
   // }
 
   global.TTS = {
@@ -146,14 +146,18 @@
     pause: pause,
     resume: resume,
     isSpeaking: isSpeaking,
-    _loadVoices: loadVoices, // ���Ը���
+    _loadVoices: loadVoices, // 测试辅助
     _pickVoice: pickVoice,
   };
 })(window);
 (function (global) {
   'use strict';
 
-  // 简易辅助：安全读取设置
+  // 简单防抖：避免在快速连续调用时重复 speak
+  var lastSpeakAt = 0;
+  var SPEAK_COOLDOWN_MS = 120; // 可按需调整
+
+  // 兼容读取设置
   function getSettingsSafe() {
     try {
       if (typeof getSettings === 'function') return getSettings();
@@ -163,10 +167,11 @@
       speechRate: 1,
       speechPitch: 1,
       speechVolume: 1,
+      enableTTS: true,
     };
   }
 
-  // 判断是否为 Capacitor 原生平台且存在 TextToSpeech 插件
+  // 判断是否处于 Capacitor 原生环境且安装了 TextToSpeech 插件
   function isNativeTTSAvailable() {
     try {
       var Cap = global.Capacitor;
@@ -183,7 +188,7 @@
     } catch (e) { return null; }
   }
 
-  // Web Speech 句柄
+  // Web Speech 相关（作为回退）
   var synth = global.speechSynthesis;
 
   function cancelWebSpeech(){ try { synth && synth.cancel(); } catch(e) {} }
@@ -191,15 +196,17 @@
   function resumeWebSpeech(){ try { synth && synth.resume(); } catch(e) {} }
   function isSpeakingWebSpeech(){ return !!(synth && synth.speaking); }
 
-  // 简单猜测语言：含中日韩统一认为 zh-CN
+  // 语言猜测：简单基于字符范围
   function guessLang(text) {
     if (!text) return 'en-US';
     var hasCJK = /[\u4e00-\u9fa5]/.test(text);
     return hasCJK ? 'zh-CN' : 'en-US';
   }
 
+  // 主体 API
   var TTS = {
     enable: function () {
+      // 对于 WebSpeech：通过一次空发声“解锁”音频上下文；对于原生无需特殊处理
       try {
         if (isNativeTTSAvailable()) {
           return Promise.resolve(true);
@@ -214,49 +221,54 @@
     },
 
     speak: function (text, opts) {
-      var settings = getSettingsSafe();
-      var lang = (opts && opts.lang) || guessLang(text);
-      var rate = (opts && opts.rate);
-      if (typeof rate !== 'number') rate = settings.speechRate || 1;
-      var pitch = (opts && opts.pitch);
-      if (typeof pitch !== 'number') pitch = settings.speechPitch || 1;
-      var volume = (opts && opts.volume);
-      if (typeof volume !== 'number') volume = settings.speechVolume || 1;
+      var now = Date.now();
+      if (now - lastSpeakAt < SPEAK_COOLDOWN_MS) {
+        // 冷却期内丢弃，避免抖动
+        return Promise.resolve(false);
+      }
+      lastSpeakAt = now;
 
-      // 原生优先
+      var settings = getSettingsSafe();
+      if (settings && settings.enableTTS === false) return Promise.resolve(false);
+
+      var lang = (opts && opts.lang) || guessLang(text);
+      var rate = (opts && opts.rate) || settings.speechRate || 1;
+      var pitch = (opts && opts.pitch) || settings.speechPitch || 1;
+      var volume = (opts && opts.volume) || settings.speechVolume || 1;
+
+      // 优先使用原生 TTS
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.speak === 'function') {
+          // @capacitor-community/text-to-speech 接口：speak({ text, lang, rate, pitch, volume, category? })
           return nativeTTS.speak({ text: String(text || ''), lang: lang, rate: rate, pitch: pitch, volume: volume })
             .then(function(){ return true; })
-            .catch(function(err){ console.warn('[TTS] native speak failed, fallback to web', err); return TTS._speakWeb(text, { lang: lang, rate: rate, pitch: pitch, volume: volume }); });
+            .catch(function(err){ console.warn('[TTS] native speak failed, fallback to web', err); return TTS._speakWeb(text, { lang, rate, pitch, volume }); });
         }
       }
 
-      // Web Speech 回退
+      // 回退至 Web Speech
       return TTS._speakWeb(text, { lang: lang, rate: rate, pitch: pitch, volume: volume });
     },
 
     _speakWeb: function (text, opts) {
-      return new Promise(function(resolve){
-        try {
-          cancelWebSpeech();
-          var utter = new SpeechSynthesisUtterance(String(text || ''));
-          utter.lang = opts.lang || guessLang(text);
-          utter.rate = Math.max(0.1, Math.min(10, Number(opts.rate) || 1));
-          utter.pitch = Math.max(0, Math.min(2, Number(opts.pitch) || 1));
-          utter.volume = Math.max(0, Math.min(1, Number(opts.volume) || 1));
-          utter.onend = function(){ resolve(true); };
-          utter.onerror = function(){ resolve(false); };
-          synth && synth.speak(utter);
-        } catch (e) {
-          console.warn('[TTS] web speak failed', e);
-          resolve(false);
-        }
-      });
+      try {
+        cancelWebSpeech(); // 先停止之前的发音，减少叠音
+        var utter = new SpeechSynthesisUtterance(String(text || ''));
+        utter.lang = opts.lang || guessLang(text);
+        utter.rate = Math.max(0.1, Math.min(10, Number(opts.rate) || 1));
+        utter.pitch = Math.max(0, Math.min(2, Number(opts.pitch) || 1));
+        utter.volume = Math.max(0, Math.min(1, Number(opts.volume) || 1));
+        synth && synth.speak(utter);
+        return Promise.resolve(true);
+      } catch (e) {
+        console.warn('[TTS] web speak failed', e);
+        return Promise.resolve(false);
+      }
     },
 
     cancel: function () {
+      // 原生优先
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.stop === 'function') {
@@ -268,6 +280,7 @@
     },
 
     pause: function () {
+      // 原生插件无 pause 接口，尽量 stop；否则使用 WebSpeech 暂停
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.stop === 'function') {
@@ -279,6 +292,7 @@
     },
 
     resume: function () {
+      // 原生插件没有 resume；WebSpeech 则尝试恢复
       if (!isNativeTTSAvailable()) {
         resumeWebSpeech();
       }
@@ -287,7 +301,8 @@
 
     isSpeaking: function () {
       if (isNativeTTSAvailable()) {
-        return false; // 若插件无状态接口，返回 false
+        // 社区 TTS 插件没有提供 speaking 状态，保守返回 false，避免误判
+        return false;
       }
       return isSpeakingWebSpeech();
     }

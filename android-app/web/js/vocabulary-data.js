@@ -1,18 +1,18 @@
 // Embedded vocabulary data for file:// protocol support
 // Auto-generated file, do not edit manually
 
-// ´Ê¿âÊı¾İ´æ´¢
+// è¯åº“æ•°æ®å­˜å‚¨
 const VOCABULARY_DATA = {
-    'words-basic': null, // ½«ÔÚÏÂÃæ¶¨Òå
-    '1.Ó×¶ùÔ°--»ù´¡´Ê»ã': null,
-    '2.Ó×¶ùÔ°--Ñ§Ï°´Ê»ã': null,
-    '3.Ó×¶ùÔ°--×ÔÈ»´Ê»ã': null,
-    '4.½»Á÷´Ê»ã': null,
-    '5.ÈÕ³£´Ê»ã': null,
-    '6.Ó×¶ùÔ°´Ê»ã': null
+    'words-basic': null, // å°†åœ¨ä¸‹é¢å®šä¹‰
+    '1.å¹¼å„¿å›­--åŸºç¡€è¯æ±‡': null,
+    '2.å¹¼å„¿å›­--å­¦ä¹ è¯æ±‡': null,
+    '3.å¹¼å„¿å›­--è‡ªç„¶è¯æ±‡': null,
+    '4.äº¤æµè¯æ±‡': null,
+    '5.æ—¥å¸¸è¯æ±‡': null,
+    '6.å¹¼å„¿å›­è¯æ±‡': null
 };
 
-// ¶¯Ì¬¼ÓÔØ´Ê¿âÎÄ¼ş
+// åŠ¨æ€åŠ è½½è¯åº“æ–‡ä»¶
 async function loadVocabularyFile(filename) {
     try {
         const script = document.createElement('script');
@@ -33,7 +33,7 @@ async function loadVocabularyFile(filename) {
 async function loadEmbeddedVocabulary(vocabName) {
     console.log(`Loading vocabulary: ${vocabName}`);
     
-    // Ê×ÏÈ³¢ÊÔ¼ÓÔØÓ³ÉäÅäÖÃ
+    // é¦–å…ˆå°è¯•åŠ è½½æ˜ å°„é…ç½®
     if (!window.VOCABULARY_MAPPINGS) {
         try {
             await loadVocabularyFile('mappings.js');
@@ -42,12 +42,12 @@ async function loadEmbeddedVocabulary(vocabName) {
         }
     }
     
-    // ¶¯Ì¬²éÕÒ´Ê¿âÎÄ¼ş
+    // åŠ¨æ€æŸ¥æ‰¾è¯åº“æ–‡ä»¶
     let targetFile = null;
     let targetVariable = null;
     
     if (window.VOCABULARY_MAPPINGS) {
-        // ÔÚËùÓĞÀà±ğÖĞ²éÕÒÆ¥ÅäµÄ´Ê¿â
+        // åœ¨æ‰€æœ‰ç±»åˆ«ä¸­æŸ¥æ‰¾åŒ¹é…çš„è¯åº“
         for (const [category, vocabularies] of Object.entries(window.VOCABULARY_MAPPINGS)) {
             const found = vocabularies.find(vocab => vocab.original_name === vocabName);
             if (found) {
@@ -58,15 +58,15 @@ async function loadEmbeddedVocabulary(vocabName) {
         }
     }
     
-    // ±¸ÓÃÓ³Éä£¨ÓÃÓÚÏòºó¼æÈİ£©
+    // å¤‡ç”¨æ˜ å°„ï¼ˆç”¨äºå‘åå…¼å®¹ï¼‰
     const fallbackMappings = {
         'words-basic': { file: 'basic.js', variable: 'BASIC_VOCABULARY' },
-        '1.Ó×¶ùÔ°--»ù´¡´Ê»ã': { file: 'kindergarten_1_basic.js', variable: 'VOCAB_1__________' },
-        '2.Ó×¶ùÔ°--Ñ§Ï°´Ê»ã': { file: 'kindergarten_2_study.js', variable: 'VOCAB_2__________' },
-        '3.Ó×¶ùÔ°--×ÔÈ»´Ê»ã': { file: 'kindergarten_3_nature.js', variable: 'VOCAB_3__________' },
-        '4.½»Á÷´Ê»ã': { file: 'kindergarten_4_communication.js', variable: 'VOCAB_4_____' },
-        '5.ÈÕ³£´Ê»ã': { file: 'kindergarten_5_daily.js', variable: 'VOCAB_5_____' },
-        '6.Ó×¶ùÔ°´Ê»ã': { file: 'kindergarten_6_general.js', variable: 'VOCAB_6______' },
+        '1.å¹¼å„¿å›­--åŸºç¡€è¯æ±‡': { file: 'kindergarten_1_basic.js', variable: 'VOCAB_1__________' },
+        '2.å¹¼å„¿å›­--å­¦ä¹ è¯æ±‡': { file: 'kindergarten_2_study.js', variable: 'VOCAB_2__________' },
+        '3.å¹¼å„¿å›­--è‡ªç„¶è¯æ±‡': { file: 'kindergarten_3_nature.js', variable: 'VOCAB_3__________' },
+        '4.äº¤æµè¯æ±‡': { file: 'kindergarten_4_communication.js', variable: 'VOCAB_4_____' },
+        '5.æ—¥å¸¸è¯æ±‡': { file: 'kindergarten_5_daily.js', variable: 'VOCAB_5_____' },
+        '6.å¹¼å„¿å›­è¯æ±‡': { file: 'kindergarten_6_general.js', variable: 'VOCAB_6______' },
         'kindergarten_vocabulary': { file: 'kindergarten_6_general.js', variable: 'VOCAB_6______' },
         'minecraft_basic': { file: 'minecraft_basic.js', variable: 'VOCAB_1_MINECRAFT____BASIC' },
         'minecraft_intermediate': { file: 'minecraft_intermediate.js', variable: 'VOCAB_2_MINECRAFT____BASIC' },
@@ -80,13 +80,13 @@ async function loadEmbeddedVocabulary(vocabName) {
         targetVariable = fallbackMappings[vocabName].variable;
     }
     
-    // ¼ì²éÊÇ·ñÓĞ¶ÔÓ¦µÄ´Ê¿âÊı¾İ
+    // æ£€æŸ¥æ˜¯å¦æœ‰å¯¹åº”çš„è¯åº“æ•°æ®
     if (VOCABULARY_DATA.hasOwnProperty(vocabName) && VOCABULARY_DATA[vocabName]) {
         console.log(`Using cached vocabulary data: ${vocabName}`);
         return VOCABULARY_DATA[vocabName];
     }
     
-    // ³¢ÊÔ´ÓĞÂµÄ´Ê¿âÎÄ¼ş¼Ğ¼ÓÔØ
+    // å°è¯•ä»æ–°çš„è¯åº“æ–‡ä»¶å¤¹åŠ è½½
     if (targetFile && targetVariable) {
         try {
             await loadVocabularyFile(targetFile);
@@ -100,18 +100,18 @@ async function loadEmbeddedVocabulary(vocabName) {
         }
     }
     
-    throw new Error(`´Ê¿âÎÄ¼şÎ´ÕÒµ½: ${vocabName}¡£ÇëÈ·ÈÏ vocabularies Ä¿Â¼ÏÂ´æÔÚ¶ÔÓ¦ JS ÎÄ¼ş£¬»ò¼ì²é mappings.js / fallbackMappings ÅäÖÃ¡£`);
+    throw new Error(`è¯åº“æ–‡ä»¶æœªæ‰¾åˆ°: ${vocabName}ã€‚è¯·ç¡®è®¤ vocabularies ç›®å½•ä¸‹å­˜åœ¨å¯¹åº” JS æ–‡ä»¶ï¼Œæˆ–æ£€æŸ¥ mappings.js / fallbackMappings é…ç½®ã€‚`);
 }
 
-// »ù´¡´Ê»ãÊı¾İ
+// åŸºç¡€è¯æ±‡æ•°æ®
 VOCABULARY_DATA['words-basic'] = [
   {
     "word": "smile",
     "standardized": "smile",
-    "chinese": "Î¢Ğ¦",
+    "chinese": "å¾®ç¬‘",
     "phonetic": "/smile/",
     "phrase": "Smile happily",
-    "phraseTranslation": "¿ªĞÄµØÎ¢Ğ¦",
+    "phraseTranslation": "å¼€å¿ƒåœ°å¾®ç¬‘",
     "difficulty": "basic",
     "category": "general",
     "imageURLs": [
@@ -125,10 +125,10 @@ VOCABULARY_DATA['words-basic'] = [
   {
     "word": "hello",
     "standardized": "hello",
-    "chinese": "ÄãºÃ",
+    "chinese": "ä½ å¥½",
     "phonetic": "/h??lo?/",
     "phrase": "Hello there",
-    "phraseTranslation": "ÄãºÃÑ½",
+    "phraseTranslation": "ä½ å¥½å‘€",
     "difficulty": "basic",
     "category": "greeting",
     "imageURLs": [
@@ -142,10 +142,10 @@ VOCABULARY_DATA['words-basic'] = [
   {
     "word": "happy",
     "standardized": "happy",
-    "chinese": "¿ªĞÄµÄ",
+    "chinese": "å¼€å¿ƒçš„",
     "phonetic": "/?h?pi/",
     "phrase": "Happy child",
-    "phraseTranslation": "¿ªĞÄµÄĞ¡ÅóÓÑ",
+    "phraseTranslation": "å¼€å¿ƒçš„å°æœ‹å‹",
     "difficulty": "basic",
     "category": "general",
     "imageURLs": [
@@ -159,4 +159,3 @@ VOCABULARY_DATA['words-basic'] = [
 ];
 
 console.log('Vocabulary data loaded successfully');
-

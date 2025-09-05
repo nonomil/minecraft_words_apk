@@ -282,7 +282,7 @@ function saveKindergartenProgress() {
 
     // 根据学习类型选择键（默认回退到单词键确保兼容）
     const lt = progress.learnType;
-    const key = lt === 'word' ? CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS : CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE;
+    const key = (lt === 'word' || lt === 'word_zh') ? CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS : CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE;
     localStorage.setItem(key, JSON.stringify(progress));
 }
 
@@ -291,11 +291,11 @@ function loadKindergartenProgress() {
     const lt = (function(){
         try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
     })();
-    const key = lt === 'word' ? CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS : CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE;
+    const key = (lt === 'word' || lt === 'word_zh') ? CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS : CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE;
 
     // 兼容：若新键无数据且为短语模式，回退尝试旧键
     let saved = localStorage.getItem(key);
-    if (!saved && lt !== 'word') {
+    if (!saved && (lt !== 'word' && lt !== 'word_zh')) {
         saved = localStorage.getItem(CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS);
     }
 

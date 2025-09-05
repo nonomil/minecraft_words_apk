@@ -1,10 +1,10 @@
-// 主入口文件 - 应用初始化模块
+// 主入口文件 - 整合所有模块
 
 // 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🚀 Minecraft 单词学习游戏启动...');
+    console.log('🎮 Minecraft 单词学习游戏启动中...');
     
-    // 初始化应用模块
+    // 初始化各个模块
     initializeApplication();
 });
 
@@ -12,15 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeApplication() {
     try {
         // 1. 加载设置
-        console.log('🔧 加载设置...');
+        console.log('📋 加载设置...');
         loadSettings();
         
         // 2. 加载学习进度
-        console.log('📚 加载学习进度...');
+        console.log('📊 加载学习进度...');
         loadProgress();
         
-        // 3. 初始化设置事件监听
-        console.log('🧰 初始化设置事件监听...');
+        // 3. 初始化设置事件监听器
+        console.log('🎛️ 初始化设置监听器...');
         initializeSettingsEventListeners();
         
         // 4. 初始化游戏
@@ -28,7 +28,7 @@ function initializeApplication() {
         initializeGame();
         
         // 5. 更新设置显示
-        console.log('⚙️ 更新设置显示...');
+        console.log('🔧 更新设置显示...');
         updateSettingsDisplay();
         
         // 6. 检查是否启用幼儿园模式
@@ -41,32 +41,32 @@ function initializeApplication() {
         // 7. 自动加载默认词库
         const vocabSelect = document.getElementById('vocabSelect');
         if (vocabSelect && (vocabSelect.value.includes('幼儿园') || vocabSelect.value === 'kindergarten_vocabulary')) {
-            console.log('🍼 自动加载幼儿园词库...');
+            console.log('📚 自动加载幼儿园词库...');
             setTimeout(() => {
                 loadVocabulary();
             }, 500);
         }
         
-        console.log('✅ 应用程序初始化完成');
+        console.log('✅ 应用程序初始化完成！');
         showNotification('🎮 游戏已准备就绪！', 'success');
 
-        // 解锁移动端 TTS 音频策略：使用首次用户手势，同时在 1s 后再尝试一次作为兜底
+        // 解锁移动端音频策略：优先等到首次点击再初始化；若无点击也尝试一次
         try {
             const unlockTTS = async () => {
                 if (window.TTS && typeof TTS.enable === 'function') {
                     const ok = await TTS.enable();
-                    console.log('TTS.enable() result:', ok);
+                    console.log('🔊 TTS.enable() 执行结果:', ok);
                     document.removeEventListener('click', unlockTTS);
                     document.removeEventListener('touchstart', unlockTTS);
                 }
             };
             document.addEventListener('click', unlockTTS, { once: true, passive: true });
             document.addEventListener('touchstart', unlockTTS, { once: true, passive: true });
+            // 兜底：1秒后自动尝试一次（部分安卓允许自动调用）
             setTimeout(unlockTTS, 1000);
         } catch (e) {
-            console.warn('TTS enable attempt failed:', e);
+            console.warn('TTS 启用尝试失败：', e);
         }
-        
     } catch (error) {
         console.error('❌ 初始化失败:', error);
         showNotification('初始化失败: ' + error.message, 'error');
@@ -79,9 +79,9 @@ window.addEventListener('error', function(event) {
     showNotification('发生错误: ' + event.error.message, 'error');
 });
 
-// 未处理的 Promise 拒绝
+// 未处理的Promise拒绝
 window.addEventListener('unhandledrejection', function(event) {
-    console.error('未处理的 Promise 拒绝:', event.reason);
+    console.error('未处理的Promise拒绝:', event.reason);
     showNotification('异步操作失败: ' + event.reason, 'error');
     event.preventDefault();
 });
@@ -103,13 +103,13 @@ document.addEventListener('visibilitychange', function() {
 
 // 窗口大小变化处理
 window.addEventListener('resize', debounce(function() {
-    // 重新计算奖励位置
+    // 重新计算动画位置
     if (getSettings().kindergartenMode) {
         updateRewardDisplay();
     }
 }, 250));
 
-// 网络状态变化处理
+// 在线状态变化处理
 window.addEventListener('online', function() {
     showNotification('网络连接已恢复', 'success');
 });
@@ -118,16 +118,16 @@ window.addEventListener('offline', function() {
     showNotification('网络连接已断开，部分功能可能受限', 'error');
 });
 
-// 暴露全局 API 以便后续扩展
+// 导出全局API（用于调试和扩展）
 window.MinecraftWordGame = {
-    // 词库功能
+    // 核心功能
     loadVocabulary,
     switchMode,
     playAudio,
     nextWord,
     previousWord,
     
-    // 测验功能
+    // 测试功能
     startQuiz,
     restartQuiz,
     
@@ -146,7 +146,7 @@ window.MinecraftWordGame = {
     resetKindergartenProgress,
     getRewardStats,
     
-    // 动画效果
+    // 动画功能
     createStarAnimation,
     createFireworks,
     createHeartAnimation,
@@ -156,7 +156,7 @@ window.MinecraftWordGame = {
     shuffleArray,
     getRandomElements,
     
-    // 数据获取
+    // 数据访问
     getCurrentWord,
     getVocabularyStats,
     getQuizStats,
@@ -167,15 +167,15 @@ window.MinecraftWordGame = {
     buildDate: new Date().toISOString()
 };
 
-// 调试模式下的提示信息
+// 开发模式下的调试信息
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    console.log('🔍 调试模式已检测到');
-    console.log('🧪 全局 API 已挂载到 window.MinecraftWordGame');
-    console.log('📌 可用的调试命令:');
+    console.log('🔧 开发模式已启用');
+    console.log('🎮 全局API已挂载到 window.MinecraftWordGame');
+    console.log('📊 可用的调试命令:');
     console.log('  - MinecraftWordGame.getSettings() // 获取当前设置');
     console.log('  - MinecraftWordGame.getVocabularyStats() // 获取词库统计');
     console.log('  - MinecraftWordGame.getLearningStats() // 获取学习统计');
-    console.log('  - MinecraftWordGame.createFireworks() // 触发烟花效果');
+    console.log('  - MinecraftWordGame.createFireworks() // 创建烟花效果');
     console.log('  - MinecraftWordGame.resetKindergartenProgress() // 重置幼儿园进度');
 }
 
@@ -185,16 +185,16 @@ if ('performance' in window) {
         setTimeout(function() {
             const perfData = performance.timing;
             const loadTime = perfData.loadEventEnd - perfData.navigationStart;
-            console.log(`⏱️ 页面加载时间: ${loadTime}ms`);
+            console.log(`📈 页面加载时间: ${loadTime}ms`);
             
             if (loadTime > 3000) {
-                console.warn('⚠️ 页面加载时间较长，请考虑优化');
+                console.warn('⚠️ 页面加载时间较长，建议优化');
             }
         }, 0);
     });
 }
 
-// 内存使用监控（浏览器支持）
+// 内存使用监控（如果支持）
 if ('memory' in performance) {
     setInterval(function() {
         const memory = performance.memory;
@@ -204,22 +204,22 @@ if ('memory' in performance) {
         if (usedMB > limitMB * 0.8) {
             console.warn(`⚠️ 内存使用率较高: ${usedMB}MB / ${limitMB}MB`);
         }
-    }, 30000); // 每30秒一次
+    }, 30000); // 每30秒检查一次
 }
 
-// 用户活动监控（用于自动保存）
+// 用户活动跟踪（用于自动保存）
 let lastActivityTime = Date.now();
 let activityTimer;
 
 function trackUserActivity() {
     lastActivityTime = Date.now();
     
-    // 清理之前的定时器
+    // 清除之前的定时器
     if (activityTimer) {
         clearTimeout(activityTimer);
     }
     
-    // 5分钟无活动则自动保存
+    // 5分钟无活动后自动保存
     activityTimer = setTimeout(function() {
         console.log('💾 自动保存进度...');
         saveProgress();
@@ -229,7 +229,7 @@ function trackUserActivity() {
     }, 5 * 60 * 1000);
 }
 
-// 绑定用户活动事件
+// 监听用户活动
 ['click', 'keydown', 'mousemove', 'touchstart'].forEach(eventType => {
     document.addEventListener(eventType, trackUserActivity, { passive: true });
 });
@@ -267,7 +267,7 @@ const AppLifecycle = {
     }
 };
 
-// 生命周期相关事件
+// 绑定生命周期事件
 document.addEventListener('DOMContentLoaded', AppLifecycle.startup);
 document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
@@ -278,10 +278,10 @@ document.addEventListener('visibilitychange', function() {
 });
 window.addEventListener('beforeunload', AppLifecycle.shutdown);
 
-// 暴露生命周期到全局
+// 导出生命周期管理器
 window.MinecraftWordGame.AppLifecycle = AppLifecycle;
 
-console.log('✅ 主模块已加载');
+console.log('🎯 主模块加载完成');
 console.log('🎮 Minecraft 单词学习游戏 v2.0.0 - 幼儿园特别版');
-console.log('👶 专为 3-6 岁儿童设计，适配触控系统与语音效果');
-console.log('🆕 新功能: 词库分组、钻石奖励、红石连击、连胜奖励、更多动画');
+console.log('👶 专为3-6岁儿童设计，包含奖励系统和动画效果');
+console.log('✨ 新功能: 词汇分组、钻石奖励、钻石剑成就、星星动画');

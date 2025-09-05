@@ -23,6 +23,13 @@ jobs:
         working-directory: android-app
         run: npm ci
 
+      - name: Pre-build sync web assets
+        run: |
+          rsync -av --delete js/ android-app/web/js/
+          rsync -av --delete css/ android-app/web/css/
+          rsync -av --delete Data/ android-app/web/Data/
+          cp -f index.html android-app/web/index.html
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
