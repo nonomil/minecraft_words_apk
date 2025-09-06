@@ -526,6 +526,11 @@ function applyDisplaySettings(settings) {
     body.classList.remove('device-phone', 'device-tablet', 'device-desktop');
     body.classList.add(`device-${device}`);
 
+    // 基于 UA 的平台标识（用于安卓手机 HUD 右上角定制）
+    const isAndroidUA = /Android/i.test(navigator.userAgent || '');
+    body.classList.toggle('android', isAndroidUA);
+    body.classList.toggle('android-mode', isAndroidUA);
+
     // 切换紧凑模式
     body.classList.toggle('compact-mode', compact);
 

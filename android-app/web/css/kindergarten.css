@@ -391,3 +391,13 @@ body.kindergarten-mode {
     font-size: 16px !important;
   }
 }
+/* 安卓手机：将奖励/进度 HUD 固定到右上角（不影响平板与网页桌面） */
+body.device-phone.android .reward-system,
+body.device-phone.android-mode .reward-system {
+  position: fixed !important;
+  top: 5px !important;
+  left: auto !important;
+  right: 8px !important;
+  transform: none !important;
+  z-index: 100 !important;
+}

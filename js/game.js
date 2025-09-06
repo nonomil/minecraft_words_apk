@@ -320,9 +320,13 @@ function playAudio() {
 
     const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
 
-    let text = '';
-    if (lt === 'word' || lt === 'phrase_en') {
-        text = (word.phrase || word.standardized || word.word || '').trim();
+    // 英文发音根据学习类型区分：单词模式只读单词，短语模式优先读短语
+    if (lt === 'word') {
+        const text = (word.standardized || word.word || '').trim();
+        if (!text) return;
+        if (window.TTS) TTS.speak(text, { lang: 'en-US', rate: Math.max(0.6, getSettings().speechRate*0.8), pitch: getSettings().speechPitch, volume: getSettings().speechVolume });
+    } else if (lt === 'phrase_en') {
+        const text = (word.phrase || word.standardized || word.word || '').trim();
         if (!text) return;
         if (window.TTS) TTS.speak(text, { lang: 'en-US', rate: Math.max(0.6, getSettings().speechRate*0.8), pitch: getSettings().speechPitch, volume: getSettings().speechVolume });
     } else if (lt === 'word_zh' || lt === 'phrase_zh') {
