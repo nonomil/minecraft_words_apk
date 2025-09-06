@@ -210,3 +210,38 @@ function validateVocabularyJSON(data) {
 function generateUniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
+
+// 新增：将 minecraft.wiki 的 File: 图片页面转换为 zh 中文条目链接（提取 File 后第一个单词）
+function transformMinecraftWikiLink(url) {
+  try {
+    if (!url) return null;
+    let u = url;
+    // 兼容传入对象
+    if (typeof u === 'object' && u.url) u = u.url;
+    const parsed = new URL(u);
+    // 仅处理 minecraft.wiki 主站
+    const host = (parsed.hostname || '').toLowerCase();
+    if (!host.endsWith('minecraft.wiki')) return u; // 非目标域名直接返回
+
+    // 仅处理 /w/File: 路径
+    const path = parsed.pathname || '';
+    const m = path.match(/\/w\/File:([^/]+)$/i);
+    if (!m) return u;
+
+    // 取文件名并去掉扩展名、解码
+    const fileName = decodeURIComponent(m[1] || '').trim();
+    const base = fileName.replace(/\.(png|jpg|jpeg|gif|webp|svg)$/i, '');
+    if (!base) return u;
+
+    // 按下划线分割，取第一个“单词”作为条目名；若没有下划线，取整串
+    const firstPart = base.split('_')[0];
+    const entry = (firstPart || base).trim();
+    if (!entry) return u;
+
+    // 目标：中文维基条目
+    const finalUrl = `https://zh.minecraft.wiki/w/${encodeURIComponent(entry)}`;
+    return finalUrl;
+  } catch (e) {
+    return url;
+  }
+}

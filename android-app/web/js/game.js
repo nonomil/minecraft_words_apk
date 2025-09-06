@@ -111,14 +111,40 @@ function updateWordImage(word) {
         convertToDirectImageUrl(word.imageURLs[0].url, word.imageURLs[0].filename)
             .then(imageUrl => {
                 imageElement.src = imageUrl;
+                // 设置点击打开 zh 中文维基的条目（若原链接为 minecraft.wiki 的 File: 页面）
+                try {
+                    const pageUrl = (typeof transformMinecraftWikiLink === 'function')
+                        ? transformMinecraftWikiLink(word.imageURLs[0])
+                        : (word.imageURLs[0].url || null);
+                    if (pageUrl) {
+                        imageElement.style.cursor = 'pointer';
+                        imageElement.onclick = async () => {
+                            const targetUrl = pageUrl;
+                            try {
+                                if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser) {
+                                    await window.Capacitor.Plugins.Browser.open({ url: targetUrl });
+                                    return;
+                                }
+                            } catch(e){}
+                            try { window.open(targetUrl, (/(Android)/i.test(navigator.userAgent)) ? '_system' : '_blank'); } catch(e){}
+                        };
+                    } else {
+                        imageElement.onclick = null;
+                        imageElement.style.cursor = '';
+                    }
+                } catch(e){}
             })
             .catch(error => {
                 console.warn('Failed to load image:', error);
                 imageElement.src = createPlaceholderImage();
+                imageElement.onclick = null;
+                imageElement.style.cursor = '';
             });
             
         imageElement.onerror = function() {
             this.src = createPlaceholderImage();
+            this.onclick = null;
+            this.style.cursor = '';
         };
     } else {
         imageElement.style.display = 'none';

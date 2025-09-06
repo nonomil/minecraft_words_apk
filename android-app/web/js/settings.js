@@ -9,7 +9,13 @@ function getSettings() {
         autoPlay: document.getElementById('autoPlay')?.checked ?? CONFIG.DEFAULT_SETTINGS.autoPlay,
         showImages: document.getElementById('showImages')?.checked ?? CONFIG.DEFAULT_SETTINGS.showImages,
         kindergartenMode: document.getElementById('kindergartenMode')?.checked ?? CONFIG.DEFAULT_SETTINGS.kindergartenMode,
-        quizCount: document.getElementById('quizCount')?.value || CONFIG.DEFAULT_SETTINGS.quizCount
+        // 新增：混合幼儿园词库设置
+        mixKindergartenEnabled: document.getElementById('mixKindergartenEnabled')?.checked ?? CONFIG.DEFAULT_SETTINGS.mixKindergartenEnabled,
+        mixKindergartenRatio: parseFloat(document.getElementById('mixKindergartenRatio')?.value || CONFIG.DEFAULT_SETTINGS.mixKindergartenRatio),
+        quizCount: document.getElementById('quizCount')?.value || CONFIG.DEFAULT_SETTINGS.quizCount,
+        // 新增：拼写设置
+        spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode')?.value || CONFIG.DEFAULT_SETTINGS.spellingDefaultSubmode,
+        spellingHint: document.getElementById('spellingHint')?.checked ?? CONFIG.DEFAULT_SETTINGS.spellingHint
     };
     
     return settings;
@@ -43,7 +49,13 @@ function applySettingsToUI(settings) {
         autoPlay: document.getElementById('autoPlay'),
         showImages: document.getElementById('showImages'),
         kindergartenMode: document.getElementById('kindergartenMode'),
-        quizCount: document.getElementById('quizCount')
+        // 新增：混合幼儿园词库设置
+        mixKindergartenEnabled: document.getElementById('mixKindergartenEnabled'),
+        mixKindergartenRatio: document.getElementById('mixKindergartenRatio'),
+        quizCount: document.getElementById('quizCount'),
+        // 新增：拼写设置
+        spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode'),
+        spellingHint: document.getElementById('spellingHint')
     };
     
     Object.keys(elements).forEach(key => {
@@ -62,6 +74,16 @@ function applySettingsToUI(settings) {
     
     // 应用幼儿园模式
     applyKindergartenMode(settings.kindergartenMode);
+
+    // 同步拼写默认子模式到拼写页面的持久化键（仅当未显式设置过时）
+    try {
+        const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
+        if (!hasExplicit && settings.spellingDefaultSubmode) {
+            localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
+        }
+        // 同步提示偏好（独立键，供拼写页读取）
+        localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+    } catch(e) {}
 }
 
 // 保存设置
@@ -71,6 +93,20 @@ function saveSettings() {
     
     // 应用幼儿园模式变化
     applyKindergartenMode(settings.kindergartenMode);
+
+    // 同步拼写设置到本地键
+    try {
+        // 默认子模式只在未手动切换过时覆盖
+        const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
+        if (!hasExplicit && settings.spellingDefaultSubmode) {
+            localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
+        }
+        localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+        // 若当前在拼写页面并存在切换函数，则应用到UI
+        if (typeof setSpellingSubmode === 'function') {
+            setSpellingSubmode(localStorage.getItem('SPELLING_SUBMODE') || settings.spellingDefaultSubmode || 'spell');
+        }
+    } catch(e) {}
     
     return settings;
 }
@@ -83,6 +119,8 @@ function updateSettingsDisplay() {
     const speechRate = document.getElementById('speechRate');
     const speechPitch = document.getElementById('speechPitch');
     const speechVolume = document.getElementById('speechVolume');
+    const ratioValue = document.getElementById('mixKindergartenRatioValue');
+    const ratio = document.getElementById('mixKindergartenRatio');
     
     if (rateValue && speechRate) {
         rateValue.textContent = parseFloat(speechRate.value).toFixed(1);
@@ -94,6 +132,11 @@ function updateSettingsDisplay() {
     
     if (volumeValue && speechVolume) {
         volumeValue.textContent = parseFloat(speechVolume.value).toFixed(1);
+    }
+
+    if (ratioValue && ratio) {
+        const pct = Math.round(parseFloat(ratio.value) * 100);
+        ratioValue.textContent = `${pct}%`;
     }
 }
 
@@ -325,13 +368,22 @@ function initializeSettingsEventListeners() {
     }
     
     // 游戏设置复选框
-    const checkboxes = ['autoPlay', 'showImages', 'kindergartenMode'];
+    const checkboxes = ['autoPlay', 'showImages', 'kindergartenMode', 'mixKindergartenEnabled'];
     checkboxes.forEach(id => {
         const element = document.getElementById(id);
         if (element) {
             element.addEventListener('change', saveSettings);
         }
     });
+    
+    // 比例滑块
+    const ratio = document.getElementById('mixKindergartenRatio');
+    if (ratio) {
+        ratio.addEventListener('input', function(){
+            updateSettingsDisplay();
+            saveSettings();
+        });
+    }
     
     // 测试题目数量
     const quizCount = document.getElementById('quizCount');

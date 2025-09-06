@@ -374,7 +374,8 @@ function updateQuizImage(word){
       convertToDirectImageUrl(raw.url, raw.filename)
         .then(u=>{
           img.onerror = useUnsplash; // 若加载失败，继续兜底
-          img.onload = () => setClickToOpen(raw.url||u);
+          const pageUrl = (typeof transformMinecraftWikiLink === 'function') ? transformMinecraftWikiLink(raw.url) : (raw.url||u);
+          img.onload = () => setClickToOpen(pageUrl);
           img.src = u;
         })
         .catch(()=>{ useUnsplash(); });

@@ -19,6 +19,11 @@ async function loadVocabulary() {
         
         currentVocabulary = data;
         currentWordIndex = 0;
+
+        // 新增：Minecraft 词库时按设置比例混入幼儿园词
+        if (getSettings().mixKindergartenEnabled && /minecraft/i.test(selectedVocab)) {
+            await mixKindergartenIntoCurrent(selectedVocab);
+        }
         
         // 如果是幼儿园模式，初始化分组
         if (getSettings().kindergartenMode && (selectedVocab.includes('幼儿园') || selectedVocab === 'kindergarten_vocabulary')) {
@@ -52,13 +57,18 @@ function loadCustomVocabulary() {
     }
     
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = async function(e) {
         try {
             const jsonData = JSON.parse(e.target.result);
             validateVocabularyJSON(jsonData);
             
             currentVocabulary = jsonData;
             currentWordIndex = 0;
+            
+            // 新增：若自定义词库判断为 Minecraft 领域且开启了混合，则注入幼儿园词
+            if (getSettings().mixKindergartenEnabled && isLikelyMinecraftVocabulary(currentVocabulary)) {
+                await mixKindergartenIntoCurrent('custom');
+            }
             
             // 检查是否启用幼儿园模式
             if (getSettings().kindergartenMode) {
@@ -83,26 +93,6 @@ function loadCustomVocabulary() {
     reader.readAsText(file, 'UTF-8');
 }
 
-// 导出当前词库
-function exportCurrentVocab() {
-    if (currentVocabulary.length === 0) {
-        showNotification('没有词库可导出', 'error');
-        return;
-    }
-    
-    const dataStr = JSON.stringify(currentVocabulary, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `vocabulary_${getCurrentDateString()}.json`;
-    a.click();
-    
-    URL.revokeObjectURL(url);
-    showNotification('词库已导出');
-}
-
 // 随机排序词汇
 function shuffleWords() {
     if (currentVocabulary.length === 0) {
@@ -122,15 +112,61 @@ function shuffleWords() {
     showNotification('词汇已随机排序！');
 }
 
-// 启用控制按钮
-function enableControls() {
-    const nextBtn = document.querySelector('.control-btn.next');
-    const prevBtn = document.querySelector('.control-btn.prev');
-    const exportBtn = document.getElementById('exportBtn');
-    
-    if (nextBtn) nextBtn.disabled = false;
-    if (prevBtn) prevBtn.disabled = currentWordIndex === 0;
-    if (exportBtn) exportBtn.disabled = false;
+// 新增：判断自定义词库是否可能是 Minecraft 领域
+function isLikelyMinecraftVocabulary(list) {
+    if (!Array.isArray(list) || list.length === 0) return false;
+    const categories = new Set(['block','item','entity','environment','biome']);
+    let hits = 0;
+    let checked = 0;
+    for (let i = 0; i < list.length && checked < 100; i++, checked++) {
+        const w = list[i] || {};
+        if (typeof w.category === 'string' && categories.has(w.category)) hits++;
+        const phrase = (w.phrase || '').toLowerCase();
+        const std = (w.standardized || '').toLowerCase();
+        if (phrase.includes('minecraft') || std.includes('minecraft')) hits++;
+    }
+    return hits >= Math.max(5, Math.floor(checked * 0.2));
+}
+
+// 新增：混入幼儿园综合词库
+async function mixKindergartenIntoCurrent(contextName) {
+    try {
+        if (!Array.isArray(currentVocabulary) || currentVocabulary.length === 0) return;
+        const ratio = Math.max(0, Math.min(1, parseFloat(getSettings().mixKindergartenRatio || 0)));
+        if (ratio <= 0) return;
+        const targetCount = Math.max(1, Math.round(currentVocabulary.length * ratio));
+        // 取幼儿园综合词库作为来源
+        let kindergartenWords = [];
+        if (typeof loadEmbeddedVocabulary === 'function') {
+            try {
+                kindergartenWords = await loadEmbeddedVocabulary('6.幼儿园词汇');
+            } catch (e) {
+                // fallback 名称
+                try { kindergartenWords = await loadEmbeddedVocabulary('kindergarten_vocabulary'); } catch(e2) {}
+            }
+        }
+        if (!Array.isArray(kindergartenWords) || kindergartenWords.length === 0) return;
+        const picks = getRandomElements(kindergartenWords, Math.min(kindergartenWords.length, targetCount));
+        
+        // 去重：基于 standardized 或 word 小写
+        const key = (w) => (w && (w.standardized || w.word || '')).toString().trim().toLowerCase();
+        const seen = new Set(currentVocabulary.map(key));
+        const uniquePicks = [];
+        for (const w of picks) {
+            const k = key(w);
+            if (!k || seen.has(k)) continue;
+            seen.add(k);
+            uniquePicks.push(w);
+        }
+        if (uniquePicks.length === 0) return;
+        
+        // 合并并随机打散，保证均匀混合
+        currentVocabulary = shuffleArray(currentVocabulary.concat(uniquePicks));
+        currentWordIndex = 0;
+        console.log(`已向 ${contextName} 词库混入幼儿园词 ${uniquePicks.length}/${targetCount} 个，混合比例设置=${ratio}`);
+    } catch (e) {
+        console.warn('混合幼儿园词库失败：', e);
+    }
 }
 
 // 获取当前单词
@@ -168,28 +204,6 @@ function getVocabularyStats() {
     });
     
     return stats;
-}
-
-// 按分类筛选词汇
-function filterByCategory(category) {
-    if (!category || category === 'all') {
-        return currentVocabulary;
-    }
-    
-    return currentVocabulary.filter(word => 
-        (word.category || '未分类') === category
-    );
-}
-
-// 按难度筛选词汇
-function filterByDifficulty(difficulty) {
-    if (!difficulty || difficulty === 'all') {
-        return currentVocabulary;
-    }
-    
-    return currentVocabulary.filter(word => 
-        (word.difficulty || '未知') === difficulty
-    );
 }
 
 // 搜索词汇
@@ -287,4 +301,31 @@ function fixWordData(word) {
     }
     
     return fixed;
+}
+
+// 启用控制按钮（补回）
+function enableControls() {
+    const nextBtn = document.querySelector('.control-btn.next');
+    const prevBtn = document.querySelector('.control-btn.prev');
+    const exportBtn = document.getElementById('exportBtn');
+    if (nextBtn) nextBtn.disabled = false;
+    if (prevBtn) prevBtn.disabled = currentWordIndex === 0;
+    if (exportBtn) exportBtn.disabled = (currentVocabulary.length === 0);
+}
+
+// 导出当前词库（补回）
+function exportCurrentVocab() {
+    if (!currentVocabulary || currentVocabulary.length === 0) {
+        showNotification('没有词库可导出', 'error');
+        return;
+    }
+    const dataStr = JSON.stringify(currentVocabulary, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `vocabulary_${getCurrentDateString()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showNotification('词库已导出');
 }

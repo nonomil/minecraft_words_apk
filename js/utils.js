@@ -76,6 +76,28 @@ async function convertToDirectImageUrl(filePageUrl, filename) {
     return filePageUrl;
 }
 
+// 新增：将 minecraft.wiki 的 File: 图片页面转换为 zh 中文条目链接
+function transformMinecraftWikiLink(rawUrl) {
+    try {
+        if (!rawUrl) return null;
+        const u = new URL(rawUrl);
+        const host = u.hostname || '';
+        const path = decodeURIComponent(u.pathname || '');
+        // 仅处理 minecraft.wiki 站点上的 File: 页面
+        if (!host.includes('minecraft.wiki') || !/\/File:/i.test(path)) return rawUrl;
+        // 匹配 /w/File:Name.ext 或 /wiki/File:Name.ext
+        const m = path.match(/\/w(?:iki)?\/File:([^/]+?)(?:\.(?:png|jpe?g|gif|webp|svg))?$/i);
+        if (!m) return rawUrl;
+        const baseName = m[1]; // 不含扩展名
+        // 规则：取 File 后面的第一个“单词”（按下划线分割取第一个）
+        const title = (baseName.split('_')[0] || baseName).trim();
+        if (!title) return rawUrl;
+        return `https://zh.minecraft.wiki/w/${encodeURIComponent(title)}`;
+    } catch (e) {
+        return rawUrl;
+    }
+}
+
 // 使用 UTF-8 对字符串进行 Base64 编码，兼容中文
 function toBase64Utf8(str) {
     const bytes = new TextEncoder().encode(str);

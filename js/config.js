@@ -14,7 +14,10 @@ const CONFIG = {
         quizCount: '10',
         // 新增：拼写页面默认子模式与提示开关
         spellingDefaultSubmode: 'spell',
-        spellingHint: true
+        spellingHint: true,
+        // 新增：混合幼儿园词库（默认关闭，比例30%）
+        mixKindergartenEnabled: false,
+        mixKindergartenRatio: 0.3
     },
     
     // 幼儿园模式设置
