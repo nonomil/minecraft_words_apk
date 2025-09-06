@@ -365,3 +365,68 @@ function exportRewardData() {
     URL.revokeObjectURL(url);
     showNotification('奖励数据已导出');
 }
+
+// 新增：导入奖励数据（仅覆盖 totalDiamonds / totalSwords）
+function importRewardData() {
+    try {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'application/json';
+        input.onchange = (e) => {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                try {
+                    const text = reader.result;
+                    const data = JSON.parse(text);
+
+                    const toNum = (v) => {
+                        const n = (v === undefined || v === null || v === '') ? NaN : Number(v);
+                        return Number.isFinite(n) ? n : NaN;
+                    };
+
+                    let diamonds = toNum(data.totalDiamonds);
+                    let swords = toNum(data.totalSwords);
+
+                    // 兼容导出进度文件结构（settings.exportProgress v1.1）
+                    if (!Number.isFinite(diamonds) && !Number.isFinite(swords)) {
+                        const lt = (function(){
+                            try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); }
+                            catch(e) { return 'word'; }
+                        })();
+                        const isWord = (lt === 'word' || lt === 'word_zh');
+                        const kgObj = isWord ? data.kindergarten_word : data.kindergarten_phrase;
+                        if (kgObj && (kgObj.totalDiamonds != null || kgObj.totalSwords != null)) {
+                            diamonds = toNum(kgObj.totalDiamonds);
+                            swords = toNum(kgObj.totalSwords);
+                        }
+                    }
+
+                    if (!Number.isFinite(diamonds) && !Number.isFinite(swords)) {
+                        throw new Error('无效的奖励数据：缺少 totalDiamonds/totalSwords');
+                    }
+
+                    // 只覆盖奖励累计（不改动 groupProgress/currentGroup 等学习进度）
+                    const d = Math.max(0, Number.isFinite(diamonds) ? Math.floor(diamonds) : 0);
+                    const s = Math.max(0, Number.isFinite(swords) ? Math.floor(swords) : 0);
+                    totalDiamonds = d;
+                    totalSwords = s;
+
+                    // 更新显示并保存到当前学习类型对应的存储键
+                    updateRewardDisplay();
+                    saveKindergartenProgress();
+                    showNotification('奖励进度已导入（已覆盖当前学习类型的累计）');
+                } catch (err) {
+                    console.error('导入奖励数据失败:', err);
+                    showNotification('导入奖励失败：' + err.message, 'error');
+                }
+            };
+            reader.readAsText(file, 'utf-8');
+        };
+        input.click();
+    } catch (e) {
+        console.error('导入奖励初始化失败:', e);
+        showNotification('导入奖励初始化失败：' + e.message, 'error');
+    }
+}

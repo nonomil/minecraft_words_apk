@@ -103,51 +103,51 @@ function updateWordDisplay() {
 function updateWordImage(word) {
     const imageElement = document.getElementById('wordImage');
     if (!imageElement) return;
+
+    // 链接打开（安卓优先 Capacitor Browser）
+    const setClickToOpen = (url) => {
+        imageElement.style.cursor = url ? 'pointer' : '';
+        if (!url) { imageElement.onclick = null; return; }
+        imageElement.onclick = async () => {
+            const targetUrl = url;
+            try {
+                if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser) {
+                    await window.Capacitor.Plugins.Browser.open({ url: targetUrl });
+                    return;
+                }
+            } catch (e) {}
+            try { window.open(targetUrl, (/(Android)/i.test(navigator.userAgent)) ? '_system' : '_blank'); } catch (e) {}
+        };
+    };
+
+    // 默认清空点击
+    setClickToOpen(null);
     
     if (word.imageURLs && word.imageURLs.length > 0 && getSettings().showImages) {
         imageElement.style.display = 'block';
+        const raw = word.imageURLs[0];
+        const rawPageUrl = raw && raw.url;
+        // 使用全局工具函数将 File 页面转换为中文条目链接
+        const pageUrl = (typeof transformMinecraftWikiLink === 'function') ? transformMinecraftWikiLink(rawPageUrl) : rawPageUrl;
         
         // 异步获取真实图片URL
-        convertToDirectImageUrl(word.imageURLs[0].url, word.imageURLs[0].filename)
+        convertToDirectImageUrl(rawPageUrl, raw && raw.filename)
             .then(imageUrl => {
+                imageElement.onerror = function() {
+                    this.src = createPlaceholderImage();
+                    setClickToOpen(null); // 占位图不提供跳转
+                };
+                imageElement.onload = () => setClickToOpen(pageUrl);
                 imageElement.src = imageUrl;
-                // 设置点击打开 zh 中文维基的条目（若原链接为 minecraft.wiki 的 File: 页面）
-                try {
-                    const pageUrl = (typeof transformMinecraftWikiLink === 'function')
-                        ? transformMinecraftWikiLink(word.imageURLs[0])
-                        : (word.imageURLs[0].url || null);
-                    if (pageUrl) {
-                        imageElement.style.cursor = 'pointer';
-                        imageElement.onclick = async () => {
-                            const targetUrl = pageUrl;
-                            try {
-                                if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser) {
-                                    await window.Capacitor.Plugins.Browser.open({ url: targetUrl });
-                                    return;
-                                }
-                            } catch(e){}
-                            try { window.open(targetUrl, (/(Android)/i.test(navigator.userAgent)) ? '_system' : '_blank'); } catch(e){}
-                        };
-                    } else {
-                        imageElement.onclick = null;
-                        imageElement.style.cursor = '';
-                    }
-                } catch(e){}
             })
             .catch(error => {
                 console.warn('Failed to load image:', error);
                 imageElement.src = createPlaceholderImage();
-                imageElement.onclick = null;
-                imageElement.style.cursor = '';
+                setClickToOpen(null);
             });
-            
-        imageElement.onerror = function() {
-            this.src = createPlaceholderImage();
-            this.onclick = null;
-            this.style.cursor = '';
-        };
     } else {
         imageElement.style.display = 'none';
+        setClickToOpen(null);
     }
 }
 
@@ -245,258 +245,127 @@ function generateLearnChoices(correctWord) {
         const speakOnHover = debounce(() => {
             try {
                 if (optionIsEnglish) {
-                    if (window.TTS) TTS.speak(choice, { lang: 'en-US', rate: Math.max(0.6, settings.speechRate * 0.8), pitch: settings.speechPitch, volume: settings.speechVolume });
+                    if (window.TTS) TTS.speak(choice, { lang: 'en-US', rate: Math.max(0.6, getSettings().speechRate*0.8), pitch: getSettings().speechPitch, volume: getSettings().speechVolume });
                 } else {
-                    if (window.TTS) TTS.speak(choice, { lang: 'zh-CN', rate: Math.max(0.6, settings.speechRate * 0.9), pitch: settings.speechPitch, volume: settings.speechVolume });
+                    if (window.TTS) TTS.speak(choice, { lang: 'zh-CN', rate: Math.max(0.85, getSettings().speechRate*0.95), pitch: getSettings().speechPitch, volume: getSettings().speechVolume });
                 }
             } catch(e){}
         }, hoverDelay);
+
         choiceElement.addEventListener('mouseenter', speakOnHover);
-
-        // 支持长按发音
-        let pressTimer = null; let longPressed = false; let selectedOnce = false;
-        const clearPress = () => { if (pressTimer) { clearTimeout(pressTimer); pressTimer = null; } };
-        const startPress = () => {
-            longPressed = false;
-            const threshold = Math.max(200, Math.min(1000, (getSettings().longPressMs || 320)));
-            pressTimer = setTimeout(() => {
-                longPressed = true;
-                try {
-                    if (optionIsEnglish) { if (window.TTS) TTS.speak(choice, { lang: 'en-US', rate: Math.max(0.6, settings.speechRate * 0.8), pitch: settings.speechPitch, volume: settings.speechVolume }); }
-                    else { if (window.TTS) TTS.speak(choice, { lang: 'zh-CN', rate: Math.max(0.6, settings.speechRate * 0.9), pitch: settings.speechPitch, volume: settings.speechVolume }); }
-                } catch(e){}
-            }, threshold);
-        };
-        const endPress = () => {
-            if (pressTimer) {
-                clearTimeout(pressTimer);
-                if (!longPressed && !selectedOnce) {
-                    // 短按即选择（仅触发一次）
-                    selectedOnce = true;
-                    selectLearnChoice(choiceElement, choice, correctAnswer);
-                }
-            }
-            clearPress();
-        };
-        choiceElement.addEventListener('pointerdown', startPress);
-        choiceElement.addEventListener('pointerup', endPress);
-        choiceElement.addEventListener('pointerleave', () => { clearPress(); });
-        choiceElement.addEventListener('pointercancel', () => { clearPress(); });
-
-        // 避免 pointer 事件后触发 click 造成二次选择；在不支持 pointer 的环境下作为兜底
-        choiceElement.addEventListener('click', (evt) => {
-            if (longPressed || selectedOnce) { evt.preventDefault(); evt.stopPropagation(); return; }
-            selectedOnce = true;
-            selectLearnChoice(choiceElement, choice, correctAnswer);
-        });
+        choiceElement.addEventListener('mouseleave', () => speakOnHover.cancel && speakOnHover.cancel());
+        
+        choiceElement.onclick = () => selectLearnChoice(choiceElement, choice, correctAnswer);
         choicesContainer.appendChild(choiceElement);
     });
 }
 
-// 处理学习选择
+// 选择学习选项
 function selectLearnChoice(element, selected, correct) {
+    const choicesContainer = document.getElementById('learnChoices');
+    if (!choicesContainer) return;
+
     // 禁用所有选项
-    document.querySelectorAll('.learn-choice').forEach(choice => {
-        choice.style.pointerEvents = 'none';
-        if (choice.textContent === correct) {
-            choice.classList.add('correct');
-        } else if (choice === element) {
-            choice.classList.add('wrong');
-        }
-    });
-    
-    // 显示结果
+    Array.from(choicesContainer.children).forEach(child => child.classList.add('disabled'));
+
     const resultElement = document.getElementById('learnResult');
-    if (resultElement) {
-        resultElement.style.display = 'block';
-        
-        if (selected === correct) {
-            resultElement.textContent = '✅ 回答正确！';
-            resultElement.className = 'learn-result correct';
-            
-            // 创建星星动画
-            createStarAnimation();
-            
-            // 幼儿园模式奖励处理
-            if (getSettings().kindergartenMode) {
-                handleCorrectAnswer();
-            }
-            
-        } else {
-            resultElement.textContent = `❌ 回答错误！正确答案是：${correct}`;
-            resultElement.className = 'learn-result wrong';
-        }
-    }
-    
-    // 如果回答正确，显示短语
+    if (!resultElement) return;
+
+    resultElement.style.display = 'block';
+
     if (selected === correct) {
-        const currentWord = getCurrentWord();
-        if (currentWord && currentWord.phrase && currentWord.phraseTranslation) {
-            setTimeout(() => {
-                const phraseContent = document.getElementById('phraseContent');
-                const phraseTranslation = document.getElementById('phraseTranslation');
-                const wordPhrase = document.getElementById('wordPhrase');
-                
-                if (phraseContent) phraseContent.textContent = currentWord.phrase;
-                if (phraseTranslation) phraseTranslation.textContent = currentWord.phraseTranslation;
-                if (wordPhrase) wordPhrase.style.display = 'block';
-            }, CONFIG.ANIMATION.PHRASE_DELAY);
-        }
+        element.classList.add('correct');
+        resultElement.textContent = '✅ 回答正确！';
+        resultElement.className = 'learn-result correct';
+        try{ createStarAnimation(); }catch(e){}
+        try{ if(getSettings().kindergartenMode){ awardDiamond(); } }catch(e){}
+    } else {
+        element.classList.add('wrong');
+        resultElement.textContent = `❌ 回答错误！正确答案是：${correct}`;
+        resultElement.className = 'learn-result wrong';
     }
-    
-    // 延迟显示完整答案
-    setTimeout(() => {
-        const wordChinese = document.getElementById('wordChinese');
-        if (wordChinese) {
-            wordChinese.textContent = correct;
-            wordChinese.style.display = 'block';
-        }
-        
-        // 如果回答正确，自动跳转到下一题（改为 1.5s 更顺滑）
-        if (selected === correct) {
-            setTimeout(() => {
-                if (currentWordIndex < currentVocabulary.length - 1) {
-                    nextWord();
-                }
-            }, 1500);
-        }
-    }, CONFIG.ANIMATION.ANSWER_DELAY);
+
+    updateStats();
+
+    // 如果回答正确，短暂停留后自动切换到下一词（1.5s）
+    if (selected === correct) {
+        setTimeout(() => {
+            if (typeof currentWordIndex !== 'undefined' && Array.isArray(currentVocabulary) && currentWordIndex < currentVocabulary.length - 1) {
+                nextWord();
+            }
+        }, 1500);
+    }
 }
 
 // 上一个单词
 function previousWord() {
-    if (window.TTS) { try { TTS.cancel(); } catch(e){} }
     if (currentWordIndex > 0) {
         currentWordIndex--;
         updateWordDisplay();
-        updateStats();
     }
 }
 
 // 下一个单词
 function nextWord() {
-    if (window.TTS) { try { TTS.cancel(); } catch(e){} }
     if (currentWordIndex < currentVocabulary.length - 1) {
         currentWordIndex++;
         updateWordDisplay();
-        updateStats();
-        
-        // 记录学习进度
-        saveProgress();
     }
 }
 
-// 播放发音
+// 播放英文
 function playAudio() {
     const word = getCurrentWord();
     if (!word) return;
-    
-    // 根据学习类型决定朗读内容：短语模式优先读 phrase
+
     const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
-    const text = (lt === 'phrase_en' || lt === 'phrase_zh')
-        ? (word.phrase || word.standardized || word.word)
-        : (word.standardized || word.word);
-    const settings = getSettings();
-    
-    // 使用 TTS 适配器发音（英文）
-    if (window.TTS) {
-        TTS.speak(text, {
-            lang: 'en-US',
-            rate: Math.max(0.6, settings.speechRate * 0.8), // 降低语速
-            pitch: settings.speechPitch,
-            volume: settings.speechVolume
-        });
+
+    let text = '';
+    if (lt === 'word' || lt === 'phrase_en') {
+        text = (word.phrase || word.standardized || word.word || '').trim();
+        if (!text) return;
+        if (window.TTS) TTS.speak(text, { lang: 'en-US', rate: Math.max(0.6, getSettings().speechRate*0.8), pitch: getSettings().speechPitch, volume: getSettings().speechVolume });
+    } else if (lt === 'word_zh' || lt === 'phrase_zh') {
+        const zhText = (lt === 'word_zh') ? (word.chinese || '') : (word.phraseTranslation || word.chinese || '');
+        if (!zhText) return;
+        if (window.TTS) TTS.speak(zhText, { lang: 'zh-CN', rate: Math.max(0.85, getSettings().speechRate*0.95), pitch: getSettings().speechPitch, volume: getSettings().speechVolume });
     }
 }
 
-// 中文发音：用于学习模式中“悬停选项时朗读中文”
+// 播放中文
 function playChinese(text) {
     if (!text) return;
-
-    const settings = getSettings();
-
-    // 使用 TTS 适配器发音（中文）
-    if (window.TTS) {
-        TTS.speak(text, {
-            lang: 'zh-CN',
-            rate: Math.max(0.6, settings.speechRate * 0.9),
-            pitch: settings.speechPitch,
-            volume: settings.speechVolume
-        });
-    }
+    if (window.TTS) TTS.speak(text, { lang: 'zh-CN', rate: Math.max(0.85, getSettings().speechRate*0.95), pitch: getSettings().speechPitch, volume: getSettings().speechVolume });
 }
 
 // 更新统计信息
 function updateStats() {
-    const currentIndexElement = document.getElementById('currentIndex');
-    const totalWordsElement = document.getElementById('totalWords');
-    const learnedCountElement = document.getElementById('learnedCount');
-    
-    if (currentIndexElement) {
-        currentIndexElement.textContent = currentWordIndex + 1;
-    }
-    
-    if (totalWordsElement) {
-        totalWordsElement.textContent = currentVocabulary.length;
-    }
-    
-    if (learnedCountElement) {
-        learnedCountElement.textContent = currentWordIndex + 1;
-    }
+    const learnedCount = document.getElementById('learnedCount');
+    const totalCount = document.getElementById('totalCount');
+
+    if (learnedCount) learnedCount.textContent = currentWordIndex + 1;
+    if (totalCount) totalCount.textContent = currentVocabulary.length;
 }
 
-// 键盘快捷键处理
+// 键盘快捷键
 function handleKeyboardShortcuts(e) {
-    if (currentMode === 'learn') {
-        switch(e.key) {
-            case 'ArrowLeft':
-                e.preventDefault();
-                previousWord();
-                break;
-            case 'ArrowRight':
-                e.preventDefault();
-                nextWord();
-                break;
-            case ' ':
-                e.preventDefault();
-                playAudio();
-                break;
-            case '1':
-            case '2':
-            case '3':
-            case '4':
-                e.preventDefault();
-                const choices = document.querySelectorAll('.learn-choice');
-                const index = parseInt(e.key) - 1;
-                if (choices[index] && choices[index].style.pointerEvents !== 'none') {
-                    choices[index].click();
-                }
-                break;
-        }
-    }
+    if (currentMode !== 'learn') return;
+
+    if (e.key === 'ArrowLeft') previousWord();
+    else if (e.key === 'ArrowRight') nextWord();
 }
 
-// 初始化游戏
+document.addEventListener('keydown', handleKeyboardShortcuts);
+
+// 初始化
 function initializeGame() {
-    // 添加键盘事件监听
-    document.addEventListener('keydown', handleKeyboardShortcuts);
-    
-    // 页面卸载时保存进度
-    window.addEventListener('beforeunload', function() {
-        saveProgress();
-    });
-    
-    // 初始化幼儿园模式（如果启用）
-    if (getSettings().kindergartenMode) {
-        initializeKindergartenMode();
-    }
-    
-    // 加载默认词库
-    const defaultVocab = document.getElementById('vocabSelect').value;
-    if (defaultVocab.includes('幼儿园') || defaultVocab === 'kindergarten_vocabulary') {
-        loadVocabulary();
-    }
+    // 你的初始化逻辑
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 初始化游戏
+    initializeGame();
+});
 
 
 // 模式切换

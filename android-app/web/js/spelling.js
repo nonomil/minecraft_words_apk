@@ -65,26 +65,19 @@ function generateSpellingTask(word){
     input.autocomplete = 'off';
     input.spellcheck = false;
     input.readOnly = true;
-    // 居中更窄
-    input.style.display='block';
-    input.style.margin='6px auto';
-    input.style.maxWidth='640px';
-    input.style.width='72%';
+    // 移除内联显示样式，统一交由 CSS 控制（保持隐藏）
 
     const undoBtn = document.createElement('button');
     undoBtn.type='button';
-    undoBtn.className='control-btn';
+    undoBtn.className='control-btn undo';
     undoBtn.textContent='⬅️ 回退';
 
     const submitBtn = document.createElement('button');
-    submitBtn.className='control-btn';
+    submitBtn.className='control-btn submit';
     submitBtn.textContent='提交答案';
     submitBtn.disabled=true;
 
-    const helper = document.createElement('div');
-    helper.style.color='#666';
-    helper.style.marginTop='8px';
-    helper.textContent='提示：点击下面字母按顺序完成拼写；支持回退；按 Enter 也可提交';
+    // 删除 helper 提示行
 
     const pool = shuffleArray(lettersOnly.split(''));
     const letterGroup = document.createElement('div');
@@ -95,9 +88,7 @@ function generateSpellingTask(word){
 
     const tryAutoSubmit = () => {
       const cur = typed.join('');
-      const correct = normalizeWord(original);
-      if (cur.length === lettersOnly.length && normalizeWord(cur) === correct) {
-        // 自动提交并切换
+      if (cur.length === lettersOnly.length) {
         submitSpelling(word, cur);
       }
     };
@@ -146,14 +137,14 @@ function generateSpellingTask(word){
     ctn.appendChild(input);
     ctn.appendChild(controls);
     ctn.appendChild(letterGroup);
-    ctn.appendChild(helper);
+    // 不再添加 helper 提示行
 
     setTimeout(()=>{ try{ document.getElementById('spellingMask').scrollIntoView({block:'center', behavior:'smooth'}); }catch(e){} }, 50);
     input.onkeydown = (e)=>{ if(e.key==='Enter' && !submitBtn.disabled){ submitSpelling(word, typed.join('')); } };
     return; // 结束 spell 分支
   }
 
-  // 目标英文
+  // 目标英文（fill 补全）
   const original = (word.standardized || word.word || '').trim();
   const lettersOnly = original.replace(/[^A-Za-z]/g,'');
   const needBlanks = lettersOnly.length >= 5 ? 2 : 1; // 3字母挖1个；5字母挖2个，4字母仍挖1个
@@ -176,30 +167,22 @@ function generateSpellingTask(word){
   input.autocomplete = 'off';
   input.spellcheck = false;
   input.readOnly = true;
-  // 让输入框更窄并居中
-  input.style.display='block';
-  input.style.margin='6px auto';
-  input.style.maxWidth='640px';
-  input.style.width='72%';
+  // 移除内联显示样式，统一交由 CSS 控制（保持隐藏）
 
   // 回退按钮
   const undoBtn = document.createElement('button');
   undoBtn.type = 'button';
-  undoBtn.className = 'control-btn';
+  undoBtn.className = 'control-btn undo';
   undoBtn.textContent = '⬅️ 回退';
 
   // 提交按钮
   const submitBtn = document.createElement('button');
-  submitBtn.className = 'control-btn';
+  submitBtn.className = 'control-btn submit';
   submitBtn.textContent = '提交答案';
   submitBtn.disabled = true;
   submitBtn.onclick = () => submitSpelling(word);
 
-  // 说明（补全模式不显示完整单词提示）
-  const helper = document.createElement('div');
-  helper.style.color = '#666';
-  helper.style.marginTop = '8px';
-  helper.textContent = '提示：点击字母按顺序补空，支持回退；按 Enter 也可提交';
+  // 删除 helper 提示行
 
   // 渲染字母按钮（必需字母 + 干扰字母）
   const requiredLetters = positions.map(i => original[i]);
@@ -267,7 +250,7 @@ function generateSpellingTask(word){
   ctn.appendChild(input);
   ctn.appendChild(controls);
   ctn.appendChild(letterGroup);
-  ctn.appendChild(helper);
+  // 不再添加 helper 提示行
 
   setTimeout(()=>{ try{ document.getElementById('spellingMask').scrollIntoView({block:'center', behavior:'smooth'}); }catch(e){} }, 50);
   input.onkeydown = (e)=>{ if(e.key==='Enter' && !submitBtn.disabled){ submitSpelling(word); } };
@@ -285,6 +268,65 @@ function updateQuizDisplay() {
     const cn = (word.chinese || '').trim();
     qTitle.textContent = cn ? `请拼写：${cn} 的英文` : '请根据发音拼写英文';
   }
+  // 在标题行插入英文提示 div，与 h3、播放按钮同排
+  try {
+    const headline = document.querySelector('.quiz-headline');
+    if (headline) {
+      let hintEl = headline.querySelector('#spellingInlineHint');
+      if (!hintEl) {
+        hintEl = document.createElement('div');
+        hintEl.id = 'spellingInlineHint';
+        hintEl.className = 'spelling-inline-hint';
+        const playBtn = headline.querySelector('.control-btn.play');
+        if (playBtn) headline.insertBefore(hintEl, playBtn); else headline.appendChild(hintEl);
+      }
+      const showHint = (()=>{ try { return (localStorage.getItem('SPELLING_HINT') || '1') === '1'; } catch(e){ return true; } })();
+      if (showHint) {
+        const en = (word.standardized || word.word || '').trim();
+        hintEl.textContent = en || '';
+        hintEl.style.display = en ? 'inline-block' : 'none';
+      } else {
+        hintEl.style.display = 'none';
+      }
+
+      // 在播放按钮后插入子模式切换（拼写/补全）
+      let toggle = headline.querySelector('#spellingSubmodeToggle');
+      if (!toggle) {
+        toggle = document.createElement('div');
+        toggle.id = 'spellingSubmodeToggle';
+        toggle.className = 'spelling-submode-toggle';
+        const playBtn = headline.querySelector('.control-btn.play');
+        if (playBtn && playBtn.parentNode) {
+          playBtn.insertAdjacentElement('afterend', toggle);
+        } else {
+          headline.appendChild(toggle);
+        }
+        // 创建两个按钮
+        const btnSpell = document.createElement('button');
+        btnSpell.type = 'button';
+        btnSpell.className = 'spelling-submode-btn spell';
+        btnSpell.textContent = '拼写';
+        btnSpell.onclick = ()=> setSpellingSubmode && setSpellingSubmode('spell');
+
+        const btnFill = document.createElement('button');
+        btnFill.type = 'button';
+        btnFill.className = 'spelling-submode-btn fill';
+        btnFill.textContent = '补全';
+        btnFill.onclick = ()=> setSpellingSubmode && setSpellingSubmode('fill');
+
+        toggle.appendChild(btnSpell);
+        toggle.appendChild(btnFill);
+      }
+      // 刷新按钮 active 状态
+      try {
+        const btns = toggle.querySelectorAll('.spelling-submode-btn');
+        btns.forEach(b=>b.classList.remove('active'));
+        const current = toggle.querySelector('.spelling-submode-btn.' + (spellingSubmode||'spell'));
+        if (current) current.classList.add('active');
+      } catch(e){}
+    }
+  } catch(e){}
+
   updateQuizImage(word);
   generateSpellingTask(word);
   updateQuizScore();
@@ -374,19 +416,8 @@ function updateQuizImage(word){
       convertToDirectImageUrl(raw.url, raw.filename)
         .then(u=>{
           img.onerror = useUnsplash; // 若加载失败，继续兜底
--            let target = raw && raw.url;
--            try {
--              if (typeof transformMinecraftWikiLink === 'function') {
--                target = transformMinecraftWikiLink(raw);
--              }
--            } catch(e){}
-+            let target = raw && raw.url;
-+            try {
-+              if (typeof transformMinecraftWikiLink === 'function') {
-+                target = transformMinecraftWikiLink(raw && raw.url);
-+              }
-+            } catch(e){}
-             setClickToOpen(target || u);
+          const pageUrl = (typeof transformMinecraftWikiLink === 'function') ? transformMinecraftWikiLink(raw.url) : (raw.url||u);
+          img.onload = () => setClickToOpen(pageUrl);
           img.src = u;
         })
         .catch(()=>{ useUnsplash(); });

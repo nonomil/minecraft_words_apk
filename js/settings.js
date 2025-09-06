@@ -15,23 +15,53 @@ function getSettings() {
         quizCount: document.getElementById('quizCount')?.value || CONFIG.DEFAULT_SETTINGS.quizCount,
         // 新增：拼写设置
         spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode')?.value || CONFIG.DEFAULT_SETTINGS.spellingDefaultSubmode,
-        spellingHint: document.getElementById('spellingHint')?.checked ?? CONFIG.DEFAULT_SETTINGS.spellingHint
+        spellingHint: document.getElementById('spellingHint')?.checked ?? CONFIG.DEFAULT_SETTINGS.spellingHint,
+        // 新增：设备与显示
+        deviceMode: document.getElementById('deviceMode')?.value || CONFIG.DEFAULT_SETTINGS.deviceMode,
+        uiScale: parseFloat(document.getElementById('uiScale')?.value || CONFIG.DEFAULT_SETTINGS.uiScale),
+        compactMode: document.getElementById('compactMode')?.checked ?? CONFIG.DEFAULT_SETTINGS.compactMode
     };
     
     return settings;
 }
 
+// 设备模式自动检测（仅用于默认值，不覆盖用户已保存设置）
+function detectDeviceMode() {
+  try {
+    const ua = navigator.userAgent || '';
+    const w = window.innerWidth || document.documentElement.clientWidth || 0;
+    const h = window.innerHeight || document.documentElement.clientHeight || 0;
+    const minDim = Math.min(w, h);
+    if (/Mobi|Mobile|Android/.test(ua) || minDim <= 480) return 'phone';
+    if (/iPad|Tablet|PlayBook|Silk/.test(ua) || (minDim > 480 && minDim <= 900)) return 'tablet';
+    return 'desktop';
+  } catch (e) { return 'phone'; }
+}
+
 // 加载设置
 function loadSettings() {
-    const saved = localStorage.getItem(CONFIG.STORAGE_KEYS.SETTINGS);
+    const savedStr = localStorage.getItem(CONFIG.STORAGE_KEYS.SETTINGS);
+    let savedObj = null;
     let settings = CONFIG.DEFAULT_SETTINGS;
     
-    if (saved) {
+    if (savedStr) {
         try {
-            settings = { ...CONFIG.DEFAULT_SETTINGS, ...JSON.parse(saved) };
+            savedObj = JSON.parse(savedStr);
         } catch (error) {
             console.warn('加载设置失败，使用默认设置:', error);
         }
+    }
+
+    // 合并默认与已保存
+    settings = { ...CONFIG.DEFAULT_SETTINGS, ...(savedObj || {}) };
+
+    // 若用户未保存过 deviceMode，则按设备自动检测
+    if (!savedObj || typeof savedObj.deviceMode === 'undefined' || savedObj.deviceMode === null) {
+        settings.deviceMode = detectDeviceMode();
+    }
+    // 若用户未保存过 compactMode，则默认仅在 phone 下开启
+    if (!savedObj || typeof savedObj.compactMode === 'undefined' || savedObj.compactMode === null) {
+        settings.compactMode = (settings.deviceMode === 'phone');
     }
     
     // 应用设置到界面
@@ -55,7 +85,11 @@ function applySettingsToUI(settings) {
         quizCount: document.getElementById('quizCount'),
         // 新增：拼写设置
         spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode'),
-        spellingHint: document.getElementById('spellingHint')
+        spellingHint: document.getElementById('spellingHint'),
+        // 新增：设备与显示
+        deviceMode: document.getElementById('deviceMode'),
+        uiScale: document.getElementById('uiScale'),
+        compactMode: document.getElementById('compactMode')
     };
     
     Object.keys(elements).forEach(key => {
@@ -75,6 +109,9 @@ function applySettingsToUI(settings) {
     // 应用幼儿园模式
     applyKindergartenMode(settings.kindergartenMode);
 
+    // 应用设备/显示设置
+    applyDisplaySettings(settings);
+
     // 同步拼写默认子模式到拼写页面的持久化键（仅当未显式设置过时）
     try {
         const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
@@ -93,6 +130,9 @@ function saveSettings() {
     
     // 应用幼儿园模式变化
     applyKindergartenMode(settings.kindergartenMode);
+
+    // 应用设备/显示设置
+    applyDisplaySettings(settings);
 
     // 同步拼写设置到本地键
     try {
@@ -122,6 +162,9 @@ function updateSettingsDisplay() {
     // 新增：混合比例显示
     const mixRatio = document.getElementById('mixKindergartenRatio');
     const mixRatioValue = document.getElementById('mixKindergartenRatioValue');
+    // 新增：界面缩放显示
+    const uiScale = document.getElementById('uiScale');
+    const uiScaleValue = document.getElementById('uiScaleValue');
     
     if (rateValue && speechRate) {
         rateValue.textContent = parseFloat(speechRate.value).toFixed(1);
@@ -138,6 +181,11 @@ function updateSettingsDisplay() {
     if (mixRatio && mixRatioValue) {
         const percent = Math.round(parseFloat(mixRatio.value) * 100);
         mixRatioValue.textContent = percent + '%';
+    }
+
+    if (uiScale && uiScaleValue) {
+        const percent = Math.round(parseFloat(uiScale.value) * 100);
+        uiScaleValue.textContent = percent + '%';
     }
 }
 
@@ -391,6 +439,23 @@ function initializeSettingsEventListeners() {
     if (quizCount) {
         quizCount.addEventListener('change', saveSettings);
     }
+
+    // 新增：设备与显示设置监听
+    const deviceModeEl = document.getElementById('deviceMode');
+    if (deviceModeEl) {
+        deviceModeEl.addEventListener('change', saveSettings);
+    }
+    const uiScaleEl = document.getElementById('uiScale');
+    if (uiScaleEl) {
+        uiScaleEl.addEventListener('input', function() {
+            updateSettingsDisplay();
+            saveSettings();
+        });
+    }
+    const compactModeEl = document.getElementById('compactMode');
+    if (compactModeEl) {
+        compactModeEl.addEventListener('change', saveSettings);
+    }
 }
 
 // 获取学习统计（基于当前学习类型）
@@ -443,4 +508,46 @@ function getLearningStats() {
     }
     
     return stats;
+}
+
+// 在页面任意位置调用以应用设备/显示设置
+function applyDisplaySettings(settings) {
+  try {
+    const body = document.body;
+    if (!body) return;
+
+    const device = (settings && settings.deviceMode) || 'phone';
+    const compact = !!(settings && settings.compactMode);
+    let scale = parseFloat(settings && settings.uiScale);
+    if (Number.isNaN(scale)) scale = 1;
+    scale = Math.max(0.8, Math.min(1.2, scale));
+
+    // 切换设备模式类名（预留样式钩子）
+    body.classList.remove('device-phone', 'device-tablet', 'device-desktop');
+    body.classList.add(`device-${device}`);
+
+    // 切换紧凑模式
+    body.classList.toggle('compact-mode', compact);
+
+    // 重置缩放相关样式
+    body.style.removeProperty('zoom');
+    body.style.removeProperty('transform');
+    body.style.removeProperty('transform-origin');
+    body.style.removeProperty('width');
+
+    // 使用 zoom 优先，transform 兜底
+    if (scale !== 1) {
+      body.style.zoom = String(scale);
+      if (body.style.zoom === '' || body.style.zoom === 'normal') {
+        body.style.transform = `scale(${scale})`;
+        body.style.transformOrigin = 'top center';
+        body.style.width = `${(100 / scale).toFixed(4)}%`;
+      }
+    }
+
+    // 暴露 CSS 变量，方便样式中进一步使用
+    document.documentElement.style.setProperty('--ui-scale', String(scale));
+  } catch (err) {
+    console.error('applyDisplaySettings failed:', err);
+  }
 }

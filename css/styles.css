@@ -398,78 +398,124 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* Floating play button near image bottom-right */
+/* Headline row: title + play button side-by-side */
+.quiz-headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 8px 0 6px;
+}
+.quiz-headline h3 { margin: 0; }
+
+/* Inline hint placed in headline (English word) */
+.spelling-inline-hint {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9);
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: clamp(14px, 2.8vw, 16px);
+}
+
+/* Play button now inline (elliptical to fit text like 听英文) */
 #quizMode .quiz-question .control-btn.play {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  width: 56px;
-  height: 56px;
-  padding: 0;
-  border-radius: 50%;
+  position: static;
+  min-width: 84px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  box-shadow: 0 6px 18px rgba(76, 175, 80, 0.35);
-  margin: 0 !important; /* override inline margin wrapper */
+  font-size: 14px;
+  box-shadow: none;
+  margin: 0 !important;
 }
 
-/* Larger question title */
+/* Submode toggle (Spell/Fill) */
+.spelling-submode-toggle { 
+  display: inline-flex; 
+  gap: 6px; 
+  margin-left: 6px; 
+}
+.spelling-submode-btn { 
+  padding: 4px 10px; 
+  border-radius: 999px; 
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.9);
+  color: #34495e;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.2s ease;
+}
+.spelling-submode-btn:hover { filter: brightness(1.05); }
+.spelling-submode-btn:active { transform: translateY(1px); }
+.spelling-submode-btn.active { 
+  background: #409eff; 
+  color: #fff; 
+  border-color: #1677ff; 
+}
+
+/* Smaller question title */
 #quizMode .quiz-question h3 {
-  font-size: clamp(22px, 4.5vw, 28px);
+  font-size: clamp(18px, 3.6vw, 22px);
   font-weight: 700;
   color: #2c3e50;
   background: rgba(255,255,255,0.85);
-  padding: 10px 14px;
+  padding: 6px 10px;
   border-radius: 10px;
 }
 
-/* Spelling mask (the word with blanks) */
+/* Spelling mask (the word with blanks) — compact */
 .spelling-mask {
-  font-size: clamp(28px, 4.5vw, 36px);
-  letter-spacing: 6px;
+  font-size: clamp(22px, 3.6vw, 28px);
+  letter-spacing: 4px;
   font-weight: 800;
   color: #293241;
   background: #ffffff;
-  padding: 10px 14px;
-  border-radius: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
   border: 2px dashed #d0d7e2;
   text-align: center;
   display: inline-block;
 }
 
-/* Larger input at bottom */
-.spelling-input {
-  max-width: 640px;
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 2px solid #cfd8e3;
-  font-size: clamp(20px, 4vw, 24px);
-  background: #ffffff;
-}
+/* Input compact — hidden from UI per design */
+ .spelling-input {
+   display: none;
+   max-width: 520px;
+   width: 100%;
+   padding: 8px 10px;
+   border-radius: 10px;
+   border: 2px solid #cfd8e3;
+   font-size: clamp(16px, 3.2vw, 20px);
+   background: #ffffff;
+ }
 
-/* Letters group centered */
+/* Letters group centered (compact gaps) */
 .spell-choice-group {
-  margin-top: 12px;
+  margin-top: 8px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 14px;
+  gap: 8px 10px;
   justify-content: center;
 }
 
-/* Letter key style */
+/* Letter key style (smaller) */
 .spell-choice {
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   padding: 0;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #6f54d8; /* purple */
   border: 0;
   color: #fff;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
   box-shadow: 0 6px 12px rgba(111,84,216,0.35);
   transition: transform 0.08s ease, filter 0.2s ease;
@@ -480,17 +526,17 @@ body {
 
 /* Controls inside spelling area */
 #quizOptions .control-btn {
-  font-size: 16px;
-  padding: 10px 14px;
+  font-size: 15px;
+  padding: 8px 12px;
   border-radius: 10px;
 }
 
 /* Layout spacing for options container */
 #quizOptions {
-  margin-top: 14px;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 1fr; /* mask + input + controls stacked */
-  gap: 12px;
+  gap: 8px;
   justify-items: center;
 }
 
@@ -708,8 +754,9 @@ body {
     border-radius: 12px;
   }
 
-  /* 单词图片缩小到 120x120 */
-  #learnMode .word-image {
+  /* 单词与拼写图片缩小到 120x120 */
+  #learnMode .word-image,
+  #quizMode .quiz-image {
     width: 120px !important;
     height: 120px !important;
   }
@@ -723,15 +770,10 @@ body {
   #learnChoices .learn-choice, .learn-choice {
     font-size: 14px !important;
     padding: 8px 10px !important;
-    margin: 6px !important;
   }
-
-  /* 控制按钮更紧凑，确保“上一个/下一个”可见 */
-  .control-btn {
-    padding: 8px 12px !important;
-    font-size: 14px !important;
-  }
-
-  /* 分组进度留更小的竖直空间 */
-  .group-progress { margin-bottom: 6px !important; }
 }
+
+/* 通用紧凑模式（通过设置启用） */
+.compact-mode #learnMode .word-card { padding: 12px 14px; }
+.compact-mode #learnMode .word-image,
+.compact-mode #quizMode .quiz-image { width: 120px; height: 120px; }

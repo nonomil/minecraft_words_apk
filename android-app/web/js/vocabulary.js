@@ -19,7 +19,7 @@ async function loadVocabulary() {
         
         currentVocabulary = data;
         currentWordIndex = 0;
-
+        
         // 新增：Minecraft 词库时按设置比例混入幼儿园词
         if (getSettings().mixKindergartenEnabled && /minecraft/i.test(selectedVocab)) {
             await mixKindergartenIntoCurrent(selectedVocab);
@@ -220,89 +220,6 @@ function searchVocabulary(query) {
     );
 }
 
-// 获取相似词汇（用于生成选择题选项）
-function getSimilarWords(targetWord, count = 3) {
-    const otherWords = currentVocabulary.filter(word => 
-        word.chinese !== targetWord.chinese
-    );
-    
-    if (otherWords.length === 0) {
-        return [];
-    }
-    
-    // 优先选择同类别的词汇
-    const sameCategory = otherWords.filter(word => 
-        word.category === targetWord.category
-    );
-    
-    const sameDifficulty = otherWords.filter(word => 
-        word.difficulty === targetWord.difficulty
-    );
-    
-    // 组合候选词汇
-    let candidates = [];
-    
-    // 添加同类别词汇
-    if (sameCategory.length > 0) {
-        candidates.push(...getRandomElements(sameCategory, Math.min(count, sameCategory.length)));
-    }
-    
-    // 如果不够，添加同难度词汇
-    if (candidates.length < count && sameDifficulty.length > 0) {
-        const needed = count - candidates.length;
-        const additional = sameDifficulty.filter(word => 
-            !candidates.some(c => c.chinese === word.chinese)
-        );
-        candidates.push(...getRandomElements(additional, Math.min(needed, additional.length)));
-    }
-    
-    // 如果还不够，随机添加其他词汇
-    if (candidates.length < count) {
-        const needed = count - candidates.length;
-        const remaining = otherWords.filter(word => 
-            !candidates.some(c => c.chinese === word.chinese)
-        );
-        candidates.push(...getRandomElements(remaining, Math.min(needed, remaining.length)));
-    }
-    
-    return candidates.slice(0, count);
-}
-
-// 检查词汇完整性
-function validateWordData(word) {
-    const required = ['word', 'chinese'];
-    const missing = required.filter(field => !word[field]);
-    
-    if (missing.length > 0) {
-        console.warn(`词汇数据不完整，缺少字段: ${missing.join(', ')}`, word);
-        return false;
-    }
-    
-    return true;
-}
-
-// 修复词汇数据
-function fixWordData(word) {
-    const fixed = { ...word };
-    
-    // 确保有标准化单词
-    if (!fixed.standardized) {
-        fixed.standardized = fixed.word;
-    }
-    
-    // 确保有分类
-    if (!fixed.category) {
-        fixed.category = '未分类';
-    }
-    
-    // 确保有难度
-    if (!fixed.difficulty) {
-        fixed.difficulty = 'basic';
-    }
-    
-    return fixed;
-}
-
 // 启用控制按钮（补回）
 function enableControls() {
     const nextBtn = document.querySelector('.control-btn.next');
@@ -328,4 +245,49 @@ function exportCurrentVocab() {
     a.click();
     URL.revokeObjectURL(url);
     showNotification('词库已导出');
+}
+
+// 检查词汇完整性（预留）
+function validateWordData(word) {
+    const required = ['word', 'chinese'];
+    const missing = required.filter(field => !word[field]);
+    if (missing.length > 0) {
+        console.warn(`词汇数据不完整，缺少字段: ${missing.join(', ')}` , word);
+        return false;
+    }
+    return true;
+}
+
+// 修复词汇数据（用于 game.js 引用）
+function fixWordData(word) {
+    const fixed = { ...word };
+    if (!fixed.standardized) fixed.standardized = fixed.word;
+    if (!fixed.category) fixed.category = '未分类';
+    if (!fixed.difficulty) fixed.difficulty = 'basic';
+    return fixed;
+}
+
+// 获取相似词汇（用于生成选择题选项）
+function getSimilarWords(targetWord, count = 3) {
+    const otherWords = currentVocabulary.filter(word => word.chinese !== targetWord.chinese);
+    if (otherWords.length === 0) return [];
+
+    const sameCategory = otherWords.filter(word => word.category === targetWord.category);
+    const sameDifficulty = otherWords.filter(word => word.difficulty === targetWord.difficulty);
+
+    let candidates = [];
+    if (sameCategory.length > 0) {
+        candidates.push(...getRandomElements(sameCategory, Math.min(count, sameCategory.length)));
+    }
+    if (candidates.length < count && sameDifficulty.length > 0) {
+        const needed = count - candidates.length;
+        const additional = sameDifficulty.filter(w => !candidates.some(c => c.chinese === w.chinese));
+        candidates.push(...getRandomElements(additional, Math.min(needed, additional.length)));
+    }
+    if (candidates.length < count) {
+        const needed = count - candidates.length;
+        const remaining = otherWords.filter(w => !candidates.some(c => c.chinese === w.chinese));
+        candidates.push(...getRandomElements(remaining, Math.min(needed, remaining.length)));
+    }
+    return candidates.slice(0, count);
 }

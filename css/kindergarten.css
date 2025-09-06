@@ -373,6 +373,11 @@ body.kindergarten-mode {
     width: 120px !important;
     height: 120px !important;
   }
+  /* 同步拼写模式图片尺寸 */
+  .kindergarten-mode #quizMode .quiz-image {
+    width: 120px !important;
+    height: 120px !important;
+  }
   .kindergarten-mode #learnMode #wordEnglish { font-size: 22px !important; }
   .kindergarten-mode #learnMode #wordChinese { font-size: 18px !important; }
   .kindergarten-mode #learnMode #wordPhrase  { font-size: 16px !important; }

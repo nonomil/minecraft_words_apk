@@ -17,7 +17,11 @@ const CONFIG = {
         spellingHint: true,
         // 新增：混合幼儿园词库（默认关闭，比例30%）
         mixKindergartenEnabled: false,
-        mixKindergartenRatio: 0.3
+        mixKindergartenRatio: 0.3,
+        // 新增：设备与显示设置
+        deviceMode: 'phone',
+        uiScale: 0.95,
+        compactMode: true
     },
     
     // 幼儿园模式设置

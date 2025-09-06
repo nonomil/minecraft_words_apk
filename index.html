@@ -119,14 +119,10 @@
                 <div class="quiz-card">
                     <div class="quiz-question">
                         <img class="quiz-image" id="quizImage" src="" alt="测试图片">
-                        <div style="margin: 20px 0;">
+                        <div class="quiz-headline">
+                            <h3>这个单词的中文意思是？</h3>
                             <button class="control-btn play" onclick="playQuizAudio()">🔊 听发音</button>
                         </div>
-                        <div class="learn-type-switch" style="justify-content:center;margin-top:-10px;margin-bottom:8px;">
-                            <button class="learn-type-btn spelling-submode-btn spell active" onclick="setSpellingSubmode('spell')">拼写单词</button>
-                            <button class="learn-type-btn spelling-submode-btn fill" onclick="setSpellingSubmode('fill')">补全单词</button>
-                        </div>
-                        <h3>这个单词的中文意思是？</h3>
                     </div>
 
                     <div class="quiz-options" id="quizOptions">
@@ -276,6 +272,26 @@
                 </div>
 
                 <div class="settings-group">
+                    <h3>📱 显示与设备</h3>
+                    <div class="setting-item">
+                        <label>设备模式:</label>
+                        <select id="deviceMode">
+                            <option value="phone">手机</option>
+                            <option value="tablet">平板</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>界面缩放:</label>
+                        <input type="range" id="uiScale" min="0.85" max="1.15" step="0.05" value="0.95" oninput="updateSettingsDisplay()">
+                        <span id="uiScaleValue">95%</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>紧凑模式:</label>
+                        <input type="checkbox" id="compactMode" checked>
+                    </div>
+                </div>
+
+                <div class="settings-group">
                     <h3>📊 学习记录</h3>
                     <div class="setting-item">
                         <label>总学习时间:</label>
@@ -292,6 +308,9 @@
                     <div class="setting-item">
                         <button class="control-btn" onclick="clearProgress()" style="background: linear-gradient(45deg, #f44336, #d32f2f);">清除记录</button>
                         <button class="control-btn" onclick="exportProgress()" style="background: linear-gradient(45deg, #4CAF50, #45a049);">导出数据</button>
+                        <!-- 新增：奖励导出/导入 -->
+                        <button class="control-btn" onclick="exportRewardData()" style="background: linear-gradient(45deg, #03A9F4, #0288D1);">导出奖励</button>
+                        <button class="control-btn" onclick="importRewardData()" style="background: linear-gradient(45deg, #FF9800, #F57C00);">导入奖励</button>
                     </div>
                 </div>
             </div>
