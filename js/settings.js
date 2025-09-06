@@ -9,7 +9,10 @@ function getSettings() {
         autoPlay: document.getElementById('autoPlay')?.checked ?? CONFIG.DEFAULT_SETTINGS.autoPlay,
         showImages: document.getElementById('showImages')?.checked ?? CONFIG.DEFAULT_SETTINGS.showImages,
         kindergartenMode: document.getElementById('kindergartenMode')?.checked ?? CONFIG.DEFAULT_SETTINGS.kindergartenMode,
-        quizCount: document.getElementById('quizCount')?.value || CONFIG.DEFAULT_SETTINGS.quizCount
+        quizCount: document.getElementById('quizCount')?.value || CONFIG.DEFAULT_SETTINGS.quizCount,
+        // 新增：拼写设置
+        spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode')?.value || CONFIG.DEFAULT_SETTINGS.spellingDefaultSubmode,
+        spellingHint: document.getElementById('spellingHint')?.checked ?? CONFIG.DEFAULT_SETTINGS.spellingHint
     };
     
     return settings;
@@ -43,7 +46,10 @@ function applySettingsToUI(settings) {
         autoPlay: document.getElementById('autoPlay'),
         showImages: document.getElementById('showImages'),
         kindergartenMode: document.getElementById('kindergartenMode'),
-        quizCount: document.getElementById('quizCount')
+        quizCount: document.getElementById('quizCount'),
+        // 新增：拼写设置
+        spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode'),
+        spellingHint: document.getElementById('spellingHint')
     };
     
     Object.keys(elements).forEach(key => {
@@ -62,6 +68,16 @@ function applySettingsToUI(settings) {
     
     // 应用幼儿园模式
     applyKindergartenMode(settings.kindergartenMode);
+
+    // 同步拼写默认子模式到拼写页面的持久化键（仅当未显式设置过时）
+    try {
+        const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
+        if (!hasExplicit && settings.spellingDefaultSubmode) {
+            localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
+        }
+        // 同步提示偏好（独立键，供拼写页读取）
+        localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+    } catch(e) {}
 }
 
 // 保存设置
@@ -71,6 +87,20 @@ function saveSettings() {
     
     // 应用幼儿园模式变化
     applyKindergartenMode(settings.kindergartenMode);
+
+    // 同步拼写设置到本地键
+    try {
+        // 默认子模式只在未手动切换过时覆盖
+        const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
+        if (!hasExplicit && settings.spellingDefaultSubmode) {
+            localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
+        }
+        localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+        // 若当前在拼写页面并存在切换函数，则应用到UI
+        if (typeof setSpellingSubmode === 'function') {
+            setSpellingSubmode(localStorage.getItem('SPELLING_SUBMODE') || settings.spellingDefaultSubmode || 'spell');
+        }
+    } catch(e) {}
     
     return settings;
 }

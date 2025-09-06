@@ -1,4 +1,4 @@
-/* ������ʽ�� */
+/* ������ʽ���� */
 * {
     margin: 0;
     padding: 0;
@@ -50,8 +50,8 @@ body {
 }
 
 .mode-btn {
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 8px 16px;
+    font-size: 0.95em;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -351,139 +351,84 @@ body {
 }
 
 /* ����ģʽ */
-/* 修复：默认隐藏导致拼写区域不可见 */
 .quiz-area {
-  display: block;
+    display: none;
 }
 
-/* 选项与输入布局优化 */
-#quizMode .quiz-card {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 16px 18px;
-  border-radius: 16px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-  background: #ffffffee;
+.quiz-container {
+    background: white;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#quizMode .quiz-question {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+/* ������ͳһ�Ĳ��Կ�Ƭ�����������ѡ�����ͬһ�������� */
+.quiz-card {
+    text-align: center;
+    padding: 25px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    margin: 15px 0;
+    background: url('background.jpg?v=2');
+    background-size: cover;
+    background-position: center;
 }
 
-#quizMode .quiz-image {
-  width: 150px;
-  height: 150px;
-  object-fit: contain;
-  border-radius: 8px;
-  border: 2px solid #ddd;
-  background: #f0f0f0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+.quiz-question {
+    text-align: center;
+    margin-bottom: 30px;
+    /* ԭ��ɱ�����Ϊ͸������ .quiz-card ͳһ�ṩ���� */
+    background: none;
+    border-radius: 12px;
+    padding: 20px;
 }
 
-/* Floating play button near image bottom-right */
-#quizMode .quiz-question .control-btn.play {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  width: 56px;
-  height: 56px;
-  padding: 0;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  box-shadow: 0 6px 18px rgba(76, 175, 80, 0.35);
-  margin: 0 !important; /* override inline margin wrapper */
-}
-
-/* Larger question title */
+/* ��������Ŀ�ı�������ѧϰģʽ���Ƶİ�ɫ���ݱ��� */
 #quizMode .quiz-question h3 {
-  font-size: clamp(22px, 4.5vw, 28px);
-  font-weight: 700;
-  color: #2c3e50;
-  background: rgba(255,255,255,0.85);
-  padding: 10px 14px;
-  border-radius: 10px;
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 12px 16px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.quiz-word {
+    font-size: 2em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    /* �Ƴ�����ģʽ��������Ӱ�Զ���ѧϰģʽ */
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: inline-block;
 }
 
-/* Spelling mask (the word with blanks) */
-.spelling-mask {
-  font-size: clamp(28px, 4.5vw, 36px);
-  letter-spacing: 6px;
-  font-weight: 800;
-  color: #293241;
-  background: #ffffff;
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 2px dashed #d0d7e2;
-  text-align: center;
-  display: inline-block;
+.quiz-phonetic {
+    font-size: 1.1em;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-family: 'Courier New', monospace;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
 }
 
-/* Larger input at bottom */
-.spelling-input {
-  max-width: 640px;
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 2px solid #cfd8e3;
-  font-size: clamp(20px, 4vw, 24px);
-  background: #ffffff;
-}
-
-/* Letters group centered */
-.spell-choice-group {
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 14px;
-  justify-content: center;
-}
-
-/* Letter key style */
-.spell-choice {
-  width: 60px;
-  height: 60px;
-  padding: 0;
-  border-radius: 12px;
-  background: #6f54d8; /* purple */
-  border: 0;
-  color: #fff;
-  cursor: pointer;
-  font-size: 22px;
-  font-weight: 800;
-  box-shadow: 0 6px 12px rgba(111,84,216,0.35);
-  transition: transform 0.08s ease, filter 0.2s ease;
-}
-.spell-choice:hover { filter: brightness(1.05); }
-.spell-choice:active { transform: translateY(1px) scale(0.98); }
-.spell-choice[disabled] { opacity: 0.55; filter: grayscale(8%); }
-
-/* Controls inside spelling area */
-#quizOptions .control-btn {
-  font-size: 16px;
-  padding: 10px 14px;
-  border-radius: 10px;
-}
-
-/* Layout spacing for options container */
-#quizOptions {
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: 1fr; /* mask + input + controls stacked */
-  gap: 12px;
-  justify-items: center;
-}
-
-/* Keep multiple-choice option cards readable on large UI */
-#quizMode .quiz-option {
-  font-size: 1.15em;
-  padding: 14px 16px;
+.quiz-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: #f0f0f0;
+    border: 2px solid #ddd;
 }
 
 .quiz-options {
@@ -636,12 +581,13 @@ body {
 }
 
 .learn-type-btn {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
     background: #fff;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1em;
+    font-weight: 600;
 }
 
 .learn-type-btn:hover {
@@ -684,4 +630,22 @@ body {
     .quiz-options {
         grid-template-columns: 1fr;
     }
+}
+.spelling-area { margin-top: 10px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.spelling-answer { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; padding: 10px; background: rgba(255,255,255,0.85); border-radius: 10px; }
+.spelling-slot { width: 34px; height: 44px; display: flex; align-items: center; justify-content: center; border: 2px dashed #bbb; border-radius: 8px; font-size: 1.2em; font-weight: 700; color: #2c3e50; background: #fff; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); }
+.spelling-slot.fixed { border-style: solid; background: #eef7ff; color: #1a237e; }
+.spelling-slot.filled { border-color: #4CAF50; }
+.letter-bank { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.letter-tile { min-width: 36px; height: 42px; padding: 0 8px; border-radius: 8px; background: linear-gradient(180deg, #fafafa, #eeeeee); border: 2px solid #ddd; display: flex; align-items: center; justify-content: center; cursor: pointer; font-weight: 800; color: #37474F; box-shadow: 0 2px 4px rgba(0,0,0,0.1); user-select: none; }
+.letter-tile:hover { transform: translateY(-2px); background: #ffffff; }
+.letter-tile.used { opacity: 0.4; pointer-events: none; }
+.spelling-tools { display: flex; gap: 10px; justify-content: center; }
+@media (max-width: 768px){
+  .spelling-slot{ width: 30px; height: 40px; font-size: 1.1em; }
+  .letter-tile{ min-width: 32px; height: 38px; }
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }

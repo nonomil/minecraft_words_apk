@@ -29,7 +29,7 @@
             <button onclick="shuffleWords()" style="margin-left: 10px; padding: 8px 15px; border-radius: 5px; border: 1px solid #ddd; background: #f8f9fa; cursor: pointer;">🔀 随机排序</button>
             <!-- 学习类型切换（直接打开也可用） -->
             <div class="learn-type-switch" style="margin-top:8px;">
-              <button class="learn-type-btn word" onclick="setLearnType('word')">单词</button>
+              <button class="learn-type-btn word" onclick="setLearnType('word')">英文单词</button>
               <button class="learn-type-btn word_zh" onclick="setLearnType('word_zh')">中文单词</button>
               <button class="learn-type-btn phrase_en" onclick="setLearnType('phrase_en')">英文短语</button>
               <button class="learn-type-btn phrase_zh" onclick="setLearnType('phrase_zh')">中文短语</button>
@@ -121,6 +121,10 @@
                         <img class="quiz-image" id="quizImage" src="" alt="测试图片">
                         <div style="margin: 20px 0;">
                             <button class="control-btn play" onclick="playQuizAudio()">🔊 听发音</button>
+                        </div>
+                        <div class="learn-type-switch" style="justify-content:center;margin-top:-10px;margin-bottom:8px;">
+                            <button class="learn-type-btn spelling-submode-btn spell active" onclick="setSpellingSubmode('spell')">拼写单词</button>
+                            <button class="learn-type-btn spelling-submode-btn fill" onclick="setSpellingSubmode('fill')">补全单词</button>
                         </div>
                         <h3>这个单词的中文意思是？</h3>
                     </div>
@@ -247,6 +251,17 @@
                             <option value="20">20题</option>
                             <option value="50">50题</option>
                         </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>默认拼写子模式:</label>
+                        <select id="spellingDefaultSubmode">
+                            <option value="spell">拼写单词</option>
+                            <option value="fill">补全单词</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>拼写单词显示完整提示:</label>
+                        <input type="checkbox" id="spellingHint" checked>
                     </div>
                 </div>
 

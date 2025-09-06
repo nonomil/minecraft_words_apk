@@ -3,6 +3,25 @@
 // 仅本模块内部状态（其余使用 config.js 中的全局变量）
 let currentQuizAudioLang = 'zh'; // 交替播放：中文->英文
 
+// 新增：拼写子模式（spell: 拼写单词；fill: 补全单词），默认记忆到本地
+let spellingSubmode = (function(){
+  try { return localStorage.getItem('SPELLING_SUBMODE') || 'spell'; } catch(e){ return 'spell'; }
+})();
+function setSpellingSubmode(mode){
+  if(mode!=='spell' && mode!=='fill') return;
+  spellingSubmode = mode;
+  try { localStorage.setItem('SPELLING_SUBMODE', mode); } catch(e){}
+  // 激活按钮样式
+  try {
+    const btns = document.querySelectorAll('.spelling-submode-btn');
+    btns.forEach(b=>b.classList.remove('active'));
+    const target = document.querySelector('.spelling-submode-btn.'+mode);
+    if (target) target.classList.add('active');
+  } catch(e){}
+  // 重新渲染当前题目
+  try { if (typeof updateQuizDisplay === 'function') updateQuizDisplay(); } catch(e){}
+}
+
 function startQuiz() {
   if (!Array.isArray(currentVocabulary) || currentVocabulary.length === 0) {
     showNotification && showNotification('请先加载词库', 'error');
@@ -18,48 +37,121 @@ function startQuiz() {
   updateQuizProgressBar();
 }
 
-function updateQuizDisplay() {
-  if (currentQuizIndex >= quizWords.length) { showQuizResults(); return; }
-  const word = quizWords[currentQuizIndex];
-  quizAnswered = false;
-  currentQuizAudioLang = 'zh';
-
-  // 题干（中文提示，要求拼写英文）
-  const qTitle = document.querySelector('.quiz-question h3');
-  if (qTitle) {
-    const cn = (word.chinese || '').trim();
-    qTitle.textContent = cn ? `请拼写：${cn} 的英文` : '请根据发音拼写英文';
-  }
-  updateQuizImage(word);
-  generateSpellingTask(word);
-  updateQuizScore();
-  updateQuizGroupDisplay();
-  updateQuizStats();
-  updateQuizProgressBar();
-  const nextBtn = document.getElementById('nextQuizBtn');
-  if (nextBtn) nextBtn.disabled = true;
-  updateQuizAudioButton();
-  setTimeout(() => { try{ playQuizAudio(); }catch(e){} }, 400);
-}
-
-function updateQuizImage(word){
-  const img = document.getElementById('quizImage');
-  if(!img) return;
-  if (word.imageURLs && word.imageURLs.length>0) {
-    convertToDirectImageUrl(word.imageURLs[0].url, word.imageURLs[0].filename)
-      .then(u=>{ img.src=u; })
-      .catch(()=>{ img.src=createPlaceholderImage('图片无法加载'); });
-    img.onerror=()=>{ img.src=createPlaceholderImage('图片无法加载'); };
-  } else {
-    img.src = createPlaceholderImage('暂无图片');
-  }
-}
 
 // 生成拼写交互：输入框 + 提交按钮 + 显示提示
 function generateSpellingTask(word){
   const ctn = document.getElementById('quizOptions');
   if(!ctn) return;
   ctn.innerHTML = '';
+
+  // 子模式：拼写单词（spell）
+  if (spellingSubmode === 'spell') {
+    const original = (word.standardized || word.word || '').trim();
+    const lettersOnly = original.replace(/[^A-Za-z]/g,'');
+
+    const maskEl = document.createElement('div');
+    maskEl.className = 'spelling-mask';
+    maskEl.id = 'spellingMask';
+    maskEl.textContent = '_'.repeat(lettersOnly.length);
+
+    // 取消上方提示框（不再渲染 hintEl）
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = 'spellingInput';
+    input.className = 'spelling-input';
+    // 直接在第二个框显示单词，且只读，不被点击字母覆盖
+    input.value = original;
+    input.autocomplete = 'off';
+    input.spellcheck = false;
+    input.readOnly = true;
+    // 居中更窄
+    input.style.display='block';
+    input.style.margin='6px auto';
+    input.style.maxWidth='640px';
+    input.style.width='72%';
+
+    const undoBtn = document.createElement('button');
+    undoBtn.type='button';
+    undoBtn.className='control-btn';
+    undoBtn.textContent='⬅️ 回退';
+
+    const submitBtn = document.createElement('button');
+    submitBtn.className='control-btn';
+    submitBtn.textContent='提交答案';
+    submitBtn.disabled=true;
+
+    const helper = document.createElement('div');
+    helper.style.color='#666';
+    helper.style.marginTop='8px';
+    helper.textContent='提示：点击下面字母按顺序完成拼写；支持回退；按 Enter 也可提交';
+
+    const pool = shuffleArray(lettersOnly.split(''));
+    const letterGroup = document.createElement('div');
+    letterGroup.className = 'spell-choice-group';
+
+    const typed = [];
+    const usedButtons = [];
+
+    const tryAutoSubmit = () => {
+      const cur = typed.join('');
+      const correct = normalizeWord(original);
+      if (cur.length === lettersOnly.length && normalizeWord(cur) === correct) {
+        // 自动提交并切换
+        submitSpelling(word, cur);
+      }
+    };
+
+    pool.forEach((ch) => {
+      const btn = document.createElement('button');
+      btn.type='button';
+      btn.className='spell-choice';
+      btn.textContent=ch.toLowerCase();
+      btn.onclick=()=>{
+        if (typed.length >= lettersOnly.length) return;
+        typed.push(ch);
+        usedButtons.push(btn);
+        btn.disabled = true; btn.style.opacity = 0.6;
+        const cur = typed.join('');
+        maskEl.textContent = cur + '_'.repeat(lettersOnly.length - cur.length);
+        submitBtn.disabled = (typed.length !== lettersOnly.length);
+        tryAutoSubmit();
+      };
+      letterGroup.appendChild(btn);
+    });
+
+    undoBtn.onclick = ()=>{
+      if(!typed.length) return;
+      const lastBtn = usedButtons.pop();
+      typed.pop();
+      if (lastBtn) { lastBtn.disabled = false; lastBtn.style.opacity=''; }
+      const cur = typed.join('');
+      maskEl.textContent = cur + '_'.repeat(lettersOnly.length - cur.length);
+      submitBtn.disabled = true;
+    };
+
+    submitBtn.onclick = () => submitSpelling(word, typed.join(''));
+
+    const controls = document.createElement('div');
+    controls.style.display='flex';
+    controls.style.gap='8px';
+    controls.style.marginTop='8px';
+    controls.style.flexWrap='wrap';
+    controls.style.justifyContent='center';
+    controls.appendChild(undoBtn);
+    controls.appendChild(submitBtn);
+
+    const ctn = document.getElementById('quizOptions');
+    ctn.appendChild(maskEl);
+    ctn.appendChild(input);
+    ctn.appendChild(controls);
+    ctn.appendChild(letterGroup);
+    ctn.appendChild(helper);
+
+    setTimeout(()=>{ try{ document.getElementById('spellingMask').scrollIntoView({block:'center', behavior:'smooth'}); }catch(e){} }, 50);
+    input.onkeydown = (e)=>{ if(e.key==='Enter' && !submitBtn.disabled){ submitSpelling(word, typed.join('')); } };
+    return; // 结束 spell 分支
+  }
 
   // 目标英文
   const original = (word.standardized || word.word || '').trim();
@@ -84,6 +176,11 @@ function generateSpellingTask(word){
   input.autocomplete = 'off';
   input.spellcheck = false;
   input.readOnly = true;
+  // 让输入框更窄并居中
+  input.style.display='block';
+  input.style.margin='6px auto';
+  input.style.maxWidth='640px';
+  input.style.width='72%';
 
   // 回退按钮
   const undoBtn = document.createElement('button');
@@ -98,7 +195,7 @@ function generateSpellingTask(word){
   submitBtn.disabled = true;
   submitBtn.onclick = () => submitSpelling(word);
 
-  // 说明
+  // 说明（补全模式不显示完整单词提示）
   const helper = document.createElement('div');
   helper.style.color = '#666';
   helper.style.marginTop = '8px';
@@ -111,140 +208,243 @@ function generateSpellingTask(word){
 
   const letterGroup = document.createElement('div');
   letterGroup.className = 'spell-choice-group';
+  
+  const selected = [];
+  const selectedRequiredIndexes = []; // 用于标记哪些空已填写
 
-  // 填字状态
-  const filled = [];
-  const needed = requiredLetters.slice(); // 剩余需求（可能存在重复字母）
-
-  pool.forEach(ch => {
+  pool.forEach((ch) => {
     const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'spell-choice';
-    btn.textContent = ch.toLowerCase();
-
-    // 统计该字母在需求中的数量
-    const needCount = needed.filter(x => x.toLowerCase()===ch.toLowerCase()).length;
-    let used = 0;
-
+    btn.type='button'; btn.className='spell-choice'; btn.textContent = ch.toLowerCase();
     btn.onclick = () => {
-      // 若该字母已用尽或已填满，则不处理
-      const remaining = needed.filter(x => x.toLowerCase()===ch.toLowerCase()).length;
-      if (remaining <= 0) return;
-
-      // 填入下一个空位
-      const idx = nextBlankIndex(positions, filled);
-      if (idx === -1) return;
-      filled.push({ pos: positions[idx], ch });
-      // 从 needed 中移除一个该字母
-      const rmIndex = needed.findIndex(x => x.toLowerCase()===ch.toLowerCase());
-      if (rmIndex>-1) needed.splice(rmIndex,1);
-
-      // 更新展示与输入值
-      maskEl.textContent = buildMaskedWord(original, positions, filled);
-      input.value = composeFullWord(original, positions, filled);
-
-      used++;
-      if (used >= needCount) { btn.disabled = true; btn.style.opacity = 0.6; }
-
-      // 已填完所有空，则允许提交
-      if (needed.length === 0) submitBtn.disabled = false;
+      if (selected.length >= positions.length) return;
+      selected.push(ch);
+      btn.disabled = true; btn.style.opacity=0.6;
+      // 依据当前已选字母，构建显示串
+      const filled = buildMaskedWord(original, positions, selected);
+      maskEl.textContent = filled;
+      // 输入框保存“去掉下划线后的字符串”，在填满时即为完整单词
+      input.value = filled.replace(/_/g, '');
+      if (selected.length === positions.length) {
+        submitBtn.disabled = false;
+        // 补全模式：若补全后与正确答案相同，则自动提交并切题
+        try {
+          const normalizedCandidate = normalizeWord(input.value);
+          const normalizedCorrect = normalizeWord(original);
+          if (normalizedCandidate && normalizedCandidate === normalizedCorrect) {
+            submitSpelling(word, input.value);
+          }
+        } catch(e){}
+      }
     };
-
     letterGroup.appendChild(btn);
   });
 
+  // 回退逻辑
   undoBtn.onclick = () => {
-    if (!filled.length) return;
-    const last = filled.pop();
-    needed.push(original[last.pos]); // 归还需求
-    // 重新启用相应字母按钮一次（找到第一个文本相同且disabled的按钮）
-    const btns = letterGroup.querySelectorAll('.spell-choice');
-    for (const b of btns) {
-      if (b.textContent.toLowerCase() === last.ch.toLowerCase() && b.disabled) { b.disabled = false; b.style.opacity = ''; break; }
+    if (!selected.length) return;
+    selected.pop();
+    const filled = buildMaskedWord(original, positions, selected);
+    input.value = filled.replace(/_/g, '');
+    maskEl.textContent = filled;
+    submitBtn.disabled = true;
+    // 重新启用最近一次选择的字母按钮
+    const buttons = letterGroup.querySelectorAll('button');
+    for (let i = buttons.length - 1; i >= 0; i--) {
+      if (buttons[i].disabled) { buttons[i].disabled=false; buttons[i].style.opacity=''; break; }
     }
-    maskEl.textContent = buildMaskedWord(original, positions, filled);
-    input.value = composeFullWord(original, positions, filled);
-    submitBtn.disabled = true; // 撤回后需重新填完才能提交
   };
 
-  // 装配到容器
-  ctn.appendChild(maskEl);
-  ctn.appendChild(input);
   const controls = document.createElement('div');
   controls.style.display = 'flex';
   controls.style.gap = '8px';
   controls.style.marginTop = '8px';
-  controls.style.flexWrap = 'wrap';
-  controls.style.justifyContent = 'center';
+  controls.style.flexWrap='wrap';
+  controls.style.justifyContent='center';
   controls.appendChild(undoBtn);
   controls.appendChild(submitBtn);
+
+  ctn.appendChild(maskEl);
+  ctn.appendChild(input);
   ctn.appendChild(controls);
   ctn.appendChild(letterGroup);
   ctn.appendChild(helper);
 
   setTimeout(()=>{ try{ document.getElementById('spellingMask').scrollIntoView({block:'center', behavior:'smooth'}); }catch(e){} }, 50);
   input.onkeydown = (e)=>{ if(e.key==='Enter' && !submitBtn.disabled){ submitSpelling(word); } };
+}
 
-  // 内部工具
-  function chooseBlankPositions(str, count){
-    const validIdx=[];
-    for(let i=0;i<str.length;i++){
-      const ch=str[i];
-      if(/[A-Za-z]/.test(ch) && i>0 && i<str.length-1) validIdx.push(i);
-    }
-    if(validIdx.length===0){ return [Math.max(1, Math.floor(str.length/2))]; }
-    const k=Math.min(count, validIdx.length);
-    return shuffleArray(validIdx).slice(0,k).sort((a,b)=>a-b);
+function updateQuizDisplay() {
+  if (currentQuizIndex >= quizWords.length) { showQuizResults(); return; }
+  const word = quizWords[currentQuizIndex];
+  quizAnswered = false;
+  currentQuizAudioLang = 'en';
+
+  // 题干（中文提示，要求拼写英文）
+  const qTitle = document.querySelector('.quiz-question h3');
+  if (qTitle) {
+    const cn = (word.chinese || '').trim();
+    qTitle.textContent = cn ? `请拼写：${cn} 的英文` : '请根据发音拼写英文';
   }
-  function buildMaskedWord(str, blanks, filledPairs){
-    const set = new Map(); filledPairs.forEach(p=>set.set(p.pos, p.ch));
-    let out='';
-    for(let i=0;i<str.length;i++){
-      if(blanks.includes(i)){
-        out += set.has(i) ? set.get(i) : '_';
-      } else {
-        out += str[i];
-      }
-    }
-    return out;
+  updateQuizImage(word);
+  generateSpellingTask(word);
+  updateQuizScore();
+  updateQuizGroupDisplay();
+  updateQuizStats();
+  updateQuizProgressBar();
+  const nextBtn = document.getElementById('nextQuizBtn');
+  if (nextBtn) nextBtn.disabled = true;
+  updateQuizAudioButton();
+
+  // 自动先播英文，再播中文
+  setTimeout(() => {
+    try{ playQuizAudio(); }catch(e){}
+    const baseDelay = 700;
+    const txt = (word.standardized||word.word||'').replace(/[^A-Za-z]/g,'');
+    const extra = Math.min(2200, Math.max(800, txt.length * 120));
+    setTimeout(()=>{ try{ playQuizAudio(); }catch(e){} }, baseDelay + extra);
+  }, 350);
+}
+
+function updateQuizImage(word){
+  const img = document.getElementById('quizImage');
+  if(!img) return;
+
+  // 本地占位 emoji 资源（最后兜底）
+  const localEmojis = ['css/emoji-smile.svg','css/emoji-heart.svg','css/emoji-star.svg','css/emoji-sparkle.svg'];
+  const pickLocalEmoji = () => localEmojis[Math.floor(Math.random()*localEmojis.length)];
+
+  // 在线 emoji 资源（优先于本地）
+  const onlineEmojis = [
+    'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f60a.svg', // 😊
+    'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/2b50.svg',   // ⭐
+    'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/2728.svg',  // ✨
+    'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f389.svg'  // 🎉
+  ];
+  const pickOnlineEmoji = () => onlineEmojis[Math.floor(Math.random()*onlineEmojis.length)];
+
+  const setClickToOpen = (url)=>{
+    img.style.cursor = url ? 'pointer' : '';
+    if (!url) { img.onclick = null; return; }
+    img.onclick = async ()=>{
+      const targetUrl = url;
+      try {
+        if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser) {
+          await window.Capacitor.Plugins.Browser.open({ url: targetUrl });
+          return;
+        }
+      } catch(e){}
+      try { window.open(targetUrl, (/(Android)/i.test(navigator.userAgent)) ? '_system' : '_blank'); } catch(e){}
+    };
+  };
+
+  const original = (word.standardized || word.word || '').trim();
+  const keywords = encodeURIComponent(original.replace(/[^A-Za-z\s]/g, ' ').trim() || 'education');
+  const unsplashUrl = `https://source.unsplash.com/featured/800x600/?${keywords}`;
+  const loremUrl = `https://loremflickr.com/800/600/${keywords}?random=${Date.now()%100000}`;
+
+  // 兜底链：自带图片 -> Unsplash -> loremflickr -> 在线emoji -> 本地emoji
+  const useLocalEmoji = () => {
+    const u = pickLocalEmoji();
+    img.onerror = null;
+    img.onload = null;
+    img.src = u;
+    setClickToOpen(null);
+  };
+  const useOnlineEmoji = () => {
+    const u = pickOnlineEmoji();
+    img.onerror = useLocalEmoji;
+    img.onload = () => setClickToOpen(u);
+    img.src = u;
+  };
+  const useLorem = () => {
+    img.onerror = useOnlineEmoji;
+    img.onload = () => setClickToOpen(loremUrl);
+    img.src = loremUrl;
+  };
+  const useUnsplash = () => {
+    img.onerror = useLorem;
+    img.onload = () => setClickToOpen(unsplashUrl);
+    img.src = unsplashUrl;
+  };
+
+  // 首选：使用单词自带图片（若存在）
+  if (word.imageURLs && word.imageURLs.length>0) {
+    const raw = word.imageURLs[0];
+    try {
+      convertToDirectImageUrl(raw.url, raw.filename)
+        .then(u=>{
+          img.onerror = useUnsplash; // 若加载失败，继续兜底
+          img.onload = () => setClickToOpen(raw.url||u);
+          img.src = u;
+        })
+        .catch(()=>{ useUnsplash(); });
+    } catch(e){ useUnsplash(); }
+  } else {
+    useUnsplash();
   }
-  function composeFullWord(str, blanks, filledPairs){
-    const set = new Map(); filledPairs.forEach(p=>set.set(p.pos, p.ch));
-    let chars=str.split('');
-    blanks.forEach(idx=>{ if(set.has(idx)) chars[idx]=set.get(idx); });
-    return chars.join('');
+}
+
+// === 辅助函数（补全模式需要） ===
+function chooseBlankPositions(original, need) {
+  const letterIdx = [];
+  for (let i=0;i<original.length;i++) {
+    if (/[A-Za-z]/.test(original[i])) letterIdx.push(i);
   }
-  function nextBlankIndex(blanks, filledPairs){
-    const filledPositions = new Set(filledPairs.map(p=>p.pos));
-    for(let i=0;i<blanks.length;i++){ if(!filledPositions.has(blanks[i])) return i; }
-    return -1;
+  if (letterIdx.length === 0) return [];
+  let candidates = letterIdx.slice(1, -1); // 尽量避开首尾
+  if (candidates.length < need) candidates = letterIdx.slice();
+  const picked = [];
+  const pool = shuffleArray(candidates.slice());
+  while (picked.length < need && pool.length) {
+    const p = pool.shift();
+    if (!picked.includes(p)) picked.push(p);
   }
-  function buildDistractorLetters(required, originalStr){
-    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-    const reqLower = required.map(c=>c.toLowerCase());
-    const forbid = new Set(reqLower);
-    // 也避免大量重复字母（尽量不与原词相邻字母相同）
-    const distractPool = alphabet.filter(ch=>!forbid.has(ch));
-    const need = required.length===1 ? 2 : 3; // 方案B：加入干扰字母
-    return getRandomElements(distractPool, need);
+  picked.sort((a,b)=>a-b);
+  return picked;
+}
+
+function buildMaskedWord(original, blankPositions, selectedLetters) {
+  // blankPositions: 在 original 中被挖空的索引；selectedLetters: 用户已选择的字母序列
+  const posIndexMap = new Map();
+  blankPositions.forEach((pos, idx) => posIndexMap.set(pos, idx));
+  const chars = original.split('');
+  for (let i=0;i<chars.length;i++) {
+    const idx = posIndexMap.get(i);
+    if (idx === undefined) continue; // 非挖空位置保留原字符
+    const sel = selectedLetters[idx];
+    chars[i] = sel ? sel.toLowerCase() : '_';
   }
+  return chars.join('');
+}
+
+function buildDistractorLetters(requiredLetters, original) {
+  const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const reqSet = new Set(requiredLetters.map(c=>c.toLowerCase()));
+  // 优先从非必需字母中选择干扰项
+  const candidates = letters.filter(ch => !reqSet.has(ch));
+  const need = Math.min(6, Math.max(1, requiredLetters.length));
+  const distractors = [];
+  const shuffled = shuffleArray(candidates);
+  while (distractors.length < need && shuffled.length) {
+    distractors.push(shuffled.shift());
+  }
+  return distractors;
 }
 
 function normalizeWord(s){ return (s||'').toLowerCase().replace(/\s+/g,'').replace(/-/g,''); }
 
-async function submitSpelling(word){
+async function submitSpelling(word, answerOverride){
   if (quizAnswered) return;
   const el = document.getElementById('spellingInput');
   const resultEl = document.getElementById('quizResult');
   const nextBtn = document.getElementById('nextQuizBtn');
-  const answer = normalizeWord(el ? el.value : '');
+  const answer = normalizeWord(answerOverride != null ? String(answerOverride) : (el ? el.value : ''));
   const correct = normalizeWord(word.standardized || word.word || '');
 
-  // 发音被提交的文本（英文）
   try {
-    if (window.TTS && answer) {
+    if (window.TTS && (answerOverride || (el && el.value))) {
       const s = getSettings();
-      await TTS.speak(el.value, { lang:'en-US', rate: Math.max(0.7, s.speechRate*0.9), pitch:s.speechPitch, volume:s.speechVolume });
+      await TTS.speak(answerOverride || (el?el.value:''), { lang:'en-US', rate: Math.max(0.7, s.speechRate*0.9), pitch:s.speechPitch, volume:s.speechVolume });
     }
   } catch(e){}
 

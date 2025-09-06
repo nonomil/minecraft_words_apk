@@ -11,7 +11,10 @@ const CONFIG = {
         autoPlay: true,
         showImages: true,
         kindergartenMode: true,
-        quizCount: '10'
+        quizCount: '10',
+        // 新增：拼写页面默认子模式与提示开关
+        spellingDefaultSubmode: 'spell',
+        spellingHint: true
     },
     
     // 幼儿园模式设置
