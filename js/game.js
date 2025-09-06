@@ -286,6 +286,15 @@ function selectLearnChoice(element, selected, correct) {
     }
 
     updateStats();
+
+    // 如果回答正确，短暂停留后自动切换到下一词（1.5s）
+    if (selected === correct) {
+        setTimeout(() => {
+            if (typeof currentWordIndex !== 'undefined' && Array.isArray(currentVocabulary) && currentWordIndex < currentVocabulary.length - 1) {
+                nextWord();
+            }
+        }, 1500);
+    }
 }
 
 // 上一个单词

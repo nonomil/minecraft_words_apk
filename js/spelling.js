@@ -73,11 +73,11 @@ function generateSpellingTask(word){
 
     const undoBtn = document.createElement('button');
     undoBtn.type='button';
-    undoBtn.className='control-btn';
+    undoBtn.className='control-btn undo';
     undoBtn.textContent='⬅️ 回退';
 
     const submitBtn = document.createElement('button');
-    submitBtn.className='control-btn';
+    submitBtn.className='control-btn submit';
     submitBtn.textContent='提交答案';
     submitBtn.disabled=true;
 
@@ -95,9 +95,7 @@ function generateSpellingTask(word){
 
     const tryAutoSubmit = () => {
       const cur = typed.join('');
-      const correct = normalizeWord(original);
-      if (cur.length === lettersOnly.length && normalizeWord(cur) === correct) {
-        // 自动提交并切换
+      if (cur.length === lettersOnly.length) {
         submitSpelling(word, cur);
       }
     };
@@ -185,12 +183,12 @@ function generateSpellingTask(word){
   // 回退按钮
   const undoBtn = document.createElement('button');
   undoBtn.type = 'button';
-  undoBtn.className = 'control-btn';
+  undoBtn.className = 'control-btn undo';
   undoBtn.textContent = '⬅️ 回退';
 
   // 提交按钮
   const submitBtn = document.createElement('button');
-  submitBtn.className = 'control-btn';
+  submitBtn.className = 'control-btn submit';
   submitBtn.textContent = '提交答案';
   submitBtn.disabled = true;
   submitBtn.onclick = () => submitSpelling(word);

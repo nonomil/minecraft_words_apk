@@ -352,13 +352,13 @@ function selectLearnChoice(element, selected, correct) {
             wordChinese.style.display = 'block';
         }
         
-        // 如果回答正确，自动跳转到下一题
+        // 如果回答正确，自动跳转到下一题（改为 1.5s 更顺滑）
         if (selected === correct) {
             setTimeout(() => {
                 if (currentWordIndex < currentVocabulary.length - 1) {
                     nextWord();
                 }
-            }, 2000); // 显示答案2秒后自动跳转
+            }, 1500);
         }
     }, CONFIG.ANIMATION.ANSWER_DELAY);
 }

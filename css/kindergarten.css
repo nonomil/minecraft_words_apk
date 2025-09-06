@@ -1,6 +1,6 @@
-/* Ó×¶ùÔ°Ä£Ê½×¨ÓÃÑùÊ½ */
+/* ï¿½×¶ï¿½Ô°Ä£Ê½×¨ï¿½ï¿½ï¿½ï¿½Ê½ */
 
-/* ½±ÀøÏµÍ³ */
+/* ï¿½ï¿½ï¿½ï¿½ÏµÍ³ */
 .reward-system {
     position: fixed;
     top: 5px;
@@ -48,14 +48,14 @@
     font-size: 16px;
     line-height: 1;
     animation: sparkle 2s infinite;
-    /* ÓÅÏÈÊ¹ÓÃÏµÍ³ Emoji ×ÖÌå£¬±ÜÃâÏÔÊ¾ÎªÎÊºÅ */
+    /* ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ÏµÍ³ Emoji ï¿½ï¿½ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Îªï¿½Êºï¿½ */
     font-family: "Segoe UI Emoji", "Noto Color Emoji", "Apple Color Emoji", "Twemoji Mozilla", "EmojiOne Color", "Segoe UI Symbol", sans-serif;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
 .sword {
-    /* ½«×êÊ¯½£¸ÄÎªÀ¶É« */
+    /* ï¿½ï¿½ï¿½ï¿½Ê¯ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½É« */
     filter: hue-rotate(240deg) saturate(2) brightness(0.9);
 }
 
@@ -63,7 +63,7 @@
     transform: scale(1.2);
 }
 
-/* ½±ÀøÍ¼±ê¶¯»­Ð§¹ûÒÑÍ¨¹ýJavaScriptÖ±½ÓÉèÖÃemojiÄÚÈÝ */
+/* ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ê¶¯ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½JavaScriptÖ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½emojiï¿½ï¿½ï¿½ï¿½ */
 
 @keyframes sparkle {
     0%, 100% { transform: scale(1) rotate(0deg); }
@@ -72,7 +72,7 @@
     75% { transform: scale(1.1) rotate(5deg); }
 }
 
-/* ·Ö×é½ø¶È */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .group-progress {
     background: #e8f5e8;
     padding: 10px;
@@ -115,7 +115,7 @@
     border-radius: 8px;
 }
 
-/* ÐÇÐÇ¶¯»­ÈÝÆ÷ */
+/* ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .stars-container {
     position: fixed;
     top: 0;
@@ -149,9 +149,9 @@
     }
 }
 
-/* Ó×¶ùÔ°Ä£Ê½ÏÂµÄ±³¾°ÑùÊ½ */
+/* ï¿½×¶ï¿½Ô°Ä£Ê½ï¿½ÂµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ */
 body.kindergarten-mode {
-    /* ±³¾°ÑùÊ½ÒÑÒÆ³ý£¬Ê¹ÓÃÄ¬ÈÏ±³¾° */
+    /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ä¬ï¿½Ï±ï¿½ï¿½ï¿½ */
 }
 
 .kindergarten-mode .word-card {
@@ -222,7 +222,7 @@ body.kindergarten-mode {
     border-radius: 10px;
 }
 
-/* ³É¾Í¶¯»­ */
+/* ï¿½É¾Í¶ï¿½ï¿½ï¿½ */
 .achievement {
     position: fixed;
     top: 50%;
@@ -259,7 +259,7 @@ body.kindergarten-mode {
     }
 }
 
-/* ´ó×ÖÌåÄ£Ê½£¨ÊÊºÏÓ×¶ù£© */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½Êºï¿½ï¿½×¶ï¿½ï¿½ï¿½ */
 .kindergarten-mode .word-image {
     width: 180px;
     height: 180px;
@@ -288,7 +288,7 @@ body.kindergarten-mode {
     border: 2px solid #f44336;
 }
 
-/* ²Êºç½ø¶ÈÌõ */
+/* ï¿½Êºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 .kindergarten-mode .progress-fill {
     background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff);
     background-size: 300% 300%;
@@ -307,7 +307,7 @@ body.kindergarten-mode {
     animation: rainbowProgress 2s ease infinite;
 }
 
-/* ÏìÓ¦Ê½Éè¼Æ - Ó×¶ùÔ°Ä£Ê½ */
+/* ï¿½ï¿½Ó¦Ê½ï¿½ï¿½ï¿½ - ï¿½×¶ï¿½Ô°Ä£Ê½ */
 @media (max-width: 768px) {
     .reward-system {
         position: relative;
@@ -347,4 +347,19 @@ body.kindergarten-mode {
 .kindergarten-mode #quizMode .quiz-container,
 .kindergarten-mode #quizMode .quiz-option {
     background: white;
+}
+
+/* Match quiz image size with learning mode in kindergarten mode */
+.kindergarten-mode #quizMode .quiz-image {
+    width: 180px;
+    height: 180px;
+    border: 3px solid #ff9800;
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .kindergarten-mode #quizMode .quiz-image {
+        width: 140px;
+        height: 140px;
+    }
 }
