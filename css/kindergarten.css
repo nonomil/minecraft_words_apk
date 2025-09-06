@@ -363,3 +363,26 @@ body.kindergarten-mode {
         height: 140px;
     }
 }
+
+/* 幼儿园模式：横屏小高度手机适配，更紧凑布局 */
+@media (orientation: landscape) and (max-height: 480px) {
+  .kindergarten-mode #learnMode .word-card {
+    padding: 10px 12px !important;
+  }
+  .kindergarten-mode #learnMode .word-image {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  .kindergarten-mode #learnMode #wordEnglish { font-size: 22px !important; }
+  .kindergarten-mode #learnMode #wordChinese { font-size: 18px !important; }
+  .kindergarten-mode #learnMode #wordPhrase  { font-size: 16px !important; }
+  .kindergarten-mode #learnChoices .learn-choice, .kindergarten-mode .learn-choice {
+    font-size: 16px !important;
+    padding: 9px 12px !important;
+    margin: 6px !important;
+  }
+  .kindergarten-mode .control-btn {
+    padding: 9px 12px !important;
+    font-size: 16px !important;
+  }
+}
