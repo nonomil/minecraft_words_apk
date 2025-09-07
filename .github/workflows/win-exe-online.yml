@@ -1,0 +1,48 @@
+name: Windows EXE (Online via Nativefier)
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_url:
+        description: 'Online URL to wrap (must be publicly accessible)'
+        required: true
+        type: string
+      app_name:
+        description: 'App name for EXE'
+        required: false
+        default: 'MinecraftWords'
+        type: string
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build Windows EXE with Nativefier
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $APP_URL = '${{ inputs.app_url }}'
+          $APP_NAME = '${{ inputs.app_name }}'
+          if (-not $APP_URL) { throw 'app_url is required' }
+          npx nativefier --name "$APP_NAME" --platform windows --arch x64 --out nativefier-build --disable-dev-tools --single-instance "$APP_URL"
+          $dir = Get-ChildItem nativefier-build -Directory | Select-Object -First 1
+          if (-not $dir) { throw 'Build output not found' }
+          $zip = "$APP_NAME-win32-x64.zip"
+          if (Test-Path $zip) { Remove-Item $zip -Force }
+          Compress-Archive -Path (Join-Path $dir.FullName '*') -DestinationPath $zip
+          Write-Host "Packaged: $zip"
+
+      - name: Upload EXE artifact (zip)
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-exe-online
+          path: "*.zip"
+          if-no-files-found: error
