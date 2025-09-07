@@ -29,6 +29,7 @@ jobs:
           rsync -av --delete css/ android-app/web/css/
           rsync -av --delete Data/ android-app/web/Data/
           cp -f index.html android-app/web/index.html
+          cp -f activation_codes.txt android-app/web/activation_codes.txt || true
 
       - name: Set up JDK 21
         uses: actions/setup-java@v4

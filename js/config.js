@@ -1,8 +1,10 @@
 // 全局配置和常量
 const CONFIG = {
-    // 词库路径
+    // 资源路径
     VOCAB_PATH: 'js/vocabularies/',
-    
+    // 兼容：保留之前新增的别名（不强制使用）
+    VOCAB_BASE_PATH: 'js/vocabularies/',
+
     // 默认设置
     DEFAULT_SETTINGS: {
         speechRate: 1.0,
@@ -11,69 +13,88 @@ const CONFIG = {
         autoPlay: true,
         showImages: true,
         kindergartenMode: true,
-        quizCount: '10',
-        // 新增：拼写页面默认子模式与提示开关
+        // 新增：拼写默认子模式
         spellingDefaultSubmode: 'spell',
-        spellingHint: true,
-        // 新增：混合幼儿园词库（默认关闭，比例30%）
-        mixKindergartenEnabled: false,
-        mixKindergartenRatio: 0.3,
         // 新增：设备与显示设置
         deviceMode: 'phone',
         uiScale: 0.95,
-        compactMode: true
+        compactMode: true,
+        // 新增：题目来源过滤
+        questionSource: 'all',
+        // 新增：混合幼儿园词库设置
+        mixKindergartenEnabled: false,
+        mixKindergartenRatio: 0.3,
+        // 测试题目数量
+        quizCount: '10'
     },
-    
-    // 幼儿园模式设置
+
+    // 新增：试用上限（达到该唯一词条数需要激活）
+    TRIAL_LIMIT: 20,
+
+    // 兼容：提供原始使用的幼儿园配置对象（供 rewards/animations 等模块引用）
     KINDERGARTEN: {
         WORDS_PER_GROUP: 10,
         STAR_COUNT: 5,
         DIAMOND_REWARD: 1,
         SWORD_REWARD_THRESHOLD: 10
     },
-    
-    // 动画持续时间
+
+    // 兼容：提供原始使用的动画配置对象
     ANIMATION: {
         STAR_DURATION: 2000,
         ACHIEVEMENT_DURATION: 3000,
         PHRASE_DELAY: 1500,
-        ANSWER_DELAY: 2000
+        ANSWER_DELAY: 2000,
+        HOVER_TTS_DELAY: 150
     },
-    
+
+    // 动画时长设置（保留新增，不影响旧引用）
+    ANIMATION_DURATION: {
+        star: 1000,
+        fireworks: 1500
+    },
+
+    // 幼儿园模式设置（保留新增，不影响旧引用）
+    KINDERGARTEN_SETTINGS: {
+        groupSize: 10,
+        rewardThreshold: 5
+    },
+
     // 本地存储键名
     STORAGE_KEYS: {
-        SETTINGS: 'wordGameSettings',
-        PROGRESS: 'wordGameProgress',
-        KINDERGARTEN_PROGRESS: 'kindergartenProgress',
-        // 短语模式：独立的进度与奖励存储键
-        PROGRESS_PHRASE: 'wordGameProgress_phrase',
-        KINDERGARTEN_PROGRESS_PHRASE: 'kindergartenProgress_phrase',
-        LEARN_TYPE: 'learnType'
+        SETTINGS: 'settings',
+        PROGRESS: 'learningProgress',
+        PROGRESS_PHRASE: 'learningProgress_phrase',
+        KINDERGARTEN_PROGRESS: 'kgProgress',
+        KINDERGARTEN_PROGRESS_PHRASE: 'kgProgress_phrase',
+        LEARN_TYPE: 'learnType',
+        WORD_RESULTS: 'wordResultsMap',
+        WORD_RESULTS_PHRASE: 'wordResultsMap_phrase',
+        // 新增：激活与试用相关键
+        ACTIVATION_INFO: 'activationInfo', // 保存激活状态与激活码信息
+        TRIAL_USAGE: 'trialUsage' // 记录试用唯一词条集合
     },
-    
-    // 可用词库
-    VOCABULARIES: {
-        'words-basic': { name: '基础词汇', count: 157 },
-        '1.幼儿园--基础词汇': { name: '幼儿园基础词汇', count: 157 },
-        '2.幼儿园--学习词汇': { name: '幼儿园学习词汇', count: 202 },
-        '3.幼儿园--自然词汇': { name: '幼儿园自然词汇', count: 212 },
-        '4.交流词汇': { name: '交流词汇', count: 149 },
-        '5.日常词汇': { name: '日常词汇', count: 138 },
-        '6.幼儿园词汇': { name: '幼儿园综合词汇', count: 157 },
-        'kindergarten_vocabulary': { name: '原幼儿园词汇', count: 50 },
-        'minecraft_basic': { name: 'Minecraft基础词汇', count: 62 },
-        'minecraft_intermediate': { name: 'Minecraft中级词汇', count: 60 },
-        'minecraft_advanced': { name: 'Minecraft高级词汇', count: 60 },
-        'common_vocabulary': { name: '通用词汇', count: 80 },
-        'minecraft_image_links': { name: '完整词库', count: 2000 }
-    }
+
+    // 新增：激活相关配置
+    ACTIVATION: {
+        CODES_URL: 'https://raw.githubusercontent.com/nonomil/minecraft_words_apk/main/activation_codes.txt',
+        PREFIX: 'MC-',
+        DEBUG_PASSWORD: 'mc-debug-2025',
+        CONTACT_TEXT: '请联系微信：weixin123 获取激活码'
+    },
+
+    // 可用词库列表（示意）
+    AVAILABLE_VOCABS: [
+        'kindergarten_1_basic',
+        'minecraft_blocks'
+    ]
 };
 
-// 全局变量
+// 全局状态与变量
 let currentVocabulary = [];
 let currentWordIndex = 0;
 let currentMode = 'learn';
-// 学习类型：'word' | 'word_zh' | 'phrase_en' | 'phrase_zh'
+// 去重：仅保留一次 learnType 定义（从本地存储回退默认 'word'）
 let learnType = (function(){
     try { return localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'; } catch(e) { return 'word'; }
 })();
