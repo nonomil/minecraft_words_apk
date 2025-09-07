@@ -55,17 +55,28 @@ async function convertToDirectImageUrl(filePageUrl, filename) {
                 const apiUrl = `https://minecraft.wiki/api.php?action=query&titles=File:${encodeURIComponent(fileName)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
                 const response = await fetch(apiUrl);
                 const data = await response.json();
-                
-                const pages = data.query?.pages;
-                if (pages) {
-                    const pageId = Object.keys(pages)[0];
-                    const imageUrl = pages[pageId]?.imageinfo?.[0]?.url;
-                    if (imageUrl) {
-                        // 缓存结果
-                        imageUrlCache.set(filePageUrl, imageUrl);
-                        return imageUrl;
-                    }
-                }
+-                
+-                const pages = data.query?.pages;
+-                if (pages) {
+-                    const pageId = Object.keys(pages)[0];
+-                    const imageUrl = pages[pageId]?.imageinfo?.[0]?.url;
+-                    if (imageUrl) {
+-                        // 缓存结果
+-                        imageUrlCache.set(filePageUrl, imageUrl);
+-                        return imageUrl;
+-                    }
+-                }
++                var pages = data && data.query ? data.query.pages : undefined;
++                if (pages) {
++                    var pageId = Object.keys(pages)[0];
++                    var imageInfoArr = pages[pageId] && pages[pageId].imageinfo ? pages[pageId].imageinfo : undefined;
++                    var imageUrl = (Array.isArray(imageInfoArr) && imageInfoArr.length > 0) ? imageInfoArr[0].url : undefined;
++                    if (imageUrl) {
++                        // 缓存结果
++                        imageUrlCache.set(filePageUrl, imageUrl);
++                        return imageUrl;
++                    }
++                }
             }
         } catch (error) {
             console.warn('Failed to fetch image URL:', error);
@@ -232,3 +243,182 @@ function validateVocabularyJSON(data) {
 function generateUniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
+
+// 新增：获取当前学习类型（与全局逻辑保持一致）
+function getCurrentLearnType() {
+  try {
+    return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
+  } catch (e) {
+    return 'word';
+  }
+}
+
+// 新增：根据学习类型获取结果存储键
+function getResultsStorageKeyByType(lt) {
+  const isWord = (lt === 'word' || lt === 'word_zh');
+  return isWord ? CONFIG.STORAGE_KEYS.WORD_RESULTS : CONFIG.STORAGE_KEYS.WORD_RESULTS_PHRASE;
+}
+
+// 新增：统一获取词条键值（单词/短语）
+function getWordKey(wordObj) {
+  if (!wordObj) return '';
+  const lt = getCurrentLearnType();
+  let raw = '';
+  if (lt === 'word' || lt === 'word_zh') {
+    raw = (wordObj.standardized || wordObj.word || '').toString();
+  } else {
+    raw = (wordObj.phrase || wordObj.standardized || wordObj.word || '').toString();
+  }
+  return raw.trim().toLowerCase();
+}
+
+// 新增：读取/保存 per-word 结果映射
+function getWordResultsMap() {
+  const lt = getCurrentLearnType();
+  const key = getResultsStorageKeyByType(lt);
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return { version: 1, updatedAt: new Date().toISOString(), items: {} };
+    const data = JSON.parse(raw);
+    if (!data || typeof data !== 'object') throw new Error('bad data');
+    data.items = data.items || {};
+    return data;
+  } catch (e) {
+    return { version: 1, updatedAt: new Date().toISOString(), items: {} };
+  }
+}
+
+function saveWordResultsMap(map) {
+  const lt = getCurrentLearnType();
+  const key = getResultsStorageKeyByType(lt);
+  try {
+    const data = Object.assign({ version: 1 }, map || {});
+    data.updatedAt = new Date().toISOString();
+    if (!data.items) data.items = {};
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (e) { /* ignore */ }
+}
+
+// 新增：记录某词是否答对
+function recordWordResult(wordObj, isCorrect) {
+  try {
+    const data = getWordResultsMap();
+    const key = getWordKey(wordObj);
+    if (!key) return;
+    const it = data.items[key] || { lastResult: null, lastAt: null, correct: 0, wrong: 0, seen: 0 };
+    it.seen = (it.seen || 0) + 1;
+    if (isCorrect) { it.correct = (it.correct || 0) + 1; it.lastResult = 1; } else { it.wrong = (it.wrong || 0) + 1; it.lastResult = 0; }
+    it.lastAt = new Date().toISOString();
+    data.items[key] = it;
+    saveWordResultsMap(data);
+  } catch (e) { /* ignore */ }
+}
+
+// ===== 激活与试用：B2 极简实现 =====
+// 说明：根据你的偏好，不绑定设备ID，不设过期；
+// 激活信息结构：{ activated: true/false, code?: string, activatedAt?: iso }
+function getActivationInfo() {
+  try {
+    const raw = localStorage.getItem(CONFIG.STORAGE_KEYS.ACTIVATION_INFO);
+    if (!raw) return { activated: false };
+    const data = JSON.parse(raw);
+    return (data && typeof data === 'object') ? data : { activated: false };
+  } catch(e){ return { activated: false }; }
+}
+
+function saveActivationInfo(info){
+  try {
+    const data = Object.assign({ activated: false }, info||{});
+    localStorage.setItem(CONFIG.STORAGE_KEYS.ACTIVATION_INFO, JSON.stringify(data));
+  } catch(e){}
+}
+
+function isActivated(){
+  const a = getActivationInfo();
+  return !!a.activated;
+}
+
+// 试用计数：按学习类型区分唯一词条集合
+// 结构：{ version:1, byType: { word: { set: [key1,key2,...] }, phrase_en: {...} }, updatedAt }
+function getTrialUsage(){
+  try{
+    const raw = localStorage.getItem(CONFIG.STORAGE_KEYS.TRIAL_USAGE);
+    if(!raw) return { version:1, byType:{}, updatedAt:new Date().toISOString() };
+    const data = JSON.parse(raw);
+    data.byType = data.byType || {};
+    return data;
+  }catch(e){ return { version:1, byType:{}, updatedAt:new Date().toISOString() }; }
+}
+
+function saveTrialUsage(data){
+  try{
+    data = Object.assign({version:1, byType:{}}, data||{});
+    data.updatedAt = new Date().toISOString();
+    localStorage.setItem(CONFIG.STORAGE_KEYS.TRIAL_USAGE, JSON.stringify(data));
+  }catch(e){}
+}
+
+function addTrialLearned(wordObj){
+  try{
+    const lt = getCurrentLearnType();
+    const key = getWordKey(wordObj);
+    if(!key) return;
+    const tu = getTrialUsage();
+    const bucket = tu.byType[lt] || { set: [] };
+    if(!bucket.set.includes(key)) bucket.set.push(key);
+    tu.byType[lt] = bucket;
+    saveTrialUsage(tu);
+  }catch(e){}
+}
+
+function getTrialCount(){
+  try{
+    const lt = getCurrentLearnType();
+    const tu = getTrialUsage();
+    const bucket = tu.byType[lt] || { set: [] };
+    return (bucket.set||[]).length;
+  }catch(e){ return 0; }
+}
+
+// 统一外链图片兜底（icons8 ORB 拦截）
+(function setupGlobalImageFallback(){
+  try {
+    const ICONS8 = /https?:\/\/img\.icons8\.com\//i;
+
+    // 针对已有 <img> 标签：绑定 onerror
+    function attachOnError(img){
+      if (!img || img.dataset.__fallbackBound) return;
+      img.dataset.__fallbackBound = '1';
+      const origSrc = img.getAttribute('src') || '';
+      if (ICONS8.test(origSrc)) {
+        img.addEventListener('error', () => {
+          img.src = createPlaceholderImage('图片受限');
+        }, { once: true });
+      }
+    }
+
+    // 初始扫描
+    document.querySelectorAll('img[src]').forEach(attachOnError);
+
+    // 监听后续 DOM 变化
+    const observer = new MutationObserver((mutList) => {
+      for (const m of mutList) {
+        if (m.type === 'attributes' && m.attributeName === 'src' && m.target.tagName === 'IMG') {
+          attachOnError(m.target);
+        } else if (m.type === 'childList') {
+          m.addedNodes.forEach(node => {
+            if (node.nodeType === 1) {
+              if (node.tagName === 'IMG') attachOnError(node);
+              node.querySelectorAll && node.querySelectorAll('img[src]').forEach(attachOnError);
+            }
+          });
+        }
+      }
+    });
+    observer.observe(document.documentElement, { subtree: true, childList: true, attributes: true, attributeFilter: ['src'] });
+
+    console.info('[INIT] Global image fallback for icons8 enabled');
+  } catch (e) {
+    console.warn('setupGlobalImageFallback error', e);
+  }
+})();

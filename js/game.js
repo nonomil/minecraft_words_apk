@@ -273,7 +273,10 @@ function selectLearnChoice(element, selected, correct) {
 
     resultElement.style.display = 'block';
 
-    if (selected === correct) {
+    const wordObj = getCurrentWord && getCurrentWord();
+    const isCorrect = (selected === correct);
+
+    if (isCorrect) {
         element.classList.add('correct');
         resultElement.textContent = '✅ 回答正确！';
         resultElement.className = 'learn-result correct';
@@ -285,13 +288,65 @@ function selectLearnChoice(element, selected, correct) {
         resultElement.className = 'learn-result wrong';
     }
 
+    // 新增：记录 per-word 结果
+    try { if (wordObj && typeof recordWordResult === 'function') { recordWordResult(wordObj, isCorrect); } } catch(e) { }
+
+    // 新增：学习模式下累计唯一词条（试用计数），仅在未激活时生效
+    try {
+        if (typeof isActivated === 'function' && !isActivated()) {
+            if (typeof addTrialLearned === 'function' && wordObj) {
+                addTrialLearned(wordObj);
+            }
+        }
+    } catch(e) {}
+
     updateStats();
 
+    // 根据设置：若选择“排除已掌握”，则正确后从当前列表中移除该词
+    try {
+        const s = getSettings();
+        if (isCorrect && s && s.questionSource === 'exclude_mastered' && Array.isArray(currentVocabulary)) {
+            const key = (typeof getWordKey === 'function') ? getWordKey(wordObj) : (wordObj && (wordObj.standardized || wordObj.word || wordObj.phrase || '').toLowerCase());
+            if (key) {
+                // 基于键删除第一个匹配项
+                const idx = currentVocabulary.findIndex(w => {
+                    try { return ((typeof getWordKey === 'function') ? getWordKey(w) : (w && (w.standardized||w.word||w.phrase||'').toLowerCase())) === key; } catch(e){ return false; }
+                });
+                if (idx >= 0) {
+                    currentVocabulary.splice(idx, 1);
+                    // 修正索引，避免越界
+                    if (currentWordIndex >= currentVocabulary.length) {
+                        currentWordIndex = Math.max(0, currentVocabulary.length - 1);
+                    }
+                }
+            }
+        }
+    } catch(e) {}
+
+    // 如果未激活且达到试用上限（20），则弹出激活引导并阻止继续自动前进
+    try {
+        if (typeof isActivated === 'function' && !isActivated()) {
+            const count = (typeof getTrialCount === 'function') ? getTrialCount() : 0;
+            if (count >= 20) {
+                // 提示并打开设置面板“激活”区域
+                alert('试用已达上限：已学习20个词条。请前往设置页激活后继续学习。测试模式不受限制。');
+                // 尝试切换到设置面板
+                try { if (typeof switchMode === 'function') { switchMode('settings'); } } catch(e){}
+-                try { document.getElementById('activationCode')?.focus(); } catch(e){}
++                try { var _el = document.getElementById('activationCode'); if (_el && _el.focus) { _el.focus(); } } catch(e){}
+                 return; // 阻止后续自动跳转
+            }
+        }
+    } catch(e){}
+
     // 如果回答正确，短暂停留后自动切换到下一词（1.5s）
-    if (selected === correct) {
+    if (isCorrect) {
         setTimeout(() => {
             if (typeof currentWordIndex !== 'undefined' && Array.isArray(currentVocabulary) && currentWordIndex < currentVocabulary.length - 1) {
                 nextWord();
+            } else {
+                // 若已到末尾，仍触发界面刷新
+                updateWordDisplay && updateWordDisplay();
             }
         }, 1500);
     }

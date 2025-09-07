@@ -32,17 +32,11 @@ jobs:
           $APP_URL = '${{ inputs.app_url }}'
           $APP_NAME = '${{ inputs.app_name }}'
           if (-not $APP_URL) { throw 'app_url is required' }
-          npx nativefier --name "$APP_NAME" --platform windows --arch x64 --out nativefier-build --disable-dev-tools --single-instance "$APP_URL"
-          $dir = Get-ChildItem nativefier-build -Directory | Select-Object -First 1
-          if (-not $dir) { throw 'Build output not found' }
-          $zip = "$APP_NAME-win32-x64.zip"
-          if (Test-Path $zip) { Remove-Item $zip -Force }
-          Compress-Archive -Path (Join-Path $dir.FullName '*') -DestinationPath $zip
-          Write-Host "Packaged: $zip"
+          npx nativefier --name "$APP_NAME" --platform windows --arch x64 --disable-dev-tools --single-instance "$APP_URL"
+          # 打包逻辑移动到独立步骤，避免路径不一致
 
-      - name: Upload EXE artifact (zip)
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: windows-exe-online
+          name: windows-exe-${{ github.run_id }}
           path: "*.zip"
-          if-no-files-found: error

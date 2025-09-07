@@ -495,7 +495,9 @@ async function submitSpelling(word, answerOverride){
   if (!resultEl) return;
   resultEl.style.display = 'block';
 
-  if (answer && correct && answer === correct) {
+  const isCorrect = (answer && correct && answer === correct);
+
+  if (isCorrect) {
     quizScore++;
     resultEl.textContent = '✅ 回答正确！';
     resultEl.className = 'learn-result correct';
@@ -506,6 +508,9 @@ async function submitSpelling(word, answerOverride){
     resultEl.textContent = `❌ 回答错误！正确答案是：${show}`;
     resultEl.className = 'learn-result wrong';
   }
+
+  // 新增：记录 per-word 结果（基于当前学习类型的键）
+  try { if (typeof recordWordResult === 'function') { recordWordResult(word, isCorrect); } } catch(e) {}
 
   if (nextBtn) nextBtn.disabled = false;
   updateQuizScore();

@@ -249,7 +249,18 @@
                         <input type="range" id="mixKindergartenRatio" min="0" max="1" step="0.05" value="0.3">
                         <span id="mixKindergartenRatioValue">30%</span>
                     </div>
+                    <!-- 新增：题目来源过滤 -->
                     <div class="setting-item">
+                        <label>题目来源:</label>
+                        <select id="questionSource">
+                            <option value="all">全部（不过滤）</option>
+                            <option value="exclude_mastered">排除已掌握</option>
+                            <option value="unseen">仅未做过</option>
+                            <option value="wrong_only">仅错题</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="setting-item">
                         <label>测试题目数量:</label>
                         <select id="quizCount">
                             <option value="5">5题</option>
@@ -361,10 +372,3 @@
     </script>
   </body>
 </html>
-
-
-/***** 学习类型切换按钮样式 *****/
-.learn-type-switch { display:flex; gap:8px; align-items:center; }
-.learn-type-btn { padding:6px 10px; border-radius:6px; border:1px solid #ddd; background:#fff; cursor:pointer; font-size:14px; }
-.learn-type-btn:hover { background:#f4f4f4; }
-.learn-type-btn.active { background:#4CAF50; color:#fff; border-color:#4CAF50; }
