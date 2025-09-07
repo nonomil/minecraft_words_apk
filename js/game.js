@@ -329,12 +329,11 @@ function selectLearnChoice(element, selected, correct) {
             const count = (typeof getTrialCount === 'function') ? getTrialCount() : 0;
             if (count >= 20) {
                 // 提示并打开设置面板“激活”区域
-                alert('试用已达上限：已学习20个词条。请前往设置页激活后继续学习。测试模式不受限制。');
+                alert('试用已达上限：已学习20个词条。请前往 设置 > 激活 输入激活码后继续学习（测试模式不受限制）。');
                 // 尝试切换到设置面板
                 try { if (typeof switchMode === 'function') { switchMode('settings'); } } catch(e){}
--                try { document.getElementById('activationCode')?.focus(); } catch(e){}
-+                try { var _el = document.getElementById('activationCode'); if (_el && _el.focus) { _el.focus(); } } catch(e){}
-                 return; // 阻止后续自动跳转
+                try { var _el = document.getElementById('activationCode'); if (_el && _el.focus) { _el.focus(); } } catch(e){}
+                return; // 阻止后续自动跳转
             }
         }
     } catch(e){}

@@ -23,6 +23,9 @@ const CONFIG = {
         uiScale: 0.95,
         compactMode: true
     },
+
+    // 新增：试用上限（达到该唯一词条数需要激活）
+    TRIAL_LIMIT: 20,
     
     // 幼儿园模式设置
     KINDERGARTEN: {
@@ -48,7 +51,18 @@ const CONFIG = {
         // 短语模式：独立的进度与奖励存储键
         PROGRESS_PHRASE: 'wordGameProgress_phrase',
         KINDERGARTEN_PROGRESS_PHRASE: 'kindergartenProgress_phrase',
-        LEARN_TYPE: 'learnType'
+        LEARN_TYPE: 'learnType',
+        // 新增：激活与试用相关键
+        ACTIVATION_INFO: 'activationInfo',
+        TRIAL_USAGE: 'trialUsage'
+    },
+
+    // 新增：激活相关配置
+    ACTIVATION: {
+        CODES_URL: 'https://raw.githubusercontent.com/nonomil/minecraft_words_apk/main/activation_codes.txt',
+        PREFIX: 'MC-',
+        DEBUG_PASSWORD: 'mc-debug-2025',
+        CONTACT_TEXT: '请联系微信：weixin123 获取激活码'
     },
     
     // 可用词库

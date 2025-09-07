@@ -551,3 +551,168 @@ function applyDisplaySettings(settings) {
     console.error('applyDisplaySettings failed:', err);
   }
 }
+
+// =============== 激活：状态与UI（与 web 版保持一致） ===============
+function updateActivationUI() {
+  try {
+    const info = getActivationInfo();
+    const statusEl = document.getElementById('activationStatus');
+    const limitEl = document.getElementById('trialLimitText');
+    if (limitEl) limitEl.textContent = String((typeof CONFIG !== 'undefined' && CONFIG.TRIAL_LIMIT) ? CONFIG.TRIAL_LIMIT : 20);
+    if (!statusEl) return;
+    if (info && info.activated) {
+      statusEl.textContent = `当前状态：已激活（${info.code ? '码已验证' : '调试模式'}）`;
+      statusEl.style.color = '#2e7d32';
+    } else {
+      statusEl.textContent = `当前状态：未激活（试用上限：${(typeof CONFIG !== 'undefined' && CONFIG.TRIAL_LIMIT) ? CONFIG.TRIAL_LIMIT : 20}）`;
+      statusEl.style.color = '#d32f2f';
+    }
+  } catch (e) {
+    console.error('updateActivationUI error', e);
+  }
+}
+
+function ensureActivationUIMounted(){
+  try{
+    const settingsRoot = document.getElementById('settingsMode');
+    if(!settingsRoot) return;
+
+    const input = document.getElementById('activationCode');
+    if (input) {
+      const group = input.closest('.settings-group');
+      if (group && !settingsRoot.contains(group)) {
+        settingsRoot.appendChild(group);
+        try { console.info('[INIT] Activation UI moved into settings'); } catch(e){}
+      }
+      return; // 已存在则不重复创建
+    }
+
+    // 动态创建激活区域（与原HTML结构一致）
+    const wrapper = document.createElement('div');
+    wrapper.className = 'settings-group';
+    wrapper.innerHTML = `
+    <h3>🔑 激活</h3>
+    <div class="setting-item">
+        <label>激活码:</label>
+        <input type="text" id="activationCode" placeholder="请输入激活码（如：MC-XXXX-...）" style="width:240px; margin-right:8px;">
+        <button class="control-btn" id="btnActivate" style="background: linear-gradient(45deg, #4CAF50, #45a049);">立即激活</button>
+    </div>
+    <div class="setting-item">
+        <span id="activationStatus" style="color:#666;">当前状态：未激活（试用上限：<span id="trialLimitText">20</span>）</span>
+    </div>
+    <div class="setting-item">
+        <button class="control-btn" id="btnShowContact" style="background: linear-gradient(45deg, #FF9800, #F57C00);">获取激活码</button>
+        <button class="control-btn" id="btnDeactivate" style="background: linear-gradient(45deg, #9e9e9e, #616161);">清除激活</button>
+    </div>
+    <div class="setting-item" id="contactHint" style="display:none;color:#333;">
+        <span id="contactText">请联系微信：weixin123 获取激活码</span>
+    </div>
+    <div class="setting-item">
+        <details>
+          <summary>高级：调试模式</summary>
+          <div style="margin-top:6px;">
+            <input type="password" id="debugPassword" placeholder="输入调试密码（跳过激活）" style="width:240px; margin-right:8px;">
+            <button class="control-btn" id="btnDebugUnlock" style="background: linear-gradient(45deg, #607D8B, #455A64);">启用调试</button>
+          </div>
+        </details>
+    </div>`;
+
+    settingsRoot.appendChild(wrapper);
+    try { console.info('[INIT] Activation UI created in settings'); } catch(e){}
+  }catch(e){ /* ignore */ }
+}
+
+async function verifyActivationCodeOnline(code) {
+  let sources = [];
+  if (CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.CODES_URL && CONFIG.ACTIVATION.CODES_URL.trim()) {
+    sources.push(CONFIG.ACTIVATION.CODES_URL.trim());
+  } else {
+    sources.push('激活.txt');
+  }
+  const norm = (s) => s.trim();
+  for (const url of sources) {
+    try {
+      const resp = await fetch(url, { cache: 'no-cache' });
+      if (!resp.ok) continue;
+      const text = await resp.text();
+      const lines = text.split(/\r?\n/).map(norm).filter(l => l && !l.startsWith('#'));
+      if (lines.includes(code.trim())) return { ok: true, source: url };
+    } catch (e) {
+      console.warn('fetch activation source failed', url, e);
+      continue;
+    }
+  }
+  return { ok: false };
+}
+
+function bindActivationUIEvents() {
+  const inputEl = document.getElementById('activationCode');
+  const btnActivate = document.getElementById('btnActivate');
+  const btnDeactivate = document.getElementById('btnDeactivate');
+  const btnShowContact = document.getElementById('btnShowContact');
+  const contactHint = document.getElementById('contactHint');
+  const contactText = document.getElementById('contactText');
+  const debugPwd = document.getElementById('debugPassword');
+  const btnDebugUnlock = document.getElementById('btnDebugUnlock');
+  if (contactText && CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.CONTACT_TEXT) {
+    contactText.textContent = CONFIG.ACTIVATION.CONTACT_TEXT;
+  }
+  if (btnShowContact && contactHint) {
+    btnShowContact.addEventListener('click', () => {
+      contactHint.style.display = contactHint.style.display === 'none' ? 'block' : 'none';
+    });
+  }
+  if (btnDeactivate) {
+    btnDeactivate.addEventListener('click', () => {
+      saveActivationInfo({ activated: false, code: '', debug: false, ts: Date.now() });
+      updateActivationUI();
+      alert('已清除激活');
+    });
+  }
+  if (btnDebugUnlock && debugPwd) {
+    btnDebugUnlock.addEventListener('click', () => {
+      const pwd = (debugPwd.value || '').trim();
+      if (pwd && CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.DEBUG_PASSWORD && pwd === CONFIG.ACTIVATION.DEBUG_PASSWORD) {
+        saveActivationInfo({ activated: true, code: '', debug: true, ts: Date.now() });
+        updateActivationUI();
+        alert('调试模式已启用（免激活）');
+      } else {
+        alert('调试密码错误');
+      }
+    });
+  }
+  if (btnActivate && inputEl) {
+    btnActivate.addEventListener('click', async () => {
+      const code = (inputEl.value || '').trim();
+      if (!code) { alert('请输入激活码'); return; }
+      const prefix = (CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.PREFIX) ? CONFIG.ACTIVATION.PREFIX : 'MC-';
+      if (!code.startsWith(prefix) || code.length < 10) {
+        alert('激活码格式不正确');
+        return;
+      }
+      const res = await verifyActivationCodeOnline(code);
+      if (res.ok) {
+        saveActivationInfo({ activated: true, code, debug: false, ts: Date.now(), source: res.source });
+        updateActivationUI();
+        alert('激活成功');
+      } else {
+        alert('激活失败：未找到此激活码');
+      }
+    });
+  }
+}
+
+function initializeActivation() {
+  ensureActivationUIMounted();
+  updateActivationUI();
+  bindActivationUIEvents();
+  try { console.info('[INIT] Activation UI initialized (android web)'); } catch(e){}
+}
+
+(function hookActivationInit(){
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeActivation);
+  } else {
+    setTimeout(initializeActivation, 0);
+  }
+})();

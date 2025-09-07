@@ -232,3 +232,90 @@ function validateVocabularyJSON(data) {
 function generateUniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
+
+// ===== 激活与试用：极简实现（与根目录保持一致） =====
+function getActivationInfo() {
+    try {
+        const raw = localStorage.getItem(CONFIG.STORAGE_KEYS.ACTIVATION_INFO);
+        if (!raw) return { activated: false };
+        const data = JSON.parse(raw);
+        return (data && typeof data === 'object') ? data : { activated: false };
+    } catch (e) {
+        return { activated: false };
+    }
+}
+
+function saveActivationInfo(info){
+    try {
+        const data = Object.assign({ activated: false }, info || {});
+        localStorage.setItem(CONFIG.STORAGE_KEYS.ACTIVATION_INFO, JSON.stringify(data));
+    } catch (e) {}
+}
+
+function isActivated(){
+    const a = getActivationInfo();
+    return !!a.activated;
+}
+
+// ===== 试用计数与依赖函数（极简对齐根目录） =====
+// 当前学习类型
+function getCurrentLearnType() {
+    try {
+        return (typeof learnType !== 'undefined' && learnType) || localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word';
+    } catch (e) {
+        return 'word';
+    }
+}
+
+// 生成词条唯一键（大小写无关）
+function getWordKey(wordObj) {
+    try {
+        if (!wordObj) return null;
+        const key = (wordObj.standardized || wordObj.word || wordObj.phrase || '').toLowerCase();
+        return key || null;
+    } catch (e) {
+        return null;
+    }
+}
+
+// 试用计数：按学习类型区分唯一词条集合
+// 结构：{ version:1, byType: { word: { set: [key1,key2,...] } }, updatedAt }
+function getTrialUsage(){
+    try{
+        const raw = localStorage.getItem(CONFIG.STORAGE_KEYS.TRIAL_USAGE);
+        if(!raw) return { version:1, byType:{}, updatedAt:new Date().toISOString() };
+        const data = JSON.parse(raw);
+        data.byType = data.byType || {};
+        return data;
+    }catch(e){ return { version:1, byType:{}, updatedAt:new Date().toISOString() }; }
+}
+
+function saveTrialUsage(data){
+    try{
+        data = Object.assign({version:1, byType:{}}, data||{});
+        data.updatedAt = new Date().toISOString();
+        localStorage.setItem(CONFIG.STORAGE_KEYS.TRIAL_USAGE, JSON.stringify(data));
+    }catch(e){}
+}
+
+function addTrialLearned(wordObj){
+    try{
+        const lt = getCurrentLearnType();
+        const key = getWordKey(wordObj);
+        if(!key) return;
+        const tu = getTrialUsage();
+        const bucket = tu.byType[lt] || { set: [] };
+        if(!bucket.set.includes(key)) bucket.set.push(key);
+        tu.byType[lt] = bucket;
+        saveTrialUsage(tu);
+    }catch(e){}
+}
+
+function getTrialCount(){
+    try{
+        const lt = getCurrentLearnType();
+        const tu = getTrialUsage();
+        const bucket = tu.byType[lt] || { set: [] };
+        return (bucket.set||[]).length;
+    }catch(e){ return 0; }
+}

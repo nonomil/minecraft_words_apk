@@ -55,28 +55,17 @@ async function convertToDirectImageUrl(filePageUrl, filename) {
                 const apiUrl = `https://minecraft.wiki/api.php?action=query&titles=File:${encodeURIComponent(fileName)}&prop=imageinfo&iiprop=url&format=json&origin=*`;
                 const response = await fetch(apiUrl);
                 const data = await response.json();
--                
--                const pages = data.query?.pages;
--                if (pages) {
--                    const pageId = Object.keys(pages)[0];
--                    const imageUrl = pages[pageId]?.imageinfo?.[0]?.url;
--                    if (imageUrl) {
--                        // 缓存结果
--                        imageUrlCache.set(filePageUrl, imageUrl);
--                        return imageUrl;
--                    }
--                }
-+                var pages = data && data.query ? data.query.pages : undefined;
-+                if (pages) {
-+                    var pageId = Object.keys(pages)[0];
-+                    var imageInfoArr = pages[pageId] && pages[pageId].imageinfo ? pages[pageId].imageinfo : undefined;
-+                    var imageUrl = (Array.isArray(imageInfoArr) && imageInfoArr.length > 0) ? imageInfoArr[0].url : undefined;
-+                    if (imageUrl) {
-+                        // 缓存结果
-+                        imageUrlCache.set(filePageUrl, imageUrl);
-+                        return imageUrl;
-+                    }
-+                }
+                var pages = data && data.query ? data.query.pages : undefined;
+                if (pages) {
+                    var pageId = Object.keys(pages)[0];
+                    var imageInfoArr = pages[pageId] && pages[pageId].imageinfo ? pages[pageId].imageinfo : undefined;
+                    var imageUrl = (Array.isArray(imageInfoArr) && imageInfoArr.length > 0) ? imageInfoArr[0].url : undefined;
+                    if (imageUrl) {
+                        // 缓存结果
+                        imageUrlCache.set(filePageUrl, imageUrl);
+                        return imageUrl;
+                    }
+                }
             }
         } catch (error) {
             console.warn('Failed to fetch image URL:', error);

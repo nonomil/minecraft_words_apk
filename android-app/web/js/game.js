@@ -273,7 +273,11 @@ function selectLearnChoice(element, selected, correct) {
 
     resultElement.style.display = 'block';
 
-    if (selected === correct) {
+    // 新增：计算当前词对象与正误
+    const wordObj = (typeof getCurrentWord === 'function') ? getCurrentWord() : null;
+    const isCorrect = (selected === correct);
+
+    if (isCorrect) {
         element.classList.add('correct');
         resultElement.textContent = '✅ 回答正确！';
         resultElement.className = 'learn-result correct';
@@ -285,10 +289,36 @@ function selectLearnChoice(element, selected, correct) {
         resultElement.className = 'learn-result wrong';
     }
 
+    // 新增：记录 per-word 结果
+    try { if (wordObj && typeof recordWordResult === 'function') { recordWordResult(wordObj, isCorrect); } } catch(e) { }
+
+    // 新增：学习模式下累计唯一词条（试用计数），仅在未激活时生效
+    try {
+        if (typeof isActivated === 'function' && !isActivated()) {
+            if (typeof addTrialLearned === 'function' && wordObj) {
+                addTrialLearned(wordObj);
+            }
+        }
+    } catch(e) {}
+
     updateStats();
 
+    // 如果未激活且达到试用上限，则提示并引导激活，阻止自动跳转
+    try {
+        if (typeof isActivated === 'function' && !isActivated()) {
+            const limit = (typeof CONFIG !== 'undefined' && CONFIG.TRIAL_LIMIT) ? CONFIG.TRIAL_LIMIT : 20;
+            const count = (typeof getTrialCount === 'function') ? getTrialCount() : 0;
+            if (count >= limit) {
+                alert(`试用已达上限：已学习${limit}个词条。请前往 设置 > 激活 输入激活码后继续学习（测试模式不受限制）。`);
+                try { if (typeof switchMode === 'function') { switchMode('settings'); } } catch(e){}
+                try { var _el = document.getElementById('activationCode'); if (_el && _el.focus) { _el.focus(); } } catch(e){}
+                return; // 阻止后续自动跳转
+            }
+        }
+    } catch(e){}
+
     // 如果回答正确，短暂停留后自动切换到下一词（1.5s）
-    if (selected === correct) {
+    if (isCorrect) {
         setTimeout(() => {
             if (typeof currentWordIndex !== 'undefined' && Array.isArray(currentVocabulary) && currentWordIndex < currentVocabulary.length - 1) {
                 nextWord();
