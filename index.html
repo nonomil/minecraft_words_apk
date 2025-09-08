@@ -121,7 +121,7 @@
                         <img class="quiz-image" id="quizImage" src="" alt="测试图片">
                         <div class="quiz-headline">
                             <h3>这个单词的中文意思是？</h3>
-                            <button class="control-btn play" onclick="playQuizAudio()">🔊 听发音</button>
+                            <!-- 顶部不再放发音按钮；提示与子模式切换由 JS 注入 -->
                         </div>
                     </div>
 
@@ -132,7 +132,9 @@
                 </div>
 
                 <div class="control-buttons">
-                    <button class="control-btn next" onclick="nextQuiz()" id="nextQuizBtn" disabled>下一题 ➡️</button>
+                    <button class="control-btn prev" onclick="previousQuiz()" id="prevQuizBtn" disabled>⬅️ 上一个</button>
+                    <button class="control-btn play" onclick="playQuizAudio()" id="bottomPlayBtn">🔊 发音</button>
+                    <button class="control-btn next" onclick="nextQuiz()" id="nextQuizBtn" disabled>下一个 ➡️</button>
                     <button class="control-btn" onclick="restartQuiz()" style="background: linear-gradient(45deg, #FF5722, #E64A19);">🔄 重新开始</button>
                 </div>
 
@@ -165,12 +167,10 @@
                         <select id="vocabSelect">
                             <!-- 幼儿园词库 -->
                             <optgroup label="🎒 幼儿园词库">
-                                <option value="1.幼儿园--基础词汇">幼儿园基础词汇 (157词)</option>
-                                <option value="2.幼儿园--学习词汇">幼儿园学习词汇 (202词)</option>
-                                <option value="3.幼儿园--自然词汇">幼儿园自然词汇 (212词)</option>
-                                <option value="4.交流词汇">交流词汇 (149词)</option>
-                                <option value="5.日常词汇">日常词汇 (138词)</option>
-                                <option value="6.幼儿园词汇">幼儿园综合词汇 (157词)</option>
+                                <option value="生活交流">生活交流</option>
+                                <option value="学习自然">学习自然</option>
+                                <option value="综合拓展">综合拓展</option>
+                                <option value="幼儿园全部">幼儿园全部</option>
                             </optgroup>
                             <!-- Minecraft 标准词库 -->
                             <optgroup label="⛏️ Minecraft 标准词库">

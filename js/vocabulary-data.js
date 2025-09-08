@@ -15,14 +15,60 @@ const VOCABULARY_DATA = {
 // 动态加载词库文件
 async function loadVocabularyFile(filename) {
     try {
-        const script = document.createElement('script');
-        script.src = encodeURI(`js/vocabularies/${filename}`);
-        document.head.appendChild(script);
-        
-        return new Promise((resolve, reject) => {
-            script.onload = () => resolve();
-            script.onerror = () => reject(new Error(`Failed to load ${filename}`));
+        // 全局去重：同一文件的并发加载复用同一Promise，且已加载后直接返回
+        window.__VOCAB_SCRIPT_PROMISES__ = window.__VOCAB_SCRIPT_PROMISES__ || {};
+        window.__VOCAB_SCRIPT_LOADED__ = window.__VOCAB_SCRIPT_LOADED__ || {};
+        const key = (filename || '').trim();
+        if (!key) return;
+        if (window.__VOCAB_SCRIPT_LOADED__[key]) return;
+        if (window.__VOCAB_SCRIPT_PROMISES__[key]) return window.__VOCAB_SCRIPT_PROMISES__[key];
+
+        const base = `js/vocabularies/${key}`;
+        const normalized = String(base).replace(/[?#].*$/, '');
+        const id = `vocab-${key}`;
+
+        // 检查是否已有相同（忽略查询参数）的脚本标签，避免重复注入
+        let existing = document.querySelector(`script[data-vocab-id="${id}"]`);
+        if (!existing) {
+            const scripts = Array.from(document.getElementsByTagName('script'));
+            existing = scripts.find(s => {
+                const ssrc = s.getAttribute('src');
+                if (!ssrc) return false;
+                return String(ssrc).replace(/[?#].*$/, '').endsWith(normalized);
+            });
+        }
+
+        const p = new Promise((resolve, reject) => {
+            const done = () => { window.__VOCAB_SCRIPT_LOADED__[key] = true; resolve(); };
+            const fail = () => { reject(new Error(`Failed to load ${key}`)); };
+
+            if (existing) {
+                if (window.__VOCAB_SCRIPT_LOADED__[key] || (existing.dataset && existing.dataset.loaded === 'true')) {
+                    return done();
+                }
+                existing.addEventListener('load', () => {
+                    if (existing && existing.dataset) existing.dataset.loaded = 'true';
+                    done();
+                }, { once: true });
+                existing.addEventListener('error', fail, { once: true });
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.setAttribute('data-vocab-id', id);
+            script.setAttribute('data-normalized-src', normalized);
+            const cacheBuster = `_v=${Date.now()}`;
+            script.src = encodeURI(base) + (base.includes('?') ? '&' : '?') + cacheBuster;
+            script.onload = () => {
+                if (script && script.dataset) script.dataset.loaded = 'true';
+                done();
+            };
+            script.onerror = fail;
+            document.head.appendChild(script);
         });
+
+        window.__VOCAB_SCRIPT_PROMISES__[key] = p;
+        return p;
     } catch (error) {
         console.error(`Error loading vocabulary file ${filename}:`, error);
         throw error;
@@ -57,7 +103,14 @@ async function loadEmbeddedVocabulary(vocabName) {
             }
         }
     }
-    
+
+    // 如果目标变量已经在全局存在，则直接返回，避免重复加载脚本
+    if (targetVariable && window[targetVariable]) {
+        VOCABULARY_DATA[vocabName] = window[targetVariable];
+        console.log(`Using existing global variable for: ${vocabName}`);
+        return VOCABULARY_DATA[vocabName];
+    }
+
     // 备用映射（用于向后兼容）
     const fallbackMappings = {
         'words-basic': { file: 'basic.js', variable: 'BASIC_VOCABULARY' },
@@ -74,22 +127,47 @@ async function loadEmbeddedVocabulary(vocabName) {
         'common_vocabulary': { file: 'common_vocabulary.js', variable: 'VOCAB_1____COMMON' },
         'minecraft_image_links': { file: 'minecraft_words_full.js', variable: 'MINECRAFT_3_____' }
     };
-    
+
     if (!targetFile && fallbackMappings[vocabName]) {
         targetFile = fallbackMappings[vocabName].file;
         targetVariable = fallbackMappings[vocabName].variable;
     }
-    
+
+    // 如果选择“幼儿园全部”，先确保三份子词库均已加载，再访问动态 getter
+    if (vocabName === '幼儿园全部') {
+        // mappings.js 里给出的是 variable_name: KINDERGARTEN_ALL_NEW（由 getter 计算）
+        // 但 getter 依赖以下三个物理文件先注入 window：
+        // kindergarten_life_communication_expanded.js, kindergarten_learning_nature.js, kindergarten_general_extended.js
+        try {
+            if (!window.KINDERGARTEN_LIFE_COMMUNICATION_EXPANDED) {
+                await loadVocabularyFile('kindergarten_life_communication_expanded.js');
+            }
+        } catch (e) { console.warn('load life_communication skipped/failed', e); }
+        try {
+            if (!window.KINDERGARTEN_LEARNING_NATURE) {
+                await loadVocabularyFile('kindergarten_learning_nature.js');
+            }
+        } catch (e) { console.warn('load learning_nature skipped/failed', e); }
+        try {
+            if (!window.KINDERGARTEN_GENERAL_EXTENDED) {
+                await loadVocabularyFile('kindergarten_general_extended.js');
+            }
+        } catch (e) { console.warn('load general_extended skipped/failed', e); }
+    }
+
     // 检查是否有对应的词库数据
     if (VOCABULARY_DATA.hasOwnProperty(vocabName) && VOCABULARY_DATA[vocabName]) {
         console.log(`Using cached vocabulary data: ${vocabName}`);
         return VOCABULARY_DATA[vocabName];
     }
-    
+
     // 尝试从新的词库文件夹加载
     if (targetFile && targetVariable) {
         try {
-            await loadVocabularyFile(targetFile);
+            // 二次防护：若变量已存在则不再加载对应文件
+            if (!window[targetVariable]) {
+                await loadVocabularyFile(targetFile);
+            }
             if (window[targetVariable]) {
                 VOCABULARY_DATA[vocabName] = window[targetVariable];
                 console.log(`Successfully loaded vocabulary from file: ${vocabName}`);
@@ -99,7 +177,7 @@ async function loadEmbeddedVocabulary(vocabName) {
             console.warn(`Failed to load vocabulary file for ${vocabName}:`, error);
         }
     }
-    
+
     throw new Error(`词库文件未找到: ${vocabName}。请确认 vocabularies 目录下存在对应 JS 文件，或检查 mappings.js / fallbackMappings 配置。`);
 }
 
@@ -126,7 +204,7 @@ VOCABULARY_DATA['words-basic'] = [
     "word": "hello",
     "standardized": "hello",
     "chinese": "你好",
-    "phonetic": "/h??lo?/",
+    "phonetic": "/h??lo?",
     "phrase": "Hello there",
     "phraseTranslation": "你好呀",
     "difficulty": "basic",
