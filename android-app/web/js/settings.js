@@ -1,28 +1,22 @@
 // 设置管理相关函数
 
-// 获取当前设置
-function getSettings() {
-    const settings = {
-        speechRate: parseFloat(document.getElementById('speechRate')?.value || CONFIG.DEFAULT_SETTINGS.speechRate),
-        speechPitch: parseFloat(document.getElementById('speechPitch')?.value || CONFIG.DEFAULT_SETTINGS.speechPitch),
-        speechVolume: parseFloat(document.getElementById('speechVolume')?.value || CONFIG.DEFAULT_SETTINGS.speechVolume),
-        autoPlay: document.getElementById('autoPlay')?.checked ?? CONFIG.DEFAULT_SETTINGS.autoPlay,
-        showImages: document.getElementById('showImages')?.checked ?? CONFIG.DEFAULT_SETTINGS.showImages,
-        kindergartenMode: document.getElementById('kindergartenMode')?.checked ?? CONFIG.DEFAULT_SETTINGS.kindergartenMode,
-        // 新增：混合幼儿园词库
-        mixKindergartenEnabled: document.getElementById('mixKindergartenEnabled')?.checked ?? CONFIG.DEFAULT_SETTINGS.mixKindergartenEnabled,
-        mixKindergartenRatio: parseFloat(document.getElementById('mixKindergartenRatio')?.value || CONFIG.DEFAULT_SETTINGS.mixKindergartenRatio),
-        quizCount: document.getElementById('quizCount')?.value || CONFIG.DEFAULT_SETTINGS.quizCount,
-        // 新增：拼写设置
-        spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode')?.value || CONFIG.DEFAULT_SETTINGS.spellingDefaultSubmode,
-        spellingHint: document.getElementById('spellingHint')?.checked ?? CONFIG.DEFAULT_SETTINGS.spellingHint,
-        // 新增：设备与显示
-        deviceMode: document.getElementById('deviceMode')?.value || CONFIG.DEFAULT_SETTINGS.deviceMode,
-        uiScale: parseFloat(document.getElementById('uiScale')?.value || CONFIG.DEFAULT_SETTINGS.uiScale),
-        compactMode: document.getElementById('compactMode')?.checked ?? CONFIG.DEFAULT_SETTINGS.compactMode
-    };
-    
-    return settings;
+// 安全获取本地存储键（当 CONFIG 未定义时使用兜底值）
+function getStorageKeysSafe() {
+  try {
+    if (typeof CONFIG !== 'undefined' && CONFIG.STORAGE_KEYS) return CONFIG.STORAGE_KEYS;
+  } catch (e) {}
+  return {
+    SETTINGS: 'settings',
+    PROGRESS: 'learningProgress',
+    PROGRESS_PHRASE: 'learningProgress_phrase',
+    KINDERGARTEN_PROGRESS: 'kgProgress',
+    KINDERGARTEN_PROGRESS_PHRASE: 'kgProgress_phrase',
+    LEARN_TYPE: 'learnType',
+    WORD_RESULTS: 'wordResultsMap',
+    WORD_RESULTS_PHRASE: 'wordResultsMap_phrase',
+    ACTIVATION_INFO: 'activationInfo',
+    TRIAL_USAGE: 'trialUsage'
+  };
 }
 
 // 设备模式自动检测（仅用于默认值，不覆盖用户已保存设置）
@@ -86,10 +80,14 @@ function applySettingsToUI(settings) {
         // 新增：拼写设置
         spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode'),
         spellingHint: document.getElementById('spellingHint'),
+        // 新增：拼写提示模式（ends/full）
+        spellingHintMode: document.getElementById('spellingHintMode'),
         // 新增：设备与显示
         deviceMode: document.getElementById('deviceMode'),
         uiScale: document.getElementById('uiScale'),
-        compactMode: document.getElementById('compactMode')
+        compactMode: document.getElementById('compactMode'),
+        // 新增：题目来源过滤
+        questionSource: document.getElementById('questionSource')
     };
     
     Object.keys(elements).forEach(key => {
@@ -112,14 +110,16 @@ function applySettingsToUI(settings) {
     // 应用设备/显示设置
     applyDisplaySettings(settings);
 
-    // 同步拼写默认子模式到拼写页面的持久化键（仅当未显式设置过时）
+    // 同步拼写默认子模式与提示模式到拼写页面的持久化键（保持兼容旧键）
     try {
         const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
         if (!hasExplicit && settings.spellingDefaultSubmode) {
             localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
         }
-        // 同步提示偏好（独立键，供拼写页读取）
+        // 兼容老键：始终写入 SPELLING_HINT（非 none 情况写 1）
         localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+        // 新键：写入提示模式（默认为 full）
+        localStorage.setItem('SPELLING_HINT_MODE', settings.spellingHintMode || 'full');
     } catch(e) {}
 }
 
@@ -141,7 +141,10 @@ function saveSettings() {
         if (!hasExplicit && settings.spellingDefaultSubmode) {
             localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
         }
+        // 兼容写入旧键（是否显示提示）
         localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+        // 写入新键（提示模式 ends/full/none）
+        localStorage.setItem('SPELLING_HINT_MODE', settings.spellingHintMode || 'full');
         // 若当前在拼写页面并存在切换函数，则应用到UI
         if (typeof setSpellingSubmode === 'function') {
             setSpellingSubmode(localStorage.getItem('SPELLING_SUBMODE') || settings.spellingDefaultSubmode || 'spell');
@@ -177,65 +180,46 @@ function updateSettingsDisplay() {
     if (volumeValue && speechVolume) {
         volumeValue.textContent = parseFloat(speechVolume.value).toFixed(1);
     }
-
+    
     if (mixRatio && mixRatioValue) {
-        const percent = Math.round(parseFloat(mixRatio.value) * 100);
-        mixRatioValue.textContent = percent + '%';
+        const v = Math.round(parseFloat(mixRatio.value || '0') * 100);
+        mixRatioValue.textContent = `${v}%`;
     }
 
     if (uiScale && uiScaleValue) {
-        const percent = Math.round(parseFloat(uiScale.value) * 100);
-        uiScaleValue.textContent = percent + '%';
+        const v = Math.round(parseFloat(uiScale.value || '1') * 100);
+        uiScaleValue.textContent = `${v}%`;
     }
 }
 
 // 应用幼儿园模式
 function applyKindergartenMode(enabled) {
-    if (enabled) {
-        document.body.classList.add('kindergarten-mode');
-        // 如果有词库加载，初始化幼儿园模式
-        if (currentVocabulary.length > 0) {
-            initializeKindergartenMode();
-        }
-    } else {
-        document.body.classList.remove('kindergarten-mode');
-        // 隐藏奖励系统
-        const rewardSystem = document.querySelector('.reward-system');
-        if (rewardSystem) {
-            rewardSystem.style.display = 'none';
-        }
+    const kindergartenSettings = document.getElementById('kindergartenSettings');
+    if (kindergartenSettings) {
+        kindergartenSettings.style.display = enabled ? 'block' : 'none';
     }
 }
 
 // 重置设置
 function resetSettings() {
-    if (confirm('确定要重置所有设置吗？')) {
-        localStorage.removeItem(CONFIG.STORAGE_KEYS.SETTINGS);
-        applySettingsToUI(CONFIG.DEFAULT_SETTINGS);
-        showNotification('设置已重置为默认值');
-    }
+    localStorage.removeItem(CONFIG.STORAGE_KEYS.SETTINGS);
+    showNotification('设置已重置为默认值');
+    loadSettings();
 }
 
 // 导出设置
 function exportSettings() {
     const settings = getSettings();
-    const exportData = {
-        settings,
-        exportDate: new Date().toISOString(),
-        version: '1.0'
-    };
-    
-    const dataStr = JSON.stringify(exportData, null, 2);
+    const dataStr = JSON.stringify({ settings }, null, 2);
     const blob = new Blob([dataStr], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     
     const a = document.createElement('a');
     a.href = url;
-    a.download = `game_settings_${getCurrentDateString()}.json`;
+    a.download = 'settings.json';
     a.click();
     
     URL.revokeObjectURL(url);
-    showNotification('设置已导出');
 }
 
 // 导入设置
@@ -244,8 +228,8 @@ function importSettings() {
     input.type = 'file';
     input.accept = '.json';
     
-    input.onchange = function(e) {
-        const file = e.target.files[0];
+    input.onchange = function() {
+        const file = input.files[0];
         if (!file) return;
         
         const reader = new FileReader();
@@ -271,11 +255,12 @@ function importSettings() {
 
 // 进度相关函数
 function loadProgress() {
+    const KEYS = getStorageKeysSafe();
     const key = (function(){
         try {
-            const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
-            return lt === 'word' ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
-        } catch(e) { return CONFIG.STORAGE_KEYS.PROGRESS; }
+            const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(KEYS.LEARN_TYPE) || 'word');
+            return (lt === 'word' || lt === 'word_zh') ? KEYS.PROGRESS : KEYS.PROGRESS_PHRASE;
+        } catch(e) { return KEYS.PROGRESS; }
     })();
     const saved = localStorage.getItem(key);
     if (saved) {
@@ -312,39 +297,45 @@ function updateProgressDisplay(progress) {
 
 // 保存进度
 function saveProgress() {
-    const key = (function(){
-        try {
-            const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word');
-            return lt === 'word' ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
-        } catch(e) { return CONFIG.STORAGE_KEYS.PROGRESS; }
-    })();
-    const saved = localStorage.getItem(key);
-    const progress = saved ? JSON.parse(saved) : {};
-    
-    progress.totalTime = (progress.totalTime || 0) + (Date.now() - studyStartTime);
-    progress.masteredWords = Math.max(progress.masteredWords || 0, currentWordIndex + 1);
-    
-    // 检查是否是新的一天
-    const today = getCurrentDateString();
-    if (progress.lastStudyDate !== today) {
-        progress.studyDays = (progress.studyDays || 0) + 1;
-        progress.lastStudyDate = today;
+    try {
+        const KEYS = getStorageKeysSafe();
+        const key = (function(){
+            try {
+                const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(KEYS.LEARN_TYPE) || 'word');
+                return (lt === 'word' || lt === 'word_zh') ? KEYS.PROGRESS : KEYS.PROGRESS_PHRASE;
+            } catch(e) { return KEYS.PROGRESS; }
+        })();
+        const saved = localStorage.getItem(key);
+        const progress = saved ? JSON.parse(saved) : {};
+        const baseStart = (typeof studyStartTime !== 'undefined' ? studyStartTime : Date.now());
+        progress.totalTime = (progress.totalTime || 0) + (Date.now() - baseStart);
+        progress.masteredWords = Math.max(progress.masteredWords || 0, (typeof currentWordIndex !== 'undefined' ? currentWordIndex + 1 : 0));
+        
+        // 检查是否是新的一天
+        const today = getCurrentDateString();
+        if (progress.lastStudyDate !== today) {
+            progress.studyDays = (progress.studyDays || 0) + 1;
+            progress.lastStudyDate = today;
+        }
+        
+        localStorage.setItem(key, JSON.stringify(progress));
+        try { studyStartTime = Date.now(); } catch(e) { window.studyStartTime = Date.now(); }
+        
+        updateProgressDisplay(progress);
+    } catch (e) {
+        console.warn('saveProgress 失败，已忽略：', e);
     }
-    
-    localStorage.setItem(key, JSON.stringify(progress));
-    studyStartTime = Date.now();
-    
-    updateProgressDisplay(progress);
 }
 
 // 清除进度
 function clearProgress() {
     if (confirm('确定要清除所有学习记录吗？此操作不可恢复。')) {
+        const KEYS = getStorageKeysSafe();
         // 同时清理单词与短语两套键
-        localStorage.removeItem(CONFIG.STORAGE_KEYS.PROGRESS);
-        localStorage.removeItem(CONFIG.STORAGE_KEYS.PROGRESS_PHRASE);
-        localStorage.removeItem(CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS);
-        localStorage.removeItem(CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE);
+        localStorage.removeItem(KEYS.PROGRESS);
+        localStorage.removeItem(KEYS.PROGRESS_PHRASE);
+        localStorage.removeItem(KEYS.KINDERGARTEN_PROGRESS);
+        localStorage.removeItem(KEYS.KINDERGARTEN_PROGRESS_PHRASE);
         
         // 重置显示
         updateProgressDisplay({});
@@ -356,10 +347,11 @@ function clearProgress() {
 
 // 导出进度数据
 function exportProgress() {
-    const progress_word = localStorage.getItem(CONFIG.STORAGE_KEYS.PROGRESS);
-    const progress_phrase = localStorage.getItem(CONFIG.STORAGE_KEYS.PROGRESS_PHRASE);
-    const kindergarten_word = localStorage.getItem(CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS);
-    const kindergarten_phrase = localStorage.getItem(CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE);
+    const KEYS = getStorageKeysSafe();
+    const progress_word = localStorage.getItem(KEYS.PROGRESS);
+    const progress_phrase = localStorage.getItem(KEYS.PROGRESS_PHRASE);
+    const kindergarten_word = localStorage.getItem(KEYS.KINDERGARTEN_PROGRESS);
+    const kindergarten_phrase = localStorage.getItem(KEYS.KINDERGARTEN_PROGRESS_PHRASE);
     
     if (!progress_word && !progress_phrase && !kindergarten_word && !kindergarten_phrase) {
         showNotification('没有学习数据可导出', 'error');
@@ -425,6 +417,12 @@ function initializeSettingsEventListeners() {
         }
     });
 
+    // 监听拼写提示模式选择（若控件存在）
+    const hintModeEl = document.getElementById('spellingHintMode');
+    if (hintModeEl) {
+        hintModeEl.addEventListener('change', saveSettings);
+    }
+
     // 混合比例滑块
     const mixRatioEl = document.getElementById('mixKindergartenRatio');
     if (mixRatioEl) {
@@ -438,6 +436,23 @@ function initializeSettingsEventListeners() {
     const quizCount = document.getElementById('quizCount');
     if (quizCount) {
         quizCount.addEventListener('change', saveSettings);
+    }
+
+    // 新增：题目来源选择
+    const questionSourceEl = document.getElementById('questionSource');
+    if (questionSourceEl) {
+        questionSourceEl.addEventListener('change', function(){
+            saveSettings();
+            try {
+                // 如有过滤刷新函数，触发立即应用
+                if (typeof applyQuestionSourceFilter === 'function') {
+                    applyQuestionSourceFilter();
+                } else if (typeof updateWordDisplay === 'function') {
+                    // 最小化刷新：不变更索引，仅重新渲染
+                    updateWordDisplay();
+                }
+            } catch(e) {}
+        });
     }
 
     // 新增：设备与显示设置监听
@@ -460,12 +475,15 @@ function initializeSettingsEventListeners() {
 
 // 获取学习统计（基于当前学习类型）
 function getLearningStats() {
+  const KEYS = getStorageKeysSafe();
   const lt = (function(){
-    try { return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'); } catch(e) { return 'word'; }
+    try {
+      return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(KEYS.LEARN_TYPE) || 'word');
+    } catch(e) { return 'word'; }
   })();
   const isWord = (lt === 'word' || lt === 'word_zh');
-  const progressKey = isWord ? CONFIG.STORAGE_KEYS.PROGRESS : CONFIG.STORAGE_KEYS.PROGRESS_PHRASE;
-  const kgKey = isWord ? CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS : CONFIG.STORAGE_KEYS.KINDERGARTEN_PROGRESS_PHRASE;
+  const progressKey = isWord ? KEYS.PROGRESS : KEYS.PROGRESS_PHRASE;
+  const kgKey = isWord ? KEYS.KINDERGARTEN_PROGRESS : KEYS.KINDERGARTEN_PROGRESS_PHRASE;
     
     const progress = localStorage.getItem(progressKey);
     const kindergartenProgress = localStorage.getItem(kgKey);
@@ -522,9 +540,18 @@ function applyDisplaySettings(settings) {
     if (Number.isNaN(scale)) scale = 1;
     scale = Math.max(0.8, Math.min(1.2, scale));
 
+    // 识别 Android/Capacitor 环境
+    const isAndroidUA = /Android/i.test(navigator.userAgent || '');
+    const isCapacitorAndroid = (typeof window !== 'undefined' && window.Capacitor && typeof window.Capacitor.getPlatform === 'function')
+      ? (window.Capacitor.getPlatform() === 'android')
+      : false;
+    const isAndroidEnv = isAndroidUA || isCapacitorAndroid;
+
     // 切换设备模式类名（预留样式钩子）
     body.classList.remove('device-phone', 'device-tablet', 'device-desktop');
     body.classList.add(`device-${device}`);
+    // 为 APK/Android WebView 注入 android 类，激活右上角悬浮窗样式
+    body.classList.toggle('android', isAndroidEnv);
 
     // 切换紧凑模式
     body.classList.toggle('compact-mode', compact);
@@ -535,13 +562,20 @@ function applyDisplaySettings(settings) {
     body.style.removeProperty('transform-origin');
     body.style.removeProperty('width');
 
-    // 使用 zoom 优先，transform 兜底
+    // 在 Android WebView/Capacitor 中，优先使用 transform 以避免 zoom 在部分设备上不生效
     if (scale !== 1) {
-      body.style.zoom = String(scale);
-      if (body.style.zoom === '' || body.style.zoom === 'normal') {
+      if (isAndroidEnv) {
         body.style.transform = `scale(${scale})`;
         body.style.transformOrigin = 'top center';
         body.style.width = `${(100 / scale).toFixed(4)}%`;
+      } else {
+        body.style.zoom = String(scale);
+        // 若浏览器不支持 zoom，再回退到 transform
+        if (body.style.zoom === '' || body.style.zoom === 'normal') {
+          body.style.transform = `scale(${scale})`;
+          body.style.transformOrigin = 'top center';
+          body.style.width = `${(100 / scale).toFixed(4)}%`;
+        }
       }
     }
 
@@ -551,8 +585,59 @@ function applyDisplaySettings(settings) {
     console.error('applyDisplaySettings failed:', err);
   }
 }
+// 读取当前设置（优先读取UI，其次读取本地存储，最后使用默认值）
+function getSettings() {
+  const KEYS = getStorageKeysSafe();
+  let saved = {};
+  try {
+    const s = localStorage.getItem(KEYS.SETTINGS);
+    if (s) saved = JSON.parse(s) || {};
+  } catch(e) {}
+  const defaults = (typeof CONFIG !== 'undefined' && CONFIG.DEFAULT_SETTINGS) ? CONFIG.DEFAULT_SETTINGS : {};
+  const base = { ...defaults, ...saved };
 
-// =============== 激活：状态与UI（与 web 版保持一致） ===============
+  const getEl = (id) => document.getElementById(id);
+  const num = (id, def) => {
+    const el = getEl(id); if (!el) return (typeof base[id] !== 'undefined' ? base[id] : def);
+    const v = parseFloat(el.value); return isNaN(v) ? (typeof base[id] !== 'undefined' ? base[id] : def) : v;
+  };
+  const str = (id, def) => {
+    const el = getEl(id); if (!el) return (typeof base[id] !== 'undefined' ? base[id] : def);
+    return (el.value !== undefined && el.value !== null) ? el.value : (typeof base[id] !== 'undefined' ? base[id] : def);
+  };
+  const bool = (id, def) => {
+    const el = getEl(id); if (!el) return (typeof base[id] !== 'undefined' ? !!base[id] : !!def);
+    return !!el.checked;
+  };
+
+  // 组合结果（字段需与 applySettingsToUI/initializeSettingsEventListeners 对齐）
+  const result = {
+    speechRate: num('speechRate', 1.0),
+    speechPitch: num('speechPitch', 1.0),
+    speechVolume: num('speechVolume', 1.0),
+    autoPlay: bool('autoPlay', false),
+    showImages: bool('showImages', true),
+    kindergartenMode: bool('kindergartenMode', false),
+    // 幼儿园混合
+    mixKindergartenEnabled: bool('mixKindergartenEnabled', false),
+    mixKindergartenRatio: (function(){ const v = num('mixKindergartenRatio', 0); return Math.max(0, Math.min(1, v)); })(),
+    // 测试题数量
+    quizCount: Math.max(1, Math.round(num('quizCount', 10))),
+    // 拼写设置
+    spellingDefaultSubmode: str('spellingDefaultSubmode', base.spellingDefaultSubmode || 'spell'),
+    spellingHint: bool('spellingHint', !!base.spellingHint),
+    spellingHintMode: str('spellingHintMode', base.spellingHintMode || 'full'),
+    // 设备与显示
+    deviceMode: str('deviceMode', base.deviceMode || 'phone'),
+    uiScale: (function(){ const v = num('uiScale', base.uiScale || 1); return Math.max(0.8, Math.min(1.2, v)); })(),
+    compactMode: bool('compactMode', !!base.compactMode),
+    // 题目来源
+    questionSource: str('questionSource', base.questionSource || 'all')
+  };
+  return result;
+}
+
+// 激活：状态与UI
 function updateActivationUI() {
   try {
     const info = getActivationInfo();
@@ -623,10 +708,13 @@ function ensureActivationUIMounted(){
 }
 
 async function verifyActivationCodeOnline(code) {
+  // 预留多来源：优先 GitHub RAW；后续可扩展为飞书文档读取
+  // 规则：简单包含校验（每行一个激活码），忽略空行与注释
   let sources = [];
   if (CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.CODES_URL && CONFIG.ACTIVATION.CODES_URL.trim()) {
     sources.push(CONFIG.ACTIVATION.CODES_URL.trim());
   } else {
+    // 回退到站点根目录的激活.txt（可在根目录放置）
     sources.push('激活.txt');
   }
   const norm = (s) => s.trim();
@@ -690,6 +778,7 @@ function bindActivationUIEvents() {
         alert('激活码格式不正确');
         return;
       }
+      // 在线包含校验
       const res = await verifyActivationCodeOnline(code);
       if (res.ok) {
         saveActivationInfo({ activated: true, code, debug: false, ts: Date.now(), source: res.source });
@@ -702,17 +791,20 @@ function bindActivationUIEvents() {
   }
 }
 
+// ===== 公开方法 =====
 function initializeActivation() {
   ensureActivationUIMounted();
   updateActivationUI();
   bindActivationUIEvents();
-  try { console.info('[INIT] Activation UI initialized (android web)'); } catch(e){}
+  try { console.info('[INIT] Activation UI initialized and mounted into settings'); } catch(e){}
 }
 
+// 将初始化注入现有启动流程
 (function hookActivationInit(){
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeActivation);
   } else {
+    // 若主流程已完成初始化，也可直接调用
     setTimeout(initializeActivation, 0);
   }
 })();

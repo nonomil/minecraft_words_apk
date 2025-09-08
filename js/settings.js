@@ -80,6 +80,8 @@ function applySettingsToUI(settings) {
         // 新增：拼写设置
         spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode'),
         spellingHint: document.getElementById('spellingHint'),
+        // 新增：拼写提示模式（ends/full）
+        spellingHintMode: document.getElementById('spellingHintMode'),
         // 新增：设备与显示
         deviceMode: document.getElementById('deviceMode'),
         uiScale: document.getElementById('uiScale'),
@@ -108,14 +110,16 @@ function applySettingsToUI(settings) {
     // 应用设备/显示设置
     applyDisplaySettings(settings);
 
-    // 同步拼写默认子模式到拼写页面的持久化键（仅当未显式设置过时）
+    // 同步拼写默认子模式与提示模式到拼写页面的持久化键（保持兼容旧键）
     try {
         const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
         if (!hasExplicit && settings.spellingDefaultSubmode) {
             localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
         }
-        // 同步提示偏好（独立键，供拼写页读取）
+        // 兼容老键：始终写入 SPELLING_HINT（非 none 情况写 1）
         localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+        // 新键：写入提示模式（默认为 full）
+        localStorage.setItem('SPELLING_HINT_MODE', settings.spellingHintMode || 'full');
     } catch(e) {}
 }
 
@@ -137,7 +141,10 @@ function saveSettings() {
         if (!hasExplicit && settings.spellingDefaultSubmode) {
             localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
         }
+        // 兼容写入旧键（是否显示提示）
         localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+        // 写入新键（提示模式 ends/full/none）
+        localStorage.setItem('SPELLING_HINT_MODE', settings.spellingHintMode || 'full');
         // 若当前在拼写页面并存在切换函数，则应用到UI
         if (typeof setSpellingSubmode === 'function') {
             setSpellingSubmode(localStorage.getItem('SPELLING_SUBMODE') || settings.spellingDefaultSubmode || 'spell');
@@ -410,6 +417,12 @@ function initializeSettingsEventListeners() {
         }
     });
 
+    // 监听拼写提示模式选择（若控件存在）
+    const hintModeEl = document.getElementById('spellingHintMode');
+    if (hintModeEl) {
+        hintModeEl.addEventListener('change', saveSettings);
+    }
+
     // 混合比例滑块
     const mixRatioEl = document.getElementById('mixKindergartenRatio');
     if (mixRatioEl) {
@@ -523,12 +536,53 @@ function applyDisplaySettings(settings) {
 
     const device = (settings && settings.deviceMode) || 'phone';
     const compact = !!(settings && settings.compactMode);
-    const scale = Math.max(0.8, Math.min(1.2, parseFloat(settings && settings.uiScale || 1)));
+    let scale = parseFloat(settings && settings.uiScale);
+    if (Number.isNaN(scale)) scale = 1;
+    scale = Math.max(0.8, Math.min(1.2, scale));
 
-    body.dataset.device = device;
-    body.dataset.compact = compact ? '1' : '0';
-    body.style.setProperty('--ui-scale', scale);
-  } catch (e) {}
+    // 检测 Android/Capacitor 环境
+    const isAndroidUA = /Android/i.test(navigator.userAgent || '');
+    const isCapacitorAndroid = (typeof window !== 'undefined' && window.Capacitor && typeof window.Capacitor.getPlatform === 'function')
+      ? (window.Capacitor.getPlatform() === 'android')
+      : false;
+    const isAndroidEnv = isAndroidUA || isCapacitorAndroid;
+
+    // 切换设备模式类名（用于 CSS 钩子）
+    body.classList.remove('device-phone', 'device-tablet', 'device-desktop');
+    body.classList.add(`device-${device}`);
+    // 为 APK/Android WebView 注入 android 类，激活右上角悬浮窗样式
+    body.classList.toggle('android', isAndroidEnv);
+
+    // 切换紧凑模式
+    body.classList.toggle('compact-mode', compact);
+
+    // 重置缩放相关样式
+    body.style.removeProperty('zoom');
+    body.style.removeProperty('transform');
+    body.style.removeProperty('transform-origin');
+    body.style.removeProperty('width');
+
+    // 在 Android WebView 中优先使用 transform，桌面浏览器优先 zoom，失败再回退 transform
+    if (scale !== 1) {
+      if (isAndroidEnv) {
+        body.style.transform = `scale(${scale})`;
+        body.style.transformOrigin = 'top center';
+        body.style.width = `${(100 / scale).toFixed(4)}%`;
+      } else {
+        body.style.zoom = String(scale);
+        if (body.style.zoom === '' || body.style.zoom === 'normal') {
+          body.style.transform = `scale(${scale})`;
+          body.style.transformOrigin = 'top center';
+          body.style.width = `${(100 / scale).toFixed(4)}%`;
+        }
+      }
+    }
+
+    // 暴露 CSS 变量
+    document.documentElement.style.setProperty('--ui-scale', String(scale));
+  } catch (err) {
+    console.error('applyDisplaySettings failed:', err);
+  }
 }
 // 读取当前设置（优先读取UI，其次读取本地存储，最后使用默认值）
 function getSettings() {
@@ -571,6 +625,7 @@ function getSettings() {
     // 拼写设置
     spellingDefaultSubmode: str('spellingDefaultSubmode', base.spellingDefaultSubmode || 'spell'),
     spellingHint: bool('spellingHint', !!base.spellingHint),
+    spellingHintMode: str('spellingHintMode', base.spellingHintMode || 'full'),
     // 设备与显示
     deviceMode: str('deviceMode', base.deviceMode || 'phone'),
     uiScale: (function(){ const v = num('uiScale', base.uiScale || 1); return Math.max(0.8, Math.min(1.2, v)); })(),
