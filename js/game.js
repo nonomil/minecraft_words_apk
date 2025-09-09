@@ -281,7 +281,7 @@ function selectLearnChoice(element, selected, correct) {
         resultElement.textContent = '✅ 回答正确！';
         resultElement.className = 'learn-result correct';
         try{ createStarAnimation(); }catch(e){}
-        try{ if(getSettings().kindergartenMode){ awardDiamond(); } }catch(e){}
+        try{ if(getSettings().kindergartenMode){ handleCorrectAnswer(); } }catch(e){}
     } else {
         element.classList.add('wrong');
         resultElement.textContent = `❌ 回答错误！正确答案是：${correct}`;

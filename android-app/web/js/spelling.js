@@ -262,13 +262,19 @@ function updateQuizDisplay() {
   quizAnswered = false;
   currentQuizAudioLang = 'en';
 
+  // 控制按钮状态
+  const prevBtn = document.getElementById('prevQuizBtn');
+  if (prevBtn) prevBtn.disabled = currentQuizIndex <= 0;
+  const nextBtnGate = document.getElementById('nextQuizBtn');
+  if (nextBtnGate) nextBtnGate.disabled = true;
+
   // 题干（中文提示，要求拼写英文）
   const qTitle = document.querySelector('.quiz-question h3');
   if (qTitle) {
     const cn = (word.chinese || '').trim();
     qTitle.textContent = cn ? `请拼写：${cn} 的英文` : '请根据发音拼写英文';
   }
-  // 在标题行插入英文提示 div，与 h3、播放按钮同排
+  // 在标题行插入英文提示 div，与 h3 同排
   try {
     const headline = document.querySelector('.quiz-headline');
     if (headline) {
@@ -277,47 +283,50 @@ function updateQuizDisplay() {
         hintEl = document.createElement('div');
         hintEl.id = 'spellingInlineHint';
         hintEl.className = 'spelling-inline-hint';
-        const playBtn = headline.querySelector('.control-btn.play');
-        if (playBtn) headline.insertBefore(hintEl, playBtn); else headline.appendChild(hintEl);
+        headline.appendChild(hintEl);
       }
-      const showHint = (()=>{ try { return (localStorage.getItem('SPELLING_HINT') || '1') === '1'; } catch(e){ return true; } })();
-      if (showHint) {
-        const en = (word.standardized || word.word || '').trim();
+      // 读取提示模式：none/ends/full；兼容旧键 SPELLING_HINT（1=>full, 0=>none）
+      let mode = 'full';
+      try {
+        mode = (localStorage.getItem('SPELLING_HINT_MODE') || '').trim() || '';
+        if (!mode) {
+          const legacy = (localStorage.getItem('SPELLING_HINT') || '1') === '1';
+          mode = legacy ? 'full' : 'none';
+        }
+      } catch(e) {}
+      const en = (word.standardized || word.word || '').trim();
+      if (mode === 'none') {
+        hintEl.style.display = 'none';
+      } else if (mode === 'ends') {
+        const lettersOnly = en.replace(/[^A-Za-z]/g,'');
+        const tail = lettersOnly.length <= 2 ? lettersOnly : lettersOnly.slice(-2);
+        hintEl.textContent = tail ? `…${tail}` : '';
+        hintEl.style.display = tail ? 'inline-block' : 'none';
+      } else { // full
         hintEl.textContent = en || '';
         hintEl.style.display = en ? 'inline-block' : 'none';
-      } else {
-        hintEl.style.display = 'none';
       }
 
-      // 在播放按钮后插入子模式切换（拼写/补全）
+      // 在标题右侧插入子模式切换
       let toggle = headline.querySelector('#spellingSubmodeToggle');
       if (!toggle) {
         toggle = document.createElement('div');
         toggle.id = 'spellingSubmodeToggle';
         toggle.className = 'spelling-submode-toggle';
-        const playBtn = headline.querySelector('.control-btn.play');
-        if (playBtn && playBtn.parentNode) {
-          playBtn.insertAdjacentElement('afterend', toggle);
-        } else {
-          headline.appendChild(toggle);
-        }
-        // 创建两个按钮
+        headline.appendChild(toggle);
         const btnSpell = document.createElement('button');
         btnSpell.type = 'button';
         btnSpell.className = 'spelling-submode-btn spell';
         btnSpell.textContent = '拼写';
         btnSpell.onclick = ()=> setSpellingSubmode && setSpellingSubmode('spell');
-
         const btnFill = document.createElement('button');
         btnFill.type = 'button';
         btnFill.className = 'spelling-submode-btn fill';
         btnFill.textContent = '补全';
         btnFill.onclick = ()=> setSpellingSubmode && setSpellingSubmode('fill');
-
         toggle.appendChild(btnSpell);
         toggle.appendChild(btnFill);
       }
-      // 刷新按钮 active 状态
       try {
         const btns = toggle.querySelectorAll('.spelling-submode-btn');
         btns.forEach(b=>b.classList.remove('active'));
@@ -333,8 +342,6 @@ function updateQuizDisplay() {
   updateQuizGroupDisplay();
   updateQuizStats();
   updateQuizProgressBar();
-  const nextBtn = document.getElementById('nextQuizBtn');
-  if (nextBtn) nextBtn.disabled = true;
   updateQuizAudioButton();
 
   // 自动先播英文，再播中文
@@ -495,17 +502,22 @@ async function submitSpelling(word, answerOverride){
   if (!resultEl) return;
   resultEl.style.display = 'block';
 
-  if (answer && correct && answer === correct) {
+  const isCorrect = (answer && correct && answer === correct);
+
+  if (isCorrect) {
     quizScore++;
     resultEl.textContent = '✅ 回答正确！';
     resultEl.className = 'learn-result correct';
     try{ createStarAnimation(); }catch(e){}
-    try{ if(getSettings().kindergartenMode){ awardDiamond(); } }catch(e){}
+    try{ if(getSettings().kindergartenMode){ handleCorrectAnswer(); } }catch(e){}
   } else {
     const show = word.standardized || word.word || '';
     resultEl.textContent = `❌ 回答错误！正确答案是：${show}`;
     resultEl.className = 'learn-result wrong';
   }
+
+  // 新增：记录 per-word 结果（基于当前学习类型的键）
+  try { if (typeof recordWordResult === 'function') { recordWordResult(word, isCorrect); } } catch(e) {}
 
   if (nextBtn) nextBtn.disabled = false;
   updateQuizScore();
@@ -527,12 +539,20 @@ function updateQuizScore(){
 
 function nextQuiz(){ currentQuizIndex++; updateQuizDisplay(); }
 
+// 新增：上一题
+function previousQuiz(){ if(currentQuizIndex<=0) return; currentQuizIndex--; updateQuizDisplay(); }
+
 function playQuizAudio(){
   if (!quizWords.length || currentQuizIndex>=quizWords.length) return;
   const w = quizWords[currentQuizIndex];
   if (currentQuizAudioLang==='zh') playQuizChinese(w); else playQuizEnglish(w);
   currentQuizAudioLang = currentQuizAudioLang==='zh' ? 'en' : 'zh';
   updateQuizAudioButton();
+}
+
+function updateQuizAudioButton(){
+  const btn = document.querySelector('#quizMode .control-btn.play');
+  if(!btn) return; btn.innerHTML='🔊 发音'; btn.title='点击播放发音';
 }
 
 function playQuizChinese(w){
@@ -544,10 +564,6 @@ function playQuizEnglish(w){
   if (window.TTS) TTS.speak(txt,{lang:'en-US', rate:Math.max(0.6,s.speechRate*0.8), pitch:s.speechPitch, volume:s.speechVolume});
 }
 
-function updateQuizAudioButton(){
-  const btn = document.querySelector('#quizMode .control-btn.play');
-  if(!btn) return; if(currentQuizAudioLang==='zh'){ btn.innerHTML='🔊 听中文'; btn.title='点击播放中文发音'; } else { btn.innerHTML='🔊 听英文'; btn.title='点击播放英文发音'; }
-}
 
 function updateQuizGroupDisplay(){
   if(!getSettings().kindergartenMode) return;
