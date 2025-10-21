@@ -416,7 +416,7 @@ body {
   background: rgba(255,255,255,0.9);
   color: #2c3e50;
   font-weight: 700;
-  font-size: clamp(14px, 2.8vw, 16px);
+  font-size: clamp(22px, 3.6vw, 28px);
 }
 
 /* Play button now inline (elliptical to fit text like 听英文) */

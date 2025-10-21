@@ -15,6 +15,8 @@ const CONFIG = {
         kindergartenMode: true,
         // 新增：拼写默认子模式
         spellingDefaultSubmode: 'spell',
+        // 新增：拼写提示模式（none/ends/full），默认完整英文
+        spellingHintMode: 'full',
         // 新增：设备与显示设置
         deviceMode: 'phone',
         uiScale: 0.95,
@@ -72,14 +74,16 @@ const CONFIG = {
         WORD_RESULTS_PHRASE: 'wordResultsMap_phrase',
         // 新增：激活与试用相关键
         ACTIVATION_INFO: 'activationInfo', // 保存激活状态与激活码信息
-        TRIAL_USAGE: 'trialUsage' // 记录试用唯一词条集合
+        TRIAL_USAGE: 'trialUsage', // 记录试用唯一词条集合
+        // 新增：拼写提示模式（供统一读取）
+        SPELLING_HINT_MODE: 'SPELLING_HINT_MODE'
     },
 
     // 新增：激活相关配置
     ACTIVATION: {
         CODES_URL: 'https://raw.githubusercontent.com/nonomil/minecraft_words_apk/main/activation_codes.txt',
         PREFIX: 'MC-',
-        DEBUG_PASSWORD: 'mc-debug-2025',
+        DEBUG_PASSWORD: 'MC-TEST-001',
         CONTACT_TEXT: '请联系微信：weixin123 获取激活码'
     },
 

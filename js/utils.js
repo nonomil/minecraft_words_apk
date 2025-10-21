@@ -303,6 +303,200 @@ function recordWordResult(wordObj, isCorrect) {
   } catch (e) { /* ignore */ }
 }
 
+// 新增：获取单词学习状态
+function getWordLearningStatus(wordObj) {
+  try {
+    const data = getWordResultsMap();
+    const key = getWordKey(wordObj);
+    if (!key) return 'unlearned';
+    const item = data.items[key];
+    if (!item) return 'unlearned';
+
+    // 判断学习状态
+    if (item.correct >= 3) return 'mastered';      // 掌握：答对3次及以上
+    if (item.correct >= 1) return 'learning';      // 学习中：至少答对1次
+    if (item.seen > 0) return 'seen';              // 已见过：至少见过1次
+    return 'unlearned';                              // 未学习
+  } catch (e) {
+    return 'unlearned';
+  }
+}
+
+// 新增：获取所有单词的学习统计
+function getLearningStatistics() {
+  try {
+    const data = getWordResultsMap();
+    const items = data.items || {};
+    const stats = {
+      total: 0,
+      mastered: 0,
+      learning: 0,
+      seen: 0,
+      unlearned: 0,
+      totalSeen: 0,
+      totalCorrect: 0,
+      totalWrong: 0,
+      accuracy: 0
+    };
+
+    Object.values(items).forEach(item => {
+      stats.total++;
+      stats.totalSeen += item.seen || 0;
+      stats.totalCorrect += item.correct || 0;
+      stats.totalWrong += item.wrong || 0;
+
+      if (item.correct >= 3) stats.mastered++;
+      else if (item.correct >= 1) stats.learning++;
+      else if (item.seen > 0) stats.seen++;
+    });
+
+    // 计算准确率
+    if (stats.totalSeen > 0) {
+      stats.accuracy = Math.round((stats.totalCorrect / stats.totalSeen) * 100);
+    }
+
+    return stats;
+  } catch (e) {
+    return {
+      total: 0,
+      mastered: 0,
+      learning: 0,
+      seen: 0,
+      unlearned: 0,
+      totalSeen: 0,
+      totalCorrect: 0,
+      totalWrong: 0,
+      accuracy: 0
+    };
+  }
+}
+
+// 新增：按学习状态筛选单词
+function filterWordsByLearningStatus(vocabulary, status) {
+  if (!vocabulary || !Array.isArray(vocabulary)) return [];
+
+  return vocabulary.filter(wordObj => {
+    const wordStatus = getWordLearningStatus(wordObj);
+    return wordStatus === status;
+  });
+}
+
+// 新增：智能词汇排序 - 优先未学习的单词
+function prioritizeUnlearnedWords(vocabulary, limit = null) {
+  if (!vocabulary || !Array.isArray(vocabulary)) return [];
+
+  // 按学习状态分组
+  const unlearned = filterWordsByLearningStatus(vocabulary, 'unlearned');
+  const seen = filterWordsByLearningStatus(vocabulary, 'seen');
+  const learning = filterWordsByLearningStatus(vocabulary, 'learning');
+  const mastered = filterWordsByLearningStatus(vocabulary, 'mastered');
+
+  // 按优先级排序：未学习 > 已见过 > 学习中 > 已掌握
+  const prioritized = [...unlearned, ...seen, ...learning, ...mastered];
+
+  // 如果指定了限制数量，返回前N个
+  if (limit && limit > 0) {
+    return prioritized.slice(0, limit);
+  }
+
+  return prioritized;
+}
+
+// 新增：获取推荐学习单词（混合模式）
+function getRecommendedWords(vocabulary, count = 10) {
+  if (!vocabulary || !Array.isArray(vocabulary)) return [];
+
+  // 获取各状态单词
+  const unlearned = filterWordsByLearningStatus(vocabulary, 'unlearned');
+  const seen = filterWordsByLearningStatus(vocabulary, 'seen');
+  const learning = filterWordsByLearningStatus(vocabulary, 'learning');
+
+  // 推荐策略：70% 未学习，20% 已见过，10% 学习中
+  const recommended = [];
+
+  const unlearnedCount = Math.ceil(count * 0.7);
+  const seenCount = Math.ceil(count * 0.2);
+  const learningCount = count - unlearnedCount - seenCount;
+
+  // 随机选择各状态单词
+  const selectRandom = (arr, num) => {
+    const shuffled = [...arr].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, num);
+  };
+
+  recommended.push(...selectRandom(unlearned, Math.min(unlearnedCount, unlearned.length)));
+  recommended.push(...selectRandom(seen, Math.min(seenCount, seen.length)));
+  recommended.push(...selectRandom(learning, Math.min(learningCount, learning.length)));
+
+  // 如果还不够，从已掌握单词中补充
+  if (recommended.length < count) {
+    const mastered = filterWordsByLearningStatus(vocabulary, 'mastered');
+    const remaining = count - recommended.length;
+    recommended.push(...selectRandom(mastered, Math.min(remaining, mastered.length)));
+  }
+
+  // 随机打乱顺序
+  return recommended.sort(() => 0.5 - Math.random());
+}
+
+// 新增：获取学习记录导出数据
+function getLearningRecordExport() {
+  try {
+    const lt = getCurrentLearnType();
+    const vocabName = document.getElementById('vocabSelect')?.value || 'unknown';
+    const data = getWordResultsMap();
+    const stats = getLearningStatistics();
+
+    return {
+      version: '2.0',
+      exportDate: new Date().toISOString(),
+      vocabulary: vocabName,
+      learnType: lt,
+      statistics: stats,
+      wordDetails: data.items || {},
+      summary: {
+        totalWords: stats.total,
+        masteredWords: stats.mastered,
+        learningWords: stats.learning,
+        seenWords: stats.seen,
+        overallAccuracy: stats.accuracy,
+        totalAttempts: stats.totalSeen
+      }
+    };
+  } catch (e) {
+    return {
+      version: '2.0',
+      exportDate: new Date().toISOString(),
+      vocabulary: 'unknown',
+      learnType: getCurrentLearnType(),
+      statistics: getLearningStatistics(),
+      wordDetails: {},
+      summary: {},
+      error: e.message
+    };
+  }
+}
+
+// 新增：导出学习记录
+function exportLearningRecord() {
+  try {
+    const exportData = getLearningRecordExport();
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `learning_record_${exportData.vocabulary}_${getCurrentDateString()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showNotification('学习记录已导出');
+    return true;
+  } catch (e) {
+    console.error('导出学习记录失败:', e);
+    showNotification('导出失败：' + e.message, 'error');
+    return false;
+  }
+}
+
 // ===== 激活与试用：B2 极简实现 =====
 // 说明：根据你的偏好，不绑定设备ID，不设过期；
 // 激活信息结构：{ activated: true/false, code?: string, activatedAt?: iso }
@@ -411,3 +605,196 @@ function getTrialCount(){
     console.warn('setupGlobalImageFallback error', e);
   }
 })();
+
+/**
+ * 输入验证和清理函数 - 安全增强
+ */
+
+/**
+ * 清理HTML内容，防止XSS攻击
+ */
+function sanitizeHTML(str) {
+  if (typeof str !== 'string') return str;
+
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .replace(/\//g, '&#x2F;');
+}
+
+/**
+ * 验证激活码格式
+ */
+function validateActivationCode(code) {
+  if (typeof code !== 'string') return false;
+
+  // 清理输入
+  const cleanCode = code.trim();
+
+  // 基本格式验证
+  if (cleanCode.length < 8 || cleanCode.length > 50) return false;
+
+  // 只允许字母、数字和连字符
+  if (!/^[A-Za-z0-9-]+$/.test(cleanCode)) return false;
+
+  // 必须以MC-开头
+  if (!cleanCode.startsWith('MC-')) return false;
+
+  return true;
+}
+
+/**
+ * 验证文件上传
+ */
+function validateFileUpload(file) {
+  if (!file) return { valid: false, error: '没有选择文件' };
+
+  // 检查文件类型
+  if (!file.name.toLowerCase().endsWith('.json')) {
+    return { valid: false, error: '只支持JSON文件' };
+  }
+
+  // 检查文件大小 (最大10MB)
+  if (file.size > 10 * 1024 * 1024) {
+    return { valid: false, error: '文件大小不能超过10MB' };
+  }
+
+  return { valid: true };
+}
+
+/**
+ * 安全解析JSON
+ */
+function safeJSONParse(str, defaultValue = null) {
+  try {
+    // 限制输入长度
+    if (typeof str !== 'string' || str.length > 100000) {
+      return defaultValue;
+    }
+
+    return JSON.parse(str);
+  } catch (e) {
+    console.warn('JSON解析失败:', e);
+    return defaultValue;
+  }
+}
+
+/**
+ * 验证用户输入的单词数据
+ */
+function validateWordData(wordObj) {
+  if (!wordObj || typeof wordObj !== 'object') {
+    return { valid: false, error: '无效的数据格式' };
+  }
+
+  // 检查必需字段
+  if (!wordObj.word || typeof wordObj.word !== 'string') {
+    return { valid: false, error: '缺少单词字段' };
+  }
+
+  // 清理单词内容
+  const cleanWord = wordObj.word.trim();
+  if (cleanWord.length === 0 || cleanWord.length > 100) {
+    return { valid: false, error: '单词长度必须在1-100字符之间' };
+  }
+
+  // 检查中文翻译
+  if (wordObj.chinese && typeof wordObj.chinese !== 'string') {
+    return { valid: false, error: '中文翻译必须是字符串' };
+  }
+
+  // 检查图片URL
+  if (wordObj.imageURLs && Array.isArray(wordObj.imageURLs)) {
+    const validUrls = wordObj.imageURLs.filter(url => {
+      return typeof url === 'string' &&
+             (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:'));
+    });
+
+    if (validUrls.length !== wordObj.imageURLs.length) {
+      return { valid: false, error: '包含无效的图片URL' };
+    }
+  }
+
+  return { valid: true };
+}
+
+/**
+ * 清理用户输入的文本
+ */
+function sanitizeInput(input, maxLength = 1000) {
+  if (typeof input !== 'string') return '';
+
+  // 限制长度
+  if (input.length > maxLength) {
+    input = input.substring(0, maxLength);
+  }
+
+  // 移除控制字符
+  input = input.replace(/[\x00-\x1F\x7F-\x9F]/g, '');
+
+  // 标准化空白字符
+  input = input.replace(/\s+/g, ' ').trim();
+
+  return input;
+}
+
+/**
+ * 验证学习类型
+ */
+function validateLearnType(type) {
+  const validTypes = ['word', 'word_zh', 'phrase_en', 'phrase_zh'];
+  return validTypes.includes(type);
+}
+
+/**
+ * 安全设置localStorage
+ */
+function safeLocalStorageSet(key, value) {
+  try {
+    // 验证键名
+    if (typeof key !== 'string' || key.length === 0 || key.length > 100) {
+      return false;
+    }
+
+    // 验证值的大小（限制为5MB）
+    const valueStr = JSON.stringify(value);
+    if (valueStr.length > 5 * 1024 * 1024) {
+      console.warn('localStorage值过大，跳过存储');
+      return false;
+    }
+
+    localStorage.setItem(key, valueStr);
+    return true;
+  } catch (e) {
+    console.warn('localStorage存储失败:', e);
+    return false;
+  }
+}
+
+/**
+ * 安全获取localStorage
+ */
+function safeLocalStorageGet(key, defaultValue = null) {
+  try {
+    if (typeof key !== 'string' || key.length === 0) {
+      return defaultValue;
+    }
+
+    const value = localStorage.getItem(key);
+    if (value === null) return defaultValue;
+
+    // 限制解析长度
+    if (value.length > 100000) {
+      console.warn('localStorage值过大，返回默认值');
+      return defaultValue;
+    }
+
+    return JSON.parse(value);
+  } catch (e) {
+    console.warn('localStorage读取失败:', e);
+    return defaultValue;
+  }
+}

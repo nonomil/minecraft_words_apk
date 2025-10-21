@@ -114,18 +114,18 @@ async function loadEmbeddedVocabulary(vocabName) {
     // 备用映射（用于向后兼容）
     const fallbackMappings = {
         'words-basic': { file: 'basic.js', variable: 'BASIC_VOCABULARY' },
-        '1.幼儿园--基础词汇': { file: 'kindergarten_1_basic.js', variable: 'VOCAB_1__________' },
-        '2.幼儿园--学习词汇': { file: 'kindergarten_2_study.js', variable: 'VOCAB_2__________' },
-        '3.幼儿园--自然词汇': { file: 'kindergarten_3_nature.js', variable: 'VOCAB_3__________' },
-        '4.交流词汇': { file: 'kindergarten_4_communication.js', variable: 'VOCAB_4_____' },
-        '5.日常词汇': { file: 'kindergarten_5_daily.js', variable: 'VOCAB_5_____' },
-        '6.幼儿园词汇': { file: 'kindergarten_6_general.js', variable: 'VOCAB_6______' },
-        'kindergarten_vocabulary': { file: 'kindergarten_6_general.js', variable: 'VOCAB_6______' },
-        'minecraft_basic': { file: 'minecraft_basic.js', variable: 'VOCAB_1_MINECRAFT____BASIC' },
-        'minecraft_intermediate': { file: 'minecraft_intermediate.js', variable: 'VOCAB_2_MINECRAFT____BASIC' },
-        'minecraft_advanced': { file: 'minecraft_advanced.js', variable: 'VOCAB_3_MINECRAFT____ADVANCED' },
-        'common_vocabulary': { file: 'common_vocabulary.js', variable: 'VOCAB_1____COMMON' },
-        'minecraft_image_links': { file: 'minecraft_words_full.js', variable: 'MINECRAFT_3_____' }
+        '1.幼儿园--基础词汇': { file: 'kindergarten/kindergarten_1_basic.js', variable: 'VOCAB_1__________' },
+        '2.幼儿园--学习词汇': { file: 'kindergarten/kindergarten_2_study.js', variable: 'VOCAB_2__________' },
+        '3.幼儿园--自然词汇': { file: 'kindergarten/kindergarten_3_nature.js', variable: 'VOCAB_3__________' },
+        '4.交流词汇': { file: 'kindergarten/kindergarten_4_communication.js', variable: 'VOCAB_4_____' },
+        '5.日常词汇': { file: 'kindergarten/kindergarten_5_daily.js', variable: 'VOCAB_5_____' },
+        '6.幼儿园词汇': { file: 'kindergarten/kindergarten_6_general.js', variable: 'VOCAB_6______' },
+        'kindergarten_vocabulary': { file: 'kindergarten/kindergarten_6_general.js', variable: 'VOCAB_6______' },
+        'minecraft_basic': { file: 'minecraft/minecraft_basic.js', variable: 'VOCAB_1_MINECRAFT____BASIC' },
+        'minecraft_intermediate': { file: 'minecraft/minecraft_intermediate.js', variable: 'VOCAB_2_MINECRAFT____BASIC' },
+        'minecraft_advanced': { file: 'minecraft/minecraft_advanced.js', variable: 'VOCAB_3_MINECRAFT____ADVANCED' },
+        'common_vocabulary': { file: 'common/common_vocabulary.js', variable: 'VOCAB_1____COMMON' },
+        'minecraft_image_links': { file: 'minecraft/minecraft_words_full.js', variable: 'MINECRAFT_3_____' }
     };
 
     if (!targetFile && fallbackMappings[vocabName]) {
@@ -140,17 +140,17 @@ async function loadEmbeddedVocabulary(vocabName) {
         // kindergarten_life_communication_expanded.js, kindergarten_learning_nature.js, kindergarten_general_extended.js
         try {
             if (!window.KINDERGARTEN_LIFE_COMMUNICATION_EXPANDED) {
-                await loadVocabularyFile('kindergarten_life_communication_expanded.js');
+                await loadVocabularyFile('kindergarten/kindergarten_life_communication_expanded.js');
             }
         } catch (e) { console.warn('load life_communication skipped/failed', e); }
         try {
             if (!window.KINDERGARTEN_LEARNING_NATURE) {
-                await loadVocabularyFile('kindergarten_learning_nature.js');
+                await loadVocabularyFile('kindergarten/kindergarten_learning_nature.js');
             }
         } catch (e) { console.warn('load learning_nature skipped/failed', e); }
         try {
             if (!window.KINDERGARTEN_GENERAL_EXTENDED) {
-                await loadVocabularyFile('kindergarten_general_extended.js');
+                await loadVocabularyFile('kindergarten/kindergarten_general_extended.js');
             }
         } catch (e) { console.warn('load general_extended skipped/failed', e); }
     }

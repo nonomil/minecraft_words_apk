@@ -31,6 +31,14 @@ jobs:
           cp -f index.html android-app/web/index.html
           cp -f activation_codes.txt android-app/web/activation_codes.txt || true
 
+      - name: Auto-increment version
+        id: version
+        run: |
+          node scripts/version-manager.js patch
+          echo "VERSION_NAME=$(node -p "require('./version.json').versionName")" >> $GITHUB_OUTPUT
+          echo "VERSION_CODE=$(node -p "require('./version.json').versionCode")" >> $GITHUB_OUTPUT
+          echo "BUILD_NUMBER=$(node -p "require('./version.json').buildNumber")" >> $GITHUB_OUTPUT
+
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
@@ -60,8 +68,60 @@ jobs:
         working-directory: android-app/android
         run: ./gradlew --no-daemon assembleDebug
 
+      - name: Rename APK with version info
+        run: |
+          VERSION_NAME="${{ steps.version.outputs.VERSION_NAME }}"
+          VERSION_CODE="${{ steps.version.outputs.VERSION_CODE }}"
+          BUILD_NUMBER="${{ steps.version.outputs.BUILD_NUMBER }}"
+          COMMIT_SHA="${GITHUB_SHA::7}"
+          TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
+          OLD_APK="android-app/android/app/build/outputs/apk/debug/app-debug.apk"
+          NEW_APK="android-app/android/app/build/outputs/apk/debug/mcwords_v${VERSION_NAME}_b${BUILD_NUMBER}_${TIMESTAMP}_${COMMIT_SHA}.apk"
+
+          cp "$OLD_APK" "$NEW_APK"
+          echo "APK_RENAMED=$NEW_APK" >> $GITHUB_ENV
+          echo "APK_VERSION=v${VERSION_NAME}_b${BUILD_NUMBER}" >> $GITHUB_ENV
+
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug.apk
-          path: android-app/android/app/build/outputs/apk/debug/app-debug.apk
+          name: mcwords-${{ env.APK_VERSION }}-${{ github.run_number }}
+          path: |
+            android-app/android/app/build/outputs/apk/debug/*.apk
+          retention-days: 30
+
+      - name: Create Release Notes
+        run: |
+          echo "## 🎮 Minecraft Words APK v${{ steps.version.outputs.VERSION_NAME }}" >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### 📱 版本信息" >> release_notes.md
+          echo "- **版本号**: ${{ steps.version.outputs.VERSION_NAME }}" >> release_notes.md
+          echo "- **版本代码**: ${{ steps.version.outputs.VERSION_CODE }}" >> release_notes.md
+          echo "- **构建号**: ${{ steps.version.outputs.BUILD_NUMBER }}" >> release_notes.md
+          echo "- **构建时间**: $(date '+%Y-%m-%d %H:%M:%S')" >> release_notes.md
+          echo "- **提交**: ${GITHUB_SHA::7}" >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### ✨ 新功能" >> release_notes.md
+          echo "- 学习记录系统 - 跟踪单词学习进度" >> release_notes.md
+          echo "- 调试模式控制 - 可修改钻石和钻石剑数量" >> release_notes.md
+          echo "- 智能单词排序 - 优先加载未学习单词" >> release_notes.md
+          echo "- 学习记录导出 - 详细的学习统计和进度" >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### 🔧 改进" >> release_notes.md
+          echo "- 优化版本管理 - 自动递增版本号" >> release_notes.md
+          echo "- 增强数据持久化 - 保护用户学习数据" >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### 📝 使用说明" >> release_notes.md
+          echo "1. 安装APK后，首次使用需要激活码或调试密码: <code>MC-TEST-001</code>" >> release_notes.md
+          echo "2. 在设置中可以查看学习统计和导出学习记录" >> release_notes.md
+          echo "3. 启用'优先加载未学习单词'功能可优化学习体验" >> release_notes.md
+          echo "" >> release_notes.md
+          echo "### 🎯 调试密码" >> release_notes.md
+          echo "调试模式密码: <code>MC-TEST-001</code>" >> release_notes.md
+
+      - name: Upload Release Notes
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-notes-${{ env.APK_VERSION }}
+          path: release_notes.md

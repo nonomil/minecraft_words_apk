@@ -61,7 +61,7 @@ const CONFIG = {
     ACTIVATION: {
         CODES_URL: 'https://raw.githubusercontent.com/nonomil/minecraft_words_apk/main/activation_codes.txt',
         PREFIX: 'MC-',
-        DEBUG_PASSWORD: 'mc-debug-2025',
+        DEBUG_PASSWORD: 'MC-TEST-001',
         CONTACT_TEXT: '请联系微信：weixin123 获取激活码'
     },
     

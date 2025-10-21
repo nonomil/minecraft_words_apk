@@ -3,6 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://raw.githubusercontent.com;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data: https: http:;
+        font-src 'self';
+        connect-src 'self' https://raw.githubusercontent.com https://*.githubusercontent.com;
+        media-src 'self';
+        object-src 'none';
+        child-src 'none';
+        worker-src 'self';
+        manifest-src 'self';
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
     <title>🎮 Minecraft 单词学习游戏</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/kindergarten.css">
@@ -165,6 +183,12 @@
                     <div class="setting-item">
                         <label>预设词库:</label>
                         <select id="vocabSelect">
+                            <!-- 阶段词汇库 -->
+                            <optgroup label="📚 阶段词汇库">
+                                <option value="幼儿园阶段">幼儿园阶段 (3-6岁, 100词)</option>
+                                <option value="小学低年级">小学低年级 (6-9岁, 148词)</option>
+                                <option value="小学高年级">小学高年级 (9-12岁, 97词)</option>
+                            </optgroup>
                             <!-- 幼儿园词库 -->
                             <optgroup label="🎒 幼儿园词库">
                                 <option value="生活交流">生活交流</option>
@@ -337,6 +361,7 @@
     <!-- 脚本文件 -->
     <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/data-migration.js"></script>
     <script src="js/tts-adapter.js"></script>
     <script src="js/vocabulary-data.js"></script>
     <script src="js/vocabulary.js"></script>

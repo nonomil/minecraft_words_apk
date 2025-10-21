@@ -16,8 +16,21 @@ async function loadVocabulary() {
         }
         
         validateVocabularyJSON(data);
-        
-        currentVocabulary = data;
+
+        // 智能词汇排序：如果启用了优先加载未学习单词
+        let processedData = data;
+        try {
+            const prioritizeUnlearned = localStorage.getItem('prioritizeUnlearned') === 'true';
+            if (prioritizeUnlearned && Array.isArray(data) && data.length > 0) {
+                processedData = prioritizeUnlearnedWords(data);
+                console.log(`智能排序完成：优先${processedData.length}个单词（未学习优先）`);
+            }
+        } catch (e) {
+            console.warn('智能词汇排序失败:', e);
+            processedData = data;
+        }
+
+        currentVocabulary = processedData;
         currentWordIndex = 0;
         
         // 新增：Minecraft 词库时按设置比例混入幼儿园词

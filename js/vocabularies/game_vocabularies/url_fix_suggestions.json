@@ -1,0 +1,12 @@
+[
+  {
+    "original_url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e9.svg",
+    "status": "timeout",
+    "issue": "Request Timeout",
+    "affected_files": [
+      "animal_crossing\\animal_crossing_all_items.js"
+    ],
+    "suggested_replacement": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+    "replacement_reason": "Twemoji CDN - 稳定且无访问限制"
+  }
+]

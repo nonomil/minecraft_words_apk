@@ -1,0 +1,10735 @@
+// Animal Crossing All Items - 动物森友会完整物品词汇库
+// 包含动物森友会系列中的所有物品，基于官方Wiki译名标准化
+const ANIMAL_CROSSING_ALL_ITEMS = [
+  // === 水果系列 ===
+  {
+    "word": "Apple",
+    "standardized": "Apple",
+    "chinese": "苹果",
+    "phonetic": "/ˈæpəl/",
+    "phrase": "red apple",
+    "phraseTranslation": "红苹果",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "3-4",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和收获的水果",
+    "related_activities": ["picking", "eating", "planting"],
+    "imageURLs": [
+      {
+        "filename": "Apple.png",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f34e.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Orange",
+    "standardized": "Orange",
+    "chinese": "橙子",
+    "phonetic": "/ˈɔːrɪndʒ/",
+    "phrase": "sweet orange",
+    "phraseTranslation": "甜橙子",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "3-4",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和收获的水果",
+    "related_activities": ["picking", "eating", "planting"],
+    "imageURLs": [
+      {
+        "filename": "Orange.png",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f7e0.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Peach",
+    "standardized": "Peach",
+    "chinese": "桃子",
+    "phonetic": "/piːtʃ/",
+    "phrase": "juicy peach",
+    "phraseTranslation": "多汁的桃子",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "3-4",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和收获的水果",
+    "related_activities": ["picking", "eating", "planting"],
+    "imageURLs": [
+      {
+        "filename": "Peach.png",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f351.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cherry",
+    "standardized": "Cherry",
+    "chinese": "樱桃",
+    "phonetic": "/ˈtʃeri/",
+    "phrase": "red cherry",
+    "phraseTranslation": "红樱桃",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "3-4",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和收获的水果",
+    "related_activities": ["picking", "eating", "planting"],
+    "imageURLs": [
+      {
+        "filename": "Cherry.png",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f352.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pear",
+    "standardized": "Pear",
+    "chinese": "梨",
+    "phonetic": "/per/",
+    "phrase": "green pear",
+    "phraseTranslation": "绿梨",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "3-4",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和收获的水果",
+    "related_activities": ["picking", "eating", "planting"],
+    "imageURLs": [
+      {
+        "filename": "Pear.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Coconut",
+    "standardized": "Coconut",
+    "chinese": "椰子",
+    "phonetic": "/ˈkoʊkənʌt/",
+    "phrase": "coconut tree",
+    "phraseTranslation": "椰子树",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "3-4",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和收获的水果",
+    "related_activities": ["picking", "eating", "planting"],
+    "imageURLs": [
+      {
+        "filename": "Coconut.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 花朵系列 ===
+  {
+    "word": "Rose",
+    "standardized": "Rose",
+    "chinese": "玫瑰",
+    "phonetic": "/roʊz/",
+    "phrase": "red rose",
+    "phraseTranslation": "红玫瑰",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和杂交的花朵",
+    "related_activities": ["planting", "watering", "picking"],
+    "imageURLs": [
+      {
+        "filename": "Rose.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Rose_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Tulip",
+    "standardized": "Tulip",
+    "chinese": "郁金香",
+    "phonetic": "/ˈtuːlɪp/",
+    "phrase": "yellow tulip",
+    "phraseTranslation": "黄郁金香",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和杂交的花朵",
+    "related_activities": ["planting", "watering", "picking"],
+    "imageURLs": [
+      {
+        "filename": "Tulip.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cosmos Wand",
+    "standardized": "Cosmos Wand",
+    "chinese": "波斯菊魔杖",
+    "phonetic": "/ˈkɑːzmoʊz wænd/",
+    "phrase": "cosmos wand",
+    "phraseTranslation": "波斯菊魔杖",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于装扮与游玩的魔杖道具",
+    "related_activities": ["playing", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "NH-Tools-Cosmos_wand.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lily",
+    "standardized": "Lily",
+    "chinese": "百合",
+    "phonetic": "/ˈlɪli/",
+    "phrase": "white lily",
+    "phraseTranslation": "白百合",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和杂交的花朵",
+    "related_activities": ["planting", "watering", "picking"],
+    "imageURLs": [
+      {
+        "filename": "Lily.png",
+        "url": "https://animalcrossing.fandom.com/wiki/Special:Redirect/file/Lily_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hyacinth",
+    "standardized": "Hyacinth",
+    "chinese": "风信子",
+    "phonetic": "/ˈhaɪəsɪnθ/",
+    "phrase": "purple hyacinth",
+    "phraseTranslation": "紫风信子",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和杂交的花朵",
+    "related_activities": ["planting", "watering", "picking"],
+    "imageURLs": [
+      {
+        "filename": "Hyacinth.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mum",
+    "standardized": "Mum",
+    "chinese": "菊花",
+    "phonetic": "/mʌm/",
+    "phrase": "yellow mum",
+    "phraseTranslation": "黄菊花",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和杂交的花朵",
+    "related_activities": ["planting", "watering", "picking"],
+    "imageURLs": [
+      {
+        "filename": "Mum.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pansy",
+    "standardized": "Pansy",
+    "chinese": "三色堇",
+    "phonetic": "/ˈpænzi/",
+    "phrase": "colorful pansy",
+    "phraseTranslation": "彩色三色堇",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和杂交的花朵",
+    "related_activities": ["planting", "watering", "picking"],
+    "imageURLs": [
+      {
+        "filename": "Pansy.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Windflower",
+    "standardized": "Windflower",
+    "chinese": "银莲花",
+    "phonetic": "/ˈwɪndflaʊər/",
+    "phrase": "blue windflower",
+    "phraseTranslation": "蓝银莲花",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植和杂交的花朵",
+    "related_activities": ["planting", "watering", "picking"],
+    "imageURLs": [
+      {
+        "filename": "Windflower.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 家具系列 ===
+  {
+    "word": "Chair",
+    "standardized": "Chair",
+    "chinese": "椅子",
+    "phonetic": "/tʃer/",
+    "phrase": "wooden chair",
+    "phraseTranslation": "木椅子",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["sitting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Chair.png",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1fa91.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Table",
+    "standardized": "Table",
+    "chinese": "桌子",
+    "phonetic": "/ˈteɪbəl/",
+    "phrase": "dining table",
+    "phraseTranslation": "餐桌",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["eating", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Table.png",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4ba.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bed",
+    "standardized": "Bed",
+    "chinese": "床",
+    "phonetic": "/bed/",
+    "phrase": "comfortable bed",
+    "phraseTranslation": "舒适的床",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["sleeping", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Bed.png",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f6cf.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sofa",
+    "standardized": "Sofa",
+    "chinese": "沙发",
+    "phonetic": "/ˈsoʊfə/",
+    "phrase": "comfortable sofa",
+    "phraseTranslation": "舒适的沙发",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["sitting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Sofa.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lamp",
+    "standardized": "Lamp",
+    "chinese": "台灯",
+    "phonetic": "/læmp/",
+    "phrase": "bright lamp",
+    "phraseTranslation": "明亮的台灯",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["lighting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Lamp.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Clock",
+    "standardized": "Clock",
+    "chinese": "时钟",
+    "phonetic": "/klɑk/",
+    "phrase": "wall clock",
+    "phraseTranslation": "挂钟",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["telling_time", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Clock.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mirror",
+    "standardized": "Mirror",
+    "chinese": "镜子",
+    "phonetic": "/ˈmɪrər/",
+    "phrase": "bathroom mirror",
+    "phraseTranslation": "浴室镜子",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["looking", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Mirror.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bookshelf",
+    "standardized": "Bookshelf",
+    "chinese": "书架",
+    "phonetic": "/ˈbʊkʃelf/",
+    "phrase": "wooden bookshelf",
+    "phraseTranslation": "木制书架",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["reading", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Bookshelf.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Bookshelf_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Wardrobe",
+    "standardized": "Wardrobe",
+    "chinese": "衣柜",
+    "phonetic": "/ˈwɔːrdroʊb/",
+    "phrase": "big wardrobe",
+    "phraseTranslation": "大衣柜",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["storing", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Wardrobe.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dresser",
+    "standardized": "Dresser",
+    "chinese": "梳妆台",
+    "phonetic": "/ˈdresər/",
+    "phrase": "wooden dresser",
+    "phraseTranslation": "木制梳妆台",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-5",
+    "game_source": "Animal Crossing",
+    "character_context": "可以放置在家中的家具",
+    "related_activities": ["storing", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Dresser.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Dresser_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 工具系列 ===
+  {
+    "word": "Fishing Rod",
+    "standardized": "Fishing Rod",
+    "chinese": "钓鱼竿",
+    "phonetic": "/ˈfɪʃɪŋ rɑd/",
+    "phrase": "wooden fishing rod",
+    "phraseTranslation": "木制钓鱼竿",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于钓鱼的工具",
+    "related_activities": ["fishing", "catching"],
+    "imageURLs": [
+      {
+        "filename": "Fishing_Rod.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Fishing_Rod_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Net",
+    "standardized": "Net",
+    "chinese": "捕虫网",
+    "phonetic": "/net/",
+    "phrase": "bug catching net",
+    "phraseTranslation": "捕虫网",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于捕捉昆虫的工具",
+    "related_activities": ["catching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Net.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Net_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shovel",
+    "standardized": "Shovel",
+    "chinese": "铲子",
+    "phonetic": "/ˈʃʌvəl/",
+    "phrase": "garden shovel",
+    "phraseTranslation": "园艺铲子",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于挖掘和种植的工具",
+    "related_activities": ["digging", "planting"],
+    "imageURLs": [
+      {
+        "filename": "Shovel.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Shovel_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Axe",
+    "standardized": "Axe",
+    "chinese": "斧头",
+    "phonetic": "/æks/",
+    "phrase": "wooden axe",
+    "phraseTranslation": "木制斧头",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于砍树的工具",
+    "related_activities": ["chopping", "cutting"],
+    "imageURLs": [
+      {
+        "filename": "Axe.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Axe_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Watering Can",
+    "standardized": "Watering Can",
+    "chinese": "浇水壶",
+    "phonetic": "/ˈwɔːtərɪŋ kæn/",
+    "phrase": "garden watering can",
+    "phraseTranslation": "园艺浇水壶",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于浇水的工具",
+    "related_activities": ["watering", "gardening"],
+    "imageURLs": [
+      {
+        "filename": "Watering_Can.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Watering_Can_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Slingshot",
+    "standardized": "Slingshot",
+    "chinese": "弹弓",
+    "phonetic": "/ˈslɪŋʃɑt/",
+    "phrase": "toy slingshot",
+    "phraseTranslation": "玩具弹弓",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于射击气球的工具",
+    "related_activities": ["shooting", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Slingshot.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Slingshot_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ladder",
+    "standardized": "Ladder",
+    "chinese": "梯子",
+    "phonetic": "/ˈlædər/",
+    "phrase": "wooden ladder",
+    "phraseTranslation": "木制梯子",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于攀爬的工具",
+    "related_activities": ["climbing", "reaching"],
+    "imageURLs": [
+      {
+        "filename": "Ladder.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Ladder_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Vaulting Pole",
+    "standardized": "Vaulting Pole",
+    "chinese": "撑杆",
+    "phonetic": "/ˈvɔːltɪŋ poʊl/",
+    "phrase": "bamboo vaulting pole",
+    "phraseTranslation": "竹制撑杆",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于跳跃河流的工具",
+    "related_activities": ["jumping", "crossing"],
+    "imageURLs": [
+      {
+        "filename": "Vaulting_Pole.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Vaulting_Pole_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 装饰物品 ===
+  {
+    "word": "Painting",
+    "standardized": "Painting",
+    "chinese": "画作",
+    "phonetic": "/ˈpeɪntɪŋ/",
+    "phrase": "beautiful painting",
+    "phraseTranslation": "美丽的画作",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "可以装饰家中的艺术品",
+    "related_activities": ["viewing", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Painting.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Painting_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Vase",
+    "standardized": "Vase",
+    "chinese": "花瓶",
+    "phonetic": "/veɪs/",
+    "phrase": "flower vase",
+    "phraseTranslation": "花瓶",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "可以装饰家中的装饰品",
+    "related_activities": ["arranging", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Vase.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Candle",
+    "standardized": "Candle",
+    "chinese": "蜡烛",
+    "phonetic": "/ˈkændəl/",
+    "phrase": "scented candle",
+    "phraseTranslation": "香薰蜡烛",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "可以装饰家中的装饰品",
+    "related_activities": ["lighting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Candle.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Candle_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Plant",
+    "standardized": "Plant",
+    "chinese": "植物",
+    "phonetic": "/plænt/",
+    "phrase": "green plant",
+    "phraseTranslation": "绿植物",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "可以装饰家中的装饰品",
+    "related_activities": ["watering", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Plant.png",
+        "url": "https://animalcrossing.fandom.com/wiki/File:Plant_NH.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Octopus",
+    "standardized": "Octopus",
+    "chinese": "章鱼",
+    "phonetic": "/octopus_nh_icon.png/",
+    "phrase": "green seaweed",
+    "phraseTranslation": "绿色海藻",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "海底摇摆的植物",
+    "related_activities": ["diving", "collecting", "observing"],
+    "imageURLs": [
+      {
+        "filename": "Seaweed_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Seaweed_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Crab",
+    "standardized": "Crab",
+    "chinese": "螃蟹",
+    "phonetic": "/kræb/",
+    "phrase": "red crab",
+    "phraseTranslation": "红螃蟹",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "横着走路的甲壳动物",
+    "related_activities": ["diving", "catching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Crab_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lobster",
+    "standardized": "Lobster",
+    "chinese": "龙虾",
+    "phonetic": "/ˈlɑbstər/",
+    "phrase": "big lobster",
+    "phraseTranslation": "大龙虾",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "美味的大型甲壳动物",
+    "related_activities": ["diving", "catching", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Lobster_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Lobster_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Snail",
+    "standardized": "Snail",
+    "chinese": "蜗牛",
+    "phonetic": "/sneɪl/",
+    "phrase": "slow snail",
+    "phraseTranslation": "慢蜗牛",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "背着壳的慢吞吞生物",
+    "related_activities": ["observing", "catching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Snail_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Snail_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Spider",
+    "standardized": "Spider",
+    "chinese": "蜘蛛",
+    "phonetic": "/ˈspaɪdər/",
+    "phrase": "web spider",
+    "phraseTranslation": "织网蜘蛛",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "织网捕食的八足昆虫",
+    "related_activities": ["catching", "avoiding", "observing"],
+    "imageURLs": [
+      {
+        "filename": "Spider_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Spider_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ant",
+    "standardized": "Ant",
+    "chinese": "蚂蚁",
+    "phonetic": "/ænt/",
+    "phrase": "working ant",
+    "phraseTranslation": "工作蚂蚁",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "勤劳的群居昆虫",
+    "related_activities": ["observing", "catching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Ant_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Ant_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fossil",
+    "standardized": "Fossil",
+    "chinese": "化石",
+    "phonetic": "/ˈfɑsəl/",
+    "phrase": "ancient fossil",
+    "phraseTranslation": "古代化石",
+    "difficulty": "basic",
+    "category": "collectible",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "埋在地下的古生物遗迹",
+    "related_activities": ["digging", "collecting", "donating"],
+    "imageURLs": [
+      {
+        "filename": "Fossil_NH.png",
+        "url": "https://nookipedia.com/wiki/File:Fossil_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bell Tree",
+    "standardized": "Bell Tree",
+    "chinese": "铃钱树",
+    "phonetic": "/bel triː/",
+    "phrase": "money bell tree",
+    "phraseTranslation": "金钱铃钱树",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "长出金钱的神奇树木",
+    "related_activities": ["planting", "watering", "harvesting"],
+    "imageURLs": [
+      {
+        "filename": "Money_Tree_NH.png",
+        "url": "https://nookipedia.com/wiki/File:Money_Tree_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bamboo",
+    "standardized": "Bamboo",
+    "chinese": "竹子",
+    "phonetic": "/bæmˈbuː/",
+    "phrase": "green bamboo",
+    "phraseTranslation": "绿竹子",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "快速生长的绿色植物",
+    "related_activities": ["planting", "cutting", "crafting"],
+    "imageURLs": [
+      {
+        "filename": "Bamboo_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mushroom",
+    "standardized": "Mushroom",
+    "chinese": "蘑菇",
+    "phonetic": "/ˈmʌʃruʐm/",
+    "phrase": "wild mushroom",
+    "phraseTranslation": "野生蘑菇",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "在树下生长的真菌",
+    "related_activities": ["collecting", "crafting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Mushroom_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Weeds",
+    "standardized": "Weeds",
+    "chinese": "杂草",
+    "phonetic": "/wiːdz/",
+    "phrase": "garden weeds",
+    "phraseTranslation": "花园杂草",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "需要清理的野生植物",
+    "related_activities": ["pulling", "cleaning", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Weeds_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Stick",
+    "standardized": "Stick",
+    "chinese": "树枝",
+    "phonetic": "/stɪk/",
+    "phrase": "tree stick",
+    "phraseTranslation": "树枝",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "从树上掉落的材料",
+    "related_activities": ["collecting", "crafting", "building"],
+    "imageURLs": [
+      {
+        "filename": "Tree_Branch_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Tree_Branch_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Stone",
+    "standardized": "Stone",
+    "chinese": "石头",
+    "phonetic": "/stoʊn/",
+    "phrase": "hard stone",
+    "phraseTranslation": "坚硬石头",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "敲击岩石获得的材料",
+    "related_activities": ["collecting", "crafting", "building"],
+    "imageURLs": [
+      {
+        "filename": "Stone_NH.png",
+        "url": "https://nookipedia.com/wiki/File:Stone_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Clay",
+    "standardized": "Clay",
+    "chinese": "粘土",
+    "phonetic": "/kleɪ/",
+    "phrase": "soft clay",
+    "phraseTranslation": "软粘土",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用于制作物品的材料",
+    "related_activities": ["collecting", "crafting", "building"],
+    "imageURLs": [
+      {
+        "filename": "Clay_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Clay_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Iron Nugget",
+    "standardized": "Iron Nugget",
+    "chinese": "铁矿石",
+    "phonetic": "/ˈaɪərn ˈnʌɡɪt/",
+    "phrase": "shiny iron nugget",
+    "phraseTranslation": "闪亮的铁矿石",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "珍贵的金属材料",
+    "related_activities": ["collecting", "crafting", "trading"],
+    "imageURLs": [
+      {
+        "filename": "Iron_Nugget_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Iron_Nugget_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Gold Nugget",
+    "standardized": "Gold Nugget",
+    "chinese": "金矿石",
+    "phonetic": "/ɡoʊld ˈnʌɡɪt/",
+    "phrase": "precious gold nugget",
+    "phraseTranslation": "珍贵的金矿石",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "最珍贵的金属材料",
+    "related_activities": ["collecting", "crafting", "selling"],
+    "imageURLs": [
+      {
+        "filename": "Gold_Nugget_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Gold_Nugget_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Wood",
+    "standardized": "Wood",
+    "chinese": "木材",
+    "phonetic": "/wʊd/",
+    "phrase": "solid wood",
+    "phraseTranslation": "坚固木材",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "砍树获得的基础材料",
+    "related_activities": ["collecting", "crafting", "building"],
+    "imageURLs": [
+      {
+        "filename": "Wood_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Wood_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hardwood",
+    "standardized": "Hardwood",
+    "chinese": "硬木材",
+    "phonetic": "/ˈhɑrdwʊd/",
+    "phrase": "strong hardwood",
+    "phraseTranslation": "坚固硬木材",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "高级的木材材料",
+    "related_activities": ["collecting", "crafting", "building"],
+    "imageURLs": [
+      {
+        "filename": "Hardwood_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Hardwood_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Softwood",
+    "standardized": "Softwood",
+    "chinese": "软木材",
+    "phonetic": "/ˈsɔftwʊd/",
+    "phrase": "light softwood",
+    "phraseTranslation": "轻软木材",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "轻便的木材材料",
+    "related_activities": ["collecting", "crafting", "building"],
+    "imageURLs": [
+      {
+        "filename": "Softwood_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Softwood_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shell",
+    "standardized": "Shell",
+    "chinese": "贝壳",
+    "phonetic": "/ʃel/",
+    "phrase": "pretty shell",
+    "phraseTranslation": "漂亮贝壳",
+    "difficulty": "basic",
+    "category": "collectible",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "海滩上的美丽装饰",
+    "related_activities": ["collecting", "decorating", "crafting"],
+    "imageURLs": [
+      {
+        "filename": "Conch_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Conch_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sand Dollar",
+    "standardized": "Sand Dollar",
+    "chinese": "沙钱",
+    "phonetic": "/sænd ˈdɑlər/",
+    "phrase": "round sand dollar",
+    "phraseTranslation": "圆形沙钱",
+    "difficulty": "basic",
+    "category": "collectible",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "海滩上的圆形贝类",
+    "related_activities": ["collecting", "decorating", "selling"],
+    "imageURLs": [
+      {
+        "filename": "Sand_Dollar_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Sand_Dollar_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Coral",
+    "standardized": "Coral",
+    "chinese": "珊瑚",
+    "phonetic": "/ˈkɔrəl/",
+    "phrase": "colorful coral",
+    "phraseTranslation": "彩色珊瑚",
+    "difficulty": "basic",
+    "category": "collectible",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "海洋中的美丽装饰",
+    "related_activities": ["collecting", "decorating", "admiring"],
+    "imageURLs": [
+      {
+        "filename": "Coral_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Coral_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Message in a Bottle",
+    "standardized": "Message in a Bottle",
+    "chinese": "漂流瓶",
+    "phonetic": "/ˈmesɪdʒ ɪn ə ˈbɑtəl/",
+    "phrase": "mysterious message bottle",
+    "phraseTranslation": "神秘漂流瓶",
+    "difficulty": "basic",
+    "category": "collectible",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "冲上海滩的神秘物品",
+    "related_activities": ["collecting", "reading", "discovering"],
+    "imageURLs": [
+      {
+        "filename": "Message_Bottle_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Message_Bottle_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Star Fragment",
+    "standardized": "Star Fragment",
+    "chinese": "星星碎片",
+    "phonetic": "/stɑr ˈfræɡmənt/",
+    "phrase": "glowing star fragment",
+    "phraseTranslation": "发光的星星碎片",
+    "difficulty": "basic",
+    "category": "collectible",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "许愿后获得的神奇材料",
+    "related_activities": ["wishing", "collecting", "crafting"],
+    "imageURLs": [
+      {
+        "filename": "Star_Fragment_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Star_Fragment_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shooting Star",
+    "standardized": "Shooting Star",
+    "chinese": "流星",
+    "phonetic": "/ˈʃuːtɪŋ stɑr/",
+    "phrase": "beautiful shooting star",
+    "phraseTranslation": "美丽的流星",
+    "difficulty": "basic",
+    "category": "natural_phenomenon",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "夜空中闪过的亮光",
+    "related_activities": ["wishing", "watching", "hoping"],
+    "imageURLs": [
+      {
+        "filename": "Shooting_Star_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rainbow",
+    "standardized": "Rainbow",
+    "chinese": "彩虹",
+    "phonetic": "/ˈreɪnboʊ/",
+    "phrase": "colorful rainbow",
+    "phraseTranslation": "彩色彩虹",
+    "difficulty": "basic",
+    "category": "natural_phenomenon",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "雨后天空的美丽景象",
+    "related_activities": ["watching", "admiring", "photographing"],
+    "imageURLs": [
+      {
+        "filename": "Rainbow_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Snowflake",
+    "standardized": "Snowflake",
+    "chinese": "雪花",
+    "phonetic": "/ˈsnoʊfleɪk/",
+    "phrase": "delicate snowflake",
+    "phraseTranslation": "精致的雪花",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "冬天飘落的冰晶",
+    "related_activities": ["catching", "crafting", "watching"],
+    "imageURLs": [
+      {
+        "filename": "Snowflake_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Snowflake_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Balloon",
+    "standardized": "Balloon",
+    "chinese": "气球",
+    "phonetic": "/bəˈluːn/",
+    "phrase": "flying balloon",
+    "phraseTranslation": "飞行气球",
+    "difficulty": "basic",
+    "category": "collectible",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "带着礼物飞过天空的气球",
+    "related_activities": ["shooting", "collecting", "watching"],
+    "imageURLs": [
+      {
+        "filename": "Balloon_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pinwheel",
+    "standardized": "Pinwheel",
+    "chinese": "风车",
+    "phonetic": "/ˈpɪnˌwiːl/",
+    "phrase": "spinning pinwheel",
+    "phraseTranslation": "旋转风车",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "在风中旋转的装饰品",
+    "related_activities": ["decorating", "watching", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Pinwheel_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Pinwheel_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Windmill",
+    "standardized": "Windmill",
+    "chinese": "大风车",
+    "phonetic": "/ˈwɪndˌmɪl/",
+    "phrase": "tall windmill",
+    "phraseTranslation": "高大风车",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "利用风力的大型装置",
+    "related_activities": ["decorating", "watching", "building"],
+    "imageURLs": [
+      {
+        "filename": "Windmill_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fountain",
+    "standardized": "Fountain",
+    "chinese": "喷泉",
+    "phonetic": "/ˈfaʊntən/",
+    "phrase": "water fountain",
+    "phraseTranslation": "水喷泉",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "喷涌水花的装饰建筑",
+    "related_activities": ["decorating", "watching", "listening"],
+    "imageURLs": [
+      {
+        "filename": "Fountain_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Fountain_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bridge",
+    "standardized": "Bridge",
+    "chinese": "桥",
+    "phonetic": "/brɪdʒ/",
+    "phrase": "wooden bridge",
+    "phraseTranslation": "木桥",
+    "difficulty": "basic",
+    "category": "construction",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "连接两岸的建筑结构",
+    "related_activities": ["crossing", "building", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Bridge_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Incline",
+    "standardized": "Incline",
+    "chinese": "坡道",
+    "phonetic": "/ˈɪnklaɪn/",
+    "phrase": "stone incline",
+    "phraseTranslation": "石头坡道",
+    "difficulty": "basic",
+    "category": "construction",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "连接不同高度的通道",
+    "related_activities": ["climbing", "building", "walking"],
+    "imageURLs": [
+      {
+        "filename": "Incline_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fence",
+    "standardized": "Fence",
+    "chinese": "围栏",
+    "phonetic": "/fens/",
+    "phrase": "garden fence",
+    "phraseTranslation": "花园围栏",
+    "difficulty": "basic",
+    "category": "construction",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "划分区域的装饰结构",
+    "related_activities": ["building", "decorating", "protecting"],
+    "imageURLs": [
+      {
+        "filename": "Fence_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Path",
+    "standardized": "Path",
+    "chinese": "小径",
+    "phonetic": "/pæθ/",
+    "phrase": "stone path",
+    "phraseTranslation": "石头小径",
+    "difficulty": "basic",
+    "category": "construction",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "铺设的行走道路",
+    "related_activities": ["walking", "building", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Path_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Tree",
+    "standardized": "Tree",
+    "chinese": "树",
+    "phonetic": "/triː/",
+    "phrase": "tall tree",
+    "phraseTranslation": "高大的树",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "岛上生长的绿色植物",
+    "related_activities": ["planting", "watering", "climbing"],
+    "imageURLs": [
+      {
+        "filename": "Tree_NH.png",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f333.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 新增昆虫类 ===
+  {
+    "word": "Butterfly",
+    "standardized": "Butterfly",
+    "chinese": "蝴蝶",
+    "phonetic": "/ˈbʌtərflaɪ/",
+    "phrase": "colorful butterfly",
+    "phraseTranslation": "彩色蝴蝶",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "在花丛中飞舞的美丽昆虫",
+    "related_activities": ["catching", "watching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Butterfly_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Common_Butterfly_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bee",
+    "standardized": "Bee",
+    "chinese": "蜜蜂",
+    "phonetic": "/biː/",
+    "phrase": "busy bee",
+    "phraseTranslation": "忙碌的蜜蜂",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "采集花蜜的勤劳昆虫",
+    "related_activities": ["avoiding", "watching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Bee_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Wasp_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ladybug",
+    "standardized": "Ladybug",
+    "chinese": "瓢虫",
+    "phonetic": "/ˈleɪdiˌbʌɡ/",
+    "phrase": "red ladybug",
+    "phraseTranslation": "红瓢虫",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "红色带斑点的可爱昆虫",
+    "related_activities": ["catching", "observing", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Ladybug_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Ladybug_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dragonfly",
+    "standardized": "Dragonfly",
+    "chinese": "蜻蜓",
+    "phonetic": "/ˈdræɡənflaɪ/",
+    "phrase": "flying dragonfly",
+    "phraseTranslation": "飞行蜻蜓",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "在水边飞行的长翅昆虫",
+    "related_activities": ["catching", "watching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Dragonfly_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Darner_Dragonfly_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cricket",
+    "standardized": "Cricket",
+    "chinese": "蟋蟀",
+    "phonetic": "/ˈkrɪkɪt/",
+    "phrase": "singing cricket",
+    "phraseTranslation": "歌唱蟋蟀",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "夜晚鸣叫的跳跃昆虫",
+    "related_activities": ["catching", "listening", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Cricket_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Cricket_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 新增海洋生物类 ===
+  {
+    "word": "Starfish",
+    "standardized": "Starfish",
+    "chinese": "海星",
+    "phonetic": "/ˈstɑrfɪʃ/",
+    "phrase": "orange starfish",
+    "phraseTranslation": "橙色海星",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "五角星形状的海洋生物",
+    "related_activities": ["diving", "collecting", "observing"],
+    "imageURLs": [
+      {
+        "filename": "Starfish_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Sea_Star_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Seahorse",
+    "standardized": "Seahorse",
+    "chinese": "海马",
+    "phonetic": "/ˈsiːhɔrs/",
+    "phrase": "tiny seahorse",
+    "phraseTranslation": "小海马",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "马头鱼身的奇特海洋生物",
+    "related_activities": ["diving", "collecting", "admiring"],
+    "imageURLs": [
+      {
+        "filename": "Seahorse_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Sea_Horse_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Jellyfish",
+    "standardized": "Jellyfish",
+    "chinese": "水母",
+    "phonetic": "/ˈdʒelifɪʃ/",
+    "phrase": "floating jellyfish",
+    "phraseTranslation": "漂浮水母",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "透明漂浮的海洋生物",
+    "related_activities": ["diving", "watching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Jellyfish_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Moon_Jellyfish_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 新增材料类 ===
+  {
+    "word": "Acorn",
+    "standardized": "Acorn",
+    "chinese": "橡果",
+    "phonetic": "/ˈeɪkɔrn/",
+    "phrase": "brown acorn",
+    "phraseTranslation": "棕色橡果",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "从橡树上掉落的果实",
+    "related_activities": ["collecting", "crafting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Acorn_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Acorn_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pinecone",
+    "standardized": "Pinecone",
+    "chinese": "松果",
+    "phonetic": "/ˈpaɪnkoʊn/",
+    "phrase": "pine cone",
+    "phraseTranslation": "松果",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "从松树上掉落的果实",
+    "related_activities": ["collecting", "crafting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Pinecone_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Young Spring Bamboo",
+    "standardized": "Young Spring Bamboo",
+    "chinese": "嫩春竹",
+    "phonetic": "/jʌŋ sprɪŋ bæmˈbuː/",
+    "phrase": "fresh young bamboo",
+    "phraseTranslation": "新鲜嫩竹",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "春天生长的嫩竹材料",
+    "related_activities": ["collecting", "crafting", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Young_Spring_Bamboo_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Young_Spring_Bamboo_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Summer Shell",
+    "standardized": "Summer Shell",
+    "chinese": "夏日贝壳",
+    "phonetic": "/ˈsʌmər ʃel/",
+    "phrase": "colorful summer shell",
+    "phraseTranslation": "彩色夏日贝壳",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "夏天海滩上的特殊贝壳",
+    "related_activities": ["collecting", "crafting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Summer_Shell_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Summer_Shell_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 新增植物类 ===
+  {
+    "word": "Sapling",
+    "standardized": "Sapling",
+    "chinese": "树苗",
+    "phonetic": "/ˈsæplɪŋ/",
+    "phrase": "young sapling",
+    "phraseTranslation": "幼小树苗",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植的小树苗",
+    "related_activities": ["planting", "watering", "growing"],
+    "imageURLs": [
+      {
+        "filename": "Sapling_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Hardwood_Tree_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cedar Sapling",
+    "standardized": "Cedar Sapling",
+    "chinese": "雪松树苗",
+    "phonetic": "/ˈsiːdər ˈsæplɪŋ/",
+    "phrase": "evergreen cedar sapling",
+    "phraseTranslation": "常青雪松树苗",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植的雪松树苗",
+    "related_activities": ["planting", "watering", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Cedar_Sapling_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Cedar_Tree_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bush",
+    "standardized": "Bush",
+    "chinese": "灌木",
+    "phonetic": "/bʊʃ/",
+    "phrase": "flowering bush",
+    "phraseTranslation": "开花灌木",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "可以种植的装饰灌木",
+    "related_activities": ["planting", "watering", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Bush_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Clover",
+    "standardized": "Clover",
+    "chinese": "三叶草",
+    "phonetic": "/ˈkloʊvər/",
+    "phrase": "lucky clover",
+    "phraseTranslation": "幸运三叶草",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "草地上的小型植物",
+    "related_activities": ["finding", "collecting", "wishing"],
+    "imageURLs": [
+      {
+        "filename": "Clover_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f340.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 新增动物类 ===
+  {
+    "word": "Squirrel",
+    "standardized": "Squirrel",
+    "chinese": "松鼠",
+    "phonetic": "/ˈskwɜrəl/",
+    "phrase": "cute squirrel",
+    "phraseTranslation": "可爱松鼠",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "在树上跳跃的小动物",
+    "related_activities": ["watching", "feeding", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Squirrel_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f43f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bird",
+    "standardized": "Bird",
+    "chinese": "小鸟",
+    "phonetic": "/bɜrd/",
+    "phrase": "singing bird",
+    "phraseTranslation": "歌唱小鸟",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "在天空飞翔的动物",
+    "related_activities": ["watching", "listening", "feeding"],
+    "imageURLs": [
+      {
+        "filename": "Bird_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f426.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Frog",
+    "standardized": "Frog",
+    "chinese": "青蛙",
+    "phonetic": "/frɔɡ/",
+    "phrase": "green frog",
+    "phraseTranslation": "绿青蛙",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "在池塘边跳跃的两栖动物",
+    "related_activities": ["watching", "listening", "catching"],
+    "imageURLs": [
+      {
+        "filename": "Frog_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f438.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fish",
+    "standardized": "Fish",
+    "chinese": "鱼",
+    "phonetic": "/fɪʃ/",
+    "phrase": "swimming fish",
+    "phraseTranslation": "游泳的鱼",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "在水中游泳的动物",
+    "related_activities": ["fishing", "watching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Fish_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f41f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Turtle",
+    "standardized": "Turtle",
+    "chinese": "乌龟",
+    "phonetic": "/ˈtɜrtəl/",
+    "phrase": "slow turtle",
+    "phraseTranslation": "慢乌龟",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "背着壳的慢动物",
+    "related_activities": ["watching", "feeding", "protecting"],
+    "imageURLs": [
+      {
+        "filename": "Turtle_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f422.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 鱼类扩充 ===
+  {
+    "word": "Bass",
+    "standardized": "Bass",
+    "chinese": "鲈鱼",
+    "phonetic": "/bæs/",
+    "phrase": "big bass",
+    "phraseTranslation": "大鲈鱼",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "河流中的常见鱼类",
+    "related_activities": ["fishing", "collecting", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Bass_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Sea_Bass_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Goldfish",
+    "standardized": "Goldfish",
+    "chinese": "金鱼",
+    "phonetic": "/ˈɡoʊldfɪʃ/",
+    "phrase": "orange goldfish",
+    "phraseTranslation": "橙色金鱼",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "池塘中的小鱼",
+    "related_activities": ["fishing", "watching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Goldfish_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Goldfish_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Salmon",
+    "standardized": "Salmon",
+    "chinese": "鲑鱼",
+    "phonetic": "/ˈsæmən/",
+    "phrase": "pink salmon",
+    "phraseTranslation": "粉色鲑鱼",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "河流中的大型鱼类",
+    "related_activities": ["fishing", "collecting", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Salmon_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Salmon_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Tuna",
+    "standardized": "Tuna",
+    "chinese": "金枪鱼",
+    "phonetic": "/ˈtuːnə/",
+    "phrase": "big tuna",
+    "phraseTranslation": "大金枪鱼",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "海洋中的大型鱼类",
+    "related_activities": ["fishing", "collecting", "selling"],
+    "imageURLs": [
+      {
+        "filename": "Tuna_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shark",
+    "standardized": "Shark",
+    "chinese": "鲨鱼",
+    "phonetic": "/ʃɑrk/",
+    "phrase": "swimming shark",
+    "phraseTranslation": "游泳鲨鱼",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "海洋中的大型鱼类",
+    "related_activities": ["fishing", "watching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Shark_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Great_White_Shark_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多昆虫类 ===
+  {
+    "word": "Moth",
+    "standardized": "Moth",
+    "chinese": "蛾子",
+    "phonetic": "/mɔθ/",
+    "phrase": "night moth",
+    "phraseTranslation": "夜蛾",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "夜晚活动的飞虫",
+    "related_activities": ["catching", "watching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Moth_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Atlas_Moth_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Grasshopper",
+    "standardized": "Grasshopper",
+    "chinese": "蚱蜢",
+    "phonetic": "/ˈɡræsˌhɑpər/",
+    "phrase": "jumping grasshopper",
+    "phraseTranslation": "跳跃蚱蜢",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "草地上跳跃的昆虫",
+    "related_activities": ["catching", "watching", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Grasshopper_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Grasshopper_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Firefly",
+    "standardized": "Firefly",
+    "chinese": "萤火虫",
+    "phonetic": "/ˈfaɪərflaɪ/",
+    "phrase": "glowing firefly",
+    "phraseTranslation": "发光萤火虫",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "夜晚发光的美丽昆虫",
+    "related_activities": ["catching", "watching", "admiring"],
+    "imageURLs": [
+      {
+        "filename": "Firefly_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mantis",
+    "standardized": "Mantis",
+    "chinese": "螳螂",
+    "phonetic": "/ˈmæntɪs/",
+    "phrase": "praying mantis",
+    "phraseTranslation": "祈祷螳螂",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "捕食其他昆虫的猎手",
+    "related_activities": ["catching", "observing", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Mantis_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Orchid_Mantis_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 家具扩充 ===
+  {
+    "word": "Couch",
+    "standardized": "Couch",
+    "chinese": "长沙发",
+    "phonetic": "/kaʊtʃ/",
+    "phrase": "comfortable couch",
+    "phraseTranslation": "舒适长沙发",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "客厅里的大型座椅",
+    "related_activities": ["sitting", "relaxing", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Couch_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6cb.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dresser",
+    "standardized": "Dresser",
+    "chinese": "梳妆台",
+    "phonetic": "/ˈdresər/",
+    "phrase": "wooden dresser",
+    "phraseTranslation": "木制梳妆台",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "卧室里的储物家具",
+    "related_activities": ["storing", "organizing", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Dresser_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Wooden_Chest_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Refrigerator",
+    "standardized": "Refrigerator",
+    "chinese": "冰箱",
+    "phonetic": "/rɪˈfrɪdʒəreɪtər/",
+    "phrase": "cold refrigerator",
+    "phraseTranslation": "冷冰箱",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "厨房里保存食物的电器",
+    "related_activities": ["storing", "cooking", "organizing"],
+    "imageURLs": [
+      {
+        "filename": "Refrigerator_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Television",
+    "standardized": "Television",
+    "chinese": "电视",
+    "phonetic": "/ˈteləvɪʒən/",
+    "phrase": "big television",
+    "phraseTranslation": "大电视",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "客厅里的娱乐设备",
+    "related_activities": ["watching", "playing", "relaxing"],
+    "imageURLs": [
+      {
+        "filename": "Television_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Piano",
+    "standardized": "Piano",
+    "chinese": "钢琴",
+    "phonetic": "/piˈænoʊ/",
+    "phrase": "grand piano",
+    "phraseTranslation": "大钢琴",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "演奏音乐的乐器",
+    "related_activities": ["playing", "listening", "performing"],
+    "imageURLs": [
+      {
+        "filename": "Piano_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Grand_Piano_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 服装类 ===
+  {
+    "word": "Hat",
+    "standardized": "Hat",
+    "chinese": "帽子",
+    "phonetic": "/hæt/",
+    "phrase": "colorful hat",
+    "phraseTranslation": "彩色帽子",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "戴在头上的装饰品",
+    "related_activities": ["wearing", "decorating", "protecting"],
+    "imageURLs": [
+      {
+        "filename": "Hat_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3a9.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shirt",
+    "standardized": "Shirt",
+    "chinese": "衬衫",
+    "phonetic": "/ʃɜrt/",
+    "phrase": "nice shirt",
+    "phraseTranslation": "漂亮衬衫",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "穿在身上的上衣",
+    "related_activities": ["wearing", "dressing", "styling"],
+    "imageURLs": [
+      {
+        "filename": "Shirt_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f455.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dress",
+    "standardized": "Dress",
+    "chinese": "连衣裙",
+    "phonetic": "/dres/",
+    "phrase": "pretty dress",
+    "phraseTranslation": "漂亮连衣裙",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "优雅的女性服装",
+    "related_activities": ["wearing", "dancing", "dressing_up"],
+    "imageURLs": [
+      {
+        "filename": "Dress_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f457.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shoes",
+    "standardized": "Shoes",
+    "chinese": "鞋子",
+    "phonetic": "/ʃuːz/",
+    "phrase": "comfortable shoes",
+    "phraseTranslation": "舒适鞋子",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "穿在脚上的保护用品",
+    "related_activities": ["wearing", "walking", "running"],
+    "imageURLs": [
+      {
+        "filename": "Shoes_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f45f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Backpack",
+    "standardized": "Backpack",
+    "chinese": "背包",
+    "phonetic": "/ˈbækpæk/",
+    "phrase": "school backpack",
+    "phraseTranslation": "学校背包",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "背在身上的储物袋",
+    "related_activities": ["carrying", "traveling", "storing"],
+    "imageURLs": [
+      {
+        "filename": "Backpack_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f392.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 食物类 ===
+  {
+    "word": "Cake",
+    "standardized": "Cake",
+    "chinese": "蛋糕",
+    "phonetic": "/keɪk/",
+    "phrase": "birthday cake",
+    "phraseTranslation": "生日蛋糕",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "庆祝时的甜点",
+    "related_activities": ["eating", "celebrating", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Cake_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f370.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cookie",
+    "standardized": "Cookie",
+    "chinese": "饼干",
+    "phonetic": "/ˈkʊki/",
+    "phrase": "sweet cookie",
+    "phraseTranslation": "甜饼干",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "美味的小点心",
+    "related_activities": ["eating", "baking", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Cookie_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f36a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bread",
+    "standardized": "Bread",
+    "chinese": "面包",
+    "phonetic": "/bred/",
+    "phrase": "fresh bread",
+    "phraseTranslation": "新鲜面包",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "日常的主食",
+    "related_activities": ["eating", "baking", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Bread_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f35e.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Soup",
+    "standardized": "Soup",
+    "chinese": "汤",
+    "phonetic": "/suːp/",
+    "phrase": "hot soup",
+    "phraseTranslation": "热汤",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "温暖的液体食物",
+    "related_activities": ["eating", "cooking", "warming"],
+    "imageURLs": [
+      {
+        "filename": "Soup_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f372.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 工具扩充 ===
+  {
+    "word": "Hammer",
+    "standardized": "Hammer",
+    "chinese": "锤子",
+    "phonetic": "/ˈhæmər/",
+    "phrase": "wooden hammer",
+    "phraseTranslation": "木锤子",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "建造和修理的工具",
+    "related_activities": ["building", "crafting", "fixing"],
+    "imageURLs": [
+      {
+        "filename": "Hammer_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f528.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Wrench",
+    "standardized": "Wrench",
+    "chinese": "扳手",
+    "phonetic": "/rentʃ/",
+    "phrase": "metal wrench",
+    "phraseTranslation": "金属扳手",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "拧紧螺丝的工具",
+    "related_activities": ["fixing", "building", "adjusting"],
+    "imageURLs": [
+      {
+        "filename": "Wrench_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f527.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Scissors",
+    "standardized": "Scissors",
+    "chinese": "剪刀",
+    "phonetic": "/ˈsɪzərz/",
+    "phrase": "sharp scissors",
+    "phraseTranslation": "锋利剪刀",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "剪切物品的工具",
+    "related_activities": ["cutting", "crafting", "trimming"],
+    "imageURLs": [
+      {
+        "filename": "Scissors_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2702.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bucket",
+    "standardized": "Bucket",
+    "chinese": "水桶",
+    "phonetic": "/ˈbʌkɪt/",
+    "phrase": "water bucket",
+    "phraseTranslation": "水桶",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "装水的容器",
+    "related_activities": ["carrying", "watering", "cleaning"],
+    "imageURLs": [
+      {
+        "filename": "Bucket_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1faa3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 装饰物品扩充 ===
+  {
+    "word": "Flower Pot",
+    "standardized": "Flower Pot",
+    "chinese": "花盆",
+    "phonetic": "/ˈflaʊər pɑt/",
+    "phrase": "clay flower pot",
+    "phraseTranslation": "陶土花盆",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "种植花朵的容器",
+    "related_activities": ["planting", "decorating", "gardening"],
+    "imageURLs": [
+      {
+        "filename": "Flower_Pot_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fab4.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Picture Frame",
+    "standardized": "Picture Frame",
+    "chinese": "相框",
+    "phonetic": "/ˈpɪktʃər freɪm/",
+    "phrase": "wooden picture frame",
+    "phraseTranslation": "木制相框",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "展示照片的装饰品",
+    "related_activities": ["displaying", "decorating", "remembering"],
+    "imageURLs": [
+      {
+        "filename": "Picture_Frame_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5bc.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rug",
+    "standardized": "Rug",
+    "chinese": "地毯",
+    "phonetic": "/rʌɡ/",
+    "phrase": "soft rug",
+    "phraseTranslation": "柔软地毯",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "铺在地上的装饰品",
+    "related_activities": ["walking", "decorating", "sitting"],
+    "imageURLs": [
+      {
+        "filename": "Rug_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Simple_Small_Red_Mat_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Curtain",
+    "standardized": "Curtain",
+    "chinese": "窗帘",
+    "phonetic": "/ˈkɜrtən/",
+    "phrase": "blue curtain",
+    "phraseTranslation": "蓝色窗帘",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "遮挡窗户的布料",
+    "related_activities": ["decorating", "blocking_light", "privacy"],
+    "imageURLs": [
+      {
+        "filename": "Curtain_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 乐器类 ===
+  {
+    "word": "Guitar",
+    "standardized": "Guitar",
+    "chinese": "吉他",
+    "phonetic": "/ɡɪˈtɑr/",
+    "phrase": "acoustic guitar",
+    "phraseTranslation": "原声吉他",
+    "difficulty": "basic",
+    "category": "instrument",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "弹奏音乐的弦乐器",
+    "related_activities": ["playing", "singing", "performing"],
+    "imageURLs": [
+      {
+        "filename": "Guitar_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3b8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Drum",
+    "standardized": "Drum",
+    "chinese": "鼓",
+    "phonetic": "/drʌm/",
+    "phrase": "loud drum",
+    "phraseTranslation": "响亮的鼓",
+    "difficulty": "basic",
+    "category": "instrument",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "敲击发声的乐器",
+    "related_activities": ["playing", "beating", "performing"],
+    "imageURLs": [
+      {
+        "filename": "Drum_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f941.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Flute",
+    "standardized": "Flute",
+    "chinese": "长笛",
+    "phonetic": "/fluːt/",
+    "phrase": "silver flute",
+    "phraseTranslation": "银色长笛",
+    "difficulty": "basic",
+    "category": "instrument",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "吹奏的管乐器",
+    "related_activities": ["playing", "blowing", "performing"],
+    "imageURLs": [
+      {
+        "filename": "Flute_NH.png",
+        "url": "https://nookipedia.com/wiki/Special:FilePath/Pan_Flute_NH_Icon.png",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bell",
+    "standardized": "Bell",
+    "chinese": "铃铛",
+    "phonetic": "/bel/",
+    "phrase": "golden bell",
+    "phraseTranslation": "金色铃铛",
+    "difficulty": "basic",
+    "category": "instrument",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "摇动发声的乐器",
+    "related_activities": ["ringing", "playing", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Bell_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f514.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 玩具类 ===
+  {
+    "word": "Ball",
+    "standardized": "Ball",
+    "chinese": "球",
+    "phonetic": "/bɔl/",
+    "phrase": "bouncing ball",
+    "phraseTranslation": "弹跳球",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来玩耍的圆形玩具",
+    "related_activities": ["playing", "throwing", "catching"],
+    "imageURLs": [
+      {
+        "filename": "Ball_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26bd.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Doll",
+    "standardized": "Doll",
+    "chinese": "娃娃",
+    "phonetic": "/dɑl/",
+    "phrase": "cute doll",
+    "phraseTranslation": "可爱娃娃",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "像人的玩具",
+    "related_activities": ["playing", "caring", "pretending"],
+    "imageURLs": [
+      {
+        "filename": "Doll_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f43b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Kite",
+    "standardized": "Kite",
+    "chinese": "风筝",
+    "phonetic": "/kaɪt/",
+    "phrase": "flying kite",
+    "phraseTranslation": "飞行风筝",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "在风中飞翔的玩具",
+    "related_activities": ["flying", "running", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Kite_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fa81.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Toy Car",
+    "standardized": "Toy Car",
+    "chinese": "玩具车",
+    "phonetic": "/tɔɪ kɑr/",
+    "phrase": "red toy car",
+    "phraseTranslation": "红色玩具车",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "小型的汽车模型",
+    "related_activities": ["playing", "driving", "racing"],
+    "imageURLs": [
+      {
+        "filename": "Toy_Car_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f697.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Teddy Bear",
+    "standardized": "Teddy Bear",
+    "chinese": "泰迪熊",
+    "phonetic": "/ˈtedi ber/",
+    "phrase": "soft teddy bear",
+    "phraseTranslation": "柔软泰迪熊",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "毛绒绒的熊玩具",
+    "related_activities": ["hugging", "sleeping", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Teddy_Bear_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9f8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多动物类 ===
+  {
+    "word": "Cat",
+    "standardized": "Cat",
+    "chinese": "猫",
+    "phonetic": "/kæt/",
+    "phrase": "cute cat",
+    "phraseTranslation": "可爱猫咪",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "温顺的宠物动物",
+    "related_activities": ["petting", "playing", "feeding"],
+    "imageURLs": [
+      {
+        "filename": "Cat_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f408.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dog",
+    "standardized": "Dog",
+    "chinese": "狗",
+    "phonetic": "/dɔɡ/",
+    "phrase": "friendly dog",
+    "phraseTranslation": "友好的狗",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "忠诚的宠物动物",
+    "related_activities": ["playing", "walking", "feeding"],
+    "imageURLs": [
+      {
+        "filename": "Dog_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f436.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rabbit",
+    "standardized": "Rabbit",
+    "chinese": "兔子",
+    "phonetic": "/ˈræbɪt/",
+    "phrase": "white rabbit",
+    "phraseTranslation": "白兔子",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "跳跃的可爱动物",
+    "related_activities": ["hopping", "feeding", "watching"],
+    "imageURLs": [
+      {
+        "filename": "Rabbit_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f407.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bear",
+    "standardized": "Bear",
+    "chinese": "熊",
+    "phonetic": "/ber/",
+    "phrase": "big bear",
+    "phraseTranslation": "大熊",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "森林中的大型动物",
+    "related_activities": ["watching", "respecting", "admiring"],
+    "imageURLs": [
+      {
+        "filename": "Bear_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f43b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Elephant",
+    "standardized": "Elephant",
+    "chinese": "大象",
+    "phonetic": "/ˈeləfənt/",
+    "phrase": "gray elephant",
+    "phraseTranslation": "灰色大象",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "温和的大型动物",
+    "related_activities": ["watching", "feeding", "admiring"],
+    "imageURLs": [
+      {
+        "filename": "Elephant_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f418.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 建筑物类 ===
+  {
+    "word": "House",
+    "standardized": "House",
+    "chinese": "房子",
+    "phonetic": "/haʊs/",
+    "phrase": "cozy house",
+    "phraseTranslation": "温馨房子",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "居住的建筑物",
+    "related_activities": ["living", "decorating", "visiting"],
+    "imageURLs": [
+      {
+        "filename": "House_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3e0.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shop",
+    "standardized": "Shop",
+    "chinese": "商店",
+    "phonetic": "/ʃɑp/",
+    "phrase": "busy shop",
+    "phraseTranslation": "繁忙商店",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "购买物品的地方",
+    "related_activities": ["shopping", "buying", "selling"],
+    "imageURLs": [
+      {
+        "filename": "Shop_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ea.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Museum",
+    "standardized": "Museum",
+    "chinese": "博物馆",
+    "phonetic": "/mjuˈziəm/",
+    "phrase": "big museum",
+    "phraseTranslation": "大博物馆",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "展示收藏品的地方",
+    "related_activities": ["visiting", "learning", "donating"],
+    "imageURLs": [
+      {
+        "filename": "Museum_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3db.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "School",
+    "standardized": "School",
+    "chinese": "学校",
+    "phonetic": "/skuːl/",
+    "phrase": "happy school",
+    "phraseTranslation": "快乐学校",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "学习知识的地方",
+    "related_activities": ["learning", "studying", "playing"],
+    "imageURLs": [
+      {
+        "filename": "School_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3eb.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Library",
+    "standardized": "Library",
+    "chinese": "图书馆",
+    "phonetic": "/ˈlaɪbreri/",
+    "phrase": "quiet library",
+    "phraseTranslation": "安静图书馆",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "阅读书籍的地方",
+    "related_activities": ["reading", "studying", "borrowing"],
+    "imageURLs": [
+      {
+        "filename": "Library_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4da.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 交通工具类 ===
+  {
+    "word": "Airplane",
+    "standardized": "Airplane",
+    "chinese": "飞机",
+    "phonetic": "/ˈerpleɪn/",
+    "phrase": "flying airplane",
+    "phraseTranslation": "飞行飞机",
+    "difficulty": "basic",
+    "category": "vehicle",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "在天空飞行的交通工具",
+    "related_activities": ["flying", "traveling", "watching"],
+    "imageURLs": [
+      {
+        "filename": "Airplane_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2708.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Boat",
+    "standardized": "Boat",
+    "chinese": "船",
+    "phonetic": "/boʊt/",
+    "phrase": "sailing boat",
+    "phraseTranslation": "航行船只",
+    "difficulty": "basic",
+    "category": "vehicle",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "在水上航行的交通工具",
+    "related_activities": ["sailing", "fishing", "traveling"],
+    "imageURLs": [
+      {
+        "filename": "Boat_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26f5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Car",
+    "standardized": "Car",
+    "chinese": "汽车",
+    "phonetic": "/kɑr/",
+    "phrase": "red car",
+    "phraseTranslation": "红色汽车",
+    "difficulty": "basic",
+    "category": "vehicle",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "陆地上的交通工具",
+    "related_activities": ["driving", "traveling", "parking"],
+    "imageURLs": [
+      {
+        "filename": "Car_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f697.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bicycle",
+    "standardized": "Bicycle",
+    "chinese": "自行车",
+    "phonetic": "/ˈbaɪsɪkəl/",
+    "phrase": "blue bicycle",
+    "phraseTranslation": "蓝色自行车",
+    "difficulty": "basic",
+    "category": "vehicle",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用脚踏的交通工具",
+    "related_activities": ["riding", "exercising", "traveling"],
+    "imageURLs": [
+      {
+        "filename": "Bicycle_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6b2.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 天气与自然现象 ===
+  {
+    "word": "Sun",
+    "standardized": "Sun",
+    "chinese": "太阳",
+    "phonetic": "/sʌn/",
+    "phrase": "bright sun",
+    "phraseTranslation": "明亮太阳",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "天空中的光源",
+    "related_activities": ["shining", "warming", "lighting"],
+    "imageURLs": [
+      {
+        "filename": "Sun_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2600.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Moon",
+    "standardized": "Moon",
+    "chinese": "月亮",
+    "phonetic": "/muːn/",
+    "phrase": "full moon",
+    "phraseTranslation": "满月",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "夜空中的光源",
+    "related_activities": ["watching", "wishing", "sleeping"],
+    "imageURLs": [
+      {
+        "filename": "Moon_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f319.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cloud",
+    "standardized": "Cloud",
+    "chinese": "云朵",
+    "phonetic": "/klaʊd/",
+    "phrase": "white cloud",
+    "phraseTranslation": "白云朵",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "天空中的水汽",
+    "related_activities": ["watching", "floating", "changing"],
+    "imageURLs": [
+      {
+        "filename": "Cloud_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2601.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rain",
+    "standardized": "Rain",
+    "chinese": "雨",
+    "phonetic": "/reɪn/",
+    "phrase": "gentle rain",
+    "phraseTranslation": "温柔雨水",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "从天空落下的水滴",
+    "related_activities": ["falling", "watering", "listening"],
+    "imageURLs": [
+      {
+        "filename": "Rain_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f327.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Snow",
+    "standardized": "Snow",
+    "chinese": "雪",
+    "phonetic": "/snoʊ/",
+    "phrase": "white snow",
+    "phraseTranslation": "白雪",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "冬天飘落的冰晶",
+    "related_activities": ["falling", "playing", "building"],
+    "imageURLs": [
+      {
+        "filename": "Snow_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f328.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 学习用品 ===
+  {
+    "word": "Book",
+    "standardized": "Book",
+    "chinese": "书",
+    "phonetic": "/bʊk/",
+    "phrase": "interesting book",
+    "phraseTranslation": "有趣的书",
+    "difficulty": "basic",
+    "category": "education",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "学习知识的工具",
+    "related_activities": ["reading", "learning", "studying"],
+    "imageURLs": [
+      {
+        "filename": "Book_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4d6.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pencil",
+    "standardized": "Pencil",
+    "chinese": "铅笔",
+    "phonetic": "/ˈpensəl/",
+    "phrase": "yellow pencil",
+    "phraseTranslation": "黄色铅笔",
+    "difficulty": "basic",
+    "category": "education",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "书写的工具",
+    "related_activities": ["writing", "drawing", "studying"],
+    "imageURLs": [
+      {
+        "filename": "Pencil_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/270f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Paper",
+    "standardized": "Paper",
+    "chinese": "纸",
+    "phonetic": "/ˈpeɪpər/",
+    "phrase": "white paper",
+    "phraseTranslation": "白纸",
+    "difficulty": "basic",
+    "category": "education",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "书写和绘画的材料",
+    "related_activities": ["writing", "drawing", "folding"],
+    "imageURLs": [
+      {
+        "filename": "Paper_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Crayon",
+    "standardized": "Crayon",
+    "chinese": "蜡笔",
+    "phonetic": "/ˈkreɪɑn/",
+    "phrase": "colorful crayon",
+    "phraseTranslation": "彩色蜡笔",
+    "difficulty": "basic",
+    "category": "education",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "绘画的工具",
+    "related_activities": ["drawing", "coloring", "creating"],
+    "imageURLs": [
+      {
+        "filename": "Crayon_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f58d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 运动用品 ===
+  {
+    "word": "Soccer Ball",
+    "standardized": "Soccer Ball",
+    "chinese": "足球",
+    "phonetic": "/ˈsɑkər bɔl/",
+    "phrase": "round soccer ball",
+    "phraseTranslation": "圆足球",
+    "difficulty": "basic",
+    "category": "sport",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "踢球运动的用具",
+    "related_activities": ["kicking", "playing", "running"],
+    "imageURLs": [
+      {
+        "filename": "Soccer_Ball_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26bd.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Basketball",
+    "standardized": "Basketball",
+    "chinese": "篮球",
+    "phonetic": "/ˈbæskɪtbɔl/",
+    "phrase": "orange basketball",
+    "phraseTranslation": "橙色篮球",
+    "difficulty": "basic",
+    "category": "sport",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "投篮运动的用具",
+    "related_activities": ["shooting", "dribbling", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Basketball_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3c0.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Tennis Racket",
+    "standardized": "Tennis Racket",
+    "chinese": "网球拍",
+    "phonetic": "/ˈtenɪs ˈrækɪt/",
+    "phrase": "tennis racket",
+    "phraseTranslation": "网球拍",
+    "difficulty": "basic",
+    "category": "sport",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "网球运动的用具",
+    "related_activities": ["hitting", "playing", "swinging"],
+    "imageURLs": [
+      {
+        "filename": "Tennis_Racket_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3be.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Swimming Pool",
+    "standardized": "Swimming Pool",
+    "chinese": "游泳池",
+    "phonetic": "/ˈswɪmɪŋ puːl/",
+    "phrase": "blue swimming pool",
+    "phraseTranslation": "蓝色游泳池",
+    "difficulty": "basic",
+    "category": "sport",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "游泳的地方",
+    "related_activities": ["swimming", "playing", "splashing"],
+    "imageURLs": [
+      {
+        "filename": "Swimming_Pool_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ca.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 节日物品 ===
+  {
+    "word": "Gift",
+    "standardized": "Gift",
+    "chinese": "礼物",
+    "phonetic": "/ɡɪft/",
+    "phrase": "wrapped gift",
+    "phraseTranslation": "包装礼物",
+    "difficulty": "basic",
+    "category": "celebration",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "送给别人的惊喜",
+    "related_activities": ["giving", "receiving", "wrapping"],
+    "imageURLs": [
+      {
+        "filename": "Gift_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f381.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Party Hat",
+    "standardized": "Party Hat",
+    "chinese": "派对帽",
+    "phonetic": "/ˈpɑrti hæt/",
+    "phrase": "colorful party hat",
+    "phraseTranslation": "彩色派对帽",
+    "difficulty": "basic",
+    "category": "celebration",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "庆祝时戴的帽子",
+    "related_activities": ["celebrating", "wearing", "partying"],
+    "imageURLs": [
+      {
+        "filename": "Party_Hat_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f973.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fireworks",
+    "standardized": "Fireworks",
+    "chinese": "烟花",
+    "phonetic": "/ˈfaɪərwɜrks/",
+    "phrase": "beautiful fireworks",
+    "phraseTranslation": "美丽烟花",
+    "difficulty": "basic",
+    "category": "celebration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "节日时的绚烂装饰",
+    "related_activities": ["watching", "celebrating", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Fireworks_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f386.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 颜色类 ===
+  {
+    "word": "Red",
+    "standardized": "Red",
+    "chinese": "红色",
+    "phonetic": "/red/",
+    "phrase": "bright red",
+    "phraseTranslation": "鲜红色",
+    "difficulty": "basic",
+    "category": "color",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "鲜艳的颜色",
+    "related_activities": ["coloring", "painting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Red_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f534.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Blue",
+    "standardized": "Blue",
+    "chinese": "蓝色",
+    "phonetic": "/bluː/",
+    "phrase": "ocean blue",
+    "phraseTranslation": "海洋蓝",
+    "difficulty": "basic",
+    "category": "color",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "天空和海洋的颜色",
+    "related_activities": ["coloring", "painting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Blue_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f535.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Yellow",
+    "standardized": "Yellow",
+    "chinese": "黄色",
+    "phonetic": "/ˈjeloʊ/",
+    "phrase": "sunny yellow",
+    "phraseTranslation": "阳光黄",
+    "difficulty": "basic",
+    "category": "color",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "太阳的颜色",
+    "related_activities": ["coloring", "painting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Yellow_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Green",
+    "standardized": "Green",
+    "chinese": "绿色",
+    "phonetic": "/ɡriːn/",
+    "phrase": "forest green",
+    "phraseTranslation": "森林绿",
+    "difficulty": "basic",
+    "category": "color",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "植物的颜色",
+    "related_activities": ["coloring", "painting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Green_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e2.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Purple",
+    "standardized": "Purple",
+    "chinese": "紫色",
+    "phonetic": "/ˈpɜrpəl/",
+    "phrase": "royal purple",
+    "phraseTranslation": "皇家紫",
+    "difficulty": "basic",
+    "category": "color",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "神秘的颜色",
+    "related_activities": ["coloring", "painting", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Purple_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 数字类 ===
+  {
+    "word": "One",
+    "standardized": "One",
+    "chinese": "一",
+    "phonetic": "/wʌn/",
+    "phrase": "number one",
+    "phraseTranslation": "数字一",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "最小的自然数",
+    "related_activities": ["counting", "learning", "playing"],
+    "imageURLs": [
+      {
+        "filename": "One_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/31-20e3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Two",
+    "standardized": "Two",
+    "chinese": "二",
+    "phonetic": "/tuː/",
+    "phrase": "number two",
+    "phraseTranslation": "数字二",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "一对的数量",
+    "related_activities": ["counting", "learning", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Two_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/32-20e3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Three",
+    "standardized": "Three",
+    "chinese": "三",
+    "phonetic": "/θriː/",
+    "phrase": "number three",
+    "phraseTranslation": "数字三",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "三个的数量",
+    "related_activities": ["counting", "learning", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Three_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/33-20e3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Four",
+    "standardized": "Four",
+    "chinese": "四",
+    "phonetic": "/fɔr/",
+    "phrase": "number four",
+    "phraseTranslation": "数字四",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "四个的数量",
+    "related_activities": ["counting", "learning", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Four_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/34-20e3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Five",
+    "standardized": "Five",
+    "chinese": "五",
+    "phonetic": "/faɪv/",
+    "phrase": "number five",
+    "phraseTranslation": "数字五",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "一只手的手指数量",
+    "related_activities": ["counting", "learning", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Five_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/35-20e3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 形状类 ===
+  {
+    "word": "Circle",
+    "standardized": "Circle",
+    "chinese": "圆形",
+    "phonetic": "/ˈsɜrkəl/",
+    "phrase": "round circle",
+    "phraseTranslation": "圆圆的圆形",
+    "difficulty": "basic",
+    "category": "shape",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "没有角的形状",
+    "related_activities": ["drawing", "learning", "recognizing"],
+    "imageURLs": [
+      {
+        "filename": "Circle_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e0.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Square",
+    "standardized": "Square",
+    "chinese": "正方形",
+    "phonetic": "/skwer/",
+    "phrase": "perfect square",
+    "phraseTranslation": "完美正方形",
+    "difficulty": "basic",
+    "category": "shape",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "四个边相等的形状",
+    "related_activities": ["drawing", "learning", "recognizing"],
+    "imageURLs": [
+      {
+        "filename": "Square_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Triangle",
+    "standardized": "Triangle",
+    "chinese": "三角形",
+    "phonetic": "/ˈtraɪæŋɡəl/",
+    "phrase": "sharp triangle",
+    "phraseTranslation": "尖锐三角形",
+    "difficulty": "basic",
+    "category": "shape",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "三个角的形状",
+    "related_activities": ["drawing", "learning", "recognizing"],
+    "imageURLs": [
+      {
+        "filename": "Triangle_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f53a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Star",
+    "standardized": "Star",
+    "chinese": "星形",
+    "phonetic": "/stɑr/",
+    "phrase": "bright star",
+    "phraseTranslation": "明亮星星",
+    "difficulty": "basic",
+    "category": "shape",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "五角星的形状",
+    "related_activities": ["drawing", "wishing", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Star_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b50.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Heart",
+    "standardized": "Heart",
+    "chinese": "心形",
+    "phonetic": "/hɑrt/",
+    "phrase": "loving heart",
+    "phraseTranslation": "爱心",
+    "difficulty": "basic",
+    "category": "shape",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "表达爱意的形状",
+    "related_activities": ["loving", "caring", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Heart_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2764.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 身体部位类 ===
+  {
+    "word": "Hand",
+    "standardized": "Hand",
+    "chinese": "手",
+    "phonetic": "/hænd/",
+    "phrase": "helping hand",
+    "phraseTranslation": "帮助之手",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来抓握的身体部位",
+    "related_activities": ["holding", "waving", "clapping"],
+    "imageURLs": [
+      {
+        "filename": "Hand_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/270b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Foot",
+    "standardized": "Foot",
+    "chinese": "脚",
+    "phonetic": "/fʊt/",
+    "phrase": "walking foot",
+    "phraseTranslation": "行走的脚",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来走路的身体部位",
+    "related_activities": ["walking", "running", "jumping"],
+    "imageURLs": [
+      {
+        "filename": "Foot_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b6.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Eye",
+    "standardized": "Eye",
+    "chinese": "眼睛",
+    "phonetic": "/aɪ/",
+    "phrase": "bright eye",
+    "phraseTranslation": "明亮眼睛",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来看东西的身体部位",
+    "related_activities": ["seeing", "watching", "looking"],
+    "imageURLs": [
+      {
+        "filename": "Eye_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f441.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Nose",
+    "standardized": "Nose",
+    "chinese": "鼻子",
+    "phonetic": "/noʊz/",
+    "phrase": "small nose",
+    "phraseTranslation": "小鼻子",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来闻味道的身体部位",
+    "related_activities": ["smelling", "breathing", "sniffing"],
+    "imageURLs": [
+      {
+        "filename": "Nose_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f443.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mouth",
+    "standardized": "Mouth",
+    "chinese": "嘴巴",
+    "phonetic": "/maʊθ/",
+    "phrase": "smiling mouth",
+    "phraseTranslation": "微笑嘴巴",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来说话和吃东西的身体部位",
+    "related_activities": ["talking", "eating", "smiling"],
+    "imageURLs": [
+      {
+        "filename": "Mouth_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f444.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 情感类 ===
+  {
+    "word": "Happy",
+    "standardized": "Happy",
+    "chinese": "开心",
+    "phonetic": "/ˈhæpi/",
+    "phrase": "very happy",
+    "phraseTranslation": "非常开心",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "快乐的感觉",
+    "related_activities": ["smiling", "laughing", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Happy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sad",
+    "standardized": "Sad",
+    "chinese": "伤心",
+    "phonetic": "/sæd/",
+    "phrase": "feeling sad",
+    "phraseTranslation": "感到伤心",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "难过的感觉",
+    "related_activities": ["crying", "comforting", "hugging"],
+    "imageURLs": [
+      {
+        "filename": "Sad_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f622.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Angry",
+    "standardized": "Angry",
+    "chinese": "生气",
+    "phonetic": "/ˈæŋɡri/",
+    "phrase": "getting angry",
+    "phraseTranslation": "变得生气",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "愤怒的感觉",
+    "related_activities": ["calming", "breathing", "talking"],
+    "imageURLs": [
+      {
+        "filename": "Angry_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f620.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Surprised",
+    "standardized": "Surprised",
+    "chinese": "惊讶",
+    "phonetic": "/sərˈpraɪzd/",
+    "phrase": "very surprised",
+    "phraseTranslation": "非常惊讶",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "意外的感觉",
+    "related_activities": ["gasping", "wondering", "discovering"],
+    "imageURLs": [
+      {
+        "filename": "Surprised_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f632.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Excited",
+    "standardized": "Excited",
+    "chinese": "兴奋",
+    "phonetic": "/ɪkˈsaɪtɪd/",
+    "phrase": "very excited",
+    "phraseTranslation": "非常兴奋",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "激动的感觉",
+    "related_activities": ["jumping", "cheering", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Excited_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f929.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 动作类 ===
+  {
+    "word": "Run",
+    "standardized": "Run",
+    "chinese": "跑步",
+    "phonetic": "/rʌn/",
+    "phrase": "run fast",
+    "phraseTranslation": "快速跑步",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "快速移动的动作",
+    "related_activities": ["exercising", "playing", "racing"],
+    "imageURLs": [
+      {
+        "filename": "Run_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3c3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Jump",
+    "standardized": "Jump",
+    "chinese": "跳跃",
+    "phonetic": "/dʒʌmp/",
+    "phrase": "jump high",
+    "phraseTranslation": "跳得高",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "向上弹跳的动作",
+    "related_activities": ["playing", "exercising", "having_fun"],
+    "imageURLs": [
+      {
+        "filename": "Jump_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dance",
+    "standardized": "Dance",
+    "chinese": "跳舞",
+    "phonetic": "/dæns/",
+    "phrase": "dance together",
+    "phraseTranslation": "一起跳舞",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "随音乐摆动的动作",
+    "related_activities": ["moving", "celebrating", "expressing"],
+    "imageURLs": [
+      {
+        "filename": "Dance_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f483.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sleep",
+    "standardized": "Sleep",
+    "chinese": "睡觉",
+    "phonetic": "/sliːp/",
+    "phrase": "sleep well",
+    "phraseTranslation": "睡得好",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "休息的动作",
+    "related_activities": ["resting", "dreaming", "relaxing"],
+    "imageURLs": [
+      {
+        "filename": "Sleep_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f634.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Eat",
+    "standardized": "Eat",
+    "chinese": "吃",
+    "phonetic": "/iːt/",
+    "phrase": "eat food",
+    "phraseTranslation": "吃食物",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "进食的动作",
+    "related_activities": ["chewing", "tasting", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Eat_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f37d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 最后补充 ===
+  {
+    "word": "Friend",
+    "standardized": "Friend",
+    "chinese": "朋友",
+    "phonetic": "/frend/",
+    "phrase": "best friend",
+    "phraseTranslation": "最好的朋友",
+    "difficulty": "basic",
+    "category": "social",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "一起玩耍的伙伴",
+    "related_activities": ["playing", "sharing", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Friend_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f46b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Love",
+    "standardized": "Love",
+    "chinese": "爱",
+    "phonetic": "/lʌv/",
+    "phrase": "show love",
+    "phraseTranslation": "表达爱意",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "关爱的感情",
+    "related_activities": ["caring", "hugging", "helping"],
+    "imageURLs": [
+      {
+        "filename": "Love_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f495.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Help",
+    "standardized": "Help",
+    "chinese": "帮助",
+    "phonetic": "/help/",
+    "phrase": "help others",
+    "phraseTranslation": "帮助他人",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "协助他人的行为",
+    "related_activities": ["assisting", "supporting", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Help_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f91d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Thank You",
+    "standardized": "Thank You",
+    "chinese": "谢谢",
+    "phonetic": "/θæŋk juː/",
+    "phrase": "say thank you",
+    "phraseTranslation": "说谢谢",
+    "difficulty": "basic",
+    "category": "social",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "表达感谢的话语",
+    "related_activities": ["thanking", "appreciating", "being_polite"],
+    "imageURLs": [
+      {
+        "filename": "Thank_You_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f64f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Please",
+    "standardized": "Please",
+    "chinese": "请",
+    "phonetic": "/pliːz/",
+    "phrase": "say please",
+    "phraseTranslation": "说请",
+    "difficulty": "basic",
+    "category": "social",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "礼貌请求的话语",
+    "related_activities": ["asking", "requesting", "being_polite"],
+    "imageURLs": [
+      {
+        "filename": "Please_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f64f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hello",
+    "standardized": "Hello",
+    "chinese": "你好",
+    "phonetic": "/həˈloʊ/",
+    "phrase": "say hello",
+    "phraseTranslation": "说你好",
+    "difficulty": "basic",
+    "category": "social",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "打招呼的话语",
+    "related_activities": ["greeting", "meeting", "welcoming"],
+    "imageURLs": [
+      {
+        "filename": "Hello_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f44b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Goodbye",
+    "standardized": "Goodbye",
+    "chinese": "再见",
+    "phonetic": "/ɡʊdˈbaɪ/",
+    "phrase": "say goodbye",
+    "phraseTranslation": "说再见",
+    "difficulty": "basic",
+    "category": "social",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "告别的话语",
+    "related_activities": ["leaving", "waving", "parting"],
+    "imageURLs": [
+      {
+        "filename": "Goodbye_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f44b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多家具类 ===
+  {
+    "word": "Bookshelf",
+    "standardized": "Bookshelf",
+    "chinese": "书架",
+    "phonetic": "/ˈbʊkʃelf/",
+    "phrase": "wooden bookshelf",
+    "phraseTranslation": "木制书架",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "存放书籍的家具",
+    "related_activities": ["reading", "organizing", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Bookshelf_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4da.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Wardrobe",
+    "standardized": "Wardrobe",
+    "chinese": "衣柜",
+    "phonetic": "/ˈwɔrdroʊb/",
+    "phrase": "large wardrobe",
+    "phraseTranslation": "大衣柜",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "存放衣服的家具",
+    "related_activities": ["storing", "organizing", "dressing"],
+    "imageURLs": [
+      {
+        "filename": "Wardrobe_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Stove",
+    "standardized": "Stove",
+    "chinese": "炉子",
+    "phonetic": "/stoʊv/",
+    "phrase": "kitchen stove",
+    "phraseTranslation": "厨房炉子",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "烹饪食物的设备",
+    "related_activities": ["cooking", "baking", "preparing"],
+    "imageURLs": [
+      {
+        "filename": "Stove_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sink",
+    "standardized": "Sink",
+    "chinese": "水槽",
+    "phonetic": "/sɪŋk/",
+    "phrase": "kitchen sink",
+    "phraseTranslation": "厨房水槽",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "洗涤用的设备",
+    "related_activities": ["washing", "cleaning", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Sink_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bathtub",
+    "standardized": "Bathtub",
+    "chinese": "浴缸",
+    "phonetic": "/ˈbæθtʌb/",
+    "phrase": "relaxing bathtub",
+    "phraseTranslation": "放松浴缸",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "洗澡用的设备",
+    "related_activities": ["bathing", "relaxing", "cleaning"],
+    "imageURLs": [
+      {
+        "filename": "Bathtub_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6c1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Toilet",
+    "standardized": "Toilet",
+    "chinese": "马桶",
+    "phonetic": "/ˈtɔɪlət/",
+    "phrase": "clean toilet",
+    "phraseTranslation": "干净马桶",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "卫生间设备",
+    "related_activities": ["using", "cleaning", "maintaining"],
+    "imageURLs": [
+      {
+        "filename": "Toilet_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6bd.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sofa",
+    "standardized": "Sofa",
+    "chinese": "沙发",
+    "phonetic": "/ˈsoʊfə/",
+    "phrase": "comfortable sofa",
+    "phraseTranslation": "舒适沙发",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "客厅座椅",
+    "related_activities": ["sitting", "relaxing", "watching"],
+    "imageURLs": [
+      {
+        "filename": "Sofa_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Desk",
+    "standardized": "Desk",
+    "chinese": "书桌",
+    "phonetic": "/desk/",
+    "phrase": "study desk",
+    "phraseTranslation": "学习书桌",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "学习工作的桌子",
+    "related_activities": ["studying", "writing", "working"],
+    "imageURLs": [
+      {
+        "filename": "Desk_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lamp",
+    "standardized": "Lamp",
+    "chinese": "台灯",
+    "phonetic": "/læmp/",
+    "phrase": "bright lamp",
+    "phraseTranslation": "明亮台灯",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "照明设备",
+    "related_activities": ["lighting", "reading", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Lamp_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Clock",
+    "standardized": "Clock",
+    "chinese": "时钟",
+    "phonetic": "/klɑk/",
+    "phrase": "wall clock",
+    "phraseTranslation": "墙上时钟",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "显示时间的设备",
+    "related_activities": ["checking_time", "decorating", "learning"],
+    "imageURLs": [
+      {
+        "filename": "Clock_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mirror",
+    "standardized": "Mirror",
+    "chinese": "镜子",
+    "phonetic": "/ˈmɪrər/",
+    "phrase": "round mirror",
+    "phraseTranslation": "圆镜子",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "照镜子的工具",
+    "related_activities": ["looking", "grooming", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Mirror_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多装饰物品 ===
+  {
+    "word": "Statue",
+    "standardized": "Statue",
+    "chinese": "雕像",
+    "phonetic": "/ˈstætʃu/",
+    "phrase": "beautiful statue",
+    "phraseTranslation": "美丽雕像",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "艺术装饰品",
+    "related_activities": ["admiring", "decorating", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Statue_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5ff.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Poster",
+    "standardized": "Poster",
+    "chinese": "海报",
+    "phonetic": "/ˈpoʊstər/",
+    "phrase": "colorful poster",
+    "phraseTranslation": "彩色海报",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "墙上装饰品",
+    "related_activities": ["decorating", "displaying", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Poster_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5bc.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Banner",
+    "standardized": "Banner",
+    "chinese": "横幅",
+    "phonetic": "/ˈbænər/",
+    "phrase": "celebration banner",
+    "phraseTranslation": "庆祝横幅",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "节日装饰品",
+    "related_activities": ["celebrating", "decorating", "hanging"],
+    "imageURLs": [
+      {
+        "filename": "Banner_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3f4.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Wreath",
+    "standardized": "Wreath",
+    "chinese": "花环",
+    "phonetic": "/riːθ/",
+    "phrase": "flower wreath",
+    "phraseTranslation": "花朵花环",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "门上装饰品",
+    "related_activities": ["decorating", "welcoming", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Wreath_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Garland",
+    "standardized": "Garland",
+    "chinese": "花环装饰",
+    "phonetic": "/ˈɡɑrlənd/",
+    "phrase": "festive garland",
+    "phraseTranslation": "节日花环装饰",
+    "difficulty": "basic",
+    "category": "decoration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "节日装饰链",
+    "related_activities": ["decorating", "celebrating", "hanging"],
+    "imageURLs": [
+      {
+        "filename": "Garland_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === DIY工具和材料 ===
+  {
+    "word": "Workbench",
+    "standardized": "Workbench",
+    "chinese": "工作台",
+    "phonetic": "/ˈwɜrkbentʃ/",
+    "phrase": "DIY workbench",
+    "phraseTranslation": "DIY工作台",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "制作物品的工作台",
+    "related_activities": ["crafting", "building", "creating"],
+    "imageURLs": [
+      {
+        "filename": "Workbench_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6e0.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Recipe",
+    "standardized": "Recipe",
+    "chinese": "配方",
+    "phonetic": "/ˈresəpi/",
+    "phrase": "DIY recipe",
+    "phraseTranslation": "DIY配方",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "制作指南",
+    "related_activities": ["learning", "crafting", "following"],
+    "imageURLs": [
+      {
+        "filename": "Recipe_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4dc.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rope",
+    "standardized": "Rope",
+    "chinese": "绳子",
+    "phonetic": "/roʊp/",
+    "phrase": "strong rope",
+    "phraseTranslation": "结实绳子",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "捆绑用的材料",
+    "related_activities": ["tying", "climbing", "crafting"],
+    "imageURLs": [
+      {
+        "filename": "Rope_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Thread",
+    "standardized": "Thread",
+    "chinese": "线",
+    "phonetic": "/θred/",
+    "phrase": "sewing thread",
+    "phraseTranslation": "缝纫线",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "缝纫用的材料",
+    "related_activities": ["sewing", "crafting", "mending"],
+    "imageURLs": [
+      {
+        "filename": "Thread_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fabric",
+    "standardized": "Fabric",
+    "chinese": "布料",
+    "phonetic": "/ˈfæbrɪk/",
+    "phrase": "soft fabric",
+    "phraseTranslation": "柔软布料",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "制作衣服的材料",
+    "related_activities": ["sewing", "crafting", "designing"],
+    "imageURLs": [
+      {
+        "filename": "Fabric_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多食物类 ===
+  {
+    "word": "Pizza",
+    "standardized": "Pizza",
+    "chinese": "披萨",
+    "phonetic": "/ˈpiːtsə/",
+    "phrase": "delicious pizza",
+    "phraseTranslation": "美味披萨",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "受欢迎的食物",
+    "related_activities": ["eating", "sharing", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Pizza_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f355.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sandwich",
+    "standardized": "Sandwich",
+    "chinese": "三明治",
+    "phonetic": "/ˈsændwɪtʃ/",
+    "phrase": "tasty sandwich",
+    "phraseTranslation": "美味三明治",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "简单的食物",
+    "related_activities": ["eating", "making", "packing"],
+    "imageURLs": [
+      {
+        "filename": "Sandwich_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f96a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Salad",
+    "standardized": "Salad",
+    "chinese": "沙拉",
+    "phonetic": "/ˈsæləd/",
+    "phrase": "fresh salad",
+    "phraseTranslation": "新鲜沙拉",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "健康的食物",
+    "related_activities": ["eating", "preparing", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Salad_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f957.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ice Cream",
+    "standardized": "Ice Cream",
+    "chinese": "冰淇淋",
+    "phonetic": "/aɪs kriːm/",
+    "phrase": "sweet ice cream",
+    "phraseTranslation": "甜冰淇淋",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "夏天的甜点",
+    "related_activities": ["eating", "cooling", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Ice_Cream_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f366.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Donut",
+    "standardized": "Donut",
+    "chinese": "甜甜圈",
+    "phonetic": "/ˈdoʊnʌt/",
+    "phrase": "glazed donut",
+    "phraseTranslation": "糖霜甜甜圈",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "圆形甜点",
+    "related_activities": ["eating", "sharing", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Donut_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f369.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多工具类 ===
+  {
+    "word": "Shovel",
+    "standardized": "Shovel",
+    "chinese": "铲子",
+    "phonetic": "/ˈʃʌvəl/",
+    "phrase": "digging shovel",
+    "phraseTranslation": "挖掘铲子",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "挖掘用的工具",
+    "related_activities": ["digging", "planting", "gardening"],
+    "imageURLs": [
+      {
+        "filename": "Shovel_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Axe",
+    "standardized": "Axe",
+    "chinese": "斧头",
+    "phonetic": "/æks/",
+    "phrase": "sharp axe",
+    "phraseTranslation": "锋利斧头",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "砍树用的工具",
+    "related_activities": ["chopping", "cutting", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Axe_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fa93.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Net",
+    "standardized": "Net",
+    "chinese": "网子",
+    "phonetic": "/net/",
+    "phrase": "butterfly net",
+    "phraseTranslation": "捕蝶网",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "捕捉昆虫的工具",
+    "related_activities": ["catching", "collecting", "hunting"],
+    "imageURLs": [
+      {
+        "filename": "Net_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fishing Rod",
+    "standardized": "Fishing Rod",
+    "chinese": "钓鱼竿",
+    "phonetic": "/ˈfɪʃɪŋ rɑd/",
+    "phrase": "long fishing rod",
+    "phraseTranslation": "长钓鱼竿",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "钓鱼用的工具",
+    "related_activities": ["fishing", "catching", "waiting"],
+    "imageURLs": [
+      {
+        "filename": "Fishing_Rod_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3a3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Watering Can",
+    "standardized": "Watering Can",
+    "chinese": "浇水壶",
+    "phonetic": "/ˈwɔːtərɪŋ kæn/",
+    "phrase": "garden watering can",
+    "phraseTranslation": "园艺浇水壶",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "浇水用的工具",
+    "related_activities": ["watering", "gardening", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Watering_Can_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多服装配饰 ===
+  {
+    "word": "Jacket",
+    "standardized": "Jacket",
+    "chinese": "夹克",
+    "phonetic": "/ˈdʒækɪt/",
+    "phrase": "warm jacket",
+    "phraseTranslation": "温暖夹克",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "保暖的外套",
+    "related_activities": ["wearing", "staying_warm", "dressing"],
+    "imageURLs": [
+      {
+        "filename": "Jacket_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pants",
+    "standardized": "Pants",
+    "chinese": "裤子",
+    "phonetic": "/pænts/",
+    "phrase": "blue pants",
+    "phraseTranslation": "蓝色裤子",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "穿在腿上的衣服",
+    "related_activities": ["wearing", "walking", "dressing"],
+    "imageURLs": [
+      {
+        "filename": "Pants_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f456.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Socks",
+    "standardized": "Socks",
+    "chinese": "袜子",
+    "phonetic": "/sɑks/",
+    "phrase": "colorful socks",
+    "phraseTranslation": "彩色袜子",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "穿在脚上的衣物",
+    "related_activities": ["wearing", "walking", "keeping_warm"],
+    "imageURLs": [
+      {
+        "filename": "Socks_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e6.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Glasses",
+    "standardized": "Glasses",
+    "chinese": "眼镜",
+    "phonetic": "/ˈɡlæsɪz/",
+    "phrase": "reading glasses",
+    "phraseTranslation": "阅读眼镜",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "帮助看清的工具",
+    "related_activities": ["seeing", "reading", "wearing"],
+    "imageURLs": [
+      {
+        "filename": "Glasses_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f453.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Necklace",
+    "standardized": "Necklace",
+    "chinese": "项链",
+    "phonetic": "/ˈnekləs/",
+    "phrase": "pretty necklace",
+    "phraseTranslation": "漂亮项链",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "戴在脖子上的装饰品",
+    "related_activities": ["wearing", "decorating", "accessorizing"],
+    "imageURLs": [
+      {
+        "filename": "Necklace_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4ff.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ring",
+    "standardized": "Ring",
+    "chinese": "戒指",
+    "phonetic": "/rɪŋ/",
+    "phrase": "golden ring",
+    "phraseTranslation": "金戒指",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "戴在手指上的装饰品",
+    "related_activities": ["wearing", "decorating", "showing"],
+    "imageURLs": [
+      {
+        "filename": "Ring_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f48d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Watch",
+    "standardized": "Watch",
+    "chinese": "手表",
+    "phonetic": "/wɑtʃ/",
+    "phrase": "digital watch",
+    "phraseTranslation": "数字手表",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "戴在手腕上的时间工具",
+    "related_activities": ["checking_time", "wearing", "timing"],
+    "imageURLs": [
+      {
+        "filename": "Watch_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/231a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Crown",
+    "standardized": "Crown",
+    "chinese": "皇冠",
+    "phonetic": "/kraʊn/",
+    "phrase": "royal crown",
+    "phraseTranslation": "皇家皇冠",
+    "difficulty": "basic",
+    "category": "clothing",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "特殊的头饰",
+    "related_activities": ["wearing", "pretending", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Crown_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f451.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 季节物品 ===
+  {
+    "word": "Snowman",
+    "standardized": "Snowman",
+    "chinese": "雪人",
+    "phonetic": "/ˈsnoʊmæn/",
+    "phrase": "happy snowman",
+    "phraseTranslation": "快乐雪人",
+    "difficulty": "basic",
+    "category": "seasonal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "冬天用雪堆成的人形",
+    "related_activities": ["building", "decorating", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Snowman_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26c4.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Christmas Tree",
+    "standardized": "Christmas Tree",
+    "chinese": "圣诞树",
+    "phonetic": "/ˈkrɪsməs triː/",
+    "phrase": "decorated Christmas tree",
+    "phraseTranslation": "装饰圣诞树",
+    "difficulty": "basic",
+    "category": "seasonal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "圣诞节的装饰树",
+    "related_activities": ["decorating", "celebrating", "gifting"],
+    "imageURLs": [
+      {
+        "filename": "Christmas_Tree_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f384.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pumpkin",
+    "standardized": "Pumpkin",
+    "chinese": "南瓜",
+    "phonetic": "/ˈpʌmpkɪn/",
+    "phrase": "orange pumpkin",
+    "phraseTranslation": "橙色南瓜",
+    "difficulty": "basic",
+    "category": "seasonal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "秋天的蔬菜",
+    "related_activities": ["growing", "carving", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Pumpkin_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f383.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Jack-o-lantern",
+    "standardized": "Jack-o-lantern",
+    "chinese": "南瓜灯",
+    "phonetic": "/ˈdʒæk oʊ ˌlæntərn/",
+    "phrase": "spooky jack-o-lantern",
+    "phraseTranslation": "可怕南瓜灯",
+    "difficulty": "basic",
+    "category": "seasonal",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "万圣节装饰品",
+    "related_activities": ["carving", "decorating", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Jack_o_lantern_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f383.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Easter Egg",
+    "standardized": "Easter Egg",
+    "chinese": "复活节彩蛋",
+    "phonetic": "/ˈiːstər eɡ/",
+    "phrase": "colorful easter egg",
+    "phraseTranslation": "彩色复活节彩蛋",
+    "difficulty": "basic",
+    "category": "seasonal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "春天节日的装饰品",
+    "related_activities": ["hunting", "decorating", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Easter_Egg_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f95a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bunny",
+    "standardized": "Bunny",
+    "chinese": "小兔子",
+    "phonetic": "/ˈbʌni/",
+    "phrase": "cute bunny",
+    "phraseTranslation": "可爱小兔子",
+    "difficulty": "basic",
+    "category": "seasonal",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "春天的小动物",
+    "related_activities": ["hopping", "playing", "watching"],
+    "imageURLs": [
+      {
+        "filename": "Bunny_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f430.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 活动物品 ===
+  {
+    "word": "Balloon",
+    "standardized": "Balloon",
+    "chinese": "气球",
+    "phonetic": "/bəˈluːn/",
+    "phrase": "floating balloon",
+    "phraseTranslation": "飘浮气球",
+    "difficulty": "basic",
+    "category": "celebration",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "庆祝用的装饰品",
+    "related_activities": ["floating", "celebrating", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Balloon_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f388.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Confetti",
+    "standardized": "Confetti",
+    "chinese": "彩纸屑",
+    "phonetic": "/kənˈfeti/",
+    "phrase": "colorful confetti",
+    "phraseTranslation": "彩色彩纸屑",
+    "difficulty": "basic",
+    "category": "celebration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "庆祝时撒的小纸片",
+    "related_activities": ["throwing", "celebrating", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Confetti_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f389.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Streamer",
+    "standardized": "Streamer",
+    "chinese": "拉花",
+    "phonetic": "/ˈstriːmər/",
+    "phrase": "party streamer",
+    "phraseTranslation": "派对拉花",
+    "difficulty": "basic",
+    "category": "celebration",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "派对装饰条",
+    "related_activities": ["hanging", "decorating", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Streamer_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pinwheel",
+    "standardized": "Pinwheel",
+    "chinese": "风车",
+    "phonetic": "/ˈpɪnwiːl/",
+    "phrase": "spinning pinwheel",
+    "phraseTranslation": "旋转风车",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "风中旋转的玩具",
+    "related_activities": ["spinning", "playing", "watching"],
+    "imageURLs": [
+      {
+        "filename": "Pinwheel_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bubble",
+    "standardized": "Bubble",
+    "chinese": "泡泡",
+    "phonetic": "/ˈbʌbəl/",
+    "phrase": "soap bubble",
+    "phraseTranslation": "肥皂泡泡",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "飘浮的圆形泡沫",
+    "related_activities": ["blowing", "popping", "chasing"],
+    "imageURLs": [
+      {
+        "filename": "Bubble_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fae7.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多植物类 ===
+  {
+    "word": "Cactus",
+    "standardized": "Cactus",
+    "chinese": "仙人掌",
+    "phonetic": "/ˈkæktəs/",
+    "phrase": "spiky cactus",
+    "phraseTranslation": "多刺仙人掌",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "沙漠中的植物",
+    "related_activities": ["growing", "watering", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Cactus_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f335.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sunflower",
+    "standardized": "Sunflower",
+    "chinese": "向日葵",
+    "phonetic": "/ˈsʌnflaʊər/",
+    "phrase": "tall sunflower",
+    "phraseTranslation": "高向日葵",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "面向太阳的大花",
+    "related_activities": ["growing", "admiring", "planting"],
+    "imageURLs": [
+      {
+        "filename": "Sunflower_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f33b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mushroom",
+    "standardized": "Mushroom",
+    "chinese": "蘑菇",
+    "phonetic": "/ˈmʌʃruːm/",
+    "phrase": "red mushroom",
+    "phraseTranslation": "红蘑菇",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "森林中的真菌",
+    "related_activities": ["finding", "collecting", "observing"],
+    "imageURLs": [
+      {
+        "filename": "Mushroom_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f344.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bamboo",
+    "standardized": "Bamboo",
+    "chinese": "竹子",
+    "phonetic": "/bæmˈbuː/",
+    "phrase": "green bamboo",
+    "phraseTranslation": "绿竹子",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "高大的草本植物",
+    "related_activities": ["growing", "cutting", "crafting"],
+    "imageURLs": [
+      {
+        "filename": "Bamboo_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f38d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fern",
+    "standardized": "Fern",
+    "chinese": "蕨类植物",
+    "phonetic": "/fɜrn/",
+    "phrase": "leafy fern",
+    "phraseTranslation": "多叶蕨类植物",
+    "difficulty": "basic",
+    "category": "plant",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "阴湿环境的植物",
+    "related_activities": ["growing", "watering", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Fern_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f33f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多海洋生物 ===
+  {
+    "word": "Octopus",
+    "standardized": "Octopus",
+    "chinese": "章鱼",
+    "phonetic": "/ˈɑktəpəs/",
+    "phrase": "smart octopus",
+    "phraseTranslation": "聪明章鱼",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "有八条腿的海洋动物",
+    "related_activities": ["swimming", "hiding", "catching"],
+    "imageURLs": [
+      {
+        "filename": "Octopus_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f419.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Crab",
+    "standardized": "Crab",
+    "chinese": "螃蟹",
+    "phonetic": "/kræb/",
+    "phrase": "red crab",
+    "phraseTranslation": "红螃蟹",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "横着走的海洋动物",
+    "related_activities": ["walking", "pinching", "hiding"],
+    "imageURLs": [
+      {
+        "filename": "Crab_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f980.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lobster",
+    "standardized": "Lobster",
+    "chinese": "龙虾",
+    "phonetic": "/ˈlɑbstər/",
+    "phrase": "big lobster",
+    "phraseTranslation": "大龙虾",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "有大钳子的海洋动物",
+    "related_activities": ["swimming", "catching", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Lobster_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f99e.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Shrimp",
+    "standardized": "Shrimp",
+    "chinese": "虾",
+    "phonetic": "/ʃrɪmp/",
+    "phrase": "small shrimp",
+    "phraseTranslation": "小虾",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "小型海洋动物",
+    "related_activities": ["swimming", "jumping", "catching"],
+    "imageURLs": [
+      {
+        "filename": "Shrimp_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f990.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Clam",
+    "standardized": "Clam",
+    "chinese": "蛤蜊",
+    "phonetic": "/klæm/",
+    "phrase": "buried clam",
+    "phraseTranslation": "埋藏蛤蜊",
+    "difficulty": "basic",
+    "category": "sea_creature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "埋在沙子里的贝类",
+    "related_activities": ["digging", "finding", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Clam_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9aa.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多动物类 ===
+  {
+    "word": "Frog",
+    "standardized": "Frog",
+    "chinese": "青蛙",
+    "phonetic": "/frɔɡ/",
+    "phrase": "green frog",
+    "phraseTranslation": "绿青蛙",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "池塘里的两栖动物",
+    "related_activities": ["jumping", "swimming", "croaking"],
+    "imageURLs": [
+      {
+        "filename": "Frog_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f438.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Duck",
+    "standardized": "Duck",
+    "chinese": "鸭子",
+    "phonetic": "/dʌk/",
+    "phrase": "yellow duck",
+    "phraseTranslation": "黄鸭子",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "水边的鸟类",
+    "related_activities": ["swimming", "quacking", "floating"],
+    "imageURLs": [
+      {
+        "filename": "Duck_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f986.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Chicken",
+    "standardized": "Chicken",
+    "chinese": "鸡",
+    "phonetic": "/ˈtʃɪkən/",
+    "phrase": "white chicken",
+    "phraseTranslation": "白鸡",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "农场里的鸟类",
+    "related_activities": ["pecking", "laying_eggs", "clucking"],
+    "imageURLs": [
+      {
+        "filename": "Chicken_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f414.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pig",
+    "standardized": "Pig",
+    "chinese": "猪",
+    "phonetic": "/pɪɡ/",
+    "phrase": "pink pig",
+    "phraseTranslation": "粉红猪",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "农场里的动物",
+    "related_activities": ["rolling", "eating", "oinking"],
+    "imageURLs": [
+      {
+        "filename": "Pig_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f437.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cow",
+    "standardized": "Cow",
+    "chinese": "奶牛",
+    "phonetic": "/kaʊ/",
+    "phrase": "spotted cow",
+    "phraseTranslation": "斑点奶牛",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "农场里的大型动物",
+    "related_activities": ["grazing", "mooing", "giving_milk"],
+    "imageURLs": [
+      {
+        "filename": "Cow_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f404.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Horse",
+    "standardized": "Horse",
+    "chinese": "马",
+    "phonetic": "/hɔrs/",
+    "phrase": "brown horse",
+    "phraseTranslation": "棕色马",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "优雅的大型动物",
+    "related_activities": ["running", "neighing", "galloping"],
+    "imageURLs": [
+      {
+        "filename": "Horse_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f434.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sheep",
+    "standardized": "Sheep",
+    "chinese": "羊",
+    "phonetic": "/ʃiːp/",
+    "phrase": "fluffy sheep",
+    "phraseTranslation": "毛茸茸的羊",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "有羊毛的农场动物",
+    "related_activities": ["grazing", "bleating", "jumping"],
+    "imageURLs": [
+      {
+        "filename": "Sheep_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f411.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Goat",
+    "standardized": "Goat",
+    "chinese": "山羊",
+    "phonetic": "/ɡoʊt/",
+    "phrase": "climbing goat",
+    "phraseTranslation": "攀爬山羊",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "善于攀爬的动物",
+    "related_activities": ["climbing", "eating", "bleating"],
+    "imageURLs": [
+      {
+        "filename": "Goat_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f410.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Monkey",
+    "standardized": "Monkey",
+    "chinese": "猴子",
+    "phonetic": "/ˈmʌŋki/",
+    "phrase": "playful monkey",
+    "phraseTranslation": "顽皮猴子",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "树上的灵活动物",
+    "related_activities": ["swinging", "climbing", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Monkey_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f412.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lion",
+    "standardized": "Lion",
+    "chinese": "狮子",
+    "phonetic": "/ˈlaɪən/",
+    "phrase": "brave lion",
+    "phraseTranslation": "勇敢狮子",
+    "difficulty": "basic",
+    "category": "animal",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "森林之王",
+    "related_activities": ["roaring", "hunting", "resting"],
+    "imageURLs": [
+      {
+        "filename": "Lion_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f981.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多昆虫类 ===
+  {
+    "word": "Ladybug",
+    "standardized": "Ladybug",
+    "chinese": "瓢虫",
+    "phonetic": "/ˈleɪdibʌɡ/",
+    "phrase": "red ladybug",
+    "phraseTranslation": "红瓢虫",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "花园里的有益昆虫",
+    "related_activities": ["crawling", "flying", "helping_plants"],
+    "imageURLs": [
+      {
+        "filename": "Ladybug_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f41e.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dragonfly",
+    "standardized": "Dragonfly",
+    "chinese": "蜻蜓",
+    "phonetic": "/ˈdræɡənflaɪ/",
+    "phrase": "blue dragonfly",
+    "phraseTranslation": "蓝蜻蜓",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "水边的飞行昆虫",
+    "related_activities": ["flying", "hovering", "hunting"],
+    "imageURLs": [
+      {
+        "filename": "Dragonfly_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cricket",
+    "standardized": "Cricket",
+    "chinese": "蟋蟀",
+    "phonetic": "/ˈkrɪkɪt/",
+    "phrase": "chirping cricket",
+    "phraseTranslation": "鸣叫蟋蟀",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "夜晚鸣叫的昆虫",
+    "related_activities": ["chirping", "jumping", "hiding"],
+    "imageURLs": [
+      {
+        "filename": "Cricket_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f997.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ant",
+    "standardized": "Ant",
+    "chinese": "蚂蚁",
+    "phonetic": "/ænt/",
+    "phrase": "busy ant",
+    "phraseTranslation": "忙碌蚂蚁",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "勤劳的小昆虫",
+    "related_activities": ["working", "carrying", "marching"],
+    "imageURLs": [
+      {
+        "filename": "Ant_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f41c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Spider",
+    "standardized": "Spider",
+    "chinese": "蜘蛛",
+    "phonetic": "/ˈspaɪdər/",
+    "phrase": "web spider",
+    "phraseTranslation": "织网蜘蛛",
+    "difficulty": "basic",
+    "category": "insect",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "织网的节肢动物",
+    "related_activities": ["weaving", "catching", "climbing"],
+    "imageURLs": [
+      {
+        "filename": "Spider_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f577.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多食物类 ===
+  {
+    "word": "Apple Pie",
+    "standardized": "Apple Pie",
+    "chinese": "苹果派",
+    "phonetic": "/ˈæpəl paɪ/",
+    "phrase": "warm apple pie",
+    "phraseTranslation": "温热苹果派",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "美味的甜点",
+    "related_activities": ["baking", "eating", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Apple_Pie_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f967.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pancake",
+    "standardized": "Pancake",
+    "chinese": "煎饼",
+    "phonetic": "/ˈpænkeɪk/",
+    "phrase": "fluffy pancake",
+    "phraseTranslation": "蓬松煎饼",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "早餐的美食",
+    "related_activities": ["cooking", "eating", "stacking"],
+    "imageURLs": [
+      {
+        "filename": "Pancake_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f95e.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Waffle",
+    "standardized": "Waffle",
+    "chinese": "华夫饼",
+    "phonetic": "/ˈwɑfəl/",
+    "phrase": "crispy waffle",
+    "phraseTranslation": "酥脆华夫饼",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "格子状的甜点",
+    "related_activities": ["cooking", "eating", "topping"],
+    "imageURLs": [
+      {
+        "filename": "Waffle_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9c7.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Muffin",
+    "standardized": "Muffin",
+    "chinese": "玛芬",
+    "phonetic": "/ˈmʌfɪn/",
+    "phrase": "blueberry muffin",
+    "phraseTranslation": "蓝莓玛芬",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "小巧的烘焙食品",
+    "related_activities": ["baking", "eating", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Muffin_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9c1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cupcake",
+    "standardized": "Cupcake",
+    "chinese": "纸杯蛋糕",
+    "phonetic": "/ˈkʌpkeɪk/",
+    "phrase": "decorated cupcake",
+    "phraseTranslation": "装饰纸杯蛋糕",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "个人份的小蛋糕",
+    "related_activities": ["decorating", "eating", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Cupcake_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9c1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Juice",
+    "standardized": "Juice",
+    "chinese": "果汁",
+    "phonetic": "/dʒuːs/",
+    "phrase": "fresh juice",
+    "phraseTranslation": "新鲜果汁",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "健康的饮品",
+    "related_activities": ["drinking", "pouring", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Juice_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9c3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Milk",
+    "standardized": "Milk",
+    "chinese": "牛奶",
+    "phonetic": "/mɪlk/",
+    "phrase": "cold milk",
+    "phraseTranslation": "冷牛奶",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "营养丰富的饮品",
+    "related_activities": ["drinking", "pouring", "growing"],
+    "imageURLs": [
+      {
+        "filename": "Milk_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f95b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Water",
+    "standardized": "Water",
+    "chinese": "水",
+    "phonetic": "/ˈwɔtər/",
+    "phrase": "clean water",
+    "phraseTranslation": "干净水",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "生命必需的液体",
+    "related_activities": ["drinking", "washing", "watering"],
+    "imageURLs": [
+      {
+        "filename": "Water_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a7.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 基础概念类 ===
+  {
+    "word": "Big",
+    "standardized": "Big",
+    "chinese": "大的",
+    "phonetic": "/bɪɡ/",
+    "phrase": "very big",
+    "phraseTranslation": "非常大",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "描述尺寸的词汇",
+    "related_activities": ["comparing", "measuring", "describing"],
+    "imageURLs": [
+      {
+        "filename": "Big_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4cf.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Small",
+    "standardized": "Small",
+    "chinese": "小的",
+    "phonetic": "/smɔl/",
+    "phrase": "very small",
+    "phraseTranslation": "非常小",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "描述尺寸的词汇",
+    "related_activities": ["comparing", "measuring", "describing"],
+    "imageURLs": [
+      {
+        "filename": "Small_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4cf.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hot",
+    "standardized": "Hot",
+    "chinese": "热的",
+    "phonetic": "/hɑt/",
+    "phrase": "very hot",
+    "phraseTranslation": "非常热",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "描述温度的词汇",
+    "related_activities": ["feeling", "touching", "describing"],
+    "imageURLs": [
+      {
+        "filename": "Hot_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f525.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cold",
+    "standardized": "Cold",
+    "chinese": "冷的",
+    "phonetic": "/koʊld/",
+    "phrase": "very cold",
+    "phraseTranslation": "非常冷",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "描述温度的词汇",
+    "related_activities": ["feeling", "shivering", "describing"],
+    "imageURLs": [
+      {
+        "filename": "Cold_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f976.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fast",
+    "standardized": "Fast",
+    "chinese": "快的",
+    "phonetic": "/fæst/",
+    "phrase": "very fast",
+    "phraseTranslation": "非常快",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "描述速度的词汇",
+    "related_activities": ["running", "moving", "racing"],
+    "imageURLs": [
+      {
+        "filename": "Fast_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Slow",
+    "standardized": "Slow",
+    "chinese": "慢的",
+    "phonetic": "/sloʊ/",
+    "phrase": "very slow",
+    "phraseTranslation": "非常慢",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "描述速度的词汇",
+    "related_activities": ["walking", "moving", "taking_time"],
+    "imageURLs": [
+      {
+        "filename": "Slow_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f40c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Loud",
+    "standardized": "Loud",
+    "chinese": "大声的",
+    "phonetic": "/laʊd/",
+    "phrase": "very loud",
+    "phraseTranslation": "非常大声",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "描述声音的词汇",
+    "related_activities": ["shouting", "hearing", "making_noise"],
+    "imageURLs": [
+      {
+        "filename": "Loud_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4e2.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Quiet",
+    "standardized": "Quiet",
+    "chinese": "安静的",
+    "phonetic": "/ˈkwaɪət/",
+    "phrase": "very quiet",
+    "phraseTranslation": "非常安静",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "描述声音的词汇",
+    "related_activities": ["whispering", "listening", "being_silent"],
+    "imageURLs": [
+      {
+        "filename": "Quiet_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f910.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多工具类 ===
+  {
+    "word": "Broom",
+    "standardized": "Broom",
+    "chinese": "扫帚",
+    "phonetic": "/bruːm/",
+    "phrase": "cleaning broom",
+    "phraseTranslation": "清洁扫帚",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "清扫用的工具",
+    "related_activities": ["sweeping", "cleaning", "tidying"],
+    "imageURLs": [
+      {
+        "filename": "Broom_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9f9.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mop",
+    "standardized": "Mop",
+    "chinese": "拖把",
+    "phonetic": "/mɑp/",
+    "phrase": "wet mop",
+    "phraseTranslation": "湿拖把",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "拖地用的工具",
+    "related_activities": ["mopping", "cleaning", "washing"],
+    "imageURLs": [
+      {
+        "filename": "Mop_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9fd.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Vacuum",
+    "standardized": "Vacuum",
+    "chinese": "吸尘器",
+    "phonetic": "/ˈvækjuːm/",
+    "phrase": "powerful vacuum",
+    "phraseTranslation": "强力吸尘器",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "清洁地毯的电器",
+    "related_activities": ["vacuuming", "cleaning", "sucking"],
+    "imageURLs": [
+      {
+        "filename": "Vacuum_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ladder",
+    "standardized": "Ladder",
+    "chinese": "梯子",
+    "phonetic": "/ˈlædər/",
+    "phrase": "tall ladder",
+    "phraseTranslation": "高梯子",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "攀爬用的工具",
+    "related_activities": ["climbing", "reaching", "building"],
+    "imageURLs": [
+      {
+        "filename": "Ladder_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fa9c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Key",
+    "standardized": "Key",
+    "chinese": "钥匙",
+    "phonetic": "/kiː/",
+    "phrase": "golden key",
+    "phraseTranslation": "金钥匙",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "开锁用的工具",
+    "related_activities": ["unlocking", "opening", "securing"],
+    "imageURLs": [
+      {
+        "filename": "Key_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5dd.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lock",
+    "standardized": "Lock",
+    "chinese": "锁",
+    "phonetic": "/lɑk/",
+    "phrase": "secure lock",
+    "phraseTranslation": "安全锁",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "保护安全的装置",
+    "related_activities": ["locking", "securing", "protecting"],
+    "imageURLs": [
+      {
+        "filename": "Lock_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f512.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多建筑物类 ===
+  {
+    "word": "Bridge",
+    "standardized": "Bridge",
+    "chinese": "桥",
+    "phonetic": "/brɪdʒ/",
+    "phrase": "wooden bridge",
+    "phraseTranslation": "木桥",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "连接两岸的建筑",
+    "related_activities": ["crossing", "walking", "connecting"],
+    "imageURLs": [
+      {
+        "filename": "Bridge_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f309.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fountain",
+    "standardized": "Fountain",
+    "chinese": "喷泉",
+    "phonetic": "/ˈfaʊntən/",
+    "phrase": "water fountain",
+    "phraseTranslation": "水喷泉",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "装饰性的水景",
+    "related_activities": ["watching", "listening", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Fountain_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26f2.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bench",
+    "standardized": "Bench",
+    "chinese": "长椅",
+    "phonetic": "/bentʃ/",
+    "phrase": "park bench",
+    "phraseTranslation": "公园长椅",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "户外休息的座椅",
+    "related_activities": ["sitting", "resting", "relaxing"],
+    "imageURLs": [
+      {
+        "filename": "Bench_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fence",
+    "standardized": "Fence",
+    "chinese": "围栏",
+    "phonetic": "/fens/",
+    "phrase": "wooden fence",
+    "phraseTranslation": "木围栏",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "分隔区域的结构",
+    "related_activities": ["protecting", "separating", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Fence_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Gate",
+    "standardized": "Gate",
+    "chinese": "大门",
+    "phonetic": "/ɡeɪt/",
+    "phrase": "entrance gate",
+    "phraseTranslation": "入口大门",
+    "difficulty": "basic",
+    "category": "building",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "进出的通道",
+    "related_activities": ["entering", "exiting", "opening"],
+    "imageURLs": [
+      {
+        "filename": "Gate_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 方向和位置类 ===
+  {
+    "word": "Up",
+    "standardized": "Up",
+    "chinese": "向上",
+    "phonetic": "/ʌp/",
+    "phrase": "go up",
+    "phraseTranslation": "向上走",
+    "difficulty": "basic",
+    "category": "direction",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "表示方向的词汇",
+    "related_activities": ["climbing", "pointing", "moving"],
+    "imageURLs": [
+      {
+        "filename": "Up_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b06.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Down",
+    "standardized": "Down",
+    "chinese": "向下",
+    "phonetic": "/daʊn/",
+    "phrase": "go down",
+    "phraseTranslation": "向下走",
+    "difficulty": "basic",
+    "category": "direction",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "表示方向的词汇",
+    "related_activities": ["descending", "pointing", "moving"],
+    "imageURLs": [
+      {
+        "filename": "Down_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b07.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Left",
+    "standardized": "Left",
+    "chinese": "左边",
+    "phonetic": "/left/",
+    "phrase": "turn left",
+    "phraseTranslation": "向左转",
+    "difficulty": "basic",
+    "category": "direction",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "表示方向的词汇",
+    "related_activities": ["turning", "pointing", "moving"],
+    "imageURLs": [
+      {
+        "filename": "Left_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b05.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Right",
+    "standardized": "Right",
+    "chinese": "右边",
+    "phonetic": "/raɪt/",
+    "phrase": "turn right",
+    "phraseTranslation": "向右转",
+    "difficulty": "basic",
+    "category": "direction",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "表示方向的词汇",
+    "related_activities": ["turning", "pointing", "moving"],
+    "imageURLs": [
+      {
+        "filename": "Right_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/27a1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Inside",
+    "standardized": "Inside",
+    "chinese": "里面",
+    "phonetic": "/ɪnˈsaɪd/",
+    "phrase": "go inside",
+    "phraseTranslation": "进到里面",
+    "difficulty": "basic",
+    "category": "direction",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "表示位置的词汇",
+    "related_activities": ["entering", "hiding", "staying"],
+    "imageURLs": [
+      {
+        "filename": "Inside_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3e0.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Outside",
+    "standardized": "Outside",
+    "chinese": "外面",
+    "phonetic": "/aʊtˈsaɪd/",
+    "phrase": "go outside",
+    "phraseTranslation": "到外面去",
+    "difficulty": "basic",
+    "category": "direction",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "表示位置的词汇",
+    "related_activities": ["exiting", "playing", "exploring"],
+    "imageURLs": [
+      {
+        "filename": "Outside_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f333.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Near",
+    "standardized": "Near",
+    "chinese": "附近",
+    "phonetic": "/nɪr/",
+    "phrase": "very near",
+    "phraseTranslation": "很近",
+    "difficulty": "basic",
+    "category": "direction",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "表示距离的词汇",
+    "related_activities": ["approaching", "finding", "reaching"],
+    "imageURLs": [
+      {
+        "filename": "Near_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4cf.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Far",
+    "standardized": "Far",
+    "chinese": "远的",
+    "phonetic": "/fɑr/",
+    "phrase": "very far",
+    "phraseTranslation": "很远",
+    "difficulty": "basic",
+    "category": "direction",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "表示距离的词汇",
+    "related_activities": ["traveling", "walking", "reaching"],
+    "imageURLs": [
+      {
+        "filename": "Far_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4cf.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 时间类 ===
+  {
+    "word": "Morning",
+    "standardized": "Morning",
+    "chinese": "早晨",
+    "phonetic": "/ˈmɔrnɪŋ/",
+    "phrase": "good morning",
+    "phraseTranslation": "早上好",
+    "difficulty": "basic",
+    "category": "time",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "一天的开始时间",
+    "related_activities": ["waking_up", "greeting", "starting"],
+    "imageURLs": [
+      {
+        "filename": "Morning_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f305.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Afternoon",
+    "standardized": "Afternoon",
+    "chinese": "下午",
+    "phonetic": "/ˌæftərˈnuːn/",
+    "phrase": "sunny afternoon",
+    "phraseTranslation": "阳光下午",
+    "difficulty": "basic",
+    "category": "time",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "中午之后的时间",
+    "related_activities": ["playing", "working", "relaxing"],
+    "imageURLs": [
+      {
+        "filename": "Afternoon_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2600.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Evening",
+    "standardized": "Evening",
+    "chinese": "傍晚",
+    "phonetic": "/ˈiːvnɪŋ/",
+    "phrase": "quiet evening",
+    "phraseTranslation": "安静傍晚",
+    "difficulty": "basic",
+    "category": "time",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "日落时分",
+    "related_activities": ["relaxing", "eating", "resting"],
+    "imageURLs": [
+      {
+        "filename": "Evening_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f307.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Night",
+    "standardized": "Night",
+    "chinese": "夜晚",
+    "phonetic": "/naɪt/",
+    "phrase": "dark night",
+    "phraseTranslation": "黑夜",
+    "difficulty": "basic",
+    "category": "time",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "睡觉的时间",
+    "related_activities": ["sleeping", "dreaming", "resting"],
+    "imageURLs": [
+      {
+        "filename": "Night_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f303.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Today",
+    "standardized": "Today",
+    "chinese": "今天",
+    "phonetic": "/təˈdeɪ/",
+    "phrase": "today is fun",
+    "phraseTranslation": "今天很有趣",
+    "difficulty": "basic",
+    "category": "time",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "现在这一天",
+    "related_activities": ["planning", "doing", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Today_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Tomorrow",
+    "standardized": "Tomorrow",
+    "chinese": "明天",
+    "phonetic": "/təˈmɔroʊ/",
+    "phrase": "see you tomorrow",
+    "phraseTranslation": "明天见",
+    "difficulty": "basic",
+    "category": "time",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "下一天",
+    "related_activities": ["planning", "waiting", "hoping"],
+    "imageURLs": [
+      {
+        "filename": "Tomorrow_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Yesterday",
+    "standardized": "Yesterday",
+    "chinese": "昨天",
+    "phonetic": "/ˈjestərdeɪ/",
+    "phrase": "yesterday was fun",
+    "phraseTranslation": "昨天很有趣",
+    "difficulty": "basic",
+    "category": "time",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "过去的一天",
+    "related_activities": ["remembering", "thinking", "recalling"],
+    "imageURLs": [
+      {
+        "filename": "Yesterday_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多材料类 ===
+  {
+    "word": "Wood",
+    "standardized": "Wood",
+    "chinese": "木头",
+    "phonetic": "/wʊd/",
+    "phrase": "hard wood",
+    "phraseTranslation": "硬木头",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "制作家具的材料",
+    "related_activities": ["building", "crafting", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Wood_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fab5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Stone",
+    "standardized": "Stone",
+    "chinese": "石头",
+    "phonetic": "/stoʊn/",
+    "phrase": "smooth stone",
+    "phraseTranslation": "光滑石头",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "坚硬的天然材料",
+    "related_activities": ["building", "collecting", "throwing"],
+    "imageURLs": [
+      {
+        "filename": "Stone_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1faa8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Metal",
+    "standardized": "Metal",
+    "chinese": "金属",
+    "phonetic": "/ˈmetəl/",
+    "phrase": "shiny metal",
+    "phraseTranslation": "闪亮金属",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "制作工具的材料",
+    "related_activities": ["crafting", "building", "shining"],
+    "imageURLs": [
+      {
+        "filename": "Metal_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Glass",
+    "standardized": "Glass",
+    "chinese": "玻璃",
+    "phonetic": "/ɡlæs/",
+    "phrase": "clear glass",
+    "phraseTranslation": "透明玻璃",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "透明的脆弱材料",
+    "related_activities": ["looking_through", "decorating", "being_careful"],
+    "imageURLs": [
+      {
+        "filename": "Glass_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Plastic",
+    "standardized": "Plastic",
+    "chinese": "塑料",
+    "phonetic": "/ˈplæstɪk/",
+    "phrase": "colorful plastic",
+    "phraseTranslation": "彩色塑料",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "轻便的人造材料",
+    "related_activities": ["recycling", "using", "molding"],
+    "imageURLs": [
+      {
+        "filename": "Plastic_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/267e.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Paper",
+    "standardized": "Paper",
+    "chinese": "纸张",
+    "phonetic": "/ˈpeɪpər/",
+    "phrase": "white paper",
+    "phraseTranslation": "白纸张",
+    "difficulty": "basic",
+    "category": "material",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "书写绘画的材料",
+    "related_activities": ["writing", "drawing", "folding"],
+    "imageURLs": [
+      {
+        "filename": "Paper_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c4.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多鱼类 ===
+  {
+    "word": "Trout",
+    "standardized": "Trout",
+    "chinese": "鳟鱼",
+    "phonetic": "/traʊt/",
+    "phrase": "rainbow trout",
+    "phraseTranslation": "彩虹鳟鱼",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "河流中的美味鱼类",
+    "related_activities": ["fishing", "cooking", "swimming"],
+    "imageURLs": [
+      {
+        "filename": "Trout_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f41f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Catfish",
+    "standardized": "Catfish",
+    "chinese": "鲶鱼",
+    "phonetic": "/ˈkætfɪʃ/",
+    "phrase": "big catfish",
+    "phraseTranslation": "大鲶鱼",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "有胡须的淡水鱼",
+    "related_activities": ["fishing", "catching", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Catfish_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f41f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Angelfish",
+    "standardized": "Angelfish",
+    "chinese": "神仙鱼",
+    "phonetic": "/ˈeɪndʒəlfɪʃ/",
+    "phrase": "beautiful angelfish",
+    "phraseTranslation": "美丽神仙鱼",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "优雅的热带鱼",
+    "related_activities": ["watching", "admiring", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Angelfish_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f420.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Clownfish",
+    "standardized": "Clownfish",
+    "chinese": "小丑鱼",
+    "phonetic": "/ˈklaʊnfɪʃ/",
+    "phrase": "orange clownfish",
+    "phraseTranslation": "橙色小丑鱼",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "色彩鲜艳的海洋鱼",
+    "related_activities": ["swimming", "hiding", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Clownfish_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f420.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pufferfish",
+    "standardized": "Pufferfish",
+    "chinese": "河豚",
+    "phonetic": "/ˈpʌfərfɪʃ/",
+    "phrase": "round pufferfish",
+    "phraseTranslation": "圆河豚",
+    "difficulty": "basic",
+    "category": "fish",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "会膨胀的特殊鱼类",
+    "related_activities": ["puffing", "swimming", "protecting"],
+    "imageURLs": [
+      {
+        "filename": "Pufferfish_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f421.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多花朵类 ===
+  {
+    "word": "Daisy",
+    "standardized": "Daisy",
+    "chinese": "雏菊",
+    "phonetic": "/ˈdeɪzi/",
+    "phrase": "white daisy",
+    "phraseTranslation": "白雏菊",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "简单美丽的小花",
+    "related_activities": ["picking", "smelling", "decorating"],
+    "imageURLs": [
+      {
+        "filename": "Daisy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f33c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Carnation",
+    "standardized": "Carnation",
+    "chinese": "康乃馨",
+    "phonetic": "/kɑrˈneɪʃən/",
+    "phrase": "pink carnation",
+    "phraseTranslation": "粉康乃馨",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "表达爱意的花朵",
+    "related_activities": ["giving", "caring", "loving"],
+    "imageURLs": [
+      {
+        "filename": "Carnation_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f33a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Violet",
+    "standardized": "Violet",
+    "chinese": "紫罗兰",
+    "phonetic": "/ˈvaɪələt/",
+    "phrase": "purple violet",
+    "phraseTranslation": "紫色紫罗兰",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "优雅的紫色花朵",
+    "related_activities": ["admiring", "planting", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Violet_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f33c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Iris",
+    "standardized": "Iris",
+    "chinese": "鸢尾花",
+    "phonetic": "/ˈaɪrɪs/",
+    "phrase": "blue iris",
+    "phraseTranslation": "蓝鸢尾花",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "高雅的花园花朵",
+    "related_activities": ["growing", "watering", "admiring"],
+    "imageURLs": [
+      {
+        "filename": "Iris_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f33c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Orchid",
+    "standardized": "Orchid",
+    "chinese": "兰花",
+    "phonetic": "/ˈɔrkɪd/",
+    "phrase": "exotic orchid",
+    "phraseTranslation": "异国兰花",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "珍贵的热带花朵",
+    "related_activities": ["caring", "admiring", "protecting"],
+    "imageURLs": [
+      {
+        "filename": "Orchid_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f33a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多水果类 ===
+  {
+    "word": "Banana",
+    "standardized": "Banana",
+    "chinese": "香蕉",
+    "phonetic": "/bəˈnænə/",
+    "phrase": "yellow banana",
+    "phraseTranslation": "黄香蕉",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "弯曲的热带水果",
+    "related_activities": ["eating", "peeling", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Banana_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f34c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Grape",
+    "standardized": "Grape",
+    "chinese": "葡萄",
+    "phonetic": "/ɡreɪp/",
+    "phrase": "sweet grape",
+    "phraseTranslation": "甜葡萄",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "成串生长的小水果",
+    "related_activities": ["eating", "picking", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Grape_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f347.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Strawberry",
+    "standardized": "Strawberry",
+    "chinese": "草莓",
+    "phonetic": "/ˈstrɔberi/",
+    "phrase": "red strawberry",
+    "phraseTranslation": "红草莓",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "甜美的红色浆果",
+    "related_activities": ["eating", "picking", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Strawberry_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f353.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Watermelon",
+    "standardized": "Watermelon",
+    "chinese": "西瓜",
+    "phonetic": "/ˈwɔtərmelən/",
+    "phrase": "juicy watermelon",
+    "phraseTranslation": "多汁西瓜",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "夏天的大型水果",
+    "related_activities": ["eating", "cooling", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Watermelon_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f349.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pineapple",
+    "standardized": "Pineapple",
+    "chinese": "菠萝",
+    "phonetic": "/ˈpaɪnæpəl/",
+    "phrase": "tropical pineapple",
+    "phraseTranslation": "热带菠萝",
+    "difficulty": "basic",
+    "category": "fruit",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "带刺的热带水果",
+    "related_activities": ["eating", "cutting", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Pineapple_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f34d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多蔬菜类 ===
+  {
+    "word": "Carrot",
+    "standardized": "Carrot",
+    "chinese": "胡萝卜",
+    "phonetic": "/ˈkærət/",
+    "phrase": "orange carrot",
+    "phraseTranslation": "橙色胡萝卜",
+    "difficulty": "basic",
+    "category": "vegetable",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "营养丰富的根茎蔬菜",
+    "related_activities": ["eating", "growing", "cooking"],
+    "imageURLs": [
+      {
+        "filename": "Carrot_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f955.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Potato",
+    "standardized": "Potato",
+    "chinese": "土豆",
+    "phonetic": "/pəˈteɪtoʊ/",
+    "phrase": "brown potato",
+    "phraseTranslation": "棕色土豆",
+    "difficulty": "basic",
+    "category": "vegetable",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "常见的主食蔬菜",
+    "related_activities": ["cooking", "eating", "growing"],
+    "imageURLs": [
+      {
+        "filename": "Potato_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f954.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Tomato",
+    "standardized": "Tomato",
+    "chinese": "西红柿",
+    "phonetic": "/təˈmeɪtoʊ/",
+    "phrase": "red tomato",
+    "phraseTranslation": "红西红柿",
+    "difficulty": "basic",
+    "category": "vegetable",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "多汁的红色蔬菜",
+    "related_activities": ["eating", "cooking", "growing"],
+    "imageURLs": [
+      {
+        "filename": "Tomato_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f345.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Corn",
+    "standardized": "Corn",
+    "chinese": "玉米",
+    "phonetic": "/kɔrn/",
+    "phrase": "sweet corn",
+    "phraseTranslation": "甜玉米",
+    "difficulty": "basic",
+    "category": "vegetable",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "黄色的谷物蔬菜",
+    "related_activities": ["eating", "cooking", "growing"],
+    "imageURLs": [
+      {
+        "filename": "Corn_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f33d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lettuce",
+    "standardized": "Lettuce",
+    "chinese": "生菜",
+    "phonetic": "/ˈletɪs/",
+    "phrase": "fresh lettuce",
+    "phraseTranslation": "新鲜生菜",
+    "difficulty": "basic",
+    "category": "vegetable",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "绿色的叶菜",
+    "related_activities": ["eating", "making_salad", "growing"],
+    "imageURLs": [
+      {
+        "filename": "Lettuce_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f96c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 天气类 ===
+  {
+    "word": "Sunny",
+    "standardized": "Sunny",
+    "chinese": "晴朗的",
+    "phonetic": "/ˈsʌni/",
+    "phrase": "sunny day",
+    "phraseTranslation": "晴朗的一天",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "阳光明媚的天气",
+    "related_activities": ["playing_outside", "enjoying", "warming"],
+    "imageURLs": [
+      {
+        "filename": "Sunny_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2600.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rainy",
+    "standardized": "Rainy",
+    "chinese": "下雨的",
+    "phonetic": "/ˈreɪni/",
+    "phrase": "rainy day",
+    "phraseTranslation": "下雨天",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "有雨水的天气",
+    "related_activities": ["staying_inside", "listening", "watching"],
+    "imageURLs": [
+      {
+        "filename": "Rainy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f327.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cloudy",
+    "standardized": "Cloudy",
+    "chinese": "多云的",
+    "phonetic": "/ˈklaʊdi/",
+    "phrase": "cloudy sky",
+    "phraseTranslation": "多云天空",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "有云朵的天气",
+    "related_activities": ["looking_up", "watching", "wondering"],
+    "imageURLs": [
+      {
+        "filename": "Cloudy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2601.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Windy",
+    "standardized": "Windy",
+    "chinese": "有风的",
+    "phonetic": "/ˈwɪndi/",
+    "phrase": "windy weather",
+    "phraseTranslation": "有风天气",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "有风吹的天气",
+    "related_activities": ["feeling_breeze", "flying_kites", "moving"],
+    "imageURLs": [
+      {
+        "filename": "Windy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f32c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Snowy",
+    "standardized": "Snowy",
+    "chinese": "下雪的",
+    "phonetic": "/ˈsnoʊi/",
+    "phrase": "snowy day",
+    "phraseTranslation": "下雪天",
+    "difficulty": "basic",
+    "category": "weather",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "有雪花的天气",
+    "related_activities": ["playing_in_snow", "building_snowmen", "staying_warm"],
+    "imageURLs": [
+      {
+        "filename": "Snowy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f328.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多交通工具类 ===
+  {
+    "word": "Train",
+    "standardized": "Train",
+    "chinese": "火车",
+    "phonetic": "/treɪn/",
+    "phrase": "fast train",
+    "phraseTranslation": "快速火车",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "在铁轨上行驶的交通工具",
+    "related_activities": ["traveling", "riding", "moving"],
+    "imageURLs": [
+      {
+        "filename": "Train_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f686.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bus",
+    "standardized": "Bus",
+    "chinese": "公交车",
+    "phonetic": "/bʌs/",
+    "phrase": "yellow bus",
+    "phraseTranslation": "黄色公交车",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "载客的大型车辆",
+    "related_activities": ["riding", "traveling", "waiting"],
+    "imageURLs": [
+      {
+        "filename": "Bus_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f68c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Truck",
+    "standardized": "Truck",
+    "chinese": "卡车",
+    "phonetic": "/trʌk/",
+    "phrase": "big truck",
+    "phraseTranslation": "大卡车",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "运货的大型车辆",
+    "related_activities": ["carrying", "moving", "working"],
+    "imageURLs": [
+      {
+        "filename": "Truck_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f69a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Helicopter",
+    "standardized": "Helicopter",
+    "chinese": "直升机",
+    "phonetic": "/ˈhelɪkɑptər/",
+    "phrase": "flying helicopter",
+    "phraseTranslation": "飞行直升机",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "有螺旋桨的飞行器",
+    "related_activities": ["flying", "hovering", "rescuing"],
+    "imageURLs": [
+      {
+        "filename": "Helicopter_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f681.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rocket",
+    "standardized": "Rocket",
+    "chinese": "火箭",
+    "phonetic": "/ˈrɑkɪt/",
+    "phrase": "space rocket",
+    "phraseTranslation": "太空火箭",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "飞向太空的飞行器",
+    "related_activities": ["launching", "exploring", "flying"],
+    "imageURLs": [
+      {
+        "filename": "Rocket_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f680.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多乐器类 ===
+  {
+    "word": "Violin",
+    "standardized": "Violin",
+    "chinese": "小提琴",
+    "phonetic": "/vaɪəˈlɪn/",
+    "phrase": "beautiful violin",
+    "phraseTranslation": "美丽小提琴",
+    "difficulty": "basic",
+    "category": "instrument",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用弓演奏的弦乐器",
+    "related_activities": ["playing", "practicing", "performing"],
+    "imageURLs": [
+      {
+        "filename": "Violin_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3bb.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Trumpet",
+    "standardized": "Trumpet",
+    "chinese": "小号",
+    "phonetic": "/ˈtrʌmpɪt/",
+    "phrase": "golden trumpet",
+    "phraseTranslation": "金色小号",
+    "difficulty": "basic",
+    "category": "instrument",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用嘴吹奏的铜管乐器",
+    "related_activities": ["blowing", "playing", "marching"],
+    "imageURLs": [
+      {
+        "filename": "Trumpet_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ba.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Saxophone",
+    "standardized": "Saxophone",
+    "chinese": "萨克斯风",
+    "phonetic": "/ˈsæksəfoʊn/",
+    "phrase": "smooth saxophone",
+    "phraseTranslation": "柔美萨克斯风",
+    "difficulty": "basic",
+    "category": "instrument",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "爵士乐常用的管乐器",
+    "related_activities": ["playing", "jazzing", "performing"],
+    "imageURLs": [
+      {
+        "filename": "Saxophone_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3b7.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Harmonica",
+    "standardized": "Harmonica",
+    "chinese": "口琴",
+    "phonetic": "/hɑrˈmɑnɪkə/",
+    "phrase": "small harmonica",
+    "phraseTranslation": "小口琴",
+    "difficulty": "basic",
+    "category": "instrument",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "便携的吹奏乐器",
+    "related_activities": ["blowing", "playing", "carrying"],
+    "imageURLs": [
+      {
+        "filename": "Harmonica_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3b5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Tambourine",
+    "standardized": "Tambourine",
+    "chinese": "铃鼓",
+    "phonetic": "/ˌtæmbəˈriːn/",
+    "phrase": "shaking tambourine",
+    "phraseTranslation": "摇动铃鼓",
+    "difficulty": "basic",
+    "category": "instrument",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "带铃铛的打击乐器",
+    "related_activities": ["shaking", "dancing", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Tambourine_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3b5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 运动类 ===
+  {
+    "word": "Swimming",
+    "standardized": "Swimming",
+    "chinese": "游泳",
+    "phonetic": "/ˈswɪmɪŋ/",
+    "phrase": "fun swimming",
+    "phraseTranslation": "有趣游泳",
+    "difficulty": "basic",
+    "category": "sport",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "在水中的运动",
+    "related_activities": ["floating", "diving", "exercising"],
+    "imageURLs": [
+      {
+        "filename": "Swimming_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ca.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Running",
+    "standardized": "Running",
+    "chinese": "跑步",
+    "phonetic": "/ˈrʌnɪŋ/",
+    "phrase": "fast running",
+    "phraseTranslation": "快速跑步",
+    "difficulty": "basic",
+    "category": "sport",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "快速移动的运动",
+    "related_activities": ["exercising", "racing", "moving"],
+    "imageURLs": [
+      {
+        "filename": "Running_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3c3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Jumping",
+    "standardized": "Jumping",
+    "chinese": "跳跃",
+    "phonetic": "/ˈdʒʌmpɪŋ/",
+    "phrase": "high jumping",
+    "phraseTranslation": "高跳跃",
+    "difficulty": "basic",
+    "category": "sport",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "向上弹跳的运动",
+    "related_activities": ["bouncing", "playing", "exercising"],
+    "imageURLs": [
+      {
+        "filename": "Jumping_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f938.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cycling",
+    "standardized": "Cycling",
+    "chinese": "骑自行车",
+    "phonetic": "/ˈsaɪklɪŋ/",
+    "phrase": "fun cycling",
+    "phraseTranslation": "有趣骑车",
+    "difficulty": "basic",
+    "category": "sport",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "骑自行车的运动",
+    "related_activities": ["pedaling", "balancing", "traveling"],
+    "imageURLs": [
+      {
+        "filename": "Cycling_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6b4.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Climbing",
+    "standardized": "Climbing",
+    "chinese": "攀爬",
+    "phonetic": "/ˈklaɪmɪŋ/",
+    "phrase": "tree climbing",
+    "phraseTranslation": "爬树",
+    "difficulty": "basic",
+    "category": "sport",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "向上攀登的运动",
+    "related_activities": ["reaching", "gripping", "ascending"],
+    "imageURLs": [
+      {
+        "filename": "Climbing_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d7.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 职业类 ===
+  {
+    "word": "Teacher",
+    "standardized": "Teacher",
+    "chinese": "老师",
+    "phonetic": "/ˈtiːtʃər/",
+    "phrase": "kind teacher",
+    "phraseTranslation": "善良老师",
+    "difficulty": "basic",
+    "category": "profession",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "教授知识的人",
+    "related_activities": ["teaching", "helping", "explaining"],
+    "imageURLs": [
+      {
+        "filename": "Teacher_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1-200d-1f3eb.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Doctor",
+    "standardized": "Doctor",
+    "chinese": "医生",
+    "phonetic": "/ˈdɑktər/",
+    "phrase": "helpful doctor",
+    "phraseTranslation": "有帮助的医生",
+    "difficulty": "basic",
+    "category": "profession",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "治疗疾病的人",
+    "related_activities": ["healing", "helping", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Doctor_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1-200d-2695-fe0f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Chef",
+    "standardized": "Chef",
+    "chinese": "厨师",
+    "phonetic": "/ʃef/",
+    "phrase": "skilled chef",
+    "phraseTranslation": "技艺精湛的厨师",
+    "difficulty": "basic",
+    "category": "profession",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "烹饪美食的人",
+    "related_activities": ["cooking", "preparing", "serving"],
+    "imageURLs": [
+      {
+        "filename": "Chef_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1-200d-1f373.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Farmer",
+    "standardized": "Farmer",
+    "chinese": "农民",
+    "phonetic": "/ˈfɑrmər/",
+    "phrase": "hardworking farmer",
+    "phraseTranslation": "勤劳农民",
+    "difficulty": "basic",
+    "category": "profession",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "种植作物的人",
+    "related_activities": ["planting", "harvesting", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Farmer_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1-200d-1f33e.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Artist",
+    "standardized": "Artist",
+    "chinese": "艺术家",
+    "phonetic": "/ˈɑrtɪst/",
+    "phrase": "creative artist",
+    "phraseTranslation": "有创意的艺术家",
+    "difficulty": "basic",
+    "category": "profession",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "创作艺术的人",
+    "related_activities": ["painting", "drawing", "creating"],
+    "imageURLs": [
+      {
+        "filename": "Artist_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1-200d-1f3a8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多基础概念类 ===
+  {
+    "word": "New",
+    "standardized": "New",
+    "chinese": "新的",
+    "phonetic": "/nuː/",
+    "phrase": "brand new",
+    "phraseTranslation": "全新的",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "刚刚出现的",
+    "related_activities": ["discovering", "exploring", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "New_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f195.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Old",
+    "standardized": "Old",
+    "chinese": "旧的",
+    "phonetic": "/oʊld/",
+    "phrase": "very old",
+    "phraseTranslation": "很旧的",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "存在很久的",
+    "related_activities": ["remembering", "keeping", "treasuring"],
+    "imageURLs": [
+      {
+        "filename": "Old_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Clean",
+    "standardized": "Clean",
+    "chinese": "干净的",
+    "phonetic": "/kliːn/",
+    "phrase": "very clean",
+    "phraseTranslation": "很干净",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "没有污垢的",
+    "related_activities": ["washing", "tidying", "maintaining"],
+    "imageURLs": [
+      {
+        "filename": "Clean_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9fd.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dirty",
+    "standardized": "Dirty",
+    "chinese": "脏的",
+    "phonetic": "/ˈdɜrti/",
+    "phrase": "very dirty",
+    "phraseTranslation": "很脏",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "有污垢的",
+    "related_activities": ["cleaning", "washing", "scrubbing"],
+    "imageURLs": [
+      {
+        "filename": "Dirty_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a9.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Full",
+    "standardized": "Full",
+    "chinese": "满的",
+    "phonetic": "/fʊl/",
+    "phrase": "completely full",
+    "phraseTranslation": "完全满的",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "装满东西的",
+    "related_activities": ["filling", "packing", "storing"],
+    "imageURLs": [
+      {
+        "filename": "Full_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4e6.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Empty",
+    "standardized": "Empty",
+    "chinese": "空的",
+    "phonetic": "/ˈempti/",
+    "phrase": "completely empty",
+    "phraseTranslation": "完全空的",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "没有东西的",
+    "related_activities": ["emptying", "clearing", "filling"],
+    "imageURLs": [
+      {
+        "filename": "Empty_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4ed.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Heavy",
+    "standardized": "Heavy",
+    "chinese": "重的",
+    "phonetic": "/ˈhevi/",
+    "phrase": "very heavy",
+    "phraseTranslation": "很重",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "重量很大的",
+    "related_activities": ["lifting", "carrying", "struggling"],
+    "imageURLs": [
+      {
+        "filename": "Heavy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Light",
+    "standardized": "Light",
+    "chinese": "轻的",
+    "phonetic": "/laɪt/",
+    "phrase": "very light",
+    "phraseTranslation": "很轻",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "重量很小的",
+    "related_activities": ["lifting", "floating", "carrying"],
+    "imageURLs": [
+      {
+        "filename": "Light_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Soft",
+    "standardized": "Soft",
+    "chinese": "软的",
+    "phonetic": "/sɔft/",
+    "phrase": "very soft",
+    "phraseTranslation": "很软",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "触感柔软的",
+    "related_activities": ["touching", "hugging", "feeling"],
+    "imageURLs": [
+      {
+        "filename": "Soft_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9f8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hard",
+    "standardized": "Hard",
+    "chinese": "硬的",
+    "phonetic": "/hɑrd/",
+    "phrase": "very hard",
+    "phraseTranslation": "很硬",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "触感坚硬的",
+    "related_activities": ["touching", "knocking", "building"],
+    "imageURLs": [
+      {
+        "filename": "Hard_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1faa8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Smooth",
+    "standardized": "Smooth",
+    "chinese": "光滑的",
+    "phonetic": "/smuːð/",
+    "phrase": "very smooth",
+    "phraseTranslation": "很光滑",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "表面平滑的",
+    "related_activities": ["touching", "sliding", "polishing"],
+    "imageURLs": [
+      {
+        "filename": "Smooth_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rough",
+    "standardized": "Rough",
+    "chinese": "粗糙的",
+    "phonetic": "/rʌf/",
+    "phrase": "very rough",
+    "phraseTranslation": "很粗糙",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "表面不平的",
+    "related_activities": ["touching", "scraping", "sanding"],
+    "imageURLs": [
+      {
+        "filename": "Rough_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1faa8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Wet",
+    "standardized": "Wet",
+    "chinese": "湿的",
+    "phonetic": "/wet/",
+    "phrase": "very wet",
+    "phraseTranslation": "很湿",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "有水分的",
+    "related_activities": ["drying", "wiping", "splashing"],
+    "imageURLs": [
+      {
+        "filename": "Wet_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a7.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dry",
+    "standardized": "Dry",
+    "chinese": "干的",
+    "phonetic": "/draɪ/",
+    "phrase": "completely dry",
+    "phraseTranslation": "完全干的",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "没有水分的",
+    "related_activities": ["drying", "wiping", "heating"],
+    "imageURLs": [
+      {
+        "filename": "Dry_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f525.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Open",
+    "standardized": "Open",
+    "chinese": "开着的",
+    "phonetic": "/ˈoʊpən/",
+    "phrase": "wide open",
+    "phraseTranslation": "大开着",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "没有关闭的",
+    "related_activities": ["opening", "entering", "welcoming"],
+    "imageURLs": [
+      {
+        "filename": "Open_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6aa.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Closed",
+    "standardized": "Closed",
+    "chinese": "关着的",
+    "phonetic": "/kloʊzd/",
+    "phrase": "tightly closed",
+    "phraseTranslation": "紧紧关着",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "没有打开的",
+    "related_activities": ["closing", "locking", "securing"],
+    "imageURLs": [
+      {
+        "filename": "Closed_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f512.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Broken",
+    "standardized": "Broken",
+    "chinese": "坏的",
+    "phonetic": "/ˈbroʊkən/",
+    "phrase": "completely broken",
+    "phraseTranslation": "完全坏了",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "损坏不能用的",
+    "related_activities": ["fixing", "repairing", "replacing"],
+    "imageURLs": [
+      {
+        "filename": "Broken_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f527.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fixed",
+    "standardized": "Fixed",
+    "chinese": "修好的",
+    "phonetic": "/fɪkst/",
+    "phrase": "newly fixed",
+    "phraseTranslation": "新修好的",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "修理好能用的",
+    "related_activities": ["repairing", "working", "using"],
+    "imageURLs": [
+      {
+        "filename": "Fixed_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2705.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多数字类 ===
+  {
+    "word": "Ten",
+    "standardized": "Ten",
+    "chinese": "十",
+    "phonetic": "/ten/",
+    "phrase": "count to ten",
+    "phraseTranslation": "数到十",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "基础数字概念",
+    "related_activities": ["counting", "learning", "playing"],
+    "imageURLs": [
+      {
+        "filename": "Ten_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f51f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Eleven",
+    "standardized": "Eleven",
+    "chinese": "十一",
+    "phonetic": "/ɪˈlevən/",
+    "phrase": "eleven items",
+    "phraseTranslation": "十一个物品",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "进阶数字概念",
+    "related_activities": ["counting", "learning", "organizing"],
+    "imageURLs": [
+      {
+        "filename": "Eleven_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f51f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Twelve",
+    "standardized": "Twelve",
+    "chinese": "十二",
+    "phonetic": "/twelv/",
+    "phrase": "twelve months",
+    "phraseTranslation": "十二个月",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "时间相关数字",
+    "related_activities": ["counting", "timing", "organizing"],
+    "imageURLs": [
+      {
+        "filename": "Twelve_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f51f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Twenty",
+    "standardized": "Twenty",
+    "chinese": "二十",
+    "phonetic": "/ˈtwenti/",
+    "phrase": "twenty bells",
+    "phraseTranslation": "二十个铃铛",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "较大数字概念",
+    "related_activities": ["counting", "collecting", "trading"],
+    "imageURLs": [
+      {
+        "filename": "Twenty_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f51f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hundred",
+    "standardized": "Hundred",
+    "chinese": "一百",
+    "phonetic": "/ˈhʌndrəd/",
+    "phrase": "one hundred",
+    "phraseTranslation": "一百",
+    "difficulty": "basic",
+    "category": "number",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "大数字概念",
+    "related_activities": ["counting", "calculating", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Hundred_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4af.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多身体部位类 ===
+  {
+    "word": "Head",
+    "standardized": "Head",
+    "chinese": "头",
+    "phonetic": "/hed/",
+    "phrase": "my head",
+    "phraseTranslation": "我的头",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "身体最上面的部分",
+    "related_activities": ["thinking", "nodding", "wearing_hat"],
+    "imageURLs": [
+      {
+        "filename": "Head_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Face",
+    "standardized": "Face",
+    "chinese": "脸",
+    "phonetic": "/feɪs/",
+    "phrase": "happy face",
+    "phraseTranslation": "开心的脸",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "表情的载体",
+    "related_activities": ["smiling", "looking", "expressing"],
+    "imageURLs": [
+      {
+        "filename": "Face_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f603.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Eye",
+    "standardized": "Eye",
+    "chinese": "眼睛",
+    "phonetic": "/aɪ/",
+    "phrase": "bright eye",
+    "phraseTranslation": "明亮眼睛",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来看东西的器官",
+    "related_activities": ["seeing", "looking", "watching"],
+    "imageURLs": [
+      {
+        "filename": "Eye_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f441.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Nose",
+    "standardized": "Nose",
+    "chinese": "鼻子",
+    "phonetic": "/noʊz/",
+    "phrase": "small nose",
+    "phraseTranslation": "小鼻子",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来闻味道的器官",
+    "related_activities": ["smelling", "breathing", "sniffing"],
+    "imageURLs": [
+      {
+        "filename": "Nose_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f443.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mouth",
+    "standardized": "Mouth",
+    "chinese": "嘴巴",
+    "phonetic": "/maʊθ/",
+    "phrase": "open mouth",
+    "phraseTranslation": "张开嘴巴",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来说话和吃东西的器官",
+    "related_activities": ["talking", "eating", "singing"],
+    "imageURLs": [
+      {
+        "filename": "Mouth_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f444.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ear",
+    "standardized": "Ear",
+    "chinese": "耳朵",
+    "phonetic": "/ɪr/",
+    "phrase": "listening ear",
+    "phraseTranslation": "倾听的耳朵",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "用来听声音的器官",
+    "related_activities": ["hearing", "listening", "music"],
+    "imageURLs": [
+      {
+        "filename": "Ear_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f442.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hair",
+    "standardized": "Hair",
+    "chinese": "头发",
+    "phonetic": "/her/",
+    "phrase": "long hair",
+    "phraseTranslation": "长头发",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "头上长的毛发",
+    "related_activities": ["combing", "styling", "washing"],
+    "imageURLs": [
+      {
+        "filename": "Hair_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Arm",
+    "standardized": "Arm",
+    "chinese": "胳膊",
+    "phonetic": "/ɑrm/",
+    "phrase": "strong arm",
+    "phraseTranslation": "强壮胳膊",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "连接肩膀和手的部位",
+    "related_activities": ["lifting", "hugging", "waving"],
+    "imageURLs": [
+      {
+        "filename": "Arm_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Leg",
+    "standardized": "Leg",
+    "chinese": "腿",
+    "phonetic": "/leɡ/",
+    "phrase": "long leg",
+    "phraseTranslation": "长腿",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "用来走路的身体部位",
+    "related_activities": ["walking", "running", "kicking"],
+    "imageURLs": [
+      {
+        "filename": "Leg_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Finger",
+    "standardized": "Finger",
+    "chinese": "手指",
+    "phonetic": "/ˈfɪŋɡər/",
+    "phrase": "pointing finger",
+    "phraseTranslation": "指向的手指",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "手上的细长部分",
+    "related_activities": ["pointing", "touching", "counting"],
+    "imageURLs": [
+      {
+        "filename": "Finger_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f448.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Toe",
+    "standardized": "Toe",
+    "chinese": "脚趾",
+    "phonetic": "/toʊ/",
+    "phrase": "little toe",
+    "phraseTranslation": "小脚趾",
+    "difficulty": "basic",
+    "category": "body",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "脚上的细长部分",
+    "related_activities": ["walking", "balancing", "wiggling"],
+    "imageURLs": [
+      {
+        "filename": "Toe_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b6.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多情感类 ===
+  {
+    "word": "Excited",
+    "standardized": "Excited",
+    "chinese": "兴奋的",
+    "phonetic": "/ɪkˈsaɪtɪd/",
+    "phrase": "very excited",
+    "phraseTranslation": "非常兴奋",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "充满活力的情感",
+    "related_activities": ["celebrating", "jumping", "cheering"],
+    "imageURLs": [
+      {
+        "filename": "Excited_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f929.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Surprised",
+    "standardized": "Surprised",
+    "chinese": "惊讶的",
+    "phonetic": "/sərˈpraɪzd/",
+    "phrase": "very surprised",
+    "phraseTranslation": "非常惊讶",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "意外的情感反应",
+    "related_activities": ["gasping", "wondering", "discovering"],
+    "imageURLs": [
+      {
+        "filename": "Surprised_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f632.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Angry",
+    "standardized": "Angry",
+    "chinese": "生气的",
+    "phonetic": "/ˈæŋɡri/",
+    "phrase": "little angry",
+    "phraseTranslation": "有点生气",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "不满的情感",
+    "related_activities": ["frowning", "stomping", "calming"],
+    "imageURLs": [
+      {
+        "filename": "Angry_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f620.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Scared",
+    "standardized": "Scared",
+    "chinese": "害怕的",
+    "phonetic": "/skerd/",
+    "phrase": "a little scared",
+    "phraseTranslation": "有点害怕",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "恐惧的情感",
+    "related_activities": ["hiding", "running", "comforting"],
+    "imageURLs": [
+      {
+        "filename": "Scared_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f628.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Tired",
+    "standardized": "Tired",
+    "chinese": "累的",
+    "phonetic": "/taɪrd/",
+    "phrase": "very tired",
+    "phraseTranslation": "很累",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "疲劳的状态",
+    "related_activities": ["resting", "sleeping", "yawning"],
+    "imageURLs": [
+      {
+        "filename": "Tired_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f634.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sleepy",
+    "standardized": "Sleepy",
+    "chinese": "困的",
+    "phonetic": "/ˈsliːpi/",
+    "phrase": "feeling sleepy",
+    "phraseTranslation": "感觉困了",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "想要睡觉的状态",
+    "related_activities": ["yawning", "resting", "sleeping"],
+    "imageURLs": [
+      {
+        "filename": "Sleepy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f634.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hungry",
+    "standardized": "Hungry",
+    "chinese": "饿的",
+    "phonetic": "/ˈhʌŋɡri/",
+    "phrase": "very hungry",
+    "phraseTranslation": "很饿",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "需要食物的状态",
+    "related_activities": ["eating", "cooking", "searching"],
+    "imageURLs": [
+      {
+        "filename": "Hungry_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f924.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Thirsty",
+    "standardized": "Thirsty",
+    "chinese": "渴的",
+    "phonetic": "/ˈθɜrsti/",
+    "phrase": "feeling thirsty",
+    "phraseTranslation": "感觉渴了",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "需要水分的状态",
+    "related_activities": ["drinking", "searching", "refreshing"],
+    "imageURLs": [
+      {
+        "filename": "Thirsty_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a7.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多动作类 ===
+  {
+    "word": "Walking",
+    "standardized": "Walking",
+    "chinese": "走路",
+    "phonetic": "/ˈwɔkɪŋ/",
+    "phrase": "slow walking",
+    "phraseTranslation": "慢慢走路",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "基本移动方式",
+    "related_activities": ["moving", "exploring", "exercising"],
+    "imageURLs": [
+      {
+        "filename": "Walking_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6b6.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sitting",
+    "standardized": "Sitting",
+    "chinese": "坐着",
+    "phonetic": "/ˈsɪtɪŋ/",
+    "phrase": "sitting down",
+    "phraseTranslation": "坐下来",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "休息的姿势",
+    "related_activities": ["resting", "relaxing", "waiting"],
+    "imageURLs": [
+      {
+        "filename": "Sitting_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Standing",
+    "standardized": "Standing",
+    "chinese": "站着",
+    "phonetic": "/ˈstændɪŋ/",
+    "phrase": "standing up",
+    "phraseTranslation": "站起来",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "直立的姿势",
+    "related_activities": ["waiting", "looking", "preparing"],
+    "imageURLs": [
+      {
+        "filename": "Standing_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9cd.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sleeping",
+    "standardized": "Sleeping",
+    "chinese": "睡觉",
+    "phonetic": "/ˈsliːpɪŋ/",
+    "phrase": "peaceful sleeping",
+    "phraseTranslation": "安静睡觉",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "休息恢复的活动",
+    "related_activities": ["dreaming", "resting", "recovering"],
+    "imageURLs": [
+      {
+        "filename": "Sleeping_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f634.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Eating",
+    "standardized": "Eating",
+    "chinese": "吃东西",
+    "phonetic": "/ˈiːtɪŋ/",
+    "phrase": "eating food",
+    "phraseTranslation": "吃食物",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "获取营养的活动",
+    "related_activities": ["chewing", "tasting", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Eating_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f37d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Drinking",
+    "standardized": "Drinking",
+    "chinese": "喝水",
+    "phonetic": "/ˈdrɪŋkɪŋ/",
+    "phrase": "drinking water",
+    "phraseTranslation": "喝水",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "补充水分的活动",
+    "related_activities": ["sipping", "refreshing", "hydrating"],
+    "imageURLs": [
+      {
+        "filename": "Drinking_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f943.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Playing",
+    "standardized": "Playing",
+    "chinese": "玩耍",
+    "phonetic": "/ˈpleɪɪŋ/",
+    "phrase": "playing games",
+    "phraseTranslation": "玩游戏",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "娱乐休闲的活动",
+    "related_activities": ["having_fun", "laughing", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Playing_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Working",
+    "standardized": "Working",
+    "chinese": "工作",
+    "phonetic": "/ˈwɜrkɪŋ/",
+    "phrase": "hard working",
+    "phraseTranslation": "努力工作",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "完成任务的活动",
+    "related_activities": ["building", "helping", "creating"],
+    "imageURLs": [
+      {
+        "filename": "Working_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f477.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Reading",
+    "standardized": "Reading",
+    "chinese": "读书",
+    "phonetic": "/ˈriːdɪŋ/",
+    "phrase": "reading book",
+    "phraseTranslation": "读书",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "学习知识的活动",
+    "related_activities": ["learning", "studying", "discovering"],
+    "imageURLs": [
+      {
+        "filename": "Reading_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4d6.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Writing",
+    "standardized": "Writing",
+    "chinese": "写字",
+    "phonetic": "/ˈraɪtɪŋ/",
+    "phrase": "writing letter",
+    "phraseTranslation": "写信",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "记录文字的活动",
+    "related_activities": ["drawing", "creating", "communicating"],
+    "imageURLs": [
+      {
+        "filename": "Writing_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/270f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Drawing",
+    "standardized": "Drawing",
+    "chinese": "画画",
+    "phonetic": "/ˈdrɔɪŋ/",
+    "phrase": "drawing picture",
+    "phraseTranslation": "画图片",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "创作艺术的活动",
+    "related_activities": ["creating", "coloring", "expressing"],
+    "imageURLs": [
+      {
+        "filename": "Drawing_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3a8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Singing",
+    "standardized": "Singing",
+    "chinese": "唱歌",
+    "phonetic": "/ˈsɪŋɪŋ/",
+    "phrase": "singing song",
+    "phraseTranslation": "唱歌",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "音乐表达的活动",
+    "related_activities": ["performing", "expressing", "entertaining"],
+    "imageURLs": [
+      {
+        "filename": "Singing_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3a4.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dancing",
+    "standardized": "Dancing",
+    "chinese": "跳舞",
+    "phonetic": "/ˈdænsɪŋ/",
+    "phrase": "happy dancing",
+    "phraseTranslation": "开心跳舞",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "音乐节拍的活动",
+    "related_activities": ["moving", "celebrating", "expressing"],
+    "imageURLs": [
+      {
+        "filename": "Dancing_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f483.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Laughing",
+    "standardized": "Laughing",
+    "chinese": "笑",
+    "phonetic": "/ˈlæfɪŋ/",
+    "phrase": "laughing loudly",
+    "phraseTranslation": "大声笑",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "快乐的表达方式",
+    "related_activities": ["enjoying", "smiling", "having_fun"],
+    "imageURLs": [
+      {
+        "filename": "Laughing_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f602.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Crying",
+    "standardized": "Crying",
+    "chinese": "哭",
+    "phonetic": "/ˈkraɪɪŋ/",
+    "phrase": "crying tears",
+    "phraseTranslation": "流眼泪",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "悲伤的表达方式",
+    "related_activities": ["feeling_sad", "needing_comfort", "expressing"],
+    "imageURLs": [
+      {
+        "filename": "Crying_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f622.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hugging",
+    "standardized": "Hugging",
+    "chinese": "拥抱",
+    "phonetic": "/ˈhʌɡɪŋ/",
+    "phrase": "warm hugging",
+    "phraseTranslation": "温暖拥抱",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "表达爱意的动作",
+    "related_activities": ["loving", "comforting", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Hugging_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f917.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Waving",
+    "standardized": "Waving",
+    "chinese": "挥手",
+    "phonetic": "/ˈweɪvɪŋ/",
+    "phrase": "waving goodbye",
+    "phraseTranslation": "挥手再见",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "打招呼的动作",
+    "related_activities": ["greeting", "saying_goodbye", "communicating"],
+    "imageURLs": [
+      {
+        "filename": "Waving_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f44b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Clapping",
+    "standardized": "Clapping",
+    "chinese": "鼓掌",
+    "phonetic": "/ˈklæpɪŋ/",
+    "phrase": "clapping hands",
+    "phraseTranslation": "拍手",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "表示赞赏的动作",
+    "related_activities": ["celebrating", "appreciating", "encouraging"],
+    "imageURLs": [
+      {
+        "filename": "Clapping_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f44f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pointing",
+    "standardized": "Pointing",
+    "chinese": "指向",
+    "phonetic": "/ˈpɔɪntɪŋ/",
+    "phrase": "pointing finger",
+    "phraseTranslation": "用手指指",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "指示方向的动作",
+    "related_activities": ["showing", "directing", "indicating"],
+    "imageURLs": [
+      {
+        "filename": "Pointing_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f448.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Thinking",
+    "standardized": "Thinking",
+    "chinese": "思考",
+    "phonetic": "/ˈθɪŋkɪŋ/",
+    "phrase": "deep thinking",
+    "phraseTranslation": "深度思考",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "动脑筋的活动",
+    "related_activities": ["wondering", "solving", "planning"],
+    "imageURLs": [
+      {
+        "filename": "Thinking_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f914.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Looking",
+    "standardized": "Looking",
+    "chinese": "看",
+    "phonetic": "/ˈlʊkɪŋ/",
+    "phrase": "looking around",
+    "phraseTranslation": "四处看看",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "观察周围的活动",
+    "related_activities": ["watching", "observing", "searching"],
+    "imageURLs": [
+      {
+        "filename": "Looking_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f440.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Listening",
+    "standardized": "Listening",
+    "chinese": "听",
+    "phonetic": "/ˈlɪsənɪŋ/",
+    "phrase": "listening carefully",
+    "phraseTranslation": "仔细听",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "用耳朵接收声音的活动",
+    "related_activities": ["hearing", "paying_attention", "learning"],
+    "imageURLs": [
+      {
+        "filename": "Listening_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f442.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Talking",
+    "standardized": "Talking",
+    "chinese": "说话",
+    "phonetic": "/ˈtɔkɪŋ/",
+    "phrase": "talking together",
+    "phraseTranslation": "一起说话",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "用语言交流的活动",
+    "related_activities": ["communicating", "sharing", "expressing"],
+    "imageURLs": [
+      {
+        "filename": "Talking_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5e3.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Smiling",
+    "standardized": "Smiling",
+    "chinese": "微笑",
+    "phonetic": "/ˈsmaɪlɪŋ/",
+    "phrase": "bright smiling",
+    "phraseTranslation": "灿烂微笑",
+    "difficulty": "basic",
+    "category": "action",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "表达快乐的面部表情",
+    "related_activities": ["being_happy", "greeting", "expressing_joy"],
+    "imageURLs": [
+      {
+        "filename": "Smiling_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多家庭用品类 ===
+  {
+    "word": "Pillow",
+    "standardized": "Pillow",
+    "chinese": "枕头",
+    "phonetic": "/ˈpɪloʊ/",
+    "phrase": "soft pillow",
+    "phraseTranslation": "柔软枕头",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "睡觉时垫头的用品",
+    "related_activities": ["sleeping", "resting", "comforting"],
+    "imageURLs": [
+      {
+        "filename": "Pillow_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Blanket",
+    "standardized": "Blanket",
+    "chinese": "毯子",
+    "phonetic": "/ˈblæŋkɪt/",
+    "phrase": "warm blanket",
+    "phraseTranslation": "温暖毯子",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "保暖的覆盖物",
+    "related_activities": ["covering", "warming", "sleeping"],
+    "imageURLs": [
+      {
+        "filename": "Blanket_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Curtain",
+    "standardized": "Curtain",
+    "chinese": "窗帘",
+    "phonetic": "/ˈkɜrtən/",
+    "phrase": "blue curtain",
+    "phraseTranslation": "蓝色窗帘",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "遮挡窗户的布料",
+    "related_activities": ["covering", "decorating", "blocking_light"],
+    "imageURLs": [
+      {
+        "filename": "Curtain_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Carpet",
+    "standardized": "Carpet",
+    "chinese": "地毯",
+    "phonetic": "/ˈkɑrpɪt/",
+    "phrase": "soft carpet",
+    "phraseTranslation": "柔软地毯",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "铺在地上的装饰品",
+    "related_activities": ["walking", "decorating", "sitting"],
+    "imageURLs": [
+      {
+        "filename": "Carpet_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Towel",
+    "standardized": "Towel",
+    "chinese": "毛巾",
+    "phonetic": "/ˈtaʊəl/",
+    "phrase": "clean towel",
+    "phraseTranslation": "干净毛巾",
+    "difficulty": "basic",
+    "category": "furniture",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "擦拭用的布料",
+    "related_activities": ["drying", "cleaning", "wiping"],
+    "imageURLs": [
+      {
+        "filename": "Towel_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多学习用品类 ===
+  {
+    "word": "Crayon",
+    "standardized": "Crayon",
+    "chinese": "蜡笔",
+    "phonetic": "/ˈkreɪɑn/",
+    "phrase": "colorful crayon",
+    "phraseTranslation": "彩色蜡笔",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "绘画用的彩色笔",
+    "related_activities": ["drawing", "coloring", "creating"],
+    "imageURLs": [
+      {
+        "filename": "Crayon_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f58d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Marker",
+    "standardized": "Marker",
+    "chinese": "记号笔",
+    "phonetic": "/ˈmɑrkər/",
+    "phrase": "bright marker",
+    "phraseTranslation": "鲜艳记号笔",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "标记用的彩笔",
+    "related_activities": ["marking", "drawing", "writing"],
+    "imageURLs": [
+      {
+        "filename": "Marker_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f58d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Eraser",
+    "standardized": "Eraser",
+    "chinese": "橡皮擦",
+    "phonetic": "/ɪˈreɪsər/",
+    "phrase": "pink eraser",
+    "phraseTranslation": "粉色橡皮擦",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "擦除铅笔痕迹的工具",
+    "related_activities": ["erasing", "correcting", "cleaning"],
+    "imageURLs": [
+      {
+        "filename": "Eraser_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Ruler",
+    "standardized": "Ruler",
+    "chinese": "尺子",
+    "phonetic": "/ˈrulər/",
+    "phrase": "straight ruler",
+    "phraseTranslation": "直尺子",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "测量长度的工具",
+    "related_activities": ["measuring", "drawing_lines", "studying"],
+    "imageURLs": [
+      {
+        "filename": "Ruler_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4cf.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Scissors",
+    "standardized": "Scissors",
+    "chinese": "剪刀",
+    "phonetic": "/ˈsɪzərz/",
+    "phrase": "safety scissors",
+    "phraseTranslation": "安全剪刀",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "剪切纸张的工具",
+    "related_activities": ["cutting", "crafting", "creating"],
+    "imageURLs": [
+      {
+        "filename": "Scissors_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2702.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Glue",
+    "standardized": "Glue",
+    "chinese": "胶水",
+    "phonetic": "/ɡlu/",
+    "phrase": "sticky glue",
+    "phraseTranslation": "粘性胶水",
+    "difficulty": "basic",
+    "category": "tool",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "粘合物品的液体",
+    "related_activities": ["sticking", "crafting", "fixing"],
+    "imageURLs": [
+      {
+        "filename": "Glue_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多玩具类 ===
+  {
+    "word": "Doll",
+    "standardized": "Doll",
+    "chinese": "娃娃",
+    "phonetic": "/dɑl/",
+    "phrase": "cute doll",
+    "phraseTranslation": "可爱娃娃",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "儿童喜爱的玩偶",
+    "related_activities": ["playing", "hugging", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Doll_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9f8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Teddy Bear",
+    "standardized": "Teddy Bear",
+    "chinese": "泰迪熊",
+    "phonetic": "/ˈtedi ber/",
+    "phrase": "fluffy teddy bear",
+    "phraseTranslation": "毛茸茸泰迪熊",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "2-4",
+    "game_source": "Animal Crossing",
+    "character_context": "柔软的熊玩偶",
+    "related_activities": ["hugging", "sleeping", "comforting"],
+    "imageURLs": [
+      {
+        "filename": "Teddy_Bear_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9f8.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Puzzle",
+    "standardized": "Puzzle",
+    "chinese": "拼图",
+    "phonetic": "/ˈpʌzəl/",
+    "phrase": "jigsaw puzzle",
+    "phraseTranslation": "拼图游戏",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "锻炼思维的游戏",
+    "related_activities": ["solving", "thinking", "assembling"],
+    "imageURLs": [
+      {
+        "filename": "Puzzle_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e9.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Block",
+    "standardized": "Block",
+    "chinese": "积木",
+    "phonetic": "/blɑk/",
+    "phrase": "building block",
+    "phraseTranslation": "建筑积木",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "搭建用的方块玩具",
+    "related_activities": ["building", "stacking", "creating"],
+    "imageURLs": [
+      {
+        "filename": "Block_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9f1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Kite",
+    "standardized": "Kite",
+    "chinese": "风筝",
+    "phonetic": "/kaɪt/",
+    "phrase": "flying kite",
+    "phraseTranslation": "飞行风筝",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "在风中飞翔的玩具",
+    "related_activities": ["flying", "running", "playing_outside"],
+    "imageURLs": [
+      {
+        "filename": "Kite_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fa81.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Yo-yo",
+    "standardized": "Yo-yo",
+    "chinese": "悠悠球",
+    "phonetic": "/ˈjoʊjoʊ/",
+    "phrase": "spinning yo-yo",
+    "phraseTranslation": "旋转悠悠球",
+    "difficulty": "basic",
+    "category": "toy",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "上下运动的玩具",
+    "related_activities": ["spinning", "playing", "practicing"],
+    "imageURLs": [
+      {
+        "filename": "Yo_yo_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fa80.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多自然元素类 ===
+  {
+    "word": "Cloud",
+    "standardized": "Cloud",
+    "chinese": "云朵",
+    "phonetic": "/klaʊd/",
+    "phrase": "white cloud",
+    "phraseTranslation": "白云朵",
+    "difficulty": "basic",
+    "category": "nature",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "天空中的水汽团",
+    "related_activities": ["floating", "watching", "imagining"],
+    "imageURLs": [
+      {
+        "filename": "Cloud_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2601.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rainbow",
+    "standardized": "Rainbow",
+    "chinese": "彩虹",
+    "phonetic": "/ˈreɪnboʊ/",
+    "phrase": "beautiful rainbow",
+    "phraseTranslation": "美丽彩虹",
+    "difficulty": "basic",
+    "category": "nature",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "雨后的七色光弧",
+    "related_activities": ["admiring", "pointing", "wishing"],
+    "imageURLs": [
+      {
+        "filename": "Rainbow_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f308.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Lightning",
+    "standardized": "Lightning",
+    "chinese": "闪电",
+    "phonetic": "/ˈlaɪtnɪŋ/",
+    "phrase": "bright lightning",
+    "phraseTranslation": "明亮闪电",
+    "difficulty": "basic",
+    "category": "nature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "雷雨时的电光",
+    "related_activities": ["flashing", "watching", "counting"],
+    "imageURLs": [
+      {
+        "filename": "Lightning_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26a1.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Thunder",
+    "standardized": "Thunder",
+    "chinese": "雷声",
+    "phonetic": "/ˈθʌndər/",
+    "phrase": "loud thunder",
+    "phraseTranslation": "响亮雷声",
+    "difficulty": "basic",
+    "category": "nature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "雷雨时的声音",
+    "related_activities": ["hearing", "counting", "hiding"],
+    "imageURLs": [
+      {
+        "filename": "Thunder_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f329.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Snowflake",
+    "standardized": "Snowflake",
+    "chinese": "雪花",
+    "phonetic": "/ˈsnoʊfleɪk/",
+    "phrase": "delicate snowflake",
+    "phraseTranslation": "精致雪花",
+    "difficulty": "basic",
+    "category": "nature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "冬天飘落的冰晶",
+    "related_activities": ["falling", "catching", "melting"],
+    "imageURLs": [
+      {
+        "filename": "Snowflake_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2744.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Raindrop",
+    "standardized": "Raindrop",
+    "chinese": "雨滴",
+    "phonetic": "/ˈreɪndrɑp/",
+    "phrase": "falling raindrop",
+    "phraseTranslation": "下落雨滴",
+    "difficulty": "basic",
+    "category": "nature",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "从天空落下的水珠",
+    "related_activities": ["falling", "splashing", "watering"],
+    "imageURLs": [
+      {
+        "filename": "Raindrop_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a7.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多交通工具类 ===
+  {
+    "word": "Bicycle",
+    "standardized": "Bicycle",
+    "chinese": "自行车",
+    "phonetic": "/ˈbaɪsɪkəl/",
+    "phrase": "red bicycle",
+    "phraseTranslation": "红色自行车",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "两轮脚踏交通工具",
+    "related_activities": ["riding", "pedaling", "balancing"],
+    "imageURLs": [
+      {
+        "filename": "Bicycle_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6b2.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Scooter",
+    "standardized": "Scooter",
+    "chinese": "滑板车",
+    "phonetic": "/ˈskutər/",
+    "phrase": "fast scooter",
+    "phraseTranslation": "快速滑板车",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "脚踏滑行的交通工具",
+    "related_activities": ["scooting", "balancing", "gliding"],
+    "imageURLs": [
+      {
+        "filename": "Scooter_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6f4.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Skateboard",
+    "standardized": "Skateboard",
+    "chinese": "滑板",
+    "phonetic": "/ˈskeɪtbɔrd/",
+    "phrase": "cool skateboard",
+    "phraseTranslation": "酷滑板",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "四轮滑行板",
+    "related_activities": ["skating", "balancing", "jumping"],
+    "imageURLs": [
+      {
+        "filename": "Skateboard_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6f9.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Submarine",
+    "standardized": "Submarine",
+    "chinese": "潜水艇",
+    "phonetic": "/ˈsʌbməriːn/",
+    "phrase": "underwater submarine",
+    "phraseTranslation": "水下潜水艇",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "水下航行的船只",
+    "related_activities": ["diving", "exploring", "swimming"],
+    "imageURLs": [
+      {
+        "filename": "Submarine_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6a2.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Sailboat",
+    "standardized": "Sailboat",
+    "chinese": "帆船",
+    "phonetic": "/ˈseɪlboʊt/",
+    "phrase": "white sailboat",
+    "phraseTranslation": "白色帆船",
+    "difficulty": "basic",
+    "category": "transportation",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "用风力推动的船只",
+    "related_activities": ["sailing", "floating", "navigating"],
+    "imageURLs": [
+      {
+        "filename": "Sailboat_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26f5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多食物类 ===
+  {
+    "word": "Soup",
+    "standardized": "Soup",
+    "chinese": "汤",
+    "phonetic": "/sup/",
+    "phrase": "hot soup",
+    "phraseTranslation": "热汤",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "温暖的液体食物",
+    "related_activities": ["sipping", "warming", "nourishing"],
+    "imageURLs": [
+      {
+        "filename": "Soup_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f35c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Noodles",
+    "standardized": "Noodles",
+    "chinese": "面条",
+    "phonetic": "/ˈnudəlz/",
+    "phrase": "long noodles",
+    "phraseTranslation": "长面条",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "细长的面食",
+    "related_activities": ["slurping", "twirling", "eating"],
+    "imageURLs": [
+      {
+        "filename": "Noodles_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f35c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Rice",
+    "standardized": "Rice",
+    "chinese": "米饭",
+    "phonetic": "/raɪs/",
+    "phrase": "white rice",
+    "phraseTranslation": "白米饭",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "主要的谷物食品",
+    "related_activities": ["eating", "cooking", "growing"],
+    "imageURLs": [
+      {
+        "filename": "Rice_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f35a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bread",
+    "standardized": "Bread",
+    "chinese": "面包",
+    "phonetic": "/bred/",
+    "phrase": "fresh bread",
+    "phraseTranslation": "新鲜面包",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "烘焙的主食",
+    "related_activities": ["eating", "toasting", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Bread_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f35e.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cheese",
+    "standardized": "Cheese",
+    "chinese": "奶酪",
+    "phonetic": "/tʃiz/",
+    "phrase": "yellow cheese",
+    "phraseTranslation": "黄色奶酪",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "奶制品食物",
+    "related_activities": ["eating", "melting", "slicing"],
+    "imageURLs": [
+      {
+        "filename": "Cheese_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9c0.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Egg",
+    "standardized": "Egg",
+    "chinese": "鸡蛋",
+    "phonetic": "/eɡ/",
+    "phrase": "fresh egg",
+    "phraseTranslation": "新鲜鸡蛋",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "营养丰富的食物",
+    "related_activities": ["cooking", "cracking", "eating"],
+    "imageURLs": [
+      {
+        "filename": "Egg_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f95a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Fish",
+    "standardized": "Fish",
+    "chinese": "鱼",
+    "phonetic": "/fɪʃ/",
+    "phrase": "fresh fish",
+    "phraseTranslation": "新鲜鱼",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "海洋中的食物",
+    "related_activities": ["cooking", "eating", "catching"],
+    "imageURLs": [
+      {
+        "filename": "Fish_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f41f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Meat",
+    "standardized": "Meat",
+    "chinese": "肉",
+    "phonetic": "/mit/",
+    "phrase": "cooked meat",
+    "phraseTranslation": "煮熟的肉",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "蛋白质丰富的食物",
+    "related_activities": ["cooking", "eating", "grilling"],
+    "imageURLs": [
+      {
+        "filename": "Meat_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f969.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Honey",
+    "standardized": "Honey",
+    "chinese": "蜂蜜",
+    "phonetic": "/ˈhʌni/",
+    "phrase": "sweet honey",
+    "phraseTranslation": "甜蜂蜜",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "蜜蜂制作的甜品",
+    "related_activities": ["drizzling", "sweetening", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Honey_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f36f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Candy",
+    "standardized": "Candy",
+    "chinese": "糖果",
+    "phonetic": "/ˈkændi/",
+    "phrase": "colorful candy",
+    "phraseTranslation": "彩色糖果",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "甜蜜的小零食",
+    "related_activities": ["sucking", "enjoying", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Candy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f36c.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Chocolate",
+    "standardized": "Chocolate",
+    "chinese": "巧克力",
+    "phonetic": "/ˈtʃɔklət/",
+    "phrase": "dark chocolate",
+    "phraseTranslation": "黑巧克力",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "可可制成的甜品",
+    "related_activities": ["melting", "eating", "gifting"],
+    "imageURLs": [
+      {
+        "filename": "Chocolate_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f36b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cookie",
+    "standardized": "Cookie",
+    "chinese": "饼干",
+    "phonetic": "/ˈkʊki/",
+    "phrase": "crispy cookie",
+    "phraseTranslation": "酥脆饼干",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "烘焙的小点心",
+    "related_activities": ["crunching", "dunking", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Cookie_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f36a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Tea",
+    "standardized": "Tea",
+    "chinese": "茶",
+    "phonetic": "/ti/",
+    "phrase": "hot tea",
+    "phraseTranslation": "热茶",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "温暖的饮品",
+    "related_activities": ["sipping", "warming", "relaxing"],
+    "imageURLs": [
+      {
+        "filename": "Tea_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f375.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Coffee",
+    "standardized": "Coffee",
+    "chinese": "咖啡",
+    "phonetic": "/ˈkɔfi/",
+    "phrase": "morning coffee",
+    "phraseTranslation": "早晨咖啡",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "提神的饮品",
+    "related_activities": ["sipping", "energizing", "warming"],
+    "imageURLs": [
+      {
+        "filename": "Coffee_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2615.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Yogurt",
+    "standardized": "Yogurt",
+    "chinese": "酸奶",
+    "phonetic": "/ˈjoʊɡərt/",
+    "phrase": "creamy yogurt",
+    "phraseTranslation": "奶油酸奶",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "健康的奶制品",
+    "related_activities": ["spooning", "mixing", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Yogurt_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f95b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Cereal",
+    "standardized": "Cereal",
+    "chinese": "麦片",
+    "phonetic": "/ˈsɪriəl/",
+    "phrase": "breakfast cereal",
+    "phraseTranslation": "早餐麦片",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "早餐谷物食品",
+    "related_activities": ["pouring", "crunching", "eating"],
+    "imageURLs": [
+      {
+        "filename": "Cereal_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f963.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Popcorn",
+    "standardized": "Popcorn",
+    "chinese": "爆米花",
+    "phonetic": "/ˈpɑpkɔrn/",
+    "phrase": "buttery popcorn",
+    "phraseTranslation": "黄油爆米花",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "膨化的玉米零食",
+    "related_activities": ["munching", "sharing", "watching_movies"],
+    "imageURLs": [
+      {
+        "filename": "Popcorn_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f37f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Pretzel",
+    "standardized": "Pretzel",
+    "chinese": "椒盐脆饼",
+    "phonetic": "/ˈpretsəl/",
+    "phrase": "twisted pretzel",
+    "phraseTranslation": "扭曲椒盐脆饼",
+    "difficulty": "basic",
+    "category": "food",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "扭曲形状的烘焙食品",
+    "related_activities": ["twisting", "salting", "crunching"],
+    "imageURLs": [
+      {
+        "filename": "Pretzel_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f968.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 最后补充词汇 ===
+  {
+    "word": "Magic",
+    "standardized": "Magic",
+    "chinese": "魔法",
+    "phonetic": "/ˈmædʒɪk/",
+    "phrase": "amazing magic",
+    "phraseTranslation": "神奇魔法",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "神秘的力量",
+    "related_activities": ["wondering", "imagining", "believing"],
+    "imageURLs": [
+      {
+        "filename": "Magic_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2728.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dream",
+    "standardized": "Dream",
+    "chinese": "梦想",
+    "phonetic": "/driːm/",
+    "phrase": "sweet dream",
+    "phraseTranslation": "甜美梦想",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "睡眠中的想象",
+    "related_activities": ["sleeping", "imagining", "hoping"],
+    "imageURLs": [
+      {
+        "filename": "Dream_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4ad.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Wish",
+    "standardized": "Wish",
+    "chinese": "愿望",
+    "phonetic": "/wɪʃ/",
+    "phrase": "make a wish",
+    "phraseTranslation": "许个愿望",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "心中的期望",
+    "related_activities": ["hoping", "wishing", "dreaming"],
+    "imageURLs": [
+      {
+        "filename": "Wish_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f31f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Hope",
+    "standardized": "Hope",
+    "chinese": "希望",
+    "phonetic": "/hoʊp/",
+    "phrase": "full of hope",
+    "phraseTranslation": "充满希望",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "对未来的期待",
+    "related_activities": ["believing", "waiting", "trusting"],
+    "imageURLs": [
+      {
+        "filename": "Hope_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f31f.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Peace",
+    "standardized": "Peace",
+    "chinese": "和平",
+    "phonetic": "/piːs/",
+    "phrase": "world peace",
+    "phraseTranslation": "世界和平",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "没有冲突的状态",
+    "related_activities": ["calming", "sharing", "caring"],
+    "imageURLs": [
+      {
+        "filename": "Peace_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/262e.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Joy",
+    "standardized": "Joy",
+    "chinese": "快乐",
+    "phonetic": "/dʒɔɪ/",
+    "phrase": "pure joy",
+    "phraseTranslation": "纯真快乐",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "内心的喜悦",
+    "related_activities": ["celebrating", "laughing", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Joy_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Wonder",
+    "standardized": "Wonder",
+    "chinese": "好奇",
+    "phonetic": "/ˈwʌndər/",
+    "phrase": "full of wonder",
+    "phraseTranslation": "充满好奇",
+    "difficulty": "basic",
+    "category": "emotion",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "对世界的好奇心",
+    "related_activities": ["exploring", "questioning", "discovering"],
+    "imageURLs": [
+      {
+        "filename": "Wonder_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f914.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Adventure",
+    "standardized": "Adventure",
+    "chinese": "冒险",
+    "phonetic": "/ədˈventʃər/",
+    "phrase": "exciting adventure",
+    "phraseTranslation": "刺激冒险",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "探索未知的旅程",
+    "related_activities": ["exploring", "discovering", "traveling"],
+    "imageURLs": [
+      {
+        "filename": "Adventure_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5fa.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Discovery",
+    "standardized": "Discovery",
+    "chinese": "发现",
+    "phonetic": "/dɪˈskʌvəri/",
+    "phrase": "amazing discovery",
+    "phraseTranslation": "惊人发现",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "找到新事物",
+    "related_activities": ["finding", "exploring", "learning"],
+    "imageURLs": [
+      {
+        "filename": "Discovery_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f50d.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Treasure",
+    "standardized": "Treasure",
+    "chinese": "宝藏",
+    "phonetic": "/ˈtreʒər/",
+    "phrase": "hidden treasure",
+    "phraseTranslation": "隐藏宝藏",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "珍贵的物品",
+    "related_activities": ["searching", "finding", "collecting"],
+    "imageURLs": [
+      {
+        "filename": "Treasure_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4b0.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Secret",
+    "standardized": "Secret",
+    "chinese": "秘密",
+    "phonetic": "/ˈsiːkrət/",
+    "phrase": "special secret",
+    "phraseTranslation": "特别秘密",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "不告诉别人的事情",
+    "related_activities": ["whispering", "hiding", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Secret_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f92b.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mystery",
+    "standardized": "Mystery",
+    "chinese": "神秘",
+    "phonetic": "/ˈmɪstəri/",
+    "phrase": "exciting mystery",
+    "phraseTranslation": "令人兴奋的神秘",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "未知的谜题",
+    "related_activities": ["solving", "wondering", "investigating"],
+    "imageURLs": [
+      {
+        "filename": "Mystery_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f575.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Surprise",
+    "standardized": "Surprise",
+    "chinese": "惊喜",
+    "phonetic": "/sərˈpraɪz/",
+    "phrase": "wonderful surprise",
+    "phraseTranslation": "美妙惊喜",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "意外的好事",
+    "related_activities": ["surprising", "celebrating", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Surprise_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f381.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Memory",
+    "standardized": "Memory",
+    "chinese": "记忆",
+    "phonetic": "/ˈmeməri/",
+    "phrase": "happy memory",
+    "phraseTranslation": "快乐记忆",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "过去的回忆",
+    "related_activities": ["remembering", "sharing", "treasuring"],
+    "imageURLs": [
+      {
+        "filename": "Memory_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4ad.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Story",
+    "standardized": "Story",
+    "chinese": "故事",
+    "phonetic": "/ˈstɔri/",
+    "phrase": "bedtime story",
+    "phraseTranslation": "睡前故事",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "讲述的事情",
+    "related_activities": ["telling", "listening", "imagining"],
+    "imageURLs": [
+      {
+        "filename": "Story_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4d6.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Song",
+    "standardized": "Song",
+    "chinese": "歌曲",
+    "phonetic": "/sɔŋ/",
+    "phrase": "beautiful song",
+    "phraseTranslation": "美丽歌曲",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "音乐和歌词的组合",
+    "related_activities": ["singing", "listening", "dancing"],
+    "imageURLs": [
+      {
+        "filename": "Song_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3b5.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Dance",
+    "standardized": "Dance",
+    "chinese": "舞蹈",
+    "phonetic": "/dæns/",
+    "phrase": "happy dance",
+    "phraseTranslation": "快乐舞蹈",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "随音乐移动身体",
+    "related_activities": ["moving", "expressing", "celebrating"],
+    "imageURLs": [
+      {
+        "filename": "Dance_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f483.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Party",
+    "standardized": "Party",
+    "chinese": "聚会",
+    "phonetic": "/ˈpɑrti/",
+    "phrase": "fun party",
+    "phraseTranslation": "有趣聚会",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "4-6",
+    "game_source": "Animal Crossing",
+    "character_context": "朋友们一起庆祝",
+    "related_activities": ["celebrating", "sharing", "enjoying"],
+    "imageURLs": [
+      {
+        "filename": "Party_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f389.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Celebration",
+    "standardized": "Celebration",
+    "chinese": "庆祝",
+    "phonetic": "/ˌseləˈbreɪʃən/",
+    "phrase": "special celebration",
+    "phraseTranslation": "特别庆祝",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "为特殊事情而高兴",
+    "related_activities": ["cheering", "dancing", "sharing"],
+    "imageURLs": [
+      {
+        "filename": "Celebration_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f38a.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Festival",
+    "standardized": "Festival",
+    "chinese": "节日",
+    "phonetic": "/ˈfestəvəl/",
+    "phrase": "colorful festival",
+    "phraseTranslation": "多彩节日",
+    "difficulty": "basic",
+    "category": "concept",
+    "age_group": "5-6",
+    "game_source": "Animal Crossing",
+    "character_context": "特殊的庆祝日子",
+    "related_activities": ["celebrating", "decorating", "gathering"],
+    "imageURLs": [
+      {
+        "filename": "Festival_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  }
+];
+
+// 针对 Fandom 图片链接做就地增强：为每个 File: 链接补充可直链的 FilePath 与 Redirect 变体，并做去重
+(function enhanceAnimalCrossingItemImageURLs(){
+  try {
+    function enhance(list){
+      if(!Array.isArray(list)) return;
+      list.forEach(item=>{
+        if(!item || !Array.isArray(item.imageURLs)) return;
+        const enhanced = [];
+    "word": "Cosmos",
+    "standardized": "Cosmos",
+    "chinese": "波斯菊",
+    "phonetic": "/ˈkɑːzmoʊs/",
+    "phrase": "colorful cosmos",
+    "phraseTranslation": "彩色波斯菊",
+    "difficulty": "basic",
+    "category": "flower",
+    "age_group": "3-5",
+    "game_source": "Animal Crossing",
+    "character_context": "美丽的花朵品种",
+    "related_activities": ["planting", "watering", "picking"],
+    "imageURLs": [
+      {
+        "filename": "Cosmos_NH.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  }
+        const seen = new Set();
+        const pushOnce = (obj)=>{
+          if(!obj || !obj.url) return;
+          if(seen.has(obj.url)) return;
+          enhanced.push(obj);
+          seen.add(obj.url);
+        };
+
+        item.imageURLs.forEach(entry=>{
+          let u = (entry && typeof entry === 'object') ? entry.url : (typeof entry === 'string' ? entry : '');
+          const filename = (entry && typeof entry === 'object') ? (entry.filename || '') : '';
+          const type = (entry && typeof entry === 'object') ? (entry.type || 'Default') : 'Default';
+          if (typeof u === 'string') {
+            // 修正常见的后缀拼写错误：.pn -> .png
+            u = u.replace(/\.pn(?=($|[?#]))/i, '.png');
+          }
+          if(typeof u === 'string' && /\/wiki\/File:/i.test(u)){
+            const m = u.match(/^(https?:\/\/[^/]+)\/wiki\/File:([^?#]+)/i);
+            if(m){
+              const base = m[1];
+              const file = m[2];
+              // 优先使用可直链的 FilePath
+              pushOnce({ filename: filename || file, url: `${base}/wiki/Special:FilePath/${file}` , type: 'FilePath' });
+              // 其次备用的 Redirect 直链
+              pushOnce({ filename: filename || file, url: `${base}/wiki/Special:Redirect/file/${file}` , type: 'Redirect' });
+            }
+          }
+          // 兼容处理类似 .../wiki/Some_Page?file=NH-Tools-xxx.png 的形式
+          if (typeof u === 'string') {
+            const m2 = u.match(/^(https?:\/\/[^/]+)\/wiki\/[^?]+\?file=([^&#]+)/i);
+            if (m2) {
+              const base = m2[1];
+              const file = decodeURIComponent(m2[2]);
+              pushOnce({ filename: filename || file, url: `${base}/wiki/Special:FilePath/${file}`, type: 'FilePath' });
+              pushOnce({ filename: filename || file, url: `${base}/wiki/Special:Redirect/file/${file}`, type: 'Redirect' });
+            }
+          }
+          // 原链接兜底保留
+          pushOnce((entry && typeof entry === 'object') ? entry : { filename: filename, url: String(u||''), type });
+        });
+        item.imageURLs = enhanced;
+      });
+    }
+    enhance(ANIMAL_CROSSING_ALL_ITEMS);
+  } catch(e){
+    if (typeof console !== 'undefined' && console.warn) {
+      console.warn('Enhance Animal Crossing (items) image URLs failed:', e);
+    }
+  }
+})();
+
+// Export vocabulary data
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = ANIMAL_CROSSING_ALL_ITEMS;
+} else if (typeof window !== 'undefined') {
+  window.ANIMAL_CROSSING_ALL_ITEMS = ANIMAL_CROSSING_ALL_ITEMS;
+}

@@ -1,0 +1,420 @@
+// Pokemon Basic - 宝可梦基础词汇库
+// 包含宝可梦系列中的基础宝可梦和简单词汇
+const POKEMON_BASIC = [
+  // === 经典宝可梦 ===
+  {
+    "word": "Pikachu",
+    "standardized": "Pikachu",
+    "chinese": "皮卡丘",
+    "phonetic": "/ˈpiːkətʃuː/",
+    "phrase": "Pikachu the electric mouse",
+    "phraseTranslation": "电老鼠皮卡丘",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "电属性老鼠宝可梦",
+    "special_features": "yellow_color",
+    "type": "Electric",
+    "imageURLs": [
+      {
+        "filename": "Pikachu.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Eevee",
+    "standardized": "Eevee",
+    "chinese": "伊布",
+    "phonetic": "/ˈiːviː/",
+    "phrase": "Eevee the evolution Pokemon",
+    "phraseTranslation": "进化宝可梦伊布",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "普通属性狐狸宝可梦",
+    "special_features": "brown_color",
+    "type": "Normal",
+    "imageURLs": [
+      {
+        "filename": "Eevee.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Charmander",
+    "standardized": "Charmander",
+    "chinese": "小火龙",
+    "phonetic": "/ˈtʃɑːrmændər/",
+    "phrase": "Charmander the fire lizard",
+    "phraseTranslation": "火蜥蜴小火龙",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "火属性蜥蜴宝可梦",
+    "special_features": "orange_color",
+    "type": "Fire",
+    "imageURLs": [
+      {
+        "filename": "Charmander.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Squirtle",
+    "standardized": "Squirtle",
+    "chinese": "杰尼龟",
+    "phonetic": "/ˈskwɜːrtəl/",
+    "phrase": "Squirtle the water turtle",
+    "phraseTranslation": "水龟杰尼龟",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "水属性乌龟宝可梦",
+    "special_features": "blue_color",
+    "type": "Water",
+    "imageURLs": [
+      {
+        "filename": "Squirtle.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bulbasaur",
+    "standardized": "Bulbasaur",
+    "chinese": "妙蛙种子",
+    "phonetic": "/ˈbʌlbəsɔːr/",
+    "phrase": "Bulbasaur the grass dinosaur",
+    "phraseTranslation": "草恐龙妙蛙种子",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "草属性恐龙宝可梦",
+    "special_features": "green_color",
+    "type": "Grass",
+    "imageURLs": [
+      {
+        "filename": "Bulbasaur.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 可爱宝可梦 ===
+  {
+    "word": "Jigglypuff",
+    "standardized": "Jigglypuff",
+    "chinese": "胖丁",
+    "phonetic": "/ˈdʒɪɡlipʌf/",
+    "phrase": "Jigglypuff the balloon Pokemon",
+    "phraseTranslation": "气球宝可梦胖丁",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "普通属性气球宝可梦",
+    "special_features": "pink_color",
+    "type": "Normal",
+    "imageURLs": [
+      {
+        "filename": "Jigglypuff.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Meowth",
+    "standardized": "Meowth",
+    "chinese": "喵喵",
+    "phonetic": "/miːaʊθ/",
+    "phrase": "Meowth the cat Pokemon",
+    "phraseTranslation": "猫咪宝可梦喵喵",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "普通属性猫咪宝可梦",
+    "special_features": "yellow_color",
+    "type": "Normal",
+    "imageURLs": [
+      {
+        "filename": "Meowth.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Psyduck",
+    "standardized": "Psyduck",
+    "chinese": "可达鸭",
+    "phonetic": "/ˈsaɪdʌk/",
+    "phrase": "Psyduck the duck Pokemon",
+    "phraseTranslation": "鸭子宝可梦可达鸭",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "水属性鸭子宝可梦",
+    "special_features": "yellow_color",
+    "type": "Water",
+    "imageURLs": [
+      {
+        "filename": "Psyduck.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Snorlax",
+    "standardized": "Snorlax",
+    "chinese": "卡比兽",
+    "phonetic": "/ˈsnɔːrlæks/",
+    "phrase": "Snorlax the sleeping Pokemon",
+    "phraseTranslation": "睡觉宝可梦卡比兽",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "普通属性睡觉宝可梦",
+    "special_features": "blue_color",
+    "type": "Normal",
+    "imageURLs": [
+      {
+        "filename": "Snorlax.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Mew",
+    "standardized": "Mew",
+    "chinese": "梦幻",
+    "phonetic": "/mjuː/",
+    "phrase": "Mew the mythical Pokemon",
+    "phraseTranslation": "神话宝可梦梦幻",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "超能力属性神话宝可梦",
+    "special_features": "pink_color",
+    "type": "Psychic",
+    "imageURLs": [
+      {
+        "filename": "Mew.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+
+  // === 更多经典宝可梦 ===
+  {
+    "word": "Togepi",
+    "standardized": "Togepi",
+    "chinese": "波克比",
+    "phonetic": "/ˈtoʊɡəpi/",
+    "phrase": "Togepi the egg Pokemon",
+    "phraseTranslation": "蛋宝可梦波克比",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "普通属性蛋宝可梦",
+    "special_features": "white_color",
+    "type": "Normal",
+    "imageURLs": [
+      {
+        "filename": "Togepi.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Clefairy",
+    "standardized": "Clefairy",
+    "chinese": "皮皮",
+    "phonetic": "/ˈkleferi/",
+    "phrase": "Clefairy the fairy Pokemon",
+    "phraseTranslation": "妖精宝可梦皮皮",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "妖精属性人形宝可梦",
+    "special_features": "pink_color",
+    "type": "Fairy",
+    "imageURLs": [
+      {
+        "filename": "Clefairy.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Squirtle",
+    "standardized": "Squirtle",
+    "chinese": "杰尼龟",
+    "phonetic": "/ˈskwɜːrtəl/",
+    "phrase": "Squirtle the water turtle",
+    "phraseTranslation": "水龟杰尼龟",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "水属性乌龟宝可梦",
+    "special_features": "blue_color",
+    "type": "Water",
+    "imageURLs": [
+      {
+        "filename": "Squirtle.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+];
+
+// 基于 52poke 的 File:前缀解析出全国图鉴编号，统一替换为 PokeAPI 官方稳定直链
+(function enhancePokemonImageURLsForBasic() {
+  try {
+    const OFFICIAL_BASE = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
+    const DREAM_BASE = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/";
+    const FILE_RE = /File:(\d{3,4})[^.]*\.(png|jpg|svg)/i;
+
+    function enhance(list) {
+      if (!Array.isArray(list)) return;
+      list.forEach(item => {
+        if (!item || !Array.isArray(item.imageURLs)) return;
+        // 尝试从第一条链接中解析全国图鉴编号
+        let firstEntry = item.imageURLs[0];
+        let firstUrl = firstEntry && typeof firstEntry.url === 'string' ? firstEntry.url : (typeof firstEntry === 'string' ? firstEntry : null);
+        let id = null;
+        if (firstUrl) {
+          const m = firstUrl.match(FILE_RE);
+          if (m) {
+            id = parseInt(m[1], 10);
+          }
+        }
+        if (!id || isNaN(id)) return; // 无法解析则跳过
+
+        const newList = [];
+    const newList = [];
+    "word": "Charmander",
+    "standardized": "Charmander",
+    "chinese": "小火龙",
+    "phonetic": "/ˈtʃɑːrmændər/",
+    "phrase": "Charmander the fire lizard",
+    "phraseTranslation": "火蜥蜴小火龙",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "火属性蜥蜴宝可梦",
+    "special_features": "orange_color",
+    "type": "Fire",
+    "imageURLs": [
+      {
+        "filename": "Charmander.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  },
+  {
+    "word": "Bulbasaur",
+    "standardized": "Bulbasaur",
+    "chinese": "妙蛙种子",
+    "phonetic": "/ˈbʌlbəsɔːr/",
+    "phrase": "Bulbasaur the grass dinosaur",
+    "phraseTranslation": "草恐龙妙蛙种子",
+    "difficulty": "basic",
+    "category": "pokemon",
+    "age_group": "3-6",
+    "game_source": "Pokemon",
+    "character_context": "草属性恐龙宝可梦",
+    "special_features": "green_color",
+    "type": "Grass",
+    "imageURLs": [
+      {
+        "filename": "Bulbasaur.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
+        "type": "Default"
+      }
+    ]
+  }
+        // 优先：官方原画 PNG
+        newList.push({ filename: `${id}.png`, url: `${OFFICIAL_BASE}${id}.png`, type: "OfficialArtwork" });
+        // 其次：Dream World SVG（部分编号可能缺失，作为候选）
+        newList.push({ filename: `${id}.svg`, url: `${DREAM_BASE}${id}.svg`, type: "DreamWorld" });
+
+        const seen = new Set(newList.map(x => x.url));
+        // 保留原有链接作为兜底（去重）
+        item.imageURLs.forEach(u => {
+          const uObj = (u && typeof u === 'object') ? u : { url: String(u || ""), filename: "", type: "Legacy" };
+          if (uObj.url && !seen.has(uObj.url)) {
+            newList.push({ filename: uObj.filename || "", url: uObj.url, type: uObj.type || "Legacy" });
+            seen.add(uObj.url);
+          }
+        });
+        item.imageURLs = newList;
+      });
+    }
+
+    enhance(POKEMON_BASIC);
+  } catch (e) {
+    // 静默失败，避免影响页面其它功能
+    if (typeof console !== 'undefined' && console.warn) {
+      console.warn('Enhance Pokemon image URLs (basic) failed:', e);
+    }
+  }
+})();
+
+// 去重：按 standardized/word 保留首个出现，避免重复词条
+(function dedupPokemonBasic(){
+  try {
+    if (!Array.isArray(POKEMON_BASIC)) return;
+    const seen = new Set();
+    for (const item of POKEMON_BASIC) {
+      const key = String((item && (item.standardized || item.word)) || '').trim().toLowerCase();
+      if (!key) continue;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      newList.push(item);
+    }
+    // 原地替换，保持引用不变
+    POKEMON_BASIC.length = 0;
+    Array.prototype.push.apply(POKEMON_BASIC, newList);
+  } catch (e) {
+    if (typeof console !== 'undefined' && console.warn) {
+      console.warn('Dedup Pokemon basic failed:', e);
+    }
+  }
+})();
+
+// Export vocabulary data
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = POKEMON_BASIC;
+} else if (typeof window !== 'undefined') {
+  window.POKEMON_BASIC = POKEMON_BASIC;
+}

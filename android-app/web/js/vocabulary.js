@@ -16,8 +16,21 @@ async function loadVocabulary() {
         }
         
         validateVocabularyJSON(data);
-        
-        currentVocabulary = data;
+
+        // 智能词汇排序：如果启用了优先加载未学习单词
+        let processedData = data;
+        try {
+            const prioritizeUnlearned = localStorage.getItem('prioritizeUnlearned') === 'true';
+            if (prioritizeUnlearned && Array.isArray(data) && data.length > 0) {
+                processedData = prioritizeUnlearnedWords(data);
+                console.log(`智能排序完成：优先${processedData.length}个单词（未学习优先）`);
+            }
+        } catch (e) {
+            console.warn('智能词汇排序失败:', e);
+            processedData = data;
+        }
+
+        currentVocabulary = processedData;
         currentWordIndex = 0;
         
         // 新增：Minecraft 词库时按设置比例混入幼儿园词
@@ -29,6 +42,14 @@ async function loadVocabulary() {
         if (getSettings().kindergartenMode && (selectedVocab.includes('幼儿园') || selectedVocab === 'kindergarten_vocabulary')) {
             initializeKindergartenMode();
         }
+
+        // 保存基准词库，并依据“题目来源”设置应用过滤
+        try {
+            window.baseVocabulary = currentVocabulary.slice();
+            if (typeof applyQuestionSourceFilter === 'function') {
+                applyQuestionSourceFilter({ silent: true });
+            }
+        } catch(e) {}
         
         showNotification(`成功加载 ${currentVocabulary.length} 个单词！`);
         updateWordDisplay();
@@ -74,6 +95,14 @@ function loadCustomVocabulary() {
             if (getSettings().kindergartenMode) {
                 initializeKindergartenMode();
             }
+
+            // 保存基准词库，并依据“题目来源”设置应用过滤
+            try {
+                window.baseVocabulary = currentVocabulary.slice();
+                if (typeof applyQuestionSourceFilter === 'function') {
+                    applyQuestionSourceFilter({ silent: true });
+                }
+            } catch(e) {}
             
             showNotification(`成功加载自定义词库：${currentVocabulary.length} 个单词！`);
             updateWordDisplay();
@@ -99,16 +128,29 @@ function shuffleWords() {
         showNotification('请先加载词库', 'error');
         return;
     }
-    
-    currentVocabulary = shuffleArray(currentVocabulary);
-    currentWordIndex = 0;
-    
-    // 重新初始化幼儿园模式
-    if (getSettings().kindergartenMode) {
-        initializeKindergartenMode();
+
+    let appliedByBase = false;
+    try {
+        if (Array.isArray(window.baseVocabulary) && window.baseVocabulary.length > 0) {
+            window.baseVocabulary = shuffleArray(window.baseVocabulary);
+            currentWordIndex = 0;
+            if (typeof applyQuestionSourceFilter === 'function') {
+                applyQuestionSourceFilter({ silent: true });
+                appliedByBase = true;
+            }
+        }
+    } catch(e) {}
+
+    if (!appliedByBase) {
+        currentVocabulary = shuffleArray(currentVocabulary);
+        currentWordIndex = 0;
+        // 重新初始化幼儿园模式（仅在未通过过滤刷新时）
+        if (getSettings().kindergartenMode) {
+            initializeKindergartenMode();
+        }
+        updateWordDisplay();
     }
     
-    updateWordDisplay();
     showNotification('词汇已随机排序！');
 }
 
@@ -256,6 +298,71 @@ function validateWordData(word) {
         return false;
     }
     return true;
+}
+
+// 新增：根据设置对题目集合进行过滤
+function applyQuestionSourceFilter(options){
+    try {
+        const opts = options || {};
+        const settings = (typeof getSettings === 'function') ? getSettings() : { questionSource: 'all' };
+        const source = settings.questionSource || 'all';
+        const lt = (typeof getCurrentLearnType === 'function') ? getCurrentLearnType() : (typeof learnType !== 'undefined' ? learnType : 'word');
+        // 读取 per-word 结果映射（结构：{ version, updatedAt, items: { key: { lastResult, correct, wrong, seen, lastAt, last? } } }）
+        const resultsObj = (typeof getWordResultsMap === 'function') ? getWordResultsMap() : { items: {} };
+        const resultsItems = (resultsObj && resultsObj.items) ? resultsObj.items : {};
+        const base = (Array.isArray(window.baseVocabulary) && window.baseVocabulary.length>0) ? window.baseVocabulary : currentVocabulary;
+
+        // 兼容处理函数：识别“最后一次正确/错误”
+        const isCorrectRec = (rec) => {
+            if (!rec) return false;
+            if (rec.lastResult === 1 || rec.lastResult === '1' || rec.lastResult === true) return true;
+            if (rec.last === 'correct') return true;
+            return false;
+        };
+        const isWrongRec = (rec) => {
+            if (!rec) return false;
+            if (rec.lastResult === 0 || rec.lastResult === '0' || rec.lastResult === false) return true;
+            if (rec.last === 'wrong') return true;
+            return false;
+        };
+        
+        let filtered = base;
+        if (source === 'exclude_mastered') {
+            filtered = base.filter(w => {
+                const key = (typeof getWordKey === 'function') ? getWordKey(w, lt) : ((w.standardized||w.word||w.phrase||'').toString().trim().toLowerCase());
+                const rec = resultsItems[key];
+                return !isCorrectRec(rec);
+            });
+        } else if (source === 'unseen') {
+            filtered = base.filter(w => {
+                const key = (typeof getWordKey === 'function') ? getWordKey(w, lt) : ((w.standardized||w.word||w.phrase||'').toString().trim().toLowerCase());
+                return !resultsItems[key];
+            });
+        } else if (source === 'wrong_only') {
+            filtered = base.filter(w => {
+                const key = (typeof getWordKey === 'function') ? getWordKey(w, lt) : ((w.standardized||w.word||w.phrase||'').toString().trim().toLowerCase());
+                const rec = resultsItems[key];
+                return isWrongRec(rec);
+            });
+        } // else 'all' 保持基准
+        
+        currentVocabulary = Array.isArray(filtered) ? filtered : [];
+        if (currentWordIndex >= currentVocabulary.length) currentWordIndex = 0;
+        
+        // 幼儿园模式时刷新分组（以当前集合为准）
+        try { if (getSettings().kindergartenMode) { initializeKindergartenMode(); } } catch(e) {}
+        
+        // 刷新 UI
+        try { enableControls(); } catch(e) {}
+        try { updateWordDisplay(); } catch(e) {}
+        try { updateStats(); } catch(e) {}
+        
+        if (!opts.silent) {
+            try { showNotification(`已应用筛选：${source}，当前题目数 ${currentVocabulary.length}`); } catch(e) {}
+        }
+    } catch (e) {
+        console.warn('应用题目来源过滤失败：', e);
+    }
 }
 
 // 修复词汇数据（用于 game.js 引用）

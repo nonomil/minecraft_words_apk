@@ -3,6 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://raw.githubusercontent.com;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data: https: http:;
+        font-src 'self';
+        connect-src 'self' https://raw.githubusercontent.com https://*.githubusercontent.com;
+        media-src 'self';
+        object-src 'none';
+        child-src 'none';
+        worker-src 'self';
+        manifest-src 'self';
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
     <title>🎮 Minecraft 单词学习游戏</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/kindergarten.css">
@@ -121,7 +139,7 @@
                         <img class="quiz-image" id="quizImage" src="" alt="测试图片">
                         <div class="quiz-headline">
                             <h3>这个单词的中文意思是？</h3>
-                            <button class="control-btn play" onclick="playQuizAudio()">🔊 听发音</button>
+                            <!-- 移除听发音按钮，改由下方控制区统一展示 -->
                         </div>
                     </div>
 
@@ -132,8 +150,9 @@
                 </div>
 
                 <div class="control-buttons">
+                    <button class="control-btn prev" onclick="previousQuiz()" id="prevQuizBtn" disabled>⬅️ 上一题</button>
+                    <button class="control-btn play" onclick="playQuizAudio()" id="quizPlayBtn">🔊 听英文</button>
                     <button class="control-btn next" onclick="nextQuiz()" id="nextQuizBtn" disabled>下一题 ➡️</button>
-                    <button class="control-btn" onclick="restartQuiz()" style="background: linear-gradient(45deg, #FF5722, #E64A19);">🔄 重新开始</button>
                 </div>
 
                 <div class="progress-bar">
@@ -171,6 +190,10 @@
                                 <option value="4.交流词汇">交流词汇 (149词)</option>
                                 <option value="5.日常词汇">日常词汇 (138词)</option>
                                 <option value="6.幼儿园词汇">幼儿园综合词汇 (157词)</option>
+                            +                                <option value="生活交流">生活交流</option>
+                            +                                <option value="学习自然">学习自然</option>
+                            +                                <option value="综合拓展">综合拓展</option>
+                            +                                <option value="幼儿园全部">幼儿园全部</option>
                             </optgroup>
                             <!-- Minecraft 标准词库 -->
                             <optgroup label="⛏️ Minecraft 标准词库">
@@ -258,31 +281,29 @@
                             <option value="50">50题</option>
                         </select>
                     </div>
+                    <!-- 新增：拼写提示内容模式 -->
                     <div class="setting-item">
-                        <label>默认拼写子模式:</label>
-                        <select id="spellingDefaultSubmode">
-                            <option value="spell">拼写单词</option>
-                            <option value="fill">补全单词</option>
+                        <label>拼写提示内容:</label>
+                        <select id="spellingHintMode">
+                            <option value="full" selected>完整英文</option>
+                            <option value="first_last">首尾字母</option>
                         </select>
-                    </div>
-                    <div class="setting-item">
-                        <label>拼写单词显示完整提示:</label>
-                        <input type="checkbox" id="spellingHint" checked>
                     </div>
                 </div>
 
                 <div class="settings-group">
-                    <h3>📱 显示与设备</h3>
+                    <h3>📱 设备与显示</h3>
                     <div class="setting-item">
                         <label>设备模式:</label>
                         <select id="deviceMode">
                             <option value="phone">手机</option>
                             <option value="tablet">平板</option>
+                            <option value="desktop">桌面</option>
                         </select>
                     </div>
                     <div class="setting-item">
                         <label>界面缩放:</label>
-                        <input type="range" id="uiScale" min="0.85" max="1.15" step="0.05" value="0.95" oninput="updateSettingsDisplay()">
+                        <input type="range" id="uiScale" min="0.8" max="1.2" step="0.05" value="0.95">
                         <span id="uiScaleValue">95%</span>
                     </div>
                     <div class="setting-item">
@@ -290,76 +311,25 @@
                         <input type="checkbox" id="compactMode" checked>
                     </div>
                 </div>
-
-                <div class="settings-group">
-                    <h3>📊 学习记录</h3>
-                    <div class="setting-item">
-                        <label>总学习时间:</label>
-                        <span id="totalStudyTime">0 分钟</span>
-                    </div>
-                    <div class="setting-item">
-                        <label>学习天数:</label>
-                        <span id="studyDays">0 天</span>
-                    </div>
-                    <div class="setting-item">
-                        <label>掌握词汇:</label>
-                        <span id="masteredWords">0 个</span>
-                    </div>
-                    <div class="setting-item">
-                        <button class="control-btn" onclick="clearProgress()" style="background: linear-gradient(45deg, #f44336, #d32f2f);">清除记录</button>
-                        <button class="control-btn" onclick="exportProgress()" style="background: linear-gradient(45deg, #4CAF50, #45a049);">导出数据</button>
-                        <!-- 新增：奖励导出/导入 -->
-                        <button class="control-btn" onclick="exportRewardData()" style="background: linear-gradient(45deg, #03A9F4, #0288D1);">导出奖励</button>
-                        <button class="control-btn" onclick="importRewardData()" style="background: linear-gradient(45deg, #FF9800, #F57C00);">导入奖励</button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- 星星动画容器 -->
-    <div class="stars-container" id="starsContainer"></div>
-    
-    <!-- 通知 -->
     <div class="notification" id="notification"></div>
 
-    <!-- 脚本文件 -->
     <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
-    <script src="js/tts-adapter.js"></script>
+    <script src="js/data-migration.js"></script>
     <script src="js/vocabulary-data.js"></script>
     <script src="js/vocabulary.js"></script>
-    <script src="js/rewards.js"></script>
+    <script src="js/tts-adapter.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/rewards.js"></script>
+    <script src="js/settings.js"></script>
     <script src="js/game.js"></script>
     <script src="js/spelling.js"></script>
-    <script src="js/settings.js"></script>
     <script src="js/main.js"></script>
-
-    <script>
-      // 提供一个可选的启用语音按钮（移动端更稳）
-      (function(){
-        try {
-          var btn = document.createElement('button');
-          btn.textContent = '🔓 启用语音';
-          btn.style.cssText = 'position:fixed;right:12px;bottom:12px;padding:8px 12px;border-radius:8px;border:1px solid #ddd;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.15);z-index:9999;';
-          btn.onclick = function(){
-            if (window.TTS && typeof window.TTS.enable === 'function') {
-              window.TTS.enable();
-              btn.textContent = '✅ 语音已启用';
-              setTimeout(function(){ btn.remove(); }, 800);
-            } else {
-              btn.remove();
-            }
-          };
-          // 仅在移动端显示
-          if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            document.body.appendChild(btn);
-          }
-        } catch (e) {}
-      })();
-    </script>
-  </body>
+</body>
 </html>
 
 

@@ -1,0 +1,74 @@
+词库清理报告
+==================================================
+
+处理时间: 2025-09-09 10:14:43
+总计移除词汇: 0
+总计更新图片: 3
+处理文件数: 16
+
+文件: animal_crossing_all_characters.js
+  移除词汇: 0
+  更新图片: 2
+  更新图片的词汇: cookie, apple
+
+文件: animal_crossing_all_items.js
+  移除词汇: 0
+  更新图片: 1
+  更新图片的词汇: tree
+
+文件: animal_crossing_characters.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: animal_crossing_items.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: disney_illusion_island_basic.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: kirby_basic.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: lego_basic.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: mario_basic.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: pbs_kids_all_programs.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: pbs_kids_colors.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: pokemon_all_generations.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: pokemon_basic.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: pvz_basic.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: scribblenauts_basic.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: toca_boca_all_games.js
+  移除词汇: 0
+  更新图片: 0
+
+文件: toca_boca_kitchen.js
+  移除词汇: 0
+  更新图片: 0
+

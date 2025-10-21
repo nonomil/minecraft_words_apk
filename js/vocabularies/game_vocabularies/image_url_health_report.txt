@@ -1,0 +1,5 @@
+Image URL Health Check Report
+Scanned base directory: D:\WorkPlace\Html\MineCraft学单词游戏-v2\js\vocabularies\game_vocabularies
+JS files with imageURLs: 6
+Unique URLs: 278
+OK: 278  FAIL: 0

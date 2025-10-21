@@ -1,4 +1,4 @@
-// Vocabulary file mappings
+// Vocabulary file mappings - Updated for Stage-based System
 
 (function () {
   // Helper to safely read global arrays by name
@@ -12,6 +12,13 @@
     return [];
   }
 
+  // === NEW STAGE-BASED VOCABULARY SYSTEM ===
+  // Collect vocabulary arrays for the new three-stage system
+  const stageKindergarten = getGlobalArray('STAGE_KINDERGARTEN');
+  const stageElementaryLower = getGlobalArray('STAGE_ELEMENTARY_LOWER');
+  const stageElementaryUpper = getGlobalArray('STAGE_ELEMENTARY_UPPER');
+
+  // === LEGACY SYSTEM SUPPORT ===
   // Collect source arrays for kindergarten (1~6). Some may be undefined depending on load order.
   const sourceKindergarten = [
     getGlobalArray('VOCAB_1__________'),
@@ -21,6 +28,11 @@
     getGlobalArray('VOCAB_5_____'),
     getGlobalArray('VOCAB_6______')
   ];
+
+  // Legacy combined vocabulary arrays
+  const legacyLifeCommunication = getGlobalArray('KINDERGARTEN_LIFE_COMMUNICATION');
+  const legacyLearningNature = getGlobalArray('KINDERGARTEN_LEARNING_NATURE');
+  const legacyGeneralExtended = getGlobalArray('KINDERGARTEN_GENERAL_EXTENDED');
 
   // Small set of emoji SVGs as online placeholders (cute style)
   const EMOJI_SVGS = [
@@ -179,33 +191,94 @@
 
   // 新版幼儿园词汇库结构：3个主题文件 + 全部合集
   const VOCABULARY_MAPPINGS = {
+    "Stage_Vocabularies": [
+      { "original_name": "幼儿园阶段", "js_file": "stage/stage_kindergarten.js", "variable_name": "STAGE_KINDERGARTEN", "word_count": 128, "description": "基础生活词汇和简单概念" },
+      { "original_name": "小学低年级", "js_file": "stage/stage_elementary_lower.js", "variable_name": "STAGE_ELEMENTARY_LOWER", "word_count": 168, "description": "学科入门词汇和社交技能" },
+      { "original_name": "小学高年级", "js_file": "stage/stage_elementary_upper.js", "variable_name": "STAGE_ELEMENTARY_UPPER", "word_count": 117, "description": "抽象概念和跨学科整合" }
+    ],
     "Kindergarten_New": [
-      { "original_name": "生活交流", "js_file": "kindergarten_life_communication_expanded.js", "variable_name": "KINDERGARTEN_LIFE_COMMUNICATION_EXPANDED", "word_count": 45, "description": "基础问候、情感、家庭、动作、身体、食物、衣物、颜色、数字等" },
-      { "original_name": "学习自然", "js_file": "kindergarten_learning_nature.js", "variable_name": "KINDERGARTEN_LEARNING_NATURE", "word_count": 65, "description": "学习用品、学校生活、动物、植物、天气、自然环境等" },
-      { "original_name": "综合拓展", "js_file": "kindergarten_general_extended.js", "variable_name": "KINDERGARTEN_GENERAL_EXTENDED", "word_count": 85, "description": "地点场所、交通工具、职业、时间概念、玩具游戏、音乐艺术、运动活动等" },
+      { "original_name": "生活交流", "js_file": "kindergarten/kindergarten_life_communication_expanded.js", "variable_name": "KINDERGARTEN_LIFE_COMMUNICATION_EXPANDED", "word_count": 45, "description": "基础问候、情感、家庭、动作、身体、食物、衣物、颜色、数字等" },
+      { "original_name": "学习自然", "js_file": "kindergarten/kindergarten_learning_nature.js", "variable_name": "KINDERGARTEN_LEARNING_NATURE", "word_count": 65, "description": "学习用品、学校生活、动物、植物、天气、自然环境等" },
+      { "original_name": "综合拓展", "js_file": "kindergarten/kindergarten_general_extended.js", "variable_name": "KINDERGARTEN_GENERAL_EXTENDED", "word_count": 85, "description": "地点场所、交通工具、职业、时间概念、玩具游戏、音乐艺术、运动活动等" },
       { "original_name": "幼儿园全部", "js_file": "mappings.js", "variable_name": "KINDERGARTEN_ALL_NEW", "word_count": 195, "description": "包含所有幼儿园词汇的完整合集" }
     ],
     "Kindergarten_Legacy": [],
     "Kindergarten_Packs": [],
     "Minecraft_Standard": [
-      { "original_name": "minecraft_1.blocks_方块", "js_file": "minecraft_blocks.js", "variable_name": "MINECRAFT_1_BLOCKS___", "word_count": 130 },
-      { "original_name": "minecraft_2.items_物品", "js_file": "minecraft_items.js", "variable_name": "MINECRAFT_2_ITEMS___", "word_count": 221 },
-      { "original_name": "minecraft_2.items_物品2", "js_file": "minecraft_items_2.js", "variable_name": "MINECRAFT_2_ITEMS___2", "word_count": 106 },
-      { "original_name": "minecraft_3.entities_实体", "js_file": "minecraft_entities.js", "variable_name": "MINECRAFT_3_ENTITIES___", "word_count": 107 },
-      { "original_name": "minecraft_4.environment_环境", "js_file": "minecraft_environment.js", "variable_name": "MINECRAFT_4_ENVIRONMENT___", "word_count": 128 },
-      { "original_name": "minecraft_5.biomes_生物群系", "js_file": "minecraft_biomes.js", "variable_name": "MINECRAFT_5_BIOMES_____", "word_count": 69 },
-      { "original_name": "minecraft_6.状态效果 (Status Effects)", "js_file": "minecraft_status_effects.js", "variable_name": "MINECRAFT_6_______STATUS_EFFECTS_", "word_count": 84 },
-      { "original_name": "minecraft_7.魔咒 (Enchantments)", "js_file": "minecraft_enchantments.js", "variable_name": "MINECRAFT_7_____ENCHANTMENTS_", "word_count": 77 },
-      { "original_name": "minecraft_8.进度 (Advancements)", "js_file": "minecraft_advancements.js", "variable_name": "MINECRAFT_8_____ADVANCEMENTS_", "word_count": 110 }
+      { "original_name": "minecraft_1.blocks_方块", "js_file": "minecraft/minecraft_blocks.js", "variable_name": "MINECRAFT_1_BLOCKS___", "word_count": 130 },
+      { "original_name": "minecraft_2.items_物品", "js_file": "minecraft/minecraft_items.js", "variable_name": "MINECRAFT_2_ITEMS___", "word_count": 221 },
+      { "original_name": "minecraft_2.items_物品2", "js_file": "minecraft/minecraft_items_2.js", "variable_name": "MINECRAFT_2_ITEMS___2", "word_count": 106 },
+      { "original_name": "minecraft_3.entities_实体", "js_file": "minecraft/minecraft_entities.js", "variable_name": "MINECRAFT_3_ENTITIES___", "word_count": 107 },
+      { "original_name": "minecraft_4.environment_环境", "js_file": "minecraft/minecraft_environment.js", "variable_name": "MINECRAFT_4_ENVIRONMENT___", "word_count": 128 },
+      { "original_name": "minecraft_5.biomes_生物群系", "js_file": "minecraft/minecraft_biomes.js", "variable_name": "MINECRAFT_5_BIOMES_____", "word_count": 69 },
+      { "original_name": "minecraft_6.状态效果 (Status Effects)", "js_file": "minecraft/minecraft_status_effects.js", "variable_name": "MINECRAFT_6_______STATUS_EFFECTS_", "word_count": 84 },
+      { "original_name": "minecraft_7.魔咒 (Enchantments)", "js_file": "minecraft/minecraft_enchantments.js", "variable_name": "MINECRAFT_7_____ENCHANTMENTS_", "word_count": 77 },
+      { "original_name": "minecraft_8.进度 (Advancements)", "js_file": "minecraft/minecraft_advancements.js", "variable_name": "MINECRAFT_8_____ADVANCEMENTS_", "word_count": 110 }
     ],
     "Minecraft_Simple": [
-      { "original_name": "1.minecraft_基础_basic", "js_file": "minecraft_basic.js", "variable_name": "VOCAB_1_MINECRAFT____BASIC", "word_count": 63 },
-      { "original_name": "1.普通_common", "js_file": "common_vocabulary.js", "variable_name": "VOCAB_1____COMMON", "word_count": 84 },
-      { "original_name": "2.minecraft_中级_basic", "js_file": "minecraft_intermediate.js", "variable_name": "VOCAB_2_MINECRAFT____BASIC", "word_count": 60 },
-      { "original_name": "3.minecraft_高级_advanced", "js_file": "minecraft_advanced.js", "variable_name": "VOCAB_3_MINECRAFT____ADVANCED", "word_count": 60 },
-      { "original_name": "minecraft_3.单词汇总", "js_file": "minecraft_words_full.js", "variable_name": "MINECRAFT_3_____", "word_count": 1174 }
+      { "original_name": "1.minecraft_基础_basic", "js_file": "minecraft/minecraft_basic.js", "variable_name": "VOCAB_1_MINECRAFT____BASIC", "word_count": 63 },
+      { "original_name": "1.普通_common", "js_file": "common/common_vocabulary.js", "variable_name": "VOCAB_1____COMMON", "word_count": 84 },
+      { "original_name": "2.minecraft_中级_basic", "js_file": "minecraft/minecraft_intermediate.js", "variable_name": "VOCAB_2_MINECRAFT____BASIC", "word_count": 60 },
+      { "original_name": "3.minecraft_高级_advanced", "js_file": "minecraft/minecraft_advanced.js", "variable_name": "VOCAB_3_MINECRAFT____ADVANCED", "word_count": 60 },
+      { "original_name": "minecraft_3.单词汇总", "js_file": "minecraft/minecraft_words_full.js", "variable_name": "MINECRAFT_3_____", "word_count": 1174 }
     ]
   };
+
+  // === NEW STAGE-BASED VOCABULARY MAPPINGS ===
+  const STAGE_VOCABULARY_MAPPINGS = {
+    "Stage_System": [
+      { 
+        "stage_name": "幼儿园阶段", 
+        "stage_code": "kindergarten", 
+        "js_file": "stage/stage_kindergarten.js", 
+        "variable_name": "STAGE_KINDERGARTEN", 
+        "target_age": "3-6岁",
+        "description": "基础生活词汇和简单概念",
+        "estimated_count": 100
+      },
+      { 
+        "stage_name": "小学低年级", 
+        "stage_code": "elementary_lower", 
+        "js_file": "stage/stage_elementary_lower.js", 
+        "variable_name": "STAGE_ELEMENTARY_LOWER", 
+        "target_age": "6-9岁",
+        "description": "学科入门词汇和社交技能",
+        "estimated_count": 1047
+      },
+      { 
+        "stage_name": "小学高年级", 
+        "stage_code": "elementary_upper", 
+        "js_file": "stage/stage_elementary_upper.js", 
+        "variable_name": "STAGE_ELEMENTARY_UPPER", 
+        "target_age": "9-12岁",
+        "description": "抽象概念和跨学科整合",
+        "estimated_count": 732
+      }
+    ]
+  };
+
+  // Function to get all stage vocabularies combined
+  function getAllStageVocabularies() {
+    const combined = [];
+    if (stageKindergarten.length > 0) combined.push(...stageKindergarten);
+    if (stageElementaryLower.length > 0) combined.push(...stageElementaryLower);
+    if (stageElementaryUpper.length > 0) combined.push(...stageElementaryUpper);
+    return combined;
+  }
+
+  // Function to get vocabulary by stage
+  function getVocabularyByStage(stage) {
+    switch(stage) {
+      case 'kindergarten':
+        return stageKindergarten;
+      case 'elementary_lower':
+        return stageElementaryLower;
+      case 'elementary_upper':
+        return stageElementaryUpper;
+      default:
+        return [];
+    }
+  }
 
   // UMD-style exports
   if (typeof module !== 'undefined' && module.exports) {
@@ -217,7 +290,15 @@
       K_PACK_2,
       K_PACK_3,
       VOCAB_DATASETS,
-      VOCABULARY_MAPPINGS
+      VOCABULARY_MAPPINGS,
+      // New stage-based exports
+      STAGE_VOCABULARY_MAPPINGS,
+      getAllStageVocabularies,
+      getVocabularyByStage,
+      // Individual stage arrays
+      get STAGE_KINDERGARTEN() { return stageKindergarten; },
+      get STAGE_ELEMENTARY_LOWER() { return stageElementaryLower; },
+      get STAGE_ELEMENTARY_UPPER() { return stageElementaryUpper; }
     };
   } else if (typeof window !== 'undefined') {
     window.KINDERGARTEN_CORE = KINDERGARTEN_CORE;
@@ -236,5 +317,37 @@
     window.K_PACK_3 = K_PACK_3;
     window.VOCAB_DATASETS = VOCAB_DATASETS;
     window.VOCABULARY_MAPPINGS = VOCABULARY_MAPPINGS;
+    
+    // New stage-based vocabulary exports
+    window.STAGE_VOCABULARY_MAPPINGS = STAGE_VOCABULARY_MAPPINGS;
+    window.getAllStageVocabularies = getAllStageVocabularies;
+    window.getVocabularyByStage = getVocabularyByStage;
+    
+    // Individual stage arrays with dynamic getters
+    try {
+      Object.defineProperty(window, 'STAGE_KINDERGARTEN_VOCAB', {
+        get: () => stageKindergarten,
+        configurable: true
+      });
+      Object.defineProperty(window, 'STAGE_ELEMENTARY_LOWER_VOCAB', {
+        get: () => stageElementaryLower,
+        configurable: true
+      });
+      Object.defineProperty(window, 'STAGE_ELEMENTARY_UPPER_VOCAB', {
+        get: () => stageElementaryUpper,
+        configurable: true
+      });
+      Object.defineProperty(window, 'ALL_STAGE_VOCABULARIES', {
+        get: getAllStageVocabularies,
+        configurable: true
+      });
+    } catch (_) {
+      // Fallback for environments that don't support Object.defineProperty
+      window.STAGE_KINDERGARTEN_VOCAB = stageKindergarten;
+      window.STAGE_ELEMENTARY_LOWER_VOCAB = stageElementaryLower;
+      window.STAGE_ELEMENTARY_UPPER_VOCAB = stageElementaryUpper;
+      window.ALL_STAGE_VOCABULARIES = getAllStageVocabularies();
+    }
   }
+
 })();

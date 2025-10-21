@@ -77,6 +77,13 @@
             overflow-x: auto;
         }
         .muted { opacity: 0.85; }
+        .dev-panel {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        .dev-panel label { cursor: pointer; }
     </style>
 </head>
 <body>
@@ -85,6 +92,13 @@
         
         <div id="status" class="status warning">
             检测中...
+        </div>
+
+        <div class="dev-panel">
+            <label>
+                <input type="checkbox" id="mockNativeToggle"> 模拟原生TTS（浏览器）
+            </label>
+            <div class="muted" id="nativeStatus">原生TTS：检测中...</div>
         </div>
         
         <div>
@@ -139,7 +153,35 @@
         </div>
     </div>
 
+    <!-- 原生TTS浏览器模拟（仅当本地开关或query参数启用时生效） -->
+    <script src="js/tts-native-mock.js"></script>
+
     <script>
+        function getMockFlag() {
+            try {
+                return localStorage.getItem('MOCK_NATIVE_TTS') === '1' || /[?&]mockNative=1/.test(location.search);
+            } catch (e) { return false; }
+        }
+        function setMockFlag(on) {
+            try { localStorage.setItem('MOCK_NATIVE_TTS', on ? '1' : '0'); } catch (e) {}
+        }
+        function isNativeAvailable() {
+            try {
+                return !!(window.Capacitor && typeof window.Capacitor.isNativePlatform === 'function' && window.Capacitor.isNativePlatform() && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech);
+            } catch (e) { return false; }
+        }
+        function updateNativeStatusLabel() {
+            var el = document.getElementById('nativeStatus');
+            if (!el) return;
+            if (isNativeAvailable()) {
+                el.textContent = '原生TTS：可用（当前页面将优先使用原生TTS）';
+            } else {
+                el.textContent = '原生TTS：不可用（将使用浏览器 Web Speech API）';
+            }
+            var mockToggle = document.getElementById('mockNativeToggle');
+            if (mockToggle) mockToggle.checked = getMockFlag();
+        }
+
         class MobileTTS {
             constructor() {
                 this.synth = window.speechSynthesis;
@@ -147,20 +189,36 @@
                 this.isSupported = false;
                 this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
                 this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-                this.userActivated = false; // 需要用户手势解锁
+                this.userActivated = false; // 需要用户手势解锁（WebSpeech专用）
                 this.currentUtterance = null;
+                this.nativeTTS = null; // 原生TTS插件（若存在）
                 this.init();
             }
 
             async init() {
+                // 检测原生插件
+                try {
+                    if (isNativeAvailable()) {
+                        this.nativeTTS = window.Capacitor.Plugins.TextToSpeech;
+                    }
+                } catch (e) {}
+
                 await this.checkSupport();
                 await this.loadVoices();
                 this.updateUI();
                 this.updateStatus();
+                updateNativeStatusLabel();
             }
 
             async checkSupport() {
                 const statusEl = document.getElementById('status');
+                if (this.nativeTTS) {
+                    statusEl.className = 'status success';
+                    statusEl.innerHTML = '✅ 检测到原生TTS，可直接朗读（浏览器中为模拟）';
+                    this.isSupported = true;
+                    return true;
+                }
+
                 if (!('speechSynthesis' in window)) {
                     statusEl.className = 'status error';
                     statusEl.innerHTML = '❌ 当前浏览器不支持TTS';
@@ -186,6 +244,7 @@
             }
 
             async loadVoices() {
+                if (this.nativeTTS) return; // 使用原生时无需加载浏览器语音
                 return new Promise((resolve) => {
                     const updateList = () => {
                         this.voices = this.synth.getVoices();
@@ -209,6 +268,7 @@
             }
 
             populateVoiceList() {
+                if (this.nativeTTS) return; // 原生模式不展示浏览器语音
                 const voiceSelect = document.getElementById('voiceSelect');
                 if (!voiceSelect) return;
                 voiceSelect.innerHTML = '';
@@ -224,11 +284,15 @@
                 });
             }
 
-            // 用户手势激活，解决移动端限制
+            // 用户手势激活（WebSpeech），原生不需要
             async activate() {
+                if (this.nativeTTS) {
+                    this.userActivated = true;
+                    this.updateStatus('✅ 原生TTS已启用（模拟/真机均无需手势）');
+                    return true;
+                }
                 if (!this.isSupported) return false;
                 try {
-                    // 用极短、音量为0的发声进行“解锁”
                     const utter = new SpeechSynthesisUtterance(' ');
                     utter.volume = 0;
                     utter.rate = 1;
@@ -246,6 +310,7 @@
             }
 
             chooseVoiceForText(text) {
+                if (this.nativeTTS) return null;
                 if (!this.voices || this.voices.length === 0) return null;
                 const hasChinese = /[\u4e00-\u9fa5]/.test(text || '');
                 const prefer = hasChinese
@@ -255,7 +320,24 @@
                 return candidates[0] || this.voices[0];
             }
 
-            speak(text) {
+            async speak(text) {
+                if (this.nativeTTS) {
+                    try {
+                        await this.nativeTTS.speak({
+                            text,
+                            lang: /[\u4e00-\u9fa5]/.test(text) ? 'zh-CN' : 'en-US',
+                            rate: parseFloat(document.getElementById('rateSlider').value || '1'),
+                            pitch: parseFloat(document.getElementById('pitchSlider').value || '1'),
+                            volume: parseFloat(document.getElementById('volumeSlider').value || '1'),
+                            category: 'ambient',
+                        });
+                        return;
+                    } catch (e) {
+                        console.warn('原生TTS失败，回退到WebSpeech', e);
+                        // 继续走 Web 回退
+                    }
+                }
+
                 if (!this.isSupported) {
                     this.fallbackTTS(text);
                     return;
@@ -304,6 +386,10 @@
             }
 
             stop() {
+                if (this.nativeTTS) {
+                    try { this.nativeTTS.stop(); } catch (e) {}
+                    return;
+                }
                 if (this.synth && this.synth.speaking) {
                     this.synth.cancel();
                 }
@@ -333,6 +419,14 @@
                 if (rate) rate.oninput = (e) => document.getElementById('rateValue').textContent = e.target.value;
                 if (pitch) pitch.oninput = (e) => document.getElementById('pitchValue').textContent = e.target.value;
                 if (volume) volume.oninput = (e) => document.getElementById('volumeValue').textContent = e.target.value;
+
+                const mockToggle = document.getElementById('mockNativeToggle');
+                if (mockToggle) {
+                    mockToggle.addEventListener('change', (e) => {
+                        setMockFlag(!!e.target.checked);
+                        location.reload();
+                    });
+                }
             }
 
             updateStatus(text) {
@@ -353,6 +447,7 @@
 
         // 页面加载完成后初始化
         window.addEventListener('load', () => {
+            updateNativeStatusLabel();
             ttsInstance = new MobileTTS();
             window.ttsInstance = ttsInstance;
         });

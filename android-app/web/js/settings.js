@@ -699,7 +699,44 @@ function ensureActivationUIMounted(){
             <input type="password" id="debugPassword" placeholder="输入调试密码（跳过激活）" style="width:240px; margin-right:8px;">
             <button class="control-btn" id="btnDebugUnlock" style="background: linear-gradient(45deg, #607D8B, #455A64);">启用调试</button>
           </div>
+          <div id="debugControls" style="display:none; margin-top:10px; padding:10px; background:#f5f5f5; border-radius:4px;">
+            <h4 style="margin:0 0 10px 0; color:#333;">调试控制面板</h4>
+            <div class="setting-item" style="margin-bottom:10px;">
+              <label>钻石数量：</label>
+              <input type="number" id="debugDiamondCount" min="0" max="999" style="width:80px; margin-right:8px;">
+              <button class="control-btn" id="btnSetDiamonds" style="background: linear-gradient(45deg, #2196F3, #1976D2);">设置钻石</button>
+            </div>
+            <div class="setting-item" style="margin-bottom:10px;">
+              <label>钻石剑数量：</label>
+              <input type="number" id="debugSwordCount" min="0" max="999" style="width:80px; margin-right:8px;">
+              <button class="control-btn" id="btnSetSwords" style="background: linear-gradient(45deg, #9C27B0, #7B1FA2);">设置钻石剑</button>
+            </div>
+            <div class="setting-item">
+              <button class="control-btn" id="btnResetRewards" style="background: linear-gradient(45deg, #FF5722, #D84315);">重置奖励</button>
+              <button class="control-btn" id="btnMaxRewards" style="background: linear-gradient(45deg, #4CAF50, #388E3C);">最大奖励</button>
+            </div>
+          </div>
         </details>
+    </div>
+    <div class="setting-item" style="margin-top:15px; padding-top:15px; border-top:1px solid #ddd;">
+      <h5 style="margin:0 0 10px 0; color:#333;">学习记录管理</h5>
+      <div class="setting-item" style="margin-bottom:10px;">
+        <button class="control-btn" id="btnViewStats" style="background: linear-gradient(45deg, #00BCD4, #0097A7);">查看统计</button>
+        <button class="control-btn" id="btnExportLearning" style="background: linear-gradient(45deg, #3F51B5, #303F9F);">导出学习记录</button>
+      </div>
+      <div class="setting-item" style="margin-bottom:10px;">
+        <label><input type="checkbox" id="prioritizeUnlearned" checked> 优先加载未学习单词</label>
+      </div>
+      <div id="learningStats" style="display:none; margin-top:10px; padding:10px; background:#e8f5e8; border-radius:4px; font-size:12px;">
+        <!-- 学习统计将在这里显示 -->
+      </div>
+      <div class="setting-item" style="margin-top:10px;">
+        <button class="control-btn" id="btnManualBackup" style="background: linear-gradient(45deg, #607D8B, #455A64); margin-right: 5px;">手动备份</button>
+        <button class="control-btn" id="btnViewBackups" style="background: linear-gradient(45deg, #795548, #5D4037);">查看备份</button>
+      </div>
+      <div id="backupList" style="display:none; margin-top:10px; padding:10px; background:#f5f5f5; border-radius:4px; font-size:12px;">
+        <!-- 备份列表将在这里显示 -->
+      </div>
     </div>`;
 
     settingsRoot.appendChild(wrapper);
@@ -733,6 +770,135 @@ async function verifyActivationCodeOnline(code) {
   return { ok: false };
 }
 
+// 显示调试控制面板
+function showDebugControls() {
+  const debugControls = document.getElementById('debugControls');
+  if (debugControls) {
+    debugControls.style.display = 'block';
+    // 初始化当前数值
+    const diamondInput = document.getElementById('debugDiamondCount');
+    const swordInput = document.getElementById('debugSwordCount');
+    if (diamondInput && typeof totalDiamonds !== 'undefined') {
+      diamondInput.value = totalDiamonds;
+    }
+    if (swordInput && typeof totalSwords !== 'undefined') {
+      swordInput.value = totalSwords;
+    }
+    bindDebugControlEvents();
+  }
+}
+
+// 绑定调试控制事件
+function bindDebugControlEvents() {
+  const btnSetDiamonds = document.getElementById('btnSetDiamonds');
+  const btnSetSwords = document.getElementById('btnSetSwords');
+  const btnResetRewards = document.getElementById('btnResetRewards');
+  const btnMaxRewards = document.getElementById('btnMaxRewards');
+
+  if (btnSetDiamonds) {
+    btnSetDiamonds.addEventListener('click', () => {
+      const input = document.getElementById('debugDiamondCount');
+      const count = parseInt(input.value) || 0;
+      if (count >= 0 && count <= 999) {
+        if (typeof totalDiamonds !== 'undefined') {
+          totalDiamonds = count;
+          saveKindergartenProgress();
+          updateRewardDisplay();
+          showNotification(`钻石数量已设置为: ${count}`);
+        } else {
+          alert('奖励系统未初始化');
+        }
+      } else {
+        alert('请输入0-999之间的有效数字');
+      }
+    });
+  }
+
+  if (btnSetSwords) {
+    btnSetSwords.addEventListener('click', () => {
+      const input = document.getElementById('debugSwordCount');
+      const count = parseInt(input.value) || 0;
+      if (count >= 0 && count <= 999) {
+        if (typeof totalSwords !== 'undefined') {
+          totalSwords = count;
+          saveKindergartenProgress();
+          updateRewardDisplay();
+          showNotification(`钻石剑数量已设置为: ${count}`);
+        } else {
+          alert('奖励系统未初始化');
+        }
+      } else {
+        alert('请输入0-999之间的有效数字');
+      }
+    });
+  }
+
+  if (btnResetRewards) {
+    btnResetRewards.addEventListener('click', () => {
+      if (confirm('确定要重置所有奖励吗？这将清除所有钻石和钻石剑。')) {
+        if (typeof totalDiamonds !== 'undefined' && typeof totalSwords !== 'undefined') {
+          totalDiamonds = 0;
+          totalSwords = 0;
+          saveKindergartenProgress();
+          updateRewardDisplay();
+          // 重置输入框
+          document.getElementById('debugDiamondCount').value = 0;
+          document.getElementById('debugSwordCount').value = 0;
+          showNotification('奖励已重置');
+        }
+      }
+    });
+  }
+
+  if (btnMaxRewards) {
+    btnMaxRewards.addEventListener('click', () => {
+      if (typeof totalDiamonds !== 'undefined' && typeof totalSwords !== 'undefined') {
+        totalDiamonds = 999;
+        totalSwords = 999;
+        saveKindergartenProgress();
+        updateRewardDisplay();
+        // 更新输入框
+        document.getElementById('debugDiamondCount').value = 999;
+        document.getElementById('debugSwordCount').value = 999;
+        showNotification('奖励已设置为最大值');
+      }
+    });
+  }
+}
+
+// 显示学习统计
+function showLearningStatistics() {
+  const statsDiv = document.getElementById('learningStats');
+  if (!statsDiv) return;
+
+  try {
+    const stats = getLearningStatistics();
+    const vocabName = document.getElementById('vocabSelect')?.value || '当前词库';
+
+    const unlearnedCount = Math.max(0, stats.total - stats.mastered - stats.learning - stats.seen);
+
+    statsDiv.innerHTML = `
+      <div style="margin-bottom:8px;"><strong>${vocabName} 学习统计</strong></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+        <div>总单词数: <strong>${stats.total}</strong></div>
+        <div>已掌握: <strong style="color:#4CAF50;">${stats.mastered}</strong></div>
+        <div>学习中: <strong style="color:#FF9800;">${stats.learning}</strong></div>
+        <div>已见过: <strong style="color:#2196F3;">${stats.seen}</strong></div>
+        <div>未学习: <strong style="color:#9E9E9E;">${unlearnedCount}</strong></div>
+        <div>准确率: <strong style="color:#9C27B0;">${stats.accuracy}%</strong></div>
+      </div>
+      <div style="font-size:11px; color:#666;">
+        总答题次数: ${stats.totalSeen} | 正确: ${stats.totalCorrect} | 错误: ${stats.totalWrong}
+      </div>
+    `;
+
+    statsDiv.style.display = 'block';
+  } catch (e) {
+    statsDiv.innerHTML = `<div style="color:#f44336;">获取学习统计失败: ${e.message}</div>`;
+    statsDiv.style.display = 'block';
+  }
+}
+
 function bindActivationUIEvents() {
   const inputEl = document.getElementById('activationCode');
   const btnActivate = document.getElementById('btnActivate');
@@ -763,6 +929,7 @@ function bindActivationUIEvents() {
       if (pwd && CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.DEBUG_PASSWORD && pwd === CONFIG.ACTIVATION.DEBUG_PASSWORD) {
         saveActivationInfo({ activated: true, code: '', debug: true, ts: Date.now() });
         updateActivationUI();
+        showDebugControls();
         alert('调试模式已启用（免激活）');
       } else {
         alert('调试密码错误');
@@ -788,6 +955,107 @@ function bindActivationUIEvents() {
         alert('激活失败：未找到此激活码');
       }
     });
+  }
+
+  // 学习记录管理事件
+  const btnViewStats = document.getElementById('btnViewStats');
+  const btnExportLearning = document.getElementById('btnExportLearning');
+  const prioritizeUnlearnedCheckbox = document.getElementById('prioritizeUnlearned');
+
+  if (btnViewStats) {
+    btnViewStats.addEventListener('click', () => {
+      showLearningStatistics();
+    });
+  }
+
+  if (btnExportLearning) {
+    btnExportLearning.addEventListener('click', () => {
+      exportLearningRecord();
+    });
+  }
+
+  if (prioritizeUnlearnedCheckbox) {
+    prioritizeUnlearnedCheckbox.addEventListener('change', (e) => {
+      // 保存设置到本地存储
+      try {
+        localStorage.setItem('prioritizeUnlearned', e.target.checked);
+        showNotification(e.target.checked ? '已启用优先加载未学习单词' : '已禁用优先加载未学习单词');
+      } catch (e) {
+        console.warn('保存设置失败:', e);
+      }
+    });
+
+    // 加载保存的设置
+    try {
+      const saved = localStorage.getItem('prioritizeUnlearned');
+      if (saved !== null) {
+        prioritizeUnlearnedCheckbox.checked = saved === 'true';
+      }
+    } catch (e) {
+      console.warn('加载设置失败:', e);
+    }
+  }
+
+  // 数据备份管理事件
+  const btnManualBackup = document.getElementById('btnManualBackup');
+  const btnViewBackups = document.getElementById('btnViewBackups');
+
+  if (btnManualBackup) {
+    btnManualBackup.addEventListener('click', () => {
+      const backupKey = window.DataMigration?.manualBackup();
+      if (backupKey) {
+        setTimeout(() => showBackupList(), 500); // 刷新备份列表
+      }
+    });
+  }
+
+  if (btnViewBackups) {
+    btnViewBackups.addEventListener('click', () => {
+      showBackupList();
+    });
+  }
+}
+
+// 显示备份列表
+function showBackupList() {
+  const backupListDiv = document.getElementById('backupList');
+  if (!backupListDiv) return;
+
+  try {
+    const backups = window.DataMigration?.getBackupList() || [];
+
+    if (backups.length === 0) {
+      backupListDiv.innerHTML = '<div style="color:#666;">暂无备份</div>';
+      backupListDiv.style.display = 'block';
+      return;
+    }
+
+    let html = '<div style="margin-bottom:8px;"><strong>数据备份列表</strong></div>';
+
+    backups.forEach((backup, index) => {
+      const date = new Date(backup.backupDate).toLocaleString('zh-CN');
+      html += `
+        <div style="margin-bottom:8px; padding:8px; background:#fff; border-radius:4px; border:1px solid #ddd;">
+          <div style="font-weight:bold; margin-bottom:4px;">备份 ${index + 1}: ${backup.key}</div>
+          <div style="font-size:11px; color:#666; margin-bottom:4px;">
+            时间: ${date} | 数据项: ${backup.dataCount} | 版本: ${backup.version}
+          </div>
+          <div style="margin-top:6px;">
+            <button class="control-btn" onclick="window.DataMigration?.manualRestore('${backup.key}')"
+                    style="background: linear-gradient(45deg, #4CAF50, #388E3C); font-size:11px; padding:4px 8px; margin-right:5px;">恢复</button>
+            <button class="control-btn" onclick="if(confirm('确定要删除此备份吗？')){localStorage.removeItem('${backup.key}');showBackupList();}"
+                    style="background: linear-gradient(45deg, #f44336, #d32f2f); font-size:11px; padding:4px 8px;">删除</button>
+          </div>
+        </div>
+      `;
+    });
+
+    backupListDiv.innerHTML = html;
+    backupListDiv.style.display = 'block';
+
+  } catch (e) {
+    backupListDiv.innerHTML = `<div style="color:#f44336;">获取备份列表失败: ${e.message}</div>`;
+    backupListDiv.style.display = 'block';
   }
 }
 

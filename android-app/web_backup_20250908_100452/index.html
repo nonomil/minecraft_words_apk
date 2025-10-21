@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Minecraft 单词学习游戏</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/kindergarten.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 奖励系统 -->
+        <div class="reward-system" id="rewardSystem">
+            <div class="unified-rewards-container">
+                <div class="rewards-label">学习进度：💎 <span id="diamondTotal">0</span> ⚔️ <span id="swordTotal">0</span></div>
+                <div class="rewards-row" id="rewardsRow"></div>
+            </div>
+        </div>
+
+        <div class="header">
+            <h1>🎮 Minecraft 单词学习游戏</h1>
+            <p>看图学单词，听音识中文，轻松掌握 Minecraft 词汇！</p>
+        </div>
+
+        <div class="game-modes">
+            <button class="mode-btn learn active" onclick="switchMode('learn')">📚 学习模式</button>
+            <button class="mode-btn quiz" onclick="switchMode('quiz')">🔤 拼写模式</button>
+            <button class="mode-btn settings" onclick="switchMode('settings')">⚙️ 设置</button>
+            <button onclick="shuffleWords()" style="margin-left: 10px; padding: 8px 15px; border-radius: 5px; border: 1px solid #ddd; background: #f8f9fa; cursor: pointer;">🔀 随机排序</button>
+            <!-- 学习类型切换（直接打开也可用） -->
+            <div class="learn-type-switch" style="margin-top:8px;">
+              <button class="learn-type-btn word" onclick="setLearnType('word')">英文单词</button>
+              <button class="learn-type-btn word_zh" onclick="setLearnType('word_zh')">中文单词</button>
+              <button class="learn-type-btn phrase_en" onclick="setLearnType('phrase_en')">英文短语</button>
+              <button class="learn-type-btn phrase_zh" onclick="setLearnType('phrase_zh')">中文短语</button>
+            </div>
+        </div>
+
+        <div class="game-area">
+
+            <!-- 学习模式 -->
+            <div id="learnMode" class="learn-area">
+                <!-- 分组进度显示 -->
+                <div class="group-progress">
+                    <div class="group-info">
+                        <span class="group-label">第 <span id="currentGroup">1</span> 组</span>
+                        <span class="group-progress-text">(<span id="groupProgress">0</span>/10)</span>
+                    </div>
+                    <div class="group-progress-bar">
+                        <div class="group-progress-fill" id="groupProgressFill"></div>
+                    </div>
+                </div>
+
+                <div class="word-card" id="wordCard">
+                    <div class="word-category" id="wordCategory">选择词库开始学习</div>
+                    <img class="word-image" id="wordImage" src="" alt="单词图片" style="display: none;">
+                    <div class="word-english" id="wordEnglish">欢迎使用单词学习游戏</div>
+                    <div class="word-phonetic" id="wordPhonetic" style="display: none;"></div>
+                    
+                    <!-- 学习选项 -->
+                    <div class="learn-options" id="learnOptions" style="display: none;">
+                        <h3>这个单词的中文意思是？</h3>
+                        <div class="learn-choices" id="learnChoices">
+                            <!-- 选项将通过JavaScript动态生成 -->
+                        </div>
+                        <div class="learn-result" id="learnResult" style="display: none;"></div>
+                        <div class="word-phrase" id="wordPhrase">
+                            <div class="phrase-title">💡 常用短语</div>
+                            <div class="phrase-content" id="phraseContent"></div>
+                            <div class="phrase-translation" id="phraseTranslation"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 答案显示 -->
+                    <div class="word-chinese" id="wordChinese" style="display: none;">请先选择词库并加载</div>
+                </div>
+
+                <div class="control-buttons">
+                    <button class="control-btn prev" onclick="previousWord()" disabled>⬅️ 上一个</button>
+                    <button class="control-btn play" onclick="playAudio()">🔊 发音</button>
+                    <button class="control-btn next" onclick="nextWord()" disabled>下一个 ➡️</button>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="currentIndex">0</div>
+                        <div class="stat-label">当前位置</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalWords">0</div>
+                        <div class="stat-label">总词汇数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="learnedCount">0</div>
+                        <div class="stat-label">已学习</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 测试模式 -->
+            <div id="quizMode" class="quiz-area">
+                <!-- 分组进度显示 -->
+                <div class="group-progress">
+                    <div class="group-info">
+                        <span class="group-label">第 <span id="currentQuizGroup">1</span> 组</span>
+                        <span class="group-progress-text">(<span id="quizGroupProgress">0</span>/10)</span>
+                    </div>
+                    <div class="group-progress-bar">
+                        <div class="group-progress-fill" id="quizGroupProgressFill"></div>
+                    </div>
+                </div>
+
+                <!-- 已移除 .quiz-score 统计行：得分/正确率 -->
+
+                <div class="quiz-card">
+                    <div class="quiz-question">
+                        <img class="quiz-image" id="quizImage" src="" alt="测试图片">
+                        <div class="quiz-headline">
+                            <h3>这个单词的中文意思是？</h3>
+                            <!-- 移除听发音按钮，改由下方控制区统一展示 -->
+                        </div>
+                    </div>
+
+                    <div class="quiz-options" id="quizOptions">
+                        <!-- 选项将通过JavaScript动态生成 -->
+                    </div>
+                    <div class="learn-result" id="quizResult" style="display: none;"></div>
+                </div>
+
+                <div class="control-buttons">
+                    <button class="control-btn prev" onclick="previousQuiz()" id="prevQuizBtn" disabled>⬅️ 上一题</button>
+                    <button class="control-btn play" onclick="playQuizAudio()" id="quizPlayBtn">🔊 听英文</button>
+                    <button class="control-btn next" onclick="nextQuiz()" id="nextQuizBtn" disabled>下一题 ➡️</button>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="quizProgressFill" style="width: 0%;"></div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="currentQuizIndex">0</div>
+                        <div class="stat-label">当前题目</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalQuizWords">0</div>
+                        <div class="stat-label">总题目数</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="correctCount">0</div>
+                        <div class="stat-label">答对题数</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 设置页面 -->
+            <div id="settingsMode" class="settings-area">
+                <div class="settings-group">
+                    <h3>📚 词库管理</h3>
+                    <div class="setting-item">
+                        <label>预设词库:</label>
+                        <select id="vocabSelect">
+                            <!-- 幼儿园词库 -->
+                            <optgroup label="🎒 幼儿园词库">
+                                <option value="1.幼儿园--基础词汇">幼儿园基础词汇 (157词)</option>
+                                <option value="2.幼儿园--学习词汇">幼儿园学习词汇 (202词)</option>
+                                <option value="3.幼儿园--自然词汇">幼儿园自然词汇 (212词)</option>
+                                <option value="4.交流词汇">交流词汇 (149词)</option>
+                                <option value="5.日常词汇">日常词汇 (138词)</option>
+                                <option value="6.幼儿园词汇">幼儿园综合词汇 (157词)</option>
+                            +                                <option value="生活交流">生活交流</option>
+                            +                                <option value="学习自然">学习自然</option>
+                            +                                <option value="综合拓展">综合拓展</option>
+                            +                                <option value="幼儿园全部">幼儿园全部</option>
+                            </optgroup>
+                            <!-- Minecraft 标准词库 -->
+                            <optgroup label="⛏️ Minecraft 标准词库">
+                                <option value="minecraft_1.blocks_方块">方块词汇 (130词)</option>
+                                <option value="minecraft_2.items_物品">物品词汇 (221词)</option>
+                                <option value="minecraft_2.items_物品2">物品词汇2 (106词)</option>
+                                <option value="minecraft_3.entities_实体">实体词汇 (107词)</option>
+                                <option value="minecraft_4.environment_环境">环境词汇 (128词)</option>
+                                <option value="minecraft_5.biomes_生物群系">生物群系词汇 (69词)</option>
+                                <option value="minecraft_6.状态效果 (Status Effects)">状态效果词汇 (84词)</option>
+                                <option value="minecraft_7.魔咒 (Enchantments)">魔咒词汇 (77词)</option>
+                                <option value="minecraft_8.进度 (Advancements)">进度词汇 (110词)</option>
+                            </optgroup>
+                            <!-- Minecraft 简化词库 -->
+                            <optgroup label="🎮 Minecraft 简化词库">
+                                <option value="1.minecraft_基础_basic">Minecraft基础词汇 (63词)</option>
+                                <option value="1.普通_common">通用词汇 (84词)</option>
+                                <option value="2.minecraft_中级_basic">Minecraft中级词汇 (60词)</option>
+                                <option value="3.minecraft_高级_advanced">Minecraft高级词汇 (60词)</option>
+                                <option value="minecraft_3.单词汇总">Minecraft完整词库 (1174词)</option>
+                            </optgroup>
+                        </select>
+                        <button onclick="loadVocabulary()" style="margin-left: 5px;">加载词库</button>
+                    </div>
+                    <div class="setting-item">
+                        <label>自定义词库:</label>
+                        <input type="file" id="customVocabFile" accept=".json" style="margin-right: 5px;">
+                        <button onclick="loadCustomVocabulary()">加载自定义词库</button>
+                    </div>
+                    <div class="setting-item">
+                        <label>词库操作:</label>
+                        <button onclick="exportCurrentVocab()" id="exportBtn" disabled style="margin-right: 5px;">💾 导出当前词库</button>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>🔊 语音设置</h3>
+                    <div class="setting-item">
+                        <label>语音速度:</label>
+                        <input type="range" id="speechRate" min="0.5" max="2" step="0.1" value="1">
+                        <span id="rateValue">1.0</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>语音音调:</label>
+                        <input type="range" id="speechPitch" min="0.5" max="2" step="0.1" value="1">
+                        <span id="pitchValue">1.0</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>语音音量:</label>
+                        <input type="range" id="speechVolume" min="0" max="1" step="0.1" value="1">
+                        <span id="volumeValue">1.0</span>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>🎮 游戏设置</h3>
+                    <div class="setting-item">
+                        <label>自动播放发音:</label>
+                        <input type="checkbox" id="autoPlay" checked>
+                    </div>
+                    <div class="setting-item">
+                        <label>显示图片:</label>
+                        <input type="checkbox" id="showImages" checked>
+                    </div>
+                    <div class="setting-item">
+                        <label>幼儿园模式:</label>
+                        <input type="checkbox" id="kindergartenMode" checked>
+                    </div>
+                    <!-- 新增：混合幼儿园词库设置 -->
+                    <div class="setting-item">
+                        <label>混合幼儿园词库:</label>
+                        <input type="checkbox" id="mixKindergartenEnabled">
+                    </div>
+                    <div class="setting-item">
+                        <label>混合比例:</label>
+                        <input type="range" id="mixKindergartenRatio" min="0" max="1" step="0.05" value="0.3">
+                        <span id="mixKindergartenRatioValue">30%</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>测试题目数量:</label>
+                        <select id="quizCount">
+                            <option value="5">5题</option>
+                            <option value="10" selected>10题</option>
+                            <option value="20">20题</option>
+                            <option value="50">50题</option>
+                        </select>
+                    </div>
+                    <!-- 新增：拼写提示内容模式 -->
+                    <div class="setting-item">
+                        <label>拼写提示内容:</label>
+                        <select id="spellingHintMode">
+                            <option value="full" selected>完整英文</option>
+                            <option value="first_last">首尾字母</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>📱 设备与显示</h3>
+                    <div class="setting-item">
+                        <label>设备模式:</label>
+                        <select id="deviceMode">
+                            <option value="phone">手机</option>
+                            <option value="tablet">平板</option>
+                            <option value="desktop">桌面</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>界面缩放:</label>
+                        <input type="range" id="uiScale" min="0.8" max="1.2" step="0.05" value="0.95">
+                        <span id="uiScaleValue">95%</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>紧凑模式:</label>
+                        <input type="checkbox" id="compactMode" checked>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/vocabulary-data.js"></script>
+    <script src="js/vocabulary.js"></script>
+    <script src="js/tts-adapter.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/rewards.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/spelling.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+/***** 学习类型切换按钮样式 *****/
+.learn-type-switch { display:flex; gap:8px; align-items:center; }
+.learn-type-btn { padding:6px 10px; border-radius:6px; border:1px solid #ddd; background:#fff; cursor:pointer; font-size:14px; }
+.learn-type-btn:hover { background:#f4f4f4; }
+.learn-type-btn.active { background:#4CAF50; color:#fff; border-color:#4CAF50; }
