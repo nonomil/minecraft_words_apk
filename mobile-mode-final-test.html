@@ -405,6 +405,90 @@
             .word-translation {
                 font-size: 16px;
             }
+
+            /* 测试模式样式 */
+            .mobile-test-content, .mobile-quiz-content {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .mobile-test-area, .mobile-quiz-area {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .mobile-test-options {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                margin: 20px 0;
+            }
+
+            .mobile-option-btn {
+                background: white;
+                border: 2px solid #e0e0e0;
+                border-radius: 12px;
+                padding: 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 16px;
+                color: #333;
+                text-align: center;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .mobile-option-btn:hover {
+                background: #f8f9fa;
+                border-color: #2196F3;
+                transform: translateY(-1px);
+            }
+
+            .mobile-option-btn.correct {
+                background: #4CAF50;
+                border-color: #4CAF50;
+                color: white;
+            }
+
+            .mobile-option-btn.incorrect {
+                background: #f44336;
+                border-color: #f44336;
+                color: white;
+            }
+
+            .mobile-test-controls, .mobile-quiz-controls {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                margin: 20px 0;
+            }
+
+            /* 设置界面模式切换按钮 */
+            .mode-switch-btn {
+                background: rgba(255,255,255,0.2);
+                color: white;
+                border: 2px solid rgba(255,255,255,0.3);
+                border-radius: 20px;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .mode-switch-btn:hover {
+                background: rgba(255,255,255,0.3);
+                border-color: rgba(255,255,255,0.5);
+                transform: translateY(-1px);
+            }
+
+            .mode-switch-btn.active {
+                background: rgba(255,255,255,0.4);
+                border-color: rgba(255,255,255,0.8);
+                font-weight: bold;
+            }
         }
     </style>
 </head>
@@ -520,10 +604,14 @@
                             <div class="mode-name">拼写模式</div>
                             <div class="mode-desc">听音拼单词</div>
                         </div>
-                        <div class="mode-tile" onclick="openSettings()">
-                            <div class="mode-icon">⚙️</div>
-                            <div class="mode-name">设置</div>
-                            <div class="mode-desc">个性化配置</div>
+                    </div>
+
+                    <!-- 测试模式和统计按钮 -->
+                    <div class="mode-grid">
+                        <div class="mode-tile" onclick="openTestMode()">
+                            <div class="mode-icon">📝</div>
+                            <div class="mode-name">测试模式</div>
+                            <div class="mode-desc">选择题测试</div>
                         </div>
                         <div class="mode-tile" onclick="openStats()">
                             <div class="mode-icon">📊</div>
@@ -639,6 +727,41 @@
 
                 <div style="text-align: center; margin-top: 20px;">
                     <button class="control-btn" onclick="goBack()">返回主页</button>
+                </div>
+            </div>
+
+            <!-- 测试模式窗口 -->
+            <div class="mobile-window mobile-test" id="mobileTestWindow">
+                <div style="padding: 20px;">
+                    <h2>📝 测试模式</h2>
+                    <p>选择题测试模式</p>
+
+                    <div class="mobile-test-content">
+                        <div class="mobile-test-area">
+                            <div class="mobile-word-card">
+                                <div class="mobile-word-image" id="testWordImage">💎</div>
+                                <div class="mobile-word-text" id="testWordText">Diamond</div>
+                                <div class="mobile-word-phonetic" id="testWordPhonetic">/ˈdaɪmənd/</div>
+                            </div>
+
+                            <div class="mobile-test-options">
+                                <button class="mobile-option-btn" onclick="selectTestOption(this, true)">钻石</button>
+                                <button class="mobile-option-btn" onclick="selectTestOption(this, false)">石头</button>
+                                <button class="mobile-option-btn" onclick="selectTestOption(this, false)">黄金</button>
+                                <button class="mobile-option-btn" onclick="selectTestOption(this, false)">铁矿</button>
+                            </div>
+
+                            <div class="mobile-test-controls">
+                                <button class="control-btn" onclick="previousTestWord()">⬅️ 上一个</button>
+                                <button class="control-btn mobile-btn-play" onclick="playTestAudio()">🔊</button>
+                                <button class="control-btn" onclick="nextTestWord()">下一个 ➡️</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button class="control-btn" onclick="goBack()">返回主页</button>
+                    </div>
                 </div>
             </div>
 
@@ -980,6 +1103,66 @@
             const scale = parseFloat(document.getElementById('scaleTest').value);
             document.getElementById('scaleValue').textContent = `${Math.round(scale * 100)}%`;
             applyScale(scale);
+        }
+
+        // 测试模式功能
+        function selectTestOption(button, isCorrect) {
+            // 清除之前的选择
+            button.parentElement.querySelectorAll('.mobile-option-btn').forEach(btn => {
+                btn.classList.remove('correct', 'incorrect');
+            });
+
+            // 标记选择
+            if (isCorrect) {
+                button.classList.add('correct');
+                setTimeout(() => {
+                    nextTestWord();
+                }, 1000);
+            } else {
+                button.classList.add('incorrect');
+            }
+        }
+
+        function previousTestWord() {
+            console.log('上一个测试单词');
+            updateTestWord();
+        }
+
+        function nextTestWord() {
+            console.log('下一个测试单词');
+            updateTestWord();
+        }
+
+        function playTestAudio() {
+            console.log('播放测试音频');
+            updateTestWord();
+        }
+
+        function updateTestWord() {
+            const words = [
+                { english: 'Diamond', chinese: '钻石', phonetic: '/ˈdaɪmənd/', image: '💎' },
+                { english: 'Sword', chinese: '剑', phonetic: '/sɔːrd/', image: '⚔️' },
+                { english: 'Pickaxe', chinese: '镐', phonetic: '/ˈpɪkæks/', image: '⛏️' }
+            ];
+            const randomWord = words[Math.floor(Math.random() * words.length)];
+
+            document.getElementById('testWordImage').textContent = randomWord.image;
+            document.getElementById('testWordText').textContent = randomWord.english;
+            document.getElementById('testWordPhonetic').textContent = randomWord.phonetic;
+
+            // 更新选项
+            const options = [
+                randomWord.chinese,
+                '石头',
+                '黄金',
+                '铁矿'
+            ].sort(() => Math.random() - 0.5);
+
+            const optionButtons = document.querySelectorAll('.mobile-option-btn');
+            optionButtons.forEach((btn, index) => {
+                btn.textContent = options[index];
+                btn.onclick = () => selectTestOption(btn, options[index] === randomWord.chinese);
+            });
         }
 
         // 应用缩放

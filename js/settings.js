@@ -60,7 +60,10 @@ function loadSettings() {
     
     // 应用设置到界面
     applySettingsToUI(settings);
-    
+
+    // 更新设备模式按钮状态
+    updateDeviceModeButtons(settings.deviceMode);
+
     return settings;
 }
 
@@ -380,6 +383,47 @@ function exportProgress() {
     
     URL.revokeObjectURL(url);
     showNotification('学习数据已导出');
+}
+
+// 切换设备模式
+function switchDeviceMode(mode) {
+    const settings = getSettings();
+    settings.deviceMode = mode;
+    saveSettings();
+
+    // 更新按钮状态
+    updateDeviceModeButtons(mode);
+
+    // 重新检测手机模式
+    if (window.mobileUI) {
+        window.mobileUI.detectMobileMode();
+        if (window.mobileUI.isInMobileMode()) {
+            window.mobileUI.setupMobileUI();
+        } else {
+            window.mobileUI.disableMobileUI();
+        }
+    }
+
+    showNotification(`已切换到${mode === 'phone' ? '手机' : mode === 'tablet' ? '平板' : '桌面'}模式`);
+}
+
+// 更新设备模式按钮状态
+function updateDeviceModeButtons(currentMode) {
+    const buttons = ['phone', 'tablet', 'desktop'];
+    buttons.forEach(mode => {
+        const btn = document.getElementById(mode + 'ModeBtn');
+        if (btn) {
+            if (mode === currentMode) {
+                btn.style.background = 'rgba(255,255,255,0.4)';
+                btn.style.borderColor = 'rgba(255,255,255,0.8)';
+                btn.style.fontWeight = 'bold';
+            } else {
+                btn.style.background = 'rgba(255,255,255,0.2)';
+                btn.style.borderColor = 'rgba(255,255,255,0.3)';
+                btn.style.fontWeight = 'normal';
+            }
+        }
+    });
 }
 
 // 初始化设置事件监听器

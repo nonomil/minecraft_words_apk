@@ -860,6 +860,137 @@ class MobileUIManager {
             .mobile-mode .original-container {
                 display: none !important;
             }
+
+            /* 测试模式样式 */
+            .mobile-test-content, .mobile-quiz-content {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .mobile-test-area, .mobile-quiz-area {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .mobile-test-options {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                margin: 20px 0;
+            }
+
+            .mobile-option-btn {
+                background: white;
+                border: 2px solid #e0e0e0;
+                border-radius: 12px;
+                padding: 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 16px;
+                color: #333;
+                text-align: center;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .mobile-option-btn:hover {
+                background: #f8f9fa;
+                border-color: #2196F3;
+                transform: translateY(-1px);
+            }
+
+            .mobile-option-btn.correct {
+                background: #4CAF50;
+                border-color: #4CAF50;
+                color: white;
+            }
+
+            .mobile-option-btn.incorrect {
+                background: #f44336;
+                border-color: #f44336;
+                color: white;
+            }
+
+            .mobile-test-controls, .mobile-quiz-controls {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                margin: 20px 0;
+            }
+
+            /* 拼写模式样式 */
+            .mobile-spelling-input {
+                display: flex;
+                gap: 10px;
+                margin: 20px 0;
+                align-items: center;
+            }
+
+            .mobile-spelling-input input {
+                flex: 1;
+                padding: 12px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 16px;
+                transition: border-color 0.3s ease;
+            }
+
+            .mobile-spelling-input input:focus {
+                outline: none;
+                border-color: #2196F3;
+            }
+
+            .mobile-submit-btn {
+                background: #2196F3;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                padding: 12px 20px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-submit-btn:hover {
+                background: #1976D2;
+                transform: translateY(-1px);
+            }
+
+            .mobile-quiz-hint {
+                margin: 15px 0;
+            }
+
+            .mobile-hint-btn {
+                background: #FF9800;
+                color: white;
+                border: none;
+                border-radius: 20px;
+                padding: 8px 16px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-hint-btn:hover {
+                background: #F57C00;
+                transform: translateY(-1px);
+            }
+
+            .mobile-word-chinese {
+                font-size: 20px;
+                font-weight: bold;
+                color: #1976d2;
+                margin: 10px 0;
+            }
+
+            .mobile-word-phonetic {
+                font-size: 14px;
+                color: #666;
+                font-style: italic;
+                margin: 5px 0;
+            }
         `;
 
         document.head.appendChild(style);
@@ -956,6 +1087,16 @@ class MobileUIManager {
                     </button>
                     <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('quiz')">
                         🔤 拼写模式
+                    </button>
+                </div>
+
+                <!-- 测试模式按钮 -->
+                <div class="mobile-main-modes">
+                    <button class="mobile-mode-btn" onclick="mobileUI.switchToMode('test')">
+                        📝 测试模式
+                    </button>
+                    <button class="mobile-mode-btn" onclick="mobileUI.switchToMode('stats')">
+                        📊 学习统计
                     </button>
                 </div>
 
@@ -1059,6 +1200,70 @@ class MobileUIManager {
         }
 
         this.windowContainer.appendChild(settingsWindow);
+
+        // 测试模式窗口 - 创建测试界面
+        const testWindow = document.createElement('div');
+        testWindow.id = 'mobileTestWindow';
+        testWindow.className = 'mobile-window';
+        testWindow.innerHTML = `
+            <div class="mobile-test-content">
+                <h2>📝 测试模式</h2>
+                <div class="mobile-test-area">
+                    <div class="mobile-word-card">
+                        <div class="mobile-word-image" id="testWordImage">💎</div>
+                        <div class="mobile-word-text" id="testWordText">Diamond</div>
+                        <div class="mobile-word-phonetic" id="testWordPhonetic">/ˈdaɪmənd/</div>
+                    </div>
+
+                    <div class="mobile-test-options">
+                        <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, true)">钻石</button>
+                        <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">石头</button>
+                        <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">黄金</button>
+                        <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">铁矿</button>
+                    </div>
+
+                    <div class="mobile-test-controls">
+                        <button class="mobile-control-btn" onclick="mobileUI.previousTestWord()">⬅️ 上一个</button>
+                        <button class="mobile-control-btn mobile-btn-play" onclick="mobileUI.playTestAudio()">🔊</button>
+                        <button class="mobile-control-btn" onclick="mobileUI.nextTestWord()">下一个 ➡️</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.windowContainer.appendChild(testWindow);
+
+        // 拼写模式窗口 - 创建拼写测试界面
+        const quizWindow = document.createElement('div');
+        quizWindow.id = 'mobileQuizWindow';
+        quizWindow.className = 'mobile-window';
+        quizWindow.innerHTML = `
+            <div class="mobile-quiz-content">
+                <h2>🔤 拼写模式</h2>
+                <div class="mobile-quiz-area">
+                    <div class="mobile-word-card">
+                        <div class="mobile-word-image" id="quizWordImage">💎</div>
+                        <div class="mobile-word-chinese" id="quizWordChinese">钻石</div>
+                        <div class="mobile-word-phonetic" id="quizWordPhonetic">/ˈdaɪmənd/</div>
+                    </div>
+
+                    <div class="mobile-spelling-input">
+                        <input type="text" id="quizSpellingInput" placeholder="请输入英文单词..." onkeypress="mobileUI.handleSpellingKeyPress(event)">
+                        <button class="mobile-submit-btn" onclick="mobileUI.checkSpelling()">提交</button>
+                    </div>
+
+                    <div class="mobile-quiz-controls">
+                        <button class="mobile-control-btn" onclick="mobileUI.previousQuizWord()">⬅️ 上一个</button>
+                        <button class="mobile-control-btn mobile-btn-play" onclick="mobileUI.playQuizAudio()">🔊</button>
+                        <button class="mobile-control-btn" onclick="mobileUI.nextQuizWord()">下一个 ➡️</button>
+                    </div>
+
+                    <div class="mobile-quiz-hint">
+                        <button class="mobile-hint-btn" onclick="mobileUI.showSpellingHint()">💡 提示</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.windowContainer.appendChild(quizWindow);
 
         // 统计窗口 - 创建简化的统计界面
         const statsWindow = document.createElement('div');
@@ -1232,6 +1437,7 @@ class MobileUIManager {
             'home': '主页',
             'learn': '学习模式',
             'quiz': '拼写模式',
+            'test': '测试模式',
             'settings': '设置',
             'stats': '学习统计'
         };
@@ -1259,6 +1465,9 @@ class MobileUIManager {
             case 'quiz':
                 this.populateQuizWindow();
                 break;
+            case 'test':
+                this.populateTestWindow();
+                break;
             case 'settings':
                 this.populateSettingsWindow();
                 break;
@@ -1285,6 +1494,23 @@ class MobileUIManager {
         if (typeof updateWordDisplay === 'function') {
             updateWordDisplay();
         }
+    }
+
+    /**
+     * 填充测试窗口内容
+     */
+    populateTestWindow() {
+        console.log('[MobileUI] 填充测试窗口内容');
+        this.updateTestWord();
+    }
+
+    /**
+     * 填充拼写窗口内容
+     */
+    populateQuizWindow() {
+        console.log('[MobileUI] 填充拼写窗口内容');
+        this.updateQuizWord();
+        document.getElementById('quizSpellingInput').value = '';
     }
 
     /**

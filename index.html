@@ -178,6 +178,32 @@
 
             <!-- 设置页面 -->
             <div id="settingsMode" class="settings-area">
+                <!-- 界面模式设置组 - 放在第一行 -->
+                <div class="settings-group" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; padding: 20px; margin-bottom: 20px;">
+                    <h3 style="color: white; margin-bottom: 15px;">🎯 界面模式</h3>
+                    <div class="setting-item" style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; margin-bottom: 15px;">
+                        <label style="color: white; font-weight: bold; font-size: 16px;">📱 手机窗口模式:</label>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" id="phoneWindowMode" style="width: 20px; height: 20px;">
+                            <span style="font-size: 14px; opacity: 0.9;">启用窗口化界面（推荐手机使用）</span>
+                        </div>
+                    </div>
+                    <div class="setting-item" style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 15px;">
+                        <label style="color: white; font-weight: bold; font-size: 16px;">🖥️ 设备模式:</label>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <button class="mode-switch-btn" onclick="switchDeviceMode('phone')" id="phoneModeBtn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 10px 20px; cursor: pointer; transition: all 0.3s ease;">
+                                📱 手机模式
+                            </button>
+                            <button class="mode-switch-btn" onclick="switchDeviceMode('tablet')" id="tabletModeBtn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 10px 20px; cursor: pointer; transition: all 0.3s ease;">
+                                📱 平板模式
+                            </button>
+                            <button class="mode-switch-btn" onclick="switchDeviceMode('desktop')" id="desktopModeBtn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 10px 20px; cursor: pointer; transition: all 0.3s ease;">
+                                🖥️ 桌面模式
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="settings-group">
                     <h3>📚 词库管理</h3>
                     <div class="setting-item">
