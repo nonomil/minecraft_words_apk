@@ -38,7 +38,25 @@ function initializeApplication() {
             applyKindergartenMode(true);
         }
         
-        // 7. 自动加载默认词库
+        // 7. 初始化移动UI（如果启用）
+        console.log('📱 检查移动UI模式...');
+        if (window.mobileUI) {
+            const settings = getSettings();
+            if (settings.deviceMode === 'phone' && settings.phoneWindowMode) {
+                console.log('📱 启用手机窗口模式...');
+                window.mobileUI.detectMobileMode();
+                if (window.mobileUI.isInMobileMode()) {
+                    window.mobileUI.setupMobileUI();
+                    console.log('✅ 移动UI初始化完成');
+                }
+            } else {
+                console.log('📱 移动UI模式未启用');
+            }
+        } else {
+            console.warn('⚠️ 移动UI管理器未加载');
+        }
+
+        // 8. 自动加载默认词库
         const vocabSelect = document.getElementById('vocabSelect');
         if (vocabSelect && (vocabSelect.value.includes('幼儿园') || vocabSelect.value === 'kindergarten_vocabulary')) {
             console.log('📚 自动加载幼儿园词库...');
@@ -46,7 +64,7 @@ function initializeApplication() {
                 loadVocabulary();
             }, 500);
         }
-        
+
         console.log('✅ 应用程序初始化完成！');
         showNotification('🎮 游戏已准备就绪！', 'success');
 

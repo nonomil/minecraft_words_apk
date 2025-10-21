@@ -45,21 +45,56 @@ class MobileUIManager {
         this.isMobileMode = false;
         this.floatingNav = null;
         this.windowContainer = null;
+        this.initialized = false;
 
-        this.init();
+        // 延迟初始化，等待设置加载完成
+        this.deferredInit();
+    }
+
+    /**
+     * 延迟初始化，确保设置已加载
+     */
+    deferredInit() {
+        // 等待DOM和设置加载完成
+        const tryInit = () => {
+            if (typeof getSettings === 'function') {
+                this.init();
+            } else {
+                // 如果设置还未加载，稍后重试
+                setTimeout(tryInit, 100);
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', tryInit);
+        } else {
+            tryInit();
+        }
     }
 
     /**
      * 初始化手机模式UI
      */
     init() {
+        if (this.initialized) {
+            console.log('[MobileUI] 已经初始化，跳过');
+            return;
+        }
+
+        console.log('[MobileUI] 开始初始化...');
         this.detectMobileMode();
 
         if (this.isMobileMode) {
+            console.log('[MobileUI] 检测到手机模式，设置UI...');
             this.setupMobileUI();
             this.setupTouchOptimization();
             this.setupEventListeners();
+            console.log('[MobileUI] 手机模式UI初始化完成');
+        } else {
+            console.log('[MobileUI] 手机模式未启用，使用标准界面');
         }
+
+        this.initialized = true;
     }
 
     /**
@@ -1003,6 +1038,26 @@ class MobileUIManager {
      */
     getCurrentWindow() {
         return this.currentWindow;
+    }
+
+    /**
+     * 切换手机窗口模式
+     */
+    toggleMobileWindowMode(enabled) {
+        console.log(`[MobileUI] 切换手机窗口模式: ${enabled ? '启用' : '禁用'}`);
+
+        if (enabled) {
+            this.detectMobileMode();
+            if (this.isMobileMode) {
+                this.setupMobileUI();
+                console.log('[MobileUI] 手机窗口模式已启用');
+            } else {
+                console.warn('[MobileUI] 设备不是手机模式，无法启用窗口模式');
+            }
+        } else {
+            this.disableMobileUI();
+            console.log('[MobileUI] 手机窗口模式已禁用');
+        }
     }
 
     /**

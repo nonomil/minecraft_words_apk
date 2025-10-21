@@ -475,14 +475,9 @@ function initializeSettingsEventListeners() {
     if (phoneWindowModeEl) {
         phoneWindowModeEl.addEventListener('change', function() {
             saveSettings();
-            // 手机窗口模式改变时，重新初始化手机UI
+            // 手机窗口模式改变时，切换UI模式
             if (window.mobileUI) {
-                if (this.checked && window.mobileUI.isInMobileMode()) {
-                    window.mobileUI.setupMobileUI();
-                } else if (!this.checked) {
-                    // 禁用窗口模式，恢复原始界面
-                    window.mobileUI.disableMobileUI();
-                }
+                window.mobileUI.toggleMobileWindowMode(this.checked);
             }
         });
     }
