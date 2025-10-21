@@ -477,7 +477,25 @@ function initializeSettingsEventListeners() {
             saveSettings();
             // 手机窗口模式改变时，切换UI模式
             if (window.mobileUI) {
-                window.mobileUI.toggleMobileWindowMode(this.checked);
+                if (this.checked) {
+                    // 启用手机窗口模式
+                    window.mobileUI.detectMobileMode();
+                    if (window.mobileUI.isInMobileMode()) {
+                        window.mobileUI.setupMobileUI();
+                    } else {
+                        alert('当前设备不支持手机窗口模式，请将设备模式设置为"手机"');
+                        this.checked = false;
+                        saveSettings();
+                    }
+                } else {
+                    // 禁用手机窗口模式
+                    window.mobileUI.disableMobileUI();
+                    // 显示原始界面
+                    const originalContainer = document.querySelector('.container');
+                    if (originalContainer) {
+                        originalContainer.style.display = '';
+                    }
+                }
             }
         });
     }
