@@ -1,10 +1,10 @@
 {
-  "versionCode": 3,
-  "versionName": "2.1.1",
-  "buildNumber": 2,
-  "lastBuildDate": "2025-10-21T03:56:41.032Z",
+  "versionCode": 4,
+  "versionName": "2.1.2",
+  "buildNumber": 3,
+  "lastBuildDate": "2025-10-21T07:45:37.297Z",
   "releaseNotes": {
-    "zh": "新增学习记录系统、调试模式控制、智能单词排序",
-    "en": "Added learning record system, debug mode controls, smart word prioritization"
+    "zh": "新增手机模式窗口化界面系统 - 支持窗口化学习界面、自动设备检测、悬浮导航栏、触摸优化",
+    "en": "Added mobile windowed UI system - windowed learning interface, auto device detection, floating navigation, touch optimization"
   }
 }
