@@ -200,19 +200,19 @@ class MobileUIManager {
                 z-index: 999;
             }
 
-            /* 手机模式窗口 */
+            /* 手机模式窗口 - 保持与现有界面一致的样式 */
             .mobile-window {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: white;
+                background: #f0f4f8; /* 与现有界面背景一致 */
                 transform: translateX(100%);
                 transition: transform ${MOBILE_UI_CONFIG.TRANSITION_DURATION}ms cubic-bezier(0.4, 0, 0.2, 1);
-                display: flex;
-                flex-direction: column;
-                overflow: hidden;
+                overflow-y: auto; /* 允许滚动 */
+                padding: 20px; /* 与现有界面一致的间距 */
+                box-sizing: border-box;
             }
 
             .mobile-window.active {
@@ -298,14 +298,9 @@ class MobileUIManager {
                 flex-direction: column;
             }
 
-            /* 主页窗口 */
+            /* 主页窗口 - 简化的模式选择，与现有界面风格一致 */
             .mobile-home {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                padding: 0;
-            }
-
-            .mobile-home-content {
-                height: 100%;
+                background: #f0f4f8; /* 与现有界面背景一致 */
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -314,9 +309,56 @@ class MobileUIManager {
                 padding: 40px 20px;
             }
 
-            /* 学习窗口 */
+            .mobile-mode-selection {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .mobile-mode-btn {
+                background: white;
+                border: 2px solid #e0e0e0;
+                border-radius: 12px;
+                padding: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 18px;
+                font-weight: 500;
+                color: #333;
+                text-align: center;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-mode-btn:hover {
+                background: #f8f9fa;
+                border-color: #2196F3;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            .mobile-mode-btn:active {
+                transform: translateY(0);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            /* 学习窗口 - 复用现有界面样式 */
             .mobile-learn {
-                background: #f8fafc;
+                background: #f0f4f8; /* 与现有界面背景一致 */
+                padding: 0; /* 移除内边距，让现有界面元素自己处理 */
+            }
+
+            /* 确保学习模式的所有现有样式都能正常工作 */
+            .mobile-learn .learn-area {
+                display: block !important; /* 确保学习区域显示 */
+                padding: 0; /* 让现有样式处理间距 */
+            }
+
+            /* 隐藏原始界面中的其他模式 */
+            .mobile-mode .quiz-area,
+            .mobile-mode .settings-area {
+                display: none !important;
             }
 
             .mobile-learn-content {
@@ -471,53 +513,72 @@ class MobileUIManager {
      * 转换现有界面为窗口模式
      */
     convertToWindowMode() {
+        console.log('[MobileUI] 开始转换到窗口模式...');
+
+        // 隐藏原始界面内容
+        const originalContainer = document.querySelector('.container');
+        if (originalContainer) {
+            originalContainer.style.display = 'none';
+            console.log('[MobileUI] 已隐藏原始容器');
+        }
+
         // 创建主页窗口
         this.createHomeWindow();
 
-        // 创建学习窗口
+        // 创建学习窗口（直接复用现有界面）
         this.createLearnWindow();
 
-        // 创建其他模式窗口（设置、统计等）
+        // 创建其他模式窗口
         this.createOtherWindows();
+
+        // 确保学习模式界面正确显示
+        this.setupExistingInterface();
 
         console.log('[MobileUI] 界面转换完成');
     }
 
     /**
-     * 创建主页窗口
+     * 设置现有界面
+     */
+    setupExistingInterface() {
+        // 确保现有的学习模式界面在手机模式下正确工作
+        const learnMode = document.getElementById('learnMode');
+        const quizMode = document.getElementById('quizMode');
+        const settingsMode = document.getElementById('settingsMode');
+
+        if (learnMode) {
+            // 确保学习模式在手机窗口中显示
+            learnMode.style.display = 'block';
+        }
+
+        // 隐藏其他模式，它们将在各自的窗口中显示
+        if (quizMode) quizMode.style.display = 'none';
+        if (settingsMode) settingsMode.style.display = 'none';
+
+        console.log('[MobileUI] 现有界面设置完成');
+    }
+
+    /**
+     * 创建主页窗口 - 简化的模式选择界面
      */
     createHomeWindow() {
         const homeWindow = document.createElement('div');
         homeWindow.id = 'mobileHomeWindow';
         homeWindow.className = 'mobile-window mobile-home active';
 
+        // 简化的模式选择界面，只显示模式切换按钮
         homeWindow.innerHTML = `
             <div class="mobile-home-content">
-                <div class="home-header">
-                    <h1>🎮 Minecraft 单词学习</h1>
-                    <p>看图学单词，轻松掌握游戏词汇</p>
-                </div>
-                <div class="mode-grid">
-                    <div class="mode-tile" onclick="mobileUI.openWindow('learn')">
-                        <div class="mode-icon">📚</div>
-                        <div class="mode-name">学习模式</div>
-                        <div class="mode-desc">看图识单词</div>
-                    </div>
-                    <div class="mode-tile" onclick="mobileUI.openWindow('quiz')">
-                        <div class="mode-icon">🔤</div>
-                        <div class="mode-name">拼写模式</div>
-                        <div class="mode-desc">听音拼单词</div>
-                    </div>
-                    <div class="mode-tile" onclick="mobileUI.openWindow('settings')">
-                        <div class="mode-icon">⚙️</div>
-                        <div class="mode-name">设置</div>
-                        <div class="mode-desc">个性化配置</div>
-                    </div>
-                    <div class="mode-tile" onclick="mobileUI.openWindow('stats')">
-                        <div class="mode-icon">📊</div>
-                        <div class="mode-name">学习统计</div>
-                        <div class="mode-desc">查看进度</div>
-                    </div>
+                <div class="mobile-mode-selection">
+                    <button class="mobile-mode-btn" onclick="mobileUI.switchToMode('learn')">
+                        📚 学习模式
+                    </button>
+                    <button class="mobile-mode-btn" onclick="mobileUI.switchToMode('quiz')">
+                        🔤 拼写模式
+                    </button>
+                    <button class="mobile-mode-btn" onclick="mobileUI.switchToMode('settings')">
+                        ⚙️ 设置
+                    </button>
                 </div>
             </div>
         `;
@@ -526,23 +587,29 @@ class MobileUIManager {
     }
 
     /**
-     * 创建学习窗口
+     * 创建学习窗口 - 直接复用现有的学习模式界面
      */
     createLearnWindow() {
         const learnWindow = document.createElement('div');
         learnWindow.id = 'mobileLearnWindow';
         learnWindow.className = 'mobile-window mobile-learn';
 
-        learnWindow.innerHTML = `
-            <div class="mobile-learn-content">
-                <div class="learn-main-area" id="mobileLearnMain">
-                    <!-- 动态内容将在这里插入 -->
+        // 直接复用现有的学习模式界面元素
+        // 获取原始的学习模式内容
+        const originalLearnMode = document.getElementById('learnMode');
+        if (originalLearnMode) {
+            // 克隆现有的学习模式内容
+            const clonedContent = originalLearnMode.cloneNode(true);
+            learnWindow.appendChild(clonedContent);
+        } else {
+            // 如果原始内容不存在，创建占位符
+            learnWindow.innerHTML = `
+                <div style="padding: 20px; text-align: center;">
+                    <h2>📚 学习模式</h2>
+                    <p>正在加载学习界面...</p>
                 </div>
-                <div class="learn-control-area" id="mobileLearnControls">
-                    <!-- 控制按钮将在这里插入 -->
-                </div>
-            </div>
-        `;
+            `;
+        }
 
         this.windowContainer.appendChild(learnWindow);
     }
@@ -572,6 +639,23 @@ class MobileUIManager {
             </div>
         `;
         this.windowContainer.appendChild(statsWindow);
+    }
+
+    /**
+     * 切换到指定模式 - 复用现有的switchMode函数
+     */
+    switchToMode(modeName) {
+        console.log(`[MobileUI] 切换到模式: ${modeName}`);
+
+        // 调用现有的switchMode函数
+        if (typeof switchMode === 'function') {
+            switchMode(modeName);
+
+            // 切换到对应的窗口
+            this.openWindow(modeName);
+        } else {
+            console.warn('[MobileUI] switchMode函数未定义');
+        }
     }
 
     /**
@@ -705,61 +789,23 @@ class MobileUIManager {
     }
 
     /**
-     * 填充学习窗口内容
+     * 填充学习窗口内容 - 现在直接复用现有的学习模式界面，不再创建自定义内容
      */
     populateLearnWindow() {
-        const mainArea = document.getElementById('mobileLearnMain');
-        const controlArea = document.getElementById('mobileLearnControls');
+        // 由于我们已经直接克隆了现有的学习模式界面，这里只需要确保界面正确显示即可
+        console.log('[MobileUI] 学习窗口使用现有的学习模式界面');
 
-        if (!mainArea || !controlArea) return;
+        // 确保现有的学习模式界面被正确激活
+        const originalLearnMode = document.getElementById('learnMode');
+        if (originalLearnMode) {
+            // 确保原始的学习模式在标准界面中被隐藏
+            originalLearnMode.style.display = 'none';
+        }
 
-        // 获取当前学习状态
-        const currentWord = this.getCurrentWordData();
-        const progress = this.getCurrentProgress();
-        const options = this.generateQuizOptions(currentWord);
-
-        mainArea.innerHTML = `
-            <div class="mobile-progress-section">
-                <div class="mobile-progress-info">
-                    <div class="mobile-progress-label">第 ${progress.group} 组进度</div>
-                    <div class="mobile-progress-counter">${progress.current}/${progress.total}</div>
-                </div>
-                <div class="mobile-progress-bar">
-                    <div class="mobile-progress-fill" style="width: ${progress.percentage}%;"></div>
-                </div>
-            </div>
-            <div class="mobile-word-card">
-                <img class="mobile-word-image" src="${currentWord.image}" alt="单词图片" onerror="this.src='https://via.placeholder.com/200x150/4CAF50/ffffff?text=${encodeURIComponent(currentWord.english)}'">
-                <div class="word-text">
-                    <div class="word-english">${currentWord.english}</div>
-                    <div class="word-phonetic">${currentWord.phonetic || ''}</div>
-                    <div class="word-chinese">${currentWord.chinese}</div>
-                </div>
-                <div class="quiz-options">
-                    ${options.map((option, index) => `
-                        <button class="option-btn" onclick="mobileUI.selectOption(this, ${option.isCorrect})" data-option="${index}">
-                            ${option.text}
-                        </button>
-                    `).join('')}
-                </div>
-            </div>
-        `;
-
-        controlArea.innerHTML = `
-            <div class="mobile-control-buttons">
-                <button class="mobile-control-btn mobile-btn-prev" onclick="mobileUI.previousWord()" ${progress.current <= 1 ? 'disabled' : ''}>⬅️ 上一个</button>
-                <button class="mobile-control-btn mobile-btn-play" onclick="mobileUI.playAudio()">🔊</button>
-                <button class="mobile-control-btn mobile-btn-next" onclick="mobileUI.nextWord()" ${progress.current >= progress.total ? 'disabled' : ''}>下一个 ➡️</button>
-            </div>
-            <div class="progress-container" style="margin-top: 16px;">
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: ${progress.overallPercentage}%;"></div>
-                </div>
-                <div style="text-align: center; font-size: 12px; color: #666; margin-top: 4px;">
-                    总进度: ${progress.overallCurrent}/${progress.overallTotal} (${Math.round(progress.overallPercentage)}%)
-                </div>
-            </div>
-        `;
+        // 触发一次界面更新，确保内容正确显示
+        if (typeof updateWordDisplay === 'function') {
+            updateWordDisplay();
+        }
     }
 
     /**
