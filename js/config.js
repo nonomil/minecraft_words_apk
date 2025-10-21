@@ -21,6 +21,8 @@ const CONFIG = {
         deviceMode: 'phone',
         uiScale: 0.95,
         compactMode: true,
+        // 新增：手机窗口模式
+        phoneWindowMode: false,
         // 新增：题目来源过滤
         questionSource: 'all',
         // 新增：混合幼儿园词库设置

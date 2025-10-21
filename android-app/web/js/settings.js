@@ -86,6 +86,8 @@ function applySettingsToUI(settings) {
         deviceMode: document.getElementById('deviceMode'),
         uiScale: document.getElementById('uiScale'),
         compactMode: document.getElementById('compactMode'),
+        // 新增：手机窗口模式
+        phoneWindowMode: document.getElementById('phoneWindowMode'),
         // 新增：题目来源过滤
         questionSource: document.getElementById('questionSource')
     };
@@ -458,7 +460,31 @@ function initializeSettingsEventListeners() {
     // 新增：设备与显示设置监听
     const deviceModeEl = document.getElementById('deviceMode');
     if (deviceModeEl) {
-        deviceModeEl.addEventListener('change', saveSettings);
+        deviceModeEl.addEventListener('change', function() {
+            saveSettings();
+            // 设备模式改变时，重新初始化手机UI
+            if (window.mobileUI) {
+                window.mobileUI.detectMobileMode();
+                if (window.mobileUI.isInMobileMode()) {
+                    window.mobileUI.setupMobileUI();
+                }
+            }
+        });
+    }
+    const phoneWindowModeEl = document.getElementById('phoneWindowMode');
+    if (phoneWindowModeEl) {
+        phoneWindowModeEl.addEventListener('change', function() {
+            saveSettings();
+            // 手机窗口模式改变时，重新初始化手机UI
+            if (window.mobileUI) {
+                if (this.checked && window.mobileUI.isInMobileMode()) {
+                    window.mobileUI.setupMobileUI();
+                } else if (!this.checked) {
+                    // 禁用窗口模式，恢复原始界面
+                    window.mobileUI.disableMobileUI();
+                }
+            }
+        });
     }
     const uiScaleEl = document.getElementById('uiScale');
     if (uiScaleEl) {
@@ -631,6 +657,8 @@ function getSettings() {
     deviceMode: str('deviceMode', base.deviceMode || 'phone'),
     uiScale: (function(){ const v = num('uiScale', base.uiScale || 1); return Math.max(0.8, Math.min(1.2, v)); })(),
     compactMode: bool('compactMode', !!base.compactMode),
+    // 新增：手机窗口模式
+    phoneWindowMode: bool('phoneWindowMode', !!base.phoneWindowMode),
     // 题目来源
     questionSource: str('questionSource', base.questionSource || 'all')
   };

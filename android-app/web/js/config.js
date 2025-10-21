@@ -21,7 +21,9 @@ const CONFIG = {
         // 新增：设备与显示设置
         deviceMode: 'phone',
         uiScale: 0.95,
-        compactMode: true
+        compactMode: true,
+        // 新增：手机窗口模式
+        phoneWindowMode: false
     },
 
     // 新增：试用上限（达到该唯一词条数需要激活）
