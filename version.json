@@ -1,10 +1,10 @@
 {
-  "versionCode": 4,
-  "versionName": "2.1.2",
-  "buildNumber": 3,
-  "lastBuildDate": "2025-10-21T07:45:37.297Z",
+  "versionCode": 5,
+  "versionName": "2.1.3",
+  "buildNumber": 4,
+  "lastBuildDate": "2025-10-21T08:01:36.338Z",
   "releaseNotes": {
-    "zh": "新增手机模式窗口化界面系统 - 支持窗口化学习界面、自动设备检测、悬浮导航栏、触摸优化",
-    "en": "Added mobile windowed UI system - windowed learning interface, auto device detection, floating navigation, touch optimization"
+    "zh": "修复手机窗口模式切换功能 - 解决移动UI初始化问题、优化切换逻辑、添加调试工具",
+    "en": "Fixed mobile window mode switching - resolved mobile UI initialization issues, optimized switching logic, added debugging tools"
   }
 }
