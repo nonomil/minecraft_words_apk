@@ -1,0 +1,30 @@
+/* Learn Type Switch Buttons */
+.learn-type-switch {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.learn-type-btn {
+    padding: 6px 12px;
+    border: 1px solid #d1d9e6;
+    border-radius: 8px;
+    background: white;
+    color: #1f2937;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.learn-type-btn:hover {
+    background: #f0f4f8;
+    border-color: #667eea;
+}
+
+.learn-type-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}

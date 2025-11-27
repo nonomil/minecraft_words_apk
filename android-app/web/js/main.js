@@ -38,7 +38,24 @@ function initializeApplication() {
             applyKindergartenMode(true);
         }
         
-        // 7. 自动加载默认词库
+        // 7. 初始化移动UI（如果启用）
+        console.log('📱 检查移动UI模式...');
+        if (window.mobileUI) {
+            const settings = getSettings();
+            if (settings.deviceMode === 'phone') {
+                console.log('📱 启用手机窗口模式...');
+                window.mobileUI.detectMobileMode();
+                // 强制启用手机模式UI（不再依赖“启用窗口化界面”复选框）
+                window.mobileUI.setupMobileUI();
+                console.log('✅ 移动UI初始化完成');
+            } else {
+                console.log('📱 移动UI模式未启用');
+            }
+        } else {
+            console.warn('⚠️ 移动UI管理器未加载');
+        }
+
+        // 8. 自动加载默认词库
         const vocabSelect = document.getElementById('vocabSelect');
         if (vocabSelect && (vocabSelect.value.includes('幼儿园') || vocabSelect.value === 'kindergarten_vocabulary')) {
             console.log('📚 自动加载幼儿园词库...');
@@ -46,7 +63,7 @@ function initializeApplication() {
                 loadVocabulary();
             }, 500);
         }
-        
+
         console.log('✅ 应用程序初始化完成！');
         showNotification('🎮 游戏已准备就绪！', 'success');
 
@@ -60,83 +77,69 @@ function initializeApplication() {
                     document.removeEventListener('touchstart', unlockTTS);
                 }
             };
-            document.addEventListener('click', unlockTTS, { once: true, passive: true });
-            document.addEventListener('touchstart', unlockTTS, { once: true, passive: true });
-            // 兜底：1秒后自动尝试一次（部分安卓允许自动调用）
-            setTimeout(unlockTTS, 1000);
+            document.addEventListener('click', unlockTTS);
+            document.addEventListener('touchstart', unlockTTS);
+            // 如果用户长时间不点击，也尝试一次
+            setTimeout(unlockTTS, 3000);
         } catch (e) {
-            console.warn('TTS 启用尝试失败：', e);
+            console.warn('🔊 初始化音频策略失败:', e);
         }
     } catch (error) {
-        console.error('❌ 初始化失败:', error);
-        showNotification('初始化失败: ' + error.message, 'error');
+        console.error('❌ 应用程序初始化失败:', error);
+        showNotification('❌ 初始化失败，请刷新重试', 'error');
     }
 }
 
-// 全局错误处理
+// 统一错误处理与运行时事件监控
 window.addEventListener('error', function(event) {
-    console.error('全局错误:', event.error);
-    showNotification('发生错误: ' + event.error.message, 'error');
+    console.error('❗️ 全局错误:', event.error || event.message);
 });
 
-// 未处理的Promise拒绝
 window.addEventListener('unhandledrejection', function(event) {
-    console.error('未处理的Promise拒绝:', event.reason);
-    showNotification('异步操作失败: ' + event.reason, 'error');
-    event.preventDefault();
+    console.error('❗️ 未处理的Promise拒绝:', event.reason);
 });
 
-// 页面可见性变化处理
 document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-        // 页面隐藏时暂停语音
-        if (window.TTS && TTS.isSpeaking()) {
-            TTS.pause();
-        }
+    if (document.visibilityState === 'hidden') {
+        console.log('⏸️ 页面隐藏，暂停部分动画');
     } else {
-        // 页面显示时恢复语音
-        if (window.TTS) {
-            TTS.resume();
-        }
+        console.log('▶️ 页面可见，恢复动画');
     }
 });
 
-// 窗口大小变化处理
+// 窗口大小变化时，进行相关优化
 window.addEventListener('resize', debounce(function() {
-    // 重新计算动画位置
-    if (getSettings().kindergartenMode) {
-        updateRewardDisplay();
-    }
+    console.log('📐 窗口大小发生变化');
+    updateSettingsDisplay();
 }, 250));
 
-// 在线状态变化处理
 window.addEventListener('online', function() {
-    showNotification('网络连接已恢复', 'success');
+    console.log('🌐 网络已连接');
 });
 
 window.addEventListener('offline', function() {
-    showNotification('网络连接已断开，部分功能可能受限', 'error');
+    console.log('🚫 网络已断开');
 });
 
-// 导出全局API（用于调试和扩展）
+// 构建全局API，便于调试与功能调用
 window.MinecraftWordGame = {
-    // 核心功能
+    // 学习控制
     loadVocabulary,
     switchMode,
     playAudio,
     nextWord,
     previousWord,
     
-    // 测试功能
+    // 拼写模式
     startQuiz,
     restartQuiz,
     
-    // 设置功能
+    // 设置管理
     getSettings,
     saveSettings,
     resetSettings,
     
-    // 进度功能
+    // 进度管理
     saveProgress,
     clearProgress,
     exportProgress,
@@ -146,17 +149,17 @@ window.MinecraftWordGame = {
     resetKindergartenProgress,
     getRewardStats,
     
-    // 动画功能
+    // 特效
     createStarAnimation,
     createFireworks,
     createHeartAnimation,
     
-    // 工具函数
+    // 工具
     showNotification,
     shuffleArray,
     getRandomElements,
     
-    // 数据访问
+    // 词库与统计
     getCurrentWord,
     getVocabularyStats,
     getQuizStats,
@@ -167,7 +170,7 @@ window.MinecraftWordGame = {
     buildDate: new Date().toISOString()
 };
 
-// 开发模式下的调试信息
+// 开发模式提示
 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
     console.log('🔧 开发模式已启用');
     console.log('🎮 全局API已挂载到 window.MinecraftWordGame');
@@ -179,106 +182,62 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
     console.log('  - MinecraftWordGame.resetKindergartenProgress() // 重置幼儿园进度');
 }
 
-// 性能监控
+// 性能指标
 if ('performance' in window) {
     window.addEventListener('load', function() {
-        setTimeout(function() {
-            const perfData = performance.timing;
-            const loadTime = perfData.loadEventEnd - perfData.navigationStart;
-            console.log(`📈 页面加载时间: ${loadTime}ms`);
-            
-            if (loadTime > 3000) {
-                console.warn('⚠️ 页面加载时间较长，建议优化');
-            }
-        }, 0);
+        const timing = performance.timing;
+        const loadTime = timing.domContentLoadedEventEnd - timing.navigationStart;
+        console.log(`⏱️ 页面加载时间: ${loadTime}ms`);
     });
 }
 
-// 内存使用监控（如果支持）
+// 内存监控（仅在支持的平台）
 if ('memory' in performance) {
     setInterval(function() {
         const memory = performance.memory;
-        const usedMB = Math.round(memory.usedJSHeapSize / 1048576);
-        const limitMB = Math.round(memory.jsHeapSizeLimit / 1048576);
-        
-        if (usedMB > limitMB * 0.8) {
-            console.warn(`⚠️ 内存使用率较高: ${usedMB}MB / ${limitMB}MB`);
-        }
+        console.log(`🧠 JS堆大小: ${Math.round(memory.usedJSHeapSize / 1024 / 1024)}MB / ${Math.round(memory.jsHeapSizeLimit / 1024 / 1024)}MB`);
     }, 30000); // 每30秒检查一次
 }
 
-// 用户活动跟踪（用于自动保存）
+// 用户活动监控
 let lastActivityTime = Date.now();
 let activityTimer;
 
 function trackUserActivity() {
     lastActivityTime = Date.now();
-    
-    // 清除之前的定时器
-    if (activityTimer) {
-        clearTimeout(activityTimer);
-    }
-    
-    // 5分钟无活动后自动保存
+    if (activityTimer) clearTimeout(activityTimer);
     activityTimer = setTimeout(function() {
-        console.log('💾 自动保存进度...');
-        saveProgress();
-        if (getSettings().kindergartenMode) {
-            saveKindergartenProgress();
-        }
-    }, 5 * 60 * 1000);
+        console.log('⏳ 长时间无操作');
+    }, 600000); // 10分钟无操作提醒
 }
 
-// 监听用户活动
 ['click', 'keydown', 'mousemove', 'touchstart'].forEach(eventType => {
-    document.addEventListener(eventType, trackUserActivity, { passive: true });
+    document.addEventListener(eventType, trackUserActivity);
 });
 
-// 应用程序生命周期管理
+// 应用生命周期管理
 const AppLifecycle = {
-    // 应用启动
     startup() {
         console.log('🚀 应用启动');
-        trackUserActivity();
     },
-    
-    // 应用暂停
     pause() {
         console.log('⏸️ 应用暂停');
-        saveProgress();
-        if (getSettings().kindergartenMode) {
-            saveKindergartenProgress();
-        }
     },
-    
-    // 应用恢复
     resume() {
         console.log('▶️ 应用恢复');
-        trackUserActivity();
     },
-    
-    // 应用关闭
     shutdown() {
         console.log('🛑 应用关闭');
-        saveProgress();
-        if (getSettings().kindergartenMode) {
-            saveKindergartenProgress();
-        }
     }
 };
 
-// 绑定生命周期事件
 document.addEventListener('DOMContentLoaded', AppLifecycle.startup);
 document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-        AppLifecycle.pause();
-    } else {
-        AppLifecycle.resume();
-    }
+    if (document.visibilityState === 'hidden') AppLifecycle.pause();
+    else AppLifecycle.resume();
 });
 window.addEventListener('beforeunload', AppLifecycle.shutdown);
 
-// 导出生命周期管理器
 window.MinecraftWordGame.AppLifecycle = AppLifecycle;
 
 console.log('🎯 主模块加载完成');

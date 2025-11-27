@@ -1,52 +1,51 @@
 // Animal Crossing All Characters - 动物森友会完整角色词汇库
 // 包含动物森友会系列中的所有角色，基于官方Wiki译名标准化
 const ANIMAL_CROSSING_ALL_CHARACTERS = [
-  // === 主要NPC角色 ===
   {
-    "word": "Tom Nook",
-    "standardized": "Tom Nook",
-    "chinese": "狸猫",
-    "phonetic": "/tɑm nʊk/",
-    "phrase": "Tom Nook's shop",
-    "phraseTranslation": "狸猫的商店",
+    "word": "Owl",
+    "standardized": "Owl",
+    "chinese": "猫头鹰",
+    "phonetic": "/aʊl/",
+    "phrase": "The wise owl",
+    "phraseTranslation": "聪明的猫头鹰",
     "difficulty": "basic",
-    "category": "npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的商店老板",
+    "character_context": "森林中的智慧长者",
     "imageURLs": [
       {
-        "filename": "Tom_Nook.png",
-        "url": "https://dodo.ac/np/images/thumb/e/e3/Tom_Nook_NH.png/1200px-Tom_Nook_NH.png",
+        "filename": "owl.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f989.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Isabelle",
-    "standardized": "Isabelle",
-    "chinese": "西施惠",
-    "phonetic": "/ˈɪzəbəl/",
-    "phrase": "Isabelle's announcement",
-    "phraseTranslation": "西施惠的公告",
+    "word": "Dog",
+    "standardized": "Dog",
+    "chinese": "狗",
+    "phonetic": "/dɔːɡ/",
+    "phrase": "The loyal dog",
+    "phraseTranslation": "忠诚的狗",
     "difficulty": "basic",
-    "category": "npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的秘书",
+    "character_context": "人类最忠实的朋友",
     "imageURLs": [
       {
-        "filename": "Isabelle.png",
-        "url": "https://dodo.ac/np/images/thumb/f/f5/Isabelle_NH_Transparent.png/1200px-Isabelle_NH_Transparent.png",
+        "filename": "dog.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f436.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Blathers",
-    "standardized": "Blathers",
+    "word": "Owl",
+    "standardized": "Owl",
     "chinese": "傅达",
-    "phonetic": "/ˈblæðərz/",
+    "phonetic": "/aʊl/",
     "phrase": "Blathers the owl",
     "phraseTranslation": "猫头鹰傅达",
     "difficulty": "basic",
@@ -63,37 +62,17 @@ const ANIMAL_CROSSING_ALL_CHARACTERS = [
     ]
   },
   {
-    "word": "Celeste",
-    "standardized": "Celeste",
-    "chinese": "傅珂",
-    "phonetic": "/səˈlest/",
-    "phrase": "Celeste the owl",
-    "phraseTranslation": "猫头鹰傅珂",
+    "word": "Hedgehog",
+    "standardized": "Hedgehog",
+    "chinese": "刺猬",
+    "phonetic": "/ˈhɛdʒhɒɡ/",
+    "phrase": "The musical hedgehog",
+    "phraseTranslation": "会音乐的刺猬",
     "difficulty": "basic",
-    "category": "npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的天文台管理员",
-    "imageURLs": [
-      {
-        "filename": "Celeste.png",
-        "url": "https://dodo.ac/np/images/f/f6/Celeste_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "K.K. Slider",
-    "standardized": "K.K. Slider",
-    "chinese": "K.K.",
-    "phonetic": "/keɪ keɪ ˈslaɪdər/",
-    "phrase": "K.K. Slider's concert",
-    "phraseTranslation": "K.K.的演唱会",
-    "difficulty": "basic",
-    "category": "npc",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的音乐家",
+    "character_context": "动物森友会中的音乐爱好者",
     "imageURLs": [
       {
         "filename": "KK_Slider.png",
@@ -103,30 +82,30 @@ const ANIMAL_CROSSING_ALL_CHARACTERS = [
     ]
   },
   {
-    "word": "Mabel",
-    "standardized": "Mabel",
-    "chinese": "麻儿",
-    "phonetic": "/ˈmeɪbəl/",
-    "phrase": "Mabel the hedgehog",
-    "phraseTranslation": "刺猬麻儿",
+    "word": "Elephant",
+    "standardized": "Elephant",
+    "chinese": "象",
+    "phonetic": "/ˈelɪfənt/",
+    "phrase": "The gentle giant",
+    "phraseTranslation": "温柔的巨人",
     "difficulty": "basic",
-    "category": "npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的服装店老板",
+    "character_context": "拥有非凡记忆力的陆地巨兽",
     "imageURLs": [
       {
-        "filename": "Mabel.png",
-        "url": "https://dodo.ac/np/images/8/80/Mabel_NH.png",
+        "filename": "elephant.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f418.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Sable",
-    "standardized": "Sable",
+    "word": "Hedgehog",
+    "standardized": "Hedgehog",
     "chinese": "绢儿",
-    "phonetic": "/ˈseɪbəl/",
+    "phonetic": "/ˈhɛdʒhɒɡ/",
     "phrase": "Sable the hedgehog",
     "phraseTranslation": "刺猬绢儿",
     "difficulty": "basic",
@@ -143,50 +122,30 @@ const ANIMAL_CROSSING_ALL_CHARACTERS = [
     ]
   },
   {
-    "word": "Label",
-    "standardized": "Label",
-    "chinese": "拉儿",
-    "phonetic": "/ˈleɪbəl/",
-    "phrase": "Label the hedgehog",
-    "phraseTranslation": "刺猬拉儿",
+    "word": "Raccoon",
+    "standardized": "Raccoon",
+    "chinese": "浣熊",
+    "phonetic": "/ræˈkuːn/",
+    "phrase": "The masked bandit",
+    "phraseTranslation": "戴面具的小偷",
     "difficulty": "basic",
-    "category": "npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的时尚设计师",
+    "character_context": "夜行的森林清洁工，聪明灵巧",
     "imageURLs": [
       {
-        "filename": "Label.png",
-        "url": "https://dodo.ac/np/images/5/5e/Label_NH.png",
+        "filename": "raccoon.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f99d.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Timmy",
-    "standardized": "Timmy",
-    "chinese": "豆狸",
-    "phonetic": "/ˈtɪmi/",
-    "phrase": "Timmy the raccoon",
-    "phraseTranslation": "狸猫豆狸",
-    "difficulty": "basic",
-    "category": "npc",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的商店员工",
-    "imageURLs": [
-      {
-        "filename": "Timmy.png",
-        "url": "https://dodo.ac/np/images/thumb/a/a1/Timmy_%26_Tommy_NH_Transparent.png/1200px-Timmy_%26_Tommy_NH_Transparent.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Tommy",
-    "standardized": "Tommy",
+    "word": "Raccoon",
+    "standardized": "Raccoon",
     "chinese": "粒狸",
-    "phonetic": "/ˈtɑmi/",
+    "phonetic": "/ræˈkuːn/",
     "phrase": "Tommy the raccoon",
     "phraseTranslation": "狸猫粒狸",
     "difficulty": "basic",
@@ -202,255 +161,233 @@ const ANIMAL_CROSSING_ALL_CHARACTERS = [
       }
     ]
   },
-
   // === 特殊NPC角色 ===
   {
-    "word": "Gulliver",
-    "standardized": "Gulliver",
+    "word": "Seagull",
+    "standardized": "Seagull",
     "chinese": "海鸥",
-    "phonetic": "/ˈɡʌlɪvər/",
-    "phrase": "Gulliver the seagull",
-    "phraseTranslation": "海鸥海鸥",
+    "phonetic": "/ˈsiːˌɡʌl/",
+    "phrase": "The coastal scavenger",
+    "phraseTranslation": "海岸边的清道夫",
     "difficulty": "basic",
-    "category": "special_npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的旅行海鸥",
+    "character_context": "翱翔海天的自由信使，敏捷优雅",
     "imageURLs": [
       {
-        "filename": "Gulliver.png",
-        "url": "https://dodo.ac/np/images/4/40/Gulliver_NH_2.png",
+        "filename": "seagull.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9c2.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Sahara",
-    "standardized": "Sahara",
+    "word": "Camel",
+    "standardized": "Camel",
     "chinese": "骆驼",
-    "phonetic": "/səˈhærə/",
-    "phrase": "Sahara the camel",
-    "phraseTranslation": "骆驼骆驼",
+    "phonetic": "/ˈkæməl/",
+    "phrase": "The desert ship",
+    "phraseTranslation": "沙漠之舟",
     "difficulty": "basic",
-    "category": "special_npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的地毯商人",
+    "character_context": "沙漠中的坚韧旅者，能够适应严酷环境",
     "imageURLs": [
       {
-        "filename": "Sahara.png",
-        "url": "https://dodo.ac/np/images/c/c9/Saharah_NH.png",
+        "filename": "camel.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f42b.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Redd",
-    "standardized": "Redd",
-    "chinese": "狐利",
-    "phonetic": "/red/",
-    "phrase": "Redd the fox",
-    "phraseTranslation": "狐狸狐利",
+    "word": "Fox",
+    "standardized": "Fox",
+    "chinese": "狐狸",
+    "phonetic": "/fɑks/",
+    "phrase": "The clever trickster",
+    "phraseTranslation": "聪明的恶作剧者",
     "difficulty": "basic",
-    "category": "special_npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的艺术品商人",
+    "character_context": "神秘的森林向导，拥有无穷智慧",
     "imageURLs": [
       {
-        "filename": "Redd.png",
-        "url": "https://nookipedia.com/wikilogo.png",
+        "filename": "fox.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f98a.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Flick",
-    "standardized": "Flick",
-    "chinese": "龙克斯",
-    "phonetic": "/flɪk/",
-    "phrase": "Flick the chameleon",
-    "phraseTranslation": "变色龙龙克斯",
+    "word": "Chameleon",
+    "standardized": "Chameleon",
+    "chinese": "变色龙",
+    "phonetic": "/kəˈmiːliən/",
+    "phrase": "The color-changing master",
+    "phraseTranslation": "变色大师",
     "difficulty": "basic",
-    "category": "special_npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的昆虫专家",
+    "character_context": "神秘的伪装大师，适应力极强",
     "imageURLs": [
       {
-        "filename": "Flick.png",
-        "url": "https://dodo.ac/np/images/f/f4/Flick_NH.png",
+        "filename": "chameleon.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f98f.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "C.J.",
-    "standardized": "C.J.",
-    "chinese": "俞司廷",
-    "phonetic": "/siː dʒeɪ/",
-    "phrase": "C.J. the beaver",
-    "phraseTranslation": "海狸俞司廷",
+    "word": "Beaver",
+    "standardized": "Beaver",
+    "chinese": "海狸",
+    "phonetic": "/ˈbiːvər/",
+    "phrase": "The master engineer",
+    "phraseTranslation": "工程大师",
     "difficulty": "basic",
-    "category": "special_npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的钓鱼专家",
+    "character_context": "生态工程师，建造与水共存的家园",
     "imageURLs": [
       {
-        "filename": "CJ.png",
-        "url": "https://dodo.ac/np/images/4/49/C.J._NH.png",
+        "filename": "beaver.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f42b.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Leif",
-    "standardized": "Leif",
-    "chinese": "然然",
-    "phonetic": "/leɪf/",
-    "phrase": "Leif the sloth",
-    "phraseTranslation": "树懒然然",
+    "word": "Sloth",
+    "standardized": "Sloth",
+    "chinese": "树懒",
+    "phonetic": "/sloʊθ/",
+    "phrase": "The slow philosopher",
+    "phraseTranslation": "慢吞吞的哲学家",
     "difficulty": "basic",
-    "category": "special_npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的园艺专家",
+    "character_context": "慢生活的代表，自然保护倡导者",
     "imageURLs": [
       {
-        "filename": "Leif.png",
-        "url": "https://dodo.ac/np/images/1/1c/Leif_NH.png",
+        "filename": "sloth.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9a5.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Kicks",
-    "standardized": "Kicks",
-    "chinese": "薛革",
-    "phonetic": "/kɪks/",
-    "phrase": "Kicks the skunk",
-    "phraseTranslation": "臭鼬薛革",
+    "word": "Skunk",
+    "standardized": "Skunk",
+    "chinese": "臭鼬",
+    "phonetic": "/skʌŋk/",
+    "phrase": "The peaceful neighbor",
+    "phraseTranslation": "和平的邻居",
     "difficulty": "basic",
-    "category": "special_npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的鞋店老板",
+    "character_context": "低调的森林居民，守护自己的秘密",
     "imageURLs": [
       {
-        "filename": "Kicks.png",
-        "url": "https://dodo.ac/np/images/c/c7/Kicks_NH.png",
+        "filename": "skunk.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9a8.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Labelle",
-    "standardized": "Labelle",
-    "chinese": "拉儿",
-    "phonetic": "/ləˈbel/",
-    "phrase": "Labelle the hedgehog",
-    "phraseTranslation": "刺猬拉儿",
+    "word": "Giraffe",
+    "standardized": "Giraffe",
+    "chinese": "长颈鹿",
+    "phonetic": "/dʒəˈræf/",
+    "phrase": "The tall dreamer",
+    "phraseTranslation": "高高的梦想家",
     "difficulty": "basic",
-    "category": "special_npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的时尚设计师",
+    "character_context": "天空的守望者，拥有独特的视角",
     "imageURLs": [
       {
-        "filename": "Labelle.png",
-        "url": "https://dodo.ac/np/images/5/5e/Label_NH.png",
+        "filename": "giraffe.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f992.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Gracie",
-    "standardized": "Gracie",
-    "chinese": "葛瑞丝",
-    "phonetic": "/ˈɡreɪsi/",
-    "phrase": "Gracie the giraffe",
-    "phraseTranslation": "长颈鹿葛瑞丝",
+    "word": "Otter",
+    "standardized": "Otter",
+    "chinese": "水獭",
+    "phonetic": "/ˈɑtər/",
+    "phrase": "The playful swimmer",
+    "phraseTranslation": "活泼的游泳者",
     "difficulty": "basic",
-    "category": "special_npc",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的时尚设计师",
+    "character_context": "水中的快乐精灵，享受每一天",
     "imageURLs": [
       {
-        "filename": "Gracie.png",
-        "url": "https://dodo.ac/np/images/0/00/Gracie_NLWa.png",
+        "filename": "otter.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9a6.svg",
         "type": "Default"
       }
     ]
   },
-  {
-    "word": "Pascal",
-    "standardized": "Pascal",
-    "chinese": "帕斯卡",
-    "phonetic": "/ˈpæskəl/",
-    "phrase": "Pascal the otter",
-    "phraseTranslation": "水獭帕斯卡",
-    "difficulty": "basic",
-    "category": "special_npc",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的哲学家水獭",
-    "imageURLs": [
-      {
-        "filename": "Pascal.png",
-        "url": "https://dodo.ac/np/images/0/03/Pascal_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-
   // === 人气村民角色 ===
   {
-    "word": "Marshall",
-    "standardized": "Marshall",
-    "chinese": "小润",
-    "phonetic": "/ˈmɑːrʃəl/",
-    "phrase": "Marshall the squirrel",
-    "phraseTranslation": "松鼠小润",
+    "word": "Squirrel",
+    "standardized": "Squirrel",
+    "chinese": "松鼠",
+    "phonetic": "/ˈskwɪrəl/",
+    "phrase": "The energetic collector",
+    "phraseTranslation": "充满活力的收藏家",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的可爱松鼠村民",
+    "character_context": "永远充满活力的小家伙，爱收集坚果",
     "imageURLs": [
       {
-        "filename": "Marshall.png",
-        "url": "https://dodo.ac/np/images/d/da/Marshal_NH.png",
+        "filename": "squirrel.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f43f.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Raymond",
-    "standardized": "Raymond",
-    "chinese": "杰克",
-    "phonetic": "/ˈreɪmənd/",
-    "phrase": "Raymond the cat",
-    "phraseTranslation": "猫咪杰克",
+    "word": "Jellyfish",
+    "standardized": "jellyfish",
+    "chinese": "水母",
+    "phonetic": "/ˈdʒɛlifɪʃ/",
+    "phrase": "The glowing ocean dweller",
+    "phraseTranslation": "发光的海洋居民",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的帅气猫咪村民",
+    "character_context": "海洋中发光的生物，优雅地漂浮在海水中",
     "imageURLs": [
       {
-        "filename": "Raymond.png",
-        "url": "https://dodo.ac/np/images/2/2a/Raymond_NH.png?version=e9a8326bfe69b00e7da00c2ce2c0f638",
+        "filename": "jellyfish.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f981.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Audie",
-    "standardized": "Audie",
+    "word": "Wolf",
+    "standardized": "Wolf",
     "chinese": "小润",
-    "phonetic": "/ˈɔːdi/",
+    "phonetic": "/wʊlf/",
     "phrase": "Audie the wolf",
     "phraseTranslation": "狼小润",
     "difficulty": "basic",
@@ -467,608 +404,528 @@ const ANIMAL_CROSSING_ALL_CHARACTERS = [
     ]
   },
   {
-    "word": "Dom",
-    "standardized": "Dom",
-    "chinese": "小润",
-    "phonetic": "/dɑm/",
-    "phrase": "Dom the sheep",
-    "phraseTranslation": "绵羊小润",
+    "word": "Sheep",
+    "standardized": "Sheep",
+    "chinese": "绵羊",
+    "phonetic": "/ʃiːp/",
+    "phrase": "A fluffy sheep grazes in the meadow",
+    "phraseTranslation": "一只毛茸茸的绵羊在草地吃草",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的运动型绵羊村民",
+    "character_context": "A peaceful farm animal that provides wool",
     "imageURLs": [
       {
-        "filename": "Dom.png",
-        "url": "https://dodo.ac/np/images/7/75/Dom_NH.png",
+        "filename": "Sheep_Meadow.png",
+        "url": "https://example.com/sheep-meadow.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Judy",
-    "standardized": "Judy",
-    "chinese": "小润",
-    "phonetic": "/ˈdʒudi/",
-    "phrase": "Judy the cub",
-    "phraseTranslation": "小熊小润",
+    "word": "Cub",
+    "standardized": "Cub",
+    "chinese": "幼熊",
+    "phonetic": "/kʌb/",
+    "phrase": "A playful cub explores the forest",
+    "phraseTranslation": "一只顽皮的幼熊在森林中探索",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的可爱小熊村民",
+    "character_context": "A young bear learning about nature",
     "imageURLs": [
       {
-        "filename": "Judy.png",
-        "url": "https://dodo.ac/np/images/d/d4/Judy_NH.png",
+        "filename": "Cub_Forest.png",
+        "url": "https://example.com/cub-forest.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Merengue",
-    "standardized": "Merengue",
-    "chinese": "小润",
-    "phonetic": "/məˈreɪŋɡeɪ/",
-    "phrase": "Merengue the rhino",
-    "phraseTranslation": "犀牛小润",
+    "word": "Rhino",
+    "standardized": "Rhino",
+    "chinese": "犀牛",
+    "phonetic": "/ˈraɪnəʊ/",
+    "phrase": "A powerful rhino walks through the grassland",
+    "phraseTranslation": "一只强壮的犀牛走过草原",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的可爱犀牛村民",
+    "character_context": "A large animal with a horn on its nose",
     "imageURLs": [
       {
-        "filename": "Merengue.png",
-        "url": "https://dodo.ac/np/images/0/0c/Merengue_NH.png",
+        "filename": "Rhino_Grassland.png",
+        "url": "https://example.com/rhino-grassland.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Lolly",
-    "standardized": "Lolly",
-    "chinese": "小润",
-    "phonetic": "/ˈlɑːli/",
-    "phrase": "Lolly the cat",
-    "phraseTranslation": "猫咪小润",
+    "word": "Cat",
+    "standardized": "Cat",
+    "chinese": "猫",
+    "phonetic": "/kæt/",
+    "phrase": "A curious cat watches the birds",
+    "phraseTranslation": "一只好奇的猫看着鸟儿",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的可爱猫咪村民",
+    "character_context": "A small furry animal that says meow",
     "imageURLs": [
       {
-        "filename": "Lolly.png",
-        "url": "https://dodo.ac/np/images/1/16/Lolly_NH.png",
+        "filename": "Cat_Watching.png",
+        "url": "https://example.com/cat-watching.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Stitches",
-    "standardized": "Stitches",
-    "chinese": "小润",
-    "phonetic": "/ˈstɪtʃɪz/",
-    "phrase": "Stitches the bear",
-    "phraseTranslation": "小熊小润",
+    "word": "Bear",
+    "standardized": "Bear",
+    "chinese": "熊",
+    "phonetic": "/beər/",
+    "phrase": "A big bear walks in the forest",
+    "phraseTranslation": "一只大熊在森林里行走",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的可爱小熊村民",
+    "character_context": "A large furry animal that hibernates in winter",
     "imageURLs": [
       {
-        "filename": "Stitches.png",
-        "url": "https://dodo.ac/np/images/5/56/Stitches_NH.png",
+        "filename": "Bear_Forest.png",
+        "url": "https://example.com/bear-forest.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Beau",
-    "standardized": "Beau",
-    "chinese": "小润",
-    "phonetic": "/boʊ/",
-    "phrase": "Beau the deer",
-    "phraseTranslation": "鹿小润",
+    "word": "Deer",
+    "standardized": "Deer",
+    "chinese": "鹿",
+    "phonetic": "/dɪər/",
+    "phrase": "A graceful deer jumps over the stream",
+    "phraseTranslation": "一只优雅的鹿跳过小溪",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的可爱鹿村民",
+    "character_context": "A gentle animal with antlers that lives in forests",
     "imageURLs": [
       {
-        "filename": "Beau.png",
-        "url": "https://dodo.ac/np/images/d/d4/Beau_NH.png",
+        "filename": "Deer_Jumping.png",
+        "url": "https://example.com/deer-jumping.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Diana",
-    "standardized": "Diana",
-    "chinese": "小润",
-    "phonetic": "/daɪˈænə/",
-    "phrase": "Diana the deer",
-    "phraseTranslation": "鹿小润",
+    "word": "Horse",
+    "standardized": "Horse",
+    "chinese": "马",
+    "phonetic": "/hɔːrs/",
+    "phrase": "A fast horse gallops across the field",
+    "phraseTranslation": "一匹快马奔驰过田野",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的优雅鹿村民",
+    "character_context": "A large animal used for riding and racing",
     "imageURLs": [
       {
-        "filename": "Diana.png",
-        "url": "https://dodo.ac/np/images/1/1f/Diana_NH.png",
+        "filename": "Horse_Galloping.png",
+        "url": "https://example.com/horse-galloping.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Rosie",
-    "standardized": "Rosie",
-    "chinese": "罗西",
-    "phonetic": "/ˈroʊzi/",
-    "phrase": "Rosie the cat",
-    "phraseTranslation": "猫咪罗西",
+    "word": "Duck",
+    "standardized": "Duck",
+    "chinese": "鸭",
+    "phonetic": "/dʌk/",
+    "phrase": "A duck swims in the pond",
+    "phraseTranslation": "一只鸭子在池塘游泳",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的可爱猫咪村民",
+    "character_context": "A water bird that quacks and has webbed feet",
     "imageURLs": [
       {
-        "filename": "Rosie.png",
-        "url": "https://dodo.ac/np/images/f/fe/Rosie_NH_Transparent.png",
+        "filename": "Duck_Swimming.png",
+        "url": "https://example.com/duck-swimming.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Bob",
-    "standardized": "Bob",
-    "chinese": "鲍勃",
-    "phonetic": "/bɑb/",
-    "phrase": "Bob the cat",
-    "phraseTranslation": "猫咪鲍勃",
+    "word": "Chicken",
+    "standardized": "Chicken",
+    "chinese": "鸡",
+    "phonetic": "/ˈtʃɪkɪn/",
+    "phrase": "A chicken lays eggs in the morning",
+    "phraseTranslation": "一只鸡在早上下蛋",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的懒惰猫咪村民",
+    "character_context": "A farm bird that clucks and lays eggs",
     "imageURLs": [
       {
-        "filename": "Bob.png",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f431.svg",
+        "filename": "Chicken_Laying_Eggs.png",
+        "url": "https://example.com/chicken-laying-eggs.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Tangy",
-    "standardized": "Tangy",
-    "chinese": "橘子",
-    "phonetic": "/ˈtæŋi/",
-    "phrase": "Tangy the cat",
-    "phraseTranslation": "猫咪橘子",
+    "word": "Turkey",
+    "standardized": "Turkey",
+    "chinese": "火鸡",
+    "phonetic": "/ˈtɜːrki/",
+    "phrase": "A turkey gobbles in the yard",
+    "phraseTranslation": "一只火鸡在院子里咯咯叫",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼猫咪村民",
+    "character_context": "A large bird known for its distinctive gobbling sound",
     "imageURLs": [
       {
-        "filename": "Tangy.png",
-        "url": "https://dodo.ac/np/images/6/6f/Tangy_NH.png",
+        "filename": "Turkey_Gobbling.png",
+        "url": "https://example.com/turkey-gobbling.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Punchy",
-    "standardized": "Punchy",
-    "chinese": "拳击手",
-    "phonetic": "/ˈpʌntʃi/",
-    "phrase": "Punchy the cat",
-    "phraseTranslation": "猫咪拳击手",
+    "word": "Goose",
+    "standardized": "Goose",
+    "chinese": "鹅",
+    "phonetic": "/ɡuːs/",
+    "phrase": "A goose honks loudly in the park",
+    "phraseTranslation": "一只鹅在公园里大声鸣叫",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的懒惰猫咪村民",
+    "character_context": "A large waterfowl known for its honking sound",
     "imageURLs": [
       {
-        "filename": "Punchy.png",
-        "url": "https://dodo.ac/np/images/6/6d/Punchy_NH.png",
+        "filename": "Goose_Honking.png",
+        "url": "https://example.com/goose-honking.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Kiki",
-    "standardized": "Kiki",
-    "chinese": "琪琪",
-    "phonetic": "/ˈkiki/",
-    "phrase": "Kiki the cat",
-    "phraseTranslation": "猫咪琪琪",
+    "word": "Peacock",
+    "standardized": "Peacock",
+    "chinese": "孔雀",
+    "phonetic": "/ˈpiːkɒk/",
+    "phrase": "A peacock shows its beautiful feathers",
+    "phraseTranslation": "一只孔雀展示它美丽的羽毛",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的普通猫咪村民",
+    "character_context": "A colorful bird famous for its spectacular tail display",
     "imageURLs": [
       {
-        "filename": "Kiki.png",
-        "url": "https://dodo.ac/np/images/c/c5/Kiki_NH.png",
+        "filename": "Peacock_Feathers.png",
+        "url": "https://example.com/peacock-feathers.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Goldie",
-    "standardized": "Goldie",
-    "chinese": "金毛",
-    "phonetic": "/ˈɡoʊldi/",
-    "phrase": "Goldie the dog",
-    "phraseTranslation": "狗狗金毛",
+    "word": "Goat",
+    "standardized": "Goat",
+    "chinese": "山羊",
+    "phonetic": "/ɡoʊt/",
+    "phrase": "A goat climbs up the rocky hill",
+    "phraseTranslation": "一只山羊爬上了岩石山",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的普通狗狗村民",
+    "character_context": "A nimble mammal adept at climbing steep terrain",
     "imageURLs": [
       {
-        "filename": "Goldie.png",
-        "url": "https://dodo.ac/np/images/8/83/Goldie_NH.png",
+        "filename": "Goat_Climbing.png",
+        "url": "https://example.com/goat-climbing.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Lucky",
-    "standardized": "Lucky",
-    "chinese": "幸运",
-    "phonetic": "/ˈlʌki/",
-    "phrase": "Lucky the dog",
-    "phraseTranslation": "狗狗幸运",
+    "word": "Rabbit",
+    "standardized": "Rabbit",
+    "chinese": "兔子",
+    "phonetic": "/ˈræbɪt/",
+    "phrase": "A rabbit hops quickly across the meadow",
+    "phraseTranslation": "一只兔子迅速跳过草地",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "animal",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的懒惰狗狗村民",
+    "character_context": "A small furry mammal that hops and has long ears",
     "imageURLs": [
       {
-        "filename": "Lucky.png",
-        "url": "https://dodo.ac/np/images/5/59/Lucky_NH.png",
+        "filename": "Rabbit_Hopping.png",
+        "url": "https://example.com/rabbit-hopping.png",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Bones",
-    "standardized": "Bones",
-    "chinese": "骨头",
-    "phonetic": "/boʊnz/",
-    "phrase": "Bones the dog",
-    "phraseTranslation": "狗狗骨头",
+    "word": "Squirrel",
+    "standardized": "squirrel",
+    "chinese": "松鼠",
+    "phonetic": "/ˈskwɜːrəl/",
+    "phrase": "I'm gathering nuts for winter!",
+    "phraseTranslation": "我在为冬天收集坚果！",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的懒惰狗狗村民",
+    "character_context": "生活在树上的小型啮齿动物，常见于秋季收集坚果",
     "imageURLs": [
       {
-        "filename": "Bones.png",
-        "url": "https://dodo.ac/np/images/2/2b/Bones_NH.png",
+        "filename": "squirrel.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f43f.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Cookie",
-    "standardized": "Cookie",
-    "chinese": "曲奇",
-    "phonetic": "/ˈkʊki/",
-    "phrase": "Cookie the dog",
-    "phraseTranslation": "狗狗曲奇",
+    "word": "Penguin",
+    "standardized": "penguin",
+    "chinese": "企鹅",
+    "phonetic": "/ˈpeŋɡwɪn/",
+    "phrase": "I love sliding on the ice!",
+    "phraseTranslation": "我喜欢在冰上滑行！",
     "difficulty": "basic",
-    "category": "villager",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼狗狗村民",
+    "character_context": "南极的鸟类，不会飞但擅长游泳和滑冰",
     "imageURLs": [
       {
-        "filename": "Cookie.png",
-        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f36a.svg",
+        "filename": "penguin.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f427.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Maple",
-    "standardized": "Maple",
-    "chinese": "枫叶",
-    "phonetic": "/ˈmeɪpəl/",
-    "phrase": "Maple the bear",
-    "phraseTranslation": "小熊枫叶",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Octopus",
+    "standardized": "octopus",
+    "chinese": "章鱼",
+    "phonetic": "/ˈɒktəpʊs/",
+    "phrase": "I have eight strong arms!",
+    "phraseTranslation": "我有八条强壮的手臂！",
+    "difficulty": "medium",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的普通小熊村民",
+    "character_context": "海洋中的软体动物，能够改变颜色并喷出墨汁",
     "imageURLs": [
       {
-        "filename": "Maple.png",
-        "url": "https://dodo.ac/np/images/a/a2/Maple_NH.png",
+        "filename": "octopus.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f419.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Teddy",
-    "standardized": "Teddy",
-    "chinese": "泰迪",
-    "phonetic": "/ˈtɛdi/",
-    "phrase": "Teddy the bear",
-    "phraseTranslation": "小熊泰迪",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Seahorse",
+    "standardized": "seahorse",
+    "chinese": "海马",
+    "phonetic": "/ˈsiːhɔːs/",
+    "phrase": "I swim upright like a horse!",
+    "phraseTranslation": "我像马一样直立游泳！",
+    "difficulty": "medium",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的运动型小熊村民",
+    "character_context": "海洋中独特的鱼类，雄性负责孵化幼崽",
     "imageURLs": [
       {
-        "filename": "Teddy.png",
-        "url": "https://dodo.ac/np/images/b/b9/Teddy_NH.png",
+        "filename": "seahorse.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f420.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Bluebear",
-    "standardized": "Bluebear",
-    "chinese": "蓝熊",
-    "phonetic": "/ˈbluber/",
-    "phrase": "Bluebear the bear",
-    "phraseTranslation": "小熊蓝熊",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Starfish",
+    "standardized": "starfish",
+    "chinese": "海星",
+    "phonetic": "/ˈstɑːfɪʃ/",
+    "phrase": "I can regenerate my arms!",
+    "phraseTranslation": "我能重新长出我的手臂！",
+    "difficulty": "medium",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼小熊村民",
+    "character_context": "海洋棘皮动物，有惊人的再生能力",
     "imageURLs": [
       {
-        "filename": "Bluebear.png",
-        "url": "https://dodo.ac/np/images/4/49/Bluebear_NH.png",
+        "filename": "starfish.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2f50b.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Fauna",
-    "standardized": "Fauna",
-    "chinese": "小鹿",
-    "phonetic": "/ˈfɔnə/",
-    "phrase": "Fauna the deer",
-    "phraseTranslation": "鹿小鹿",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Walrus",
+    "standardized": "walrus",
+    "chinese": "海象",
+    "phonetic": "/ˈwɔːlrəs/",
+    "phrase": "I have big tusks and whiskers!",
+    "phraseTranslation": "我有大大长牙和胡须！",
+    "difficulty": "medium",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的普通鹿村民",
+    "character_context": "北极地区的大型海洋哺乳动物",
     "imageURLs": [
       {
-        "filename": "Fauna.png",
-        "url": "https://dodo.ac/np/images/9/91/Fauna_NH.png",
+        "filename": "walrus.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f421.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Erik",
-    "standardized": "Erik",
-    "chinese": "埃里克",
-    "phonetic": "/ˈɛrɪk/",
-    "phrase": "Erik the deer",
-    "phraseTranslation": "鹿埃里克",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Clownfish",
+    "standardized": "clownfish",
+    "chinese": "小丑鱼",
+    "phonetic": "/ˈklaʊnfɪʃ/",
+    "phrase": "I hide among sea anemones!",
+    "phraseTranslation": "我躲在海葵中间！",
+    "difficulty": "medium",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的懒惰鹿村民",
+    "character_context": "橙色条纹的热带鱼，与海葵共生",
     "imageURLs": [
       {
-        "filename": "Erik.png",
-        "url": "https://dodo.ac/np/images/8/88/Erik_NH.png",
+        "filename": "clownfish.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f420.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Skye",
-    "standardized": "Skye",
-    "chinese": "天空",
-    "phonetic": "/skaɪ/",
-    "phrase": "Skye the wolf",
-    "phraseTranslation": "狼天空",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Shrimp",
+    "standardized": "shrimp",
+    "chinese": "小虾",
+    "phonetic": "/ʃrɪmp/",
+    "phrase": "I am small but tasty!",
+    "phraseTranslation": "我虽小但美味！",
+    "difficulty": "easy",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的普通狼村民",
+    "character_context": "浅海中的小甲壳动物，常被用作食材",
     "imageURLs": [
       {
-        "filename": "Skye.png",
-        "url": "https://dodo.ac/np/images/d/d1/Skye_NH.png",
+        "filename": "shrimp.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f990.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Whitney",
-    "standardized": "Whitney",
-    "chinese": "惠特尼",
-    "phonetic": "/ˈwɪtni/",
-    "phrase": "Whitney the wolf",
-    "phraseTranslation": "狼惠特尼",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Manta Ray",
+    "standardized": "manta ray",
+    "chinese": "蝠鲼",
+    "phonetic": "/ˈmæntə reɪ/",
+    "phrase": "I glide gracefully through the ocean!",
+    "phraseTranslation": "我在海洋中优雅滑翔！",
+    "difficulty": "medium",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的成熟狼村民",
+    "character_context": "温顺的大型鳐鱼，在深海中缓慢游动",
     "imageURLs": [
       {
-        "filename": "Whitney.png",
-        "url": "https://dodo.ac/np/images/3/36/Whitney_NH.png",
+        "filename": "manta_ray.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f41f.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Chief",
-    "standardized": "Chief",
-    "chinese": "酋长",
-    "phonetic": "/tʃif/",
-    "phrase": "Chief the wolf",
-    "phraseTranslation": "狼酋长",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Sea Urchin",
+    "standardized": "sea urchin",
+    "chinese": "海胆",
+    "phonetic": "/si ˈɜrtʃɪn/",
+    "phrase": "I have spiky protection!",
+    "phraseTranslation": "我有尖刺保护！",
+    "difficulty": "medium",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的暴躁狼村民",
+    "character_context": "海底带刺的圆形生物，用刺进行防御",
     "imageURLs": [
       {
-        "filename": "Chief.png",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f43a.svg",
+        "filename": "sea_urchin.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f411.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Apple",
-    "standardized": "Apple",
-    "chinese": "苹果",
-    "phonetic": "/ˈæpəl/",
-    "phrase": "Apple the hamster",
-    "phraseTranslation": "仓鼠苹果",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Dolphin",
+    "standardized": "dolphin",
+    "chinese": "海豚",
+    "phonetic": "/ˈdɒlfɪn/",
+    "phrase": "I love to jump and play!",
+    "phraseTranslation": "我喜欢跳跃玩耍！",
+    "difficulty": "easy",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼仓鼠村民",
+    "character_context": "聪明的海洋哺乳动物，常在海面跳跃",
     "imageURLs": [
       {
-        "filename": "Apple.png",
-        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f34e.svg",
+        "filename": "dolphin.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f42c.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Hamlet",
-    "standardized": "Hamlet",
-    "chinese": "哈姆雷特",
-    "phonetic": "/ˈhæmlət/",
-    "phrase": "Hamlet the hamster",
-    "phraseTranslation": "仓鼠哈姆雷特",
-    "difficulty": "basic",
-    "category": "villager",
+    "word": "Seal",
+    "standardized": "seal",
+    "chinese": "海豹",
+    "phonetic": "/siːl/",
+    "phrase": "I love to sunbathe on the rocks!",
+    "phraseTranslation": "我喜欢在岩石上晒太阳！",
+    "difficulty": "easy",
+    "category": "creature",
     "age_group": "3-6",
     "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的运动型仓鼠村民",
+    "character_context": "可爱的海洋哺乳动物，喜欢在岸边休息",
     "imageURLs": [
       {
-        "filename": "Hamlet.png",
-        "url": "https://dodo.ac/np/images/4/46/Hamlet_NH.png?version=a99b92b58e93daff43dd45c3c12510f8",
+        "filename": "seal.jpg",
+        "url": "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f9ad.svg",
         "type": "Default"
       }
     ]
   },
   {
-    "word": "Flurry",
-    "standardized": "Flurry",
-    "chinese": "雪花",
-    "phonetic": "/ˈflɜri/",
-    "phrase": "Flurry the hamster",
-    "phraseTranslation": "仓鼠雪花",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的普通仓鼠村民",
-    "imageURLs": [
-      {
-        "filename": "Flurry.png",
-        "url": "https://dodo.ac/np/images/0/03/Flurry_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Marina",
-    "standardized": "Marina",
-    "chinese": "玛丽娜",
-    "phonetic": "/məˈrinə/",
-    "phrase": "Marina the octopus",
-    "phraseTranslation": "章鱼玛丽娜",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的普通章鱼村民",
-    "imageURLs": [
-      {
-        "filename": "Marina.png",
-        "url": "https://dodo.ac/np/images/2/25/Marina_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Zucker",
-    "standardized": "Zucker",
-    "chinese": "章鱼烧",
-    "phonetic": "/ˈzʊkər/",
-    "phrase": "Zucker the octopus",
-    "phraseTranslation": "章鱼章鱼烧",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的懒惰章鱼村民",
-    "imageURLs": [
-      {
-        "filename": "Zucker.png",
-        "url": "https://dodo.ac/np/images/7/7f/Zucker_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Octavian",
-    "standardized": "Octavian",
-    "chinese": "奥克塔维安",
-    "phonetic": "/ɑkˈteɪviən/",
-    "phrase": "Octavian the octopus",
-    "phraseTranslation": "章鱼奥克塔维安",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的暴躁章鱼村民",
-    "imageURLs": [
-      {
-        "filename": "Octavian.png",
-        "url": "https://dodo.ac/np/images/thumb/5/54/Octavian_NH_Transparent.png/1200px-Octavian_NH_Transparent.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Coco",
-    "standardized": "Coco",
+    "word": "Rabbit",
+    "standardized": "Rabbit",
     "chinese": "可可",
     "phonetic": "/ˈkoʊkoʊ/",
     "phrase": "Coco the rabbit",
@@ -1087,70 +944,10 @@ const ANIMAL_CROSSING_ALL_CHARACTERS = [
     ]
   },
   {
-    "word": "Bunnie",
-    "standardized": "Bunnie",
-    "chinese": "小兔",
-    "phonetic": "/ˈbʌni/",
-    "phrase": "Bunnie the rabbit",
-    "phraseTranslation": "兔子小兔",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼兔子村民",
-    "imageURLs": [
-      {
-        "filename": "Bunnie.png",
-        "url": "https://dodo.ac/np/images/thumb/0/00/Bunnie_NH_Transparent.png/1200px-Bunnie_NH_Transparent.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Dotty",
-    "standardized": "Dotty",
-    "chinese": "多蒂",
-    "phonetic": "/ˈdɑti/",
-    "phrase": "Dotty the rabbit",
-    "phraseTranslation": "兔子多蒂",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼兔子村民",
-    "imageURLs": [
-      {
-        "filename": "Dotty.png",
-        "url": "https://dodo.ac/np/images/c/cc/Dotty_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Ruby",
-    "standardized": "Ruby",
-    "chinese": "红宝石",
-    "phonetic": "/ˈrubi/",
-    "phrase": "Ruby the rabbit",
-    "phraseTranslation": "兔子红宝石",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼兔子村民",
-    "imageURLs": [
-      {
-        "filename": "Ruby.png",
-        "url": "https://dodo.ac/np/images/4/41/Ruby_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Ankha",
-    "standardized": "Ankha",
+    "word": "Cat",
+    "standardized": "Cat",
     "chinese": "安卡",
-    "phonetic": "/ˈæŋkə/",
+    "phonetic": "/kæt/",
     "phrase": "Ankha the cat",
     "phraseTranslation": "猫咪安卡",
     "difficulty": "basic",
@@ -1167,310 +964,10 @@ const ANIMAL_CROSSING_ALL_CHARACTERS = [
     ]
   },
   {
-    "word": "Moe",
-    "standardized": "Moe",
-    "chinese": "莫伊",
-    "phonetic": "/moʊ/",
-    "phrase": "Moe the cat",
-    "phraseTranslation": "猫咪莫伊",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的懒惰猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Moe.png",
-        "url": "https://dodo.ac/np/images/a/a4/Moe_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Olivia",
-    "standardized": "Olivia",
-    "chinese": "奥利维亚",
-    "phonetic": "/əˈlɪviə/",
-    "phrase": "Olivia the cat",
-    "phraseTranslation": "猫咪奥利维亚",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的成熟猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Olivia.png",
-        "url": "https://dodo.ac/np/images/3/36/Olivia_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Felicity",
-    "standardized": "Felicity",
-    "chinese": "费利西蒂",
-    "phonetic": "/fəˈlɪsəti/",
-    "phrase": "Felicity the cat",
-    "phraseTranslation": "猫咪费利西蒂",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Felicity.png",
-        "url": "https://dodo.ac/np/images/c/c7/Felicity_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Mitzi",
-    "standardized": "Mitzi",
-    "chinese": "米茨",
-    "phonetic": "/ˈmɪtsi/",
-    "phrase": "Mitzi the cat",
-    "phraseTranslation": "猫咪米茨",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的普通猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Mitzi.png",
-        "url": "https://dodo.ac/np/images/6/63/Mitzi_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Kabuki",
-    "standardized": "Kabuki",
-    "chinese": "歌舞伎",
-    "phonetic": "/kəˈbuki/",
-    "phrase": "Kabuki the cat",
-    "phraseTranslation": "猫咪歌舞伎",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的暴躁猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Kabuki.png",
-        "url": "https://dodo.ac/np/images/2/2a/Kabuki_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Tom",
-    "standardized": "Tom",
-    "chinese": "汤姆",
-    "phonetic": "/tɑm/",
-    "phrase": "Tom the cat",
-    "phraseTranslation": "猫咪汤姆",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的暴躁猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Tom.png",
-        "url": "https://dodo.ac/np/images/d/d1/Tom_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Merry",
-    "standardized": "Merry",
-    "chinese": "快乐",
-    "phonetic": "/ˈmɛri/",
-    "phrase": "Merry the cat",
-    "phraseTranslation": "猫咪快乐",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Merry.png",
-        "url": "https://dodo.ac/np/images/4/4f/Merry_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Tabby",
-    "standardized": "Tabby",
-    "chinese": "虎斑",
-    "phonetic": "/ˈtæbi/",
-    "phrase": "Tabby the cat",
-    "phraseTranslation": "猫咪虎斑",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的活泼猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Tabby.png",
-        "url": "https://dodo.ac/np/images/2/2f/Tabby_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Stinky",
-    "standardized": "Stinky",
-    "chinese": "臭臭",
-    "phonetic": "/ˈstɪŋki/",
-    "phrase": "Stinky the cat",
-    "phraseTranslation": "猫咪臭臭",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的运动型猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Stinky.png",
-        "url": "https://dodo.ac/np/images/9/9c/Stinky_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Kitty",
-    "standardized": "Kitty",
-    "chinese": "小猫",
-    "phonetic": "/ˈkɪti/",
-    "phrase": "Kitty the cat",
-    "phraseTranslation": "猫咪小猫",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的成熟猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Kitty.png",
-        "url": "https://dodo.ac/np/images/2/21/Kitty_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Monique",
-    "standardized": "Monique",
-    "chinese": "莫妮克",
-    "phonetic": "/moʊˈnik/",
-    "phrase": "Monique the cat",
-    "phraseTranslation": "猫咪莫妮克",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的成熟猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Monique.png",
-        "url": "https://dodo.ac/np/images/c/cc/Monique_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Purrl",
-    "standardized": "Purrl",
-    "chinese": "呼噜",
-    "phonetic": "/pɜrl/",
-    "phrase": "Purrl the cat",
-    "phraseTranslation": "猫咪呼噜",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的成熟猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Purrl.png",
-        "url": "https://dodo.ac/np/images/a/a2/Purrl_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Kid Cat",
-    "standardized": "Kid Cat",
-    "chinese": "小猫咪",
-    "phonetic": "/kɪd kæt/",
-    "phrase": "Kid Cat the cat",
-    "phraseTranslation": "猫咪小猫咪",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的运动型猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Kid_Cat.png",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f431.svg",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Rudy",
-    "standardized": "Rudy",
-    "chinese": "鲁迪",
-    "phonetic": "/ˈrudi/",
-    "phrase": "Rudy the cat",
-    "phraseTranslation": "猫咪鲁迪",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的运动型猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Rudy.png",
-        "url": "https://dodo.ac/np/images/7/7e/Rudy_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Katt",
-    "standardized": "Katt",
-    "chinese": "凯特",
-    "phonetic": "/kæt/",
-    "phrase": "Katt the cat",
-    "phraseTranslation": "猫咪凯特",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的成熟猫咪村民",
-    "imageURLs": [
-      {
-        "filename": "Katt.png",
-        "url": "https://dodo.ac/np/images/c/c9/Katt_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Mott",
-    "standardized": "Mott",
+    "word": "Lion",
+    "standardized": "Lion",
     "chinese": "莫特",
-    "phonetic": "/mɑt/",
+    "phonetic": "/ˈlaɪən/",
     "phrase": "Mott the lion",
     "phraseTranslation": "狮子莫特",
     "difficulty": "basic",
@@ -1485,133 +982,8 @@ const ANIMAL_CROSSING_ALL_CHARACTERS = [
         "type": "Default"
       }
     ]
-  },
-  {
-    "word": "Rory",
-    "standardized": "Rory",
-    "chinese": "罗里",
-    "phonetic": "/ˈrɔri/",
-    "phrase": "Rory the lion",
-    "phraseTranslation": "狮子罗里",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的运动型狮子村民",
-    "imageURLs": [
-      {
-        "filename": "Rory.png",
-        "url": "https://dodo.ac/np/images/d/db/Rory_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Rex",
-    "standardized": "Rex",
-    "chinese": "雷克斯",
-    "phonetic": "/rɛks/",
-    "phrase": "Rex the lion",
-    "phraseTranslation": "狮子雷克斯",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的懒惰狮子村民",
-    "imageURLs": [
-      {
-        "filename": "Rex.png",
-        "url": "https://dodo.ac/np/images/7/78/Rex_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
+  }
 ];
-
-// Utility to normalize Animal Crossing Fandom image URLs into direct file paths
-(function normalizeACFandomImageURLs(list) {
-  if (!Array.isArray(list)) return;
-  const base = 'https://animalcrossing.fandom.com/wiki/';
-  const buildCandidates = (url) => {
-    try {
-      if (typeof url !== 'string') return [];
-      const m = url.match(/\/wiki\/File:([^?#]+)/i);
-      if (!m) return [];
-      const fileName = decodeURIComponent(m[1]);
-      const encoded = encodeURIComponent(fileName);
-      return [
-        `${base}Special:FilePath/${encoded}`,
-        `${base}Special:Redirect/file/${encoded}`
-      ];
-    } catch (e) {
-      return [];
-    }
-  };
-  for (const item of list) {
-    if (!item || !Array.isArray(item.imageURLs)) continue;
-    const newUrls = [];
-    "word": "Elvis",
-    "standardized": "Elvis",
-    "chinese": "猫王",
-    "phonetic": "/ˈɛlvɪs/",
-    "phrase": "Elvis the lion",
-    "phraseTranslation": "狮子猫王",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的暴躁狮子村民",
-    "imageURLs": [
-      {
-        "filename": "Elvis.png",
-        "url": "https://dodo.ac/np/images/c/cc/Elvis_NH.png",
-        "type": "Default"
-      }
-    ]
-  },
-  {
-    "word": "Leonardo",
-    "standardized": "Leonardo",
-    "chinese": "莱昂纳多",
-    "phonetic": "/ˌliəˈnɑrdoʊ/",
-    "phrase": "Leonardo the lion",
-    "phraseTranslation": "狮子莱昂纳多",
-    "difficulty": "basic",
-    "category": "villager",
-    "age_group": "3-6",
-    "game_source": "Animal Crossing",
-    "character_context": "动物森友会中的运动型狮子村民",
-    "imageURLs": [
-      {
-        "filename": "Leonardo.png",
-        "url": "https://dodo.ac/np/images/0/0a/Leonardo_NH.png",
-        "type": "Default"
-      }
-    ]
-  }
-    const seen = new Set();
-    for (const obj of item.imageURLs) {
-      if (obj && obj.url) {
-        const candidates = buildCandidates(obj.url);
-        for (const cand of candidates) {
-          if (!seen.has(cand)) {
-            newUrls.push({ url: cand, type: 'Raw' });
-            seen.add(cand);
-          }
-        }
-        if (!seen.has(obj.url)) {
-          newUrls.push(obj);
-          seen.add(obj.url);
-        }
-      }
-    }
-    if (newUrls.length > 0) {
-      item.imageURLs = newUrls;
-    }
-  }
-})(ANIMAL_CROSSING_ALL_CHARACTERS);
-
 // Export vocabulary data
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = ANIMAL_CROSSING_ALL_CHARACTERS;

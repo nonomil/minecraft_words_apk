@@ -1,14 +1,4 @@
-/**
- * 手机模式UI管理器
- * Mobile UI Window Manager
- *
- * 解决手机模式下的界面问题：
- * - 界面溢出和滑动困扰
- * - 导航不便
- * - 触控体验差
- * - 视觉干扰
- */
-
+/* 手机模式UI配置常量 */
 const MOBILE_UI_CONFIG = {
     // 窗口切换动画时长
     TRANSITION_DURATION: 300,
@@ -27,7 +17,7 @@ const MOBILE_UI_CONFIG = {
         PREVENT_ZOOM: true
     },
 
-    // 响应式断点
+    // 响应式断点（可按需使用）
     BREAKPOINTS: {
         SMALL: 375,
         MEDIUM: 414,
@@ -35,9 +25,7 @@ const MOBILE_UI_CONFIG = {
     }
 };
 
-/**
- * 手机模式UI管理器类
- */
+/* 手机模式UI管理器类 */
 class MobileUIManager {
     constructor() {
         this.windowHistory = ['home'];
@@ -45,38 +33,73 @@ class MobileUIManager {
         this.isMobileMode = false;
         this.floatingNav = null;
         this.windowContainer = null;
+        this.initialized = false;
 
-        this.init();
+        // 延迟初始化，等待设置加载完成
+        this.deferredInit();
+    }
+
+    /**
+     * 延迟初始化，确保设置已加载
+     */
+    deferredInit() {
+        // 等待DOM和设置加载完成
+        const tryInit = () => {
+            if (typeof getSettings === 'function') {
+                this.init();
+            } else {
+                // 如果设置还未加载，稍后重试
+                setTimeout(tryInit, 100);
+            }
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', tryInit);
+        } else {
+            tryInit();
+        }
     }
 
     /**
      * 初始化手机模式UI
      */
     init() {
+        if (this.initialized) {
+            console.log('[MobileUI] 已经初始化，跳过');
+            return;
+        }
+
+        console.log('[MobileUI] 开始初始化...');
         this.detectMobileMode();
 
         if (this.isMobileMode) {
+            console.log('[MobileUI] 检测到手机模式，设置UI...');
             this.setupMobileUI();
             this.setupTouchOptimization();
             this.setupEventListeners();
+            console.log('[MobileUI] 手机模式UI初始化完成');
+        } else {
+            console.log('[MobileUI] 手机模式未启用，使用标准界面');
         }
+
+        this.initialized = true;
     }
 
     /**
      * 检测是否为手机模式
      */
     detectMobileMode() {
-        const deviceMode = getSettings()?.deviceMode || 'phone';
-        const screenWidth = window.innerWidth;
-        const userAgent = navigator.userAgent;
+        const settings = getSettings();
+        const deviceMode = settings?.deviceMode || 'phone';
+        const phoneWindowMode = settings?.phoneWindowMode || false;
 
-        this.isMobileMode = (
-            deviceMode === 'phone' ||
-            screenWidth <= 480 ||
-            /Mobi|Android|iPhone/i.test(userAgent)
-        );
+        // 仅尊重用户设置的设备模式选择
+        const isPhoneDevice = (deviceMode === 'phone');
 
-        console.log(`[MobileUI] 手机模式检测: ${this.isMobileMode ? '启用' : '禁用'}`);
+        // 点击“手机模式”按钮即可启用手机UI，不再强制要求勾选“启用窗口化界面”
+        this.isMobileMode = isPhoneDevice;
+
+        console.log(`[MobileUI] 手机模式检测: ${this.isMobileMode ? '启用' : '禁用'} (deviceMode: ${deviceMode})`);
         return this.isMobileMode;
     }
 
@@ -84,6 +107,9 @@ class MobileUIManager {
      * 设置手机模式UI结构
      */
     setupMobileUI() {
+        // 添加手机模式类到 body
+        document.body.classList.add('mobile-mode');
+
         // 创建窗口容器
         this.createWindowContainer();
 
@@ -100,14 +126,18 @@ class MobileUIManager {
      * 创建窗口容器
      */
     createWindowContainer() {
-        const container = document.createElement('div');
-        container.id = 'mobileWindowContainer';
-        container.className = 'mobile-window-container';
-
-        // 插入到body中
-        document.body.insertBefore(container, document.body.firstChild);
-        this.windowContainer = container;
-
+        // 如果已存在容器，避免重复创建
+        const existing = document.getElementById('mobileWindowContainer');
+        if (existing) {
+            this.windowContainer = existing;
+        } else {
+            const container = document.createElement('div');
+            container.id = 'mobileWindowContainer';
+            container.className = 'mobile-window-container';
+            // 插入到body中
+            document.body.insertBefore(container, document.body.firstChild);
+            this.windowContainer = container;
+        }
         // 隐藏原始内容
         const originalContainer = document.querySelector('.container');
         if (originalContainer) {
@@ -119,6 +149,12 @@ class MobileUIManager {
      * 创建悬浮导航栏
      */
     createFloatingNav() {
+        // 如果已存在浮动导航，避免重复创建
+        const existing = document.getElementById('mobileFloatingNav');
+        if (existing) {
+            this.floatingNav = existing;
+            return;
+        }
         const nav = document.createElement('div');
         nav.id = 'mobileFloatingNav';
         nav.className = 'mobile-floating-nav';
@@ -159,19 +195,20 @@ class MobileUIManager {
                 z-index: 999;
             }
 
-            /* 手机模式窗口 */
+            /* 手机模式窗口 - 优化布局，支持缩放 */
             .mobile-window {
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: white;
+                background: #f0f4f8; /* 与现有界面背景一致 */
                 transform: translateX(100%);
                 transition: transform ${MOBILE_UI_CONFIG.TRANSITION_DURATION}ms cubic-bezier(0.4, 0, 0.2, 1);
-                display: flex;
-                flex-direction: column;
-                overflow: hidden;
+                overflow-y: auto; /* 允许滚动 */
+                padding: 10px; /* 减少内边距，优化空间利用 */
+                box-sizing: border-box;
+                transform-origin: top left; /* 支持缩放 */
             }
 
             .mobile-window.active {
@@ -257,25 +294,445 @@ class MobileUIManager {
                 flex-direction: column;
             }
 
-            /* 主页窗口 */
+            /* 主页窗口 - 完整功能界面 */
             .mobile-home {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                padding: 0;
+                background: #f0f4f8; /* 与现有界面背景一致 */
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                text-align: center;
+                padding: 20px 15px;
+                min-height: 100vh;
+                box-sizing: border-box;
             }
 
             .mobile-home-content {
-                height: 100%;
+                width: 100%;
+                max-width: 400px;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                padding: 40px 20px;
+                gap: 20px;
             }
 
-            /* 学习窗口 */
+            /* 主要模式按钮 */
+            .mobile-main-modes {
+                display: flex;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .mobile-mode-btn {
+                flex: 1;
+                background: white;
+                border: 2px solid #e0e0e0;
+                border-radius: 12px;
+                padding: 20px 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 16px;
+                font-weight: 500;
+                color: #333;
+                text-align: center;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                min-height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .mobile-mode-btn.primary {
+                background: linear-gradient(135deg, #2196F3, #1976D2);
+                color: white;
+                border-color: #1976D2;
+                font-weight: 600;
+            }
+
+            .mobile-mode-btn:hover {
+                background: #f8f9fa;
+                border-color: #2196F3;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            .mobile-mode-btn.primary:hover {
+                background: linear-gradient(135deg, #1976D2, #1565C0);
+                border-color: #1565C0;
+            }
+
+            .mobile-mode-btn:active {
+                transform: translateY(0);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            /* 学习类型切换 */
+            .mobile-learn-types {
+                background: white;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-learn-types h3 {
+                margin: 0 0 15px 0;
+                color: #333;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            .learn-type-buttons {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .learn-type-btn {
+                background: #f5f5f5;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                padding: 12px 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                color: #666;
+                text-align: center;
+            }
+
+            .learn-type-btn:hover {
+                background: #e3f2fd;
+                border-color: #2196F3;
+                color: #2196F3;
+            }
+
+            .learn-type-btn.active {
+                background: #2196F3;
+                border-color: #2196F3;
+                color: white;
+                font-weight: 500;
+            }
+
+            /* 功能按钮 */
+            .mobile-function-buttons {
+                display: flex;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .mobile-function-btn {
+                flex: 1;
+                background: white;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                padding: 15px 10px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                color: #666;
+                text-align: center;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-function-btn:hover {
+                background: #f8f9fa;
+                border-color: #9E9E9E;
+                color: #333;
+            }
+
+            /* 快速设置 */
+            .mobile-quick-settings {
+                background: white;
+                border-radius: 12px;
+                padding: 20px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-setting-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 15px;
+                cursor: pointer;
+                font-size: 14px;
+                color: #333;
+            }
+
+            .mobile-setting-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .mobile-setting-item input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+                cursor: pointer;
+            }
+
+            /* 学习窗口 - 复用现有界面样式 */
             .mobile-learn {
-                background: #f8fafc;
+                background: #f0f4f8; /* 与现有界面背景一致 */
+                padding: 0; /* 移除内边距，让现有界面元素自己处理 */
+            }
+
+            /* 确保学习模式的所有现有样式都能正常工作 */
+            .mobile-learn .learn-area {
+                display: block !important; /* 确保学习区域显示 */
+                padding: 0; /* 让现有样式处理间距 */
+            }
+
+            /* 隐藏原始界面中的其他模式 */
+            .mobile-mode .quiz-area,
+            .mobile-mode .settings-area {
+                display: none !important;
+            }
+
+            /* 手机窗口内强制单列布局，隐藏冗余统计侧栏（拼写/学习） */
+            .mobile-mode .mobile-window #quizMode .stats,
+            .mobile-mode .mobile-window #learnMode .stats {
+                display: none !important;
+            }
+
+            /* 使窗口内容纵向排列，占满宽度 */
+            .mobile-mode .mobile-window .mobile-window-content {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                overflow-y: auto;
+            }
+
+            /* 复用原始 learn/quiz 节点时，确保宽度与居中规则在手机窗口内不产生左右栏 */
+            .mobile-mode .mobile-window #quizMode,
+            .mobile-mode .mobile-window #learnMode {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+
+            /* 优化后的控制按钮布局 */
+            .mobile-optimized-controls {
+                margin: 10px 0;
+            }
+
+            .mobile-control-row-1 {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .mobile-control-btn {
+                background: white;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                padding: 12px 16px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                color: #333;
+                text-align: center;
+                min-width: 80px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-control-btn:hover {
+                background: #f8f9fa;
+                border-color: #2196F3;
+                transform: translateY(-1px);
+            }
+
+            .mobile-control-btn:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            .mobile-control-btn.mobile-btn-play {
+                background: #4CAF50;
+                color: white;
+                border-color: #4CAF50;
+                font-size: 16px;
+            }
+
+            .mobile-control-btn.mobile-btn-play:hover {
+                background: #45a049;
+                border-color: #45a049;
+            }
+
+            /* 简化的统计信息 */
+            .mobile-simplified-stats {
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 8px;
+            }
+
+            .mobile-stat-item {
+                text-align: center;
+            }
+
+            .mobile-stat-value {
+                font-size: 18px;
+                font-weight: bold;
+                color: #2196F3;
+                margin-bottom: 2px;
+            }
+
+            .mobile-stat-label {
+                font-size: 12px;
+                color: #666;
+            }
+
+            /* 缩放支持 */
+            .mobile-window-container {
+                transform-origin: top left;
+                overflow: hidden;
+            }
+
+            .mobile-mode {
+                overflow: hidden;
+            }
+
+            /* 响应式缩放 */
+            @media (max-width: 480px) {
+                .mobile-window {
+                    padding: 8px;
+                }
+
+                .mobile-home-content {
+                    max-width: 100%;
+                }
+
+                .mobile-mode-btn {
+                    font-size: 14px;
+                    padding: 15px 10px;
+                }
+
+                .learn-type-buttons {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* 学习窗口 - 复用现有界面样式 */
+            .mobile-learn {
+                background: #f0f4f8; /* 与现有界面背景一致 */
+                padding: 0; /* 移除内边距，让现有界面元素自己处理 */
+            }
+
+            /* 确保学习模式的所有现有样式都能正常工作 */
+            .mobile-learn .learn-area {
+                display: block !important; /* 确保学习区域显示 */
+                padding: 0; /* 让现有样式处理间距 */
+            }
+
+            /* 隐藏原始界面中的其他模式 */
+            .mobile-mode .quiz-area,
+            .mobile-mode .settings-area {
+                display: none !important;
+            }
+
+            /* 优化后的控制按钮布局 */
+            .mobile-optimized-controls {
+                margin: 10px 0;
+            }
+
+            .mobile-control-row-1 {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .mobile-control-btn {
+                background: white;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                padding: 12px 16px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 14px;
+                color: #333;
+                text-align: center;
+                min-width: 80px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .mobile-control-btn:hover {
+                background: #f8f9fa;
+                border-color: #2196F3;
+                transform: translateY(-1px);
+            }
+
+            .mobile-control-btn:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            .mobile-control-btn.mobile-btn-play {
+                background: #4CAF50;
+                color: white;
+                border-color: #4CAF50;
+                font-size: 16px;
+            }
+
+            .mobile-control-btn.mobile-btn-play:hover {
+                background: #45a049;
+                border-color: #45a049;
+            }
+
+            /* 简化的统计信息 */
+            .mobile-simplified-stats {
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 8px;
+            }
+
+            .mobile-stat-item {
+                text-align: center;
+            }
+
+            .mobile-stat-value {
+                font-size: 18px;
+                font-weight: bold;
+                color: #2196F3;
+                margin-bottom: 2px;
+            }
+
+            .mobile-stat-label {
+                font-size: 12px;
+                color: #666;
+            }
+
+            /* 缩放支持 */
+            .mobile-window-container {
+                transform-origin: top left;
+                overflow: hidden;
+            }
+
+            .mobile-mode {
+                overflow: hidden;
+            }
+
+            /* 响应式缩放 */
+            @media (max-width: 480px) {
+                .mobile-window {
+                    padding: 8px;
+                }
+
+                .mobile-home-content {
+                    max-width: 100%;
+                }
+
+                .mobile-mode-btn {
+                    font-size: 14px;
+                    padding: 15px 10px;
+                }
+
+                .learn-type-buttons {
+                    grid-template-columns: 1fr;
+                }
             }
 
             .mobile-learn-content {
@@ -421,8 +878,145 @@ class MobileUIManager {
             .mobile-mode .original-container {
                 display: none !important;
             }
+
+            /* 测试模式样式 */
+            .mobile-test-content, .mobile-quiz-content {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .mobile-test-area, .mobile-quiz-area {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .mobile-test-options {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                margin: 20px 0;
+            }
+
+            .mobile-option-btn {
+                background: white;
+                border: 2px solid #e0e0e0;
+                border-radius: 12px;
+                padding: 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                font-size: 16px;
+                color: #333;
+                text-align: center;
+                min-height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .mobile-option-btn:hover {
+                background: #f8f9fa;
+                border-color: #2196F3;
+                transform: translateY(-1px);
+            }
+
+            .mobile-option-btn.correct {
+                background: #4CAF50;
+                border-color: #4CAF50;
+                color: white;
+            }
+
+            .mobile-option-btn.incorrect {
+                background: #f44336;
+                border-color: #f44336;
+                color: white;
+            }
+
+            .mobile-test-controls, .mobile-quiz-controls {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                margin: 20px 0;
+            }
+
+            /* 拼写模式样式 */
+            .mobile-spelling-input {
+                display: flex;
+                gap: 10px;
+                margin: 20px 0;
+                align-items: center;
+            }
+
+            .mobile-spelling-input input {
+                flex: 1;
+                padding: 12px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 16px;
+                transition: border-color 0.3s ease;
+            }
+
+            .mobile-spelling-input input:focus {
+                outline: none;
+                border-color: #2196F3;
+            }
+
+            .mobile-submit-btn {
+                background: #2196F3;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                padding: 12px 20px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-submit-btn:hover {
+                background: #1976D2;
+                transform: translateY(-1px);
+            }
+
+            .mobile-quiz-hint {
+                margin: 15px 0;
+            }
+
+            .mobile-hint-btn {
+                background: #FF9800;
+                color: white;
+                border: none;
+                border-radius: 20px;
+                padding: 8px 16px;
+                cursor: pointer;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+
+            .mobile-hint-btn:hover {
+                background: #F57C00;
+                transform: translateY(-1px);
+            }
+
+            .mobile-word-chinese {
+                font-size: 20px;
+                font-weight: bold;
+                color: #1976d2;
+                margin: 10px 0;
+            }
+
+            .mobile-word-phonetic {
+                font-size: 14px;
+                color: #666;
+                font-style: italic;
+                margin: 5px 0;
+            }
         `;
 
+        // 在样式末尾追加覆盖规则，确保在移动窗口内显示被默认隐藏的区域
+        style.textContent += `
+            /* 覆盖：在移动窗口内显示被默认隐藏的区域 */
+            .mobile-mode .mobile-window .quiz-area,
+            .mobile-mode .mobile-window .settings-area { display: block !important; }
+        `;
         document.head.appendChild(style);
     }
 
@@ -430,107 +1024,361 @@ class MobileUIManager {
      * 转换现有界面为窗口模式
      */
     convertToWindowMode() {
+        console.log('[MobileUI] 开始转换到窗口模式...');
+
+        // 隐藏原始界面内容
+        const originalContainer = document.querySelector('.container');
+        if (originalContainer) {
+            originalContainer.style.display = 'none';
+            console.log('[MobileUI] 已隐藏原始容器');
+        }
+
         // 创建主页窗口
         this.createHomeWindow();
 
-        // 创建学习窗口
+        // 创建学习窗口（直接复用现有界面）
         this.createLearnWindow();
 
-        // 创建其他模式窗口（设置、统计等）
+        // 创建其他模式窗口
         this.createOtherWindows();
+
+        // 确保学习模式界面正确显示
+        this.setupExistingInterface();
 
         console.log('[MobileUI] 界面转换完成');
     }
 
     /**
-     * 创建主页窗口
+     * 应用缩放设置
+     */
+    applyScaleSettings() {
+        const settings = getSettings();
+        const scale = settings?.uiScale || 1;
+
+        if (this.windowContainer) {
+            this.windowContainer.style.transform = `scale(${scale})`;
+            this.windowContainer.style.transformOrigin = 'top left';
+            this.windowContainer.style.width = `${100 / scale}%`;
+            this.windowContainer.style.height = `${100 / scale}%`;
+        }
+
+        console.log(`[MobileUI] 应用缩放: ${scale}`);
+    }
+
+    /**
+     * 设置现有界面
+     */
+    setupExistingInterface() {
+        // 确保现有的学习模式界面在手机模式下正确工作
+        const learnMode = document.getElementById('learnMode');
+        const quizMode = document.getElementById('quizMode');
+        const settingsMode = document.getElementById('settingsMode');
+
+        if (learnMode) {
+            // 确保学习模式在手机窗口中显示
+            learnMode.style.display = 'block';
+        }
+
+        // 隐藏其他模式，它们将在各自的窗口中显示
+        if (quizMode) quizMode.style.display = 'none';
+        if (settingsMode) settingsMode.style.display = 'none';
+
+        console.log('[MobileUI] 现有界面设置完成');
+
+        // 应用缩放设置
+        this.applyScaleSettings();
+    }
+
+    /**
+     * 创建主页窗口 - 包含所有功能按钮的完整界面
      */
     createHomeWindow() {
         const homeWindow = document.createElement('div');
         homeWindow.id = 'mobileHomeWindow';
         homeWindow.className = 'mobile-window mobile-home active';
 
-        homeWindow.innerHTML = `
-            <div class="mobile-home-content">
-                <div class="home-header">
-                    <h1>🎮 Minecraft 单词学习</h1>
-                    <p>看图学单词，轻松掌握游戏词汇</p>
-                </div>
-                <div class="mode-grid">
-                    <div class="mode-tile" onclick="mobileUI.openWindow('learn')">
-                        <div class="mode-icon">📚</div>
-                        <div class="mode-name">学习模式</div>
-                        <div class="mode-desc">看图识单词</div>
-                    </div>
-                    <div class="mode-tile" onclick="mobileUI.openWindow('quiz')">
-                        <div class="mode-icon">🔤</div>
-                        <div class="mode-name">拼写模式</div>
-                        <div class="mode-desc">听音拼单词</div>
-                    </div>
-                    <div class="mode-tile" onclick="mobileUI.openWindow('settings')">
-                        <div class="mode-icon">⚙️</div>
-                        <div class="mode-name">设置</div>
-                        <div class="mode-desc">个性化配置</div>
-                    </div>
-                    <div class="mode-tile" onclick="mobileUI.openWindow('stats')">
-                        <div class="mode-icon">📊</div>
-                        <div class="mode-name">学习统计</div>
-                        <div class="mode-desc">查看进度</div>
-                    </div>
-                </div>
-            </div>
-        `;
+        // 克隆桌面主页结构，确保视觉与桌面完全一致
+        const container = document.querySelector('.container');
+        const wrapper = document.createElement('div');
+        wrapper.className = 'mobile-window-content';
 
+        if (container) {
+            const header = container.querySelector('.header');
+            const gameModes = container.querySelector('.game-modes');
+
+            if (header) {
+                // 深度克隆以保留内部结构和样式
+                const headerClone = header.cloneNode(true);
+                wrapper.appendChild(headerClone);
+            }
+
+            if (gameModes) {
+                const modesClone = gameModes.cloneNode(true);
+
+                // 重写模式按钮的行为：点击打开移动窗口
+                const learnBtn = modesClone.querySelector('.mode-btn.learn');
+                if (learnBtn) {
+                    learnBtn.setAttribute('onclick', "mobileUI.switchToMode('learn')");
+                }
+                const quizBtn = modesClone.querySelector('.mode-btn.quiz');
+                if (quizBtn) {
+                    quizBtn.setAttribute('onclick', "mobileUI.switchToMode('quiz')");
+                }
+                const settingsBtn = modesClone.querySelector('.mode-btn.settings');
+                if (settingsBtn) {
+                    settingsBtn.setAttribute('onclick', "mobileUI.switchToMode('settings')");
+                }
+
+                // 保留洗牌按钮和学习类型切换按钮的原有行为
+                wrapper.appendChild(modesClone);
+            } else {
+                // 兜底：如果找不到桌面结构，使用移动版简化结构
+                const fallback = document.createElement('div');
+                fallback.className = 'mobile-home-content';
+                fallback.innerHTML = `
+                    <div class="mobile-main-modes">
+                        <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('learn')">📚 学习模式</button>
+                        <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('quiz')">🔤 拼写模式</button>
+                    </div>
+                    <div class="mobile-function-buttons">
+                        <button class="mobile-function-btn" onclick="shuffleWords()">🔀 随机排序</button>
+                        <button class="mobile-function-btn" onclick="mobileUI.switchToMode('settings')">⚙️ 设置</button>
+                    </div>
+                `;
+                wrapper.appendChild(fallback);
+            }
+        } else {
+            // 没有找到容器，同上兜底
+            const fallback = document.createElement('div');
+            fallback.className = 'mobile-home-content';
+            fallback.innerHTML = `
+                <div class="mobile-main-modes">
+                    <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('learn')">📚 学习模式</button>
+                    <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('quiz')">🔤 拼写模式</button>
+                </div>
+                <div class="mobile-function-buttons">
+                    <button class="mobile-function-btn" onclick="shuffleWords()">🔀 随机排序</button>
+                    <button class="mobile-function-btn" onclick="mobileUI.switchToMode('settings')">⚙️ 设置</button>
+                </div>
+            `;
+            wrapper.appendChild(fallback);
+        }
+
+        homeWindow.appendChild(wrapper);
         this.windowContainer.appendChild(homeWindow);
     }
 
     /**
-     * 创建学习窗口
+     * 创建学习窗口 - 直接复用现有的学习模式界面
      */
     createLearnWindow() {
         const learnWindow = document.createElement('div');
         learnWindow.id = 'mobileLearnWindow';
         learnWindow.className = 'mobile-window mobile-learn';
 
-        learnWindow.innerHTML = `
-            <div class="mobile-learn-content">
-                <div class="learn-main-area" id="mobileLearnMain">
-                    <!-- 动态内容将在这里插入 -->
+        // 获取原始的学习模式内容并迁移到移动窗口，避免重复ID导致显示异常
+        const originalLearnMode = document.getElementById('learnMode');
+        if (originalLearnMode) {
+            // 在原位置插入占位符，便于禁用移动模式时复原
+            if (!document.getElementById('learnModePlaceholder')) {
+                const placeholder = document.createElement('div');
+                placeholder.id = 'learnModePlaceholder';
+                placeholder.style.display = 'none';
+                originalLearnMode.parentNode.insertBefore(placeholder, originalLearnMode);
+            }
+            // 迁移原始节点到移动窗口，确保脚本与 ID 一致
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mobile-window-content';
+            wrapper.appendChild(originalLearnMode);
+            learnWindow.appendChild(wrapper);
+        } else {
+            // 如果原始内容不存在，创建占位符内容
+            learnWindow.innerHTML = `
+                <div class="mobile-window-content" style="padding: 20px; text-align: center;">
+                    <h2>📚 学习模式</h2>
+                    <p>正在加载学习界面...</p>
                 </div>
-                <div class="learn-control-area" id="mobileLearnControls">
-                    <!-- 控制按钮将在这里插入 -->
-                </div>
-            </div>
-        `;
+            `;
+        }
 
         this.windowContainer.appendChild(learnWindow);
     }
 
     /**
-     * 创建其他模式窗口
+     * 创建其他模式窗口 - 直接复用现有设置界面
      */
     createOtherWindows() {
-        // 设置窗口
+        // 设置窗口 - 直接复用现有的设置模式界面
         const settingsWindow = document.createElement('div');
         settingsWindow.id = 'mobileSettingsWindow';
         settingsWindow.className = 'mobile-window';
-        settingsWindow.innerHTML = `
-            <div class="mobile-window-content" id="mobileSettingsContent">
-                <!-- 设置内容将在这里动态生成 -->
-            </div>
-        `;
+
+        // 获取原始的设置模式内容
+        const originalSettingsMode = document.getElementById('settingsMode');
+        if (originalSettingsMode) {
+            // 在原位置插入占位符，便于禁用移动模式时复原
+            if (!document.getElementById('settingsModePlaceholder')) {
+                const placeholder = document.createElement('div');
+                placeholder.id = 'settingsModePlaceholder';
+                placeholder.style.display = 'none';
+                originalSettingsMode.parentNode.insertBefore(placeholder, originalSettingsMode);
+            }
+            // 移动原始节点到移动窗口，确保脚本与 ID 一致
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mobile-window-content';
+            wrapper.appendChild(originalSettingsMode);
+            settingsWindow.appendChild(wrapper);
+        } else {
+            // 如果原始内容不存在，创建占位符内容
+            settingsWindow.innerHTML = `
+                <div class="mobile-window-content" style="text-align: center;">
+                    <h2>⚙️ 设置</h2>
+                    <p>正在加载设置界面...</p>
+                </div>
+            `;
+        }
+
         this.windowContainer.appendChild(settingsWindow);
 
-        // 统计窗口
+        // 测试模式窗口 - 创建测试界面
+        const testWindow = document.createElement('div');
+        testWindow.id = 'mobileTestWindow';
+        testWindow.className = 'mobile-window';
+        testWindow.innerHTML = `
+            <div class="mobile-window-content">
+                <div class="mobile-test-content">
+                    <h2>📝 测试模式</h2>
+                    <div class="mobile-test-area">
+                        <div class="mobile-word-card">
+                            <div class="mobile-word-image" id="testWordImage">💎</div>
+                            <div class="mobile-word-text" id="testWordText">Diamond</div>
+                            <div class="mobile-word-phonetic" id="testWordPhonetic">/ˈdaɪmənd/</div>
+                        </div>
+
+                        <div class="mobile-test-options">
+                            <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, true)">钻石</button>
+                            <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">石头</button>
+                            <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">黄金</button>
+                            <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">铁矿</button>
+                        </div>
+
+                        <div class="mobile-test-controls">
+                            <button class="mobile-control-btn" onclick="mobileUI.previousTestWord()">⬅️ 上一个</button>
+                            <button class="mobile-control-btn mobile-btn-play" onclick="mobileUI.playTestAudio()">🔊</button>
+                            <button class="mobile-control-btn" onclick="mobileUI.nextTestWord()">下一个 ➡️</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        this.windowContainer.appendChild(testWindow);
+
+        // 拼写模式窗口 - 创建拼写测试界面
+        const quizWindow = document.createElement('div');
+        quizWindow.id = 'mobileQuizWindow';
+        quizWindow.className = 'mobile-window';
+
+        // 复用桌面 quizMode 原始节点，保证拼写模式 UI 一致
+        const originalQuizMode = document.getElementById('quizMode');
+        if (originalQuizMode) {
+            // 在原位置插入占位符，便于禁用移动模式时复原
+            if (!document.getElementById('quizModePlaceholder')) {
+                const placeholder = document.createElement('div');
+                placeholder.id = 'quizModePlaceholder';
+                placeholder.style.display = 'none';
+                originalQuizMode.parentNode.insertBefore(placeholder, originalQuizMode);
+            }
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mobile-window-content';
+            wrapper.appendChild(originalQuizMode);
+            quizWindow.appendChild(wrapper);
+        } else {
+            quizWindow.innerHTML = `
+                <div class="mobile-window-content" style="text-align:center;">
+                    <h2 class="mobile-title">✍️ 拼写</h2>
+                    <p>正在加载拼写界面...</p>
+                </div>
+            `;
+        }
+        this.windowContainer.appendChild(quizWindow);
+
+        // 统计窗口 - 创建简化的统计界面
         const statsWindow = document.createElement('div');
         statsWindow.id = 'mobileStatsWindow';
         statsWindow.className = 'mobile-window';
         statsWindow.innerHTML = `
-            <div class="mobile-window-content" id="mobileStatsContent">
-                <!-- 统计内容将在这里动态生成 -->
+            <div class="mobile-window-content">
+                <div class="mobile-stats-content">
+                    <h2 class="mobile-title">📊 学习统计</h2>
+                    <div class="stats-summary"></div>
+                    <div class="group-progress"></div>
+                </div>
             </div>
         `;
         this.windowContainer.appendChild(statsWindow);
+    }
+
+    /**
+     * 设置学习类型
+     */
+    setLearnType(type) {
+        console.log(`[MobileUI] 设置学习类型: ${type}`);
+
+        if (typeof setLearnType === 'function') {
+            setLearnType(type);
+
+            // 更新按钮状态
+            const buttons = document.querySelectorAll('.learn-type-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const activeBtn = document.querySelector(`.learn-type-btn[onclick*="${type}"]`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+        }
+    }
+
+    /**
+     * 切换自动播放
+     */
+    toggleAutoPlay() {
+        const checkbox = document.getElementById('mobileAutoPlay');
+        if (checkbox) {
+            const settings = getSettings();
+            settings.autoPlay = checkbox.checked;
+            saveSettings();
+            console.log(`[MobileUI] 自动播放: ${settings.autoPlay ? '开启' : '关闭'}`);
+        }
+    }
+
+    /**
+     * 切换显示图片
+     */
+    toggleShowImages() {
+        const checkbox = document.getElementById('mobileShowImages');
+        if (checkbox) {
+            const settings = getSettings();
+            settings.showImages = checkbox.checked;
+            saveSettings();
+            console.log(`[MobileUI] 显示图片: ${settings.showImages ? '开启' : '关闭'}`);
+        }
+    }
+
+    /**
+     * 切换到指定模式 - 复用现有的switchMode函数
+     */
+    switchToMode(modeName) {
+        console.log(`[MobileUI] 切换到模式: ${modeName}`);
+
+        // 调用现有的switchMode函数
+        if (typeof switchMode === 'function') {
+            switchMode(modeName);
+
+            // 切换到对应的窗口
+            this.openWindow(modeName);
+        } else {
+            console.warn('[MobileUI] switchMode函数未定义');
+        }
     }
 
     /**
@@ -627,6 +1475,7 @@ class MobileUIManager {
             'home': '主页',
             'learn': '学习模式',
             'quiz': '拼写模式',
+            'test': '测试模式',
             'settings': '设置',
             'stats': '学习统计'
         };
@@ -654,6 +1503,9 @@ class MobileUIManager {
             case 'quiz':
                 this.populateQuizWindow();
                 break;
+            case 'test':
+                this.populateTestWindow();
+                break;
             case 'settings':
                 this.populateSettingsWindow();
                 break;
@@ -664,49 +1516,244 @@ class MobileUIManager {
     }
 
     /**
-     * 填充学习窗口内容
+     * 填充学习窗口内容 - 优化布局，去除空白区域
      */
     populateLearnWindow() {
-        const mainArea = document.getElementById('mobileLearnMain');
-        const controlArea = document.getElementById('mobileLearnControls');
+        console.log('[MobileUI] 优化学习窗口布局');
 
-        if (!mainArea || !controlArea) return;
+        // 获取学习模式容器
+        const learnMode = document.getElementById('learnMode');
+        if (!learnMode) return;
 
-        // 这里将现有学习模式的内容转换为手机模式格式
-        // 具体内容填充逻辑
-        mainArea.innerHTML = `
-            <div class="mobile-progress-section">
-                <div class="mobile-progress-info">
-                    <div class="mobile-progress-label">第 1 组进度</div>
-                    <div class="mobile-progress-counter">3/10</div>
-                </div>
-                <div class="mobile-progress-bar">
-                    <div class="mobile-progress-fill" style="width: 30%;"></div>
-                </div>
-            </div>
-            <div class="mobile-word-card">
-                <img class="mobile-word-image" src="https://via.placeholder.com/200x150/4CAF50/ffffff?text=Diamond" alt="单词图片">
-                <div class="word-text">
-                    <div class="word-english">Diamond</div>
-                    <div class="word-phonetic">/ˈdaɪmənd/</div>
-                    <div class="word-chinese">钻石</div>
-                </div>
-                <div class="quiz-options">
-                    <button class="option-btn" onclick="mobileUI.selectOption(this, false)">石头</button>
-                    <button class="option-btn" onclick="mobileUI.selectOption(this, true)">钻石</button>
-                    <button class="option-btn" onclick="mobileUI.selectOption(this, false)">黄金</button>
-                    <button class="option-btn" onclick="mobileUI.selectOption(this, false)">铁矿</button>
-                </div>
+        // 优化学习窗口布局
+        this.optimizeLearnLayout(learnMode);
+
+        // 触发一次界面更新，确保内容正确显示
+        if (typeof updateWordDisplay === 'function') {
+            updateWordDisplay();
+        }
+    }
+
+    /**
+     * 填充测试窗口内容
+     */
+    populateTestWindow() {
+        console.log('[MobileUI] 填充测试窗口内容');
+        this.updateTestWord();
+    }
+
+    /**
+     * 填充拼写窗口内容
+     */
+    populateQuizWindow() {
+        console.log('[MobileUI] 填充拼写窗口内容');
+        // 确保拼写模式正确初始化
+        if (typeof updateQuizDisplay === 'function') {
+            updateQuizDisplay();
+        }
+        // 清空输入框
+        const spellingInput = document.getElementById('spellingInput');
+        if (spellingInput) {
+            spellingInput.value = '';
+        }
+    }
+
+    /**
+     * 优化学习窗口布局
+     */
+    optimizeLearnLayout(learnMode) {
+        // 1. 重新布局控制按钮，将上一个/下一个按钮移到第一行
+        const controlButtons = learnMode.querySelector('.control-buttons');
+        if (controlButtons) {
+            this.rearrangeControlButtons(controlButtons);
+        }
+
+        // 2. 简化统计信息，移除不必要的显示行
+        const stats = learnMode.querySelector('.stats');
+        if (stats) {
+            this.simplifyStats(stats);
+        }
+
+        // 3. 优化进度条和分组进度显示
+        const groupProgress = learnMode.querySelector('.group-progress');
+        if (groupProgress) {
+            this.optimizeGroupProgress(groupProgress);
+        }
+
+        // 4. 调整整体布局，减少空白区域
+        this.adjustOverallLayout(learnMode);
+
+        console.log('[MobileUI] 学习窗口布局优化完成');
+    }
+
+    /**
+     * 重新布局控制按钮
+     */
+    rearrangeControlButtons(controlButtons) {
+        // 创建新的按钮布局
+        const newLayout = document.createElement('div');
+        newLayout.className = 'mobile-optimized-controls';
+        newLayout.innerHTML = `
+            <div class="mobile-control-row-1">
+                <button class="mobile-control-btn mobile-btn-prev" onclick="previousWord()" disabled>⬅️ 上一个</button>
+                <button class="mobile-control-btn mobile-btn-play" onclick="playAudio()">🔊</button>
+                <button class="mobile-control-btn mobile-btn-next" onclick="nextWord()" disabled>下一个 ➡️</button>
             </div>
         `;
 
-        controlArea.innerHTML = `
-            <div class="mobile-control-buttons">
-                <button class="mobile-control-btn mobile-btn-prev" onclick="mobileUI.previousWord()">⬅️ 上一个</button>
-                <button class="mobile-control-btn mobile-btn-play" onclick="mobileUI.playAudio()">🔊</button>
-                <button class="mobile-control-btn mobile-btn-next" onclick="mobileUI.nextWord()">下一个 ➡️</button>
+        // 替换原始的控制按钮
+        controlButtons.parentNode.replaceChild(newLayout, controlButtons);
+
+        // 复制原始按钮的样式和功能
+        const originalButtons = controlButtons.querySelectorAll('.control-btn');
+        const newButtons = newLayout.querySelectorAll('.mobile-control-btn');
+
+        originalButtons.forEach((originalBtn, index) => {
+            if (newButtons[index]) {
+                // 复制事件监听器和属性
+                newButtons[index].disabled = originalBtn.disabled;
+                newButtons[index].onclick = originalBtn.onclick;
+            }
+        });
+    }
+
+    /**
+     * 简化统计信息
+     */
+    simplifyStats(stats) {
+        // 只保留必要的统计信息，移除当前位置、总词汇数等
+        const newStats = document.createElement('div');
+        newStats.className = 'mobile-simplified-stats';
+        newStats.innerHTML = `
+            <div class="mobile-stat-item">
+                <div class="mobile-stat-value" id="mobileLearnedCount">0</div>
+                <div class="mobile-stat-label">已学习</div>
             </div>
         `;
+
+        // 保留已学习数量，但简化显示
+        const learnedCount = stats.querySelector('#learnedCount');
+        if (learnedCount) {
+            const mobileLearnedCount = newStats.querySelector('#mobileLearnedCount');
+            if (mobileLearnedCount) {
+                mobileLearnedCount.textContent = learnedCount.textContent;
+            }
+        }
+
+        // 替换原始统计信息
+        stats.parentNode.replaceChild(newStats, stats);
+    }
+
+    /**
+     * 优化分组进度显示
+     */
+    optimizeGroupProgress(groupProgress) {
+        // 保持分组进度，但优化样式
+        groupProgress.style.margin = '10px 0';
+        groupProgress.style.padding = '10px';
+        groupProgress.style.background = 'rgba(255, 255, 255, 0.8)';
+        groupProgress.style.borderRadius = '8px';
+    }
+
+    /**
+     * 调整整体布局
+     */
+    adjustOverallLayout(learnMode) {
+        // 优化间距和布局
+        learnMode.style.padding = '10px';
+        learnMode.style.margin = '0';
+
+        // 优化单词卡片
+        const wordCard = learnMode.querySelector('.word-card');
+        if (wordCard) {
+            wordCard.style.margin = '10px 0';
+            wordCard.style.padding = '15px';
+        }
+
+        // 优化进度条
+        const progressBar = learnMode.querySelector('.progress-bar');
+        if (progressBar) {
+            progressBar.style.margin = '10px 0';
+        }
+
+        // 移除不必要的空白
+        const elements = learnMode.querySelectorAll('*');
+        elements.forEach(el => {
+            if (el.style) {
+                // 移除大的外边距
+                if (el.style.marginTop && parseInt(el.style.marginTop) > 20) {
+                    el.style.marginTop = '10px';
+                }
+                if (el.style.marginBottom && parseInt(el.style.marginBottom) > 20) {
+                    el.style.marginBottom = '10px';
+                }
+            }
+        });
+    }
+
+    /**
+     * 获取当前单词数据
+     */
+    getCurrentWordData() {
+        // 从现有的游戏逻辑获取当前单词
+        if (typeof currentVocabulary !== 'undefined' && currentVocabulary.length > 0) {
+            const word = currentVocabulary[currentWordIndex] || {};
+            return {
+                english: word.english || 'Diamond',
+                chinese: word.chinese || '钻石',
+                phonetic: word.phonetic || '/ˈdaɪmənd/',
+                image: word.image || 'https://via.placeholder.com/200x150/4CAF50/ffffff?text=Diamond'
+            };
+        }
+
+        // 默认数据
+        return {
+            english: 'Diamond',
+            chinese: '钻石',
+            phonetic: '/ˈdaɪmənd/',
+            image: 'https://via.placeholder.com/200x150/4CAF50/ffffff?text=Diamond'
+        };
+    }
+
+    /**
+     * 获取当前进度信息
+     */
+    getCurrentProgress() {
+        // 从现有的游戏逻辑获取进度
+        const totalWords = (typeof currentVocabulary !== 'undefined') ? currentVocabulary.length : 10;
+        const currentIndex = (typeof currentWordIndex !== 'undefined') ? currentWordIndex : 0;
+        const groupSize = 10;
+        const currentGroup = Math.floor(currentIndex / groupSize) + 1;
+        const groupCurrent = (currentIndex % groupSize) + 1;
+        const groupTotal = Math.min(groupSize, totalWords - (currentGroup - 1) * groupSize);
+        const groupPercentage = (groupCurrent / groupTotal) * 100;
+        const overallPercentage = ((currentIndex + 1) / totalWords) * 100;
+
+        return {
+            group: currentGroup,
+            current: groupCurrent,
+            total: groupTotal,
+            percentage: groupPercentage,
+            overallCurrent: currentIndex + 1,
+            overallTotal: totalWords,
+            overallPercentage: overallPercentage
+        };
+    }
+
+    /**
+     * 生成测验选项
+     */
+    generateQuizOptions(currentWord) {
+        // 简化的选项生成逻辑
+        const options = [
+            { text: currentWord.chinese, isCorrect: true },
+            { text: '石头', isCorrect: false },
+            { text: '黄金', isCorrect: false },
+            { text: '铁矿', isCorrect: false }
+        ];
+
+        // 随机打乱选项顺序
+        return options.sort(() => Math.random() - 0.5);
     }
 
     /**
@@ -806,7 +1853,20 @@ class MobileUIManager {
      */
     previousWord() {
         console.log('[MobileUI] 上一个单词');
-        // 实现上一个单词逻辑
+
+        // 调用现有的上一个单词逻辑
+        if (typeof previousWord !== 'undefined') {
+            previousWord();
+        } else if (typeof handlePrevWord !== 'undefined') {
+            handlePrevWord();
+        } else {
+            // 手动实现上一个单词逻辑
+            if (typeof currentWordIndex !== 'undefined' && currentWordIndex > 0) {
+                currentWordIndex--;
+                this.populateLearnWindow();
+                this.updateRewardsDisplay();
+            }
+        }
     }
 
     /**
@@ -814,7 +1874,21 @@ class MobileUIManager {
      */
     nextWord() {
         console.log('[MobileUI] 下一个单词');
-        // 实现下一个单词逻辑
+
+        // 调用现有的下一个单词逻辑
+        if (typeof nextWord !== 'undefined') {
+            nextWord();
+        } else if (typeof handleNextWord !== 'undefined') {
+            handleNextWord();
+        } else {
+            // 手动实现下一个单词逻辑
+            const totalWords = (typeof currentVocabulary !== 'undefined') ? currentVocabulary.length : 10;
+            if (typeof currentWordIndex !== 'undefined' && currentWordIndex < totalWords - 1) {
+                currentWordIndex++;
+                this.populateLearnWindow();
+                this.updateRewardsDisplay();
+            }
+        }
     }
 
     /**
@@ -828,8 +1902,104 @@ class MobileUIManager {
                 btn.style.transform = 'scale(1)';
             }, 200);
         }
-        console.log('[MobileUI] 播放音频');
-        // 实现播放音频逻辑
+
+        // 获取当前单词
+        const currentWord = this.getCurrentWordData();
+
+        // 调用现有的TTS系统
+        if (typeof TTS !== 'undefined' && TTS.speak) {
+            TTS.speak(currentWord.english);
+        } else if (typeof speakWord !== 'undefined') {
+            speakWord(currentWord.english);
+        } else if (typeof speak !== 'undefined') {
+            speak(currentWord.english);
+        } else {
+            // 备用：使用浏览器原生语音合成
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(currentWord.english);
+                utterance.lang = 'en-US';
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        console.log('[MobileUI] 播放音频:', currentWord.english);
+    }
+
+    /**
+     * 切换手机窗口模式
+     */
+    toggleMobileWindowMode(enabled) {
+        console.log(`[MobileUI] 切换手机窗口模式: ${enabled ? '启用' : '禁用'}`);
+
+        if (enabled) {
+            this.detectMobileMode();
+            if (this.isMobileMode) {
+                this.setupMobileUI();
+                console.log('[MobileUI] 手机窗口模式已启用');
+            } else {
+                console.warn('[MobileUI] 设备不是手机模式，无法启用窗口模式');
+            }
+        } else {
+            this.disableMobileUI();
+            console.log('[MobileUI] 手机窗口模式已禁用');
+        }
+    }
+
+    /**
+     * 禁用移动UI，恢复原始界面
+     */
+    disableMobileUI() {
+        // 不再根据 isMobileMode 直接返回；无论当前标志为何，都尝试恢复原始界面
+        console.log('[MobileUI] 禁用移动UI模式');
+
+        // 先将原始节点复原回桌面布局（在移除窗口容器之前）
+        try {
+            const settingsPlaceholder = document.getElementById('settingsModePlaceholder');
+            const settingsMode = document.getElementById('settingsMode');
+            if (settingsPlaceholder && settingsMode && settingsPlaceholder.parentNode) {
+                settingsPlaceholder.parentNode.replaceChild(settingsMode, settingsPlaceholder);
+            }
+            const quizPlaceholder = document.getElementById('quizModePlaceholder');
+            const quizMode = document.getElementById('quizMode');
+            if (quizPlaceholder && quizMode && quizPlaceholder.parentNode) {
+                quizPlaceholder.parentNode.replaceChild(quizMode, quizPlaceholder);
+            }
+            const learnPlaceholder = document.getElementById('learnModePlaceholder');
+            const learnMode = document.getElementById('learnMode');
+            if (learnPlaceholder && learnMode && learnPlaceholder.parentNode) {
+                learnPlaceholder.parentNode.replaceChild(learnMode, learnPlaceholder);
+            }
+        } catch (e) {
+            console.warn('[MobileUI] 复原桌面布局失败', e);
+        }
+
+        // 移除窗口容器
+        if (this.windowContainer) {
+            this.windowContainer.remove();
+            this.windowContainer = null;
+        }
+
+        // 移除悬浮导航
+        if (this.floatingNav) {
+            this.floatingNav.remove();
+            this.floatingNav = null;
+        }
+
+        // 显示原始内容
+        const originalContainer = document.querySelector('.container');
+        if (originalContainer) {
+            originalContainer.style.display = '';
+        }
+
+        // 移除手机模式样式
+        document.body.classList.remove('mobile-mode');
+
+        // 重置状态
+        this.isMobileMode = false;
+        this.currentWindow = 'home';
+        this.windowHistory = ['home'];
+
+        console.log('[MobileUI] 移动UI已禁用，恢复原始界面');
     }
 
     /**
@@ -837,6 +2007,26 @@ class MobileUIManager {
      */
     getCurrentWindow() {
         return this.currentWindow;
+    }
+
+    /**
+     * 切换手机窗口模式
+     */
+    toggleMobileWindowMode(enabled) {
+        console.log(`[MobileUI] 切换手机窗口模式: ${enabled ? '启用' : '禁用'}`);
+
+        if (enabled) {
+            this.detectMobileMode();
+            if (this.isMobileMode) {
+                this.setupMobileUI();
+                console.log('[MobileUI] 手机窗口模式已启用');
+            } else {
+                console.warn('[MobileUI] 设备不是手机模式，无法启用窗口模式');
+            }
+        } else {
+            this.disableMobileUI();
+            console.log('[MobileUI] 手机窗口模式已禁用');
+        }
     }
 
     /**

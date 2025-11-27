@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,42 +24,48 @@
 
     <title>🎮 Minecraft 单词学习游戏</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-app.css">
+    <link rel="stylesheet" href="css/learn-type-switch.css">
     <link rel="stylesheet" href="css/kindergarten.css">
 </head>
+
 <body>
-    <div class="container">
+    <!-- Desktop/Tablet Layout (Original) -->
+    <div class="container desktop-layout">
         <!-- 奖励系统 -->
         <div class="reward-system" id="rewardSystem">
             <div class="unified-rewards-container">
-                <div class="rewards-label">学习进度：💎 <span id="diamondTotal">0</span> ⚔️ <span id="swordTotal">0</span></div>
+                <div class="rewards-label">学习进度：💎 <span id="diamondTotal">0</span> ⚔️ <span id="swordTotal">0</span>
+                </div>
                 <div class="rewards-row" id="rewardsRow"></div>
             </div>
         </div>
 
         <div class="header">
             <h1>🎮 Minecraft 单词学习游戏</h1>
-            <p>看图学单词，听音识中文，轻松掌握 Minecraft 词汇！</p>
+            <p>看图学单词,听音识中文,轻松掌握 Minecraft 词汇!</p>
         </div>
 
         <div class="game-modes">
             <button class="mode-btn learn active" onclick="switchMode('learn')">📚 学习模式</button>
             <button class="mode-btn quiz" onclick="switchMode('quiz')">🔤 拼写模式</button>
             <button class="mode-btn settings" onclick="switchMode('settings')">⚙️ 设置</button>
-            <button onclick="shuffleWords()" style="margin-left: 10px; padding: 8px 15px; border-radius: 5px; border: 1px solid #ddd; background: #f8f9fa; cursor: pointer;">🔀 随机排序</button>
-            <!-- 学习类型切换（直接打开也可用） -->
+            <button onclick="shuffleWords()"
+                style="margin-left: 10px; padding: 8px 15px; border-radius: 5px; border: 1px solid #ddd; background: #f8f9fa; cursor: pointer;">🔀
+                随机排序</button>
+
+            <!-- 学习类型切换 -->
             <div class="learn-type-switch" style="margin-top:8px;">
-              <button class="learn-type-btn word" onclick="setLearnType('word')">英文单词</button>
-              <button class="learn-type-btn word_zh" onclick="setLearnType('word_zh')">中文单词</button>
-              <button class="learn-type-btn phrase_en" onclick="setLearnType('phrase_en')">英文短语</button>
-              <button class="learn-type-btn phrase_zh" onclick="setLearnType('phrase_zh')">中文短语</button>
+                <button class="learn-type-btn word" onclick="setLearnType('word')">英文单词</button>
+                <button class="learn-type-btn word_zh" onclick="setLearnType('word_zh')">中文单词</button>
+                <button class="learn-type-btn phrase_en" onclick="setLearnType('phrase_en')">英文短语</button>
+                <button class="learn-type-btn phrase_zh" onclick="setLearnType('phrase_zh')">中文短语</button>
             </div>
         </div>
 
         <div class="game-area">
-
             <!-- 学习模式 -->
             <div id="learnMode" class="learn-area">
-                <!-- 分组进度显示 -->
                 <div class="group-progress">
                     <div class="group-info">
                         <span class="group-label">第 <span id="currentGroup">1</span> 组</span>
@@ -74,13 +81,10 @@
                     <img class="word-image" id="wordImage" src="" alt="单词图片" style="display: none;">
                     <div class="word-english" id="wordEnglish">欢迎使用单词学习游戏</div>
                     <div class="word-phonetic" id="wordPhonetic" style="display: none;"></div>
-                    
-                    <!-- 学习选项 -->
+
                     <div class="learn-options" id="learnOptions" style="display: none;">
-                        <h3>这个单词的中文意思是？</h3>
-                        <div class="learn-choices" id="learnChoices">
-                            <!-- 选项将通过JavaScript动态生成 -->
-                        </div>
+                        <h3>这个单词的中文意思是?</h3>
+                        <div class="learn-choices" id="learnChoices"></div>
                         <div class="learn-result" id="learnResult" style="display: none;"></div>
                         <div class="word-phrase" id="wordPhrase">
                             <div class="phrase-title">💡 常用短语</div>
@@ -88,8 +92,7 @@
                             <div class="phrase-translation" id="phraseTranslation"></div>
                         </div>
                     </div>
-                    
-                    <!-- 答案显示 -->
+
                     <div class="word-chinese" id="wordChinese" style="display: none;">请先选择词库并加载</div>
                 </div>
 
@@ -121,7 +124,6 @@
 
             <!-- 测试模式 -->
             <div id="quizMode" class="quiz-area">
-                <!-- 分组进度显示 -->
                 <div class="group-progress">
                     <div class="group-info">
                         <span class="group-label">第 <span id="currentQuizGroup">1</span> 组</span>
@@ -132,20 +134,15 @@
                     </div>
                 </div>
 
-                <!-- 已移除 .quiz-score 统计行：得分/正确率 -->
-
                 <div class="quiz-card">
                     <div class="quiz-question">
                         <img class="quiz-image" id="quizImage" src="" alt="测试图片">
                         <div class="quiz-headline">
-                            <h3>这个单词的中文意思是？</h3>
-                            <!-- 顶部不再放发音按钮；提示与子模式切换由 JS 注入 -->
+                            <h3>这个单词的中文意思是?</h3>
                         </div>
                     </div>
 
-                    <div class="quiz-options" id="quizOptions">
-                        <!-- 选项将通过JavaScript动态生成 -->
-                    </div>
+                    <div class="quiz-options" id="quizOptions"></div>
                     <div class="learn-result" id="quizResult" style="display: none;"></div>
                 </div>
 
@@ -153,7 +150,8 @@
                     <button class="control-btn prev" onclick="previousQuiz()" id="prevQuizBtn" disabled>⬅️ 上一个</button>
                     <button class="control-btn play" onclick="playQuizAudio()" id="bottomPlayBtn">🔊 发音</button>
                     <button class="control-btn next" onclick="nextQuiz()" id="nextQuizBtn" disabled>下一个 ➡️</button>
-                    <button class="control-btn" onclick="restartQuiz()" style="background: linear-gradient(45deg, #FF5722, #E64A19);">🔄 重新开始</button>
+                    <button class="control-btn" onclick="restartQuiz()"
+                        style="background: linear-gradient(45deg, #FF5722, #E64A19);">🔄 重新开始</button>
                 </div>
 
                 <div class="progress-bar">
@@ -178,51 +176,22 @@
 
             <!-- 设置页面 -->
             <div id="settingsMode" class="settings-area">
-                <!-- 界面模式设置组 - 放在第一行 -->
-                <div class="settings-group" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 16px; padding: 20px; margin-bottom: 20px;">
-                    <h3 style="color: white; margin-bottom: 15px;">🎯 界面模式</h3>
-                    <div class="setting-item" style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; margin-bottom: 15px;">
-                        <label style="color: white; font-weight: bold; font-size: 16px;">📱 手机窗口模式:</label>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <input type="checkbox" id="phoneWindowMode" style="width: 20px; height: 20px;">
-                            <span style="font-size: 14px; opacity: 0.9;">启用窗口化界面（推荐手机使用）</span>
-                        </div>
-                    </div>
-                    <div class="setting-item" style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 15px;">
-                        <label style="color: white; font-weight: bold; font-size: 16px;">🖥️ 设备模式:</label>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <button class="mode-switch-btn" onclick="switchDeviceMode('phone')" id="phoneModeBtn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 10px 20px; cursor: pointer; transition: all 0.3s ease;">
-                                📱 手机模式
-                            </button>
-                            <button class="mode-switch-btn" onclick="switchDeviceMode('tablet')" id="tabletModeBtn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 10px 20px; cursor: pointer; transition: all 0.3s ease;">
-                                📱 平板模式
-                            </button>
-                            <button class="mode-switch-btn" onclick="switchDeviceMode('desktop')" id="desktopModeBtn" style="background: rgba(255,255,255,0.2); color: white; border: 2px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 10px 20px; cursor: pointer; transition: all 0.3s ease;">
-                                🖥️ 桌面模式
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <div class="settings-group">
                     <h3>📚 词库管理</h3>
                     <div class="setting-item">
                         <label>预设词库:</label>
                         <select id="vocabSelect">
-                            <!-- 阶段词汇库 -->
                             <optgroup label="📚 阶段词汇库">
                                 <option value="幼儿园阶段">幼儿园阶段 (3-6岁, 100词)</option>
                                 <option value="小学低年级">小学低年级 (6-9岁, 148词)</option>
                                 <option value="小学高年级">小学高年级 (9-12岁, 97词)</option>
                             </optgroup>
-                            <!-- 幼儿园词库 -->
                             <optgroup label="🎒 幼儿园词库">
                                 <option value="生活交流">生活交流</option>
                                 <option value="学习自然">学习自然</option>
                                 <option value="综合拓展">综合拓展</option>
                                 <option value="幼儿园全部">幼儿园全部</option>
                             </optgroup>
-                            <!-- Minecraft 标准词库 -->
                             <optgroup label="⛏️ Minecraft 标准词库">
                                 <option value="minecraft_1.blocks_方块">方块词汇 (130词)</option>
                                 <option value="minecraft_2.items_物品">物品词汇 (221词)</option>
@@ -234,7 +203,6 @@
                                 <option value="minecraft_7.魔咒 (Enchantments)">魔咒词汇 (77词)</option>
                                 <option value="minecraft_8.进度 (Advancements)">进度词汇 (110词)</option>
                             </optgroup>
-                            <!-- Minecraft 简化词库 -->
                             <optgroup label="🎮 Minecraft 简化词库">
                                 <option value="1.minecraft_基础_basic">Minecraft基础词汇 (63词)</option>
                                 <option value="1.普通_common">通用词汇 (84词)</option>
@@ -249,10 +217,6 @@
                         <label>自定义词库:</label>
                         <input type="file" id="customVocabFile" accept=".json" style="margin-right: 5px;">
                         <button onclick="loadCustomVocabulary()">加载自定义词库</button>
-                    </div>
-                    <div class="setting-item">
-                        <label>词库操作:</label>
-                        <button onclick="exportCurrentVocab()" id="exportBtn" disabled style="margin-right: 5px;">💾 导出当前词库</button>
                     </div>
                 </div>
 
@@ -289,71 +253,22 @@
                         <label>幼儿园模式:</label>
                         <input type="checkbox" id="kindergartenMode" checked>
                     </div>
-                    <!-- 新增：混合幼儿园词库设置 -->
-                    <div class="setting-item">
-                        <label>混合幼儿园词库:</label>
-                        <input type="checkbox" id="mixKindergartenEnabled">
-                    </div>
-                    <div class="setting-item">
-                        <label>混合比例:</label>
-                        <input type="range" id="mixKindergartenRatio" min="0" max="1" step="0.05" value="0.3">
-                        <span id="mixKindergartenRatioValue">30%</span>
-                    </div>
-                    <!-- 新增：题目来源过滤 -->
-                    <div class="setting-item">
-                        <label>题目来源:</label>
-                        <select id="questionSource">
-                            <option value="all">全部（不过滤）</option>
-                            <option value="exclude_mastered">排除已掌握</option>
-                            <option value="unseen">仅未做过</option>
-                            <option value="wrong_only">仅错题</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="setting-item">
-                        <label>测试题目数量:</label>
-                        <select id="quizCount">
-                            <option value="5">5题</option>
-                            <option value="10" selected>10题</option>
-                            <option value="20">20题</option>
-                            <option value="50">50题</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label>默认拼写子模式:</label>
-                        <select id="spellingDefaultSubmode">
-                            <option value="spell">拼写单词</option>
-                            <option value="fill">补全单词</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label>拼写单词显示完整提示:</label>
-                        <input type="checkbox" id="spellingHint" checked>
-                    </div>
-                </div>
-
-                <div class="settings-group">
-                    <h3>📱 显示与设备</h3>
-                    <div class="setting-item">
+                    <div class="setting-item" style="flex-direction: column; align-items: flex-start; gap: 8px;">
                         <label>设备模式:</label>
-                        <select id="deviceMode">
-                            <option value="phone">手机</option>
-                            <option value="tablet">平板</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label>界面缩放:</label>
-                        <input type="range" id="uiScale" min="0.85" max="1.15" step="0.05" value="0.95" oninput="updateSettingsDisplay()">
-                        <span id="uiScaleValue">95%</span>
-                    </div>
-                    <div class="setting-item">
-                        <label>紧凑模式:</label>
-                        <input type="checkbox" id="compactMode" checked>
-                    </div>
-                    <div class="setting-item">
-                        <label>手机窗口模式:</label>
-                        <input type="checkbox" id="phoneWindowMode">
-                        <small style="color: #666; margin-left: 8px;">启用窗口化界面（仅手机模式有效）</small>
+                        <div class="device-mode-buttons" style="display: flex; gap: 8px; width: 100%;">
+                            <button class="device-mode-btn" data-mode="auto" onclick="setDeviceMode('auto')"
+                                style="flex: 1; padding: 8px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; font-weight: 600;">🔄
+                                自动</button>
+                            <button class="device-mode-btn" data-mode="mobile" onclick="setDeviceMode('mobile')"
+                                style="flex: 1; padding: 8px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; font-weight: 600;">📱
+                                手机</button>
+                            <button class="device-mode-btn" data-mode="tablet" onclick="setDeviceMode('tablet')"
+                                style="flex: 1; padding: 8px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; font-weight: 600;">📱
+                                平板</button>
+                            <button class="device-mode-btn" data-mode="desktop" onclick="setDeviceMode('desktop')"
+                                style="flex: 1; padding: 8px; border: 2px solid #ddd; border-radius: 8px; background: white; cursor: pointer; font-weight: 600;">🖥️
+                                桌面</button>
+                        </div>
                     </div>
                 </div>
 
@@ -372,12 +287,108 @@
                         <span id="masteredWords">0 个</span>
                     </div>
                     <div class="setting-item">
-                        <button class="control-btn" onclick="clearProgress()" style="background: linear-gradient(45deg, #f44336, #d32f2f);">清除记录</button>
-                        <button class="control-btn" onclick="exportProgress()" style="background: linear-gradient(45deg, #4CAF50, #45a049);">导出数据</button>
-                        <!-- 新增：奖励导出/导入 -->
-                        <button class="control-btn" onclick="exportRewardData()" style="background: linear-gradient(45deg, #03A9F4, #0288D1);">导出奖励</button>
-                        <button class="control-btn" onclick="importRewardData()" style="background: linear-gradient(45deg, #FF9800, #F57C00);">导入奖励</button>
+                        <button class="control-btn" onclick="clearProgress()"
+                            style="background: linear-gradient(45deg, #f44336, #d32f2f);">清除记录</button>
+                        <button class="control-btn" onclick="exportProgress()"
+                            style="background: linear-gradient(45deg, #4CAF50, #45a049);">导出数据</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Layout (Window Switching) -->
+    <div class="mobile-layout">
+        <!-- Mobile Bottom Navigation -->
+        <nav class="mobile-bottom-nav">
+            <button class="mobile-nav-item active" data-view="home">
+                <span class="mobile-nav-icon">🏠</span>
+                <span class="mobile-nav-label">主页</span>
+            </button>
+            <button class="mobile-nav-item" data-view="learn">
+                <span class="mobile-nav-icon">📚</span>
+                <span class="mobile-nav-label">学习</span>
+            </button>
+            <button class="mobile-nav-item" data-view="quiz">
+                <span class="mobile-nav-icon">🔤</span>
+                <span class="mobile-nav-label">拼写</span>
+            </button>
+            <button class="mobile-nav-item" data-view="settings">
+                <span class="mobile-nav-icon">⚙️</span>
+                <span class="mobile-nav-label">设置</span>
+            </button>
+        </nav>
+
+        <!-- Mobile Views Container -->
+        <div class="mobile-views">
+            <!-- Home View -->
+            <div class="mobile-view active" id="mobile-home">
+                <div class="mobile-home-header">
+                    <h2>🎮 Minecraft 单词</h2>
+                    <div class="mobile-rewards">💎 <span class="mobile-diamond-val">0</span> ⚔️ <span
+                            class="mobile-sword-val">0</span></div>
+                </div>
+                <div class="mobile-home-cards">
+                    <button class="mobile-home-card" onclick="mobileApp.switchToView('learn')">
+                        <span class="card-icon">📚</span>
+                        <span class="card-title">开始学习</span>
+                    </button>
+                    <button class="mobile-home-card" onclick="mobileApp.switchToView('quiz')">
+                        <span class="card-icon">🔤</span>
+                        <span class="card-title">拼写测试</span>
+                    </button>
+                    <button class="mobile-home-card" onclick="mobileApp.switchToView('settings')">
+                        <span class="card-icon">⚙️</span>
+                        <span class="card-title">游戏设置</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Learn View -->
+            <div class="mobile-view" id="mobile-learn">
+                <div class="mobile-view-header">
+                    <div class="mobile-header-top">
+                        <span class="mobile-header-title">学习模式</span>
+                        <div class="mobile-rewards" style="font-size: 0.9rem; padding: 4px 10px; margin: 0;">💎 <span
+                                class="mobile-diamond-val">0</span> ⚔️ <span class="mobile-sword-val">0</span></div>
+                    </div>
+                    <select onchange="setLearnType(this.value)" class="mobile-type-select">
+                        <option value="word">英文单词</option>
+                        <option value="word_zh">中文单词</option>
+                        <option value="phrase_en">英文短语</option>
+                        <option value="phrase_zh">中文短语</option>
+                    </select>
+                </div>
+                <div class="mobile-view-content" id="mobile-learn-content">
+                    <!-- Content will be synced from desktop learnMode -->
+                </div>
+            </div>
+
+            <!-- Quiz View -->
+            <div class="mobile-view" id="mobile-quiz">
+                <div class="mobile-view-header">
+                    <div class="mobile-header-top">
+                        <span class="mobile-header-title">拼写测试</span>
+                        <div class="mobile-rewards" style="font-size: 0.9rem; padding: 4px 10px; margin: 0;">💎 <span
+                                class="mobile-diamond-val">0</span> ⚔️ <span class="mobile-sword-val">0</span></div>
+                    </div>
+                </div>
+                <div class="mobile-view-content" id="mobile-quiz-content">
+                    <!-- Content will be synced from desktop quizMode -->
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div class="mobile-view" id="mobile-settings">
+                <div class="mobile-view-header">
+                    <div class="mobile-header-top">
+                        <span class="mobile-header-title">游戏设置</span>
+                        <div class="mobile-rewards" style="font-size: 0.9rem; padding: 4px 10px; margin: 0;">💎 <span
+                                class="mobile-diamond-val">0</span> ⚔️ <span class="mobile-sword-val">0</span></div>
+                    </div>
+                </div>
+                <div class="mobile-view-content" id="mobile-settings-content">
+                    <!-- Content will be synced from desktop settingsMode -->
                 </div>
             </div>
         </div>
@@ -385,15 +396,53 @@
 
     <!-- 星星动画容器 -->
     <div class="stars-container" id="starsContainer"></div>
-    
+
     <!-- 通知 -->
     <div class="notification" id="notification"></div>
+
+    <!-- 简单手机模式覆盖层 (Disabled for optimization) -->
+    <!--
+    <style>
+      .mobile-simple-overlay { position: fixed; inset: 0; background: #f0f4f8; z-index: 9999; display: none; }
+      body.mobile-simple-mode .mobile-simple-overlay { display: block; }
+      .mobile-simple-nav-left { position: fixed; top: 10px; left: 10px; z-index: 10000; background: rgba(255,255,255,0.95); border-radius: 24px; padding: 8px 12px; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+      .mobile-simple-nav-right { position: fixed; top: 10px; right: 10px; z-index: 10000; background: rgba(255,255,255,0.95); border-radius: 24px; padding: 8px 12px; box-shadow: 0 2px 8px rgba(0,0,0,.15); }
+      .mobile-simple-window { position: absolute; top: 0; left: 0; right: 0; bottom: 0; padding-top: 60px; overflow-y: auto; }
+      .mobile-simple-window[hidden] { display: none; }
+    </style>
+    <div class="mobile-simple-overlay" id="mobileSimpleOverlay">
+      <div class="mobile-simple-nav-left">← 返回首页</div>
+      <div class="mobile-simple-nav-right">💎 <span id="mobileSimpleDiamond">0</span> ⚔️ <span id="mobileSimpleSword">0</span></div>
+      <div class="mobile-simple-window" id="mobileSimpleHomeWindow">
+        <div style="padding: 20px; text-align: center;">
+          <h2>主页</h2>
+          <div style="display:flex; gap:12px; justify-content:center;">
+            <button>学习模式</button>
+            <button>拼写模式</button>
+            <button>设置</button>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-simple-window" id="mobileSimpleLearnWindow" hidden>
+        <div style="padding:20px; text-align:center;">
+          <h2>学习模式</h2>
+          <p>（示意占位）仅保留全屏窗口内容</p>
+        </div>
+      </div>
+      <div class="mobile-simple-window" id="mobileSimpleSettingsWindow" hidden>
+        <div style="padding:20px; text-align:center;">
+          <h2>设置</h2>
+          <p>（示意占位）仅保留全屏窗口内容</p>
+        </div>
+      </div>
+    </div>
+    -->
 
     <!-- 脚本文件 -->
     <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/data-migration.js"></script>
-    <script src="js/mobile-ui-manager.js"></script>
+    <!-- <script src="js/mobile-ui-manager.js"></script> -->
     <script src="js/tts-adapter.js"></script>
     <script src="js/vocabulary-data.js"></script>
     <script src="js/vocabulary.js"></script>
@@ -402,30 +451,35 @@
     <script src="js/game.js"></script>
     <script src="js/spelling.js"></script>
     <script src="js/settings.js"></script>
+    <script src="js/spelling.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/mobile-app.js"></script>
+    <script src="js/device-mode.js"></script>
     <script src="js/main.js"></script>
 
     <script>
-      // 提供一个可选的启用语音按钮（移动端更稳）
-      (function(){
-        try {
-          var btn = document.createElement('button');
-          btn.textContent = '🔓 启用语音';
-          btn.style.cssText = 'position:fixed;right:12px;bottom:12px;padding:8px 12px;border-radius:8px;border:1px solid #ddd;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.15);z-index:9999;';
-          btn.onclick = function(){
-            if (window.TTS && typeof window.TTS.enable === 'function') {
-              window.TTS.enable();
-              btn.textContent = '✅ 语音已启用';
-              setTimeout(function(){ btn.remove(); }, 800);
-            } else {
-              btn.remove();
-            }
-          };
-          // 仅在移动端显示
-          if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            document.body.appendChild(btn);
-          }
-        } catch (e) {}
-      })();
+        // 提供一个可选的启用语音按钮（移动端更稳）
+        (function () {
+            try {
+                var btn = document.createElement('button');
+                btn.textContent = '🔓 启用语音';
+                btn.style.cssText = 'position:fixed;right:12px;bottom:12px;padding:8px 12px;border-radius:8px;border:1px solid #ddd;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.15);z-index:9999;';
+                btn.onclick = function () {
+                    if (window.TTS && typeof window.TTS.enable === 'function') {
+                        window.TTS.enable();
+                        btn.textContent = '✅ 语音已启用';
+                        setTimeout(function () { btn.remove(); }, 800);
+                    } else {
+                        btn.remove();
+                    }
+                };
+                // 仅在移动端显示
+                if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    document.body.appendChild(btn);
+                }
+            } catch (e) { }
+        })();
     </script>
-  </body>
+</body>
+
 </html>

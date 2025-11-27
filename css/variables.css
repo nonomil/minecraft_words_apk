@@ -1,0 +1,60 @@
+:root {
+    /* Colors */
+    --primary-color: #2ecc71; /* Emerald Green */
+    --primary-dark: #27ae60;
+    --primary-light: #a9dfbf;
+    
+    --secondary-color: #3498db; /* Diamond Blue */
+    --secondary-dark: #2980b9;
+    --secondary-light: #aed6f1;
+    
+    --accent-color: #f1c40f; /* Gold */
+    --accent-dark: #f39c12;
+    
+    --danger-color: #e74c3c; /* Redstone */
+    --danger-dark: #c0392b;
+    
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --text-light: #ecf0f1;
+    
+    --bg-body: #f0f4f8;
+    --bg-card: #ffffff;
+    --bg-overlay: rgba(0, 0, 0, 0.5);
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+    
+    /* Typography */
+    --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+}
+
+/* Dark Mode Support (Optional, can be toggled) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #ecf0f1;
+        --text-secondary: #bdc3c7;
+        --bg-body: #2c3e50;
+        --bg-card: #34495e;
+    }
+}

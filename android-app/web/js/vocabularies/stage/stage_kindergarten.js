@@ -1,4 +1,4 @@
-// 幼儿园阶段词库 - 合并所有kindergarten词汇
+// 幼儿园阶段词�?- 合并所有kindergarten词汇
 // 包含：基础动作、形容词、名词、动物、食物、颜色、数字、身体部位、家庭、玩具、天气、时间、学习、日常、位置、感官、自然等
 
 const STAGE_KINDERGARTEN = [
@@ -14,8 +14,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "smile.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60a.svg",
+        "filename": "smile.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f604.svg",
         "type": "Emoji"
       }
     ]
@@ -28,12 +28,12 @@ const STAGE_KINDERGARTEN = [
     "phrase": "Kiss daddy",
     "phraseTranslation": "亲亲爸爸",
     "difficulty": "basic",
-    "category": "general",
+    "category": "action",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "kiss.jpg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60a.svg",
+        "filename": "kiss.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f618.svg",
         "type": "Emoji"
       }
     ]
@@ -41,16 +41,16 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "look",
     "standardized": "look",
-    "chinese": "看",
+    "chinese": "",
     "phonetic": "/look/",
     "phrase": "Look here",
-    "phraseTranslation": "看这边",
+    "phraseTranslation": "看这",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "look.svg",
+        "filename": "look.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f440.svg",
         "type": "Emoji"
       }
@@ -68,9 +68,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "clean.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9f9.svg",
-        "type": "Emoji"
+        "filename": "clean.jpg",
+        "url": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -86,9 +86,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "brush teeth.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "brush_teeth.jpg",
+        "url": "https://images.unsplash.com/photo-1588778049726-a158b3fee100?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -104,8 +104,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hide.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hide.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f648.svg",
         "type": "Emoji"
       }
     ]
@@ -122,8 +122,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "swim.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "angry.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f620.svg",
         "type": "Emoji"
       }
     ]
@@ -131,7 +131,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "yawn",
     "standardized": "yawn",
-    "chinese": "打哈欠",
+    "chinese": "打哈",
     "phonetic": "/yawn/",
     "phrase": "Yawn before bed",
     "phraseTranslation": "睡前打哈欠",
@@ -140,9 +140,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "yawn.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "yawn.jpg",
+        "url": "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -158,9 +158,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "walk.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6b6.svg",
-        "type": "Emoji"
+        "filename": "walk.jpg",
+        "url": "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -176,8 +176,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "read.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4d6.svg",
+        "filename": "angry.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f620.svg",
         "type": "Emoji"
       }
     ]
@@ -188,14 +188,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "睡觉",
     "phonetic": "/sleep/",
     "phrase": "Baby is sleeping",
-    "phraseTranslation": "宝宝睡觉了",
+    "phraseTranslation": "宝宝睡觉",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sleep.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f634.svg",
+        "filename": "sad.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f62d.svg",
         "type": "Emoji"
       }
     ]
@@ -212,8 +212,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dance.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f483.svg",
+        "filename": "angry.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f620.svg",
         "type": "Emoji"
       }
     ]
@@ -230,16 +230,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "answer.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "answer.jpg",
+        "url": "https://images.unsplash.com/photo-1503676260728-1c00da094a0a?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "blow",
     "standardized": "blow",
-    "chinese": "吹",
+    "chinese": "",
     "phonetic": "/blow/",
     "phrase": "Blow a dandelion",
     "phraseTranslation": "吹蒲公英",
@@ -248,9 +248,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "blow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "blow.jpg",
+        "url": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -266,16 +266,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hello.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "hello.jpg",
+        "url": "https://images.unsplash.com/photo-1531058020387-3be344556be6?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "no",
     "standardized": "no",
-    "chinese": "不",
+    "chinese": "",
     "phonetic": "/no/",
     "phrase": "Shake head no",
     "phraseTranslation": "摇头说不",
@@ -284,16 +284,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "no.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "no.jpg",
+        "url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "sorry",
     "standardized": "sorry",
-    "chinese": "对不起",
+    "chinese": "对不",
     "phonetic": "/sorry/",
     "phrase": "Sorry, I am wrong",
     "phraseTranslation": "对不起，我错了",
@@ -302,16 +302,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sorry.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "sorry.jpg",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "he",
     "standardized": "he",
-    "chinese": "他",
+    "chinese": "",
     "phonetic": "/he/",
     "phrase": "He is my friend",
     "phraseTranslation": "他是我的朋友",
@@ -320,8 +320,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "he.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "bad.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f61e.svg",
         "type": "Emoji"
       }
     ]
@@ -338,8 +338,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "we.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "we.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f465.svg",
         "type": "Emoji"
       }
     ]
@@ -347,7 +347,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "who",
     "standardized": "who",
-    "chinese": "谁",
+    "chinese": "",
     "phonetic": "/who/",
     "phrase": "Who is he?",
     "phraseTranslation": "他是谁？",
@@ -356,8 +356,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "who.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "happy.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f603.svg",
         "type": "Emoji"
       }
     ]
@@ -365,17 +365,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "why",
     "standardized": "why",
-    "chinese": "为什么",
+    "chinese": "为什",
     "phonetic": "/why/",
     "phrase": "Why is the sky blue?",
-    "phraseTranslation": "为什么天空是蓝的？",
+    "phraseTranslation": "为什么天空是蓝的",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "why.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "why.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2753.svg",
         "type": "Emoji"
       }
     ]
@@ -392,8 +392,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "small.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "cry.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f622.svg",
         "type": "Emoji"
       }
     ]
@@ -410,8 +410,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "long.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
+        "filename": "long.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4cf.svg",
         "type": "Emoji"
       }
     ]
@@ -428,8 +428,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "happy.jpg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60a.svg",
+        "filename": "happy.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f600.svg",
         "type": "Emoji"
       }
     ]
@@ -440,14 +440,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "饿的",
     "phonetic": "/hungry/",
     "phrase": "I'm hungry, want to eat",
-    "phraseTranslation": "我饿了，想吃饭",
+    "phraseTranslation": "我饿了，想吃",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hungry.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hungry.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f37d.svg",
         "type": "Emoji"
       }
     ]
@@ -464,8 +464,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bad.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f44e.svg",
+        "filename": "bad.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f61e.svg",
         "type": "Emoji"
       }
     ]
@@ -482,8 +482,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "slow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f40c.svg",
+        "filename": "sad.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f62d.svg",
         "type": "Emoji"
       }
     ]
@@ -491,7 +491,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "beautiful",
     "standardized": "beautiful",
-    "chinese": "美丽的",
+    "chinese": "美丽",
     "phonetic": "/beautiful/",
     "phrase": "Beautiful flower",
     "phraseTranslation": "美丽的花",
@@ -500,8 +500,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "beautiful.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "beautiful.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60d.svg",
         "type": "Emoji"
       }
     ]
@@ -509,7 +509,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "funny",
     "standardized": "funny",
-    "chinese": "有趣的/好笑的",
+    "chinese": "有趣�?好笑",
     "phonetic": "/funny/",
     "phrase": "Funny monkey",
     "phraseTranslation": "有趣的猴子",
@@ -518,8 +518,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "funny.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "funny.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f602.svg",
         "type": "Emoji"
       }
     ]
@@ -527,7 +527,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "loud",
     "standardized": "loud",
-    "chinese": "吵闹的",
+    "chinese": "吵闹",
     "phonetic": "/loud/",
     "phrase": "Loud playground",
     "phraseTranslation": "吵闹的操场",
@@ -536,7 +536,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "loud.svg",
+        "filename": "loud.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f50a.svg",
         "type": "Emoji"
       }
@@ -545,7 +545,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "strong",
     "standardized": "strong",
-    "chinese": "强壮的",
+    "chinese": "强壮",
     "phonetic": "/strong/",
     "phrase": "Strong elephant",
     "phraseTranslation": "强壮的大象",
@@ -554,8 +554,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "strong.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "strong.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg",
         "type": "Emoji"
       }
     ]
@@ -572,8 +572,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "heavy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
+        "filename": "heavy.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3d1.svg",
         "type": "Emoji"
       }
     ]
@@ -590,8 +590,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "empty.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "empty.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5bc.svg",
         "type": "Emoji"
       }
     ]
@@ -608,9 +608,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dry.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "dry.jpg",
+        "url": "https://images.unsplash.com/photo-1587909207064-cd9fdd21c8b8?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -626,9 +626,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sour.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "sour_lemon.jpg",
+        "url": "https://images.unsplash.com/photo-1589984662646-e709f04f54a3?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -644,9 +644,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "few.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "few_apples.jpg",
+        "url": "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -656,14 +656,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "早上",
     "phonetic": "/morning/",
     "phrase": "Good morning",
-    "phraseTranslation": "早上好",
+    "phraseTranslation": "早上",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "morning.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "morning.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f305.svg",
         "type": "Emoji"
       }
     ]
@@ -674,14 +674,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "明天",
     "phonetic": "/tomorrow/",
     "phrase": "See you tomorrow",
-    "phraseTranslation": "明天见",
+    "phraseTranslation": "明天",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "tomorrow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "tomorrow.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c5.svg",
         "type": "Emoji"
       }
     ]
@@ -689,7 +689,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "three",
     "standardized": "three",
-    "chinese": "三",
+    "chinese": "",
     "phonetic": "/three/",
     "phrase": "Three stars",
     "phraseTranslation": "三颗星星",
@@ -698,8 +698,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "three.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "three.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0033-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -716,8 +716,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "family.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "head.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e0.svg",
         "type": "Emoji"
       }
     ]
@@ -728,14 +728,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "学生",
     "phonetic": "/student/",
     "phrase": "Good student",
-    "phraseTranslation": "好学生",
+    "phraseTranslation": "好学",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "student.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "student.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f468-200d-1f393.svg",
         "type": "Emoji"
       }
     ]
@@ -752,8 +752,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "green.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "green.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e9.svg",
         "type": "Emoji"
       }
     ]
@@ -770,8 +770,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "white.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "white.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3fb.svg",
         "type": "Emoji"
       }
     ]
@@ -782,14 +782,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "舌头",
     "phonetic": "/tongue/",
     "phrase": "Stick out tongue",
-    "phraseTranslation": "伸舌头",
+    "phraseTranslation": "伸舌",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "tongue.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "tongue.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f445.svg",
         "type": "Emoji"
       }
     ]
@@ -800,14 +800,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "脸颊",
     "phonetic": "/cheek/",
     "phrase": "Rosy cheek",
-    "phraseTranslation": "红红的脸颊",
+    "phraseTranslation": "红红的脸",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cheek.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "cheek.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9bb.svg",
         "type": "Emoji"
       }
     ]
@@ -824,8 +824,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "shoulder.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "shoulder.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b5.svg",
         "type": "Emoji"
       }
     ]
@@ -842,8 +842,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "finger.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "finger.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f90f.svg",
         "type": "Emoji"
       }
     ]
@@ -860,8 +860,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "chest.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "chest.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9bd.svg",
         "type": "Emoji"
       }
     ]
@@ -878,8 +878,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "back.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "back.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9bb.svg",
         "type": "Emoji"
       }
     ]
@@ -887,25 +887,25 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "feet",
     "standardized": "feet",
-    "chinese": "脚（复数）",
+    "chinese": "脚（复数",
     "phonetic": "/feet/",
     "phrase": "Walk with two feet",
-    "phraseTranslation": "两只脚走路",
+    "phraseTranslation": "两只脚走",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "feet.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "gloves.jpg",
+        "url": "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "cry",
     "standardized": "cry",
-    "chinese": "哭",
+    "chinese": "",
     "phonetic": "/cry/",
     "phrase": "Cry sadly",
     "phraseTranslation": "伤心地哭",
@@ -914,7 +914,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cry.svg",
+        "filename": "cry.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f622.svg",
         "type": "Emoji"
       }
@@ -923,17 +923,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "heel",
     "standardized": "heel",
-    "chinese": "脚后跟",
+    "chinese": "脚后",
     "phonetic": "/heel/",
     "phrase": "Lift heel",
-    "phraseTranslation": "抬起脚后跟",
+    "phraseTranslation": "抬起脚后",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "heel.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "heel.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f97e.svg",
         "type": "Emoji"
       }
     ]
@@ -944,14 +944,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "骨头",
     "phonetic": "/bone/",
     "phrase": "Hard bone",
-    "phraseTranslation": "坚硬的骨头",
+    "phraseTranslation": "坚硬的骨",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bone.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "bone.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b4.svg",
         "type": "Emoji"
       }
     ]
@@ -962,15 +962,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "呼吸",
     "phonetic": "/breathe/",
     "phrase": "Deep breath",
-    "phraseTranslation": "深呼吸",
+    "phraseTranslation": "深呼",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "breathe.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "t-shirt.svg",
+        "url": "https://images.unsplash.com/photo-1583743814966-8936f37f4678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "type": "Unsplash"
       }
     ]
   },
@@ -986,8 +986,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "skirt.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "skirt.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e5.svg",
         "type": "Emoji"
       }
     ]
@@ -998,14 +998,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "毛衣",
     "phonetic": "/sweater/",
     "phrase": "Warm sweater",
-    "phraseTranslation": "温暖的毛衣",
+    "phraseTranslation": "温暖的毛",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sweater.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sweater.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e5.svg",
         "type": "Emoji"
       }
     ]
@@ -1022,8 +1022,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "uniform.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "uniform.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f455.svg",
         "type": "Emoji"
       }
     ]
@@ -1031,7 +1031,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "sneakers",
     "standardized": "sneakers",
-    "chinese": "运动鞋",
+    "chinese": "运动",
     "phonetic": "/sneakers/",
     "phrase": "Wear sneakers",
     "phraseTranslation": "穿运动鞋",
@@ -1040,8 +1040,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sneakers.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sneakers.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f45f.svg",
         "type": "Emoji"
       }
     ]
@@ -1049,7 +1049,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "jeans",
     "standardized": "jeans",
-    "chinese": "牛仔裤",
+    "chinese": "牛仔",
     "phonetic": "/jeans/",
     "phrase": "Wear jeans",
     "phraseTranslation": "穿牛仔裤",
@@ -1058,8 +1058,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "jeans.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "jeans.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f456.svg",
         "type": "Emoji"
       }
     ]
@@ -1067,7 +1067,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "hoodie",
     "standardized": "hoodie",
-    "chinese": "连帽衫",
+    "chinese": "连帽",
     "phonetic": "/hoodie/",
     "phrase": "Wear a hoodie",
     "phraseTranslation": "穿连帽衫",
@@ -1076,8 +1076,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hoodie.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hoodie.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e5.svg",
         "type": "Emoji"
       }
     ]
@@ -1085,7 +1085,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "beanie",
     "standardized": "beanie",
-    "chinese": "毛线帽",
+    "chinese": "毛线",
     "phonetic": "/beanie/",
     "phrase": "Wear a beanie",
     "phraseTranslation": "戴毛线帽",
@@ -1094,8 +1094,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "beanie.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "beanie.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e2.svg",
         "type": "Emoji"
       }
     ]
@@ -1106,14 +1106,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "泳衣",
     "phonetic": "/swimsuit/",
     "phrase": "Wear a swimsuit",
-    "phraseTranslation": "穿泳衣",
+    "phraseTranslation": "穿泳",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "swimsuit.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "swimsuit.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fa71.svg",
         "type": "Emoji"
       }
     ]
@@ -1121,7 +1121,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "overalls",
     "standardized": "overalls",
-    "chinese": "工装裤",
+    "chinese": "工装",
     "phonetic": "/overalls/",
     "phrase": "Wear overalls",
     "phraseTranslation": "穿工装裤",
@@ -1130,8 +1130,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "overalls.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "overalls.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f97c.svg",
         "type": "Emoji"
       }
     ]
@@ -1142,14 +1142,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "妈妈",
     "phonetic": "/mother/",
     "phrase": "Gentle mother",
-    "phraseTranslation": "温柔的妈妈",
+    "phraseTranslation": "温柔的妈",
     "difficulty": "intermediate",
     "category": "family_member",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mother.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "mother.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f469-200d-1f37c.svg",
         "type": "Emoji"
       }
     ]
@@ -1160,14 +1160,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "宝宝",
     "phonetic": "/baby/",
     "phrase": "Cute baby",
-    "phraseTranslation": "可爱的宝宝",
+    "phraseTranslation": "可爱的宝",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "baby.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "baby.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f476.svg",
         "type": "Emoji"
       }
     ]
@@ -1178,15 +1178,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "橙子",
     "phonetic": "/orange/",
     "phrase": "Sweet orange",
-    "phraseTranslation": "甜甜的橙子",
+    "phraseTranslation": "甜甜的橙",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "orange.jpg",
-        "url": "https://images.unsplash.com/photo-1557800634-7bf3c73bf389?w=400",
-        "type": "Unsplash"
+        "filename": "orange.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f34a.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -1196,14 +1196,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "米饭",
     "phonetic": "/rice/",
     "phrase": "Fragrant rice",
-    "phraseTranslation": "香香的米饭",
+    "phraseTranslation": "香香的米",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "rice.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "rice.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f35a.svg",
         "type": "Emoji"
       }
     ]
@@ -1214,14 +1214,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "红色",
     "phonetic": "/red/",
     "phrase": "Bright red",
-    "phraseTranslation": "鲜艳的红色",
+    "phraseTranslation": "鲜艳的红",
     "difficulty": "basic",
     "category": "number_color",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "red.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "red.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e5.svg",
         "type": "Emoji"
       }
     ]
@@ -1229,18 +1229,18 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "marker",
     "standardized": "marker",
-    "chinese": "记号笔",
+    "chinese": "记号",
     "phonetic": "/marker/",
     "phrase": "Colorful markers",
-    "phraseTranslation": "彩色记号笔",
+    "phraseTranslation": "彩色记号",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "marker.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "marker.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f58a.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -1256,9 +1256,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "scissors.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "scissors.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2702.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -1268,14 +1268,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "粉笔",
     "phonetic": "/chalk/",
     "phrase": "White chalk",
-    "phraseTranslation": "白色的粉笔",
+    "phraseTranslation": "白色的粉",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "chalk.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "chalk.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5d3.svg",
         "type": "Emoji"
       }
     ]
@@ -1286,14 +1286,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "日历",
     "phonetic": "/calendar/",
     "phrase": "Calendar on the wall",
-    "phraseTranslation": "挂在墙上的日历",
+    "phraseTranslation": "挂在墙上的日",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "calendar.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "calendar.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c5.svg",
         "type": "Emoji"
       }
     ]
@@ -1310,8 +1310,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "slide.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "slide.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6dd.svg",
         "type": "Emoji"
       }
     ]
@@ -1322,14 +1322,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "午餐",
     "phonetic": "/lunch/",
     "phrase": "Eat lunch",
-    "phraseTranslation": "吃午餐",
+    "phraseTranslation": "吃午",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "lunch.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "lunch.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f37d.svg",
         "type": "Emoji"
       }
     ]
@@ -1340,14 +1340,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "家庭作业",
     "phonetic": "/homework/",
     "phrase": "Do homework",
-    "phraseTranslation": "做家庭作业",
+    "phraseTranslation": "做家庭作",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "homework.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4dd.svg",
         "type": "Emoji"
       }
     ]
@@ -1358,14 +1358,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "音乐",
     "phonetic": "/music/",
     "phrase": "Listen to music",
-    "phraseTranslation": "听音乐",
+    "phraseTranslation": "听音",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "music.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "music.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3b5.svg",
         "type": "Emoji"
       }
     ]
@@ -1376,14 +1376,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "故事",
     "phonetic": "/story/",
     "phrase": "Tell a story",
-    "phraseTranslation": "讲故事",
+    "phraseTranslation": "讲故",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "story.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "story.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4d6.svg",
         "type": "Emoji"
       }
     ]
@@ -1394,14 +1394,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "游戏",
     "phonetic": "/game/",
     "phrase": "Play a game",
-    "phraseTranslation": "玩游戏",
+    "phraseTranslation": "玩游",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "game.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "game.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ae.svg",
         "type": "Emoji"
       }
     ]
@@ -1418,8 +1418,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "classmate.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "classmate.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f46a.svg",
         "type": "Emoji"
       }
     ]
@@ -1430,14 +1430,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "数学",
     "phonetic": "/math/",
     "phrase": "Learn math",
-    "phraseTranslation": "学数学",
+    "phraseTranslation": "学数",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "math.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "math.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9ee.svg",
         "type": "Emoji"
       }
     ]
@@ -1448,14 +1448,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "中文",
     "phonetic": "/chinese/",
     "phrase": "Speak Chinese",
-    "phraseTranslation": "说中文",
+    "phraseTranslation": "说中",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "chinese.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "chinese.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4d6.svg",
         "type": "Emoji"
       }
     ]
@@ -1463,7 +1463,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "oval",
     "standardized": "oval",
-    "chinese": "椭圆形",
+    "chinese": "椭圆",
     "phonetic": "/oval/",
     "phrase": "Oval egg",
     "phraseTranslation": "椭圆形的鸡蛋",
@@ -1472,8 +1472,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "oval.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "oval.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b55.svg",
         "type": "Emoji"
       }
     ]
@@ -1481,17 +1481,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "crescent",
     "standardized": "crescent",
-    "chinese": "新月形",
+    "chinese": "新月",
     "phonetic": "/crescent/",
     "phrase": "Crescent moon",
-    "phraseTranslation": "弯弯的月亮",
+    "phraseTranslation": "弯弯的月",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "crescent.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "crescent.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f319.svg",
         "type": "Emoji"
       }
     ]
@@ -1502,14 +1502,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "球体",
     "phonetic": "/sphere/",
     "phrase": "Round sphere",
-    "phraseTranslation": "圆圆的球体",
+    "phraseTranslation": "圆圆的球",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sphere.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sphere.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26bd.svg",
         "type": "Emoji"
       }
     ]
@@ -1517,17 +1517,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "pyramid",
     "standardized": "pyramid",
-    "chinese": "金字塔",
+    "chinese": "金字",
     "phonetic": "/pyramid/",
     "phrase": "Egyptian pyramid",
-    "phraseTranslation": "埃及金字塔",
+    "phraseTranslation": "埃及金字",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pyramid.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "pyramid.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3d4.svg",
         "type": "Emoji"
       }
     ]
@@ -1535,17 +1535,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "zigzag",
     "standardized": "zigzag",
-    "chinese": "锯齿形",
+    "chinese": "锯齿",
     "phonetic": "/zigzag/",
     "phrase": "Zigzag line",
-    "phraseTranslation": "锯齿形的线",
+    "phraseTranslation": "锯齿形的",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "zigzag.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "zigzag.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/3030.svg",
         "type": "Emoji"
       }
     ]
@@ -1556,14 +1556,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "平面",
     "phonetic": "/flat/",
     "phrase": "Flat surface",
-    "phraseTranslation": "平平的表面",
+    "phraseTranslation": "平平的表",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "flat.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "flat.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4d0.svg",
         "type": "Emoji"
       }
     ]
@@ -1574,14 +1574,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "图案",
     "phonetic": "/pattern/",
     "phrase": "Beautiful pattern",
-    "phraseTranslation": "漂亮的图案",
+    "phraseTranslation": "漂亮的图",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pattern.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "pattern.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e8.svg",
         "type": "Emoji"
       }
     ]
@@ -1598,16 +1598,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "block.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "block.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9f1.svg",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "robot",
     "standardized": "robot",
-    "chinese": "机器人",
+    "chinese": "机器",
     "phonetic": "/robot/",
     "phrase": "Cool robot",
     "phraseTranslation": "酷酷的机器人",
@@ -1616,8 +1616,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "robot.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "robot.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f916.svg",
         "type": "Emoji"
       }
     ]
@@ -1625,17 +1625,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "two",
     "standardized": "two",
-    "chinese": "二",
+    "chinese": "",
     "phonetic": "/tu?/",
     "phrase": "Two hands",
-    "phraseTranslation": "两只手",
+    "phraseTranslation": "两只",
     "difficulty": "basic",
     "category": "number_color",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "two.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "two.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0032-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -1643,7 +1643,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "five",
     "standardized": "five",
-    "chinese": "五",
+    "chinese": "",
     "phonetic": "/five/",
     "phrase": "Five fingers",
     "phraseTranslation": "五个手指",
@@ -1652,8 +1652,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "five.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "five.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0035-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -1661,17 +1661,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "eight",
     "standardized": "eight",
-    "chinese": "八",
+    "chinese": "",
     "phonetic": "/eight/",
     "phrase": "Eight legs",
-    "phraseTranslation": "八条腿",
+    "phraseTranslation": "八条",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "eight.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "eight.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0038-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -1688,8 +1688,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "eleven.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "eleven.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0031-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -1700,14 +1700,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "十四",
     "phonetic": "/fourteen/",
     "phrase": "Fourteen friends",
-    "phraseTranslation": "十四个朋友",
+    "phraseTranslation": "十四个朋",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "fourteen.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "fourteen.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0031-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -1718,14 +1718,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "十七",
     "phonetic": "/seventeen/",
     "phrase": "Seventeen friends",
-    "phraseTranslation": "十七个朋友",
+    "phraseTranslation": "十七个朋",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "seventeen.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "seventeen.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0037-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -1736,14 +1736,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "二十",
     "phonetic": "/twenty/",
     "phrase": "Twenty students",
-    "phraseTranslation": "二十个学生",
+    "phraseTranslation": "二十个学",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "twenty.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "twenty.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0032-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -1760,8 +1760,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "third.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "third.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0033-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -1772,14 +1772,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "最后的",
     "phonetic": "/last/",
     "phrase": "The last one",
-    "phraseTranslation": "最后一个",
+    "phraseTranslation": "最后一",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "last.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "last.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f51d.svg",
         "type": "Emoji"
       }
     ]
@@ -1790,14 +1790,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "更多",
     "phonetic": "/more/",
     "phrase": "A bit more",
-    "phraseTranslation": "再多一点",
+    "phraseTranslation": "再多一",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "more.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "more.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2795.svg",
         "type": "Emoji"
       }
     ]
@@ -1808,14 +1808,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "蓝色",
     "phonetic": "/blu?/",
     "phrase": "Blue sky",
-    "phraseTranslation": "蓝色的天空",
+    "phraseTranslation": "蓝色的天",
     "difficulty": "basic",
     "category": "number_color",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "blue.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "blue.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e6.svg",
         "type": "Emoji"
       }
     ]
@@ -1832,8 +1832,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "brown.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "brown.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7eb.svg",
         "type": "Emoji"
       }
     ]
@@ -1850,8 +1850,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "grey.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "grey.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b1b.svg",
         "type": "Emoji"
       }
     ]
@@ -1868,8 +1868,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "light.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "light.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f506.svg",
         "type": "Emoji"
       }
     ]
@@ -1886,8 +1886,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "color.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "color.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3a8.svg",
         "type": "Emoji"
       }
     ]
@@ -1895,7 +1895,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "snow",
     "standardized": "snow",
-    "chinese": "雪",
+    "chinese": "",
     "phonetic": "/snow/",
     "phrase": "White snow",
     "phraseTranslation": "白雪皑皑",
@@ -1904,26 +1904,26 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "snow.jpg",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "snow.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2744.svg",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "thunder",
     "standardized": "thunder",
-    "chinese": "雷",
+    "chinese": "",
     "phonetic": "/thunder/",
     "phrase": "Loud thunder",
-    "phraseTranslation": "轰隆隆的雷",
+    "phraseTranslation": "轰隆隆的",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "thunder.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "thunder.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26a1.svg",
         "type": "Emoji"
       }
     ]
@@ -1931,17 +1931,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "snowy",
     "standardized": "snowy",
-    "chinese": "下雪的",
+    "chinese": "下雪",
     "phonetic": "/snowy/",
     "phrase": "Snowy weather",
-    "phraseTranslation": "下雪的天气",
+    "phraseTranslation": "下雪的天",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "snowy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "snowy.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f328.svg",
         "type": "Emoji"
       }
     ]
@@ -1958,7 +1958,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cold.svg",
+        "filename": "cold.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/2744.svg",
         "type": "Emoji"
       }
@@ -1976,9 +1976,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "weather.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "weather.png",
+        "url": "https://images.unsplash.com/photo-1516912481808-3406841bd33c?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -1994,8 +1994,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "summer.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "summer.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2600.svg",
         "type": "Emoji"
       }
     ]
@@ -2012,8 +2012,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "winter.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "winter.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2744.svg",
         "type": "Emoji"
       }
     ]
@@ -2024,14 +2024,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "下午",
     "phonetic": "/afternoon/",
     "phrase": "Good afternoon",
-    "phraseTranslation": "下午好",
+    "phraseTranslation": "下午",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "afternoon.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "afternoon.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f557.svg",
         "type": "Emoji"
       }
     ]
@@ -2042,14 +2042,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "白天",
     "phonetic": "/day/",
     "phrase": "We play during the day",
-    "phraseTranslation": "白天我们玩耍",
+    "phraseTranslation": "白天我们玩",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "day.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "day.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f31e.svg",
         "type": "Emoji"
       }
     ]
@@ -2060,14 +2060,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "昨天",
     "phonetic": "/yesterday/",
     "phrase": "We watched a movie yesterday",
-    "phraseTranslation": "昨天我们看电影",
+    "phraseTranslation": "昨天我们看电",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "yesterday.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "yesterday.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c5.svg",
         "type": "Emoji"
       }
     ]
@@ -2078,14 +2078,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "树枝",
     "phonetic": "/branch/",
     "phrase": "Long branch",
-    "phraseTranslation": "长长的树枝",
+    "phraseTranslation": "长长的树",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "branch.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "branch.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f333.svg",
         "type": "Emoji"
       }
     ]
@@ -2093,7 +2093,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "mountain",
     "standardized": "mountain",
-    "chinese": "山",
+    "chinese": "",
     "phonetic": "/mountain/",
     "phrase": "Tall mountain",
     "phraseTranslation": "高高的山",
@@ -2102,16 +2102,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mountain.jpg",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "mountain.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26f0.svg",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "river",
     "standardized": "river",
-    "chinese": "河",
+    "chinese": "",
     "phonetic": "/river/",
     "phrase": "Long river",
     "phraseTranslation": "长长的河",
@@ -2120,9 +2120,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "river.jpg",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "river.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f30a.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -2132,14 +2132,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "海滩",
     "phonetic": "/beach/",
     "phrase": "Play on the beach",
-    "phraseTranslation": "沙滩上玩耍",
+    "phraseTranslation": "沙滩上玩",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "beach.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "beach.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3d6.svg",
         "type": "Emoji"
       }
     ]
@@ -2156,8 +2156,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "jungle.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "jungle.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f332.svg",
         "type": "Emoji"
       }
     ]
@@ -2168,15 +2168,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "岩石",
     "phonetic": "/rock/",
     "phrase": "Hard rock",
-    "phraseTranslation": "硬硬的岩石",
+    "phraseTranslation": "硬硬的岩",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "rock.jpg",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "rock.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1faa8.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -2186,14 +2186,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "土壤",
     "phonetic": "/soil/",
     "phrase": "Fertile soil",
-    "phraseTranslation": "肥沃的土壤",
+    "phraseTranslation": "肥沃的土",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "soil.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "soil.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1faa3.svg",
         "type": "Emoji"
       }
     ]
@@ -2210,8 +2210,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "environment.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "environment.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f30e.svg",
         "type": "Emoji"
       }
     ]
@@ -2222,15 +2222,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "仓鼠",
     "phonetic": "/hamster/",
     "phrase": "Cute hamster",
-    "phraseTranslation": "可爱的仓鼠",
+    "phraseTranslation": "可爱的仓",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hamster.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "hamster.jpg",
+        "url": "https://images.unsplash.com/photo-1584556812953-6a973f88d4e5?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -2246,16 +2246,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "kangaroo.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "kangaroo.jpg",
+        "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "snake",
     "standardized": "snake",
-    "chinese": "蛇",
+    "chinese": "",
     "phonetic": "/snake/",
     "phrase": "Long snake",
     "phraseTranslation": "长长的蛇",
@@ -2265,7 +2265,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "snake.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "url": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=400",
         "type": "Unsplash"
       }
     ]
@@ -2282,9 +2282,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "panda.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "panda.jpg",
+        "url": "https://images.unsplash.com/photo-1547409700-47aa57349d46?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -2300,9 +2300,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ladybug.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "ladybug.jpg",
+        "url": "https://images.unsplash.com/photo-1570026945127-201d8409662a?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -2318,9 +2318,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "octopus.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "octopus.jpg",
+        "url": "https://images.unsplash.com/photo-1507036066871-c554ebf77249?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -2330,15 +2330,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "鲸鱼",
     "phonetic": "/whale/",
     "phrase": "Giant whale",
-    "phraseTranslation": "巨大的鲸鱼",
+    "phraseTranslation": "巨大的鲸",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "whale.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "whale.jpg",
+        "url": "https://images.unsplash.com/photo-1544551763-77efc8c5a08e?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -2354,9 +2354,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "peacock.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "peacock.jpg",
+        "url": "https://images.unsplash.com/photo-1552728089-57bdde30b4eb?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -2372,8 +2372,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "animal.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "animal.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f43e.svg",
         "type": "Emoji"
       }
     ]
@@ -2384,14 +2384,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "超市",
     "phonetic": "/supermarket/",
     "phrase": "Go to the supermarket",
-    "phraseTranslation": "逛超市",
+    "phraseTranslation": "逛超",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "supermarket.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "supermarket.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ea.svg",
         "type": "Emoji"
       }
     ]
@@ -2408,8 +2408,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hospital.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hospital.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3e5.svg",
         "type": "Emoji"
       }
     ]
@@ -2420,14 +2420,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "乡村",
     "phonetic": "/countryside/",
     "phrase": "Beautiful countryside",
-    "phraseTranslation": "美丽的乡村",
+    "phraseTranslation": "美丽的乡",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "countryside.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "countryside.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3d8.svg",
         "type": "Emoji"
       }
     ]
@@ -2435,7 +2435,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "eraser",
     "standardized": "eraser",
-    "chinese": "橡皮擦",
+    "chinese": "橡皮",
     "phonetic": "/eraser/",
     "phrase": "Use an eraser",
     "phraseTranslation": "用橡皮擦",
@@ -2444,9 +2444,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "eraser.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "eraser.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f58b.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -2456,15 +2456,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "胶水",
     "phonetic": "/glue/",
     "phrase": "Sticky glue",
-    "phraseTranslation": "粘粘的胶水",
+    "phraseTranslation": "粘粘的胶",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "glue.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "glue.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f58c.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -2474,14 +2474,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "黑板",
     "phonetic": "/blackboard/",
     "phrase": "Write on the blackboard",
-    "phraseTranslation": "写在黑板上",
+    "phraseTranslation": "写在黑板",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "blackboard.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "blackboard.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3d8.svg",
         "type": "Emoji"
       }
     ]
@@ -2492,14 +2492,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "电脑",
     "phonetic": "/computer/",
     "phrase": "Learn with a computer",
-    "phraseTranslation": "用电脑学习",
+    "phraseTranslation": "用电脑学",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "computer.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "computer.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4bb.svg",
         "type": "Emoji"
       }
     ]
@@ -2516,7 +2516,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hug.svg",
+        "filename": "hug.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f917.svg",
         "type": "Emoji"
       }
@@ -2525,16 +2525,16 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "listen",
     "standardized": "listen",
-    "chinese": "听",
+    "chinese": "",
     "phonetic": "/listen/",
     "phrase": "Listen to a story",
-    "phraseTranslation": "听故事",
+    "phraseTranslation": "听故",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "listen.svg",
+        "filename": "listen.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f442.svg",
         "type": "Emoji"
       }
@@ -2552,7 +2552,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "help.svg",
+        "filename": "help.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4dd.svg",
         "type": "Emoji"
       }
@@ -2561,17 +2561,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "eat lunch",
     "standardized": "eat lunch",
-    "chinese": "吃午饭",
+    "chinese": "吃午",
     "phonetic": "/eat lunch/",
     "phrase": "Eat lunch",
-    "phraseTranslation": "吃午饭",
+    "phraseTranslation": "吃午",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "eat lunch.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f37a.svg",
         "type": "Emoji"
       }
     ]
@@ -2579,17 +2579,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "change clothes",
     "standardized": "change clothes",
-    "chinese": "换衣服",
+    "chinese": "换衣",
     "phonetic": "/change clothes/",
     "phrase": "Change into clean clothes",
-    "phraseTranslation": "换上干净的衣服",
+    "phraseTranslation": "换上干净的衣",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "change clothes.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9e6.svg",
         "type": "Emoji"
       }
     ]
@@ -2597,7 +2597,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "ride",
     "standardized": "ride",
-    "chinese": "骑",
+    "chinese": "",
     "phonetic": "/ride/",
     "phrase": "Ride a bike",
     "phraseTranslation": "骑自行车",
@@ -2606,8 +2606,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ride.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "ride.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6b2.svg",
         "type": "Emoji"
       }
     ]
@@ -2615,17 +2615,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "build",
     "standardized": "build",
-    "chinese": "建造",
+    "chinese": "建",
     "phonetic": "/build/",
     "phrase": "Build a house with blocks",
-    "phraseTranslation": "用积木建造房子",
+    "phraseTranslation": "用积木建造房",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "build.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "build.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f528.svg",
         "type": "Emoji"
       }
     ]
@@ -2633,17 +2633,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "point",
     "standardized": "point",
-    "chinese": "指",
+    "chinese": "",
     "phonetic": "/point/",
     "phrase": "Point over there",
-    "phraseTranslation": "指一指那边",
+    "phraseTranslation": "指一指那",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "point.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "point.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f446.svg",
         "type": "Emoji"
       }
     ]
@@ -2660,8 +2660,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pack.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "pack.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4e6.svg",
         "type": "Emoji"
       }
     ]
@@ -2669,7 +2669,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "jump",
     "standardized": "jump",
-    "chinese": "跳",
+    "chinese": "",
     "phonetic": "/jump/",
     "phrase": "Jump high",
     "phraseTranslation": "高高地跳",
@@ -2678,7 +2678,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "jump.svg",
+        "filename": "jump.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3c3.svg",
         "type": "Emoji"
       }
@@ -2744,14 +2744,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "洗手",
     "phonetic": "/wash hands/",
     "phrase": "Wash hands before eating",
-    "phraseTranslation": "吃饭前洗手",
+    "phraseTranslation": "吃饭前洗",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "wash hands.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "wash_hands.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6bf.svg",
         "type": "Emoji"
       }
     ]
@@ -2759,17 +2759,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "ask",
     "standardized": "ask",
-    "chinese": "问",
+    "chinese": "",
     "phonetic": "/ask/",
     "phrase": "Ask a question",
-    "phraseTranslation": "问一个问题",
+    "phraseTranslation": "问一个问",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ask.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "ask.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2753.svg",
         "type": "Emoji"
       }
     ]
@@ -2777,7 +2777,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "cut",
     "standardized": "cut",
-    "chinese": "剪",
+    "chinese": "",
     "phonetic": "/cut/",
     "phrase": "Cut paper",
     "phraseTranslation": "剪纸",
@@ -2786,8 +2786,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cut.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "cut.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2702.svg",
         "type": "Emoji"
       }
     ]
@@ -2795,7 +2795,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "throw",
     "standardized": "throw",
-    "chinese": "扔",
+    "chinese": "",
     "phonetic": "/throw/",
     "phrase": "Throw the ball",
     "phraseTranslation": "扔球",
@@ -2804,8 +2804,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "throw.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "throw.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3b1.svg",
         "type": "Emoji"
       }
     ]
@@ -2816,7 +2816,7 @@ const STAGE_KINDERGARTEN = [
     "chinese": "打开",
     "phonetic": "/open/",
     "phrase": "Open the book",
-    "phraseTranslation": "打开书",
+    "phraseTranslation": "打开",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
@@ -2831,7 +2831,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "yes",
     "standardized": "yes",
-    "chinese": "是",
+    "chinese": "",
     "phonetic": "/yes/",
     "phrase": "Nod yes",
     "phraseTranslation": "点头说是",
@@ -2840,8 +2840,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "yes.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "yes.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2705.svg",
         "type": "Emoji"
       }
     ]
@@ -2858,8 +2858,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "thank you.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "thank_you.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f64f.svg",
         "type": "Emoji"
       }
     ]
@@ -2867,7 +2867,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "you",
     "standardized": "you",
-    "chinese": "你",
+    "chinese": "",
     "phonetic": "/you/",
     "phrase": "How are you?",
     "phraseTranslation": "你好吗？",
@@ -2876,8 +2876,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "you.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "you.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f464.svg",
         "type": "Emoji"
       }
     ]
@@ -2885,7 +2885,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "it",
     "standardized": "it",
-    "chinese": "它",
+    "chinese": "",
     "phonetic": "/it/",
     "phrase": "It is a cat",
     "phraseTranslation": "它是一只猫",
@@ -2894,8 +2894,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "it.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "it.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
         "type": "Emoji"
       }
     ]
@@ -2903,7 +2903,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "what",
     "standardized": "what",
-    "chinese": "什么",
+    "chinese": "什",
     "phonetic": "/what/",
     "phrase": "What is this?",
     "phraseTranslation": "这是什么？",
@@ -2912,8 +2912,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "what.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "what.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2753.svg",
         "type": "Emoji"
       }
     ]
@@ -2930,8 +2930,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "when.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "when.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/231a.svg",
         "type": "Emoji"
       }
     ]
@@ -2942,13 +2942,13 @@ const STAGE_KINDERGARTEN = [
     "chinese": "大的",
     "phonetic": "/b??/",
     "phrase": "A big elephant",
-    "phraseTranslation": "一个大象",
+    "phraseTranslation": "一个大",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "big.svg",
+        "filename": "big.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
         "type": "Emoji"
       }
@@ -2960,14 +2960,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "矮的",
     "phonetic": "/short/",
     "phrase": "Short little pig",
-    "phraseTranslation": "矮矮的小猪",
+    "phraseTranslation": "矮矮的小",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "short.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "short.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4cf.svg",
         "type": "Emoji"
       }
     ]
@@ -2975,16 +2975,16 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "angry",
     "standardized": "angry",
-    "chinese": "生气的",
+    "chinese": "生气",
     "phonetic": "/angry/",
     "phrase": "Angry cat",
-    "phraseTranslation": "生气的猫咪",
+    "phraseTranslation": "生气的猫",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "angry.svg",
+        "filename": "angry.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f620.svg",
         "type": "Emoji"
       }
@@ -3002,7 +3002,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "good.svg",
+        "filename": "good.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f44d.svg",
         "type": "Emoji"
       }
@@ -3014,13 +3014,13 @@ const STAGE_KINDERGARTEN = [
     "chinese": "旧的/老的",
     "phonetic": "/old/",
     "phrase": "An old grandpa",
-    "phraseTranslation": "一位老爷爷",
+    "phraseTranslation": "一位老爷",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "old.svg",
+        "filename": "old.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f194.svg",
         "type": "Emoji"
       }
@@ -3032,13 +3032,13 @@ const STAGE_KINDERGARTEN = [
     "chinese": "快的",
     "phonetic": "/fast/",
     "phrase": "Run fast",
-    "phraseTranslation": "跑得快",
+    "phraseTranslation": "跑得",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "fast.svg",
+        "filename": "fast.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3c1.svg",
         "type": "Emoji"
       }
@@ -3047,16 +3047,16 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "hard",
     "standardized": "hard",
-    "chinese": "困难的/硬的",
+    "chinese": "困难�?硬的",
     "phonetic": "/hard/",
     "phrase": "Hard stone",
-    "phraseTranslation": "硬硬的石头",
+    "phraseTranslation": "硬硬的石",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hard.svg",
+        "filename": "hard.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
         "type": "Emoji"
       }
@@ -3065,17 +3065,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "pretty",
     "standardized": "pretty",
-    "chinese": "漂亮的",
+    "chinese": "漂亮",
     "phonetic": "/pretty/",
     "phrase": "Pretty butterfly",
-    "phraseTranslation": "漂亮的蝴蝶",
+    "phraseTranslation": "漂亮的蝴",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pretty.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "pretty.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60d.svg",
         "type": "Emoji"
       }
     ]
@@ -3083,7 +3083,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "quiet",
     "standardized": "quiet",
-    "chinese": "安静的",
+    "chinese": "安静",
     "phonetic": "/quiet/",
     "phrase": "Quiet library",
     "phraseTranslation": "安静的图书馆",
@@ -3092,7 +3092,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "quiet.svg",
+        "filename": "quiet.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f50b.svg",
         "type": "Emoji"
       }
@@ -3101,7 +3101,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "brave",
     "standardized": "brave",
-    "chinese": "勇敢的",
+    "chinese": "勇敢",
     "phonetic": "/brave/",
     "phrase": "Brave firefighter",
     "phraseTranslation": "勇敢的消防员",
@@ -3111,7 +3111,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "brave.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1.svg",
         "type": "Emoji"
       }
     ]
@@ -3122,14 +3122,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "害怕的",
     "phonetic": "/scared/",
     "phrase": "Scared of the dark",
-    "phraseTranslation": "害怕黑暗",
+    "phraseTranslation": "害怕黑",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "scared.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "scared.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f631.svg",
         "type": "Emoji"
       }
     ]
@@ -3146,8 +3146,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sleepy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sleepy.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f62a.svg",
         "type": "Emoji"
       }
     ]
@@ -3155,17 +3155,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "soft",
     "standardized": "soft",
-    "chinese": "柔软的",
+    "chinese": "柔软",
     "phonetic": "/soft/",
     "phrase": "Soft pillow",
-    "phraseTranslation": "柔软的枕头",
+    "phraseTranslation": "柔软的枕",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "soft.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "soft.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a7.svg",
         "type": "Emoji"
       }
     ]
@@ -3182,8 +3182,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "round.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "round.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f52e.svg",
         "type": "Emoji"
       }
     ]
@@ -3194,13 +3194,13 @@ const STAGE_KINDERGARTEN = [
     "chinese": "湿的",
     "phonetic": "/wet/",
     "phrase": "Wet umbrella",
-    "phraseTranslation": "湿湿的雨伞",
+    "phraseTranslation": "湿湿的雨",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "wet.svg",
+        "filename": "wet.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a7.svg",
         "type": "Emoji"
       }
@@ -3218,8 +3218,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "near.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "near.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4cd.svg",
         "type": "Emoji"
       }
     ]
@@ -3230,13 +3230,13 @@ const STAGE_KINDERGARTEN = [
     "chinese": "甜的",
     "phonetic": "/sweet/",
     "phrase": "Sweet candy",
-    "phraseTranslation": "甜甜的糖果",
+    "phraseTranslation": "甜甜的糖",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sweet.svg",
+        "filename": "sweet.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f36d.svg",
         "type": "Emoji"
       }
@@ -3248,14 +3248,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "许多",
     "phonetic": "/many/",
     "phrase": "Many little stars",
-    "phraseTranslation": "许多小星星",
+    "phraseTranslation": "许多小星",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "many.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "many.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4af.svg",
         "type": "Emoji"
       }
     ]
@@ -3266,14 +3266,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "今天",
     "phonetic": "/today/",
     "phrase": "Today's weather is good",
-    "phraseTranslation": "今天天气好",
+    "phraseTranslation": "今天天气",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "today.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "today.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c5.svg",
         "type": "Emoji"
       }
     ]
@@ -3290,8 +3290,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dad.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "dad.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f468-200d-1f466.svg",
         "type": "Emoji"
       }
     ]
@@ -3308,8 +3308,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "teacher.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "teacher.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1-200d-1f3eb.svg",
         "type": "Emoji"
       }
     ]
@@ -3326,8 +3326,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "black.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "black.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b1b.svg",
         "type": "Emoji"
       }
     ]
@@ -3335,7 +3335,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "face",
     "standardized": "face",
-    "chinese": "脸",
+    "chinese": "",
     "phonetic": "/face/",
     "phrase": "Wash face",
     "phraseTranslation": "洗脸",
@@ -3344,8 +3344,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "face.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "face.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60a.svg",
         "type": "Emoji"
       }
     ]
@@ -3362,8 +3362,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "eyes.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "eyes-emoji.png",
+        "url": "https://emojicdn.elk.sh/👀",
         "type": "Emoji"
       }
     ]
@@ -3380,8 +3380,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ear.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "ear.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f442.svg",
         "type": "Emoji"
       }
     ]
@@ -3398,8 +3398,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ears.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "ears.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f442.svg",
         "type": "Emoji"
       }
     ]
@@ -3416,8 +3416,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mouth.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "mouth.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f444.svg",
         "type": "Emoji"
       }
     ]
@@ -3428,14 +3428,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "嘴唇",
     "phonetic": "/lip/",
     "phrase": "Red lip",
-    "phraseTranslation": "红红的嘴唇",
+    "phraseTranslation": "红红的嘴",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "lip.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "lip.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f444.svg",
         "type": "Emoji"
       }
     ]
@@ -3446,14 +3446,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "牙齿（复数）",
     "phonetic": "/teeth/",
     "phrase": "Brush teeth",
-    "phraseTranslation": "刷牙齿",
+    "phraseTranslation": "刷牙",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "teeth.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "teeth.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f62c.svg",
         "type": "Emoji"
       }
     ]
@@ -3464,14 +3464,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "脖子",
     "phonetic": "/neck/",
     "phrase": "Giraffe's long neck",
-    "phraseTranslation": "长颈鹿的长脖子",
+    "phraseTranslation": "长颈鹿的长脖",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "neck.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "neck.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9bb.svg",
         "type": "Emoji"
       }
     ]
@@ -3488,8 +3488,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "arm.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "arm.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg",
         "type": "Emoji"
       }
     ]
@@ -3506,8 +3506,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "elbow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "elbow.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4aa.svg",
         "type": "Emoji"
       }
     ]
@@ -3518,14 +3518,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "指甲",
     "phonetic": "/nail/",
     "phrase": "Cut nails",
-    "phraseTranslation": "剪指甲",
+    "phraseTranslation": "剪指",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "nail.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "nail.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f485.svg",
         "type": "Emoji"
       }
     ]
@@ -3536,14 +3536,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "肚子",
     "phonetic": "/belly/",
     "phrase": "Round belly",
-    "phraseTranslation": "圆圆的肚子",
+    "phraseTranslation": "圆圆的肚",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "belly.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "belly.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b5.svg",
         "type": "Emoji"
       }
     ]
@@ -3551,17 +3551,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "leg",
     "standardized": "leg",
-    "chinese": "腿",
+    "chinese": "",
     "phonetic": "/leg/",
     "phrase": "Lift leg",
-    "phraseTranslation": "抬起腿",
+    "phraseTranslation": "抬起",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "leg.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "leg.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b5.svg",
         "type": "Emoji"
       }
     ]
@@ -3578,8 +3578,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "knee.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "knee.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b6.svg",
         "type": "Emoji"
       }
     ]
@@ -3590,14 +3590,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "皮肤",
     "phonetic": "/skin/",
     "phrase": "Smooth skin",
-    "phraseTranslation": "光滑的皮肤",
+    "phraseTranslation": "光滑的皮",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "skin.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "skin.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b8.svg",
         "type": "Emoji"
       }
     ]
@@ -3615,7 +3615,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "heart.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f495.svg",
         "type": "Emoji"
       }
     ]
@@ -3623,7 +3623,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "laugh",
     "standardized": "laugh",
-    "chinese": "笑",
+    "chinese": "",
     "phonetic": "/laugh/",
     "phrase": "Laugh out loud",
     "phraseTranslation": "哈哈大笑",
@@ -3632,7 +3632,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "laugh.svg",
+        "filename": "laugh.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f602.svg",
         "type": "Emoji"
       }
@@ -3650,7 +3650,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "see.svg",
+        "filename": "see.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f440.svg",
         "type": "Emoji"
       }
@@ -3668,7 +3668,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hear.svg",
+        "filename": "hear.png",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f442.svg",
         "type": "Emoji"
       }
@@ -3680,14 +3680,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "眉毛",
     "phonetic": "/eyebrow/",
     "phrase": "Thick eyebrows",
-    "phraseTranslation": "浓浓的眉毛",
+    "phraseTranslation": "浓浓的眉",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "eyebrow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "eyebrow.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b0.svg",
         "type": "Emoji"
       }
     ]
@@ -3704,8 +3704,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "forehead.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "forehead.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b5.svg",
         "type": "Emoji"
       }
     ]
@@ -3722,8 +3722,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ankle.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "ankle.png",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b6.svg",
         "type": "Emoji"
       }
     ]
@@ -3734,15 +3734,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "大脑",
     "phonetic": "/brain/",
     "phrase": "Smart brain",
-    "phraseTranslation": "聪明的大脑",
+    "phraseTranslation": "聪明的大",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "brain.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "url": "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3752,40 +3752,40 @@ const STAGE_KINDERGARTEN = [
     "chinese": "眨眼",
     "phonetic": "/blink/",
     "phrase": "Blink eyes",
-    "phraseTranslation": "眨眨眼睛",
+    "phraseTranslation": "",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "blink.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "blink.jpg",
+        "url": "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "t-shirt",
     "standardized": "t-shirt",
-    "chinese": "T恤",
+    "chinese": "T",
     "phonetic": "/t-shirt/",
     "phrase": "A t-shirt",
-    "phraseTranslation": "一件T恤",
+    "phraseTranslation": "一件T",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "t-shirt.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "url": "https://images.unsplash.com/photo-1583743814966-8936f37f4678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "dress",
     "standardized": "dress",
-    "chinese": "连衣裙",
+    "chinese": "连衣",
     "phonetic": "/dress/",
     "phrase": "Pretty dress",
     "phraseTranslation": "漂亮的连衣裙",
@@ -3794,9 +3794,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dress.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "dress.jpg",
+        "url": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3806,15 +3806,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "夹克",
     "phonetic": "/jacket/",
     "phrase": "A jacket",
-    "phraseTranslation": "一件夹克",
+    "phraseTranslation": "一件夹",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "jacket.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "jacket.jpg",
+        "url": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3830,9 +3830,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "gloves.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "gloves.jpg",
+        "url": "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3848,9 +3848,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "scarf.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "scarf.jpg",
+        "url": "https://images.unsplash.com/photo-1601762603332-db5e4b90cca7?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3860,15 +3860,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "睡衣",
     "phonetic": "/pajamas/",
     "phrase": "Wear pajamas",
-    "phraseTranslation": "穿睡衣",
+    "phraseTranslation": "穿睡",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pajamas.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "pajamas.jpg",
+        "url": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3884,9 +3884,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "boots.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "boots.jpg",
+        "url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3896,15 +3896,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "拖鞋",
     "phonetic": "/slippers/",
     "phrase": "Wear slippers",
-    "phraseTranslation": "穿拖鞋",
+    "phraseTranslation": "穿拖",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "slippers.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "slippers.jpg",
+        "url": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3914,15 +3914,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "卫衣",
     "phonetic": "/sweatshirt/",
     "phrase": "Wear a sweatshirt",
-    "phraseTranslation": "穿卫衣",
+    "phraseTranslation": "穿卫",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sweatshirt.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "sweatshirt.jpg",
+        "url": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3932,22 +3932,22 @@ const STAGE_KINDERGARTEN = [
     "chinese": "背心",
     "phonetic": "/vest/",
     "phrase": "Wear a vest",
-    "phraseTranslation": "穿背心",
+    "phraseTranslation": "穿背",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "vest.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "vest.jpg",
+        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "cap",
     "standardized": "cap",
-    "chinese": "鸭舌帽",
+    "chinese": "鸭舌",
     "phonetic": "/cap/",
     "phrase": "Wear a cap",
     "phraseTranslation": "戴鸭舌帽",
@@ -3956,9 +3956,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cap.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "cap.jpg",
+        "url": "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3968,15 +3968,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "连指手套",
     "phonetic": "/mittens/",
     "phrase": "Wear mittens",
-    "phraseTranslation": "戴连指手套",
+    "phraseTranslation": "戴连指手",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mittens.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "mittens.jpg",
+        "url": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -3986,58 +3986,58 @@ const STAGE_KINDERGARTEN = [
     "chinese": "腰带",
     "phonetic": "/belt/",
     "phrase": "Wear a belt",
-    "phraseTranslation": "系腰带",
+    "phraseTranslation": "系腰",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "belt.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "belt.jpg",
+        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "polo shirt",
     "standardized": "polo shirt",
-    "chinese": "polo衫",
+    "chinese": "polo",
     "phonetic": "/polo shirt/",
     "phrase": "Wear a polo shirt",
-    "phraseTranslation": "穿polo衫",
+    "phraseTranslation": "穿polo",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "polo shirt.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "polo shirt.jpg",
+        "url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "cardigan",
     "standardized": "cardigan",
-    "chinese": "开衫",
+    "chinese": "开",
     "phonetic": "/cardigan/",
     "phrase": "Wear a cardigan",
-    "phraseTranslation": "穿开衫",
+    "phraseTranslation": "穿开",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cardigan.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "cardigan.jpg",
+        "url": "https://images.unsplash.com/photo-1564584217132-22716bda8a2f?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "leggings",
     "standardized": "leggings",
-    "chinese": "打底裤",
+    "chinese": "打底",
     "phonetic": "/leggings/",
     "phrase": "Wear leggings",
     "phraseTranslation": "穿打底裤",
@@ -4046,9 +4046,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "leggings.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "leggings.jpg",
+        "url": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4065,7 +4065,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "backpack.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -4082,9 +4082,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "earmuffs.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "earmuffs.jpg",
+        "url": "https://images.unsplash.com/photo-1642501203805-8e45db4512e2?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4094,15 +4094,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "爸爸",
     "phonetic": "/father/",
     "phrase": "Dear father",
-    "phraseTranslation": "亲爱的爸爸",
+    "phraseTranslation": "亲爱的爸",
     "difficulty": "intermediate",
     "category": "family_member",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "father.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "father.jpg",
+        "url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4112,15 +4112,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "姐姐",
     "phonetic": "/sister/",
     "phrase": "Beautiful sister",
-    "phraseTranslation": "美丽的姐姐",
+    "phraseTranslation": "美丽的姐",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sister.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "sister.jpg",
+        "url": "https://images.unsplash.com/photo-1494790108755-2616b612b5f3?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4130,15 +4130,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "奶奶",
     "phonetic": "/grandma/",
     "phrase": "Kind grandma",
-    "phraseTranslation": "慈祥的奶奶",
+    "phraseTranslation": "慈祥的奶",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "grandma.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "grandma.jpg",
+        "url": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4148,7 +4148,7 @@ const STAGE_KINDERGARTEN = [
     "chinese": "蛋糕",
     "phonetic": "/cake/",
     "phrase": "Sweet cake",
-    "phraseTranslation": "甜甜的蛋糕",
+    "phraseTranslation": "甜甜的蛋",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
@@ -4166,22 +4166,22 @@ const STAGE_KINDERGARTEN = [
     "chinese": "鸡蛋",
     "phonetic": "/egg/",
     "phrase": "White egg",
-    "phraseTranslation": "白色的鸡蛋",
+    "phraseTranslation": "白色的鸡",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "egg.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "egg.jpg",
+        "url": "https://images.unsplash.com/photo-1559329007-40df0caec276?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "rain",
     "standardized": "rain",
-    "chinese": "雨",
+    "chinese": "",
     "phonetic": "/rain/",
     "phrase": "Cool rain",
     "phraseTranslation": "清凉的雨",
@@ -4191,7 +4191,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "rain.jpg",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+        "url": "https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -4202,15 +4202,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "黄色",
     "phonetic": "/yellow/",
     "phrase": "Bright yellow",
-    "phraseTranslation": "明亮的黄色",
+    "phraseTranslation": "明亮的黄",
     "difficulty": "intermediate",
     "category": "number_color",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "yellow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "yellow.jpg",
+        "url": "https://images.unsplash.com/photo-1493655161922-ef98929de9d8?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4220,14 +4220,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "铅笔",
     "phonetic": "/pencil/",
     "phrase": "Write with a pencil",
-    "phraseTranslation": "用铅笔写字",
+    "phraseTranslation": "用铅笔写",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "pencil.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -4238,14 +4238,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "蜡笔",
     "phonetic": "/crayon/",
     "phrase": "Colorful crayons",
-    "phraseTranslation": "彩色的蜡笔",
+    "phraseTranslation": "彩色的蜡",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "crayon.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "filename": "crayons.jpg",
+        "url": "https://images.unsplash.com/photo-1578916178224-785a7db9e5d9?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -4256,14 +4256,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "尺子",
     "phonetic": "/ruler/",
     "phrase": "Straight ruler",
-    "phraseTranslation": "直直的尺子",
+    "phraseTranslation": "直直的尺",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "ruler.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "url": "https://images.unsplash.com/photo-1613243555978-636c66cd383f?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -4274,15 +4274,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "白板",
     "phonetic": "/whiteboard/",
     "phrase": "Draw on the whiteboard",
-    "phraseTranslation": "画在白板上",
+    "phraseTranslation": "画在白板",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "whiteboard.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "whiteboard.jpg",
+        "url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4292,15 +4292,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "时钟",
     "phonetic": "/clock/",
     "phrase": "Look at the clock",
-    "phraseTranslation": "看时钟",
+    "phraseTranslation": "看时",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "clock.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "clock.jpg",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4316,16 +4316,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "playground.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "playground.jpg",
+        "url": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "seesaw",
     "standardized": "seesaw",
-    "chinese": "跷跷板",
+    "chinese": "跷跷",
     "phonetic": "/seesaw/",
     "phrase": "Play on the seesaw",
     "phraseTranslation": "玩跷跷板",
@@ -4334,9 +4334,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "seesaw.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "seesaw.jpg",
+        "url": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4352,9 +4352,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "recess.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "recess.jpg",
+        "url": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4370,16 +4370,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "art.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "art.jpg",
+        "url": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "lesson",
     "standardized": "lesson",
-    "chinese": "课",
+    "chinese": "",
     "phonetic": "/lesson/",
     "phrase": "Have a lesson",
     "phraseTranslation": "上课",
@@ -4388,9 +4388,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "lesson.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "lesson.jpg",
+        "url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4406,9 +4406,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "friend.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "friend.jpg",
+        "url": "https://images.unsplash.com/photo-1494790108755-2616b612b5f3?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4424,9 +4424,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "learn.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "learn.jpg",
+        "url": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4436,15 +4436,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "英语",
     "phonetic": "/english/",
     "phrase": "Learn English",
-    "phraseTranslation": "学英语",
+    "phraseTranslation": "学英",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "english.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "english.jpg",
+        "url": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -4460,8 +4460,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "shape.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "shapes.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4c8.svg",
         "type": "Emoji"
       }
     ]
@@ -4469,17 +4469,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "pentagon",
     "standardized": "pentagon",
-    "chinese": "五边形",
+    "chinese": "五边",
     "phonetic": "/pentagon/",
     "phrase": "Five-sided pentagon",
-    "phraseTranslation": "五角的星星",
+    "phraseTranslation": "五角的星",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "pentagon.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b1f.svg",
         "type": "Emoji"
       }
     ]
@@ -4487,7 +4487,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "octagon",
     "standardized": "octagon",
-    "chinese": "八边形",
+    "chinese": "八边",
     "phonetic": "/octagon/",
     "phrase": "Octagon stop sign",
     "phraseTranslation": "八角标志",
@@ -4497,7 +4497,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "octagon.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6d1.svg",
         "type": "Emoji"
       }
     ]
@@ -4505,7 +4505,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "semicircle",
     "standardized": "semicircle",
-    "chinese": "半圆形",
+    "chinese": "半圆",
     "phonetic": "/semicircle/",
     "phrase": "Semicircle window",
     "phraseTranslation": "半圆形的窗户",
@@ -4515,7 +4515,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "semicircle.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f780.svg",
         "type": "Emoji"
       }
     ]
@@ -4523,17 +4523,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "cube",
     "standardized": "cube",
-    "chinese": "立方体",
+    "chinese": "立方",
     "phonetic": "/cube/",
     "phrase": "Cube building block",
-    "phraseTranslation": "积木立方体",
+    "phraseTranslation": "积木立方",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "cube.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5ff.svg",
         "type": "Emoji"
       }
     ]
@@ -4541,7 +4541,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "cone",
     "standardized": "cone",
-    "chinese": "圆锥体",
+    "chinese": "圆锥",
     "phonetic": "/cone/",
     "phrase": "Ice cream cone",
     "phraseTranslation": "冰淇淋圆锥筒",
@@ -4551,7 +4551,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "cone.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9c6.svg",
         "type": "Emoji"
       }
     ]
@@ -4569,7 +4569,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "straight.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2796.svg",
         "type": "Emoji"
       }
     ]
@@ -4577,17 +4577,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "wavy",
     "standardized": "wavy",
-    "chinese": "波浪形",
+    "chinese": "波浪",
     "phonetic": "/wavy/",
     "phrase": "Wavy line",
-    "phraseTranslation": "波浪形的线",
+    "phraseTranslation": "波浪形的",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "wavy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/3030.svg",
         "type": "Emoji"
       }
     ]
@@ -4595,7 +4595,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "cross",
     "standardized": "cross",
-    "chinese": "十字形",
+    "chinese": "十字",
     "phonetic": "/cross/",
     "phrase": "Crossroads",
     "phraseTranslation": "十字路口",
@@ -4605,7 +4605,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "cross.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/274c.svg",
         "type": "Emoji"
       }
     ]
@@ -4623,7 +4623,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "angle.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/299c.svg",
         "type": "Emoji"
       }
     ]
@@ -4631,7 +4631,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "teddy",
     "standardized": "teddy",
-    "chinese": "泰迪熊",
+    "chinese": "泰迪",
     "phonetic": "/teddy/",
     "phrase": "Soft teddy bear",
     "phraseTranslation": "软软的泰迪熊",
@@ -4641,7 +4641,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "teddy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9f8.svg",
         "type": "Emoji"
       }
     ]
@@ -4652,14 +4652,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "一",
     "phonetic": "/w?n/",
     "phrase": "One apple",
-    "phraseTranslation": "一个苹果",
+    "phraseTranslation": "一个苹",
     "difficulty": "basic",
     "category": "number_color",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "one.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/31-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -4667,7 +4667,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "four",
     "standardized": "four",
-    "chinese": "四",
+    "chinese": "",
     "phonetic": "/four/",
     "phrase": "Four wheels",
     "phraseTranslation": "四个轮子",
@@ -4676,16 +4676,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "four.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "four.jpg",
+        "url": "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "seven",
     "standardized": "seven",
-    "chinese": "七",
+    "chinese": "",
     "phonetic": "/seven/",
     "phrase": "Seven stars",
     "phraseTranslation": "七颗星星",
@@ -4695,7 +4695,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "seven.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/37-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -4703,7 +4703,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "ten",
     "standardized": "ten",
-    "chinese": "十",
+    "chinese": "",
     "phonetic": "/ten/",
     "phrase": "Ten fingers",
     "phraseTranslation": "十个手指",
@@ -4713,7 +4713,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "ten.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f51f.svg",
         "type": "Emoji"
       }
     ]
@@ -4724,14 +4724,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "十三",
     "phonetic": "/thirteen/",
     "phrase": "Thirteen balloons",
-    "phraseTranslation": "十三只气球",
+    "phraseTranslation": "十三只气",
     "difficulty": "intermediate",
-    "category": "general",
+    "category": "number_color",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "thirteen.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a8.svg",
         "type": "Emoji"
       }
     ]
@@ -4742,14 +4742,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "十六",
     "phonetic": "/sixteen/",
     "phrase": "Sixteen stars",
-    "phraseTranslation": "十六个星星",
+    "phraseTranslation": "十六个星",
     "difficulty": "intermediate",
-    "category": "general",
+    "category": "number_color",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "sixteen.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f51e.svg",
         "type": "Emoji"
       }
     ]
@@ -4762,12 +4762,12 @@ const STAGE_KINDERGARTEN = [
     "phrase": "Nineteen books",
     "phraseTranslation": "十九本书",
     "difficulty": "intermediate",
-    "category": "general",
+    "category": "number_color",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "nineteen.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f51f.svg",
         "type": "Emoji"
       }
     ]
@@ -4778,14 +4778,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "第二",
     "phonetic": "/second/",
     "phrase": "Second apple",
-    "phraseTranslation": "第二个苹果",
+    "phraseTranslation": "第二个苹",
     "difficulty": "intermediate",
-    "category": "general",
+    "category": "number_color",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "second.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f55d.svg",
         "type": "Emoji"
       }
     ]
@@ -4803,7 +4803,25 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "fifth.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0035-20e3.svg",
+        "type": "Emoji"
+      }
+    ]
+  },
+  {
+    "word": "fifteen",
+    "standardized": "fifteen",
+    "chinese": "十五",
+    "phonetic": "/fifteen/",
+    "phrase": "Fifteen minutes",
+    "phraseTranslation": "十五分钟",
+    "difficulty": "basic",
+    "category": "number_color",
+    "stage": "kindergarten",
+    "imageURLs": [
+      {
+        "filename": "fifteen.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/23f2.svg",
         "type": "Emoji"
       }
     ]
@@ -4811,17 +4829,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "some",
     "standardized": "some",
-    "chinese": "一些",
+    "chinese": "一",
     "phonetic": "/some/",
     "phrase": "Some apples",
-    "phraseTranslation": "一些苹果",
+    "phraseTranslation": "一些苹",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "some.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f34e.svg",
         "type": "Emoji"
       }
     ]
@@ -4829,7 +4847,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "half",
     "standardized": "half",
-    "chinese": "一半",
+    "chinese": "一",
     "phonetic": "/half/",
     "phrase": "Half of the cake",
     "phraseTranslation": "一半的蛋糕",
@@ -4839,7 +4857,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "half.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f382.svg",
         "type": "Emoji"
       }
     ]
@@ -4857,7 +4875,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "pink.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f338.svg",
         "type": "Emoji"
       }
     ]
@@ -4868,14 +4886,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "银色",
     "phonetic": "/silver/",
     "phrase": "Silver moon",
-    "phraseTranslation": "银色的月亮",
+    "phraseTranslation": "银色的月",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "silver.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4b0.svg",
         "type": "Emoji"
       }
     ]
@@ -4886,14 +4904,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "彩虹",
     "phonetic": "/rainbow/",
     "phrase": "Beautiful rainbow",
-    "phraseTranslation": "美丽的彩虹",
+    "phraseTranslation": "美丽的彩",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "rainbow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f308.svg",
         "type": "Emoji"
       }
     ]
@@ -4901,7 +4919,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "storm",
     "standardized": "storm",
-    "chinese": "暴风雨",
+    "chinese": "暴风",
     "phonetic": "/storm/",
     "phrase": "Big storm",
     "phraseTranslation": "大暴风雨",
@@ -4910,26 +4928,26 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "storm.jpg",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "storm.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f32a.svg",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "rainy",
     "standardized": "rainy",
-    "chinese": "下雨的",
+    "chinese": "下雨",
     "phonetic": "/rainy/",
     "phrase": "Rainy weather",
-    "phraseTranslation": "下雨的天气",
+    "phraseTranslation": "下雨的天",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "rainy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f327.svg",
         "type": "Emoji"
       }
     ]
@@ -4955,17 +4973,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "warm",
     "standardized": "warm",
-    "chinese": "温暖的",
+    "chinese": "温暖",
     "phonetic": "/warm/",
     "phrase": "Warm weather",
-    "phraseTranslation": "温暖的天气",
+    "phraseTranslation": "温暖的天",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "warm.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f31e.svg",
         "type": "Emoji"
       }
     ]
@@ -4973,17 +4991,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "cool",
     "standardized": "cool",
-    "chinese": "凉爽的",
+    "chinese": "凉爽",
     "phonetic": "/cool/",
     "phrase": "Cool weather",
-    "phraseTranslation": "凉爽的天气",
+    "phraseTranslation": "凉爽的天",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "cool.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2744.svg",
         "type": "Emoji"
       }
     ]
@@ -5001,7 +5019,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "spring.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f38f.svg",
         "type": "Emoji"
       }
     ]
@@ -5012,14 +5030,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "秋天",
     "phonetic": "/fall/",
     "phrase": "Leaves fall in Fall",
-    "phraseTranslation": "叶子落下是秋天",
+    "phraseTranslation": "叶子落下是秋",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "fall.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f342.svg",
         "type": "Emoji"
       }
     ]
@@ -5037,7 +5055,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "noon.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f31e.svg",
         "type": "Emoji"
       }
     ]
@@ -5055,7 +5073,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "night.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f319.svg",
         "type": "Emoji"
       }
     ]
@@ -5072,9 +5090,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "leaf.jpg",
-        "url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400",
-        "type": "Unsplash"
+        "filename": "leaf.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f343.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -5091,7 +5109,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "seed.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fab4.svg",
         "type": "Emoji"
       }
     ]
@@ -5102,14 +5120,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "森林",
     "phonetic": "/forest/",
     "phrase": "Dense forest",
-    "phraseTranslation": "茂密的森林",
+    "phraseTranslation": "茂密的森",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "forest.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f332.svg",
         "type": "Emoji"
       }
     ]
@@ -5127,7 +5145,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "lake.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f30a.svg",
         "type": "Emoji"
       }
     ]
@@ -5138,14 +5156,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "沙漠",
     "phonetic": "/desert/",
     "phrase": "Dry desert",
-    "phraseTranslation": "干燥的沙漠",
+    "phraseTranslation": "干燥的沙",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "desert.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3dc.svg",
         "type": "Emoji"
       }
     ]
@@ -5156,14 +5174,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "地球",
     "phonetic": "/earth/",
     "phrase": "Beautiful earth",
-    "phraseTranslation": "美丽的地球",
+    "phraseTranslation": "美丽的地",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "earth.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f30d.svg",
         "type": "Emoji"
       }
     ]
@@ -5181,7 +5199,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "ground.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3df.svg",
         "type": "Emoji"
       }
     ]
@@ -5192,14 +5210,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "沙子",
     "phonetic": "/sand/",
     "phrase": "Soft sand",
-    "phraseTranslation": "软软的沙子",
+    "phraseTranslation": "软软的沙",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "sand.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3dc.svg",
         "type": "Emoji"
       }
     ]
@@ -5217,7 +5235,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "nature.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f33b.svg",
         "type": "Emoji"
       }
     ]
@@ -5234,26 +5252,26 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mouse.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "mouse.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f401.svg",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "sheep",
     "standardized": "sheep",
-    "chinese": "羊",
+    "chinese": "绵羊",
     "phonetic": "/sheep/",
     "phrase": "Baaing sheep",
-    "phraseTranslation": "咩咩叫的羊",
+    "phraseTranslation": "咩咩叫的",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "sheep.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f411.svg",
         "type": "Emoji"
       }
     ]
@@ -5270,9 +5288,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "zebra.jpg",
-        "url": "https://images.unsplash.com/photo-1561731216-c3a4d99440d5?w=400",
-        "type": "Unsplash"
+        "filename": "zebra.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f993.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -5282,14 +5300,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "刺猬",
     "phonetic": "/hedgehog/",
     "phrase": "Spiky hedgehog",
-    "phraseTranslation": "带刺的刺猬",
+    "phraseTranslation": "带刺的刺",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "hedgehog.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f994.svg",
         "type": "Emoji"
       }
     ]
@@ -5300,14 +5318,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "企鹅",
     "phonetic": "/penguin/",
     "phrase": "Waddling penguin",
-    "phraseTranslation": "摇摆的企鹅",
+    "phraseTranslation": "摇摆的企",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "penguin.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f427.svg",
         "type": "Emoji"
       }
     ]
@@ -5318,15 +5336,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "蝴蝶",
     "phonetic": "/butterfly/",
     "phrase": "Flying butterfly",
-    "phraseTranslation": "飞舞的蝴蝶",
+    "phraseTranslation": "飞舞的蝴",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "butterfly.jpg",
-        "url": "https://images.unsplash.com/photo-1444927714506-8492d94b5ba0?w=400",
-        "type": "Unsplash"
+        "filename": "butterfly.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f98b.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -5336,15 +5354,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "蜘蛛",
     "phonetic": "/spider/",
     "phrase": "Web spider",
-    "phraseTranslation": "织网的蜘蛛",
+    "phraseTranslation": "织网的蜘",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "spider.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "spider.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f577.svg",
+        "type": "Emoji"
       }
     ]
   },
@@ -5361,7 +5379,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "worm.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1fab1.svg",
         "type": "Emoji"
       }
     ]
@@ -5372,14 +5390,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "海豚",
     "phonetic": "/dolphin/",
     "phrase": "Smart dolphin",
-    "phraseTranslation": "聪明的海豚",
+    "phraseTranslation": "聪明的海",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "dolphin.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f42c.svg",
         "type": "Emoji"
       }
     ]
@@ -5397,7 +5415,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "eagle.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f985.svg",
         "type": "Emoji"
       }
     ]
@@ -5408,14 +5426,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "天鹅",
     "phonetic": "/swan/",
     "phrase": "Graceful swan",
-    "phraseTranslation": "优雅的天鹅",
+    "phraseTranslation": "优雅的天",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "swan.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9a2.svg",
         "type": "Emoji"
       }
     ]
@@ -5426,14 +5444,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "昆虫",
     "phonetic": "/insect/",
     "phrase": "Little insect",
-    "phraseTranslation": "小昆虫",
+    "phraseTranslation": "小昆",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "insect.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f41b.svg",
         "type": "Emoji"
       }
     ]
@@ -5451,7 +5469,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "store.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3ea.svg",
         "type": "Emoji"
       }
     ]
@@ -5462,14 +5480,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "城市",
     "phonetic": "/city/",
     "phrase": "Busy city",
-    "phraseTranslation": "繁华的城市",
+    "phraseTranslation": "繁华的城",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "city.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3d9.svg",
         "type": "Emoji"
       }
     ]
@@ -5495,10 +5513,10 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "touch",
     "standardized": "touch",
-    "chinese": "摸",
+    "chinese": "触摸",
     "phonetic": "/touch/",
     "phrase": "Touch it",
-    "phraseTranslation": "摸一摸",
+    "phraseTranslation": "摸一",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
@@ -5523,7 +5541,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "cook.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f373.svg",
         "type": "Emoji"
       }
     ]
@@ -5534,15 +5552,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "梳头",
     "phonetic": "/comb hair/",
     "phrase": "Comb the hair",
-    "phraseTranslation": "梳头发",
+    "phraseTranslation": "梳头",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "comb hair.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9af.svg",
+        "type": "Unsplash"
       }
     ]
   },
@@ -5552,14 +5570,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "找到",
     "phonetic": "/find/",
     "phrase": "Found the toy",
-    "phraseTranslation": "找到玩具了",
+    "phraseTranslation": "找到玩具",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "find.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f50d.svg",
         "type": "Emoji"
       }
     ]
@@ -5576,9 +5594,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "plant.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "plant.jpg",
+        "url": "https://images.unsplash.com/photo-1485955900956-50ee97a88463?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -5588,15 +5606,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "系（鞋带等）",
     "phonetic": "/tie/",
     "phrase": "Tie your shoes",
-    "phraseTranslation": "系鞋带",
+    "phraseTranslation": "系鞋",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "tie.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "shoelace.jpg",
+        "url": "https://images.unsplash.com/photo-1542272605-7a9d9a917c63?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -5606,13 +5624,13 @@ const STAGE_KINDERGARTEN = [
     "chinese": "跑步",
     "phonetic": "/run/",
     "phrase": "Run in the park",
-    "phraseTranslation": "在公园跑步",
+    "phraseTranslation": "在公园跑",
     "difficulty": "basic",
     "category": "action",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "run.svg",
+        "filename": "running.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3c3.svg",
         "type": "Emoji"
       }
@@ -5624,13 +5642,13 @@ const STAGE_KINDERGARTEN = [
     "chinese": "写字",
     "phonetic": "/write/",
     "phrase": "Write Chinese characters",
-    "phraseTranslation": "写汉字",
+    "phraseTranslation": "写汉",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "write.svg",
+        "filename": "writing.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/270d.svg",
         "type": "Emoji"
       }
@@ -5648,8 +5666,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "wake up.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "alarm_clock.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/23f0.svg",
         "type": "Emoji"
       }
     ]
@@ -5684,8 +5702,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "count.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "counting.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f522.svg",
         "type": "Emoji"
       }
     ]
@@ -5702,9 +5720,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "fold.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "fold.jpg",
+        "url": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -5714,15 +5732,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "接住",
     "phonetic": "/catch/",
     "phrase": "Catch the ball",
-    "phraseTranslation": "接住球",
+    "phraseTranslation": "接住",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "catch.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "catch.jpg",
+        "url": "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -5750,7 +5768,7 @@ const STAGE_KINDERGARTEN = [
     "chinese": "兔子",
     "phonetic": "/rabbit/",
     "phrase": "Hopping rabbit",
-    "phraseTranslation": "蹦蹦跳跳的兔子",
+    "phraseTranslation": "蹦蹦跳跳的兔",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
@@ -5768,7 +5786,7 @@ const STAGE_KINDERGARTEN = [
     "chinese": "大象",
     "phonetic": "/elephant/",
     "phrase": "Big elephant",
-    "phraseTranslation": "巨大的大象",
+    "phraseTranslation": "巨大的大",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
@@ -5804,7 +5822,7 @@ const STAGE_KINDERGARTEN = [
     "chinese": "猴子",
     "phonetic": "/monkey/",
     "phrase": "Playful monkey",
-    "phraseTranslation": "顽皮的猴子",
+    "phraseTranslation": "顽皮的猴",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
@@ -5822,14 +5840,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "再见",
     "phonetic": "/ba?/",
     "phrase": "Wave goodbye",
-    "phraseTranslation": "挥手说再见",
+    "phraseTranslation": "挥手说再",
     "difficulty": "basic",
     "category": "greeting",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bye.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "waving_hand.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f44b.svg",
         "type": "Emoji"
       }
     ]
@@ -5837,17 +5855,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "please",
     "standardized": "please",
-    "chinese": "请",
+    "chinese": "",
     "phonetic": "/please/",
     "phrase": "Apple, please",
-    "phraseTranslation": "请给我苹果",
+    "phraseTranslation": "请给我苹",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "please.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "please_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f64f.svg",
         "type": "Emoji"
       }
     ]
@@ -5855,7 +5873,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I",
     "standardized": "I",
-    "chinese": "我",
+    "chinese": "",
     "phonetic": "/i/",
     "phrase": "I am a good kid",
     "phraseTranslation": "我是个好孩子",
@@ -5864,8 +5882,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "i.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "i_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1.svg",
         "type": "Emoji"
       }
     ]
@@ -5873,7 +5891,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "she",
     "standardized": "she",
-    "chinese": "她",
+    "chinese": "",
     "phonetic": "/she/",
     "phrase": "She is my teacher",
     "phraseTranslation": "她是我的老师",
@@ -5882,8 +5900,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "she.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "she_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f469.svg",
         "type": "Emoji"
       }
     ]
@@ -5894,14 +5912,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "他们/她们/它们",
     "phonetic": "/they/",
     "phrase": "They are reading",
-    "phraseTranslation": "他们在读书",
+    "phraseTranslation": "他们在读",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "they.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "they_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f465.svg",
         "type": "Emoji"
       }
     ]
@@ -5912,14 +5930,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "哪里",
     "phonetic": "/where/",
     "phrase": "Where is my ball?",
-    "phraseTranslation": "我的球在哪里？",
+    "phraseTranslation": "我的球在哪里",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "where.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "where_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f50d.svg",
         "type": "Emoji"
       }
     ]
@@ -5936,8 +5954,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "how.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "how_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d0.svg",
         "type": "Emoji"
       }
     ]
@@ -5954,26 +5972,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "tall.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
-        "type": "Emoji"
-      }
-    ]
-  },
-  {
-    "word": "sad",
-    "standardized": "sad",
-    "chinese": "难过的",
-    "phonetic": "/s?d/",
-    "phrase": "Sad face",
-    "phraseTranslation": "难过的表情",
-    "difficulty": "basic",
-    "category": "general",
-    "stage": "kindergarten",
-    "imageURLs": [
-      {
-        "filename": "sad.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f614.svg",
+        "filename": "tall_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9cd-200d-2642-fe0f.svg",
         "type": "Emoji"
       }
     ]
@@ -5984,14 +5984,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "渴的",
     "phonetic": "/thirsty/",
     "phrase": "I'm thirsty, want water",
-    "phraseTranslation": "我渴了，想喝水",
+    "phraseTranslation": "我渴了，想喝",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "thirsty.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "thirsty_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f964.svg",
         "type": "Emoji"
       }
     ]
@@ -6002,7 +6002,7 @@ const STAGE_KINDERGARTEN = [
     "chinese": "新的",
     "phonetic": "/new/",
     "phrase": "A pair of new shoes",
-    "phraseTranslation": "一双新鞋",
+    "phraseTranslation": "一双新",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
@@ -6028,14 +6028,14 @@ const STAGE_KINDERGARTEN = [
       {
         "filename": "dirty.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a9.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "easy",
     "standardized": "easy",
-    "chinese": "容易的",
+    "chinese": "容易",
     "phonetic": "/easy/",
     "phrase": "Easy blocks",
     "phraseTranslation": "简单的积木",
@@ -6044,7 +6044,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "easy.svg",
+        "filename": "thumbs_up.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f44d.svg",
         "type": "Emoji"
       }
@@ -6053,17 +6053,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "cute",
     "standardized": "cute",
-    "chinese": "可爱的",
+    "chinese": "可爱",
     "phonetic": "/cute/",
     "phrase": "Cute kitten",
-    "phraseTranslation": "可爱的小猫",
+    "phraseTranslation": "可爱的小",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cute.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "heart_eyes.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f60d.svg",
         "type": "Emoji"
       }
     ]
@@ -6071,17 +6071,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "friendly",
     "standardized": "friendly",
-    "chinese": "友好的",
+    "chinese": "友好",
     "phonetic": "/friendly/",
     "phrase": "Friendly dog",
-    "phraseTranslation": "友好的狗狗",
+    "phraseTranslation": "友好的狗",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "friendly.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "heart.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2764.svg",
         "type": "Emoji"
       }
     ]
@@ -6089,7 +6089,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "kind",
     "standardized": "kind",
-    "chinese": "善良的",
+    "chinese": "善良",
     "phonetic": "/kind/",
     "phrase": "Kind teacher",
     "phraseTranslation": "善良的老师",
@@ -6098,8 +6098,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "kind.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "growing_heart.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f497.svg",
         "type": "Emoji"
       }
     ]
@@ -6110,14 +6110,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "累的",
     "phonetic": "/tired/",
     "phrase": "Tired after running",
-    "phraseTranslation": "跑完步很累",
+    "phraseTranslation": "跑完步很",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "tired.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f62b.svg",
         "type": "Emoji"
       }
     ]
@@ -6125,7 +6125,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "weak",
     "standardized": "weak",
-    "chinese": "虚弱的",
+    "chinese": "虚弱",
     "phonetic": "/weak/",
     "phrase": "Weak when sick",
     "phraseTranslation": "生病了很虚弱",
@@ -6135,7 +6135,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "weak.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f912.svg",
         "type": "Emoji"
       }
     ]
@@ -6154,7 +6154,7 @@ const STAGE_KINDERGARTEN = [
       {
         "filename": "full.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
@@ -6172,24 +6172,24 @@ const STAGE_KINDERGARTEN = [
       {
         "filename": "far.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "closed",
     "standardized": "closed",
-    "chinese": "关着的",
+    "chinese": "关着",
     "phonetic": "/closed/",
     "phrase": "Closed window",
-    "phraseTranslation": "关着的窗户",
+    "phraseTranslation": "关着的窗",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "closed.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "locked.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f512.svg",
         "type": "Emoji"
       }
     ]
@@ -6200,15 +6200,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "年轻的",
     "phonetic": "/young/",
     "phrase": "Young mother",
-    "phraseTranslation": "年轻的妈妈",
+    "phraseTranslation": "年轻的妈",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "young.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "young_person.jpg",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6218,14 +6218,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "第一",
     "phonetic": "/first/",
     "phrase": "First place",
-    "phraseTranslation": "第一名",
+    "phraseTranslation": "第一",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "first.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "first_place.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f947.svg",
         "type": "Emoji"
       }
     ]
@@ -6242,8 +6242,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mom.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "mother_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f469-200d-1f37c.svg",
         "type": "Emoji"
       }
     ]
@@ -6254,14 +6254,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "身体",
     "phonetic": "/body/",
     "phrase": "Healthy body",
-    "phraseTranslation": "健康的身体",
+    "phraseTranslation": "健康的身",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "body.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "body_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1-200d-1f9b3.svg",
         "type": "Emoji"
       }
     ]
@@ -6272,14 +6272,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "头发",
     "phonetic": "/hair/",
     "phrase": "Comb hair",
-    "phraseTranslation": "梳头发",
+    "phraseTranslation": "梳头",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hair.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hair_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b6.svg",
         "type": "Emoji"
       }
     ]
@@ -6290,14 +6290,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "牙齿",
     "phonetic": "/tooth/",
     "phrase": "White tooth",
-    "phraseTranslation": "白白的牙齿",
+    "phraseTranslation": "白白的牙",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "tooth.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "tooth_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9b7.svg",
         "type": "Emoji"
       }
     ]
@@ -6308,14 +6308,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "下巴",
     "phonetic": "/chin/",
     "phrase": "Pointed chin",
-    "phraseTranslation": "尖尖的下巴",
+    "phraseTranslation": "尖尖的下",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "chin.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "chin_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f9d1-200d-1f9b3.svg",
         "type": "Emoji"
       }
     ]
@@ -6326,15 +6326,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "拇指",
     "phonetic": "/thumb/",
     "phrase": "Thumbs up",
-    "phraseTranslation": "竖起大拇指",
+    "phraseTranslation": "竖起大拇",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "thumb.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "thumb.jpg",
+        "url": "https://images.unsplash.com/photo-1579192741213-cb9a2a5b1d6e?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6350,9 +6350,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "tummy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "tummy.jpg",
+        "url": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6368,9 +6368,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "toe.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "toes.jpg",
+        "url": "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6386,9 +6386,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "wrist.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "wrist.jpg",
+        "url": "https://images.unsplash.com/photo-1603072387862-2fcc1b3d7a8e?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6404,9 +6404,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "palm.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "palm.jpg",
+        "url": "https://images.unsplash.com/photo-1603072387862-2fcc1b3d7a8e?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6416,32 +6416,32 @@ const STAGE_KINDERGARTEN = [
     "chinese": "肌肉",
     "phonetic": "/muscle/",
     "phrase": "Strong muscle",
-    "phraseTranslation": "强壮的肌肉",
+    "phraseTranslation": "强壮的肌",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "muscle.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "muscle.jpg",
+        "url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "sneeze",
     "standardized": "sneeze",
-    "chinese": "打喷嚏",
+    "chinese": "打喷",
     "phonetic": "/sneeze/",
     "phrase": "Cover mouth when sneezing",
-    "phraseTranslation": "捂嘴打喷嚏",
+    "phraseTranslation": "捂嘴打喷",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "sneeze.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f927.svg",
         "type": "Emoji"
       }
     ]
@@ -6458,9 +6458,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pants.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "pants.jpg",
+        "url": "https://images.unsplash.com/photo-1591195853829-af775a86745f?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6470,15 +6470,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "短裤",
     "phonetic": "/shorts/",
     "phrase": "Wear shorts in summer",
-    "phraseTranslation": "夏天穿短裤",
+    "phraseTranslation": "夏天穿短",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "shorts.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "shorts.jpg",
+        "url": "https://images.unsplash.com/photo-1591195853829-af775a86745f?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6488,15 +6488,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "外套",
     "phonetic": "/coat/",
     "phrase": "Wear a coat in winter",
-    "phraseTranslation": "冬天穿外套",
+    "phraseTranslation": "冬天穿外",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "coat.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "coat.jpg",
+        "url": "https://images.unsplash.com/photo-1543076447-215ad9ba6923?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6512,9 +6512,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "socks.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "socks.jpg",
+        "url": "https://images.unsplash.com/photo-1543163521-1bf539c55a2a?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6530,9 +6530,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "clothes.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "clothes.jpg",
+        "url": "https://images.unsplash.com/photo-1485962398705-ef6a13c41e8f?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6542,15 +6542,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "雨衣",
     "phonetic": "/raincoat/",
     "phrase": "Wear a raincoat when it rains",
-    "phraseTranslation": "下雨穿雨衣",
+    "phraseTranslation": "下雨穿雨",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "raincoat.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "raincoat.jpg",
+        "url": "https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6560,32 +6560,32 @@ const STAGE_KINDERGARTEN = [
     "chinese": "凉鞋",
     "phonetic": "/sandals/",
     "phrase": "Wear sandals in summer",
-    "phraseTranslation": "夏天穿凉鞋",
+    "phraseTranslation": "夏天穿凉",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sandals.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "sandals.jpg",
+        "url": "https://images.unsplash.com/photo-1590092618270-9a990b4b8bf3?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "sunglasses",
     "standardized": "sunglasses",
-    "chinese": "太阳镜",
+    "chinese": "太阳",
     "phonetic": "/sunglasses/",
     "phrase": "Wear sunglasses",
-    "phraseTranslation": "戴太阳镜",
+    "phraseTranslation": "戴太阳",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sunglasses.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunglasses_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f576-fe0f.svg",
         "type": "Emoji"
       }
     ]
@@ -6596,32 +6596,32 @@ const STAGE_KINDERGARTEN = [
     "chinese": "围裙",
     "phonetic": "/apron/",
     "phrase": "Wear an apron",
-    "phraseTranslation": "系围裙",
-    "difficulty": "basic",
+    "phraseTranslation": "系围",
+    "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "apron.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "apron.jpg",
+        "url": "https://images.unsplash.com/photo-1594035910581-6f4a2e6b5a9b?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "bow tie",
     "standardized": "bow tie",
-    "chinese": "蝴蝶结",
+    "chinese": "蝴蝶",
     "phonetic": "/bow tie/",
     "phrase": "Wear a bow tie",
-    "phraseTranslation": "系蝴蝶结",
+    "phraseTranslation": "戴蝴蝶",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bow tie.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "bowtie_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f380.svg",
         "type": "Emoji"
       }
     ]
@@ -6632,15 +6632,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "头巾",
     "phonetic": "/bandana/",
     "phrase": "Wear a bandana",
-    "phraseTranslation": "戴头巾",
+    "phraseTranslation": "戴头",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bandana.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "bandana.jpg",
+        "url": "https://images.unsplash.com/photo-1582552938357-32b906df0cb1?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6650,14 +6650,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "哥哥",
     "phonetic": "/brother/",
     "phrase": "Handsome brother",
-    "phraseTranslation": "帅气的哥哥",
+    "phraseTranslation": "帅气的哥",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "brother.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "head.jpg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f46b.svg",
         "type": "Emoji"
       }
     ]
@@ -6668,14 +6668,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "爷爷",
     "phonetic": "/grandpa/",
     "phrase": "Kind grandpa",
-    "phraseTranslation": "慈祥的爷爷",
+    "phraseTranslation": "慈祥的爷",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "grandpa.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f474.svg",
         "type": "Emoji"
       }
     ]
@@ -6683,7 +6683,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "cloud",
     "standardized": "cloud",
-    "chinese": "云",
+    "chinese": "",
     "phonetic": "/cloud/",
     "phrase": "White cloud",
     "phraseTranslation": "白白的云",
@@ -6693,7 +6693,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "cloud.jpg",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+        "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -6701,7 +6701,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "grass",
     "standardized": "grass",
-    "chinese": "草",
+    "chinese": "",
     "phonetic": "/grass/",
     "phrase": "Green grass",
     "phraseTranslation": "绿绿的草",
@@ -6711,7 +6711,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "grass.jpg",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+        "url": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -6722,15 +6722,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "教室",
     "phonetic": "/classroom/",
     "phrase": "Bright classroom",
-    "phraseTranslation": "明亮的教室",
+    "phraseTranslation": "明亮的教",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "classroom.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "classroom.jpg",
+        "url": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6740,14 +6740,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "椅子",
     "phonetic": "/chair/",
     "phrase": "Sit on a chair",
-    "phraseTranslation": "坐在椅子上",
+    "phraseTranslation": "坐在椅子",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "chair.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "url": "https://images.unsplash.com/photo-1503602642458-232111535657?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -6755,7 +6755,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "library",
     "standardized": "library",
-    "chinese": "图书馆",
+    "chinese": "图书",
     "phonetic": "/library/",
     "phrase": "Read books in the library",
     "phraseTranslation": "去图书馆看书",
@@ -6764,9 +6764,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "library.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "library.jpg",
+        "url": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6776,15 +6776,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "秋千",
     "phonetic": "/swing/",
     "phrase": "Swing on the swing",
-    "phraseTranslation": "荡秋千",
+    "phraseTranslation": "荡秋",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "swing.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "swing.jpg",
+        "url": "https://images.unsplash.com/photo-1575425186775-b8de9a427e67?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6794,15 +6794,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "点心",
     "phonetic": "/snack/",
     "phrase": "Eat a snack",
-    "phraseTranslation": "吃点心",
+    "phraseTranslation": "吃点",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "snack.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "snack.jpg",
+        "url": "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -6818,8 +6818,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "test.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "test_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4d1.svg",
         "type": "Emoji"
       }
     ]
@@ -6830,14 +6830,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "运动",
     "phonetic": "/sport/",
     "phrase": "Do sports",
-    "phraseTranslation": "做运动",
+    "phraseTranslation": "做运",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sport.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sport_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26bd.svg",
         "type": "Emoji"
       }
     ]
@@ -6854,8 +6854,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "song.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "song_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3b5.svg",
         "type": "Emoji"
       }
     ]
@@ -6866,14 +6866,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "颜料",
     "phonetic": "/paint/",
     "phrase": "Paint with paint",
-    "phraseTranslation": "用颜料画画",
+    "phraseTranslation": "用颜料画",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "paint.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "paint_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3a8.svg",
         "type": "Emoji"
       }
     ]
@@ -6890,8 +6890,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "principal.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "principal_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f468-200d-1f3eb.svg",
         "type": "Emoji"
       }
     ]
@@ -6902,14 +6902,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "科学",
     "phonetic": "/science/",
     "phrase": "Do science experiment",
-    "phraseTranslation": "做科学实验",
+    "phraseTranslation": "做科学实",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "science.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "science_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f52c.svg",
         "type": "Emoji"
       }
     ]
@@ -6917,17 +6917,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "rectangle",
     "standardized": "rectangle",
-    "chinese": "长方形",
+    "chinese": "长方",
     "phonetic": "/rectangle/",
     "phrase": "Rectangle door",
-    "phraseTranslation": "长方形的门",
+    "phraseTranslation": "长方形的",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "rectangle.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "rectangle_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4d0.svg",
         "type": "Emoji"
       }
     ]
@@ -6938,14 +6938,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "菱形",
     "phonetic": "/diamond/",
     "phrase": "Diamond kite",
-    "phraseTranslation": "菱形的风筝",
+    "phraseTranslation": "菱形的风",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "diamond.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "diamond_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2666.svg",
         "type": "Emoji"
       }
     ]
@@ -6953,7 +6953,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "hexagon",
     "standardized": "hexagon",
-    "chinese": "六边形",
+    "chinese": "六边",
     "phonetic": "/hexagon/",
     "phrase": "Hexagon honeycomb",
     "phraseTranslation": "蜂窝的六边形",
@@ -6962,8 +6962,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hexagon.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hexagon_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f52e.svg",
         "type": "Emoji"
       }
     ]
@@ -6971,7 +6971,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "cylinder",
     "standardized": "cylinder",
-    "chinese": "圆柱体",
+    "chinese": "圆柱",
     "phonetic": "/cylinder/",
     "phrase": "Can is a cylinder",
     "phraseTranslation": "罐子是圆柱体",
@@ -6980,8 +6980,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cylinder.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "cylinder_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f50b.svg",
         "type": "Emoji"
       }
     ]
@@ -6992,14 +6992,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "曲线",
     "phonetic": "/curve/",
     "phrase": "Curved line",
-    "phraseTranslation": "弯弯的曲线",
+    "phraseTranslation": "弯弯的曲",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "curve.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "curve_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/3030.svg",
         "type": "Emoji"
       }
     ]
@@ -7007,7 +7007,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "spiral",
     "standardized": "spiral",
-    "chinese": "螺旋形",
+    "chinese": "螺旋",
     "phonetic": "/spiral/",
     "phrase": "Spiral shell",
     "phraseTranslation": "螺旋形的贝壳",
@@ -7016,8 +7016,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "spiral.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "spiral_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f41a.svg",
         "type": "Emoji"
       }
     ]
@@ -7028,14 +7028,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "对称",
     "phonetic": "/symmetry/",
     "phrase": "Symmetrical figure",
-    "phraseTranslation": "对称的图形",
+    "phraseTranslation": "对称的图",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "symmetry.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "symmetry_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/274e.svg",
         "type": "Emoji"
       }
     ]
@@ -7046,14 +7046,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "拼图",
     "phonetic": "/puzzle/",
     "phrase": "Fun puzzle",
-    "phraseTranslation": "有趣的拼图",
+    "phraseTranslation": "有趣的拼",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "puzzle.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "url": "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -7064,40 +7064,40 @@ const STAGE_KINDERGARTEN = [
     "chinese": "火车",
     "phonetic": "/train/",
     "phrase": "Little train",
-    "phraseTranslation": "小火车",
+    "phraseTranslation": "小火",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "train.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "train.jpg",
+        "url": "https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&h=400&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "six",
     "standardized": "six",
-    "chinese": "六",
+    "chinese": "",
     "phonetic": "/six/",
     "phrase": "Six flowers",
-    "phraseTranslation": "六朵花",
+    "phraseTranslation": "六朵",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "six.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "six.jpg",
+        "url": "https://images.unsplash.com/photo-1607453998774-d9f77e2eb5b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "nine",
     "standardized": "nine",
-    "chinese": "九",
+    "chinese": "",
     "phonetic": "/nine/",
     "phrase": "Nine balloons",
     "phraseTranslation": "九个气球",
@@ -7106,8 +7106,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "nine.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "nine_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0039-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -7124,8 +7124,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "twelve.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "twelve_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f55b.svg",
         "type": "Emoji"
       }
     ]
@@ -7136,14 +7136,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "十五",
     "phonetic": "/fifteen/",
     "phrase": "Fifteen years old",
-    "phraseTranslation": "十五岁生日",
+    "phraseTranslation": "十五岁生",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "fifteen.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "fifteen_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f554.svg",
         "type": "Emoji"
       }
     ]
@@ -7154,14 +7154,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "十八",
     "phonetic": "/eighteen/",
     "phrase": "Eighteen apples",
-    "phraseTranslation": "十八个苹果",
+    "phraseTranslation": "十八个苹",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "eighteen.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "eighteen_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f557.svg",
         "type": "Emoji"
       }
     ]
@@ -7172,14 +7172,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "第四",
     "phonetic": "/fourth/",
     "phrase": "Fourth day",
-    "phraseTranslation": "第四天",
+    "phraseTranslation": "第四",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "fourth.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "fourth_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0034-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -7187,7 +7187,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "zero",
     "standardized": "zero",
-    "chinese": "零",
+    "chinese": "",
     "phonetic": "/zero/",
     "phrase": "Zero apples",
     "phraseTranslation": "零个苹果",
@@ -7196,8 +7196,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "zero.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "zero_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/0030-20e3.svg",
         "type": "Emoji"
       }
     ]
@@ -7214,8 +7214,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "all.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "all_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
         "type": "Emoji"
       }
     ]
@@ -7226,14 +7226,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "更少",
     "phonetic": "/less/",
     "phrase": "A bit less",
-    "phraseTranslation": "少一点",
+    "phraseTranslation": "少一",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "less.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "less_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2796.svg",
         "type": "Emoji"
       }
     ]
@@ -7241,17 +7241,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "pair",
     "standardized": "pair",
-    "chinese": "一对",
+    "chinese": "一",
     "phonetic": "/pair/",
     "phrase": "A pair of gloves",
-    "phraseTranslation": "一对手套",
+    "phraseTranslation": "一对手",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pair.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "pair_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f45f.svg",
         "type": "Emoji"
       }
     ]
@@ -7262,14 +7262,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "紫色",
     "phonetic": "/purple/",
     "phrase": "Purple grapes",
-    "phraseTranslation": "紫色的葡萄",
+    "phraseTranslation": "紫色的葡",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "purple.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "purple_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e3.svg",
         "type": "Emoji"
       }
     ]
@@ -7280,14 +7280,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "金色",
     "phonetic": "/gold/",
     "phrase": "Gold star",
-    "phraseTranslation": "金色的星星",
+    "phraseTranslation": "金色的星",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "gold.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "gold_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f7e1.svg",
         "type": "Emoji"
       }
     ]
@@ -7298,14 +7298,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "深色",
     "phonetic": "/dark/",
     "phrase": "Dark night sky",
-    "phraseTranslation": "深色的夜空",
+    "phraseTranslation": "深色的夜",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dark.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "dark_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b1b.svg",
         "type": "Emoji"
       }
     ]
@@ -7316,14 +7316,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "天空",
     "phonetic": "/sky/",
     "phrase": "Blue sky",
-    "phraseTranslation": "蓝蓝的天空",
+    "phraseTranslation": "蓝蓝的天",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sky.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sky_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f30e.svg",
         "type": "Emoji"
       }
     ]
@@ -7331,10 +7331,10 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "wind",
     "standardized": "wind",
-    "chinese": "风",
+    "chinese": "",
     "phonetic": "/wind/",
     "phrase": "Wind is blowing",
-    "phraseTranslation": "刮风了",
+    "phraseTranslation": "刮风",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
@@ -7352,14 +7352,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "闪电",
     "phonetic": "/lightning/",
     "phrase": "Bright lightning",
-    "phraseTranslation": "亮亮的闪电",
+    "phraseTranslation": "亮亮的闪",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "lightning.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "lightning_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/26a1.svg",
         "type": "Emoji"
       }
     ]
@@ -7367,17 +7367,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "sunny",
     "standardized": "sunny",
-    "chinese": "晴朗的",
+    "chinese": "晴朗",
     "phonetic": "/sunny/",
     "phrase": "Sunny weather",
-    "phraseTranslation": "晴朗的天气",
+    "phraseTranslation": "晴朗的天",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sunny.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunny_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2600.svg",
         "type": "Emoji"
       }
     ]
@@ -7385,17 +7385,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "cloudy",
     "standardized": "cloudy",
-    "chinese": "多云的",
+    "chinese": "多云",
     "phonetic": "/cloudy/",
     "phrase": "Cloudy weather",
-    "phraseTranslation": "多云的天气",
+    "phraseTranslation": "多云的天",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cloudy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "cloudy_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2601.svg",
         "type": "Emoji"
       }
     ]
@@ -7403,17 +7403,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "windy",
     "standardized": "windy",
-    "chinese": "有风的",
+    "chinese": "有风",
     "phonetic": "/windy/",
     "phrase": "The wind is blowing",
-    "phraseTranslation": "大风吹起来",
+    "phraseTranslation": "大风吹起",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "windy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "windy_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f32a.svg",
         "type": "Emoji"
       }
     ]
@@ -7430,8 +7430,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "season.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "season_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f31e.svg",
         "type": "Emoji"
       }
     ]
@@ -7442,14 +7442,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "秋天",
     "phonetic": "/autumn/",
     "phrase": "Autumn leaves",
-    "phraseTranslation": "秋天的叶子",
+    "phraseTranslation": "秋天的叶",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "autumn.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "autumn_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f342.svg",
         "type": "Emoji"
       }
     ]
@@ -7460,14 +7460,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "傍晚",
     "phonetic": "/evening/",
     "phrase": "Good evening",
-    "phraseTranslation": "晚上好",
+    "phraseTranslation": "晚上",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "evening.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "evening_emoji.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f306.svg",
         "type": "Emoji"
       }
     ]
@@ -7475,18 +7475,18 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "root",
     "standardized": "root",
-    "chinese": "根",
+    "chinese": "",
     "phonetic": "/root/",
     "phrase": "Tree roots",
-    "phraseTranslation": "树的根",
+    "phraseTranslation": "树的",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "root.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "tree_roots.jpg",
+        "url": "https://images.unsplash.com/photo-1509319117193-57bab727e09d?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7496,15 +7496,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "花园",
     "phonetic": "/garden/",
     "phrase": "Beautiful garden",
-    "phraseTranslation": "美丽的花园",
+    "phraseTranslation": "美丽的花",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "garden.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "beautiful_garden.jpg",
+        "url": "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7514,15 +7514,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "小山",
     "phonetic": "/hill/",
     "phrase": "Green hill",
-    "phraseTranslation": "绿色的小山",
+    "phraseTranslation": "绿色的小",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hill.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "green_hill.jpg",
+        "url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7532,7 +7532,7 @@ const STAGE_KINDERGARTEN = [
     "chinese": "海洋",
     "phonetic": "/ocean/",
     "phrase": "Blue ocean",
-    "phraseTranslation": "蓝色的海洋",
+    "phraseTranslation": "蓝色的海",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
@@ -7547,7 +7547,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "sea",
     "standardized": "sea",
-    "chinese": "海",
+    "chinese": "",
     "phonetic": "/sea/",
     "phrase": "The sea is deep",
     "phraseTranslation": "大海很深",
@@ -7556,16 +7556,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sea.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "deep_sea.jpg",
+        "url": "https://images.unsplash.com/photo-1506929562872-b56f7c7d9138?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "island",
     "standardized": "island",
-    "chinese": "岛",
+    "chinese": "",
     "phonetic": "/island/",
     "phrase": "The island is beautiful",
     "phraseTranslation": "小岛很美",
@@ -7574,9 +7574,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "island.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "beautiful_island.jpg",
+        "url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7586,22 +7586,22 @@ const STAGE_KINDERGARTEN = [
     "chinese": "石头",
     "phonetic": "/stone/",
     "phrase": "Round stone",
-    "phraseTranslation": "圆圆的石头",
+    "phraseTranslation": "圆圆的石",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "stone.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "round_stones.jpg",
+        "url": "https://images.unsplash.com/photo-1560780552-bb546dc19d3a?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "mud",
     "standardized": "mud",
-    "chinese": "泥",
+    "chinese": "",
     "phonetic": "/mud/",
     "phrase": "Mud is dirty",
     "phraseTranslation": "泥巴很脏",
@@ -7610,16 +7610,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mud.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "head.jpg",
+        "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "water",
     "standardized": "water",
-    "chinese": "水",
+    "chinese": "",
     "phonetic": "/water/",
     "phrase": "Clear water",
     "phraseTranslation": "清澈的水",
@@ -7629,7 +7629,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "water.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -7637,18 +7637,18 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "fire",
     "standardized": "fire",
-    "chinese": "火",
+    "chinese": "",
     "phonetic": "/fire/",
     "phrase": "Fire is hot",
-    "phraseTranslation": "火很热",
+    "phraseTranslation": "火很",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "fire.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "head.jpg",
+        "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7658,15 +7658,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "空气",
     "phonetic": "/air/",
     "phrase": "Fresh air",
-    "phraseTranslation": "新鲜的空气",
+    "phraseTranslation": "新鲜的空",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "air.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "head.jpg",
+        "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7683,7 +7683,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "turtle.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "url": "https://images.unsplash.com/photo-1504870712357-65ea720d6078?w=400&auto=format&fit=crop",
         "type": "Unsplash"
       }
     ]
@@ -7712,14 +7712,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "鸭子",
     "phonetic": "/duck/",
     "phrase": "Swimming duck",
-    "phraseTranslation": "游泳的鸭子",
+    "phraseTranslation": "游泳的鸭",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "duck.jpg",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "url": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400",
         "type": "Unsplash"
       }
     ]
@@ -7727,17 +7727,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "chicken",
     "standardized": "chicken",
-    "chinese": "鸡",
+    "chinese": "",
     "phonetic": "/chicken/",
     "phrase": "Clucking chicken",
-    "phraseTranslation": "咯咯叫的鸡",
+    "phraseTranslation": "咯咯叫的",
     "difficulty": "intermediate",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "chicken.jpg",
-        "url": "https://images.unsplash.com/photo-1548550023-8bdb88bd9f15?w=400",
+        "url": "https://images.unsplash.com/photo-1563281577-f7bffabbe2e5?w=400",
         "type": "Unsplash"
       }
     ]
@@ -7755,7 +7755,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "cow.jpg",
-        "url": "https://images.unsplash.com/photo-1561731216-c3a4d99440d5?w=400",
+        "url": "https://images.unsplash.com/photo-1535435734705-4f0f32e27c83?w=400",
         "type": "Unsplash"
       }
     ]
@@ -7763,17 +7763,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "pig",
     "standardized": "pig",
-    "chinese": "猪",
+    "chinese": "",
     "phonetic": "/pig/",
     "phrase": "Pink pig",
-    "phraseTranslation": "粉红色的猪",
+    "phraseTranslation": "粉红色的",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "pig.jpg",
-        "url": "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400",
+        "url": "https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=400",
         "type": "Unsplash"
       }
     ]
@@ -7781,7 +7781,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "horse",
     "standardized": "horse",
-    "chinese": "马",
+    "chinese": "",
     "phonetic": "/horse/",
     "phrase": "Running horse",
     "phraseTranslation": "奔跑的马",
@@ -7791,7 +7791,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "horse.jpg",
-        "url": "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?w=400",
+        "url": "https://images.unsplash.com/photo-1551122102-63cd339bfa31?w=400",
         "type": "Unsplash"
       }
     ]
@@ -7802,15 +7802,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "山羊",
     "phonetic": "/goat/",
     "phrase": "Climbing goat",
-    "phraseTranslation": "爬山的山羊",
+    "phraseTranslation": "爬山的山",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "goat.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "mountain_goat.jpg",
+        "url": "https://images.unsplash.com/photo-1557053910-d9eadeedbac0?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7826,16 +7826,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "t tiger.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "tiger.jpg",
+        "url": "https://images.unsplash.com/photo-1561739677-9e6c318b83d1?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "giraffe",
     "standardized": "giraffe",
-    "chinese": "长颈鹿",
+    "chinese": "长颈",
     "phonetic": "/giraffe/",
     "phrase": "Tall giraffe",
     "phraseTranslation": "高高的长颈鹿",
@@ -7853,7 +7853,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "wolf",
     "standardized": "wolf",
-    "chinese": "狼",
+    "chinese": "",
     "phonetic": "/wolf/",
     "phrase": "Howling wolf",
     "phraseTranslation": "嚎叫的狼",
@@ -7862,9 +7862,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "wolf.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "howling_wolf.jpg",
+        "url": "https://images.unsplash.com/photo-1544568100-847a948585b9?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7874,22 +7874,22 @@ const STAGE_KINDERGARTEN = [
     "chinese": "狐狸",
     "phonetic": "/fox/",
     "phrase": "Sly fox",
-    "phraseTranslation": "狡猾的狐狸",
+    "phraseTranslation": "狡猾的狐",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "fox.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "red_fox.jpg",
+        "url": "https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=400",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "deer",
     "standardized": "deer",
-    "chinese": "鹿",
+    "chinese": "",
     "phonetic": "/deer/",
     "phrase": "Gentle deer",
     "phraseTranslation": "温顺的鹿",
@@ -7898,9 +7898,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "deer.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "gentle_deer.jpg",
+        "url": "https://images.unsplash.com/photo-1550354591-4898b5baa3ec?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7916,9 +7916,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "squirrel.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "squirrel_with_nut.jpg",
+        "url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7934,9 +7934,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "crocodile.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "crocodile.jpg",
+        "url": "https://images.unsplash.com/photo-1574629173115-01ba0d1c5764?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7952,9 +7952,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "koala.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "koala.jpg",
+        "url": "https://images.unsplash.com/photo-1585969646097-a1b0038c37a1?w=400",
+        "type": "Unsplash"
       }
     ]
   },
@@ -7988,9 +7988,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ant.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "ant.jpg",
+        "url": "https://images.unsplash.com/photo-1593538307450-7038a3a6f2c1?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8006,9 +8006,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "snail.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "snail.jpg",
+        "url": "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8024,9 +8024,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "crab.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "crab.jpg",
+        "url": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8042,9 +8042,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "shark.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "shark.jpg",
+        "url": "https://images.unsplash.com/photo-1560279556-1db71a81d9a3?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8060,9 +8060,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "owl.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "owl.jpg",
+        "url": "https://images.unsplash.com/photo-1604076913837-52ab5629fba9?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8078,9 +8078,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "parrot.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "parrot.jpg",
+        "url": "https://images.unsplash.com/photo-1549608276-5786777e6587?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8096,9 +8096,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dinosaur.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "dinosaur.jpg",
+        "url": "https://images.unsplash.com/photo-1589656966895-2f33a7653419?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8114,9 +8114,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pet.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "pet.jpg",
+        "url": "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8132,9 +8132,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "farm animal.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "farm_animals.jpg",
+        "url": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8150,9 +8150,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "wild animal.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "wild_animal.jpg",
+        "url": "https://images.unsplash.com/photo-1533416784636-2b0ccfea6b97?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8168,9 +8168,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "baby animal.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "baby_animal.jpg",
+        "url": "https://images.unsplash.com/photo-1526869638839-1f9a7a9df378?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8180,15 +8180,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "动物园",
     "phonetic": "/zoo/",
     "phrase": "See animals at the zoo",
-    "phraseTranslation": "看动物",
+    "phraseTranslation": "在动物园看动物",
     "difficulty": "basic",
     "category": "general",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "zoo.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "zoo.jpg",
+        "url": "https://images.unsplash.com/photo-1515404929826-76fff9fef6fe?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8196,7 +8196,7 @@ const STAGE_KINDERGARTEN = [
     "word": "farm",
     "standardized": "farm",
     "chinese": "农场",
-    "phonetic": "/farm/",
+    "phonetic": "/fɑːrm/",
     "phrase": "Visit the farm",
     "phraseTranslation": "参观农场",
     "difficulty": "basic",
@@ -8204,9 +8204,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "farm.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "farm.jpg",
+        "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8214,7 +8214,7 @@ const STAGE_KINDERGARTEN = [
     "word": "restaurant",
     "standardized": "restaurant",
     "chinese": "餐厅",
-    "phonetic": "/restaurant/",
+    "phonetic": "/ˈrestrɒnt/",
     "phrase": "Eat at the restaurant",
     "phraseTranslation": "去餐厅吃饭",
     "difficulty": "intermediate",
@@ -8222,9 +8222,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "restaurant.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "restaurant.jpg",
+        "url": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8232,7 +8232,7 @@ const STAGE_KINDERGARTEN = [
     "word": "mine",
     "standardized": "mine",
     "chinese": "挖掘",
-    "phonetic": "",
+    "phonetic": "/maɪn/",
     "phrase": "Let's mine some diamonds!",
     "phraseTranslation": "我们去挖钻石吧！",
     "difficulty": "basic",
@@ -8240,17 +8240,17 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "Mining-Pixel-Icons-1.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "mine.jpg",
+        "url": "https://images.unsplash.com/photo-1598488033119-4c9c2c7f3b6e?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "dig",
     "standardized": "dig",
-    "chinese": "挖",
-    "phonetic": "",
+    "chinese": "挖掘",
+    "phonetic": "/dɪɡ/",
     "phrase": "Dig down carefully!",
     "phraseTranslation": "小心往下挖！",
     "difficulty": "basic",
@@ -8258,9 +8258,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "dig.jpg",
+        "url": "https://images.unsplash.com/photo-1588581939864-064d42ace7cd?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8268,7 +8268,7 @@ const STAGE_KINDERGARTEN = [
     "word": "craft",
     "standardized": "craft",
     "chinese": "合成",
-    "phonetic": "",
+    "phonetic": "/kræft/",
     "phrase": "Can you craft some tools?",
     "phraseTranslation": "你能合成一些工具吗？",
     "difficulty": "basic",
@@ -8276,9 +8276,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "gear.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "craft.jpg",
+        "url": "https://images.unsplash.com/photo-1607513746994-51f730a44832?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8286,17 +8286,17 @@ const STAGE_KINDERGARTEN = [
     "word": "place",
     "standardized": "place",
     "chinese": "放置",
-    "phonetic": "",
+    "phonetic": "/pleɪs/",
     "phrase": "Place the block here",
-    "phraseTranslation": "把方块放这里",
+    "phraseTranslation": "把方块放在这里",
     "difficulty": "basic",
     "category": "basic_actions",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "brick-wall.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "place_block.jpg",
+        "url": "https://images.unsplash.com/photo-1607516186141-baa8d0b9d76b?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8304,7 +8304,7 @@ const STAGE_KINDERGARTEN = [
     "word": "break",
     "standardized": "break",
     "chinese": "破坏",
-    "phonetic": "",
+    "phonetic": "/breɪk/",
     "phrase": "Break this wall",
     "phraseTranslation": "破坏这堵墙",
     "difficulty": "basic",
@@ -8312,9 +8312,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "demolish.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "break.jpg",
+        "url": "https://images.unsplash.com/photo-1589998055331-bea7e9fafb0a?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8322,7 +8322,7 @@ const STAGE_KINDERGARTEN = [
     "word": "collect",
     "standardized": "collect",
     "chinese": "收集",
-    "phonetic": "",
+    "phonetic": "/kəˈlekt/",
     "phrase": "Collect all the items",
     "phraseTranslation": "收集所有物品",
     "difficulty": "basic",
@@ -8330,9 +8330,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "collect.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "collect.jpg",
+        "url": "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8340,17 +8340,17 @@ const STAGE_KINDERGARTEN = [
     "word": "gather",
     "standardized": "gather",
     "chinese": "采集",
-    "phonetic": "",
+    "phonetic": "/ˈɡæðər/",
     "phrase": "Let's gather wood",
-    "phraseTranslation": "我们去采集木头",
+    "phraseTranslation": "我们去采集木材",
     "difficulty": "basic",
     "category": "basic_actions",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "oak-tree.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "gather.jpg",
+        "url": "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8358,7 +8358,7 @@ const STAGE_KINDERGARTEN = [
     "word": "explore",
     "standardized": "explore",
     "chinese": "探索",
-    "phonetic": "",
+    "phonetic": "/ɪkˈsplɔːr/",
     "phrase": "Want to explore that cave?",
     "phraseTranslation": "想探索那个洞穴吗？",
     "difficulty": "basic",
@@ -8366,9 +8366,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "compass.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "explore.jpg",
+        "url": "https://images.unsplash.com/photo-1503551723145-6c040742065b?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8376,7 +8376,7 @@ const STAGE_KINDERGARTEN = [
     "word": "attack",
     "standardized": "attack",
     "chinese": "攻击",
-    "phonetic": "",
+    "phonetic": "/əˈtæk/",
     "phrase": "Attack the zombie!",
     "phraseTranslation": "攻击僵尸！",
     "difficulty": "basic",
@@ -8384,9 +8384,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sword.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "attack.jpg",
+        "url": "https://images.unsplash.com/photo-1608889825271-969628b57bda?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8394,7 +8394,7 @@ const STAGE_KINDERGARTEN = [
     "word": "defend",
     "standardized": "defend",
     "chinese": "防御",
-    "phonetic": "",
+    "phonetic": "/dɪˈfend/",
     "phrase": "Defend the base!",
     "phraseTranslation": "保卫基地！",
     "difficulty": "basic",
@@ -8402,35 +8402,35 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "shield.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "defend.jpg",
+        "url": "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "climb",
     "standardized": "climb",
-    "chinese": "爬",
-    "phonetic": "",
+    "chinese": "攀爬",
+    "phonetic": "/klaɪm/",
     "phrase": "Climb up the ladder",
-    "phraseTranslation": "爬梯子",
+    "phraseTranslation": "爬上梯子",
     "difficulty": "basic",
     "category": "basic_actions",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ladder.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "climb.jpg",
+        "url": "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "fly",
     "standardized": "fly",
-    "chinese": "飞",
-    "phonetic": "",
+    "chinese": "飞行",
+    "phonetic": "/flaɪ/",
     "phrase": "Flying in creative mode",
     "phraseTranslation": "在创造模式下飞行",
     "difficulty": "basic",
@@ -8438,9 +8438,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "wings.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "fly.jpg",
+        "url": "https://images.unsplash.com/photo-1508615039623-a25605d2b022?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8448,7 +8448,7 @@ const STAGE_KINDERGARTEN = [
     "word": "teleport",
     "standardized": "teleport",
     "chinese": "传送",
-    "phonetic": "",
+    "phonetic": "/ˈteləpɔːt/",
     "phrase": "Teleport to my location",
     "phraseTranslation": "传送到我的位置",
     "difficulty": "basic",
@@ -8456,9 +8456,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "teleport.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "teleport.jpg",
+        "url": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8466,7 +8466,7 @@ const STAGE_KINDERGARTEN = [
     "word": "respawn",
     "standardized": "respawn",
     "chinese": "重生",
-    "phonetic": "",
+    "phonetic": "/ˌriːˈspɔːn/",
     "phrase": "I need to respawn",
     "phraseTranslation": "我需要重生",
     "difficulty": "basic",
@@ -8474,9 +8474,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "respawn.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "respawn.jpg",
+        "url": "https://images.unsplash.com/photo-1596727147705-61a532a659bd?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8484,7 +8484,7 @@ const STAGE_KINDERGARTEN = [
     "word": "heal",
     "standardized": "heal",
     "chinese": "治疗",
-    "phonetic": "",
+    "phonetic": "/hiːl/",
     "phrase": "Eat food to heal",
     "phraseTranslation": "吃食物治疗",
     "difficulty": "basic",
@@ -8492,9 +8492,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "health-heart.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "heal.jpg",
+        "url": "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8502,7 +8502,7 @@ const STAGE_KINDERGARTEN = [
     "word": "enchant",
     "standardized": "enchant",
     "chinese": "附魔",
-    "phonetic": "",
+    "phonetic": "/ɪnˈtʃænt/",
     "phrase": "Enchant your sword",
     "phraseTranslation": "给你的剑附魔",
     "difficulty": "basic",
@@ -8510,9 +8510,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "magic-wand.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "enchant.jpg",
+        "url": "https://images.unsplash.com/photo-1618335829737-2228915674e7?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8540,9 +8540,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "elevator-down.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "deep_cave.jpg",
+        "url": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8558,63 +8558,63 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "water-level.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "shallow_water.jpg",
+        "url": "https://images.unsplash.com/photo-1518020382112-a15b3c6a3c9e?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "bright",
     "standardized": "bright",
-    "chinese": "明亮的",
+    "chinese": "明亮",
     "phonetic": "",
     "phrase": "This area is bright enough",
-    "phraseTranslation": "这个区域够亮了",
+    "phraseTranslation": "这个区域够亮",
     "difficulty": "basic",
     "category": "common_adjectives",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sun.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "bright_sun.jpg",
+        "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "dangerous",
     "standardized": "dangerous",
-    "chinese": "危险的",
+    "chinese": "危险",
     "phonetic": "",
     "phrase": "That area is dangerous",
-    "phraseTranslation": "那个区域很危险",
+    "phraseTranslation": "那个区域很危",
     "difficulty": "basic",
     "category": "common_adjectives",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "danger.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "danger_sign.jpg",
+        "url": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d8?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "safe",
     "standardized": "safe",
-    "chinese": "安全的",
+    "chinese": "安全",
     "phonetic": "",
     "phrase": "We're safe in the house",
-    "phraseTranslation": "在房子里我们很安全",
+    "phraseTranslation": "在房子里我们很安",
     "difficulty": "basic",
     "category": "common_adjectives",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "security-checked.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "safe_house.jpg",
+        "url": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8624,33 +8624,33 @@ const STAGE_KINDERGARTEN = [
     "chinese": "稀有的",
     "phonetic": "",
     "phrase": "Diamonds are rare",
-    "phraseTranslation": "钻石很稀有",
+    "phraseTranslation": "钻石很稀",
     "difficulty": "basic",
     "category": "common_adjectives",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "diamond.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "diamonds.jpg",
+        "url": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "common",
     "standardized": "common",
-    "chinese": "常见的",
+    "chinese": "常见",
     "phonetic": "",
     "phrase": "Coal is common",
-    "phraseTranslation": "煤炭很常见",
+    "phraseTranslation": "煤炭很常",
     "difficulty": "basic",
     "category": "common_adjectives",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "coal.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "coal.jpg",
+        "url": "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8666,16 +8666,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "broken-tool.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "broken_tool.jpg",
+        "url": "https://images.unsplash.com/photo-1589998055331-bea7e9fafb0a?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "north",
     "standardized": "north",
-    "chinese": "北",
+    "chinese": "",
     "phonetic": "",
     "phrase": "Go north from spawn",
     "phraseTranslation": "从出生点往北走",
@@ -8684,70 +8684,70 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "north-direction.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "compass_north.jpg",
+        "url": "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "south",
     "standardized": "south",
-    "chinese": "南",
+    "chinese": "",
     "phonetic": "",
     "phrase": "The village is south",
-    "phraseTranslation": "村庄在南边",
+    "phraseTranslation": "村庄在南",
     "difficulty": "basic",
     "category": "locations_directions",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "south-direction.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "compass_south.jpg",
+        "url": "https://images.unsplash.com/photo-1596727147705-61a532a659bd?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "east",
     "standardized": "east",
-    "chinese": "东",
+    "chinese": "",
     "phonetic": "",
     "phrase": "Mine to the east",
-    "phraseTranslation": "往东边挖",
+    "phraseTranslation": "往东边",
     "difficulty": "basic",
     "category": "locations_directions",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "east-direction.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "compass_east.jpg",
+        "url": "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "west",
     "standardized": "west",
-    "chinese": "西",
+    "chinese": "",
     "phonetic": "",
     "phrase": "Sunset is in the west",
-    "phraseTranslation": "日落在西边",
+    "phraseTranslation": "日落在西",
     "difficulty": "basic",
     "category": "locations_directions",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "west-direction.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "sunset_west.jpg",
+        "url": "https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?w=400&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "up",
     "standardized": "up",
-    "chinese": "上",
+    "chinese": "",
     "phonetic": "",
     "phrase": "Dig up carefully",
     "phraseTranslation": "小心往上挖",
@@ -8756,19 +8756,19 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "up-arrow.svg",
+        "filename": "head.jpg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/2b06.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "down",
     "standardized": "down",
-    "chinese": "下",
+    "chinese": "",
     "phonetic": "",
     "phrase": "Go down to bedrock",
-    "phraseTranslation": "往下挖到基岩",
+    "phraseTranslation": "往下挖到基",
     "difficulty": "basic",
     "category": "locations_directions",
     "stage": "kindergarten",
@@ -8776,14 +8776,14 @@ const STAGE_KINDERGARTEN = [
       {
         "filename": "down-arrow.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/2b07.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "left",
     "standardized": "left",
-    "chinese": "左",
+    "chinese": "",
     "phonetic": "",
     "phrase": "Turn left here",
     "phraseTranslation": "在这里向左转",
@@ -8794,14 +8794,14 @@ const STAGE_KINDERGARTEN = [
       {
         "filename": "left-arrow.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/2b05.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "right",
     "standardized": "right",
-    "chinese": "右",
+    "chinese": "",
     "phonetic": "",
     "phrase": "The door is on the right",
     "phraseTranslation": "门在右边",
@@ -8829,7 +8829,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "forward.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/27a1.svg",
         "type": "Emoji"
       }
     ]
@@ -8840,14 +8840,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "后退",
     "phonetic": "",
     "phrase": "Step backward!",
-    "phraseTranslation": "往后退！",
+    "phraseTranslation": "往后退",
     "difficulty": "basic",
     "category": "locations_directions",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "backward.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "left-arrow-emoji.png",
+        "url": "https://emojicdn.elk.sh/⬅️",
         "type": "Emoji"
       }
     ]
@@ -8858,15 +8858,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "里面",
     "phonetic": "",
     "phrase": "Come inside the house",
-    "phraseTranslation": "进房子里来",
+    "phraseTranslation": "进房子里",
     "difficulty": "basic",
     "category": "locations_directions",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "enter.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "inside-room.jpg",
+        "url": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -8882,9 +8882,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "exit.svg",
+        "filename": "head.jpg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
@@ -8900,8 +8900,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ceiling.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "up-arrow-emoji.png",
+        "url": "https://emojicdn.elk.sh/⬆️",
         "type": "Emoji"
       }
     ]
@@ -8912,14 +8912,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "下方",
     "phonetic": "",
     "phrase": "There's lava below",
-    "phraseTranslation": "下面有熔岩",
+    "phraseTranslation": "下面有熔",
     "difficulty": "basic",
     "category": "locations_directions",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "floor.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "down-arrow-emoji.png",
+        "url": "https://emojicdn.elk.sh/⬇️",
         "type": "Emoji"
       }
     ]
@@ -8936,26 +8936,26 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "near-me.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "cave-entrance.jpg",
+        "url": "https://images.unsplash.com/photo-1495567720989-ceb457dd8624?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "health",
     "standardized": "health",
-    "chinese": "生命值",
+    "chinese": "生命",
     "phonetic": "",
     "phrase": "My health is low",
-    "phraseTranslation": "我生命值很低",
+    "phraseTranslation": "我生命值很",
     "difficulty": "basic",
     "category": "game_status",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "heart-with-pulse.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "heart-emoji.png",
+        "url": "https://emojicdn.elk.sh/❤️",
         "type": "Emoji"
       }
     ]
@@ -8963,7 +8963,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "hunger",
     "standardized": "hunger",
-    "chinese": "饥饿值",
+    "chinese": "饥饿",
     "phonetic": "",
     "phrase": "I'm losing hunger",
     "phraseTranslation": "我饥饿值在下降",
@@ -8972,8 +8972,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "steak.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hamburger-emoji.png",
+        "url": "https://emojicdn.elk.sh/🍔",
         "type": "Emoji"
       }
     ]
@@ -8981,17 +8981,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "experience/XP",
     "standardized": "experience/XP",
-    "chinese": "经验值",
+    "chinese": "经验",
     "phonetic": "",
     "phrase": "I need more XP",
-    "phraseTranslation": "我需要更多经验",
+    "phraseTranslation": "我需要更多经",
     "difficulty": "basic",
     "category": "game_status",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "star.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "star-emoji.png",
+        "url": "https://emojicdn.elk.sh/⭐",
         "type": "Emoji"
       }
     ]
@@ -9002,14 +9002,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "等级",
     "phonetic": "",
     "phrase": "What level are you?",
-    "phraseTranslation": "你几级了？",
+    "phraseTranslation": "你几级了",
     "difficulty": "basic",
     "category": "game_status",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "level-up.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "chart-emoji.png",
+        "url": "https://emojicdn.elk.sh/📈",
         "type": "Emoji"
       }
     ]
@@ -9020,14 +9020,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "伤害",
     "phonetic": "",
     "phrase": "This weapon does high damage",
-    "phraseTranslation": "这武器伤害很高",
+    "phraseTranslation": "这武器伤害很",
     "difficulty": "basic",
     "category": "game_status",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "explosion.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "collision-emoji.png",
+        "url": "https://emojicdn.elk.sh/💥",
         "type": "Emoji"
       }
     ]
@@ -9035,17 +9035,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "durability",
     "standardized": "durability",
-    "chinese": "耐久度",
+    "chinese": "耐久",
     "phonetic": "",
     "phrase": "Low durability warning",
-    "phraseTranslation": "耐久度不足警告",
+    "phraseTranslation": "耐久度不足警",
     "difficulty": "basic",
     "category": "game_status",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hammer-and-wrench.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "wrench-emoji.png",
+        "url": "https://emojicdn.elk.sh/🔧",
         "type": "Emoji"
       }
     ]
@@ -9053,17 +9053,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "inventory",
     "standardized": "inventory",
-    "chinese": "背包/物品栏",
+    "chinese": "背包/物品",
     "phonetic": "",
     "phrase": "Check your inventory",
-    "phraseTranslation": "检查你的背包",
+    "phraseTranslation": "检查你的背",
     "difficulty": "basic",
     "category": "game_status",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "backpack.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "backpack-emoji.png",
+        "url": "https://emojicdn.elk.sh/🎒",
         "type": "Emoji"
       }
     ]
@@ -9071,17 +9071,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "hotbar",
     "standardized": "hotbar",
-    "chinese": "快捷栏",
+    "chinese": "快捷",
     "phonetic": "",
     "phrase": "Put food in hotbar",
-    "phraseTranslation": "把食物放快捷栏",
+    "phraseTranslation": "把食物放快捷",
     "difficulty": "basic",
     "category": "game_status",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "menu-bar.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "keyboard-emoji.png",
+        "url": "https://emojicdn.elk.sh/⌨️",
         "type": "Emoji"
       }
     ]
@@ -9098,8 +9098,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "location.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "round-pushpin-emoji.png",
+        "url": "https://emojicdn.elk.sh/📍",
         "type": "Emoji"
       }
     ]
@@ -9107,17 +9107,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "spawn point",
     "standardized": "spawn point",
-    "chinese": "出生点",
+    "chinese": "出生",
     "phonetic": "",
     "phrase": "Set your spawn point",
-    "phraseTranslation": "设置出生点",
+    "phraseTranslation": "设置出生",
     "difficulty": "basic",
     "category": "game_status",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "home.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "house-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏠",
         "type": "Emoji"
       }
     ]
@@ -9125,17 +9125,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Let's go exploring!",
     "standardized": "Let's go exploring!",
-    "chinese": "我们去探索吧！",
+    "chinese": "我们去探索吧",
     "phonetic": "",
     "phrase": "Let's go exploring!",
-    "phraseTranslation": "我们去探索吧！",
+    "phraseTranslation": "我们去探索吧",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "adventure.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hiking-boot-emoji.png",
+        "url": "https://emojicdn.elk.sh/🥾",
         "type": "Emoji"
       }
     ]
@@ -9152,8 +9152,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cave.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "mountain-emoji.png",
+        "url": "https://emojicdn.elk.sh/⛰️",
         "type": "Emoji"
       }
     ]
@@ -9170,8 +9170,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "castle.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "castle-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏰",
         "type": "Emoji"
       }
     ]
@@ -9179,17 +9179,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Watch out for mobs!",
     "standardized": "Watch out for mobs!",
-    "chinese": "小心怪物！",
+    "chinese": "小心怪物",
     "phonetic": "",
     "phrase": "Watch out for mobs!",
-    "phraseTranslation": "小心怪物！",
+    "phraseTranslation": "小心怪物",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "warning-shield.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "ghost-emoji.png",
+        "url": "https://emojicdn.elk.sh/👻",
         "type": "Emoji"
       }
     ]
@@ -9206,8 +9206,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "lost.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "person-with-map-emoji.png",
+        "url": "https://emojicdn.elk.sh/🧭",
         "type": "Emoji"
       }
     ]
@@ -9215,17 +9215,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Follow me",
     "standardized": "Follow me",
-    "chinese": "跟我来",
+    "chinese": "跟我",
     "phonetic": "",
     "phrase": "Follow me",
-    "phraseTranslation": "跟我来",
+    "phraseTranslation": "跟我",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "follow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "person-walking-emoji.png",
+        "url": "https://emojicdn.elk.sh/🚶",
         "type": "Emoji"
       }
     ]
@@ -9242,8 +9242,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "waiting.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "raised-hand-emoji.png",
+        "url": "https://emojicdn.elk.sh/✋",
         "type": "Emoji"
       }
     ]
@@ -9260,8 +9260,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "waypoint-map.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "right-arrow-emoji.png",
+        "url": "https://emojicdn.elk.sh/➡️",
         "type": "Emoji"
       }
     ]
@@ -9278,8 +9278,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dead-end.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "no-entry-emoji.png",
+        "url": "https://emojicdn.elk.sh/⛔",
         "type": "Emoji"
       }
     ]
@@ -9296,8 +9296,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "light-on.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "light-bulb-emoji.png",
+        "url": "https://emojicdn.elk.sh/💡",
         "type": "Emoji"
       }
     ]
@@ -9305,17 +9305,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Let's build a house",
     "standardized": "Let's build a house",
-    "chinese": "我们建个房子吧",
+    "chinese": "我们建个房子",
     "phonetic": "",
     "phrase": "Let's build a house",
-    "phraseTranslation": "我们建个房子吧",
+    "phraseTranslation": "我们建个房子",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "house.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "house-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏠",
         "type": "Emoji"
       }
     ]
@@ -9323,17 +9323,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I need more blocks",
     "standardized": "I need more blocks",
-    "chinese": "我需要更多方块",
+    "chinese": "我需要更多方",
     "phonetic": "",
     "phrase": "I need more blocks",
-    "phraseTranslation": "我需要更多方块",
+    "phraseTranslation": "我需要更多方",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "brick.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "block-emoji.png",
+        "url": "https://emojicdn.elk.sh/🧱",
         "type": "Emoji"
       }
     ]
@@ -9350,8 +9350,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "raw-material.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "clipboard-emoji.png",
+        "url": "https://emojicdn.elk.sh/📋",
         "type": "Emoji"
       }
     ]
@@ -9368,8 +9368,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "thumbs-up.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "thumbs-up-emoji.png",
+        "url": "https://emojicdn.elk.sh/👍",
         "type": "Emoji"
       }
     ]
@@ -9386,8 +9386,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "tilt.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "house-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏠",
         "type": "Emoji"
       }
     ]
@@ -9395,17 +9395,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "We need more space",
     "standardized": "We need more space",
-    "chinese": "我们需要更多空间",
+    "chinese": "我们需要更多空",
     "phonetic": "",
     "phrase": "We need more space",
-    "phraseTranslation": "我们需要更多空间",
+    "phraseTranslation": "我们需要更多空",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "expand.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "expansion-emoji.png",
+        "url": "https://emojicdn.elk.sh/↔️",
         "type": "Emoji"
       }
     ]
@@ -9413,17 +9413,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Can you help me build?",
     "standardized": "Can you help me build?",
-    "chinese": "你能帮我建造吗？",
+    "chinese": "你能帮我建造吗",
     "phonetic": "",
     "phrase": "Can you help me build?",
-    "phraseTranslation": "你能帮我建造吗？",
+    "phraseTranslation": "你能帮我建造吗",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "helping-hand.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hammer-wrench-emoji.png",
+        "url": "https://emojicdn.elk.sh/🛠️",
         "type": "Emoji"
       }
     ]
@@ -9431,17 +9431,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I'm making the foundation",
     "standardized": "I'm making the foundation",
-    "chinese": "我在做地基",
+    "chinese": "我在做地",
     "phonetic": "",
     "phrase": "I'm making the foundation",
-    "phraseTranslation": "我在做地基",
+    "phraseTranslation": "我在做地",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "foundation.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "brick-emoji.png",
+        "url": "https://emojicdn.elk.sh/🧱",
         "type": "Emoji"
       }
     ]
@@ -9449,17 +9449,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "The design is nice",
     "standardized": "The design is nice",
-    "chinese": "设计很好看",
+    "chinese": "设计很好",
     "phonetic": "",
     "phrase": "The design is nice",
-    "phraseTranslation": "设计很好看",
+    "phraseTranslation": "设计很好",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "design.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "star-emoji.png",
+        "url": "https://emojicdn.elk.sh/⭐",
         "type": "Emoji"
       }
     ]
@@ -9467,17 +9467,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "We need a door here",
     "standardized": "We need a door here",
-    "chinese": "这里需要个门",
+    "chinese": "这里需要个",
     "phonetic": "",
     "phrase": "We need a door here",
-    "phraseTranslation": "这里需要个门",
+    "phraseTranslation": "这里需要个",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "door.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "door-emoji.png",
+        "url": "https://emojicdn.elk.sh/🚪",
         "type": "Emoji"
       }
     ]
@@ -9485,17 +9485,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Zombie behind you!",
     "standardized": "Zombie behind you!",
-    "chinese": "你后面有僵尸！",
+    "chinese": "你后面有僵尸",
     "phonetic": "",
     "phrase": "Zombie behind you!",
-    "phraseTranslation": "你后面有僵尸！",
+    "phraseTranslation": "你后面有僵尸",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "zombie.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "zombie-emoji.png",
+        "url": "https://emojicdn.elk.sh/🧟",
         "type": "Emoji"
       }
     ]
@@ -9503,17 +9503,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I'm taking damage!",
     "standardized": "I'm taking damage!",
-    "chinese": "我在受伤！",
+    "chinese": "我在受伤",
     "phonetic": "",
     "phrase": "I'm taking damage!",
-    "phraseTranslation": "我在受伤！",
+    "phraseTranslation": "我在受伤",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "health-decrease.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "collision-emoji.png",
+        "url": "https://emojicdn.elk.sh/💥",
         "type": "Emoji"
       }
     ]
@@ -9530,8 +9530,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "first-aid-kit.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "medical-cross-emoji.png",
+        "url": "https://emojicdn.elk.sh/➕",
         "type": "Emoji"
       }
     ]
@@ -9548,8 +9548,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "damaged-package.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "broken-heart-emoji.png",
+        "url": "https://emojicdn.elk.sh/💔",
         "type": "Emoji"
       }
     ]
@@ -9557,17 +9557,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Creeper! Run!",
     "standardized": "Creeper! Run!",
-    "chinese": "苦力怕！快跑！",
+    "chinese": "苦力怕！快跑",
     "phonetic": "",
     "phrase": "Creeper! Run!",
-    "phraseTranslation": "苦力怕！快跑！",
+    "phraseTranslation": "苦力怕！快跑",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bomb.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "running-person-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏃",
         "type": "Emoji"
       }
     ]
@@ -9575,17 +9575,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I killed the skeleton",
     "standardized": "I killed the skeleton",
-    "chinese": "我杀了骷髅",
+    "chinese": "我杀了骷",
     "phonetic": "",
     "phrase": "I killed the skeleton",
-    "phraseTranslation": "我杀了骷髅",
+    "phraseTranslation": "我杀了骷",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "skull.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "skull-emoji.png",
+        "url": "https://emojicdn.elk.sh/💀",
         "type": "Emoji"
       }
     ]
@@ -9593,17 +9593,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "There's a spider nest",
     "standardized": "There's a spider nest",
-    "chinese": "有个蜘蛛巢",
+    "chinese": "有个蜘蛛",
     "phonetic": "",
     "phrase": "There's a spider nest",
-    "phraseTranslation": "有个蜘蛛巢",
+    "phraseTranslation": "有个蜘蛛",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "spider.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "spider-emoji.png",
+        "url": "https://emojicdn.elk.sh/🕷️",
         "type": "Emoji"
       }
     ]
@@ -9620,8 +9620,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "moon-and-stars.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "moon-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌙",
         "type": "Emoji"
       }
     ]
@@ -9638,8 +9638,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hide.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "house-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏠",
         "type": "Emoji"
       }
     ]
@@ -9647,17 +9647,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I see hostile mobs",
     "standardized": "I see hostile mobs",
-    "chinese": "我看到敌对生物",
+    "chinese": "我看到敌对生",
     "phonetic": "",
     "phrase": "I see hostile mobs",
-    "phraseTranslation": "我看到敌对生物",
+    "phraseTranslation": "我看到敌对生",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "angry.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "warning-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚠️",
         "type": "Emoji"
       }
     ]
@@ -9665,17 +9665,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I found diamonds!",
     "standardized": "I found diamonds!",
-    "chinese": "我找到钻石了！",
+    "chinese": "我找到钻石了",
     "phonetic": "",
     "phrase": "I found diamonds!",
-    "phraseTranslation": "我找到钻石了！",
+    "phraseTranslation": "我找到钻石了",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "gem.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "diamond-emoji.png",
+        "url": "https://emojicdn.elk.sh/💎",
         "type": "Emoji"
       }
     ]
@@ -9692,8 +9692,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "anvil.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hammer-pick-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚒️",
         "type": "Emoji"
       }
     ]
@@ -9701,17 +9701,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "My pickaxe broke",
     "standardized": "My pickaxe broke",
-    "chinese": "我的镐坏了",
+    "chinese": "我的镐坏",
     "phonetic": "",
     "phrase": "My pickaxe broke",
-    "phraseTranslation": "我的镐坏了",
+    "phraseTranslation": "我的镐坏",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pickaxe.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "pickaxe-emoji.png",
+        "url": "https://emojicdn.elk.sh/⛏️",
         "type": "Emoji"
       }
     ]
@@ -9719,17 +9719,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Let's go mining",
     "standardized": "Let's go mining",
-    "chinese": "我们去挖矿",
+    "chinese": "我们去挖",
     "phonetic": "",
     "phrase": "Let's go mining",
-    "phraseTranslation": "我们去挖矿",
+    "phraseTranslation": "我们去挖",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mine.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "pickaxe-emoji.png",
+        "url": "https://emojicdn.elk.sh/⛏️",
         "type": "Emoji"
       }
     ]
@@ -9737,17 +9737,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I'm out of food",
     "standardized": "I'm out of food",
-    "chinese": "我没食物了",
+    "chinese": "我没食物",
     "phonetic": "",
     "phrase": "I'm out of food",
-    "phraseTranslation": "我没食物了",
+    "phraseTranslation": "我没食物",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "no-food.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hamburger-emoji.png",
+        "url": "https://emojicdn.elk.sh/🍔",
         "type": "Emoji"
       }
     ]
@@ -9764,8 +9764,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "share.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "handshake-emoji.png",
+        "url": "https://emojicdn.elk.sh/🤝",
         "type": "Emoji"
       }
     ]
@@ -9773,17 +9773,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "This vein is huge!",
     "standardized": "This vein is huge!",
-    "chinese": "这个矿脉很大！",
+    "chinese": "这个矿脉很大",
     "phonetic": "",
     "phrase": "This vein is huge!",
-    "phraseTranslation": "这个矿脉很大！",
+    "phraseTranslation": "这个矿脉很大",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "treasure-map.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "diamond-emoji.png",
+        "url": "https://emojicdn.elk.sh/💎",
         "type": "Emoji"
       }
     ]
@@ -9800,8 +9800,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "upgrade.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hammer-wrench-emoji.png",
+        "url": "https://emojicdn.elk.sh/🛠️",
         "type": "Emoji"
       }
     ]
@@ -9818,8 +9818,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "farm.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "tractor-emoji.png",
+        "url": "https://emojicdn.elk.sh/🚜",
         "type": "Emoji"
       }
     ]
@@ -9836,8 +9836,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "treasure-chest.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "chest-emoji.png",
+        "url": "https://emojicdn.elk.sh/🧰",
         "type": "Emoji"
       }
     ]
@@ -9854,8 +9854,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "help.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "raising-hand-emoji.png",
+        "url": "https://emojicdn.elk.sh/🙋",
         "type": "Emoji"
       }
     ]
@@ -9863,17 +9863,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Let's work together",
     "standardized": "Let's work together",
-    "chinese": "我们一起合作",
+    "chinese": "我们一起合",
     "phonetic": "",
     "phrase": "Let's work together",
-    "phraseTranslation": "我们一起合作",
+    "phraseTranslation": "我们一起合",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "collaboration.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "handshake-emoji.png",
+        "url": "https://emojicdn.elk.sh/🤝",
         "type": "Emoji"
       }
     ]
@@ -9890,8 +9890,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "team.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "high-five-emoji.png",
+        "url": "https://emojicdn.elk.sh/✋",
         "type": "Emoji"
       }
     ]
@@ -9908,8 +9908,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "wood.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "wood-emoji.png",
+        "url": "https://emojicdn.elk.sh/🪵",
         "type": "Emoji"
       }
     ]
@@ -9917,17 +9917,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "You mine, I'll build",
     "standardized": "You mine, I'll build",
-    "chinese": "你挖矿，我建造",
+    "chinese": "你挖矿，我建",
     "phonetic": "",
     "phrase": "You mine, I'll build",
-    "phraseTranslation": "你挖矿，我建造",
+    "phraseTranslation": "你挖矿，我建",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "split.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "pickaxe-hammer-emoji.png",
+        "url": "https://emojicdn.elk.sh/⛏️🔨",
         "type": "Emoji"
       }
     ]
@@ -9935,17 +9935,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Meet at base",
     "standardized": "Meet at base",
-    "chinese": "在基地见面",
+    "chinese": "在基地见",
     "phonetic": "",
     "phrase": "Meet at base",
-    "phraseTranslation": "在基地见面",
+    "phraseTranslation": "在基地见",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "meeting-room.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "house-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏠",
         "type": "Emoji"
       }
     ]
@@ -9953,17 +9953,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I'll be right back",
     "standardized": "I'll be right back",
-    "chinese": "我马上回来",
+    "chinese": "我马上回",
     "phonetic": "",
     "phrase": "I'll be right back",
-    "phraseTranslation": "我马上回来",
+    "phraseTranslation": "我马上回",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "return.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "back-arrow-emoji.png",
+        "url": "https://emojicdn.elk.sh/🔙",
         "type": "Emoji"
       }
     ]
@@ -9971,17 +9971,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Thanks for the help!",
     "standardized": "Thanks for the help!",
-    "chinese": "谢谢帮助！",
+    "chinese": "谢谢帮助",
     "phonetic": "",
     "phrase": "Thanks for the help!",
-    "phraseTranslation": "谢谢帮助！",
+    "phraseTranslation": "谢谢帮助",
     "difficulty": "basic",
     "category": "common_scenarios",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "thank-you.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "smiling-face-emoji.png",
+        "url": "https://emojicdn.elk.sh/😊",
         "type": "Emoji"
       }
     ]
@@ -9998,8 +9998,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ok.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "thumbs-up-emoji.png",
+        "url": "https://emojicdn.elk.sh/👍",
         "type": "Emoji"
       }
     ]
@@ -10016,8 +10016,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "split-file.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "left-right-arrow-emoji.png",
+        "url": "https://emojicdn.elk.sh/↔️",
         "type": "Emoji"
       }
     ]
@@ -10028,14 +10028,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "日出",
     "phonetic": "",
     "phrase": "Beautiful sunrise",
-    "phraseTranslation": "美丽的日出",
+    "phraseTranslation": "美丽的日",
     "difficulty": "basic",
     "category": "time",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dawn.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunrise-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌅",
         "type": "Emoji"
       }
     ]
@@ -10046,14 +10046,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "日落",
     "phonetic": "",
     "phrase": "Watch the sunset",
-    "phraseTranslation": "看日落",
+    "phraseTranslation": "看日",
     "difficulty": "basic",
     "category": "time",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dusk.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunset-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌇",
         "type": "Emoji"
       }
     ]
@@ -10070,8 +10070,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "morning.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunrise-mountains-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌄",
         "type": "Emoji"
       }
     ]
@@ -10088,8 +10088,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "twilight.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunset-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌆",
         "type": "Emoji"
       }
     ]
@@ -10100,14 +10100,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "晴朗",
     "phonetic": "",
     "phrase": "The sky is clear",
-    "phraseTranslation": "天空很晴朗",
+    "phraseTranslation": "天空很晴",
     "difficulty": "basic",
     "category": "weather",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sunny.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sun-emoji.png",
+        "url": "https://emojicdn.elk.sh/☀️",
         "type": "Emoji"
       }
     ]
@@ -10115,17 +10115,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Help!",
     "standardized": "Help!",
-    "chinese": "救命！",
+    "chinese": "救命",
     "phonetic": "",
     "phrase": "Help!",
-    "phraseTranslation": "救命！",
+    "phraseTranslation": "救命",
     "difficulty": "basic",
     "category": "emergencies",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sos.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "warning-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚠️",
         "type": "Emoji"
       }
     ]
@@ -10142,8 +10142,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "trapped.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "warning-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚠️",
         "type": "Emoji"
       }
     ]
@@ -10151,17 +10151,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "I'm falling!",
     "standardized": "I'm falling!",
-    "chinese": "我在掉落！",
+    "chinese": "我在掉落",
     "phonetic": "",
     "phrase": "I'm falling!",
-    "phraseTranslation": "我在掉落！",
+    "phraseTranslation": "我在掉落",
     "difficulty": "basic",
     "category": "emergencies",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "falling-down.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "person-falling-emoji.png",
+        "url": "https://emojicdn.elk.sh/👋",
         "type": "Emoji"
       }
     ]
@@ -10178,8 +10178,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "lava.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "volcano-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌋",
         "type": "Emoji"
       }
     ]
@@ -10196,8 +10196,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "drowning.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "water-wave-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌊",
         "type": "Emoji"
       }
     ]
@@ -10205,17 +10205,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "My health is critical!",
     "standardized": "My health is critical!",
-    "chinese": "我生命值危险了！",
+    "chinese": "我生命值危险了",
     "phonetic": "",
     "phrase": "My health is critical!",
-    "phraseTranslation": "我生命值危险了！",
+    "phraseTranslation": "我生命值危险了",
     "difficulty": "basic",
     "category": "emergencies",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "heart-monitor.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "red-cross-emoji.png",
+        "url": "https://emojicdn.elk.sh/🆘",
         "type": "Emoji"
       }
     ]
@@ -10232,8 +10232,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "lost-property.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "warning-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚠️",
         "type": "Emoji"
       }
     ]
@@ -10241,17 +10241,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Where did I die?",
     "standardized": "Where did I die?",
-    "chinese": "我在哪里死的？",
+    "chinese": "我在哪里死的",
     "phonetic": "",
     "phrase": "Where did I die?",
-    "phraseTranslation": "我在哪里死的？",
+    "phraseTranslation": "我在哪里死的",
     "difficulty": "basic",
     "category": "emergencies",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "grave.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "skull-emoji.png",
+        "url": "https://emojicdn.elk.sh/💀",
         "type": "Emoji"
       }
     ]
@@ -10259,17 +10259,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Can you revive me?",
     "standardized": "Can you revive me?",
-    "chinese": "你能救活我吗？",
+    "chinese": "你能救活我吗",
     "phonetic": "",
     "phrase": "Can you revive me?",
-    "phraseTranslation": "你能救活我吗？",
+    "phraseTranslation": "你能救活我吗",
     "difficulty": "basic",
     "category": "emergencies",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "resurrection.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "medical-symbol-emoji.png",
+        "url": "https://emojicdn.elk.sh/➕",
         "type": "Emoji"
       }
     ]
@@ -10286,8 +10286,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "emergency.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "warning-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚠️",
         "type": "Emoji"
       }
     ]
@@ -10298,14 +10298,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "挖掘",
     "phonetic": "/maɪn/",
     "phrase": "mine diamonds",
-    "phraseTranslation": "挖钻石",
+    "phraseTranslation": "挖钻",
     "difficulty": "basic",
     "category": "verb",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mining.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "pickaxe-emoji.png",
+        "url": "https://emojicdn.elk.sh/⛏️",
         "type": "Emoji"
       }
     ]
@@ -10313,7 +10313,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Dig",
     "standardized": "Dig",
-    "chinese": "挖",
+    "chinese": "",
     "phonetic": "/dɪɡ/",
     "phrase": "dig down",
     "phraseTranslation": "往下挖",
@@ -10322,8 +10322,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "digging.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "shovel-emoji.png",
+        "url": "https://emojicdn.elk.sh/⛏️",
         "type": "Emoji"
       }
     ]
@@ -10331,17 +10331,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Build",
     "standardized": "Build",
-    "chinese": "建造",
+    "chinese": "建",
     "phonetic": "/bɪld/",
     "phrase": "build a house",
-    "phraseTranslation": "建房子",
+    "phraseTranslation": "建房",
     "difficulty": "basic",
     "category": "verb",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "building.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hammer-emoji.png",
+        "url": "https://emojicdn.elk.sh/🔨",
         "type": "Emoji"
       }
     ]
@@ -10358,8 +10358,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "crafting.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hammer-wrench-emoji.png",
+        "url": "https://emojicdn.elk.sh/🛠️",
         "type": "Emoji"
       }
     ]
@@ -10376,8 +10376,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "place_block.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "block-emoji.png",
+        "url": "https://emojicdn.elk.sh/🧱",
         "type": "Emoji"
       }
     ]
@@ -10394,8 +10394,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "breaking.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "broken-block-emoji.png",
+        "url": "https://emojicdn.elk.sh/💥",
         "type": "Emoji"
       }
     ]
@@ -10404,7 +10404,7 @@ const STAGE_KINDERGARTEN = [
     "word": "Collect",
     "standardized": "Collect",
     "chinese": "收集",
-    "phonetic": "/kəˈlekt/",
+    "phonetic": "/kəˈlɛkt/",
     "phrase": "collect items",
     "phraseTranslation": "收集物品",
     "difficulty": "basic",
@@ -10412,8 +10412,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "collecting.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "shopping-bag-emoji.png",
+        "url": "https://emojicdn.elk.sh/🛍️",
         "type": "Emoji"
       }
     ]
@@ -10430,8 +10430,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "gathering.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "leaf-emoji.png",
+        "url": "https://emojicdn.elk.sh/🍃",
         "type": "Emoji"
       }
     ]
@@ -10448,8 +10448,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "exploring.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "mountain-emoji.png",
+        "url": "https://emojicdn.elk.sh/🗻",
         "type": "Emoji"
       }
     ]
@@ -10466,8 +10466,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "attack.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "crossed-swords-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚔️",
         "type": "Emoji"
       }
     ]
@@ -10484,8 +10484,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "defend.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "shield-emoji.png",
+        "url": "https://emojicdn.elk.sh/🛡️",
         "type": "Emoji"
       }
     ]
@@ -10493,7 +10493,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Run",
     "standardized": "Run",
-    "chinese": "跑",
+    "chinese": "",
     "phonetic": "/rʌn/",
     "phrase": "run away",
     "phraseTranslation": "逃跑",
@@ -10502,7 +10502,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "running.svg",
+        "filename": "run.jpg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3c3.svg",
         "type": "Emoji"
       }
@@ -10511,7 +10511,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Jump",
     "standardized": "Jump",
-    "chinese": "跳",
+    "chinese": "",
     "phonetic": "/dʒʌmp/",
     "phrase": "jump over",
     "phraseTranslation": "跳过",
@@ -10520,7 +10520,7 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "jumping.svg",
+        "filename": "jump.jpg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3c3.svg",
         "type": "Emoji"
       }
@@ -10529,18 +10529,18 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Climb",
     "standardized": "Climb",
-    "chinese": "爬",
+    "chinese": "",
     "phonetic": "/klaɪm/",
     "phrase": "climb ladder",
-    "phraseTranslation": "爬梯子",
+    "phraseTranslation": "爬梯",
     "difficulty": "basic",
     "category": "verb",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "climbing.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "climb.jpg",
+        "url": "https://images.unsplash.com/photo-1580996448262-c0f0e8eaf5a6?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10550,22 +10550,22 @@ const STAGE_KINDERGARTEN = [
     "chinese": "游泳",
     "phonetic": "/swɪm/",
     "phrase": "swim across",
-    "phraseTranslation": "游过去",
+    "phraseTranslation": "游过",
     "difficulty": "basic",
     "category": "verb",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "swimming.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "swim.jpg",
+        "url": "https://images.unsplash.com/photo-1530549387782-4d5bb3519180?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Fly",
     "standardized": "Fly",
-    "chinese": "飞",
+    "chinese": "",
     "phonetic": "/flaɪ/",
     "phrase": "fly mode",
     "phraseTranslation": "飞行模式",
@@ -10574,27 +10574,27 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "flying.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "fly.jpg",
+        "url": "https://images.unsplash.com/photo-1517649763962-0c2a416ed460?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Teleport",
     "standardized": "Teleport",
-    "chinese": "传送",
+    "chinese": "传",
     "phonetic": "/ˈteləpɔːrt/",
     "phrase": "teleport home",
-    "phraseTranslation": "传送回家",
+    "phraseTranslation": "传送回",
     "difficulty": "advanced",
     "category": "verb",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "teleport.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "teleport.jpg",
+        "url": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10604,15 +10604,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "重生",
     "phonetic": "/riːˈspɔːn/",
     "phrase": "respawn point",
-    "phraseTranslation": "重生点",
+    "phraseTranslation": "重生",
     "difficulty": "intermediate",
     "category": "verb",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "respawn.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "respawn.jpg",
+        "url": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10628,9 +10628,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "heal.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "heal.jpg",
+        "url": "https://images.unsplash.com/photo-1579165466743-6daa6a6cf2eb?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10646,9 +10646,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "enchant.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "enchant.jpg",
+        "url": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10658,15 +10658,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "深的",
     "phonetic": "/diːp/",
     "phrase": "deep cave",
-    "phraseTranslation": "深洞穴",
+    "phraseTranslation": "深洞",
     "difficulty": "basic",
     "category": "adjective",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "deep.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "deep.jpg",
+        "url": "https://images.unsplash.com/photo-1542038782526-3030fe0e76b1?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10682,16 +10682,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "shallow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "shallow.jpg",
+        "url": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Dark",
     "standardized": "Dark",
-    "chinese": "黑暗的",
+    "chinese": "黑暗",
     "phonetic": "/dɑːrk/",
     "phrase": "dark area",
     "phraseTranslation": "黑暗区域",
@@ -10700,16 +10700,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dark.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "dark.jpg",
+        "url": "https://images.unsplash.com/photo-1517299321609-52687d0bc55a?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Bright",
     "standardized": "Bright",
-    "chinese": "明亮的",
+    "chinese": "明亮",
     "phonetic": "/braɪt/",
     "phrase": "bright light",
     "phraseTranslation": "明亮的光",
@@ -10718,16 +10718,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bright.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "bright.jpg",
+        "url": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Dangerous",
     "standardized": "Dangerous",
-    "chinese": "危险的",
+    "chinese": "危险",
     "phonetic": "/ˈdeɪndʒərəs/",
     "phrase": "dangerous area",
     "phraseTranslation": "危险区域",
@@ -10736,27 +10736,27 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dangerous.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "dangerous.jpg",
+        "url": "https://images.unsplash.com/photo-1511499767150-a48a237ac008?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Safe",
     "standardized": "Safe",
-    "chinese": "安全的",
+    "chinese": "安全",
     "phonetic": "/seɪf/",
     "phrase": "safe house",
-    "phraseTranslation": "安全屋",
+    "phraseTranslation": "安全",
     "difficulty": "basic",
     "category": "adjective",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "safe.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "safe.jpg",
+        "url": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10766,22 +10766,22 @@ const STAGE_KINDERGARTEN = [
     "chinese": "稀有的",
     "phonetic": "/rer/",
     "phrase": "rare items",
-    "phraseTranslation": "稀有物品",
+    "phraseTranslation": "稀有物",
     "difficulty": "intermediate",
     "category": "adjective",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "rare.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "rare.jpg",
+        "url": "https://images.unsplash.com/photo-1599709606904-a9b0d0e4f2f6?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Common",
     "standardized": "Common",
-    "chinese": "常见的",
+    "chinese": "常见",
     "phonetic": "/ˈkɑːmən/",
     "phrase": "common blocks",
     "phraseTranslation": "常见方块",
@@ -10790,9 +10790,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "common.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "common.jpg",
+        "url": "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10808,9 +10808,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "strong.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "strong.jpg",
+        "url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10826,9 +10826,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "weak.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
-        "type": "Emoji"
+        "filename": "weak.jpg",
+        "url": "https://images.unsplash.com/photo-1584735429866-9b7c473b2cf8?w=400&q=80&auto=format&fit=crop",
+        "type": "Unsplash"
       }
     ]
   },
@@ -10844,8 +10844,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "fast.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f3c1.svg",
+        "filename": "fast.jpg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4f8.svg",
         "type": "Emoji"
       }
     ]
@@ -10863,7 +10863,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "slow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f40c.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f422.svg",
         "type": "Emoji"
       }
     ]
@@ -10874,14 +10874,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "满的",
     "phonetic": "/fʊl/",
     "phrase": "full inventory",
-    "phraseTranslation": "满背包",
+    "phraseTranslation": "满背",
     "difficulty": "basic",
     "category": "adjective",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "full.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a6.svg",
         "type": "Emoji"
       }
     ]
@@ -10892,14 +10892,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "空的",
     "phonetic": "/ˈempti/",
     "phrase": "empty chest",
-    "phraseTranslation": "空箱子",
+    "phraseTranslation": "空箱",
     "difficulty": "basic",
     "category": "adjective",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "empty.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f5dd.svg",
         "type": "Emoji"
       }
     ]
@@ -10910,14 +10910,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "坏的",
     "phonetic": "/ˈbroʊkən/",
     "phrase": "broken tool",
-    "phraseTranslation": "坏掉的工具",
+    "phraseTranslation": "坏掉的工",
     "difficulty": "basic",
     "category": "adjective",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "broken.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "broken.jpg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a5.svg",
         "type": "Emoji"
       }
     ]
@@ -10928,13 +10928,13 @@ const STAGE_KINDERGARTEN = [
     "chinese": "新的",
     "phonetic": "/nuː/",
     "phrase": "new world",
-    "phraseTranslation": "新世界",
+    "phraseTranslation": "新世",
     "difficulty": "basic",
     "category": "adjective",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "new.svg",
+        "filename": "new.jpg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f195.svg",
         "type": "Emoji"
       }
@@ -10946,14 +10946,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "旧的",
     "phonetic": "/oʊld/",
     "phrase": "old building",
-    "phraseTranslation": "旧建筑",
+    "phraseTranslation": "旧建",
     "difficulty": "basic",
     "category": "adjective",
     "stage": "kindergarten",
     "imageURLs": [
       {
         "filename": "old.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f194.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a5.svg",
         "type": "Emoji"
       }
     ]
@@ -10961,7 +10961,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "North",
     "standardized": "North",
-    "chinese": "北",
+    "chinese": "",
     "phonetic": "/nɔːrθ/",
     "phrase": "go north",
     "phraseTranslation": "往北走",
@@ -10971,7 +10971,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "north.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b06.svg",
         "type": "Emoji"
       }
     ]
@@ -10979,7 +10979,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "South",
     "standardized": "South",
-    "chinese": "南",
+    "chinese": "",
     "phonetic": "/saʊθ/",
     "phrase": "go south",
     "phraseTranslation": "往南走",
@@ -10989,7 +10989,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "south.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b07.svg",
         "type": "Emoji"
       }
     ]
@@ -10997,7 +10997,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "East",
     "standardized": "East",
-    "chinese": "东",
+    "chinese": "",
     "phonetic": "/iːst/",
     "phrase": "go east",
     "phraseTranslation": "往东走",
@@ -11007,7 +11007,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "east.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/27a1.svg",
         "type": "Emoji"
       }
     ]
@@ -11015,7 +11015,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "West",
     "standardized": "West",
-    "chinese": "西",
+    "chinese": "",
     "phonetic": "/west/",
     "phrase": "go west",
     "phraseTranslation": "往西走",
@@ -11025,7 +11025,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "west.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/2b05.svg",
         "type": "Emoji"
       }
     ]
@@ -11033,7 +11033,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Up",
     "standardized": "Up",
-    "chinese": "上",
+    "chinese": "",
     "phonetic": "/ʌp/",
     "phrase": "dig up",
     "phraseTranslation": "往上挖",
@@ -11042,16 +11042,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "up.svg",
+        "filename": "head.jpg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/2b06.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Down",
     "standardized": "Down",
-    "chinese": "下",
+    "chinese": "",
     "phonetic": "/daʊn/",
     "phrase": "go down",
     "phraseTranslation": "往下走",
@@ -11062,17 +11062,17 @@ const STAGE_KINDERGARTEN = [
       {
         "filename": "down.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/2b07.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Left",
     "standardized": "Left",
-    "chinese": "左",
+    "chinese": "",
     "phonetic": "/left/",
     "phrase": "turn left",
-    "phraseTranslation": "向左转",
+    "phraseTranslation": "向左",
     "difficulty": "basic",
     "category": "direction",
     "stage": "kindergarten",
@@ -11080,17 +11080,17 @@ const STAGE_KINDERGARTEN = [
       {
         "filename": "left.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/2b05.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
   {
     "word": "Right",
     "standardized": "Right",
-    "chinese": "右",
+    "chinese": "",
     "phonetic": "/raɪt/",
     "phrase": "turn right",
-    "phraseTranslation": "向右转",
+    "phraseTranslation": "向右",
     "difficulty": "basic",
     "category": "direction",
     "stage": "kindergarten",
@@ -11098,7 +11098,7 @@ const STAGE_KINDERGARTEN = [
       {
         "filename": "right.svg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/27a1.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
@@ -11115,7 +11115,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "forward.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/27a1.svg",
         "type": "Emoji"
       }
     ]
@@ -11133,7 +11133,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "backward.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f519.svg",
         "type": "Emoji"
       }
     ]
@@ -11151,7 +11151,7 @@ const STAGE_KINDERGARTEN = [
     "imageURLs": [
       {
         "filename": "inside.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6c8.svg",
         "type": "Emoji"
       }
     ]
@@ -11168,9 +11168,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "outside.svg",
+        "filename": "head.jpg",
         "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
-        "type": "Emoji"
+        "type": "Unsplash"
       }
     ]
   },
@@ -11180,14 +11180,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "上方",
     "phonetic": "/əˈbʌv/",
     "phrase": "look above",
-    "phraseTranslation": "看上方",
+    "phraseTranslation": "看上",
     "difficulty": "basic",
     "category": "direction",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "above.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "up-arrow-emoji.png",
+        "url": "https://emojicdn.elk.sh/⬆️",
         "type": "Emoji"
       }
     ]
@@ -11198,14 +11198,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "下方",
     "phonetic": "/bɪˈloʊ/",
     "phrase": "look below",
-    "phraseTranslation": "看下方",
+    "phraseTranslation": "看下",
     "difficulty": "basic",
     "category": "direction",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "below.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "down-arrow-emoji.png",
+        "url": "https://emojicdn.elk.sh/⬇️",
         "type": "Emoji"
       }
     ]
@@ -11216,14 +11216,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "附近",
     "phonetic": "/ˌnɪrˈbaɪ/",
     "phrase": "cave nearby",
-    "phraseTranslation": "附近的洞穴",
+    "phraseTranslation": "附近的洞",
     "difficulty": "basic",
     "category": "direction",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "nearby.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "map-emoji.png",
+        "url": "https://emojicdn.elk.sh/🗺️",
         "type": "Emoji"
       }
     ]
@@ -11231,17 +11231,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Far",
     "standardized": "Far",
-    "chinese": "远",
+    "chinese": "",
     "phonetic": "/fɑːr/",
     "phrase": "too far",
-    "phraseTranslation": "太远了",
+    "phraseTranslation": "太远",
     "difficulty": "basic",
     "category": "direction",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "far.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a1.svg",
+        "filename": "telescope-emoji.png",
+        "url": "https://emojicdn.elk.sh/🔭",
         "type": "Emoji"
       }
     ]
@@ -11249,7 +11249,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Close",
     "standardized": "Close",
-    "chinese": "近",
+    "chinese": "",
     "phonetic": "/kloʊs/",
     "phrase": "stay close",
     "phraseTranslation": "待在附近",
@@ -11258,8 +11258,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "close.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f50e.svg",
+        "filename": "handshake-emoji.png",
+        "url": "https://emojicdn.elk.sh/🤝",
         "type": "Emoji"
       }
     ]
@@ -11267,7 +11267,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Health",
     "standardized": "Health",
-    "chinese": "生命值",
+    "chinese": "生命",
     "phonetic": "/helθ/",
     "phrase": "low health",
     "phraseTranslation": "生命值低",
@@ -11276,8 +11276,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "health.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "heart-emoji.png",
+        "url": "https://emojicdn.elk.sh/❤️",
         "type": "Emoji"
       }
     ]
@@ -11285,17 +11285,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Hunger",
     "standardized": "Hunger",
-    "chinese": "饥饿值",
+    "chinese": "饥饿",
     "phonetic": "/ˈhʌŋɡər/",
     "phrase": "hunger bar",
-    "phraseTranslation": "饥饿条",
+    "phraseTranslation": "饥饿值",
     "difficulty": "basic",
     "category": "game",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hunger.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hamburger-emoji.png",
+        "url": "https://emojicdn.elk.sh/🍔",
         "type": "Emoji"
       }
     ]
@@ -11303,7 +11303,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Experience",
     "standardized": "Experience",
-    "chinese": "经验值",
+    "chinese": "经验",
     "phonetic": "/ɪkˈspɪriəns/",
     "phrase": "gain experience",
     "phraseTranslation": "获得经验",
@@ -11312,8 +11312,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "experience.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "star-emoji.png",
+        "url": "https://emojicdn.elk.sh/⭐",
         "type": "Emoji"
       }
     ]
@@ -11330,8 +11330,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "level.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "chart-increasing-emoji.png",
+        "url": "https://emojicdn.elk.sh/📈",
         "type": "Emoji"
       }
     ]
@@ -11348,8 +11348,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "damage.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "collision-emoji.png",
+        "url": "https://emojicdn.elk.sh/💥",
         "type": "Emoji"
       }
     ]
@@ -11357,17 +11357,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Durability",
     "standardized": "Durability",
-    "chinese": "耐久度",
+    "chinese": "耐久",
     "phonetic": "/ˌdʊrəˈbɪləti/",
     "phrase": "low durability",
-    "phraseTranslation": "低耐久度",
+    "phraseTranslation": "低耐久",
     "difficulty": "intermediate",
     "category": "game",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "durability.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "shield-emoji.png",
+        "url": "https://emojicdn.elk.sh/🛡️",
         "type": "Emoji"
       }
     ]
@@ -11384,8 +11384,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "inventory.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "briefcase-emoji.png",
+        "url": "https://emojicdn.elk.sh/💼",
         "type": "Emoji"
       }
     ]
@@ -11402,8 +11402,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hotbar.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "mobile-phone-emoji.png",
+        "url": "https://emojicdn.elk.sh/📱",
         "type": "Emoji"
       }
     ]
@@ -11420,8 +11420,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "coordinates.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "map-emoji.png",
+        "url": "https://emojicdn.elk.sh/🗺️",
         "type": "Emoji"
       }
     ]
@@ -11431,15 +11431,15 @@ const STAGE_KINDERGARTEN = [
     "standardized": "Spawn",
     "chinese": "出生点",
     "phonetic": "/spɔːn/",
-    "phrase": "spawn point",
-    "phraseTranslation": "出生点",
-    "difficulty": "basic",
+    "phrase": "set spawn point",
+    "phraseTranslation": "设置出生点",
+    "difficulty": "intermediate",
     "category": "game",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "spawn.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "house-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏠",
         "type": "Emoji"
       }
     ]
@@ -11456,8 +11456,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "day.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sun-emoji.png",
+        "url": "https://emojicdn.elk.sh/☀️",
         "type": "Emoji"
       }
     ]
@@ -11474,8 +11474,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "night.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "crescent-moon-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌙",
         "type": "Emoji"
       }
     ]
@@ -11486,14 +11486,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "早晨",
     "phonetic": "/ˈmɔːrnɪŋ/",
     "phrase": "good morning",
-    "phraseTranslation": "早上好",
+    "phraseTranslation": "早上",
     "difficulty": "basic",
     "category": "time",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "morning.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunrise-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌅",
         "type": "Emoji"
       }
     ]
@@ -11510,8 +11510,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "evening.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunset-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌇",
         "type": "Emoji"
       }
     ]
@@ -11522,14 +11522,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "日出",
     "phonetic": "/ˈsʌnraɪz/",
     "phrase": "beautiful sunrise",
-    "phraseTranslation": "美丽的日出",
+    "phraseTranslation": "美丽的日",
     "difficulty": "intermediate",
     "category": "time",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sunrise.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunrise-over-mountains-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌄",
         "type": "Emoji"
       }
     ]
@@ -11540,14 +11540,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "日落",
     "phonetic": "/ˈsʌnset/",
     "phrase": "watch sunset",
-    "phraseTranslation": "看日落",
+    "phraseTranslation": "看日",
     "difficulty": "intermediate",
     "category": "time",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sunset.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunset-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌇",
         "type": "Emoji"
       }
     ]
@@ -11564,8 +11564,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dawn.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunrise-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌅",
         "type": "Emoji"
       }
     ]
@@ -11582,8 +11582,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dusk.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sunset-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌇",
         "type": "Emoji"
       }
     ]
@@ -11591,7 +11591,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Rain",
     "standardized": "Rain",
-    "chinese": "雨",
+    "chinese": "",
     "phonetic": "/reɪn/",
     "phrase": "heavy rain",
     "phraseTranslation": "大雨",
@@ -11600,16 +11600,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "rain.png",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "cloud-with-rain-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌧️",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "Storm",
     "standardized": "Storm",
-    "chinese": "暴风雨",
+    "chinese": "暴风",
     "phonetic": "/stɔːrm/",
     "phrase": "lightning storm",
     "phraseTranslation": "雷暴",
@@ -11618,9 +11618,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "storm.png",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "cloud-with-lightning-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌩️",
+        "type": "Emoji"
       }
     ]
   },
@@ -11636,8 +11636,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "thunder.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "cloud-with-lightning-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚡",
         "type": "Emoji"
       }
     ]
@@ -11654,8 +11654,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "lightning.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "high-voltage-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚡",
         "type": "Emoji"
       }
     ]
@@ -11672,8 +11672,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "clear.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "sun-behind-cloud-emoji.png",
+        "url": "https://emojicdn.elk.sh/⛅",
         "type": "Emoji"
       }
     ]
@@ -11690,8 +11690,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cloudy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "cloud-emoji.png",
+        "url": "https://emojicdn.elk.sh/☁️",
         "type": "Emoji"
       }
     ]
@@ -11699,7 +11699,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Snow",
     "standardized": "Snow",
-    "chinese": "雪",
+    "chinese": "",
     "phonetic": "/snoʊ/",
     "phrase": "snow falling",
     "phraseTranslation": "下雪",
@@ -11708,9 +11708,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "snow.png",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "snowflake-emoji.png",
+        "url": "https://emojicdn.elk.sh/❄️",
+        "type": "Emoji"
       }
     ]
   },
@@ -11720,14 +11720,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "救命",
     "phonetic": "/help/",
     "phrase": "need help",
-    "phraseTranslation": "需要帮助",
+    "phraseTranslation": "需要帮",
     "difficulty": "basic",
     "category": "emergency",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "help.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4dd.svg",
+        "filename": "help-emoji.png",
+        "url": "https://emojicdn.elk.sh/🆘",
         "type": "Emoji"
       }
     ]
@@ -11738,14 +11738,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "卡住",
     "phonetic": "/stʌk/",
     "phrase": "I'm stuck",
-    "phraseTranslation": "我被卡住了",
+    "phraseTranslation": "我被卡住",
     "difficulty": "basic",
     "category": "emergency",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "stuck.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "person-in-trap-emoji.png",
+        "url": "https://emojicdn.elk.sh/🪤",
         "type": "Emoji"
       }
     ]
@@ -11762,8 +11762,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "falling.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "person-falling-emoji.png",
+        "url": "https://emojicdn.elk.sh/🪂",
         "type": "Emoji"
       }
     ]
@@ -11774,14 +11774,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "熔岩",
     "phonetic": "/ˈlɑːvə/",
     "phrase": "lava pool",
-    "phraseTranslation": "熔岩池",
+    "phraseTranslation": "熔岩",
     "difficulty": "intermediate",
     "category": "terrain",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "lava.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "volcano-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌋",
         "type": "Emoji"
       }
     ]
@@ -11792,14 +11792,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "溺水",
     "phonetic": "/ˈdraʊnɪŋ/",
     "phrase": "I'm drowning",
-    "phraseTranslation": "我要淹死了",
+    "phraseTranslation": "我要淹死",
     "difficulty": "intermediate",
     "category": "emergency",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "drowning.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "person-swimming-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏊",
         "type": "Emoji"
       }
     ]
@@ -11816,8 +11816,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dad.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "man-emoji.png",
+        "url": "https://emojicdn.elk.sh/👨",
         "type": "Emoji"
       }
     ]
@@ -11828,14 +11828,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "妈妈",
     "phonetic": "/mɑːm/",
     "phrase": "mom is cooking",
-    "phraseTranslation": "妈妈在做饭",
+    "phraseTranslation": "妈妈在做",
     "difficulty": "basic",
     "category": "family",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mom.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "woman-emoji.png",
+        "url": "https://emojicdn.elk.sh/👩",
         "type": "Emoji"
       }
     ]
@@ -11846,14 +11846,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "男孩",
     "phonetic": "/bɔɪ/",
     "phrase": "good boy",
-    "phraseTranslation": "好男孩",
+    "phraseTranslation": "好男",
     "difficulty": "basic",
     "category": "family",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "boy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "boy-emoji.png",
+        "url": "https://emojicdn.elk.sh/👦",
         "type": "Emoji"
       }
     ]
@@ -11870,8 +11870,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "girl.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "girl-emoji.png",
+        "url": "https://emojicdn.elk.sh/👧",
         "type": "Emoji"
       }
     ]
@@ -11888,8 +11888,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "baby.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "baby-emoji.png",
+        "url": "https://emojicdn.elk.sh/👶",
         "type": "Emoji"
       }
     ]
@@ -11906,8 +11906,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "house.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "house-emoji.png",
+        "url": "https://emojicdn.elk.sh/🏠",
         "type": "Emoji"
       }
     ]
@@ -11915,17 +11915,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Door",
     "standardized": "Door",
-    "chinese": "门",
+    "chinese": "",
     "phonetic": "/dɔːr/",
     "phrase": "open door",
-    "phraseTranslation": "开门",
+    "phraseTranslation": "开",
     "difficulty": "basic",
     "category": "home",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "door.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "door-emoji.png",
+        "url": "https://emojicdn.elk.sh/🚪",
         "type": "Emoji"
       }
     ]
@@ -11936,14 +11936,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "窗户",
     "phonetic": "/ˈwɪndoʊ/",
     "phrase": "look window",
-    "phraseTranslation": "看窗户",
+    "phraseTranslation": "看窗",
     "difficulty": "basic",
     "category": "home",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "window.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "window-emoji.png",
+        "url": "https://emojicdn.elk.sh/🪟",
         "type": "Emoji"
       }
     ]
@@ -11951,17 +11951,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Bed",
     "standardized": "Bed",
-    "chinese": "床",
+    "chinese": "",
     "phonetic": "/bed/",
     "phrase": "sleep bed",
-    "phraseTranslation": "在床上睡觉",
+    "phraseTranslation": "在床上睡",
     "difficulty": "basic",
     "category": "home",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bed.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "bed-emoji.png",
+        "url": "https://emojicdn.elk.sh/🛏️",
         "type": "Emoji"
       }
     ]
@@ -11972,15 +11972,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "椅子",
     "phonetic": "/tʃer/",
     "phrase": "sit chair",
-    "phraseTranslation": "坐椅子",
+    "phraseTranslation": "坐椅",
     "difficulty": "basic",
     "category": "home",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "chair.png",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "chair-emoji.png",
+        "url": "https://emojicdn.elk.sh/🪑",
+        "type": "Emoji"
       }
     ]
   },
@@ -11990,15 +11990,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "苹果",
     "phonetic": "/ˈæpəl/",
     "phrase": "eat apple",
-    "phraseTranslation": "吃苹果",
+    "phraseTranslation": "吃苹",
     "difficulty": "basic",
     "category": "food",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "apple.png",
-        "url": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400",
-        "type": "Unsplash"
+        "filename": "apple-emoji.png",
+        "url": "https://emojicdn.elk.sh/🍎",
+        "type": "Emoji"
       }
     ]
   },
@@ -12008,15 +12008,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "香蕉",
     "phonetic": "/bəˈnænə/",
     "phrase": "yellow banana",
-    "phraseTranslation": "黄香蕉",
+    "phraseTranslation": "黄香",
     "difficulty": "basic",
     "category": "food",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "banana.png",
-        "url": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400",
-        "type": "Unsplash"
+        "filename": "banana-emoji.png",
+        "url": "https://emojicdn.elk.sh/🍌",
+        "type": "Emoji"
       }
     ]
   },
@@ -12032,9 +12032,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "orange.png",
-        "url": "https://images.unsplash.com/photo-1557800634-7bf3c73bf389?w=400",
-        "type": "Unsplash"
+        "filename": "orange-emoji.png",
+        "url": "https://emojicdn.elk.sh/🍊",
+        "type": "Emoji"
       }
     ]
   },
@@ -12044,15 +12044,15 @@ const STAGE_KINDERGARTEN = [
     "chinese": "牛奶",
     "phonetic": "/mɪlk/",
     "phrase": "drink milk",
-    "phraseTranslation": "喝牛奶",
+    "phraseTranslation": "喝牛",
     "difficulty": "basic",
     "category": "food",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "milk.png",
-        "url": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400",
-        "type": "Unsplash"
+        "filename": "milk-emoji.png",
+        "url": "https://emojicdn.elk.sh/🥛",
+        "type": "Emoji"
       }
     ]
   },
@@ -12062,22 +12062,22 @@ const STAGE_KINDERGARTEN = [
     "chinese": "面包",
     "phonetic": "/bred/",
     "phrase": "eat bread",
-    "phraseTranslation": "吃面包",
+    "phraseTranslation": "吃面",
     "difficulty": "basic",
     "category": "food",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bread.png",
-        "url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400",
-        "type": "Unsplash"
+        "filename": "bread-emoji.png",
+        "url": "https://emojicdn.elk.sh/🍞",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "Dog",
     "standardized": "Dog",
-    "chinese": "狗",
+    "chinese": "",
     "phonetic": "/dɔːɡ/",
     "phrase": "friendly dog",
     "phraseTranslation": "友好的狗",
@@ -12086,34 +12086,34 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "dog.png",
-        "url": "https://images.unsplash.com/photo-1552053831-71594a27632d?w=400",
-        "type": "Unsplash"
+        "filename": "dog-emoji.png",
+        "url": "https://emojicdn.elk.sh/🐕",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "Cat",
     "standardized": "Cat",
-    "chinese": "猫",
+    "chinese": "",
     "phonetic": "/kæt/",
     "phrase": "cat play",
-    "phraseTranslation": "猫玩耍",
+    "phraseTranslation": "猫玩",
     "difficulty": "basic",
     "category": "animal",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "cat.png",
-        "url": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400",
-        "type": "Unsplash"
+        "filename": "cat-emoji.png",
+        "url": "https://emojicdn.elk.sh/🐈",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "Bird",
     "standardized": "Bird",
-    "chinese": "鸟",
+    "chinese": "",
     "phonetic": "/bɜːrd/",
     "phrase": "bird fly",
     "phraseTranslation": "鸟飞",
@@ -12122,27 +12122,27 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bird.png",
-        "url": "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=400",
-        "type": "Unsplash"
+        "filename": "bird-emoji.png",
+        "url": "https://emojicdn.elk.sh/🐦",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "Fish",
     "standardized": "Fish",
-    "chinese": "鱼",
+    "chinese": "",
     "phonetic": "/fɪʃ/",
     "phrase": "fish swim",
-    "phraseTranslation": "鱼游泳",
+    "phraseTranslation": "鱼游",
     "difficulty": "basic",
     "category": "animal",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "fish.png",
-        "url": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400",
-        "type": "Unsplash"
+        "filename": "fish-emoji.png",
+        "url": "https://emojicdn.elk.sh/🐟",
+        "type": "Emoji"
       }
     ]
   },
@@ -12158,9 +12158,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "rabbit.png",
-        "url": "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400",
-        "type": "Unsplash"
+        "filename": "rabbit-emoji.png",
+        "url": "https://emojicdn.elk.sh/🐇",
+        "type": "Emoji"
       }
     ]
   },
@@ -12170,14 +12170,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "红色",
     "phonetic": "/red/",
     "phrase": "red apple",
-    "phraseTranslation": "红苹果",
+    "phraseTranslation": "红苹",
     "difficulty": "basic",
     "category": "color",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "red.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "red-emoji.png",
+        "url": "https://emojicdn.elk.sh/🟥",
         "type": "Emoji"
       }
     ]
@@ -12194,8 +12194,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "blue.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "blue-emoji.png",
+        "url": "https://emojicdn.elk.sh/🟦",
         "type": "Emoji"
       }
     ]
@@ -12206,14 +12206,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "黄色",
     "phonetic": "/ˈjeloʊ/",
     "phrase": "yellow sun",
-    "phraseTranslation": "黄太阳",
+    "phraseTranslation": "黄太",
     "difficulty": "basic",
     "category": "color",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "yellow.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "yellow-emoji.png",
+        "url": "https://emojicdn.elk.sh/🟨",
         "type": "Emoji"
       }
     ]
@@ -12230,8 +12230,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "green.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "green-emoji.png",
+        "url": "https://emojicdn.elk.sh/🟩",
         "type": "Emoji"
       }
     ]
@@ -12242,14 +12242,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "一",
     "phonetic": "/wʌn/",
     "phrase": "one apple",
-    "phraseTranslation": "一个苹果",
+    "phraseTranslation": "一个苹",
     "difficulty": "basic",
     "category": "number",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "one.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "one-emoji.png",
+        "url": "https://emojicdn.elk.sh/1️⃣",
         "type": "Emoji"
       }
     ]
@@ -12257,17 +12257,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Two",
     "standardized": "Two",
-    "chinese": "二",
+    "chinese": "",
     "phonetic": "/tuː/",
     "phrase": "two hands",
-    "phraseTranslation": "两只手",
+    "phraseTranslation": "两只",
     "difficulty": "basic",
     "category": "number",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "two.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "two-emoji.png",
+        "url": "https://emojicdn.elk.sh/2️⃣",
         "type": "Emoji"
       }
     ]
@@ -12275,17 +12275,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Three",
     "standardized": "Three",
-    "chinese": "三",
+    "chinese": "",
     "phonetic": "/θriː/",
     "phrase": "three pigs",
-    "phraseTranslation": "三只猪",
+    "phraseTranslation": "三只",
     "difficulty": "basic",
     "category": "number",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "three.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "three-emoji.png",
+        "url": "https://emojicdn.elk.sh/3️⃣",
         "type": "Emoji"
       }
     ]
@@ -12293,17 +12293,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Four",
     "standardized": "Four",
-    "chinese": "四",
+    "chinese": "",
     "phonetic": "/fɔːr/",
     "phrase": "four legs",
-    "phraseTranslation": "四条腿",
+    "phraseTranslation": "四条",
     "difficulty": "basic",
     "category": "number",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "four.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "four-emoji.png",
+        "url": "https://emojicdn.elk.sh/4️⃣",
         "type": "Emoji"
       }
     ]
@@ -12311,7 +12311,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Five",
     "standardized": "Five",
-    "chinese": "五",
+    "chinese": "",
     "phonetic": "/faɪv/",
     "phrase": "five fingers",
     "phraseTranslation": "五根手指",
@@ -12320,8 +12320,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "five.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "five-emoji.png",
+        "url": "https://emojicdn.elk.sh/5️⃣",
         "type": "Emoji"
       }
     ]
@@ -12338,9 +12338,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "car.png",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "car-emoji.png",
+        "url": "https://emojicdn.elk.sh/🚗",
+        "type": "Emoji"
       }
     ]
   },
@@ -12356,8 +12356,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "bus.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "bus-emoji.png",
+        "url": "https://emojicdn.elk.sh/🚌",
         "type": "Emoji"
       }
     ]
@@ -12374,8 +12374,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "train.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "train-emoji.png",
+        "url": "https://emojicdn.elk.sh/🚂",
         "type": "Emoji"
       }
     ]
@@ -12386,14 +12386,14 @@ const STAGE_KINDERGARTEN = [
     "chinese": "飞机",
     "phonetic": "/pleɪn/",
     "phrase": "plane fly",
-    "phraseTranslation": "飞机飞",
+    "phraseTranslation": "飞机",
     "difficulty": "basic",
     "category": "transport",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "plane.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "plane-emoji.png",
+        "url": "https://emojicdn.elk.sh/✈️",
         "type": "Emoji"
       }
     ]
@@ -12401,7 +12401,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Ball",
     "standardized": "Ball",
-    "chinese": "球",
+    "chinese": "",
     "phonetic": "/bɔːl/",
     "phrase": "throw ball",
     "phraseTranslation": "扔球",
@@ -12410,9 +12410,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "ball.png",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "ball-emoji.png",
+        "url": "https://emojicdn.elk.sh/⚽",
+        "type": "Emoji"
       }
     ]
   },
@@ -12422,22 +12422,22 @@ const STAGE_KINDERGARTEN = [
     "chinese": "娃娃",
     "phonetic": "/dɑːl/",
     "phrase": "love doll",
-    "phraseTranslation": "爱娃娃",
+    "phraseTranslation": "爱娃",
     "difficulty": "basic",
     "category": "toy",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "doll.png",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "doll-emoji.png",
+        "url": "https://emojicdn.elk.sh/🧸",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "Book",
     "standardized": "Book",
-    "chinese": "书",
+    "chinese": "",
     "phonetic": "/bʊk/",
     "phrase": "read book",
     "phraseTranslation": "读书",
@@ -12446,9 +12446,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "book.png",
-        "url": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400",
-        "type": "Unsplash"
+        "filename": "book-emoji.png",
+        "url": "https://emojicdn.elk.sh/📖",
+        "type": "Emoji"
       }
     ]
   },
@@ -12464,9 +12464,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "pencil.png",
-        "url": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
-        "type": "Unsplash"
+        "filename": "pencil-emoji.png",
+        "url": "https://emojicdn.elk.sh/✏️",
+        "type": "Emoji"
       }
     ]
   },
@@ -12482,9 +12482,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sun.png",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "sun-emoji.png",
+        "url": "https://emojicdn.elk.sh/☀️",
+        "type": "Emoji"
       }
     ]
   },
@@ -12500,9 +12500,9 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "moon.png",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "moon-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌙",
+        "type": "Emoji"
       }
     ]
   },
@@ -12518,16 +12518,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "star.png",
-        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
-        "type": "Unsplash"
+        "filename": "star-emoji.png",
+        "url": "https://emojicdn.elk.sh/⭐",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "Tree",
     "standardized": "Tree",
-    "chinese": "树",
+    "chinese": "",
     "phonetic": "/triː/",
     "phrase": "green tree",
     "phraseTranslation": "绿树",
@@ -12536,16 +12536,16 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "tree.png",
-        "url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400",
-        "type": "Unsplash"
+        "filename": "tree-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌳",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "Flower",
     "standardized": "Flower",
-    "chinese": "花",
+    "chinese": "",
     "phonetic": "/ˈflaʊər/",
     "phrase": "pretty flower",
     "phraseTranslation": "漂亮花朵",
@@ -12554,26 +12554,26 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "flower.png",
-        "url": "https://images.unsplash.com/photo-1490750967868-88aa4596c962?w=400",
-        "type": "Unsplash"
+        "filename": "flower-emoji.png",
+        "url": "https://emojicdn.elk.sh/🌸",
+        "type": "Emoji"
       }
     ]
   },
   {
     "word": "Happy",
     "standardized": "Happy",
-    "chinese": "开心",
+    "chinese": "开",
     "phonetic": "/ˈhæpi/",
     "phrase": "I happy",
-    "phraseTranslation": "我开心",
+    "phraseTranslation": "我开",
     "difficulty": "basic",
     "category": "emotion",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "happy.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f604.svg",
+        "filename": "happy-emoji.png",
+        "url": "https://emojicdn.elk.sh/😊",
         "type": "Emoji"
       }
     ]
@@ -12590,8 +12590,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sad.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f614.svg",
+        "filename": "sad-emoji.png",
+        "url": "https://emojicdn.elk.sh/😢",
         "type": "Emoji"
       }
     ]
@@ -12599,7 +12599,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Walk",
     "standardized": "Walk",
-    "chinese": "走",
+    "chinese": "",
     "phonetic": "/wɔːk/",
     "phrase": "walk school",
     "phraseTranslation": "走路上学",
@@ -12608,8 +12608,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "walk.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f6b6.svg",
+        "filename": "walk-emoji.png",
+        "url": "https://emojicdn.elk.sh/🚶‍♂️",
         "type": "Emoji"
       }
     ]
@@ -12626,8 +12626,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "sleep.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f634.svg",
+        "filename": "sleep-emoji.png",
+        "url": "https://emojicdn.elk.sh/😴",
         "type": "Emoji"
       }
     ]
@@ -12635,17 +12635,17 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Eat",
     "standardized": "Eat",
-    "chinese": "吃",
+    "chinese": "",
     "phonetic": "/iːt/",
     "phrase": "eat breakfast",
-    "phraseTranslation": "吃早餐",
+    "phraseTranslation": "吃早",
     "difficulty": "basic",
     "category": "action",
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "eat.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f374.svg",
+        "filename": "eat-emoji.png",
+        "url": "https://emojicdn.elk.sh/🍽️",
         "type": "Emoji"
       }
     ]
@@ -12653,7 +12653,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Head",
     "standardized": "Head",
-    "chinese": "头",
+    "chinese": "",
     "phonetic": "/hed/",
     "phrase": "touch head",
     "phraseTranslation": "摸头",
@@ -12662,8 +12662,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "head.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "head-emoji.png",
+        "url": "https://emojicdn.elk.sh/👤",
         "type": "Emoji"
       }
     ]
@@ -12680,8 +12680,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "eyes.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "eyes-emoji.png",
+        "url": "https://emojicdn.elk.sh/👀",
         "type": "Emoji"
       }
     ]
@@ -12698,8 +12698,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "nose.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "nose-emoji.png",
+        "url": "https://emojicdn.elk.sh/👃",
         "type": "Emoji"
       }
     ]
@@ -12716,8 +12716,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "mouth.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "mouth-emoji.png",
+        "url": "https://emojicdn.elk.sh/👄",
         "type": "Emoji"
       }
     ]
@@ -12725,7 +12725,7 @@ const STAGE_KINDERGARTEN = [
   {
     "word": "Hands",
     "standardized": "Hands",
-    "chinese": "手",
+    "chinese": "",
     "phonetic": "/hændz/",
     "phrase": "clap hands",
     "phraseTranslation": "拍手",
@@ -12734,8 +12734,8 @@ const STAGE_KINDERGARTEN = [
     "stage": "kindergarten",
     "imageURLs": [
       {
-        "filename": "hands.svg",
-        "url": "https://twemoji.maxcdn.com/v/latest/svg/1f4a0.svg",
+        "filename": "hands-emoji.png",
+        "url": "https://emojicdn.elk.sh/👐",
         "type": "Emoji"
       }
     ]
@@ -12745,4 +12745,9 @@ const STAGE_KINDERGARTEN = [
 // Export vocabulary data
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = STAGE_KINDERGARTEN;
+}
+
+// 确保全局变量STAGE_KINDERGARTEN存在
+if (typeof window !== 'undefined') {
+  window.STAGE_KINDERGARTEN = STAGE_KINDERGARTEN;
 }

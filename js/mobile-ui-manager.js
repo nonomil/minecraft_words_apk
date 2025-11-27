@@ -1,14 +1,4 @@
-/**
- * 手机模式UI管理器
- * Mobile UI Window Manager
- *
- * 解决手机模式下的界面问题：
- * - 界面溢出和滑动困扰
- * - 导航不便
- * - 触控体验差
- * - 视觉干扰
- */
-
+/* 手机模式UI配置常量 */
 const MOBILE_UI_CONFIG = {
     // 窗口切换动画时长
     TRANSITION_DURATION: 300,
@@ -27,7 +17,7 @@ const MOBILE_UI_CONFIG = {
         PREVENT_ZOOM: true
     },
 
-    // 响应式断点
+    // 响应式断点（可按需使用）
     BREAKPOINTS: {
         SMALL: 375,
         MEDIUM: 414,
@@ -35,9 +25,7 @@ const MOBILE_UI_CONFIG = {
     }
 };
 
-/**
- * 手机模式UI管理器类
- */
+/* 手机模式UI管理器类 */
 class MobileUIManager {
     constructor() {
         this.windowHistory = ['home'];
@@ -104,20 +92,14 @@ class MobileUIManager {
         const settings = getSettings();
         const deviceMode = settings?.deviceMode || 'phone';
         const phoneWindowMode = settings?.phoneWindowMode || false;
-        const screenWidth = window.innerWidth;
-        const userAgent = navigator.userAgent;
 
-        // 基础手机模式检测
-        const isPhoneDevice = (
-            deviceMode === 'phone' ||
-            screenWidth <= 480 ||
-            /Mobi|Android|iPhone/i.test(userAgent)
-        );
+        // 仅尊重用户设置的设备模式选择
+        const isPhoneDevice = (deviceMode === 'phone');
 
-        // 只有在手机设备上且启用了窗口模式时才启用手机UI
-        this.isMobileMode = isPhoneDevice && phoneWindowMode;
+        // 点击“手机模式”按钮即可启用手机UI，不再强制要求勾选“启用窗口化界面”
+        this.isMobileMode = isPhoneDevice;
 
-        console.log(`[MobileUI] 手机模式检测: ${this.isMobileMode ? '启用' : '禁用'} (设备: ${isPhoneDevice}, 窗口模式: ${phoneWindowMode})`);
+        console.log(`[MobileUI] 手机模式检测: ${this.isMobileMode ? '启用' : '禁用'} (deviceMode: ${deviceMode})`);
         return this.isMobileMode;
     }
 
@@ -125,6 +107,9 @@ class MobileUIManager {
      * 设置手机模式UI结构
      */
     setupMobileUI() {
+        // 添加手机模式类到 body
+        document.body.classList.add('mobile-mode');
+
         // 创建窗口容器
         this.createWindowContainer();
 
@@ -141,14 +126,18 @@ class MobileUIManager {
      * 创建窗口容器
      */
     createWindowContainer() {
-        const container = document.createElement('div');
-        container.id = 'mobileWindowContainer';
-        container.className = 'mobile-window-container';
-
-        // 插入到body中
-        document.body.insertBefore(container, document.body.firstChild);
-        this.windowContainer = container;
-
+        // 如果已存在容器，避免重复创建
+        const existing = document.getElementById('mobileWindowContainer');
+        if (existing) {
+            this.windowContainer = existing;
+        } else {
+            const container = document.createElement('div');
+            container.id = 'mobileWindowContainer';
+            container.className = 'mobile-window-container';
+            // 插入到body中
+            document.body.insertBefore(container, document.body.firstChild);
+            this.windowContainer = container;
+        }
         // 隐藏原始内容
         const originalContainer = document.querySelector('.container');
         if (originalContainer) {
@@ -160,6 +149,12 @@ class MobileUIManager {
      * 创建悬浮导航栏
      */
     createFloatingNav() {
+        // 如果已存在浮动导航，避免重复创建
+        const existing = document.getElementById('mobileFloatingNav');
+        if (existing) {
+            this.floatingNav = existing;
+            return;
+        }
         const nav = document.createElement('div');
         nav.id = 'mobileFloatingNav';
         nav.className = 'mobile-floating-nav';
@@ -487,6 +482,29 @@ class MobileUIManager {
             .mobile-mode .quiz-area,
             .mobile-mode .settings-area {
                 display: none !important;
+            }
+
+            /* 手机窗口内强制单列布局，隐藏冗余统计侧栏（拼写/学习） */
+            .mobile-mode .mobile-window #quizMode .stats,
+            .mobile-mode .mobile-window #learnMode .stats {
+                display: none !important;
+            }
+
+            /* 使窗口内容纵向排列，占满宽度 */
+            .mobile-mode .mobile-window .mobile-window-content {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+                overflow-y: auto;
+            }
+
+            /* 复用原始 learn/quiz 节点时，确保宽度与居中规则在手机窗口内不产生左右栏 */
+            .mobile-mode .mobile-window #quizMode,
+            .mobile-mode .mobile-window #learnMode {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
             }
 
             /* 优化后的控制按钮布局 */
@@ -993,6 +1011,12 @@ class MobileUIManager {
             }
         `;
 
+        // 在样式末尾追加覆盖规则，确保在移动窗口内显示被默认隐藏的区域
+        style.textContent += `
+            /* 覆盖：在移动窗口内显示被默认隐藏的区域 */
+            .mobile-mode .mobile-window .quiz-area,
+            .mobile-mode .mobile-window .settings-area { display: block !important; }
+        `;
         document.head.appendChild(style);
     }
 
@@ -1073,76 +1097,74 @@ class MobileUIManager {
         homeWindow.id = 'mobileHomeWindow';
         homeWindow.className = 'mobile-window mobile-home active';
 
-        // 获取当前设置以显示正确的按钮状态
-        const settings = getSettings();
-        const currentLearnType = localStorage.getItem('learnType') || 'word';
+        // 克隆桌面主页结构，确保视觉与桌面完全一致
+        const container = document.querySelector('.container');
+        const wrapper = document.createElement('div');
+        wrapper.className = 'mobile-window-content';
 
-        // 完整的主页界面，包含所有功能按钮
-        homeWindow.innerHTML = `
-            <div class="mobile-home-content">
-                <!-- 主要模式按钮 -->
-                <div class="mobile-main-modes">
-                    <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('learn')">
-                        📚 学习模式
-                    </button>
-                    <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('quiz')">
-                        🔤 拼写模式
-                    </button>
-                </div>
+        if (container) {
+            const header = container.querySelector('.header');
+            const gameModes = container.querySelector('.game-modes');
 
-                <!-- 测试模式按钮 -->
-                <div class="mobile-main-modes">
-                    <button class="mobile-mode-btn" onclick="mobileUI.switchToMode('test')">
-                        📝 测试模式
-                    </button>
-                    <button class="mobile-mode-btn" onclick="mobileUI.switchToMode('stats')">
-                        📊 学习统计
-                    </button>
-                </div>
+            if (header) {
+                // 深度克隆以保留内部结构和样式
+                const headerClone = header.cloneNode(true);
+                wrapper.appendChild(headerClone);
+            }
 
-                <!-- 学习类型切换 -->
-                <div class="mobile-learn-types">
-                    <h3>学习类型</h3>
-                    <div class="learn-type-buttons">
-                        <button class="learn-type-btn ${currentLearnType === 'word' ? 'active' : ''}" onclick="mobileUI.setLearnType('word')">
-                            英文单词
-                        </button>
-                        <button class="learn-type-btn ${currentLearnType === 'word_zh' ? 'active' : ''}" onclick="mobileUI.setLearnType('word_zh')">
-                            中文单词
-                        </button>
-                        <button class="learn-type-btn ${currentLearnType === 'phrase_en' ? 'active' : ''}" onclick="mobileUI.setLearnType('phrase_en')">
-                            英文短语
-                        </button>
-                        <button class="learn-type-btn ${currentLearnType === 'phrase_zh' ? 'active' : ''}" onclick="mobileUI.setLearnType('phrase_zh')">
-                            中文短语
-                        </button>
+            if (gameModes) {
+                const modesClone = gameModes.cloneNode(true);
+
+                // 重写模式按钮的行为：点击打开移动窗口
+                const learnBtn = modesClone.querySelector('.mode-btn.learn');
+                if (learnBtn) {
+                    learnBtn.setAttribute('onclick', "mobileUI.switchToMode('learn')");
+                }
+                const quizBtn = modesClone.querySelector('.mode-btn.quiz');
+                if (quizBtn) {
+                    quizBtn.setAttribute('onclick', "mobileUI.switchToMode('quiz')");
+                }
+                const settingsBtn = modesClone.querySelector('.mode-btn.settings');
+                if (settingsBtn) {
+                    settingsBtn.setAttribute('onclick', "mobileUI.switchToMode('settings')");
+                }
+
+                // 保留洗牌按钮和学习类型切换按钮的原有行为
+                wrapper.appendChild(modesClone);
+            } else {
+                // 兜底：如果找不到桌面结构，使用移动版简化结构
+                const fallback = document.createElement('div');
+                fallback.className = 'mobile-home-content';
+                fallback.innerHTML = `
+                    <div class="mobile-main-modes">
+                        <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('learn')">📚 学习模式</button>
+                        <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('quiz')">🔤 拼写模式</button>
                     </div>
+                    <div class="mobile-function-buttons">
+                        <button class="mobile-function-btn" onclick="shuffleWords()">🔀 随机排序</button>
+                        <button class="mobile-function-btn" onclick="mobileUI.switchToMode('settings')">⚙️ 设置</button>
+                    </div>
+                `;
+                wrapper.appendChild(fallback);
+            }
+        } else {
+            // 没有找到容器，同上兜底
+            const fallback = document.createElement('div');
+            fallback.className = 'mobile-home-content';
+            fallback.innerHTML = `
+                <div class="mobile-main-modes">
+                    <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('learn')">📚 学习模式</button>
+                    <button class="mobile-mode-btn primary" onclick="mobileUI.switchToMode('quiz')">🔤 拼写模式</button>
                 </div>
-
-                <!-- 功能按钮 -->
                 <div class="mobile-function-buttons">
-                    <button class="mobile-function-btn" onclick="shuffleWords()">
-                        🔀 随机排序
-                    </button>
-                    <button class="mobile-function-btn" onclick="mobileUI.switchToMode('settings')">
-                        ⚙️ 设置
-                    </button>
+                    <button class="mobile-function-btn" onclick="shuffleWords()">🔀 随机排序</button>
+                    <button class="mobile-function-btn" onclick="mobileUI.switchToMode('settings')">⚙️ 设置</button>
                 </div>
+            `;
+            wrapper.appendChild(fallback);
+        }
 
-                <!-- 快速设置 -->
-                <div class="mobile-quick-settings">
-                    <label class="mobile-setting-item">
-                        <input type="checkbox" id="mobileAutoPlay" ${settings.autoPlay ? 'checked' : ''} onchange="mobileUI.toggleAutoPlay()">
-                        自动播放发音
-                    </label>
-                    <label class="mobile-setting-item">
-                        <input type="checkbox" id="mobileShowImages" ${settings.showImages ? 'checked' : ''} onchange="mobileUI.toggleShowImages()">
-                        显示图片
-                    </label>
-                </div>
-            </div>
-        `;
-
+        homeWindow.appendChild(wrapper);
         this.windowContainer.appendChild(homeWindow);
     }
 
@@ -1154,17 +1176,25 @@ class MobileUIManager {
         learnWindow.id = 'mobileLearnWindow';
         learnWindow.className = 'mobile-window mobile-learn';
 
-        // 直接复用现有的学习模式界面元素
-        // 获取原始的学习模式内容
+        // 获取原始的学习模式内容并迁移到移动窗口，避免重复ID导致显示异常
         const originalLearnMode = document.getElementById('learnMode');
         if (originalLearnMode) {
-            // 克隆现有的学习模式内容
-            const clonedContent = originalLearnMode.cloneNode(true);
-            learnWindow.appendChild(clonedContent);
+            // 在原位置插入占位符，便于禁用移动模式时复原
+            if (!document.getElementById('learnModePlaceholder')) {
+                const placeholder = document.createElement('div');
+                placeholder.id = 'learnModePlaceholder';
+                placeholder.style.display = 'none';
+                originalLearnMode.parentNode.insertBefore(placeholder, originalLearnMode);
+            }
+            // 迁移原始节点到移动窗口，确保脚本与 ID 一致
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mobile-window-content';
+            wrapper.appendChild(originalLearnMode);
+            learnWindow.appendChild(wrapper);
         } else {
-            // 如果原始内容不存在，创建占位符
+            // 如果原始内容不存在，创建占位符内容
             learnWindow.innerHTML = `
-                <div style="padding: 20px; text-align: center;">
+                <div class="mobile-window-content" style="padding: 20px; text-align: center;">
                     <h2>📚 学习模式</h2>
                     <p>正在加载学习界面...</p>
                 </div>
@@ -1186,13 +1216,22 @@ class MobileUIManager {
         // 获取原始的设置模式内容
         const originalSettingsMode = document.getElementById('settingsMode');
         if (originalSettingsMode) {
-            // 克隆现有的设置模式内容
-            const clonedContent = originalSettingsMode.cloneNode(true);
-            settingsWindow.appendChild(clonedContent);
+            // 在原位置插入占位符，便于禁用移动模式时复原
+            if (!document.getElementById('settingsModePlaceholder')) {
+                const placeholder = document.createElement('div');
+                placeholder.id = 'settingsModePlaceholder';
+                placeholder.style.display = 'none';
+                originalSettingsMode.parentNode.insertBefore(placeholder, originalSettingsMode);
+            }
+            // 移动原始节点到移动窗口，确保脚本与 ID 一致
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mobile-window-content';
+            wrapper.appendChild(originalSettingsMode);
+            settingsWindow.appendChild(wrapper);
         } else {
-            // 如果原始内容不存在，创建占位符
+            // 如果原始内容不存在，创建占位符内容
             settingsWindow.innerHTML = `
-                <div style="padding: 20px; text-align: center;">
+                <div class="mobile-window-content" style="text-align: center;">
                     <h2>⚙️ 设置</h2>
                     <p>正在加载设置界面...</p>
                 </div>
@@ -1206,26 +1245,28 @@ class MobileUIManager {
         testWindow.id = 'mobileTestWindow';
         testWindow.className = 'mobile-window';
         testWindow.innerHTML = `
-            <div class="mobile-test-content">
-                <h2>📝 测试模式</h2>
-                <div class="mobile-test-area">
-                    <div class="mobile-word-card">
-                        <div class="mobile-word-image" id="testWordImage">💎</div>
-                        <div class="mobile-word-text" id="testWordText">Diamond</div>
-                        <div class="mobile-word-phonetic" id="testWordPhonetic">/ˈdaɪmənd/</div>
-                    </div>
+            <div class="mobile-window-content">
+                <div class="mobile-test-content">
+                    <h2>📝 测试模式</h2>
+                    <div class="mobile-test-area">
+                        <div class="mobile-word-card">
+                            <div class="mobile-word-image" id="testWordImage">💎</div>
+                            <div class="mobile-word-text" id="testWordText">Diamond</div>
+                            <div class="mobile-word-phonetic" id="testWordPhonetic">/ˈdaɪmənd/</div>
+                        </div>
 
-                    <div class="mobile-test-options">
-                        <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, true)">钻石</button>
-                        <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">石头</button>
-                        <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">黄金</button>
-                        <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">铁矿</button>
-                    </div>
+                        <div class="mobile-test-options">
+                            <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, true)">钻石</button>
+                            <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">石头</button>
+                            <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">黄金</button>
+                            <button class="mobile-option-btn" onclick="mobileUI.selectTestOption(this, false)">铁矿</button>
+                        </div>
 
-                    <div class="mobile-test-controls">
-                        <button class="mobile-control-btn" onclick="mobileUI.previousTestWord()">⬅️ 上一个</button>
-                        <button class="mobile-control-btn mobile-btn-play" onclick="mobileUI.playTestAudio()">🔊</button>
-                        <button class="mobile-control-btn" onclick="mobileUI.nextTestWord()">下一个 ➡️</button>
+                        <div class="mobile-test-controls">
+                            <button class="mobile-control-btn" onclick="mobileUI.previousTestWord()">⬅️ 上一个</button>
+                            <button class="mobile-control-btn mobile-btn-play" onclick="mobileUI.playTestAudio()">🔊</button>
+                            <button class="mobile-control-btn" onclick="mobileUI.nextTestWord()">下一个 ➡️</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1236,33 +1277,29 @@ class MobileUIManager {
         const quizWindow = document.createElement('div');
         quizWindow.id = 'mobileQuizWindow';
         quizWindow.className = 'mobile-window';
-        quizWindow.innerHTML = `
-            <div class="mobile-quiz-content">
-                <h2>🔤 拼写模式</h2>
-                <div class="mobile-quiz-area">
-                    <div class="mobile-word-card">
-                        <div class="mobile-word-image" id="quizWordImage">💎</div>
-                        <div class="mobile-word-chinese" id="quizWordChinese">钻石</div>
-                        <div class="mobile-word-phonetic" id="quizWordPhonetic">/ˈdaɪmənd/</div>
-                    </div>
 
-                    <div class="mobile-spelling-input">
-                        <input type="text" id="quizSpellingInput" placeholder="请输入英文单词..." onkeypress="mobileUI.handleSpellingKeyPress(event)">
-                        <button class="mobile-submit-btn" onclick="mobileUI.checkSpelling()">提交</button>
-                    </div>
-
-                    <div class="mobile-quiz-controls">
-                        <button class="mobile-control-btn" onclick="mobileUI.previousQuizWord()">⬅️ 上一个</button>
-                        <button class="mobile-control-btn mobile-btn-play" onclick="mobileUI.playQuizAudio()">🔊</button>
-                        <button class="mobile-control-btn" onclick="mobileUI.nextQuizWord()">下一个 ➡️</button>
-                    </div>
-
-                    <div class="mobile-quiz-hint">
-                        <button class="mobile-hint-btn" onclick="mobileUI.showSpellingHint()">💡 提示</button>
-                    </div>
+        // 复用桌面 quizMode 原始节点，保证拼写模式 UI 一致
+        const originalQuizMode = document.getElementById('quizMode');
+        if (originalQuizMode) {
+            // 在原位置插入占位符，便于禁用移动模式时复原
+            if (!document.getElementById('quizModePlaceholder')) {
+                const placeholder = document.createElement('div');
+                placeholder.id = 'quizModePlaceholder';
+                placeholder.style.display = 'none';
+                originalQuizMode.parentNode.insertBefore(placeholder, originalQuizMode);
+            }
+            const wrapper = document.createElement('div');
+            wrapper.className = 'mobile-window-content';
+            wrapper.appendChild(originalQuizMode);
+            quizWindow.appendChild(wrapper);
+        } else {
+            quizWindow.innerHTML = `
+                <div class="mobile-window-content" style="text-align:center;">
+                    <h2 class="mobile-title">✍️ 拼写</h2>
+                    <p>正在加载拼写界面...</p>
                 </div>
-            </div>
-        `;
+            `;
+        }
         this.windowContainer.appendChild(quizWindow);
 
         // 统计窗口 - 创建简化的统计界面
@@ -1270,10 +1307,11 @@ class MobileUIManager {
         statsWindow.id = 'mobileStatsWindow';
         statsWindow.className = 'mobile-window';
         statsWindow.innerHTML = `
-            <div class="mobile-stats-content">
-                <h2>📊 学习统计</h2>
-                <div id="mobileStatsContainer">
-                    <!-- 统计内容将在这里动态生成 -->
+            <div class="mobile-window-content">
+                <div class="mobile-stats-content">
+                    <h2 class="mobile-title">📊 学习统计</h2>
+                    <div class="stats-summary"></div>
+                    <div class="group-progress"></div>
                 </div>
             </div>
         `;
@@ -1509,8 +1547,15 @@ class MobileUIManager {
      */
     populateQuizWindow() {
         console.log('[MobileUI] 填充拼写窗口内容');
-        this.updateQuizWord();
-        document.getElementById('quizSpellingInput').value = '';
+        // 确保拼写模式正确初始化
+        if (typeof updateQuizDisplay === 'function') {
+            updateQuizDisplay();
+        }
+        // 清空输入框
+        const spellingInput = document.getElementById('spellingInput');
+        if (spellingInput) {
+            spellingInput.value = '';
+        }
     }
 
     /**
@@ -1904,9 +1949,29 @@ class MobileUIManager {
      * 禁用移动UI，恢复原始界面
      */
     disableMobileUI() {
-        if (!this.isMobileMode) return;
-
+        // 不再根据 isMobileMode 直接返回；无论当前标志为何，都尝试恢复原始界面
         console.log('[MobileUI] 禁用移动UI模式');
+
+        // 先将原始节点复原回桌面布局（在移除窗口容器之前）
+        try {
+            const settingsPlaceholder = document.getElementById('settingsModePlaceholder');
+            const settingsMode = document.getElementById('settingsMode');
+            if (settingsPlaceholder && settingsMode && settingsPlaceholder.parentNode) {
+                settingsPlaceholder.parentNode.replaceChild(settingsMode, settingsPlaceholder);
+            }
+            const quizPlaceholder = document.getElementById('quizModePlaceholder');
+            const quizMode = document.getElementById('quizMode');
+            if (quizPlaceholder && quizMode && quizPlaceholder.parentNode) {
+                quizPlaceholder.parentNode.replaceChild(quizMode, quizPlaceholder);
+            }
+            const learnPlaceholder = document.getElementById('learnModePlaceholder');
+            const learnMode = document.getElementById('learnMode');
+            if (learnPlaceholder && learnMode && learnPlaceholder.parentNode) {
+                learnPlaceholder.parentNode.replaceChild(learnMode, learnPlaceholder);
+            }
+        } catch (e) {
+            console.warn('[MobileUI] 复原桌面布局失败', e);
+        }
 
         // 移除窗口容器
         if (this.windowContainer) {

@@ -60,7 +60,10 @@ function loadSettings() {
     
     // 应用设置到界面
     applySettingsToUI(settings);
-    
+
+    // 更新设备模式按钮状态
+    updateDeviceModeButtons(settings.deviceMode);
+
     return settings;
 }
 
@@ -126,34 +129,35 @@ function applySettingsToUI(settings) {
 }
 
 // 保存设置
-function saveSettings() {
-    const settings = getSettings();
-    localStorage.setItem(CONFIG.STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+function saveSettings(overrides) {
+    // 合并覆盖项，允许调用方强制更新某些设置（例如 deviceMode）
+    const merged = { ...getSettings(), ...(overrides || {}) };
+    localStorage.setItem(CONFIG.STORAGE_KEYS.SETTINGS, JSON.stringify(merged));
     
     // 应用幼儿园模式变化
-    applyKindergartenMode(settings.kindergartenMode);
+    applyKindergartenMode(merged.kindergartenMode);
 
     // 应用设备/显示设置
-    applyDisplaySettings(settings);
+    applyDisplaySettings(merged);
 
     // 同步拼写设置到本地键
     try {
         // 默认子模式只在未手动切换过时覆盖
         const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
-        if (!hasExplicit && settings.spellingDefaultSubmode) {
-            localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
+        if (!hasExplicit && merged.spellingDefaultSubmode) {
+            localStorage.setItem('SPELLING_SUBMODE', merged.spellingDefaultSubmode);
         }
         // 兼容写入旧键（是否显示提示）
-        localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+        localStorage.setItem('SPELLING_HINT', merged.spellingHint ? '1' : '0');
         // 写入新键（提示模式 ends/full/none）
-        localStorage.setItem('SPELLING_HINT_MODE', settings.spellingHintMode || 'full');
+        localStorage.setItem('SPELLING_HINT_MODE', merged.spellingHintMode || 'full');
         // 若当前在拼写页面并存在切换函数，则应用到UI
         if (typeof setSpellingSubmode === 'function') {
-            setSpellingSubmode(localStorage.getItem('SPELLING_SUBMODE') || settings.spellingDefaultSubmode || 'spell');
+            setSpellingSubmode(localStorage.getItem('SPELLING_SUBMODE') || merged.spellingDefaultSubmode || 'spell');
         }
     } catch(e) {}
     
-    return settings;
+    return merged;
 }
 
 // 更新设置显示
@@ -382,6 +386,48 @@ function exportProgress() {
     showNotification('学习数据已导出');
 }
 
+// 切换设备模式
+function switchDeviceMode(mode) {
+    // 将设备模式直接写入设置并保存（避免被 getSettings 重置）
+    saveSettings({ deviceMode: mode });
+
+    // 更新按钮状态
+    updateDeviceModeButtons(mode);
+
+    // 重新检测手机模式
+    if (window.mobileUI) {
+        window.mobileUI.detectMobileMode();
+        if (window.mobileUI.isInMobileMode()) {
+            window.mobileUI.setupMobileUI();
+        } else {
+            window.mobileUI.disableMobileUI();
+        }
+    }
+
+    showNotification(`已切换到${mode === 'phone' ? '手机' : mode === 'tablet' ? '平板' : '桌面'}模式`);
+}
+
+// 更新设备模式按钮状态
+function updateDeviceModeButtons(currentMode) {
+    const buttons = ['phone', 'tablet', 'desktop'];
+    buttons.forEach(mode => {
+        const id = mode + 'ModeBtn';
+        // 使用属性选择器，兼容被克隆的设置窗口中重复的ID
+        const btns = document.querySelectorAll(`[id="${id}"]`);
+        btns.forEach(btn => {
+            if (mode === currentMode) {
+                btn.style.background = 'rgba(255,255,255,0.4)';
+                btn.style.borderColor = 'rgba(255,255,255,0.8)';
+                btn.style.fontWeight = 'bold';
+            } else {
+                btn.style.background = 'rgba(255,255,255,0.2)';
+                btn.style.borderColor = 'rgba(255,255,255,0.3)';
+                btn.style.fontWeight = 'normal';
+            }
+        });
+    });
+}
+
 // 初始化设置事件监听器
 function initializeSettingsEventListeners() {
     // 语音设置滑块
@@ -475,13 +521,26 @@ function initializeSettingsEventListeners() {
     if (phoneWindowModeEl) {
         phoneWindowModeEl.addEventListener('change', function() {
             saveSettings();
-            // 手机窗口模式改变时，重新初始化手机UI
+            // 手机窗口模式改变时，切换UI模式
             if (window.mobileUI) {
-                if (this.checked && window.mobileUI.isInMobileMode()) {
-                    window.mobileUI.setupMobileUI();
-                } else if (!this.checked) {
-                    // 禁用窗口模式，恢复原始界面
+                if (this.checked) {
+                    // 启用手机窗口模式
+                    window.mobileUI.detectMobileMode();
+                    if (window.mobileUI.isInMobileMode()) {
+                        window.mobileUI.setupMobileUI();
+                    } else {
+                        alert('当前设备不支持手机窗口模式，请将设备模式设置为"手机"');
+                        this.checked = false;
+                        saveSettings();
+                    }
+                } else {
+                    // 禁用手机窗口模式
                     window.mobileUI.disableMobileUI();
+                    // 显示原始界面
+                    const originalContainer = document.querySelector('.container');
+                    if (originalContainer) {
+                        originalContainer.style.display = '';
+                    }
                 }
             }
         });

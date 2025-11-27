@@ -4,7 +4,7 @@
 function getStorageKeysSafe() {
   try {
     if (typeof CONFIG !== 'undefined' && CONFIG.STORAGE_KEYS) return CONFIG.STORAGE_KEYS;
-  } catch (e) {}
+  } catch (e) { }
   return {
     SETTINGS: 'settings',
     PROGRESS: 'learningProgress',
@@ -34,581 +34,583 @@ function detectDeviceMode() {
 
 // 加载设置
 function loadSettings() {
-    const savedStr = localStorage.getItem(CONFIG.STORAGE_KEYS.SETTINGS);
-    let savedObj = null;
-    let settings = CONFIG.DEFAULT_SETTINGS;
-    
-    if (savedStr) {
-        try {
-            savedObj = JSON.parse(savedStr);
-        } catch (error) {
-            console.warn('加载设置失败，使用默认设置:', error);
-        }
+  const savedStr = localStorage.getItem(CONFIG.STORAGE_KEYS.SETTINGS);
+  let savedObj = null;
+  let settings = CONFIG.DEFAULT_SETTINGS;
+
+  if (savedStr) {
+    try {
+      savedObj = JSON.parse(savedStr);
+    } catch (error) {
+      console.warn('加载设置失败，使用默认设置:', error);
     }
+  }
 
-    // 合并默认与已保存
-    settings = { ...CONFIG.DEFAULT_SETTINGS, ...(savedObj || {}) };
+  // 合并默认与已保存
+  settings = { ...CONFIG.DEFAULT_SETTINGS, ...(savedObj || {}) };
 
-    // 若用户未保存过 deviceMode，则按设备自动检测
-    if (!savedObj || typeof savedObj.deviceMode === 'undefined' || savedObj.deviceMode === null) {
-        settings.deviceMode = detectDeviceMode();
-    }
-    // 若用户未保存过 compactMode，则默认仅在 phone 下开启
-    if (!savedObj || typeof savedObj.compactMode === 'undefined' || savedObj.compactMode === null) {
-        settings.compactMode = (settings.deviceMode === 'phone');
-    }
-    
-    // 应用设置到界面
-    applySettingsToUI(settings);
+  // 若用户未保存过 deviceMode，则按设备自动检测
+  if (!savedObj || typeof savedObj.deviceMode === 'undefined' || savedObj.deviceMode === null) {
+    settings.deviceMode = detectDeviceMode();
+  }
+  // 若用户未保存过 compactMode，则默认仅在 phone 下开启
+  if (!savedObj || typeof savedObj.compactMode === 'undefined' || savedObj.compactMode === null) {
+    settings.compactMode = (settings.deviceMode === 'phone');
+  }
 
-    // 更新设备模式按钮状态
-    updateDeviceModeButtons(settings.deviceMode);
+  // 应用设置到界面
+  applySettingsToUI(settings);
 
-    return settings;
+  // 更新设备模式按钮状态
+  updateDeviceModeButtons(settings.deviceMode);
+
+  return settings;
 }
 
 // 应用设置到界面
 function applySettingsToUI(settings) {
-    const elements = {
-        speechRate: document.getElementById('speechRate'),
-        speechPitch: document.getElementById('speechPitch'),
-        speechVolume: document.getElementById('speechVolume'),
-        autoPlay: document.getElementById('autoPlay'),
-        showImages: document.getElementById('showImages'),
-        kindergartenMode: document.getElementById('kindergartenMode'),
-        // 新增：混合幼儿园词库
-        mixKindergartenEnabled: document.getElementById('mixKindergartenEnabled'),
-        mixKindergartenRatio: document.getElementById('mixKindergartenRatio'),
-        quizCount: document.getElementById('quizCount'),
-        // 新增：拼写设置
-        spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode'),
-        spellingHint: document.getElementById('spellingHint'),
-        // 新增：拼写提示模式（ends/full）
-        spellingHintMode: document.getElementById('spellingHintMode'),
-        // 新增：设备与显示
-        deviceMode: document.getElementById('deviceMode'),
-        uiScale: document.getElementById('uiScale'),
-        compactMode: document.getElementById('compactMode'),
-        // 新增：手机窗口模式
-        phoneWindowMode: document.getElementById('phoneWindowMode'),
-        // 新增：题目来源过滤
-        questionSource: document.getElementById('questionSource')
-    };
-    
-    Object.keys(elements).forEach(key => {
-        const element = elements[key];
-        if (element) {
-            if (element.type === 'checkbox') {
-                element.checked = settings[key];
-            } else {
-                element.value = settings[key];
-            }
-        }
-    });
-    
-    // 更新显示值
-    updateSettingsDisplay();
-    
-    // 应用幼儿园模式
-    applyKindergartenMode(settings.kindergartenMode);
+  const elements = {
+    speechRate: document.getElementById('speechRate'),
+    speechPitch: document.getElementById('speechPitch'),
+    speechVolume: document.getElementById('speechVolume'),
+    autoPlay: document.getElementById('autoPlay'),
+    showImages: document.getElementById('showImages'),
+    kindergartenMode: document.getElementById('kindergartenMode'),
+    // 新增：混合幼儿园词库
+    mixKindergartenEnabled: document.getElementById('mixKindergartenEnabled'),
+    mixKindergartenRatio: document.getElementById('mixKindergartenRatio'),
+    quizCount: document.getElementById('quizCount'),
+    // 新增：拼写设置
+    spellingDefaultSubmode: document.getElementById('spellingDefaultSubmode'),
+    spellingHint: document.getElementById('spellingHint'),
+    // 新增：拼写提示模式（ends/full）
+    spellingHintMode: document.getElementById('spellingHintMode'),
+    // 新增：设备与显示
+    deviceMode: document.getElementById('deviceMode'),
+    uiScale: document.getElementById('uiScale'),
+    compactMode: document.getElementById('compactMode'),
+    // 新增：手机窗口模式
+    phoneWindowMode: document.getElementById('phoneWindowMode'),
+    // 新增：题目来源过滤
+    questionSource: document.getElementById('questionSource')
+  };
 
-    // 应用设备/显示设置
-    applyDisplaySettings(settings);
+  Object.keys(elements).forEach(key => {
+    const element = elements[key];
+    if (element) {
+      if (element.type === 'checkbox') {
+        element.checked = settings[key];
+      } else {
+        element.value = settings[key];
+      }
+    }
+  });
 
-    // 同步拼写默认子模式与提示模式到拼写页面的持久化键（保持兼容旧键）
-    try {
-        const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
-        if (!hasExplicit && settings.spellingDefaultSubmode) {
-            localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
-        }
-        // 兼容老键：始终写入 SPELLING_HINT（非 none 情况写 1）
-        localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
-        // 新键：写入提示模式（默认为 full）
-        localStorage.setItem('SPELLING_HINT_MODE', settings.spellingHintMode || 'full');
-    } catch(e) {}
+  // 更新显示值
+  updateSettingsDisplay();
+
+  // 应用幼儿园模式
+  applyKindergartenMode(settings.kindergartenMode);
+
+  // 应用设备/显示设置
+  applyDisplaySettings(settings);
+
+  // 同步拼写默认子模式与提示模式到拼写页面的持久化键（保持兼容旧键）
+  try {
+    const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
+    if (!hasExplicit && settings.spellingDefaultSubmode) {
+      localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
+    }
+    // 兼容老键：始终写入 SPELLING_HINT（非 none 情况写 1）
+    localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
+    // 新键：写入提示模式（默认为 full）
+    localStorage.setItem('SPELLING_HINT_MODE', settings.spellingHintMode || 'full');
+  } catch (e) { }
 }
 
 // 保存设置
-function saveSettings() {
-    const settings = getSettings();
-    localStorage.setItem(CONFIG.STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
-    
-    // 应用幼儿园模式变化
-    applyKindergartenMode(settings.kindergartenMode);
+function saveSettings(overrides) {
+  // 合并覆盖项，允许调用方强制更新某些设置（例如 deviceMode）
+  const merged = { ...getSettings(), ...(overrides || {}) };
+  localStorage.setItem(CONFIG.STORAGE_KEYS.SETTINGS, JSON.stringify(merged));
 
-    // 应用设备/显示设置
-    applyDisplaySettings(settings);
+  // 应用幼儿园模式变化
+  applyKindergartenMode(merged.kindergartenMode);
 
-    // 同步拼写设置到本地键
-    try {
-        // 默认子模式只在未手动切换过时覆盖
-        const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
-        if (!hasExplicit && settings.spellingDefaultSubmode) {
-            localStorage.setItem('SPELLING_SUBMODE', settings.spellingDefaultSubmode);
-        }
-        // 兼容写入旧键（是否显示提示）
-        localStorage.setItem('SPELLING_HINT', settings.spellingHint ? '1' : '0');
-        // 写入新键（提示模式 ends/full/none）
-        localStorage.setItem('SPELLING_HINT_MODE', settings.spellingHintMode || 'full');
-        // 若当前在拼写页面并存在切换函数，则应用到UI
-        if (typeof setSpellingSubmode === 'function') {
-            setSpellingSubmode(localStorage.getItem('SPELLING_SUBMODE') || settings.spellingDefaultSubmode || 'spell');
-        }
-    } catch(e) {}
-    
-    return settings;
+  // 应用设备/显示设置
+  applyDisplaySettings(merged);
+
+  // 同步拼写设置到本地键
+  try {
+    // 默认子模式只在未手动切换过时覆盖
+    const hasExplicit = localStorage.getItem('SPELLING_SUBMODE');
+    if (!hasExplicit && merged.spellingDefaultSubmode) {
+      localStorage.setItem('SPELLING_SUBMODE', merged.spellingDefaultSubmode);
+    }
+    // 兼容写入旧键（是否显示提示）
+    localStorage.setItem('SPELLING_HINT', merged.spellingHint ? '1' : '0');
+    // 写入新键（提示模式 ends/full/none）
+    localStorage.setItem('SPELLING_HINT_MODE', merged.spellingHintMode || 'full');
+    // 若当前在拼写页面并存在切换函数，则应用到UI
+    if (typeof setSpellingSubmode === 'function') {
+      setSpellingSubmode(localStorage.getItem('SPELLING_SUBMODE') || merged.spellingDefaultSubmode || 'spell');
+    }
+  } catch (e) { }
+
+  return merged;
 }
 
 // 更新设置显示
 function updateSettingsDisplay() {
-    const rateValue = document.getElementById('rateValue');
-    const pitchValue = document.getElementById('pitchValue');
-    const volumeValue = document.getElementById('volumeValue');
-    const speechRate = document.getElementById('speechRate');
-    const speechPitch = document.getElementById('speechPitch');
-    const speechVolume = document.getElementById('speechVolume');
-    // 新增：混合比例显示
-    const mixRatio = document.getElementById('mixKindergartenRatio');
-    const mixRatioValue = document.getElementById('mixKindergartenRatioValue');
-    // 新增：界面缩放显示
-    const uiScale = document.getElementById('uiScale');
-    const uiScaleValue = document.getElementById('uiScaleValue');
-    
-    if (rateValue && speechRate) {
-        rateValue.textContent = parseFloat(speechRate.value).toFixed(1);
-    }
-    
-    if (pitchValue && speechPitch) {
-        pitchValue.textContent = parseFloat(speechPitch.value).toFixed(1);
-    }
-    
-    if (volumeValue && speechVolume) {
-        volumeValue.textContent = parseFloat(speechVolume.value).toFixed(1);
-    }
-    
-    if (mixRatio && mixRatioValue) {
-        const v = Math.round(parseFloat(mixRatio.value || '0') * 100);
-        mixRatioValue.textContent = `${v}%`;
-    }
+  const rateValue = document.getElementById('rateValue');
+  const pitchValue = document.getElementById('pitchValue');
+  const volumeValue = document.getElementById('volumeValue');
+  const speechRate = document.getElementById('speechRate');
+  const speechPitch = document.getElementById('speechPitch');
+  const speechVolume = document.getElementById('speechVolume');
+  // 新增：混合比例显示
+  const mixRatio = document.getElementById('mixKindergartenRatio');
+  const mixRatioValue = document.getElementById('mixKindergartenRatioValue');
+  // 新增：界面缩放显示
+  const uiScale = document.getElementById('uiScale');
+  const uiScaleValue = document.getElementById('uiScaleValue');
 
-    if (uiScale && uiScaleValue) {
-        const v = Math.round(parseFloat(uiScale.value || '1') * 100);
-        uiScaleValue.textContent = `${v}%`;
-    }
+  if (rateValue && speechRate) {
+    rateValue.textContent = parseFloat(speechRate.value).toFixed(1);
+  }
+
+  if (pitchValue && speechPitch) {
+    pitchValue.textContent = parseFloat(speechPitch.value).toFixed(1);
+  }
+
+  if (volumeValue && speechVolume) {
+    volumeValue.textContent = parseFloat(speechVolume.value).toFixed(1);
+  }
+
+  if (mixRatio && mixRatioValue) {
+    const v = Math.round(parseFloat(mixRatio.value || '0') * 100);
+    mixRatioValue.textContent = `${v}%`;
+  }
+
+  if (uiScale && uiScaleValue) {
+    const v = Math.round(parseFloat(uiScale.value || '1') * 100);
+    uiScaleValue.textContent = `${v}%`;
+  }
 }
 
 // 应用幼儿园模式
 function applyKindergartenMode(enabled) {
-    const kindergartenSettings = document.getElementById('kindergartenSettings');
-    if (kindergartenSettings) {
-        kindergartenSettings.style.display = enabled ? 'block' : 'none';
-    }
+  const kindergartenSettings = document.getElementById('kindergartenSettings');
+  if (kindergartenSettings) {
+    kindergartenSettings.style.display = enabled ? 'block' : 'none';
+  }
 }
 
 // 重置设置
 function resetSettings() {
-    localStorage.removeItem(CONFIG.STORAGE_KEYS.SETTINGS);
-    showNotification('设置已重置为默认值');
-    loadSettings();
+  localStorage.removeItem(CONFIG.STORAGE_KEYS.SETTINGS);
+  showNotification('设置已重置为默认值');
+  loadSettings();
 }
 
 // 导出设置
 function exportSettings() {
-    const settings = getSettings();
-    const dataStr = JSON.stringify({ settings }, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'settings.json';
-    a.click();
-    
-    URL.revokeObjectURL(url);
+  const settings = getSettings();
+  const dataStr = JSON.stringify({ settings }, null, 2);
+  const blob = new Blob([dataStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'settings.json';
+  a.click();
+
+  URL.revokeObjectURL(url);
 }
 
 // 导入设置
 function importSettings() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.json';
-    
-    input.onchange = function() {
-        const file = input.files[0];
-        if (!file) return;
-        
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            try {
-                const data = JSON.parse(e.target.result);
-                if (data.settings) {
-                    applySettingsToUI(data.settings);
-                    saveSettings();
-                    showNotification('设置已导入');
-                } else {
-                    throw new Error('无效的设置文件格式');
-                }
-            } catch (error) {
-                showNotification('导入设置失败: ' + error.message, 'error');
-            }
-        };
-        reader.readAsText(file);
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json';
+
+  input.onchange = function () {
+    const file = input.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (data.settings) {
+          applySettingsToUI(data.settings);
+          saveSettings();
+          showNotification('设置已导入');
+        } else {
+          throw new Error('无效的设置文件格式');
+        }
+      } catch (error) {
+        showNotification('导入设置失败: ' + error.message, 'error');
+      }
     };
-    
-    input.click();
+    reader.readAsText(file);
+  };
+
+  input.click();
 }
 
 // 进度相关函数
 function loadProgress() {
-    const KEYS = getStorageKeysSafe();
-    const key = (function(){
-        try {
-            const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(KEYS.LEARN_TYPE) || 'word');
-            return (lt === 'word' || lt === 'word_zh') ? KEYS.PROGRESS : KEYS.PROGRESS_PHRASE;
-        } catch(e) { return KEYS.PROGRESS; }
-    })();
-    const saved = localStorage.getItem(key);
-    if (saved) {
-        try {
-            const progress = JSON.parse(saved);
-            updateProgressDisplay(progress);
-        } catch (error) {
-            console.warn('加载进度失败:', error);
-        }
-    } else {
-        updateProgressDisplay({});
+  const KEYS = getStorageKeysSafe();
+  const key = (function () {
+    try {
+      const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(KEYS.LEARN_TYPE) || 'word');
+      return (lt === 'word' || lt === 'word_zh') ? KEYS.PROGRESS : KEYS.PROGRESS_PHRASE;
+    } catch (e) { return KEYS.PROGRESS; }
+  })();
+  const saved = localStorage.getItem(key);
+  if (saved) {
+    try {
+      const progress = JSON.parse(saved);
+      updateProgressDisplay(progress);
+    } catch (error) {
+      console.warn('加载进度失败:', error);
     }
+  } else {
+    updateProgressDisplay({});
+  }
 }
 
 // 更新进度显示
 function updateProgressDisplay(progress) {
-    const totalStudyTime = document.getElementById('totalStudyTime');
-    const studyDays = document.getElementById('studyDays');
-    const masteredWords = document.getElementById('masteredWords');
-    
-    if (totalStudyTime) {
-        const timeInMinutes = Math.round((progress.totalTime || 0) / 60000);
-        totalStudyTime.textContent = formatTime(progress.totalTime || 0);
-    }
-    
-    if (studyDays) {
-        studyDays.textContent = (progress.studyDays || 0) + ' 天';
-    }
-    
-    if (masteredWords) {
-        masteredWords.textContent = (progress.masteredWords || 0) + ' 个';
-    }
+  const totalStudyTime = document.getElementById('totalStudyTime');
+  const studyDays = document.getElementById('studyDays');
+  const masteredWords = document.getElementById('masteredWords');
+
+  if (totalStudyTime) {
+    const timeInMinutes = Math.round((progress.totalTime || 0) / 60000);
+    totalStudyTime.textContent = formatTime(progress.totalTime || 0);
+  }
+
+  if (studyDays) {
+    studyDays.textContent = (progress.studyDays || 0) + ' 天';
+  }
+
+  if (masteredWords) {
+    masteredWords.textContent = (progress.masteredWords || 0) + ' 个';
+  }
 }
 
 // 保存进度
 function saveProgress() {
-    try {
-        const KEYS = getStorageKeysSafe();
-        const key = (function(){
-            try {
-                const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(KEYS.LEARN_TYPE) || 'word');
-                return (lt === 'word' || lt === 'word_zh') ? KEYS.PROGRESS : KEYS.PROGRESS_PHRASE;
-            } catch(e) { return KEYS.PROGRESS; }
-        })();
-        const saved = localStorage.getItem(key);
-        const progress = saved ? JSON.parse(saved) : {};
-        const baseStart = (typeof studyStartTime !== 'undefined' ? studyStartTime : Date.now());
-        progress.totalTime = (progress.totalTime || 0) + (Date.now() - baseStart);
-        progress.masteredWords = Math.max(progress.masteredWords || 0, (typeof currentWordIndex !== 'undefined' ? currentWordIndex + 1 : 0));
-        
-        // 检查是否是新的一天
-        const today = getCurrentDateString();
-        if (progress.lastStudyDate !== today) {
-            progress.studyDays = (progress.studyDays || 0) + 1;
-            progress.lastStudyDate = today;
-        }
-        
-        localStorage.setItem(key, JSON.stringify(progress));
-        try { studyStartTime = Date.now(); } catch(e) { window.studyStartTime = Date.now(); }
-        
-        updateProgressDisplay(progress);
-    } catch (e) {
-        console.warn('saveProgress 失败，已忽略：', e);
+  try {
+    const KEYS = getStorageKeysSafe();
+    const key = (function () {
+      try {
+        const lt = (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(KEYS.LEARN_TYPE) || 'word');
+        return (lt === 'word' || lt === 'word_zh') ? KEYS.PROGRESS : KEYS.PROGRESS_PHRASE;
+      } catch (e) { return KEYS.PROGRESS; }
+    })();
+    const saved = localStorage.getItem(key);
+    const progress = saved ? JSON.parse(saved) : {};
+    const baseStart = (typeof studyStartTime !== 'undefined' ? studyStartTime : Date.now());
+    progress.totalTime = (progress.totalTime || 0) + (Date.now() - baseStart);
+    progress.masteredWords = Math.max(progress.masteredWords || 0, (typeof currentWordIndex !== 'undefined' ? currentWordIndex + 1 : 0));
+
+    // 检查是否是新的一天
+    const today = getCurrentDateString();
+    if (progress.lastStudyDate !== today) {
+      progress.studyDays = (progress.studyDays || 0) + 1;
+      progress.lastStudyDate = today;
     }
+
+    localStorage.setItem(key, JSON.stringify(progress));
+    try { studyStartTime = Date.now(); } catch (e) { window.studyStartTime = Date.now(); }
+
+    updateProgressDisplay(progress);
+  } catch (e) {
+    console.warn('saveProgress 失败，已忽略：', e);
+  }
 }
 
 // 清除进度
 function clearProgress() {
-    if (confirm('确定要清除所有学习记录吗？此操作不可恢复。')) {
-        const KEYS = getStorageKeysSafe();
-        // 同时清理单词与短语两套键
-        localStorage.removeItem(KEYS.PROGRESS);
-        localStorage.removeItem(KEYS.PROGRESS_PHRASE);
-        localStorage.removeItem(KEYS.KINDERGARTEN_PROGRESS);
-        localStorage.removeItem(KEYS.KINDERGARTEN_PROGRESS_PHRASE);
-        
-        // 重置显示
-        updateProgressDisplay({});
-        resetKindergartenProgress();
-        
-        showNotification('学习记录已清除');
-    }
+  if (confirm('确定要清除所有学习记录吗？此操作不可恢复。')) {
+    const KEYS = getStorageKeysSafe();
+    // 同时清理单词与短语两套键
+    localStorage.removeItem(KEYS.PROGRESS);
+    localStorage.removeItem(KEYS.PROGRESS_PHRASE);
+    localStorage.removeItem(KEYS.KINDERGARTEN_PROGRESS);
+    localStorage.removeItem(KEYS.KINDERGARTEN_PROGRESS_PHRASE);
+
+    // 重置显示
+    updateProgressDisplay({});
+    resetKindergartenProgress();
+
+    showNotification('学习记录已清除');
+  }
 }
 
 // 导出进度数据
 function exportProgress() {
-    const KEYS = getStorageKeysSafe();
-    const progress_word = localStorage.getItem(KEYS.PROGRESS);
-    const progress_phrase = localStorage.getItem(KEYS.PROGRESS_PHRASE);
-    const kindergarten_word = localStorage.getItem(KEYS.KINDERGARTEN_PROGRESS);
-    const kindergarten_phrase = localStorage.getItem(KEYS.KINDERGARTEN_PROGRESS_PHRASE);
-    
-    if (!progress_word && !progress_phrase && !kindergarten_word && !kindergarten_phrase) {
-        showNotification('没有学习数据可导出', 'error');
-        return;
-    }
-    
-    const exportData = {
-        progress_word: progress_word ? JSON.parse(progress_word) : null,
-        progress_phrase: progress_phrase ? JSON.parse(progress_phrase) : null,
-        kindergarten_word: kindergarten_word ? JSON.parse(kindergarten_word) : null,
-        kindergarten_phrase: kindergarten_phrase ? JSON.parse(kindergarten_phrase) : null,
-        exportDate: new Date().toISOString(),
-        version: '1.1'
-    };
-    
-    const dataStr = JSON.stringify(exportData, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `learning_progress_${getCurrentDateString()}.json`;
-    a.click();
-    
-    URL.revokeObjectURL(url);
-    showNotification('学习数据已导出');
+  const KEYS = getStorageKeysSafe();
+  const progress_word = localStorage.getItem(KEYS.PROGRESS);
+  const progress_phrase = localStorage.getItem(KEYS.PROGRESS_PHRASE);
+  const kindergarten_word = localStorage.getItem(KEYS.KINDERGARTEN_PROGRESS);
+  const kindergarten_phrase = localStorage.getItem(KEYS.KINDERGARTEN_PROGRESS_PHRASE);
+
+  if (!progress_word && !progress_phrase && !kindergarten_word && !kindergarten_phrase) {
+    showNotification('没有学习数据可导出', 'error');
+    return;
+  }
+
+  const exportData = {
+    progress_word: progress_word ? JSON.parse(progress_word) : null,
+    progress_phrase: progress_phrase ? JSON.parse(progress_phrase) : null,
+    kindergarten_word: kindergarten_word ? JSON.parse(kindergarten_word) : null,
+    kindergarten_phrase: kindergarten_phrase ? JSON.parse(kindergarten_phrase) : null,
+    exportDate: new Date().toISOString(),
+    version: '1.1'
+  };
+
+  const dataStr = JSON.stringify(exportData, null, 2);
+  const blob = new Blob([dataStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `learning_progress_${getCurrentDateString()}.json`;
+  a.click();
+
+  URL.revokeObjectURL(url);
+  showNotification('学习数据已导出');
 }
 
 // 切换设备模式
 function switchDeviceMode(mode) {
-    const settings = getSettings();
-    settings.deviceMode = mode;
-    saveSettings();
+  // 将设备模式直接写入设置并保存（避免被 getSettings 重置）
+  saveSettings({ deviceMode: mode });
 
-    // 更新按钮状态
-    updateDeviceModeButtons(mode);
+  // 更新按钮状态
+  updateDeviceModeButtons(mode);
 
-    // 重新检测手机模式
-    if (window.mobileUI) {
-        window.mobileUI.detectMobileMode();
-        if (window.mobileUI.isInMobileMode()) {
-            window.mobileUI.setupMobileUI();
-        } else {
-            window.mobileUI.disableMobileUI();
-        }
+  // 重新检测手机模式
+  if (window.mobileUI) {
+    window.mobileUI.detectMobileMode();
+    if (window.mobileUI.isInMobileMode()) {
+      window.mobileUI.setupMobileUI();
+    } else {
+      window.mobileUI.disableMobileUI();
     }
+  }
 
-    showNotification(`已切换到${mode === 'phone' ? '手机' : mode === 'tablet' ? '平板' : '桌面'}模式`);
+  showNotification(`已切换到${mode === 'phone' ? '手机' : mode === 'tablet' ? '平板' : '桌面'}模式`);
 }
 
 // 更新设备模式按钮状态
 function updateDeviceModeButtons(currentMode) {
-    const buttons = ['phone', 'tablet', 'desktop'];
-    buttons.forEach(mode => {
-        const btn = document.getElementById(mode + 'ModeBtn');
-        if (btn) {
-            if (mode === currentMode) {
-                btn.style.background = 'rgba(255,255,255,0.4)';
-                btn.style.borderColor = 'rgba(255,255,255,0.8)';
-                btn.style.fontWeight = 'bold';
-            } else {
-                btn.style.background = 'rgba(255,255,255,0.2)';
-                btn.style.borderColor = 'rgba(255,255,255,0.3)';
-                btn.style.fontWeight = 'normal';
-            }
-        }
+  const buttons = ['phone', 'tablet', 'desktop'];
+  buttons.forEach(mode => {
+    const id = mode + 'ModeBtn';
+    // 使用属性选择器，兼容被克隆的设置窗口中重复的ID
+    const btns = document.querySelectorAll(`[id="${id}"]`);
+    btns.forEach(btn => {
+      if (mode === currentMode) {
+        btn.style.background = 'rgba(255,255,255,0.4)';
+        btn.style.borderColor = 'rgba(255,255,255,0.8)';
+        btn.style.fontWeight = 'bold';
+      } else {
+        btn.style.background = 'rgba(255,255,255,0.2)';
+        btn.style.borderColor = 'rgba(255,255,255,0.3)';
+        btn.style.fontWeight = 'normal';
+      }
     });
+  });
 }
 
 // 初始化设置事件监听器
 function initializeSettingsEventListeners() {
-    // 语音设置滑块
-    const speechRate = document.getElementById('speechRate');
-    const speechPitch = document.getElementById('speechPitch');
-    const speechVolume = document.getElementById('speechVolume');
-    
-    if (speechRate) {
-        speechRate.addEventListener('input', function() {
-            updateSettingsDisplay();
-            saveSettings();
-        });
-    }
-    
-    if (speechPitch) {
-        speechPitch.addEventListener('input', function() {
-            updateSettingsDisplay();
-            saveSettings();
-        });
-    }
-    
-    if (speechVolume) {
-        speechVolume.addEventListener('input', function() {
-            updateSettingsDisplay();
-            saveSettings();
-        });
-    }
-    
-    // 游戏设置复选框
-    const checkboxes = ['autoPlay', 'showImages', 'kindergartenMode', 'mixKindergartenEnabled'];
-    checkboxes.forEach(id => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.addEventListener('change', saveSettings);
-        }
+  // 语音设置滑块
+  const speechRate = document.getElementById('speechRate');
+  const speechPitch = document.getElementById('speechPitch');
+  const speechVolume = document.getElementById('speechVolume');
+
+  if (speechRate) {
+    speechRate.addEventListener('input', function () {
+      updateSettingsDisplay();
+      saveSettings();
     });
+  }
 
-    // 监听拼写提示模式选择（若控件存在）
-    const hintModeEl = document.getElementById('spellingHintMode');
-    if (hintModeEl) {
-        hintModeEl.addEventListener('change', saveSettings);
-    }
+  if (speechPitch) {
+    speechPitch.addEventListener('input', function () {
+      updateSettingsDisplay();
+      saveSettings();
+    });
+  }
 
-    // 混合比例滑块
-    const mixRatioEl = document.getElementById('mixKindergartenRatio');
-    if (mixRatioEl) {
-        mixRatioEl.addEventListener('input', function() {
-            updateSettingsDisplay();
-            saveSettings();
-        });
-    }
-    
-    // 测试题目数量
-    const quizCount = document.getElementById('quizCount');
-    if (quizCount) {
-        quizCount.addEventListener('change', saveSettings);
-    }
+  if (speechVolume) {
+    speechVolume.addEventListener('input', function () {
+      updateSettingsDisplay();
+      saveSettings();
+    });
+  }
 
-    // 新增：题目来源选择
-    const questionSourceEl = document.getElementById('questionSource');
-    if (questionSourceEl) {
-        questionSourceEl.addEventListener('change', function(){
-            saveSettings();
-            try {
-                // 如有过滤刷新函数，触发立即应用
-                if (typeof applyQuestionSourceFilter === 'function') {
-                    applyQuestionSourceFilter();
-                } else if (typeof updateWordDisplay === 'function') {
-                    // 最小化刷新：不变更索引，仅重新渲染
-                    updateWordDisplay();
-                }
-            } catch(e) {}
-        });
+  // 游戏设置复选框
+  const checkboxes = ['autoPlay', 'showImages', 'kindergartenMode', 'mixKindergartenEnabled'];
+  checkboxes.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.addEventListener('change', saveSettings);
     }
+  });
 
-    // 新增：设备与显示设置监听
-    const deviceModeEl = document.getElementById('deviceMode');
-    if (deviceModeEl) {
-        deviceModeEl.addEventListener('change', function() {
+  // 监听拼写提示模式选择（若控件存在）
+  const hintModeEl = document.getElementById('spellingHintMode');
+  if (hintModeEl) {
+    hintModeEl.addEventListener('change', saveSettings);
+  }
+
+  // 混合比例滑块
+  const mixRatioEl = document.getElementById('mixKindergartenRatio');
+  if (mixRatioEl) {
+    mixRatioEl.addEventListener('input', function () {
+      updateSettingsDisplay();
+      saveSettings();
+    });
+  }
+
+  // 测试题目数量
+  const quizCount = document.getElementById('quizCount');
+  if (quizCount) {
+    quizCount.addEventListener('change', saveSettings);
+  }
+
+  // 新增：题目来源选择
+  const questionSourceEl = document.getElementById('questionSource');
+  if (questionSourceEl) {
+    questionSourceEl.addEventListener('change', function () {
+      saveSettings();
+      try {
+        // 如有过滤刷新函数，触发立即应用
+        if (typeof applyQuestionSourceFilter === 'function') {
+          applyQuestionSourceFilter();
+        } else if (typeof updateWordDisplay === 'function') {
+          // 最小化刷新：不变更索引，仅重新渲染
+          updateWordDisplay();
+        }
+      } catch (e) { }
+    });
+  }
+
+  // 新增：设备与显示设置监听
+  const deviceModeEl = document.getElementById('deviceMode');
+  if (deviceModeEl) {
+    deviceModeEl.addEventListener('change', function () {
+      saveSettings();
+      // 设备模式改变时，重新初始化手机UI
+      if (window.mobileUI) {
+        window.mobileUI.detectMobileMode();
+        if (window.mobileUI.isInMobileMode()) {
+          window.mobileUI.setupMobileUI();
+        }
+      }
+    });
+  }
+  const phoneWindowModeEl = document.getElementById('phoneWindowMode');
+  if (phoneWindowModeEl) {
+    phoneWindowModeEl.addEventListener('change', function () {
+      saveSettings();
+      // 手机窗口模式改变时，切换UI模式
+      if (window.mobileUI) {
+        if (this.checked) {
+          // 启用手机窗口模式
+          window.mobileUI.detectMobileMode();
+          if (window.mobileUI.isInMobileMode()) {
+            window.mobileUI.setupMobileUI();
+          } else {
+            alert('当前设备不支持手机窗口模式，请将设备模式设置为"手机"');
+            this.checked = false;
             saveSettings();
-            // 设备模式改变时，重新初始化手机UI
-            if (window.mobileUI) {
-                window.mobileUI.detectMobileMode();
-                if (window.mobileUI.isInMobileMode()) {
-                    window.mobileUI.setupMobileUI();
-                }
-            }
-        });
-    }
-    const phoneWindowModeEl = document.getElementById('phoneWindowMode');
-    if (phoneWindowModeEl) {
-        phoneWindowModeEl.addEventListener('change', function() {
-            saveSettings();
-            // 手机窗口模式改变时，切换UI模式
-            if (window.mobileUI) {
-                if (this.checked) {
-                    // 启用手机窗口模式
-                    window.mobileUI.detectMobileMode();
-                    if (window.mobileUI.isInMobileMode()) {
-                        window.mobileUI.setupMobileUI();
-                    } else {
-                        alert('当前设备不支持手机窗口模式，请将设备模式设置为"手机"');
-                        this.checked = false;
-                        saveSettings();
-                    }
-                } else {
-                    // 禁用手机窗口模式
-                    window.mobileUI.disableMobileUI();
-                    // 显示原始界面
-                    const originalContainer = document.querySelector('.container');
-                    if (originalContainer) {
-                        originalContainer.style.display = '';
-                    }
-                }
-            }
-        });
-    }
-    const uiScaleEl = document.getElementById('uiScale');
-    if (uiScaleEl) {
-        uiScaleEl.addEventListener('input', function() {
-            updateSettingsDisplay();
-            saveSettings();
-        });
-    }
-    const compactModeEl = document.getElementById('compactMode');
-    if (compactModeEl) {
-        compactModeEl.addEventListener('change', saveSettings);
-    }
+          }
+        } else {
+          // 禁用手机窗口模式
+          window.mobileUI.disableMobileUI();
+          // 显示原始界面
+          const originalContainer = document.querySelector('.container');
+          if (originalContainer) {
+            originalContainer.style.display = '';
+          }
+        }
+      }
+    });
+  }
+  const uiScaleEl = document.getElementById('uiScale');
+  if (uiScaleEl) {
+    uiScaleEl.addEventListener('input', function () {
+      updateSettingsDisplay();
+      saveSettings();
+    });
+  }
+  const compactModeEl = document.getElementById('compactMode');
+  if (compactModeEl) {
+    compactModeEl.addEventListener('change', saveSettings);
+  }
 }
 
 // 获取学习统计（基于当前学习类型）
 function getLearningStats() {
   const KEYS = getStorageKeysSafe();
-  const lt = (function(){
+  const lt = (function () {
     try {
       return (typeof learnType !== 'undefined') ? learnType : (localStorage.getItem(KEYS.LEARN_TYPE) || 'word');
-    } catch(e) { return 'word'; }
+    } catch (e) { return 'word'; }
   })();
   const isWord = (lt === 'word' || lt === 'word_zh');
   const progressKey = isWord ? KEYS.PROGRESS : KEYS.PROGRESS_PHRASE;
   const kgKey = isWord ? KEYS.KINDERGARTEN_PROGRESS : KEYS.KINDERGARTEN_PROGRESS_PHRASE;
-    
-    const progress = localStorage.getItem(progressKey);
-    const kindergartenProgress = localStorage.getItem(kgKey);
-    
-    const stats = {
-        totalTime: 0,
-        studyDays: 0,
-        masteredWords: 0,
-        quizResults: [],
-        kindergarten: {
-            totalDiamonds: 0,
-            totalSwords: 0,
-            currentGroup: 1,
-            completedGroups: 0
-        }
-    };
-    
-    if (progress) {
-        try {
-            const data = JSON.parse(progress);
-            stats.totalTime = data.totalTime || 0;
-            stats.studyDays = data.studyDays || 0;
-            stats.masteredWords = data.masteredWords || 0;
-            stats.quizResults = data.quizResults || [];
-        } catch (error) {
-            console.warn('解析学习进度失败:', error);
-        }
+
+  const progress = localStorage.getItem(progressKey);
+  const kindergartenProgress = localStorage.getItem(kgKey);
+
+  const stats = {
+    totalTime: 0,
+    studyDays: 0,
+    masteredWords: 0,
+    quizResults: [],
+    kindergarten: {
+      totalDiamonds: 0,
+      totalSwords: 0,
+      currentGroup: 1,
+      completedGroups: 0
     }
-    
-    if (kindergartenProgress) {
-        try {
-            const data = JSON.parse(kindergartenProgress);
-            stats.kindergarten.totalDiamonds = data.totalDiamonds || 0;
-            stats.kindergarten.totalSwords = data.totalSwords || 0;
-            stats.kindergarten.currentGroup = data.currentGroup || 1;
-            stats.kindergarten.completedGroups = (data.currentGroup || 1) - 1;
-        } catch (error) {
-            console.warn('解析幼儿园进度失败:', error);
-        }
+  };
+
+  if (progress) {
+    try {
+      const data = JSON.parse(progress);
+      stats.totalTime = data.totalTime || 0;
+      stats.studyDays = data.studyDays || 0;
+      stats.masteredWords = data.masteredWords || 0;
+      stats.quizResults = data.quizResults || [];
+    } catch (error) {
+      console.warn('解析学习进度失败:', error);
     }
-    
-    return stats;
+  }
+
+  if (kindergartenProgress) {
+    try {
+      const data = JSON.parse(kindergartenProgress);
+      stats.kindergarten.totalDiamonds = data.totalDiamonds || 0;
+      stats.kindergarten.totalSwords = data.totalSwords || 0;
+      stats.kindergarten.currentGroup = data.currentGroup || 1;
+      stats.kindergarten.completedGroups = (data.currentGroup || 1) - 1;
+    } catch (error) {
+      console.warn('解析幼儿园进度失败:', error);
+    }
+  }
+
+  return stats;
 }
 
 // 在页面任意位置调用以应用设备/显示设置
@@ -675,7 +677,7 @@ function getSettings() {
   try {
     const s = localStorage.getItem(KEYS.SETTINGS);
     if (s) saved = JSON.parse(s) || {};
-  } catch(e) {}
+  } catch (e) { }
   const defaults = (typeof CONFIG !== 'undefined' && CONFIG.DEFAULT_SETTINGS) ? CONFIG.DEFAULT_SETTINGS : {};
   const base = { ...defaults, ...saved };
 
@@ -703,7 +705,7 @@ function getSettings() {
     kindergartenMode: bool('kindergartenMode', false),
     // 幼儿园混合
     mixKindergartenEnabled: bool('mixKindergartenEnabled', false),
-    mixKindergartenRatio: (function(){ const v = num('mixKindergartenRatio', 0); return Math.max(0, Math.min(1, v)); })(),
+    mixKindergartenRatio: (function () { const v = num('mixKindergartenRatio', 0); return Math.max(0, Math.min(1, v)); })(),
     // 测试题数量
     quizCount: Math.max(1, Math.round(num('quizCount', 10))),
     // 拼写设置
@@ -712,7 +714,7 @@ function getSettings() {
     spellingHintMode: str('spellingHintMode', base.spellingHintMode || 'full'),
     // 设备与显示
     deviceMode: str('deviceMode', base.deviceMode || 'phone'),
-    uiScale: (function(){ const v = num('uiScale', base.uiScale || 1); return Math.max(0.8, Math.min(1.2, v)); })(),
+    uiScale: (function () { const v = num('uiScale', base.uiScale || 1); return Math.max(0.8, Math.min(1.2, v)); })(),
     compactMode: bool('compactMode', !!base.compactMode),
     // 新增：手机窗口模式
     phoneWindowMode: bool('phoneWindowMode', !!base.phoneWindowMode),
@@ -742,17 +744,17 @@ function updateActivationUI() {
   }
 }
 
-function ensureActivationUIMounted(){
-  try{
+function ensureActivationUIMounted() {
+  try {
     const settingsRoot = document.getElementById('settingsMode');
-    if(!settingsRoot) return;
+    if (!settingsRoot) return;
 
     const input = document.getElementById('activationCode');
     if (input) {
       const group = input.closest('.settings-group');
       if (group && !settingsRoot.contains(group)) {
         settingsRoot.appendChild(group);
-        try { console.info('[INIT] Activation UI moved into settings'); } catch(e){}
+        try { console.info('[INIT] Activation UI moved into settings'); } catch (e) { }
       }
       return; // 已存在则不重复创建
     }
@@ -825,8 +827,8 @@ function ensureActivationUIMounted(){
     </div>`;
 
     settingsRoot.appendChild(wrapper);
-    try { console.info('[INIT] Activation UI created in settings'); } catch(e){}
-  }catch(e){ /* ignore */ }
+    try { console.info('[INIT] Activation UI created in settings'); } catch (e) { }
+  } catch (e) { /* ignore */ }
 }
 
 async function verifyActivationCodeOnline(code) {
@@ -996,56 +998,6 @@ function bindActivationUIEvents() {
   if (contactText && CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.CONTACT_TEXT) {
     contactText.textContent = CONFIG.ACTIVATION.CONTACT_TEXT;
   }
-  if (btnShowContact && contactHint) {
-    btnShowContact.addEventListener('click', () => {
-      contactHint.style.display = contactHint.style.display === 'none' ? 'block' : 'none';
-    });
-  }
-  if (btnDeactivate) {
-    btnDeactivate.addEventListener('click', () => {
-      saveActivationInfo({ activated: false, code: '', debug: false, ts: Date.now() });
-      updateActivationUI();
-      alert('已清除激活');
-    });
-  }
-  if (btnDebugUnlock && debugPwd) {
-    btnDebugUnlock.addEventListener('click', () => {
-      const pwd = (debugPwd.value || '').trim();
-      if (pwd && CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.DEBUG_PASSWORD && pwd === CONFIG.ACTIVATION.DEBUG_PASSWORD) {
-        saveActivationInfo({ activated: true, code: '', debug: true, ts: Date.now() });
-        updateActivationUI();
-        showDebugControls();
-        alert('调试模式已启用（免激活）');
-      } else {
-        alert('调试密码错误');
-      }
-    });
-  }
-  if (btnActivate && inputEl) {
-    btnActivate.addEventListener('click', async () => {
-      const code = (inputEl.value || '').trim();
-      if (!code) { alert('请输入激活码'); return; }
-      const prefix = (CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.PREFIX) ? CONFIG.ACTIVATION.PREFIX : 'MC-';
-      if (!code.startsWith(prefix) || code.length < 10) {
-        alert('激活码格式不正确');
-        return;
-      }
-      // 在线包含校验
-      const res = await verifyActivationCodeOnline(code);
-      if (res.ok) {
-        saveActivationInfo({ activated: true, code, debug: false, ts: Date.now(), source: res.source });
-        updateActivationUI();
-        alert('激活成功');
-      } else {
-        alert('激活失败：未找到此激活码');
-      }
-    });
-  }
-
-  // 学习记录管理事件
-  const btnViewStats = document.getElementById('btnViewStats');
-  const btnExportLearning = document.getElementById('btnExportLearning');
-  const prioritizeUnlearnedCheckbox = document.getElementById('prioritizeUnlearned');
 
   if (btnViewStats) {
     btnViewStats.addEventListener('click', () => {
@@ -1149,11 +1101,11 @@ function initializeActivation() {
   ensureActivationUIMounted();
   updateActivationUI();
   bindActivationUIEvents();
-  try { console.info('[INIT] Activation UI initialized and mounted into settings'); } catch(e){}
+  try { console.info('[INIT] Activation UI initialized and mounted into settings'); } catch (e) { }
 }
 
 // 将初始化注入现有启动流程
-(function hookActivationInit(){
+(function hookActivationInit() {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initializeActivation);
   } else {

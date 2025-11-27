@@ -12,28 +12,19 @@ const VOCABULARY_DATA = {
     '6.幼儿园词汇': null
 };
 
-// Helper to normalize vocabulary script src (ignore query/hash)
-function __normalizeVocabSrc(path) {
-    try {
-        return String(path).replace(/[?#].*$/, '');
-    } catch (e) {
-        return path;
-    }
-}
-
 // 动态加载词库文件
 async function loadVocabularyFile(filename) {
     try {
         // 全局去重：同一文件的并发加载复用同一Promise，且已加载后直接返回
         window.__VOCAB_SCRIPT_PROMISES__ = window.__VOCAB_SCRIPT_PROMISES__ || {};
         window.__VOCAB_SCRIPT_LOADED__ = window.__VOCAB_SCRIPT_LOADED__ || {};
-        const key = (filename || '').trim(); // 以文件名作为去重Key（忽略cache-buster）
+        const key = (filename || '').trim();
         if (!key) return;
         if (window.__VOCAB_SCRIPT_LOADED__[key]) return;
         if (window.__VOCAB_SCRIPT_PROMISES__[key]) return window.__VOCAB_SCRIPT_PROMISES__[key];
 
         const base = `js/vocabularies/${key}`;
-        const normalized = __normalizeVocabSrc(base);
+        const normalized = String(base).replace(/[?#].*$/, '');
         const id = `vocab-${key}`;
 
         // 检查是否已有相同（忽略查询参数）的脚本标签，避免重复注入
@@ -43,7 +34,7 @@ async function loadVocabularyFile(filename) {
             existing = scripts.find(s => {
                 const ssrc = s.getAttribute('src');
                 if (!ssrc) return false;
-                return __normalizeVocabSrc(ssrc).endsWith(normalized);
+                return String(ssrc).replace(/[?#].*$/, '').endsWith(normalized);
             });
         }
 
@@ -51,26 +42,21 @@ async function loadVocabularyFile(filename) {
             const done = () => { window.__VOCAB_SCRIPT_LOADED__[key] = true; resolve(); };
             const fail = () => { reject(new Error(`Failed to load ${key}`)); };
 
-            // 若已存在脚本标签，则等待其完成（或已完成则直接返回）
             if (existing) {
-                // 已经标记加载完成
                 if (window.__VOCAB_SCRIPT_LOADED__[key] || (existing.dataset && existing.dataset.loaded === 'true')) {
                     return done();
                 }
-                // 监听已存在标签的事件（不覆盖原有handler）
                 existing.addEventListener('load', () => {
                     if (existing && existing.dataset) existing.dataset.loaded = 'true';
                     done();
                 }, { once: true });
                 existing.addEventListener('error', fail, { once: true });
-                return; // 不再重复插入
+                return;
             }
 
-            // 创建新的脚本标签并插入
             const script = document.createElement('script');
             script.setAttribute('data-vocab-id', id);
             script.setAttribute('data-normalized-src', normalized);
-            // 加上缓存破坏参数，避免浏览器缓存旧版文件导致解析错误
             const cacheBuster = `_v=${Date.now()}`;
             script.src = encodeURI(base) + (base.includes('?') ? '&' : '?') + cacheBuster;
             script.onload = () => {
@@ -128,18 +114,18 @@ async function loadEmbeddedVocabulary(vocabName) {
     // 备用映射（用于向后兼容）
     const fallbackMappings = {
         'words-basic': { file: 'basic.js', variable: 'BASIC_VOCABULARY' },
-        '1.幼儿园--基础词汇': { file: 'kindergarten_1_basic.js', variable: 'VOCAB_1__________' },
-        '2.幼儿园--学习词汇': { file: 'kindergarten_2_study.js', variable: 'VOCAB_2__________' },
-        '3.幼儿园--自然词汇': { file: 'kindergarten_3_nature.js', variable: 'VOCAB_3__________' },
-        '4.交流词汇': { file: 'kindergarten_4_communication.js', variable: 'VOCAB_4_____' },
-        '5.日常词汇': { file: 'kindergarten_5_daily.js', variable: 'VOCAB_5_____' },
-        '6.幼儿园词汇': { file: 'kindergarten_6_general.js', variable: 'VOCAB_6______' },
-        'kindergarten_vocabulary': { file: 'kindergarten_6_general.js', variable: 'VOCAB_6______' },
-        'minecraft_basic': { file: 'minecraft_basic.js', variable: 'VOCAB_1_MINECRAFT____BASIC' },
-        'minecraft_intermediate': { file: 'minecraft_intermediate.js', variable: 'VOCAB_2_MINECRAFT____BASIC' },
-        'minecraft_advanced': { file: 'minecraft_advanced.js', variable: 'VOCAB_3_MINECRAFT____ADVANCED' },
-        'common_vocabulary': { file: 'common_vocabulary.js', variable: 'VOCAB_1____COMMON' },
-        'minecraft_image_links': { file: 'minecraft_words_full.js', variable: 'MINECRAFT_3_____' }
+        '1.幼儿园--基础词汇': { file: 'kindergarten/kindergarten_1_basic.js', variable: 'VOCAB_1__________' },
+        '2.幼儿园--学习词汇': { file: 'kindergarten/kindergarten_2_study.js', variable: 'VOCAB_2__________' },
+        '3.幼儿园--自然词汇': { file: 'kindergarten/kindergarten_3_nature.js', variable: 'VOCAB_3__________' },
+        '4.交流词汇': { file: 'kindergarten/kindergarten_4_communication.js', variable: 'VOCAB_4_____' },
+        '5.日常词汇': { file: 'kindergarten/kindergarten_5_daily.js', variable: 'VOCAB_5_____' },
+        '6.幼儿园词汇': { file: 'kindergarten/kindergarten_6_general.js', variable: 'VOCAB_6______' },
+        'kindergarten_vocabulary': { file: 'kindergarten/kindergarten_6_general.js', variable: 'VOCAB_6______' },
+        'minecraft_basic': { file: 'minecraft/minecraft_basic.js', variable: 'VOCAB_1_MINECRAFT____BASIC' },
+        'minecraft_intermediate': { file: 'minecraft/minecraft_intermediate.js', variable: 'VOCAB_2_MINECRAFT____BASIC' },
+        'minecraft_advanced': { file: 'minecraft/minecraft_advanced.js', variable: 'VOCAB_3_MINECRAFT____ADVANCED' },
+        'common_vocabulary': { file: 'common/common_vocabulary.js', variable: 'VOCAB_1____COMMON' },
+        'minecraft_image_links': { file: 'minecraft/minecraft_words_full.js', variable: 'MINECRAFT_3_____' }
     };
 
     if (!targetFile && fallbackMappings[vocabName]) {
@@ -154,17 +140,17 @@ async function loadEmbeddedVocabulary(vocabName) {
         // kindergarten_life_communication_expanded.js, kindergarten_learning_nature.js, kindergarten_general_extended.js
         try {
             if (!window.KINDERGARTEN_LIFE_COMMUNICATION_EXPANDED) {
-                await loadVocabularyFile('kindergarten_life_communication_expanded.js');
+                await loadVocabularyFile('kindergarten/kindergarten_life_communication_expanded.js');
             }
         } catch (e) { console.warn('load life_communication skipped/failed', e); }
         try {
             if (!window.KINDERGARTEN_LEARNING_NATURE) {
-                await loadVocabularyFile('kindergarten_learning_nature.js');
+                await loadVocabularyFile('kindergarten/kindergarten_learning_nature.js');
             }
         } catch (e) { console.warn('load learning_nature skipped/failed', e); }
         try {
             if (!window.KINDERGARTEN_GENERAL_EXTENDED) {
-                await loadVocabularyFile('kindergarten_general_extended.js');
+                await loadVocabularyFile('kindergarten/kindergarten_general_extended.js');
             }
         } catch (e) { console.warn('load general_extended skipped/failed', e); }
     }
