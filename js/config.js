@@ -83,10 +83,23 @@ const CONFIG = {
 
     // 新增：激活相关配置
     ACTIVATION: {
-        CODES_URL: 'https://raw.githubusercontent.com/nonomil/minecraft_words_apk/main/activation_codes.txt',
+        // 在线验证源(按优先级尝试)
+        CODES_URLS: [
+            // GitHub Raw (主要)
+            'https://raw.githubusercontent.com/nonomil/minecraft_words_apk/main/docs/activation_codes.txt',
+            // 本地备份(离线使用)
+            'docs/activation_codes.txt'
+        ],
         PREFIX: 'MC-',
-        DEBUG_PASSWORD: 'MC-TEST-001',
-        CONTACT_TEXT: '请联系微信：weixin123 获取激活码'
+        DEBUG_PASSWORD: 'MC-DEBUG-2024',
+        CONTACT_TEXT: '请联系开发者获取激活码',
+        // 加密密钥(用于生成和验证加密激活码)
+        SECRET_KEY: 'minecraft-words-secret-key-2024',
+        // 激活码类型
+        TYPES: {
+            SIMPLE: 'simple',      // 简单激活码(从列表验证)
+            ENCRYPTED: 'encrypted' // 加密激活码(包含过期时间)
+        }
     },
 
     // 可用词库列表（示意）
@@ -101,8 +114,8 @@ let currentVocabulary = [];
 let currentWordIndex = 0;
 let currentMode = 'learn';
 // 去重：仅保留一次 learnType 定义（从本地存储回退默认 'word'）
-let learnType = (function(){
-    try { return localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'; } catch(e) { return 'word'; }
+let learnType = (function () {
+    try { return localStorage.getItem(CONFIG.STORAGE_KEYS.LEARN_TYPE) || 'word'; } catch (e) { return 'word'; }
 })();
 // 测试相关状态由拼写模块维护并依赖同名全局变量在首次使用时创建
 if (typeof quizWords === 'undefined') window.quizWords = [];
