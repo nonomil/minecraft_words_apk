@@ -825,54 +825,8 @@ function ensureActivationUIMounted() {
         <!-- 备份列表将在这里显示 -->
       </div>
     </div>`;
-
     settingsRoot.appendChild(wrapper);
-    try { console.info('[INIT] Activation UI created in settings'); } catch (e) { }
-  } catch (e) { /* ignore */ }
-}
-
-async function verifyActivationCodeOnline(code) {
-  // 预留多来源：优先 GitHub RAW；后续可扩展为飞书文档读取
-  // 规则：简单包含校验（每行一个激活码），忽略空行与注释
-  let sources = [];
-  if (CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.CODES_URL && CONFIG.ACTIVATION.CODES_URL.trim()) {
-    sources.push(CONFIG.ACTIVATION.CODES_URL.trim());
-  } else {
-    // 回退到站点根目录的激活.txt（可在根目录放置）
-    sources.push('激活.txt');
-  }
-  const norm = (s) => s.trim();
-  for (const url of sources) {
-    try {
-      const resp = await fetch(url, { cache: 'no-cache' });
-      if (!resp.ok) continue;
-      const text = await resp.text();
-      const lines = text.split(/\r?\n/).map(norm).filter(l => l && !l.startsWith('#'));
-      if (lines.includes(code.trim())) return { ok: true, source: url };
-    } catch (e) {
-      console.warn('fetch activation source failed', url, e);
-      continue;
-    }
-  }
-  return { ok: false };
-}
-
-// 显示调试控制面板
-function showDebugControls() {
-  const debugControls = document.getElementById('debugControls');
-  if (debugControls) {
-    debugControls.style.display = 'block';
-    // 初始化当前数值
-    const diamondInput = document.getElementById('debugDiamondCount');
-    const swordInput = document.getElementById('debugSwordCount');
-    if (diamondInput && typeof totalDiamonds !== 'undefined') {
-      diamondInput.value = totalDiamonds;
-    }
-    if (swordInput && typeof totalSwords !== 'undefined') {
-      swordInput.value = totalSwords;
-    }
-    bindDebugControlEvents();
-  }
+  } catch (e) {}
 }
 
 // 绑定调试控制事件
@@ -953,6 +907,63 @@ function bindDebugControlEvents() {
   }
 }
 
+function showDebugControls() {
+  const debugControls = document.getElementById('debugControls');
+  if (!debugControls) return;
+  debugControls.style.display = 'block';
+  const diamondInput = document.getElementById('debugDiamondCount');
+  const swordInput = document.getElementById('debugSwordCount');
+  if (diamondInput && typeof totalDiamonds !== 'undefined') {
+    diamondInput.value = totalDiamonds;
+  }
+  if (swordInput && typeof totalSwords !== 'undefined') {
+    swordInput.value = totalSwords;
+  }
+  bindDebugControlEvents();
+}
+
+function verifyEncryptedCode(code) {
+  try {
+    if (typeof code !== 'string' || !code.startsWith('MC-ENC-')) return null;
+    const enc = code.slice(7);
+    const decoded = atob(enc);
+    const parts = decoded.split('|');
+    if (parts.length !== 3) return null;
+    const userId = parts[0];
+    const expiryStr = parts[1];
+    const signature = parts[2];
+    const expected = btoa(userId + expiryStr + (CONFIG?.ACTIVATION?.SECRET_KEY || '')).substring(0, 16);
+    const notExpired = new Date(expiryStr).getTime() > Date.now();
+    if (signature === expected && notExpired) {
+      return { userId, expiry: expiryStr };
+    }
+    return null;
+  } catch (e) {
+    return null;
+  }
+}
+
+async function verifyActivationCodeOnline(code) {
+  try {
+    const urls = (CONFIG && CONFIG.ACTIVATION && Array.isArray(CONFIG.ACTIVATION.CODES_URLS)) ? CONFIG.ACTIVATION.CODES_URLS : [];
+    for (let i = 0; i < urls.length; i++) {
+      const url = urls[i];
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) continue;
+        const text = await res.text();
+        const lines = text.split(/\r?\n/).map(s => s.trim()).filter(s => s && !s.startsWith('#'));
+        if (lines.includes(code)) {
+          return true;
+        }
+      } catch (e) {}
+    }
+    return false;
+  } catch (e) {
+    return false;
+  }
+}
+
 // 显示学习统计
 function showLearningStatistics() {
   const statsDiv = document.getElementById('learningStats');
@@ -995,6 +1006,9 @@ function bindActivationUIEvents() {
   const contactText = document.getElementById('contactText');
   const debugPwd = document.getElementById('debugPassword');
   const btnDebugUnlock = document.getElementById('btnDebugUnlock');
+  const btnViewStats = document.getElementById('btnViewStats');
+  const btnExportLearning = document.getElementById('btnExportLearning');
+  const prioritizeUnlearnedCheckbox = document.getElementById('prioritizeUnlearned');
   if (contactText && CONFIG && CONFIG.ACTIVATION && CONFIG.ACTIVATION.CONTACT_TEXT) {
     contactText.textContent = CONFIG.ACTIVATION.CONTACT_TEXT;
   }
@@ -1013,7 +1027,6 @@ function bindActivationUIEvents() {
 
   if (prioritizeUnlearnedCheckbox) {
     prioritizeUnlearnedCheckbox.addEventListener('change', (e) => {
-      // 保存设置到本地存储
       try {
         localStorage.setItem('prioritizeUnlearned', e.target.checked);
         showNotification(e.target.checked ? '已启用优先加载未学习单词' : '已禁用优先加载未学习单词');
@@ -1021,8 +1034,6 @@ function bindActivationUIEvents() {
         console.warn('保存设置失败:', e);
       }
     });
-
-    // 加载保存的设置
     try {
       const saved = localStorage.getItem('prioritizeUnlearned');
       if (saved !== null) {
@@ -1033,22 +1044,89 @@ function bindActivationUIEvents() {
     }
   }
 
-  // 数据备份管理事件
   const btnManualBackup = document.getElementById('btnManualBackup');
   const btnViewBackups = document.getElementById('btnViewBackups');
-
   if (btnManualBackup) {
     btnManualBackup.addEventListener('click', () => {
       const backupKey = window.DataMigration?.manualBackup();
       if (backupKey) {
-        setTimeout(() => showBackupList(), 500); // 刷新备份列表
+        setTimeout(() => showBackupList(), 500);
+      }
+    });
+  }
+  if (btnViewBackups) {
+    btnViewBackups.addEventListener('click', () => {
+      showBackupList();
+    });
+  }
+
+  if (btnShowContact && contactHint) {
+    btnShowContact.addEventListener('click', () => {
+      contactHint.style.display = contactHint.style.display === 'none' ? 'block' : 'none';
+    });
+  }
+
+  if (btnDeactivate) {
+    btnDeactivate.addEventListener('click', () => {
+      saveActivationInfo({ activated: false });
+      updateActivationUI();
+      showNotification('已清除激活状态');
+    });
+  }
+
+  if (btnActivate && inputEl) {
+    btnActivate.addEventListener('click', async () => {
+      try {
+        const raw = inputEl.value || '';
+        const code = (typeof sanitizeHTML === 'function') ? sanitizeHTML(raw).trim() : raw.trim();
+        if (!validateActivationCode(code)) {
+          showNotification('激活码格式不正确', 'error');
+          return;
+        }
+        if (code === (CONFIG?.ACTIVATION?.DEBUG_PASSWORD || '')) {
+          saveActivationInfo({ activated: true, activatedAt: new Date().toISOString() });
+          updateActivationUI();
+          showDebugControls();
+          showNotification('已启用调试模式');
+          return;
+        }
+        if (code.startsWith('MC-ENC-')) {
+          const parsed = verifyEncryptedCode(code);
+          if (parsed) {
+            saveActivationInfo({ activated: true, code, type: CONFIG?.ACTIVATION?.TYPES?.ENCRYPTED || 'encrypted', userId: parsed.userId, expiry: parsed.expiry, activatedAt: new Date().toISOString() });
+            updateActivationUI();
+            showNotification('加密激活码验证通过');
+          } else {
+            showNotification('加密激活码无效或已过期', 'error');
+          }
+          return;
+        }
+        const ok = await verifyActivationCodeOnline(code);
+        if (ok) {
+          saveActivationInfo({ activated: true, code, type: CONFIG?.ACTIVATION?.TYPES?.SIMPLE || 'simple', activatedAt: new Date().toISOString() });
+          updateActivationUI();
+          showNotification('激活成功');
+        } else {
+          showNotification('激活码未找到或已失效', 'error');
+        }
+      } catch (e) {
+        showNotification('激活过程发生错误', 'error');
+        console.warn('activate error', e);
       }
     });
   }
 
-  if (btnViewBackups) {
-    btnViewBackups.addEventListener('click', () => {
-      showBackupList();
+  if (btnDebugUnlock && debugPwd) {
+    btnDebugUnlock.addEventListener('click', () => {
+      const pwd = debugPwd.value || '';
+      if (pwd === (CONFIG?.ACTIVATION?.DEBUG_PASSWORD || '')) {
+        saveActivationInfo({ activated: true, activatedAt: new Date().toISOString() });
+        updateActivationUI();
+        showDebugControls();
+        showNotification('已启用调试模式');
+      } else {
+        showNotification('调试密码错误', 'error');
+      }
     });
   }
 }
