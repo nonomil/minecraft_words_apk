@@ -1,5 +1,5 @@
 // 设备模式切换功能
-function setDeviceMode(mode) {
+async function setDeviceMode(mode) {
     console.log('📱 切换设备模式:', mode);
 
     // 保存设置
@@ -24,6 +24,9 @@ function setDeviceMode(mode) {
 
     // 应用模式
     applyDeviceMode(mode);
+
+    // 尝试锁定屏幕方向
+    await lockScreenOrientation(mode);
 
     showNotification(`已切换到${getModeLabel(mode)}模式`, 'success');
 }
@@ -84,6 +87,39 @@ function applyDeviceMode(mode) {
     }
 }
 
+// 屏幕方向锁定逻辑
+async function lockScreenOrientation(mode) {
+    try {
+        // 尝试获取 Capacitor 插件
+        const ScreenOrientation = window.Capacitor?.Plugins?.ScreenOrientation;
+
+        if (mode === 'mobile') {
+            // 手机模式 -> 竖屏
+            if (ScreenOrientation) {
+                await ScreenOrientation.lock({ orientation: 'portrait' });
+            } else if (screen.orientation && screen.orientation.lock) {
+                await screen.orientation.lock('portrait').catch(e => console.warn('Web Lock failed', e));
+            }
+        } else if (mode === 'tablet' || mode === 'desktop') {
+            // 平板/桌面 -> 横屏
+            if (ScreenOrientation) {
+                await ScreenOrientation.lock({ orientation: 'landscape' });
+            } else if (screen.orientation && screen.orientation.lock) {
+                await screen.orientation.lock('landscape').catch(e => console.warn('Web Lock failed', e));
+            }
+        } else {
+            // 自动 -> 解锁
+            if (ScreenOrientation) {
+                await ScreenOrientation.unlock();
+            } else if (screen.orientation && screen.orientation.unlock) {
+                screen.orientation.unlock();
+            }
+        }
+    } catch (e) {
+        console.warn('Screen orientation lock failed:', e);
+    }
+}
+
 function getModeLabel(mode) {
     const labels = {
         'auto': '自动',
@@ -94,9 +130,32 @@ function getModeLabel(mode) {
     return labels[mode] || mode;
 }
 
+// 首次启动选择处理
+window.selectInitialMode = function (mode) {
+    localStorage.setItem('hasSelectedDeviceMode', 'true');
+    document.getElementById('firstLaunchModal').style.display = 'none';
+    setDeviceMode(mode);
+};
+
 // 初始化设备模式
 function initializeDeviceMode() {
     const settings = getSettings();
+
+    // 检查是否是首次启动（且在移动设备/APK环境中）
+    const hasSelected = localStorage.getItem('hasSelectedDeviceMode');
+    const isMobileEnv = window.innerWidth <= 1024 || window.Capacitor?.isNative;
+
+    if (!hasSelected && isMobileEnv) {
+        // 显示首次启动弹窗
+        const modal = document.getElementById('firstLaunchModal');
+        if (modal) {
+            modal.style.display = 'flex';
+            // 暂时使用自动模式，直到用户选择
+            applyDeviceMode('auto');
+            return;
+        }
+    }
+
     const mode = settings.deviceMode || 'auto';
     setDeviceMode(mode);
 }

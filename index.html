@@ -438,6 +438,51 @@
     </div>
     -->
 
+    <!-- 首次启动引导弹窗 -->
+    <div id="firstLaunchModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content" style="max-width: 400px; text-align: center;">
+            <h2>📱 欢迎使用</h2>
+            <p>请选择您的设备类型以获得最佳体验：</p>
+            <div class="mode-selection" style="display: flex; gap: 15px; justify-content: center; margin: 25px 0;">
+                <button onclick="selectInitialMode('mobile')" class="control-btn"
+                    style="flex: 1; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <div style="font-size: 24px; margin-bottom: 8px;">📱</div>
+                    <div>手机模式</div>
+                    <div style="font-size: 12px; opacity: 0.8; margin-top: 4px;">竖屏显示</div>
+                </button>
+                <button onclick="selectInitialMode('tablet')" class="control-btn"
+                    style="flex: 1; padding: 20px; background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%);">
+                    <div style="font-size: 24px; margin-bottom: 8px;">🖥️</div>
+                    <div>平板/桌面</div>
+                    <div style="font-size: 12px; opacity: 0.8; margin-top: 4px;">横屏显示</div>
+                </button>
+            </div>
+            <p style="font-size: 12px; color: #666;">您稍后可以在"设置"中随时更改此选项。</p>
+        </div>
+    </div>
+
+    <!-- 版本号显示 (在设置页面底部) -->
+    <script>
+        // 动态插入版本号到设置页面
+        function appendVersionInfo() {
+            const settingsMode = document.getElementById('settingsMode');
+            if (settingsMode && !document.getElementById('appVersionInfo')) {
+                const versionDiv = document.createElement('div');
+                versionDiv.id = 'appVersionInfo';
+                versionDiv.style.textAlign = 'center';
+                versionDiv.style.marginTop = '30px';
+                versionDiv.style.color = '#999';
+                versionDiv.style.fontSize = '12px';
+                versionDiv.innerHTML = '当前版本: v2.2.0';
+                settingsMode.appendChild(versionDiv);
+            }
+        }
+        // 监听设置页面显示
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(appendVersionInfo, 1000);
+        });
+    </script>
+
     <!-- 脚本文件 -->
     <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
@@ -448,12 +493,33 @@
     <script src="js/vocabulary.js"></script>
     <script src="js/rewards.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/vocabularies/kindergarten_1_basic.js"></script>
+    <script src="js/vocabularies/minecraft_blocks.js"></script>
+    <script src="js/vocabularies/minecraft_mobs.js"></script>
+    <script src="js/vocabularies/minecraft_items.js"></script>
+    <script src="js/vocabularies/minecraft_nature.js"></script>
+    <script src="js/vocabularies/minecraft_redstone.js"></script>
     <script src="js/game.js"></script>
     <script src="js/spelling.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/mobile-app.js"></script>
     <script src="js/device-mode.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        // 注册 Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 
     <script>
         // 提供一个可选的启用语音按钮（移动端更稳）
