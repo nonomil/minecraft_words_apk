@@ -254,7 +254,33 @@ function generateLearnChoices(correctWord) {
 
         choiceElement.addEventListener('mouseenter', speakOnHover);
         choiceElement.addEventListener('mouseleave', () => speakOnHover.cancel && speakOnHover.cancel());
-        
+
+        let longPressTimer = null;
+        choiceElement.addEventListener('touchstart', () => {
+            longPressTimer = setTimeout(() => {
+                try {
+                    if (optionIsEnglish) {
+                        if (window.TTS) TTS.speak(choice, { lang: 'en-US', rate: Math.max(0.6, getSettings().speechRate*0.8), pitch: getSettings().speechPitch, volume: getSettings().speechVolume });
+                    } else {
+                        if (window.TTS) TTS.speak(choice, { lang: 'zh-CN', rate: Math.max(0.85, getSettings().speechRate*0.95), pitch: getSettings().speechPitch, volume: getSettings().speechVolume });
+                    }
+                } catch(e){}
+                longPressTimer = null;
+            }, hoverDelay);
+        });
+        choiceElement.addEventListener('touchend', () => {
+            if (longPressTimer) {
+                clearTimeout(longPressTimer);
+                longPressTimer = null;
+            }
+        });
+        choiceElement.addEventListener('touchcancel', () => {
+            if (longPressTimer) {
+                clearTimeout(longPressTimer);
+                longPressTimer = null;
+            }
+        });
+
         choiceElement.onclick = () => selectLearnChoice(choiceElement, choice, correctAnswer);
         choicesContainer.appendChild(choiceElement);
     });
