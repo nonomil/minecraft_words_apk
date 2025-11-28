@@ -1,4 +1,4 @@
-(function(global){
+(function (global) {
   'use strict';
 
   var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
@@ -20,7 +20,7 @@
   };
 
   function loadVoices() {
-    return new Promise(function(resolve){
+    return new Promise(function (resolve) {
       var synth = global.speechSynthesis;
       if (!synth) return resolve([]);
       var voices = synth.getVoices();
@@ -28,7 +28,7 @@
         state.voices = voices;
         return resolve(voices);
       }
-      var t = setInterval(function(){
+      var t = setInterval(function () {
         voices = synth.getVoices();
         if (voices && voices.length) {
           clearInterval(t);
@@ -36,32 +36,32 @@
           resolve(voices);
         }
       }, 150);
-      setTimeout(function(){ clearInterval(t); resolve(state.voices || []); }, 4000);
+      setTimeout(function () { clearInterval(t); resolve(state.voices || []); }, 4000);
     });
   }
 
-  function pickVoice(lang){
+  function pickVoice(lang) {
     lang = (lang || '').toLowerCase();
     if (!state.voices || !state.voices.length) return null;
     // 优先匹配完整 lang，其次前缀
-    var exact = state.voices.find(function(v){ return (v.lang||'').toLowerCase() === lang; });
+    var exact = state.voices.find(function (v) { return (v.lang || '').toLowerCase() === lang; });
     if (exact) return exact;
-    var prefix = state.voices.find(function(v){ return (v.lang||'').toLowerCase().startsWith(lang.split('-')[0]); });
+    var prefix = state.voices.find(function (v) { return (v.lang || '').toLowerCase().startsWith(lang.split('-')[0]); });
     if (prefix) return prefix;
     // 中文优先选择 zh-CN/zh-Hans
     if (lang.startsWith('zh')) {
-      var zhVoice = state.voices.find(function(v){ return /zh|cmn|chi/i.test(v.lang) || /Chinese|Zh|中/i.test(v.name); });
+      var zhVoice = state.voices.find(function (v) { return /zh|cmn|chi/i.test(v.lang) || /Chinese|Zh|中/i.test(v.name); });
       if (zhVoice) return zhVoice;
     }
     // 英语优先 en-US/en-GB
     if (lang.startsWith('en')) {
-      var enVoice = state.voices.find(function(v){ return /en/i.test(v.lang); });
+      var enVoice = state.voices.find(function (v) { return /en/i.test(v.lang); });
       if (enVoice) return enVoice;
     }
     return state.voices[0] || null;
   }
 
-  function guessLangByText(text){
+  function guessLangByText(text) {
     if (!text) return 'en-US';
     // 简单判断：含中文字符
     if (/\u4e00-\u9fa5/.test(text)) return 'zh-CN';
@@ -69,13 +69,13 @@
     return 'en-US';
   }
 
-  async function ensureReady(){
+  async function ensureReady() {
     if (!('speechSynthesis' in global)) return false;
     await loadVoices();
     return true;
   }
 
-  async function enable(){
+  async function enable() {
     // 通过一次空的 speak 来激活移动端音频策略（不少浏览器需要手势触发）
     state.enabled = true;
     try {
@@ -85,20 +85,20 @@
       u.volume = 0;
       global.speechSynthesis.speak(u);
       return true;
-    } catch(e){ return false; }
+    } catch (e) { return false; }
   }
 
-  function cancel(){
-    try { global.speechSynthesis && global.speechSynthesis.cancel(); } catch(e) {}
+  function cancel() {
+    try { global.speechSynthesis && global.speechSynthesis.cancel(); } catch (e) { }
     state.speaking = false;
     state.current = null;
   }
 
-  function pause(){ try { global.speechSynthesis && global.speechSynthesis.pause(); } catch(e) {} }
-  function resume(){ try { global.speechSynthesis && global.speechSynthesis.resume(); } catch(e) {} }
-  function isSpeaking(){ return !!(global.speechSynthesis && global.speechSynthesis.speaking); }
+  function pause() { try { global.speechSynthesis && global.speechSynthesis.pause(); } catch (e) { } }
+  function resume() { try { global.speechSynthesis && global.speechSynthesis.resume(); } catch (e) { } }
+  function isSpeaking() { return !!(global.speechSynthesis && global.speechSynthesis.speaking); }
 
-  async function speak(text, opts){
+  async function speak(text, opts) {
     opts = opts || {};
     if (!state.enabled && (isAndroid || isIOS)) {
       // 移动端未启用时直接返回 false，避免报错
@@ -124,13 +124,13 @@
     utter.pitch = pitch;
     utter.volume = volume;
 
-    return new Promise(function(resolve){
-      utter.onstart = function(){ state.speaking = true; state.current = utter; };
-      utter.onend = function(){ state.speaking = false; state.current = null; resolve(true); };
-      utter.onerror = function(){ state.speaking = false; state.current = null; resolve(false); };
+    return new Promise(function (resolve) {
+      utter.onstart = function () { state.speaking = true; state.current = utter; };
+      utter.onend = function () { state.speaking = false; state.current = null; resolve(true); };
+      utter.onerror = function () { state.speaking = false; state.current = null; resolve(false); };
       try {
         global.speechSynthesis.speak(utter);
-      } catch(e){ resolve(false); }
+      } catch (e) { resolve(false); }
     });
   }
 
@@ -155,14 +155,14 @@
 
   // 简单防抖：避免在快速连续调用时重复 speak
   var lastSpeakAt = 0;
-  var SPEAK_COOLDOWN_MS = 120; // 可按需调整
+  var SPEAK_COOLDOWN_MS = 50; // 降低冷却时间，避免阻止正常的自动发音
 
   // 兼容读取设置
   function getSettingsSafe() {
     try {
       if (typeof getSettings === 'function') return getSettings();
       if (global.CONFIG && global.CONFIG.DEFAULT_SETTINGS) return global.CONFIG.DEFAULT_SETTINGS;
-    } catch (e) {}
+    } catch (e) { }
     return {
       speechRate: 1,
       speechPitch: 1,
@@ -191,10 +191,10 @@
   // Web Speech 相关（作为回退）
   var synth = global.speechSynthesis;
 
-  function cancelWebSpeech(){ try { synth && synth.cancel(); } catch(e) {} }
-  function pauseWebSpeech(){ try { synth && synth.pause(); } catch(e) {} }
-  function resumeWebSpeech(){ try { synth && synth.resume(); } catch(e) {} }
-  function isSpeakingWebSpeech(){ return !!(synth && synth.speaking); }
+  function cancelWebSpeech() { try { synth && synth.cancel(); } catch (e) { } }
+  function pauseWebSpeech() { try { synth && synth.pause(); } catch (e) { } }
+  function resumeWebSpeech() { try { synth && synth.resume(); } catch (e) { } }
+  function isSpeakingWebSpeech() { return !!(synth && synth.speaking); }
 
   // 语言猜测：简单基于字符范围
   function guessLang(text) {
@@ -242,8 +242,8 @@
         if (nativeTTS && typeof nativeTTS.speak === 'function') {
           // @capacitor-community/text-to-speech 接口：speak({ text, lang, rate, pitch, volume, category? })
           return nativeTTS.speak({ text: String(text || ''), lang: lang, rate: rate, pitch: pitch, volume: volume })
-            .then(function(){ return true; })
-            .catch(function(err){ console.warn('[TTS] native speak failed, fallback to web', err); return TTS._speakWeb(text, { lang, rate, pitch, volume }); });
+            .then(function () { return true; })
+            .catch(function (err) { console.warn('[TTS] native speak failed, fallback to web', err); return TTS._speakWeb(text, { lang, rate, pitch, volume }); });
         }
       }
 
@@ -272,7 +272,7 @@
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.stop === 'function') {
-          return nativeTTS.stop().catch(function(){ cancelWebSpeech(); });
+          return nativeTTS.stop().catch(function () { cancelWebSpeech(); });
         }
       }
       cancelWebSpeech();
@@ -284,7 +284,7 @@
       if (isNativeTTSAvailable()) {
         var nativeTTS = getNativeTTS();
         if (nativeTTS && typeof nativeTTS.stop === 'function') {
-          return nativeTTS.stop().catch(function(){ pauseWebSpeech(); });
+          return nativeTTS.stop().catch(function () { pauseWebSpeech(); });
         }
       }
       pauseWebSpeech();
