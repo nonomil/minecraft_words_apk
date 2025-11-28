@@ -8,6 +8,8 @@ on:
 jobs:
   build-apk:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -42,3 +44,15 @@ jobs:
         with:
           name: apk-release
           path: android/app/build/outputs/apk/release/*.apk
+      - name: Publish GitHub Release (apk-latest)
+        uses: ncipollo/release-action@v1
+        with:
+          tag: apk-latest
+          name: Latest APK
+          allowUpdates: true
+          artifacts: |
+            android/app/build/outputs/apk/debug/app-debug.apk,
+            android/app/build/outputs/apk/release/*.apk
+      - name: Print Release URL
+        run: |
+          echo "Release page: https://github.com/${{ github.repository }}/releases/tag/apk-latest"
