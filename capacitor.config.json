@@ -1,8 +1,7 @@
 {
   "appId": "com.nonomil.minecraftwords",
   "appName": "Minecraft Words",
-  "webDir": ".",
-  "bundledWebRuntime": false,
+  "webDir": "www",
   "server": {
     "androidScheme": "https"
   }

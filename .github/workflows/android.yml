@@ -19,6 +19,17 @@ jobs:
           java-version: '17'
       - uses: android-actions/setup-android@v3
       - run: npm install
+      - name: Prepare web assets (www)
+        run: |
+          rm -rf www
+          mkdir -p www
+          rsync -av --delete \
+            --exclude 'android' \
+            --exclude 'node_modules' \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude 'www' \
+            ./ www/
       - run: npx cap add android
       - run: npx cap sync android
       - run: cd android && ./gradlew assembleRelease
