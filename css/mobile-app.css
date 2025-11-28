@@ -18,11 +18,25 @@
         display: none !important;
     }
 
+    body {
+        /* 在手机模式下，背景图可能会干扰阅读，这里加一个半透明遮罩效果 */
+        /* 或者直接使用伪元素在 .mobile-layout 上加遮罩 */
+        background-attachment: scroll;
+        /* 手机上 fixed 背景可能有性能问题 */
+    }
+
     .mobile-layout {
         display: flex;
         flex-direction: column;
         height: 100vh;
+        height: 100dvh;
+        /* 使用动态视口高度，解决浏览器地址栏问题 */
         overflow: hidden;
+        position: relative;
+        background: rgba(255, 255, 255, 0.85);
+        /* 全局半透明背景遮罩 */
+        backdrop-filter: blur(5px);
+        /* 背景模糊 */
     }
 
     /* Mobile Views Container */
@@ -30,6 +44,7 @@
         flex: 1;
         position: relative;
         overflow: hidden;
+        width: 100%;
     }
 
     .mobile-view {
@@ -41,8 +56,8 @@
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         padding: 16px;
-        padding-bottom: 80px;
-        /* Space for bottom nav */
+        padding-bottom: 90px;
+        /* 增加底部留白，防止被导航栏遮挡 */
         box-sizing: border-box;
         display: none;
     }
@@ -51,7 +66,7 @@
         display: block;
     }
 
-    /* Mobile Bottom Navigation */
+    /* Mobile Bottom Navigation - 强制固定底部 */
     .mobile-bottom-nav {
         position: fixed;
         bottom: 0;
@@ -64,7 +79,8 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        z-index: 1000;
+        z-index: 9999;
+        /* 确保层级最高 */
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
         padding-bottom: env(safe-area-inset-bottom);
     }
@@ -82,7 +98,7 @@
         font-size: 12px;
         cursor: pointer;
         transition: all 0.2s;
-        padding: 8px;
+        padding: 4px;
     }
 
     .mobile-nav-item.active {
@@ -91,55 +107,62 @@
 
     .mobile-nav-icon {
         font-size: 24px;
-        margin-bottom: 4px;
+        margin-bottom: 2px;
     }
 
     .mobile-nav-label {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     /* Mobile Home View */
     .mobile-home-header {
         text-align: center;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
+        padding-top: 10px;
     }
 
     .mobile-home-header h2 {
         font-size: 1.5rem;
-        margin: 0 0 12px 0;
+        margin: 0 0 10px 0;
         color: #1f2937;
+        text-shadow: none;
+        /* 去除文字阴影，提高清晰度 */
     }
 
     .mobile-rewards {
-        font-size: 1.1rem;
+        font-size: 1rem;
         color: #666;
-        background: #f0f9ff;
-        padding: 8px 16px;
+        background: #fff;
+        padding: 6px 12px;
         border-radius: 20px;
         display: inline-block;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border: 1px solid #eee;
     }
 
     .mobile-home-cards {
         display: flex;
         flex-direction: column;
-        gap: 16px;
-        max-width: 400px;
+        gap: 12px;
+        max-width: 100%;
         margin: 0 auto;
     }
 
     .mobile-home-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border: none;
-        border-radius: 16px;
-        padding: 24px;
+        border-radius: 12px;
+        padding: 20px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        /* 改为横向排列，节省垂直空间 */
         align-items: center;
-        gap: 12px;
+        gap: 15px;
         cursor: pointer;
         transition: transform 0.2s, box-shadow 0.2s;
         box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        text-align: left;
     }
 
     .mobile-home-card:active {
@@ -147,29 +170,36 @@
     }
 
     .mobile-home-card .card-icon {
-        font-size: 48px;
+        font-size: 32px;
     }
 
     .mobile-home-card .card-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 600;
         color: white;
+    }
+
+    .mobile-home-card .card-desc {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 2px;
     }
 
     /* Mobile View Header */
     .mobile-view-header {
         position: sticky;
         top: 0;
-        background: white;
-        padding: 12px 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(5px);
+        padding: 10px 16px;
         margin: -16px -16px 16px -16px;
-        padding-left: 16px;
-        padding-right: 16px;
         border-bottom: 1px solid #e0e0e0;
-        z-index: 10;
+        z-index: 100;
+        /* 提高层级 */
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
     .mobile-header-top {
@@ -186,9 +216,9 @@
 
     .mobile-type-select {
         width: 100%;
-        padding: 10px 16px;
+        padding: 8px 12px;
         border: 1px solid #d1d9e6;
-        border-radius: 12px;
+        border-radius: 8px;
         font-size: 14px;
         background: #f8f9fa;
         color: #1f2937;
@@ -197,6 +227,25 @@
     /* Mobile View Content */
     .mobile-view-content {
         /* Content will be cloned from desktop */
+    }
+
+    /* 针对学习卡片的移动端优化 */
+    .mobile-view-content .word-card {
+        margin: 0;
+        padding: 15px;
+        background-image: none !important;
+        /* 去除卡片内部背景图 */
+        background-color: #fff !important;
+    }
+
+    .mobile-view-content .word-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .mobile-view-content .word-english {
+        font-size: 1.8rem;
+        padding: 10px;
     }
 
     /* Optimize Settings Buttons for Mobile */
