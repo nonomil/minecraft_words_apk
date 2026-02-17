@@ -103,17 +103,31 @@ jobs:
           # Debug APK
           DEBUG_APK="android-app/android/app/build/outputs/apk/debug/app-debug.apk"
           DEBUG_RENAMED="mcwords_v${VERSION_NAME}_debug.apk"
-          cp "$DEBUG_APK" "$DEBUG_RENAMED"
+
+          if [ -f "$DEBUG_APK" ]; then
+            cp "$DEBUG_APK" "$DEBUG_RENAMED"
+            echo "DEBUG_APK_PATH=$DEBUG_RENAMED" >> $GITHUB_ENV
+            echo "✓ Debug APK found and renamed"
+          else
+            echo "✗ Debug APK not found at $DEBUG_APK"
+          fi
 
           # Release APK
           RELEASE_APK="android-app/android/app/build/outputs/apk/release/app-release.apk"
           RELEASE_RENAMED="mcwords_v${VERSION_NAME}_release.apk"
+
           if [ -f "$RELEASE_APK" ]; then
             cp "$RELEASE_APK" "$RELEASE_RENAMED"
+            echo "RELEASE_APK_PATH=$RELEASE_RENAMED" >> $GITHUB_ENV
+            echo "✓ Release APK found and renamed"
+          else
+            echo "✗ Release APK not found at $RELEASE_APK"
+            echo "RELEASE_APK_PATH=" >> $GITHUB_ENV
           fi
 
-          echo "DEBUG_APK_PATH=$DEBUG_RENAMED" >> $GITHUB_ENV
-          echo "RELEASE_APK_PATH=$RELEASE_RENAMED" >> $GITHUB_ENV
+          # List all APK files for debugging
+          echo "=== All APK files ==="
+          find android-app/android/app/build/outputs/apk -name "*.apk" -type f || true
 
       - name: Create Release Notes
         run: |
@@ -165,12 +179,12 @@ jobs:
           tag: v${{ steps.version.outputs.VERSION_NAME }}
           name: Minecraft Words v${{ steps.version.outputs.VERSION_NAME }}
           bodyFile: release_notes.md
-          artifacts: |
-            ${{ env.DEBUG_APK_PATH }}
-            ${{ env.RELEASE_APK_PATH }}
+          artifacts: "mcwords_v${{ steps.version.outputs.VERSION_NAME }}*.apk"
           draft: false
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
+          makeLatest: true
 
       - name: Update latest release
         uses: ncipollo/release-action@v1
@@ -179,9 +193,7 @@ jobs:
           name: Latest Build
           allowUpdates: true
           removeArtifacts: true
-          artifacts: |
-            ${{ env.DEBUG_APK_PATH }}
-            ${{ env.RELEASE_APK_PATH }}
+          artifacts: "mcwords_v${{ steps.version.outputs.VERSION_NAME }}*.apk"
           body: |
             ## 最新构建版本
 
