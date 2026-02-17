@@ -69,3 +69,7 @@ temp_*.js
 temp_*.py
 fix_*.js
 update_*.js
+*.keystore
+keystore_base64.txt
+gen_key.ps1
+generate_*.ps1
