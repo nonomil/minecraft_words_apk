@@ -9,7 +9,9 @@
       "Bash(cat:*)",
       "Bash(curl:*)",
       "Bash(find:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(git checkout:*)",
+      "Bash(git rebase:*)"
     ],
     "deny": [],
     "ask": []

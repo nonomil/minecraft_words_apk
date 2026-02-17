@@ -3,6 +3,20 @@ apply plugin: 'com.android.application'
 android {
     namespace "com.example.mcwords"
     compileSdk rootProject.ext.compileSdkVersion
+    def signingStoreFile = System.getenv("SIGNING_STORE_FILE")
+    if (signingStoreFile) {
+        signingConfigs {
+            release {
+                storeFile file(signingStoreFile)
+                // Our keystore generator uses PKCS12 (keytool default on modern JDKs).
+                // Explicitly setting this avoids "keystore was tampered with" style errors when AGP assumes JKS.
+                storeType "PKCS12"
+                storePassword System.getenv("SIGNING_STORE_PASSWORD") ?: ""
+                keyAlias System.getenv("SIGNING_KEY_ALIAS") ?: ""
+                keyPassword System.getenv("SIGNING_KEY_PASSWORD") ?: ""
+            }
+        }
+    }
     defaultConfig {
         applicationId "com.example.mcwords"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -17,18 +31,27 @@ android {
         }
     }
     buildTypes {
+        debug {
+            // CI debug builds should be upgradable without uninstalling, so use the same keystore when provided.
+            if (signingStoreFile) {
+                signingConfig signingConfigs.release
+            }
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (signingStoreFile) {
+                signingConfig signingConfigs.release
+            }
         }
     }
-    
+
     // 添加 Java 工具链配置，确保与 JDK 21 兼容
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-    
+
     // 明确指定 Java 工具链
     // 移除无效的 toolchain 配置，Android 插件不在此处使用该块，由 gradle.properties 管理 JDK 版本
     // toolchain {
