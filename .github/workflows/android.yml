@@ -1,58 +1,193 @@
-name: android-build
+name: Android Release Build
 
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - 'v*'
   workflow_dispatch:
+    inputs:
+      version_increment:
+        description: 'Version increment type'
+        required: false
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
 
 jobs:
-  build-apk:
+  build-and-release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: '18'
-      - uses: actions/setup-java@v4
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: android-app/package-lock.json
+
+      - name: Install npm dependencies
+        working-directory: android-app
+        run: npm ci
+
+      - name: Pre-build sync web assets
+        run: |
+          rsync -av --delete js/ android-app/web/js/
+          rsync -av --delete css/ android-app/web/css/
+          rsync -av --delete Data/ android-app/web/Data/
+          cp -f index.html android-app/web/index.html
+          cp -f activation_codes.txt android-app/web/activation_codes.txt || true
+
+      - name: Auto-increment version
+        id: version
+        run: |
+          INCREMENT_TYPE="${{ github.event.inputs.version_increment || 'patch' }}"
+          node scripts/version-manager.js $INCREMENT_TYPE
+          echo "VERSION_NAME=$(node -p "require('./version.json').versionName")" >> $GITHUB_OUTPUT
+          echo "VERSION_CODE=$(node -p "require('./version.json').versionCode")" >> $GITHUB_OUTPUT
+          echo "BUILD_NUMBER=$(node -p "require('./version.json').buildNumber")" >> $GITHUB_OUTPUT
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
-      - uses: android-actions/setup-android@v3
-      - run: npm install
-      - name: Prepare web assets (www)
+          java-version: '21'
+          cache: 'gradle'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept SDK licenses
+        run: yes | sdkmanager --licenses || true
+
+      - name: Sync Capacitor Android
+        working-directory: android-app
+        run: npx cap sync android
+
+      - name: Make gradlew executable
+        run: chmod +x android-app/android/gradlew
+
+      - name: Build Debug APK
+        working-directory: android-app/android
+        run: ./gradlew --no-daemon assembleDebug
+
+      - name: Decode keystore
         run: |
-          rm -rf www
-          mkdir -p www
-          rsync -av --delete \
-            --exclude 'android' \
-            --exclude 'node_modules' \
-            --exclude '.git' \
-            --exclude '.github' \
-            --exclude 'www' \
-            ./ www/
-      - run: npx cap add android
-      - run: npx cap sync android
-      - run: cd android && ./gradlew assembleDebug
-      - uses: actions/upload-artifact@v4
+          echo "${{ secrets.SIGNING_STORE_FILE }}" | base64 -d > android-app/android/keystore.jks
+
+      - name: Build Release APK
+        working-directory: android-app/android
+        env:
+          SIGNING_STORE_FILE: ${{ github.workspace }}/android-app/android/keystore.jks
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        run: ./gradlew --no-daemon assembleRelease
+
+      - name: Rename APKs with version info
+        run: |
+          VERSION_NAME="${{ steps.version.outputs.VERSION_NAME }}"
+          VERSION_CODE="${{ steps.version.outputs.VERSION_CODE }}"
+          BUILD_NUMBER="${{ steps.version.outputs.BUILD_NUMBER }}"
+          COMMIT_SHA="${GITHUB_SHA::7}"
+
+          # Debug APK
+          DEBUG_APK="android-app/android/app/build/outputs/apk/debug/app-debug.apk"
+          DEBUG_RENAMED="mcwords_v${VERSION_NAME}_debug.apk"
+          cp "$DEBUG_APK" "$DEBUG_RENAMED"
+
+          # Release APK
+          RELEASE_APK="android-app/android/app/build/outputs/apk/release/app-release.apk"
+          RELEASE_RENAMED="mcwords_v${VERSION_NAME}_release.apk"
+          if [ -f "$RELEASE_APK" ]; then
+            cp "$RELEASE_APK" "$RELEASE_RENAMED"
+          fi
+
+          echo "DEBUG_APK_PATH=$DEBUG_RENAMED" >> $GITHUB_ENV
+          echo "RELEASE_APK_PATH=$RELEASE_RENAMED" >> $GITHUB_ENV
+
+      - name: Create Release Notes
+        run: |
+          VERSION_NAME="${{ steps.version.outputs.VERSION_NAME }}"
+          cat > release_notes.md << 'EOF'
+          ## 🎮 Minecraft Words v${{ steps.version.outputs.VERSION_NAME }}
+
+          ### 📱 版本信息
+          - **版本号**: ${{ steps.version.outputs.VERSION_NAME }}
+          - **版本代码**: ${{ steps.version.outputs.VERSION_CODE }}
+          - **构建号**: ${{ steps.version.outputs.BUILD_NUMBER }}
+          - **构建时间**: $(date '+%Y-%m-%d %H:%M:%S UTC')
+          - **提交**: ${GITHUB_SHA::7}
+
+          ### 📦 下载说明
+          - **mcwords_v${{ steps.version.outputs.VERSION_NAME }}_release.apk** - 正式版本（已签名）
+          - **mcwords_v${{ steps.version.outputs.VERSION_NAME }}_debug.apk** - 调试版本
+
+          ### ✨ 更新内容
+          $(node -p "require('./version.json').releaseNotes?.zh || '版本更新'")
+
+          ### 🔧 技术改进
+          - 签名认证配置
+          - 自动化版本管理
+          - CI/CD 流程优化
+
+          ### 📝 使用说明
+          1. 下载并安装 APK
+          2. 首次使用需要激活码: `MC-TEST-001`
+          3. 在设置中查看学习统计和导出记录
+          EOF
+
+      - name: Commit version changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add version.json android-app/android/app/build.gradle
+          git diff --staged --quiet || git commit -m "chore: bump version to ${{ steps.version.outputs.VERSION_NAME }}"
+
+      - name: Push version changes
+        uses: ad-m/github-push-action@master
         with:
-          name: apk-debug
-          path: android/app/build/outputs/apk/debug/*.apk
-      - run: cd android && ./gradlew assembleRelease
-      - uses: actions/upload-artifact@v4
-        with:
-          name: apk-release
-          path: android/app/build/outputs/apk/release/*.apk
-      - name: Publish GitHub Release (apk-latest)
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+      - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
-          tag: apk-latest
-          name: Latest APK
-          allowUpdates: true
+          tag: v${{ steps.version.outputs.VERSION_NAME }}
+          name: Minecraft Words v${{ steps.version.outputs.VERSION_NAME }}
+          bodyFile: release_notes.md
           artifacts: |
-            android/app/build/outputs/apk/debug/app-debug.apk,
-            android/app/build/outputs/apk/release/*.apk
-      - name: Print Release URL
-        run: |
-          echo "Release page: https://github.com/${{ github.repository }}/releases/tag/apk-latest"
+            ${{ env.DEBUG_APK_PATH }}
+            ${{ env.RELEASE_APK_PATH }}
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update latest release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest
+          name: Latest Build
+          allowUpdates: true
+          removeArtifacts: true
+          artifacts: |
+            ${{ env.DEBUG_APK_PATH }}
+            ${{ env.RELEASE_APK_PATH }}
+          body: |
+            ## 最新构建版本
+
+            当前最新版本: **v${{ steps.version.outputs.VERSION_NAME }}**
+
+            此 release 始终指向最新的构建版本。
+
+            查看完整版本历史: [Releases](https://github.com/${{ github.repository }}/releases)
+          token: ${{ secrets.GITHUB_TOKEN }}
