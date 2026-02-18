@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "name": "google_10000_top3000",
+      "type": "url_txt",
+      "url": "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-usa.txt",
+      "top_n": 3000
+    },
+    {
+      "name": "minecraft_lang_keys",
+      "type": "url_json_keys",
+      "url": "https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.4/assets/minecraft/lang/en_us.json",
+      "minecraft_key_mode": true
+    }
+  ]
+}

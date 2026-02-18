@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-02-18T05:23:57.494Z",
+  "scannedFiles": 29,
+  "rawRows": 7919,
+  "uniqueKeys": 2906,
+  "dedupOutput": 2906,
+  "duplicateClusters": 1235,
+  "outputFile": "js/vocabularies/normalized/core_merged_dedup.js"
+}

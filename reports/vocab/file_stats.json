@@ -1,0 +1,436 @@
+[
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_words_full.js",
+    "wordKeys": 2348,
+    "chineseKeys": 1174,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\merged_kindergarten_vocab.js",
+    "wordKeys": 1646,
+    "chineseKeys": 823,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\stage\\merged_vocabulary.js",
+    "wordKeys": 1504,
+    "chineseKeys": 752,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\stage\\stage_kindergarten.js",
+    "wordKeys": 1416,
+    "chineseKeys": 708,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\merged_kindergarten_vocab - 副本.js",
+    "wordKeys": 1278,
+    "chineseKeys": 639,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\kindergarten_life_communication_expanded.js",
+    "wordKeys": 1244,
+    "chineseKeys": 622,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\animal_crossing\\animal_crossing_all_items.js",
+    "wordKeys": 1002,
+    "chineseKeys": 501,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\stage\\stage_elementary_lower.js",
+    "wordKeys": 616,
+    "chineseKeys": 308,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\kindergarten_learning_nature.js",
+    "wordKeys": 580,
+    "chineseKeys": 290,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\kindergarten_general_extended.js",
+    "wordKeys": 574,
+    "chineseKeys": 287,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_items.js",
+    "wordKeys": 486,
+    "chineseKeys": 243,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_items.js",
+    "wordKeys": 442,
+    "chineseKeys": 221,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\kindergarten_3_nature.js",
+    "wordKeys": 424,
+    "chineseKeys": 212,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\kindergarten_2_study.js",
+    "wordKeys": 404,
+    "chineseKeys": 202,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_blocks.js",
+    "wordKeys": 348,
+    "chineseKeys": 174,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\kindergarten_1_basic.js",
+    "wordKeys": 314,
+    "chineseKeys": 157,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\kindergarten_6_general.js",
+    "wordKeys": 314,
+    "chineseKeys": 157,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten_6_general.js",
+    "wordKeys": 314,
+    "chineseKeys": 157,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\kindergarten_4_communication.js",
+    "wordKeys": 298,
+    "chineseKeys": 149,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten_4_communication.js",
+    "wordKeys": 298,
+    "chineseKeys": 149,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten\\kindergarten_5_daily.js",
+    "wordKeys": 276,
+    "chineseKeys": 138,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\kindergarten_5_daily.js",
+    "wordKeys": 276,
+    "chineseKeys": 138,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_blocks.js",
+    "wordKeys": 260,
+    "chineseKeys": 130,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_environment.js",
+    "wordKeys": 256,
+    "chineseKeys": 128,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_environment.js",
+    "wordKeys": 256,
+    "chineseKeys": 128,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_advancements.js",
+    "wordKeys": 220,
+    "chineseKeys": 110,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_advancements.js",
+    "wordKeys": 220,
+    "chineseKeys": 110,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_entities.js",
+    "wordKeys": 214,
+    "chineseKeys": 107,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_entities.js",
+    "wordKeys": 214,
+    "chineseKeys": 107,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_items_2.js",
+    "wordKeys": 212,
+    "chineseKeys": 106,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_items_2.js",
+    "wordKeys": 212,
+    "chineseKeys": 106,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\stage\\stage_elementary_upper.js",
+    "wordKeys": 186,
+    "chineseKeys": 93,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\common\\common_vocabulary.js",
+    "wordKeys": 168,
+    "chineseKeys": 84,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_status_effects.js",
+    "wordKeys": 168,
+    "chineseKeys": 84,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_status_effects.js",
+    "wordKeys": 168,
+    "chineseKeys": 84,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_enchantments.js",
+    "wordKeys": 154,
+    "chineseKeys": 77,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_enchantments.js",
+    "wordKeys": 154,
+    "chineseKeys": 77,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_biomes.js",
+    "wordKeys": 138,
+    "chineseKeys": 69,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_biomes.js",
+    "wordKeys": 138,
+    "chineseKeys": 69,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_basic.js",
+    "wordKeys": 126,
+    "chineseKeys": 63,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_basic.js",
+    "wordKeys": 126,
+    "chineseKeys": 63,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_advanced.js",
+    "wordKeys": 120,
+    "chineseKeys": 60,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft\\minecraft_intermediate.js",
+    "wordKeys": 120,
+    "chineseKeys": 60,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_advanced.js",
+    "wordKeys": 120,
+    "chineseKeys": 60,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\minecraft_intermediate.js",
+    "wordKeys": 120,
+    "chineseKeys": 60,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\animal_crossing\\animal_crossing_all_characters.js",
+    "wordKeys": 98,
+    "chineseKeys": 49,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\toca_boca\\toca_boca_all_games.js",
+    "wordKeys": 80,
+    "chineseKeys": 40,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\pbs_kids\\pbs_kids_all_programs.js",
+    "wordKeys": 72,
+    "chineseKeys": 36,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\pokemon\\pokemon_all_generations.js",
+    "wordKeys": 70,
+    "chineseKeys": 35,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\animal_crossing\\animal_crossing_items.js",
+    "wordKeys": 64,
+    "chineseKeys": 32,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\toca_boca\\toca_boca_kitchen.js",
+    "wordKeys": 54,
+    "chineseKeys": 27,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\animal_crossing\\animal_crossing_characters.js",
+    "wordKeys": 50,
+    "chineseKeys": 25,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\pbs_kids\\pbs_kids_colors.js",
+    "wordKeys": 48,
+    "chineseKeys": 24,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\pokemon\\pokemon_basic.js",
+    "wordKeys": 30,
+    "chineseKeys": 15,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\disney_illusion_island\\disney_illusion_island_basic.js",
+    "wordKeys": 0,
+    "chineseKeys": 0,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\game_vocabularies_config.js",
+    "wordKeys": 0,
+    "chineseKeys": 0,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\kirby\\kirby_basic.js",
+    "wordKeys": 0,
+    "chineseKeys": 0,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\learning_stages.js",
+    "wordKeys": 0,
+    "chineseKeys": 0,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\lego\\lego_basic.js",
+    "wordKeys": 0,
+    "chineseKeys": 0,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\mario\\mario_basic.js",
+    "wordKeys": 0,
+    "chineseKeys": 0,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\pvz\\pvz_basic.js",
+    "wordKeys": 0,
+    "chineseKeys": 0,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  },
+  {
+    "file": "js\\vocabularies\\game_vocabularies\\scribblenauts\\scribblenauts_basic.js",
+    "wordKeys": 0,
+    "chineseKeys": 0,
+    "emptyImageArrays": 0,
+    "emptyImageUrls": 0
+  }
+]

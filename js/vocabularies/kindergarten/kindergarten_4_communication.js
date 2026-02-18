@@ -29,7 +29,7 @@ const VOCAB_4_____ = [
     "imageURLs": [
       {
         "filename": "",
-        "url": "",
+        "url": "https://craftpix.net/wp-content/uploads/2024/10/Mining-Pixel-Icons-1.png",
         "type": "Default"
       }
     ]
@@ -349,7 +349,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "",
     "difficulty": "basic",
     "category": "common_adjectives",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/health-heart.png","type":"Concept Image"}]
   },
   {
     "word": "deep",
@@ -649,7 +649,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "",
     "difficulty": "basic",
     "category": "locations_directions",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/new.png","type":"Concept Image"}]
   },
   {
     "word": "north",
@@ -949,7 +949,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "",
     "difficulty": "basic",
     "category": "game_status",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/long-distance.png","type":"Concept Image"}]
   },
   {
     "word": "health",
@@ -1130,7 +1130,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "中文",
     "difficulty": "basic",
     "category": "common_scenarios",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/location.png","type":"Concept Image"}]
   },
   {
     "word": "Let's go exploring!",
@@ -1311,7 +1311,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "中文",
     "difficulty": "basic",
     "category": "common_scenarios",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/dead-end.png","type":"Concept Image"}]
   },
   {
     "word": "Let's build a house",
@@ -1492,7 +1492,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "中文",
     "difficulty": "basic",
     "category": "common_scenarios",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/design.png","type":"Concept Image"}]
   },
   {
     "word": "Zombie behind you!",
@@ -1673,7 +1673,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "中文",
     "difficulty": "basic",
     "category": "common_scenarios",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/hide.png","type":"Concept Image"}]
   },
   {
     "word": "I found diamonds!",
@@ -2024,7 +2024,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "",
     "difficulty": "basic",
     "category": "time",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/ok.png","type":"Concept Image"}]
   },
   {
     "word": "day",
@@ -2171,7 +2171,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "",
     "difficulty": "basic",
     "category": "weather",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/morning.png","type":"Concept Image"}]
   },
   {
     "word": "rain",
@@ -2301,7 +2301,7 @@ const VOCAB_4_____ = [
     "phraseTranslation": "中文",
     "difficulty": "basic",
     "category": "emergencies",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://img.icons8.com/color/48/clouds.png","type":"Concept Image"}]
   },
   {
     "word": "Help!",

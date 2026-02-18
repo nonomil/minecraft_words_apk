@@ -1018,7 +1018,7 @@ const MINECRAFT_6_______STATUS_EFFECTS_ = [
     "difficulty": "basic",
     "category": "game_mechanic",
     "effectType": "general",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://minecraft.wiki/w/File:Phantom_Membrane.png","type":"Concept Image"}]
   },
   {
     "word": "Duration",
@@ -1030,7 +1030,7 @@ const MINECRAFT_6_______STATUS_EFFECTS_ = [
     "difficulty": "basic",
     "category": "game_mechanic",
     "effectType": "general",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://minecraft.wiki/w/File:Phantom_Membrane.png","type":"Concept Image"}]
   },
   {
     "word": "Amplifier",
@@ -1042,7 +1042,7 @@ const MINECRAFT_6_______STATUS_EFFECTS_ = [
     "difficulty": "advanced",
     "category": "game_mechanic",
     "effectType": "general",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://minecraft.wiki/w/File:Redstone_JE2_BE2.png","type":"Concept Image"}]
   },
   {
     "word": "Particles",
@@ -1054,7 +1054,7 @@ const MINECRAFT_6_______STATUS_EFFECTS_ = [
     "difficulty": "intermediate",
     "category": "visual_effect",
     "effectType": "general",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://minecraft.wiki/w/File:Splash_Potion_JE2_BE2.png","type":"Concept Image"}]
   },
   {
     "word": "Immunity",
@@ -1066,7 +1066,7 @@ const MINECRAFT_6_______STATUS_EFFECTS_ = [
     "difficulty": "advanced",
     "category": "game_mechanic",
     "effectType": "general",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://minecraft.wiki/w/File:Beacon_JE4_BE2.png","type":"Concept Image"}]
   },
   {
     "word": "Ambient",
@@ -1078,7 +1078,7 @@ const MINECRAFT_6_______STATUS_EFFECTS_ = [
     "difficulty": "advanced",
     "category": "game_mechanic",
     "effectType": "general",
-    "imageURLs": []
+    "imageURLs": [{"filename":"Ambient.png","url":"https://minecraft.wiki/w/File:Beacon_JE4_BE2.png","type":"Concept Image"}]
   },
   {
     "word": "Tick",
@@ -1090,7 +1090,7 @@ const MINECRAFT_6_______STATUS_EFFECTS_ = [
     "difficulty": "advanced",
     "category": "game_mechanic",
     "effectType": "general",
-    "imageURLs": []
+    "imageURLs": [{"filename":"auto.jpg","url":"https://minecraft.wiki/w/File:Clock_JE3_BE3.png","type":"Concept Image"}]
   },
   {
     "word": "Beacon",

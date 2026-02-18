@@ -1,0 +1,2930 @@
+word,occurrences
+"green",52
+"red",48
+"blue",48
+"morning",46
+"three",46
+"jump",44
+"night",44
+"rabbit",44
+"orange",44
+"yellow",44
+"英文",44
+"run",42
+"two",42
+"music",42
+"slow",40
+"rain",40
+"dance",40
+"swim",38
+"one",38
+"five",38
+"thunder",36
+"snow",36
+"bread",36
+"white",36
+"read",36
+"student",36
+"fast",34
+"empty",34
+"evening",34
+"apple",34
+"chair",34
+"clock",34
+"four",34
+"light",34
+"beach",34
+"strong",32
+"day",32
+"lightning",32
+"spider",32
+"scissors",32
+"library",32
+"pencil",32
+"heart",32
+"teacher",32
+"marker",32
+"egg",32
+"black",32
+"chest",32
+"respawn",30
+"dark",30
+"weak",30
+"new",30
+"old",30
+"far",30
+"close",30
+"elephant",30
+"sheep",30
+"book",30
+"friend",30
+"pig",30
+"milk",30
+"cold",30
+"tomorrow",30
+"train",30
+"clean",30
+"eraser",30
+"diamond",30
+"build",28
+"full",28
+"storm",28
+"cat",28
+"chicken",28
+"bed",28
+"happy",28
+"sleep",28
+"cow",28
+"water",28
+"math",28
+"hospital",28
+"walk",28
+"chinese",28
+"climb",26
+"cloudy",26
+"horse",26
+"octopus",26
+"dolphin",26
+"bee",26
+"frog",26
+"backpack",26
+"boat",26
+"cloud",26
+"paper",26
+"crayon",26
+"purple",26
+"mouth",26
+"hot",26
+"today",26
+"ruler",26
+"story",26
+"mountain",26
+"few",26
+"cry",26
+"baby",26
+"slide",26
+"homework",26
+"game",26
+"classmate",26
+"jungle",26
+"computer",26
+"draw",26
+"grass",26
+"up",24
+"down",24
+"left",24
+"right",24
+"inside",24
+"outside",24
+"hunger",24
+"help",24
+"stone",24
+"rainbow",24
+"ladybug",24
+"fish",24
+"turtle",24
+"cake",24
+"ball",24
+"sun",24
+"moon",24
+"star",24
+"monkey",24
+"small",24
+"afternoon",24
+"yesterday",24
+"heavy",24
+"hungry",24
+"glue",24
+"rice",24
+"pink",24
+"lunch",24
+"oval",24
+"river",24
+"panda",24
+"blackboard",24
+"playground",24
+"write",24
+"dig",22
+"place",22
+"break",22
+"collect",22
+"gather",22
+"explore",22
+"attack",22
+"defend",22
+"fly",22
+"teleport",22
+"heal",22
+"enchant",22
+"deep",22
+"shallow",22
+"bright",22
+"dangerous",22
+"safe",22
+"rare",22
+"common",22
+"broken",22
+"health",22
+"damage",22
+"sunrise",22
+"sunset",22
+"plant",22
+"tree",22
+"doll",22
+"sad",22
+"banana",22
+"open",22
+"eleven",22
+"twenty",22
+"finger",22
+"song",22
+"science",22
+"art",22
+"brown",22
+"sugar",22
+"snake",22
+"family",22
+"forest",22
+"smile",22
+"no",22
+"calendar",22
+"last",22
+"color",22
+"laugh",22
+"classroom",22
+"zoo",22
+"flower",22
+"mine",20
+"craft",20
+"north",20
+"south",20
+"east",20
+"west",20
+"forward",20
+"backward",20
+"above",20
+"below",20
+"nearby",20
+"level",20
+"durability",20
+"inventory",20
+"hotbar",20
+"coordinates",20
+"dawn",20
+"dusk",20
+"dog",20
+"duck",20
+"peacock",20
+"goat",20
+"ant",20
+"butterfly",20
+"car",20
+"nose",20
+"hello",20
+"big",20
+"bus",20
+"head",20
+"block",20
+"gold",20
+"door",20
+"restaurant",20
+"cook",20
+"look",20
+"shoulder",20
+"bone",20
+"mother",20
+"chalk",20
+"eight",20
+"weather",20
+"summer",20
+"winter",20
+"supermarket",20
+"dad",20
+"whiteboard",20
+"seesaw",20
+"english",20
+"spring",20
+"sand",20
+"touch",20
+"tiger",20
+"mom",20
+"swing",20
+"paint",20
+"rectangle",20
+"ocean",20
+"clear",18
+"fox",18
+"wolf",18
+"bookshelf",18
+"mushroom",18
+"bird",18
+"dress",18
+"angry",18
+"jacket",18
+"pants",18
+"cactus",18
+"dry",18
+"ten",18
+"twelve",18
+"ear",18
+"arm",18
+"leg",18
+"tired",18
+"thirsty",18
+"puzzle",18
+"silver",18
+"window",18
+"store",18
+"sorry",18
+"long",18
+"back",18
+"fourteen",18
+"branch",18
+"rock",18
+"soil",18
+"kangaroo",18
+"whale",18
+"sing",18
+"yes",18
+"short",18
+"many",18
+"eyes",18
+"recess",18
+"lesson",18
+"learn",18
+"lake",18
+"desert",18
+"tie",18
+"count",18
+"tall",18
+"first",18
+"snack",18
+"test",18
+"sport",18
+"principal",18
+"parrot",18
+"farm",18
+"beacon",18
+"phantom",18
+"cauldron",18
+"lodestone",17
+"experience",16
+"spawn",16
+"lava",16
+"owl",16
+"giraffe",16
+"squirrel",16
+"penguin",16
+"painting",16
+"crab",16
+"shark",16
+"house",16
+"triangle",16
+"eye",16
+"eat",16
+"thank you",16
+"please",16
+"socks",16
+"loud",16
+"snowy",16
+"dirty",16
+"wet",16
+"hair",16
+"toe",16
+"scared",16
+"sleepy",16
+"noodles",16
+"hamster",16
+"cut",16
+"bowl",16
+"kiss",16
+"brush teeth",16
+"hide",16
+"answer",16
+"who",16
+"why",16
+"tongue",16
+"cheek",16
+"heel",16
+"skirt",16
+"sweater",16
+"jeans",16
+"hoodie",16
+"pattern",16
+"robot",16
+"seventeen",16
+"more",16
+"animal",16
+"countryside",16
+"drink",16
+"round",16
+"boots",16
+"father",16
+"sister",16
+"shape",16
+"seven",16
+"warm",16
+"cool",16
+"seed",16
+"coat",16
+"brother",16
+"six",16
+"nine",16
+"fifteen",16
+"autumn",16
+"root",16
+"island",16
+"fire",16
+"air",16
+"compass",16
+"wither",16
+"nether",16
+"hedgehog",14
+"bear",14
+"lion",14
+"table",14
+"bamboo",14
+"soup",14
+"school",14
+"circle",14
+"square",14
+"foot",14
+"carrot",14
+"soft",14
+"hard",14
+"face",14
+"yawn",14
+"blow",14
+"he",14
+"we",14
+"bad",14
+"beautiful",14
+"funny",14
+"sour",14
+"feet",14
+"breathe",14
+"uniform",14
+"sneakers",14
+"beanie",14
+"swimsuit",14
+"overalls",14
+"crescent",14
+"sphere",14
+"pyramid",14
+"zigzag",14
+"flat",14
+"third",14
+"grey",14
+"environment",14
+"listen",14
+"throw",14
+"teeth",14
+"neck",14
+"knee",14
+"ankle",14
+"grandma",14
+"thirteen",14
+"leaf",14
+"earth",14
+"zebra",14
+"insect",14
+"clap",14
+"share",14
+"catch",14
+"grandpa",14
+"wind",14
+"hill",14
+"mud",14
+"elytra",14
+"shulker",14
+"conduit",14
+"trident",14
+"crossbow",14
+"piglin",14
+"hoglin",14
+"gunpowder",14
+"observer",14
+"torch",14
+"anvil",14
+"dispenser",14
+"dropper",14
+"furnace",14
+"hopper",14
+"jukebox",14
+"falling",12
+"deer",12
+"peach",12
+"pear",12
+"rose",12
+"tulip",12
+"axe",12
+"snail",12
+"stick",12
+"fence",12
+"cookie",12
+"hand",12
+"surprised",12
+"excited",12
+"desk",12
+"pizza",12
+"juice",12
+"quiet",12
+"near",12
+"pufferfish",12
+"strawberry",12
+"watermelon",12
+"sunny",12
+"rainy",12
+"windy",12
+"doctor",12
+"farmer",12
+"artist",12
+"closed",12
+"adventure",12
+"park",12
+"hug",12
+"point",12
+"ask",12
+"what",12
+"when",12
+"brave",12
+"sweet",12
+"elbow",12
+"see",12
+"hear",12
+"eyebrow",12
+"forehead",12
+"brain",12
+"gloves",12
+"scarf",12
+"pajamas",12
+"cap",12
+"belt",12
+"leggings",12
+"cube",12
+"teddy",12
+"sixteen",12
+"nineteen",12
+"second",12
+"some",12
+"mouse",12
+"eagle",12
+"swan",12
+"city",12
+"comb hair",12
+"find",12
+"wake up",12
+"fold",12
+"where",12
+"how",12
+"kind",12
+"tooth",12
+"chin",12
+"wrist",12
+"shorts",12
+"eighteen",12
+"zero",12
+"all",12
+"less",12
+"sky",12
+"season",12
+"garden",12
+"sea",12
+"koala",12
+"pet",12
+"plane",12
+"firefighter",12
+"blocks",12
+"ancient",12
+"pen",12
+"warden",12
+"the end",12
+"brewing stand",12
+"awkward potion",12
+"blaze powder",12
+"stuck",10
+"drowning",10
+"clownfish",10
+"sofa",10
+"lamp",10
+"mirror",10
+"fishing rod",10
+"ladder",10
+"candle",10
+"dragonfly",10
+"bucket",10
+"museum",10
+"airplane",10
+"salad",10
+"watch",10
+"sunflower",10
+"glass",10
+"daisy",10
+"grape",10
+"potato",10
+"truck",10
+"rocket",10
+"smooth",10
+"crying",10
+"cheese",10
+"tea",10
+"coffee",10
+"gray",10
+"eat lunch",10
+"change clothes",10
+"ride",10
+"pack",10
+"wash hands",10
+"you",10
+"it",10
+"good",10
+"pretty",10
+"ears",10
+"lip",10
+"nail",10
+"belly",10
+"skin",10
+"blink",10
+"t-shirt",10
+"slippers",10
+"sweatshirt",10
+"vest",10
+"mittens",10
+"polo shirt",10
+"cardigan",10
+"earmuffs",10
+"pentagon",10
+"octagon",10
+"semicircle",10
+"cone",10
+"straight",10
+"wavy",10
+"cross",10
+"angle",10
+"fifth",10
+"half",10
+"fall",10
+"noon",10
+"ground",10
+"nature",10
+"worm",10
+"bye",10
+"i",10
+"she",10
+"they",10
+"easy",10
+"cute",10
+"friendly",10
+"young",10
+"body",10
+"thumb",10
+"tummy",10
+"palm",10
+"muscle",10
+"sneeze",10
+"clothes",10
+"raincoat",10
+"sandals",10
+"sunglasses",10
+"apron",10
+"bow tie",10
+"bandana",10
+"hexagon",10
+"cylinder",10
+"curve",10
+"spiral",10
+"symmetry",10
+"fourth",10
+"pair",10
+"crocodile",10
+"dinosaur",10
+"farm animal",10
+"wild animal",10
+"baby animal",10
+"hands",10
+"nurse",10
+"police",10
+"aunt",10
+"uncle",10
+"cousin",10
+"obsidian",10
+"blaze",10
+"ghast",10
+"enchanting table",10
+"totem of undying",10
+"strider",10
+"zoglin",10
+"guardian",10
+"basalt",10
+"scute",10
+"dirt",10
+"cobblestone",10
+"leaves",10
+"gravel",10
+"flint",10
+"string",10
+"feather",10
+"wheat",10
+"leather",10
+"granite",10
+"andesite",10
+"bedrock",10
+"sponge",10
+"charcoal",10
+"lever",10
+"sandstone",10
+"tnt",10
+"bricks",10
+"crafting table",10
+"glowstone",10
+"creeper",10
+"minecart",10
+"pillager",10
+"skeleton",10
+"zombie",10
+"bow",10
+"arrow",10
+"shield",10
+"emerald",10
+"quartz",10
+"saddle",10
+"shears",10
+"map",10
+"lead",10
+"beetroot",10
+"enderman",9
+"netherrack",9
+"note block",9
+"redstone lamp",9
+"ender chest",9
+"golden apple",9
+"golden carrot",9
+"enchanted golden apple",9
+"nether wart",9
+"net",8
+"shovel",8
+"clay",8
+"wood",8
+"balloon",8
+"sapling",8
+"salmon",8
+"refrigerator",8
+"piano",8
+"hat",8
+"shirt",8
+"shoes",8
+"guitar",8
+"drum",8
+"bell",8
+"bicycle",8
+"basketball",8
+"goodbye",8
+"banner",8
+"sandwich",8
+"pumpkin",8
+"gate",8
+"orchid",8
+"helicopter",8
+"swimming",8
+"running",8
+"chef",8
+"rough",8
+"hundred",8
+"towel",8
+"discovery",8
+"butter",8
+"salt",8
+"plate",8
+"experience/xp",8
+"spawn point",8
+"let's go exploring!",8
+"i found a cave!",8
+"there's a dungeon here",8
+"watch out for mobs!",8
+"i'm lost, help!",8
+"follow me",8
+"wait for me!",8
+"this way!",8
+"dead end",8
+"i see light ahead",8
+"let's build a house",8
+"i need more blocks",8
+"what material should we use?",8
+"this looks good here",8
+"the roof is crooked",8
+"we need more space",8
+"can you help me build?",8
+"i'm making the foundation",8
+"the design is nice",8
+"we need a door here",8
+"zombie behind you!",8
+"i'm taking damage!",8
+"need healing!",8
+"my armor is broken",8
+"creeper! run!",8
+"i killed the skeleton",8
+"there's a spider nest",8
+"night is coming",8
+"let's hide until morning",8
+"i see hostile mobs",8
+"i found diamonds!",8
+"we need more iron",8
+"my pickaxe broke",8
+"let's go mining",8
+"i'm out of food",8
+"share some resources?",8
+"this vein is huge!",8
+"i need better tools",8
+"let's make a farm",8
+"chest is full",8
+"can you help me?",8
+"let's work together",8
+"good teamwork!",8
+"i'll gather wood",8
+"you mine, i'll build",8
+"meet at base",8
+"i'll be right back",8
+"thanks for the help!",8
+"no problem!",8
+"let's split up",8
+"help!",8
+"i'm stuck!",8
+"i'm falling!",8
+"lava! watch out!",8
+"i'm drowning!",8
+"my health is critical!",8
+"i lost my items!",8
+"where did i die?",8
+"can you revive me?",8
+"emergency meeting!",8
+"boy",8
+"girl",8
+"home",8
+"toy",8
+"pilot",8
+"birthday",8
+"medicine",8
+"week",8
+"taxi",8
+"notebook",8
+"calculator",8
+"globe",8
+"cave",8
+"pressure",8
+"play",8
+"worried",8
+"proud",8
+"confused",8
+"bat",8
+"grandmother",8
+"grandfather",8
+"dragon",8
+"netherite ingot",8
+"totem",8
+"sculk",8
+"crimson",8
+"lingering",8
+"hero of the village",8
+"spruce",8
+"the void",8
+"protection",8
+"fire protection",8
+"blast protection",8
+"projectile protection",8
+"respiration",8
+"aqua affinity",8
+"thorns",8
+"depth strider",8
+"frost walker",8
+"soul speed",8
+"swift sneak",8
+"sharpness",8
+"bane of arthropods",8
+"efficiency",8
+"silk touch",8
+"unbreaking",8
+"fortune",8
+"power",8
+"punch",8
+"flame",8
+"infinity",8
+"loyalty",8
+"impaling",8
+"riptide",8
+"channeling",8
+"multishot",8
+"quick charge",8
+"piercing",8
+"mending",8
+"luck of the sea",8
+"lure",8
+"density",8
+"breach",8
+"axolotl",8
+"elder guardian",8
+"daylight",8
+"honey bottle",8
+"fermented spider eye",8
+"ghast tear",8
+"glistering melon slice",8
+"glowstone dust",8
+"dragon's breath",8
+"phantom membrane",8
+"rabbit's foot",8
+"magma cream",8
+"poisonous potato",8
+"iron nugget",7
+"netherite",7
+"wooden sword",7
+"wooden pickaxe",7
+"iron ingot",7
+"redstone",7
+"iron chestplate",7
+"camel",6
+"jellyfish",6
+"seahorse",6
+"starfish",6
+"cherry",6
+"lily",6
+"wardrobe",6
+"watering can",6
+"fossil",6
+"bridge",6
+"cricket",6
+"firefly",6
+"television",6
+"kite",6
+"teddy bear",6
+"gift",6
+"stove",6
+"glasses",6
+"fern",6
+"meat",6
+"party",6
+"bulbasaur",6
+"charmander",6
+"squirtle",6
+"stairs",6
+"cup",6
+"spoon",6
+"fork",6
+"oven",6
+"t tiger",6
+"bike",6
+"room",6
+"scientist",6
+"phone",6
+"camera",6
+"motorcycle",6
+"toothbrush",6
+"soap",6
+"month",6
+"year",6
+"minute",6
+"hour",6
+"subway",6
+"weekend",6
+"holiday",6
+"bank",6
+"sharing",6
+"helping",6
+"cooperation",6
+"imagination",6
+"creativity",6
+"curiosity",6
+"responsibility",6
+"independence",6
+"perseverance",6
+"addition",6
+"subtraction",6
+"multiplication",6
+"division",6
+"fraction",6
+"geometry",6
+"football",6
+"competition",6
+"healthy",6
+"nutrition",6
+"vaccination",6
+"literature",6
+"poetry",6
+"sculpture",6
+"orchestra",6
+"instrument",6
+"civilization",6
+"heritage",6
+"microscope",6
+"telescope",6
+"moss",6
+"gravity",6
+"continent",6
+"ecosystem",6
+"photosynthesis",6
+"temperature",6
+"molecule",6
+"excuse me",6
+"welcome",6
+"good morning",6
+"good night",6
+"hamburger",6
+"brush",6
+"thin",6
+"stomach",6
+"very",6
+"vacation",6
+"enthusiastic",6
+"compromise",6
+"support",6
+"teamwork",6
+"leadership",6
+"water bottle",6
+"ender dragon",6
+"nether portal",6
+"elder",6
+"sensor",6
+"blackstone",6
+"warped",6
+"soul",6
+"gilded",6
+"spectral",6
+"tipped",6
+"splash",6
+"nautilus",6
+"end",6
+"enchanted",6
+"grass block",6
+"oak",6
+"planks",6
+"seeds",6
+"wool",6
+"diorite",6
+"birch",6
+"acacia",6
+"poppy",6
+"snowball",6
+"lectern",6
+"loom",6
+"melon",6
+"mycelium",6
+"piston",6
+"rail",6
+"smoker",6
+"allium",6
+"amethyst bud",6
+"amethyst cluster",6
+"barrel",6
+"barrier",6
+"beehive",6
+"campfire",6
+"chain",6
+"composter",6
+"farmland",6
+"ice",6
+"lantern",6
+"cod",6
+"donkey",6
+"drowned",6
+"evoker",6
+"husk",6
+"llama",6
+"mooshroom",6
+"mule",6
+"npc",6
+"ocelot",6
+"player",6
+"ravager",6
+"silverfish",6
+"slime",6
+"squid",6
+"stray",6
+"vex",6
+"villager",6
+"vindicator",6
+"witch",6
+"ore",6
+"gold ingot",6
+"redstone dust",6
+"lapis",6
+"button",6
+"slab",6
+"prismarine",6
+"sealantern",6
+"magma",6
+"terracotta",6
+"concrete",6
+"tripwire",6
+"nametag",6
+"firework",6
+"chorus",6
+"honeycomb",6
+"echo shard",6
+"goat horn",6
+"amethyst shard",6
+"brick",6
+"coal",6
+"copper ingot",6
+"disc fragment",6
+"recovery compass",6
+"slimeball",6
+"speed",6
+"slowness",6
+"strength",6
+"regeneration",6
+"resistance",6
+"invisibility",6
+"weakness",6
+"poison",6
+"glowing",6
+"potion",6
+"stem",6
+"stand",6
+"fruit",6
+"quartz block",5
+"soul sand",5
+"stonecutter",5
+"andesite stairs",5
+"birch button",5
+"birch door",5
+"bone block",5
+"coal ore",5
+"command block",5
+"diamond ore",5
+"emerald ore",5
+"end stone",5
+"gold ore",5
+"iron bars",5
+"iron door",5
+"iron ore",5
+"endermite",5
+"trapdoor",5
+"noteblock",5
+"golden axe",5
+"golden boots",5
+"golden chestplate",5
+"golden helmet",5
+"golden hoe",5
+"golden leggings",5
+"golden pickaxe",5
+"golden shovel",5
+"golden sword",5
+"gray dye",5
+"green dye",5
+"guardian spawn egg",5
+"hoglin spawn egg",5
+"horse spawn egg",5
+"husk spawn egg",5
+"iron axe",5
+"iron boots",5
+"iron helmet",5
+"iron hoe",5
+"iron leggings",5
+"iron pickaxe",5
+"iron shovel",5
+"iron sword",5
+"drowned spawn egg",5
+"enchanted book",5
+"ender pearl",5
+"enderman spawn egg",5
+"endermite spawn egg",5
+"evoker spawn egg",5
+"fox spawn egg",5
+"ghast spawn egg",5
+"bat spawn egg",5
+"black dye",5
+"blaze spawn egg",5
+"blue dye",5
+"brown dye",5
+"cat spawn egg",5
+"chainmail boots",5
+"chainmail chestplate",5
+"chainmail helmet",5
+"chainmail leggings",5
+"chicken spawn egg",5
+"cod spawn egg",5
+"cooked chicken",5
+"cooked cod",5
+"cooked mutton",5
+"cooked porkchop",5
+"cooked rabbit",5
+"cooked salmon",5
+"cow spawn egg",5
+"creeper spawn egg",5
+"diamond boots",5
+"diamond hoe",5
+"diamond pickaxe",5
+"diamond shovel",5
+"diamond sword",5
+"dolphin spawn egg",5
+"donkey spawn egg",5
+"leather boots",5
+"leather chestplate",5
+"leather helmet",5
+"leather leggings",5
+"stone axe",5
+"stone hoe",5
+"stone pickaxe",5
+"stone shovel",5
+"stone sword",5
+"wooden axe",5
+"wooden hoe",5
+"wooden shovel",5
+"ender eye",5
+"nether star",5
+"soul torch",5
+"spawn egg",5
+"raccoon",4
+"shrimp",4
+"coconut",4
+"hyacinth",4
+"mum",4
+"pansy",4
+"dresser",4
+"slingshot",4
+"vase",4
+"lobster",4
+"shell",4
+"coral",4
+"snowflake",4
+"pinwheel",4
+"fountain",4
+"path",4
+"bush",4
+"grasshopper",4
+"curtain",4
+"toy car",4
+"fireworks",4
+"love",4
+"sink",4
+"bathtub",4
+"toilet",4
+"ice cream",4
+"bubble",4
+"broom",4
+"mop",4
+"pineapple",4
+"tomato",4
+"corn",4
+"cycling",4
+"standing",4
+"reading",4
+"writing",4
+"pillow",4
+"blanket",4
+"carpet",4
+"scooter",4
+"skateboard",4
+"submarine",4
+"sailboat",4
+"honey",4
+"candy",4
+"chocolate",4
+"celebration",4
+"festival",4
+"cosmos",4
+"coco",4
+"lizard",4
+"wall",4
+"pot",4
+"exercise",4
+"tablet",4
+"radio",4
+"microwave",4
+"toothpaste",4
+"earthquake",4
+"theater",4
+"battery",4
+"volcano",4
+"planet",4
+"vine",4
+"protractor",4
+"valley",4
+"element",4
+"wash",4
+"sit down",4
+"stand up",4
+"kitchen",4
+"bathroom",4
+"knife",4
+"shy",4
+"calm",4
+"lonely",4
+"maybe",4
+"always",4
+"never",4
+"sometimes",4
+"nephew",4
+"niece",4
+"twin",4
+"jealous",4
+"grateful",4
+"disappointed",4
+"bottle",4
+"building blocks",4
+"portal",4
+"enchantment",4
+"catalyst",4
+"shriek",4
+"minecraft",4
+"stone age",4
+"getting an upgrade",4
+"acquire hardware",4
+"suit up",4
+"hot stuff",4
+"isn't it iron pick",4
+"not today, thank you",4
+"ice bucket challenge",4
+"diamonds!",4
+"we need to go deeper",4
+"cover me with diamonds",4
+"enchanter",4
+"zombie doctor",4
+"eye spy",4
+"the end?",4
+"return to sender",4
+"those were the days",4
+"hidden in the depths",4
+"subspace bubble",4
+"a terrible fortress",4
+"who is cutting onions?",4
+"oh shiny",4
+"this boat has legs",4
+"uneasy alliance",4
+"war pigs",4
+"country lode, take me home",4
+"cover me in debris",4
+"spooky scary skeleton",4
+"into fire",4
+"not quite \",4
+"feels like home",4
+"hot tourist destinations",4
+"withering heights",4
+"local brewery",4
+"bring home the beacon",4
+"a furious cocktail",4
+"beaconator",4
+"how did we get here?",4
+"free the end",4
+"the next generation",4
+"remote getaway",4
+"the end... again...",4
+"you need a mint",4
+"the city at the end of the game",4
+"sky's the limit",4
+"great view from up here",4
+"voluntary exile",4
+"is it a bird?",4
+"monster hunter",4
+"the power of books",4
+"what a deal!",4
+"crafting a new look",4
+"sticky situation",4
+"ol' betsy",4
+"surge protector",4
+"caves & cliffs",4
+"respecting the remnants",4
+"sneak 100",4
+"sweet dreams",4
+"is it a balloon?",4
+"a throwaway joke",4
+"it spreads",4
+"take aim",4
+"monsters hunted",4
+"postmortal",4
+"hired help",4
+"star trader",4
+"smithing with style",4
+"two birds, one arrow",4
+"who's the pillager now?",4
+"arbalistic",4
+"careful restoration",4
+"adventuring time",4
+"sound of music",4
+"light as a rabbit",4
+"is it a plane?",4
+"very very frightening",4
+"sniper duel",4
+"bullseye",4
+"husbandry",4
+"bee our guest",4
+"the parrots and the bats",4
+"you've got a friend in me",4
+"whatever floats your goat!",4
+"best friends forever",4
+"glow and behold!",4
+"fishy business",4
+"total beelocation",4
+"bukkit bukkit",4
+"smells interesting",4
+"a seedy place",4
+"wax on",4
+"two by two",4
+"birthday song",4
+"a complete catalogue",4
+"tactical fishing",4
+"when the squad hops into town",4
+"little sniffs",4
+"a balanced diet",4
+"serious dedication",4
+"wax off",4
+"the cutest predator",4
+"with our powers combined!",4
+"planting the past",4
+"the healing power of friendship!",4
+"sword",4
+"dark forest",4
+"deep cold ocean",4
+"deep dark",4
+"deep frozen ocean",4
+"deep lukewarm ocean",4
+"deep ocean",4
+"deep warm ocean",4
+"dripstone caves",4
+"end barrens",4
+"end highlands",4
+"end midlands",4
+"eroded badlands",4
+"flower forest",4
+"frozen ocean",4
+"frozen peaks",4
+"frozen river",4
+"grove",4
+"ice spikes",4
+"jagged peaks",4
+"lukewarm ocean",4
+"lush caves",4
+"mangrove swamp",4
+"meadow",4
+"mushroom fields",4
+"nether wastes",4
+"old growth birch forest",4
+"old growth pine taiga",4
+"old growth spruce taiga",4
+"plains",4
+"savanna",4
+"savanna plateau",4
+"small end islands",4
+"snowy beach",4
+"snowy mountains",4
+"snowy plains",4
+"snowy slopes",4
+"snowy taiga",4
+"soul sand valley",4
+"sparse jungle",4
+"stony peaks",4
+"stony shore",4
+"sunflower plains",4
+"swamp",4
+"taiga",4
+"tundra",4
+"warm ocean",4
+"warped forest",4
+"windswept forest",4
+"windswept gravelly hills",4
+"windswept hills",4
+"windswept savanna",4
+"wooded badlands",4
+"badlands",4
+"badlands plateau",4
+"bamboo jungle",4
+"basalt deltas",4
+"birch forest",4
+"cherry grove",4
+"cold ocean",4
+"crimson forest",4
+"acacia button",4
+"magma block",4
+"mossy cobblestone",4
+"oak log",4
+"oak planks",4
+"slime block",4
+"smithing table",4
+"snow block",4
+"acacia door",4
+"acacia fence",4
+"acacia fence gate",4
+"acacia hanging sign",4
+"acacia leaves",4
+"acacia log",4
+"acacia planks",4
+"acacia pressure plate",4
+"acacia sapling",4
+"acacia sign",4
+"acacia slab",4
+"acacia stairs",4
+"acacia trapdoor",4
+"acacia wood",4
+"activator rail",4
+"ancient debris",4
+"andesite slab",4
+"andesite wall",4
+"azalea",4
+"azalea leaves",4
+"azure bluet",4
+"bamboo button",4
+"bamboo door",4
+"bamboo fence",4
+"bamboo planks",4
+"bee nest",4
+"big dripleaf",4
+"birch fence",4
+"birch leaves",4
+"birch log",4
+"birch planks",4
+"black wool",4
+"blue wool",4
+"cartography table",4
+"deepslate",4
+"dragon egg",4
+"sculk catalyst",4
+"sculk sensor",4
+"sculk shrieker",4
+"bamboo mosaic",4
+"bamboo shoot",4
+"reinforced deepslate",4
+"calibrated sculk sensor",4
+"polished granite",4
+"polished diorite",4
+"polished andesite",4
+"mud brick",4
+"oak door",4
+"feather falling",4
+"smite",4
+"knockback",4
+"fire aspect",4
+"looting",4
+"sweeping edge",4
+"curse of binding",4
+"curse of vanishing",4
+"wind burst",4
+"binding",4
+"vanishing",4
+"agent",4
+"allay",4
+"area effect cloud",4
+"armor stand",4
+"block display",4
+"cave spider",4
+"dragon fireball",4
+"ender crystal",4
+"ender dragon part",4
+"evoker fangs",4
+"experience orb",4
+"falling blocks",4
+"fireball",4
+"fishing bobber",4
+"giant",4
+"glow squid",4
+"illusioner",4
+"interaction",4
+"iron golem",4
+"item display",4
+"leash knot",4
+"lightning bolt",4
+"llama spit",4
+"magma cube",4
+"piglin brute",4
+"polar bear",4
+"primed tnt",4
+"shulker bullet",4
+"skeleton horse",4
+"small fireball",4
+"sniffer",4
+"snow golem",4
+"tadpole",4
+"text display",4
+"trader llama",4
+"tropical fish",4
+"wandering trader",4
+"wither skeleton",4
+"wither skull",4
+"zombie horse",4
+"zombie villager",4
+"zombified piglin",4
+"desert pyramid",4
+"desert well",4
+"dimensions",4
+"disk",4
+"dripstone cluster",4
+"dungeon",4
+"embankment",4
+"enchanting library",4
+"end city",4
+"end gateway",4
+"end portal",4
+"end ship",4
+"entities",4
+"exit portal",4
+"explosion",4
+"far lands",4
+"floating island",4
+"fluids",4
+"fortress",4
+"glowstone blob",4
+"huge brown mushroom",4
+"huge crimson fungus",4
+"huge fungus",4
+"huge mushroom",4
+"huge red mushroom",4
+"huge warped fungus",4
+"ice spike",4
+"iceberg",4
+"igloo",4
+"items",4
+"jungle pyramid",4
+"jungle tree",4
+"large biomes",4
+"lava lake",4
+"lava sea",4
+"liquids",4
+"mangrove tree",4
+"mansion",4
+"mineshaft",4
+"mobs",4
+"monolith",4
+"mossy cobblestone boulder",4
+"nether cave",4
+"nether fortress",4
+"nether fossil",4
+"nether reactor",4
+"noise cave",4
+"oak tree",4
+"obsidian pillar",4
+"obsidian platform",4
+"ocean monument",4
+"ocean ruins",4
+"overworld",4
+"pillager outpost",4
+"projectile",4
+"random patch",4
+"renewable resource",4
+"ruined portal",4
+"shipwreck",4
+"sky dimension",4
+"snowfall",4
+"spruce tree",4
+"stars",4
+"stone platform",4
+"stronghold",4
+"superflat",4
+"swamp hut",4
+"the nether",4
+"thunderstorm",4
+"trail ruins",4
+"underwater cave",4
+"underwater ravine",4
+"underwater ruins",4
+"village",4
+"witch hut",4
+"woodland mansion",4
+"world border",4
+"world boundary",4
+"acacia tree",4
+"altitude",4
+"ambience",4
+"amethyst geode",4
+"amplified",4
+"ancient city",4
+"aquifer",4
+"azalea tree",4
+"basalt column",4
+"basalt pillar",4
+"bastion remnant",4
+"beacon pyramid",4
+"biomes",4
+"birch tree",4
+"bonus chest",4
+"brick pyramid",4
+"bryce pillar",4
+"buffet mode",4
+"buried treasure",4
+"canyon",4
+"cherry blossom tree",4
+"chorus tree",4
+"chunks",4
+"cliff",4
+"clouds",4
+"conduit frame",4
+"coral reef",4
+"custom",4
+"dark oak tree",4
+"daylight cycle",4
+"debug mode",4
+"default",4
+"iron",4
+"crafting",4
+"armor",4
+"golden horse armor",4
+"gray candle",4
+"green candle",4
+"heart of the sea",4
+"heart pottery sherd",4
+"heartbreak pottery sherd",4
+"host armor trim smithing template",4
+"howl pottery sherd",4
+"ink sac",4
+"iron golem spawn egg",4
+"iron horse armor",4
+"item frame",4
+"jungle boat",4
+"dried kelp",4
+"dune armor trim smithing template",4
+"elder guardian spawn egg",4
+"empty map",4
+"end crystal",4
+"ender dragon spawn egg",4
+"explorer pottery sherd",4
+"eye armor trim smithing template",4
+"eye of ender",4
+"fire charge",4
+"firework rocket",4
+"firework star",4
+"flint and steel",4
+"friend pottery sherd",4
+"frog spawn egg",4
+"glass bottle",4
+"glow berries",4
+"glow ink sac",4
+"glow item frame",4
+"glow squid spawn egg",4
+"goat spawn egg",4
+"acacia boat",4
+"acacia boat with chest",4
+"allay spawn egg",4
+"angler pottery sherd",4
+"archer pottery sherd",4
+"arms up pottery sherd",4
+"arrow of decay",4
+"arrow of fire resistance",4
+"arrow of harming",4
+"arrow of healing",4
+"arrow of invisibility",4
+"arrow of leaping",4
+"arrow of luck",4
+"arrow of night vision",4
+"arrow of poison",4
+"arrow of regeneration",4
+"arrow of slow falling",4
+"arrow of slowness",4
+"arrow of splashing",4
+"arrow of strength",4
+"arrow of swiftness",4
+"arrow of the turtle master",4
+"arrow of water breathing",4
+"arrow of weakness",4
+"awkward lingering potion",4
+"awkward splash potion",4
+"axolotl spawn egg",4
+"baked potato",4
+"bamboo raft",4
+"bamboo raft with chest",4
+"banner pattern",4
+"bee spawn egg",4
+"beetroot seeds",4
+"beetroot soup",4
+"birch boat",4
+"birch boat with chest",4
+"black candle",4
+"blade pottery sherd",4
+"blaze rod",4
+"blue candle",4
+"bone meal",4
+"book and quill",4
+"bottle o' enchanting",4
+"brewer pottery sherd",4
+"brown candle",4
+"bucket of axolotl",4
+"bucket of cod",4
+"bucket of pufferfish",4
+"bucket of salmon",4
+"bucket of tadpole",4
+"bucket of tropical fish",4
+"bundle",4
+"buried treasure map",4
+"burn pottery sherd",4
+"camel spawn egg",4
+"carrot on a stick",4
+"cave spider spawn egg",4
+"cherry boat",4
+"cherry boat with chest",4
+"chorus fruit",4
+"clay ball",4
+"coast armor trim smithing template",4
+"cocoa beans",4
+"cod bucket",4
+"cyan candle",4
+"cyan dye",4
+"danger pottery sherd",4
+"dark oak boat",4
+"dark oak boat with chest",4
+"debug stick",4
+"desert village map",4
+"diamond axe",4
+"diamond chestplate",4
+"diamond helmet",4
+"diamond horse armor",4
+"diamond leggings",4
+"netherite axe",4
+"netherite boots",4
+"netherite chestplate",4
+"netherite helmet",4
+"netherite hoe",4
+"netherite leggings",4
+"netherite pickaxe",4
+"netherite scrap",4
+"netherite shovel",4
+"netherite sword",4
+"name tag",4
+"turtle shell",4
+"rabbit hide",4
+"nautilus shell",4
+"prismarine shard",4
+"prismarine crystals",4
+"wither skeleton skull",4
+"wheat seeds",4
+"melon seeds",4
+"pumpkin seeds",4
+"popped chorus fruit",4
+"lapis lazuli",4
+"experience bottle",4
+"spyglass",4
+"warped fungus on a stick",4
+"ominous bottle",4
+"trial key",4
+"ominous trial key",4
+"breeze rod",4
+"wind charge",4
+"mace",4
+"heavy core",4
+"wolf armor",4
+"armadillo scute",4
+"filled map",4
+"music disc",4
+"written book",4
+"daylight detector",4
+"tripwire hook",4
+"redstone block",4
+"end portal frame",4
+"haste",4
+"mining fatigue",4
+"instant health",4
+"instant damage",4
+"jump boost",4
+"nausea",4
+"fire resistance",4
+"water breathing",4
+"blindness",4
+"night vision",4
+"health boost",4
+"absorption",4
+"saturation",4
+"levitation",4
+"luck",4
+"bad luck",4
+"slow falling",4
+"conduit power",4
+"dolphin's grace",4
+"bad omen",4
+"darkness",4
+"fatal poison",4
+"splash potion",4
+"lingering potion",4
+"tipped arrow",4
+"spider eye",4
+"effect",4
+"duration",4
+"amplifier",4
+"particles",4
+"immunity",4
+"ambient",4
+"tick",4
+"milk bucket",4
+"suspicious stew",4
+"rotten flesh",4
+"mundane potion",4
+"cyan",4
+"add",4
+"counting",4
+"divide",4
+"driver",4
+"dull",4
+"emergency",4
+"equal",4
+"fifty",4
+"forty",4
+"grow",4
+"invisible",4
+"liquid",4
+"matte",4
+"modern",4
+"multiply",4
+"narrow",4
+"number",4
+"pale",4
+"police station",4
+"post office",4
+"powerful",4
+"shiny",4
+"singer",4
+"sit",4
+"solid",4
+"speak",4
+"subtract",4
+"sunlight",4
+"thick",4
+"thirty",4
+"transparent",4
+"vegetable",4
+"vivid",4
+"wide",4
+"pickaxe",3
+"redstone torch",3
+"stone button",3
+"blue ice",3
+"brick stairs",3
+"brown mushroom",3
+"brown mushroom block",3
+"oak stairs",3
+"cooked beef",3
+"seagull",2
+"chameleon",2
+"beaver",2
+"sloth",2
+"skunk",2
+"otter",2
+"cub",2
+"rhino",2
+"turkey",2
+"goose",2
+"walrus",2
+"manta ray",2
+"sea urchin",2
+"seal",2
+"cosmos wand",2
+"windflower",2
+"vaulting pole",2
+"bell tree",2
+"weeds",2
+"gold nugget",2
+"hardwood",2
+"softwood",2
+"sand dollar",2
+"message in a bottle",2
+"star fragment",2
+"shooting star",2
+"windmill",2
+"incline",2
+"acorn",2
+"pinecone",2
+"young spring bamboo",2
+"summer shell",2
+"cedar sapling",2
+"clover",2
+"bass",2
+"goldfish",2
+"tuna",2
+"moth",2
+"mantis",2
+"couch",2
+"hammer",2
+"wrench",2
+"flower pot",2
+"picture frame",2
+"rug",2
+"flute",2
+"shop",2
+"soccer ball",2
+"tennis racket",2
+"swimming pool",2
+"party hat",2
+"statue",2
+"poster",2
+"wreath",2
+"garland",2
+"workbench",2
+"recipe",2
+"rope",2
+"thread",2
+"fabric",2
+"donut",2
+"necklace",2
+"ring",2
+"crown",2
+"snowman",2
+"christmas tree",2
+"jack-o-lantern",2
+"easter egg",2
+"bunny",2
+"confetti",2
+"streamer",2
+"clam",2
+"apple pie",2
+"pancake",2
+"waffle",2
+"muffin",2
+"cupcake",2
+"vacuum",2
+"key",2
+"lock",2
+"bench",2
+"metal",2
+"plastic",2
+"trout",2
+"catfish",2
+"angelfish",2
+"carnation",2
+"violet",2
+"iris",2
+"lettuce",2
+"violin",2
+"trumpet",2
+"saxophone",2
+"harmonica",2
+"tambourine",2
+"jumping",2
+"climbing",2
+"fixed",2
+"walking",2
+"sitting",2
+"sleeping",2
+"eating",2
+"drinking",2
+"playing",2
+"working",2
+"drawing",2
+"singing",2
+"dancing",2
+"laughing",2
+"hugging",2
+"waving",2
+"clapping",2
+"pointing",2
+"thinking",2
+"looking",2
+"listening",2
+"talking",2
+"smiling",2
+"yo-yo",2
+"raindrop",2
+"yogurt",2
+"cereal",2
+"popcorn",2
+"pretzel",2
+"magic",2
+"dream",2
+"wish",2
+"hope",2
+"peace",2
+"joy",2
+"wonder",2
+"treasure",2
+"secret",2
+"mystery",2
+"surprise",2
+"memory",2
+"tom nook",2
+"isabelle",2
+"blathers",2
+"celeste",2
+"k.k. slider",2
+"marshall",2
+"raymond",2
+"audie",2
+"dom",2
+"judy",2
+"merengue",2
+"lolly",2
+"stitches",2
+"beau",2
+"diana",2
+"lucky",2
+"ankha",2
+"zucker",2
+"marina",2
+"gulliver",2
+"sahara",2
+"redd",2
+"flick",2
+"c.j.",2
+"elmo",2
+"big bird",2
+"cookie monster",2
+"grover",2
+"oscar",2
+"bert",2
+"ernie",2
+"abby",2
+"zoe",2
+"rosita",2
+"george",2
+"man in yellow hat",2
+"allie",2
+"bill",2
+"steve",2
+"daniel tiger",2
+"mom tiger",2
+"dad tiger",2
+"katerina",2
+"o the owl",2
+"prince wednesday",2
+"arthur",2
+"d.w.",2
+"buster",2
+"francine",2
+"muffy",2
+"alphabet",2
+"numbers",2
+"colors",2
+"shapes",2
+"ivysaur",2
+"charmeleon",2
+"wartortle",2
+"caterpie",2
+"metapod",2
+"butterfree",2
+"weedle",2
+"kakuna",2
+"beedrill",2
+"pidgey",2
+"pidgeotto",2
+"pidgeot",2
+"rattata",2
+"raticate",2
+"chikorita",2
+"bayleef",2
+"meganium",2
+"cyndaquil",2
+"quilava",2
+"typhlosion",2
+"totodile",2
+"croconaw",2
+"feraligatr",2
+"treecko",2
+"grovyle",2
+"sceptile",2
+"torchic",2
+"combusken",2
+"blaziken",2
+"mudkip",2
+"marshtomp",2
+"swampert",2
+"pikachu",2
+"eevee",2
+"jigglypuff",2
+"meowth",2
+"psyduck",2
+"snorlax",2
+"mew",2
+"togepi",2
+"clefairy",2
+"roof",2
+"floor",2
+"pan",2
+"mix",2
+"bake",2
+"fry",2
+"boil",2
+"pour",2
+"peel",2
+"musician",2
+"engineer",2
+"mechanic",2
+"builder",2
+"dentist",2
+"veterinarian",2
+"librarian",2
+"postman",2
+"ambulance",2
+"firetruck",2
+"excavator",2
+"flashlight",2
+"building",2
+"tower",2
+"castle",2
+"church",2
+"factory",2
+"stadium",2
+"lighthouse",2
+"cards",2
+"chess",2
+"dice",2
+"blender",2
+"toaster",2
+"bandage",2
+"thermometer",2
+"century",2
+"tornado",2
+"flood",2
+"drought",2
+"aquarium",2
+"cinema",2
+"cafe",2
+"bakery",2
+"pharmacy",2
+"van",2
+"ship",2
+"yacht",2
+"midnight",2
+"weekday",2
+"captain",2
+"waiter",2
+"cashier",2
+"security",2
+"gardener",2
+"cleaner",2
+"delivery",2
+"hairdresser",2
+"apartment",2
+"office",2
+"postoffice",2
+"station",2
+"airport",2
+"hotel",2
+"laptop",2
+"keyboard",2
+"screen",2
+"speaker",2
+"headphones",2
+"charger",2
+"wifi",2
+"internet",2
+"video",2
+"community",2
+"neighbor",2
+"friendship",2
+"kindness",2
+"respect",2
+"tradition",2
+"ceremony",2
+"performance",2
+"confidence",2
+"patience",2
+"decimal",2
+"tennis",2
+"volleyball",2
+"hygiene",2
+"novel",2
+"melody",2
+"history",2
+"monument",2
+"legend",2
+"rooster",2
+"pine tree",2
+"palm tree",2
+"astronaut",2
+"laboratory",2
+"gymnasium",2
+"cafeteria",2
+"flamingo",2
+"hummingbird",2
+"rhinoceros",2
+"hippo",2
+"algae",2
+"ivy",2
+"fog",2
+"mist",2
+"dew",2
+"frost",2
+"hail",2
+"sleet",2
+"blizzard",2
+"humidity",2
+"stapler",2
+"paperclip",2
+"binder",2
+"folder",2
+"trunk",2
+"experiment",2
+"magnet",2
+"energy",2
+"electricity",2
+"dictionary",2
+"highlighter",2
+"country",2
+"capital",2
+"peninsula",2
+"mammal",2
+"reptile",2
+"amphibian",2
+"habitat",2
+"adaptation",2
+"motion",2
+"force",2
+"friction",2
+"reflection",2
+"refraction",2
+"vibration",2
+"mixture",2
+"solution",2
+"evaporation",2
+"condensation",2
+"hot dog",2
+"bedroom",2
+"living room",2
+"comb",2
+"wave",2
+"shout",2
+"whisper",2
+"fat",2
+"nice",2
+"polite",2
+"can",2
+"may",2
+"will",2
+"present",2
+"kick",2
+"smell",2
+"taste",2
+"feel",2
+"give",2
+"take",2
+"put",2
+"get",2
+"make",2
+"do",2
+"go",2
+"come",2
+"stop",2
+"start",2
+"finish",2
+"turn",2
+"move",2
+"push",2
+"pull",2
+"carry",2
+"hold",2
+"drop",2
+"pick",2
+"lemon",2
+"onion",2
+"broccoli",2
+"front",2
+"behind",2
+"here",2
+"there",2
+"now",2
+"later",2
+"next",2
+"before",2
+"after",2
+"same",2
+"different",2
+"every",2
+"each",2
+"other",2
+"another",2
+"both",2
+"either",2
+"neither",2
+"only",2
+"also",2
+"too",2
+"much",2
+"little",2
+"enough",2
+"eyelash",2
+"hotdog",2
+"pasta",2
+"hotchocolate",2
+"lemonade",2
+"smoothie",2
+"underwear",2
+"crawl",2
+"often",2
+"usually",2
+"really",2
+"wonderful",2
+"amazing",2
+"fantastic",2
+"terrible",2
+"cooking",2
+"cleaning",2
+"shopping",2
+"gardening",2
+"picnic",2
+"camping",2
+"hiking",2
+"embarrassed",2
+"nervous",2
+"relieved",2
+"frustrated",2
+"determined",2
+"conversation",2
+"discussion",2
+"explanation",2
+"opinion",2
+"suggestion",2
+"agreement",2
+"disagreement",2
+"invitation",2
+"appointment",2
+"introduction",2
+"compliment",2
+"encouragement",2
+"umbrella",2
+"trash can",2
+"shower",2
+"pencil case",2
+"lunch box",2
+"paintbrush",2
+"glue stick",2
+"construction paper",2
+"playdough",2
+"smock",2
+"storybook",2
+"crayon box",2
+"sticker",2
+"magnifying glass",2
+"alphabet chart",2
+"number line",2
+"weather chart",2
+"hand puppet",2
+"story mat",2
+"puppet theater",2
+"magnetic letters",2
+"pattern blocks",2
+"balance scale",2
+"sand table",2
+"water table",2
+"play kitchen",2
+"dress-up clothes",2
+"puppet show",2
+"art easel",2
+"play dough",2
+"play dough tools",2
+"finger paint",2
+"play mat",2
+"toy cars",2
+"stuffed animals",2
+"coloring book",2
+"crayons",2
+"dollhouse",2
+"play food",2
+"train set",2
+"doctor kit",2
+"cash register",2
+"tool set",2
+"play tent",2
+"play tunnel",2
+"bead maze",2
+"respawn anchor",2
+"oak wood",2
+"amethyst block",2
+"copper block",2
+"copper ore",2
+"dripstone block",2
+"pointed dripstone",2
+"tuff",2
+"cherry log",2
+"cherry planks",2
+"cherry leaves",2
+"mangrove log",2
+"mangrove planks",2
+"mangrove leaves",2
+"sculk vein",2
+"bamboo mosaic slab",2
+"bamboo mosaic stairs",2
+"granite slab",2
+"diorite slab",2
+"mud brick slab",2
+"mud brick stairs",2
+"mud brick wall",2
+"glass pane",2
+"blast furnace",2
+"brick wall",2
+"red bed",2
+"old_nugget",2
+"golold_nugget",2
+"cherry sapling",2
+"mangrove propagule",2
+"wither boss",2
+"polished",2
+"coarse",2
+"podzol",2
+"plank",2
+"flowing",2
+"still",2
+"log",2
+"lazuli",2
+"chiseled",2
+"note",2
+"powered",2
+"golden",2
+"detector",2
+"sticky",2
+"cobweb",2
+"web",2
+"dead",2
+"shrub",2
+"tallgrass",2
+"magenta",2
+"lime",2
+"dandelion",2
+"azure",2
+"oxeye",2
+"double",2
+"wooden",2
+"mossy",2
+"monster",2
+"mob",2
+"spawner",2
+"wire",2
+"crops",2
+"burning",2
+"lit",2
+"sign",2
+"wall-mounted",2
+"off",2
+"unlit",2
+"on",2
+"layer",2
+"canes",2
+"reeds",2
+"glow",2
+"jack",2
+"repeater",2
+"unpowered",2
+"stained",2
+"cracked",2
+"bars",2
+"pane",2
+"vines",2
+"pad",2
+"waterlily",2
+"wart",2
+"enchanting",2
+"brewing",2
+"frame",2
+"inactive",2
+"active",2
+"cocoa",2
+"ender",2
+"hook",2
+"command",2
+"carrots",2
+"potatoes",2
+"skull",2
+"trapped",2
+"weighted",2
+"comparator",2
+"pillar",2
+"activator",2
+"hardened",2
+"pris",2
+"marine",2
+"hay",2
+"bale",2
+"of",2
+"packed",2
+"lilac",2
+"large",2
+"peony",2
+"free-standing",2
+"inverted",2
+"rod",2
+"purpur",2
+"beetroots",2
+"gateway",2
+"repeating",2
+"frosted",2
+"structure",2
+"void",2
+"box",2
+"glazed",2
+"powder",2
+"and",2
+"steel",2
+"ingot",2
+"stew",2
+"hoe",2
+"helmet",2
+"tunic",2
+"chainmail",2
+"raw",2
+"porkchop",2
+"cooked",2
+"with",2
+"fishing",2
+"dust",2
+"ink",2
+"sack",2
+"dye",2
+"beans",2
+"meal",2
+"filled",2
+"beef",2
+"steak",2
+"rotten",2
+"flesh",2
+"pearl",2
+"tear",2
+"nugget",2
+"fermented",2
+"cream",2
+"glistering",2
+"speckled",2
+"pigman",2
+"mite",2
+"polar",2
+"charge",2
+"quill",2
+"writable",2
+"written",2
+"item",2
+"baked",2
+"poisonous",2
+"human",2
+"pie",2
+"shard",2
+"crystals",2
+"rabbit's",2
+"name",2
+"tag",2
+"mutton",2
+"crystal",2
+"popped",2
+"dragon's",2
+"breath",2
+"undying",2
+"knowledge",2
+"disc",2
+"record",2
+"chirp",2
+"mall",2
+"mellohi",2
+"stal",2
+"strad",2
+"strand",2
+"ward",2
+"wait",2
+"rails",2
+"activatorrail",2
+"allow",2
+"debris",2
+"ancientdebris",2
+"slightly",2
+"damaged",2
+"armorstand",2
+"vision",2
+"leaping",2
+"boost",2
+"swiftness",2
+"breathing",2
+"healing",2
+"instant",2
+"harming",2
+"decay",2
+"the",2
+"master",2
+"bakedpotato",2
+"nest",2
+"troot",2
+"beetrootsoup",2
+"birchboat",2
+"birchsign",2
+"blast",2
+"blastfurnace",2
+"blazepowder",2
+"blazerod",2
+"bonemeal",2
+"border",2
+"bordure",2
+"indented",2
+"bordureindentedbannerpattern",2
+"brewingstand",2
+"carrotonastick",2
+"cartography",2
+"cartographytable",2
+"carved",2
+"carvedpumpkin",2
+"chestminecart",2
+"chorusflower",2
+"chorusfruit",2
+"chorusplant",2
+"clayball",2
+"cocoabeans",2
+"codbucket",2
+"commandblockminecart",2
+"concretepowder",2
+"tube",2
+"horn",2
+"fan",2
+"coralfan",2
+"coralfandead",2
+"craftingtable",2
+"fungus",2
+"hyphae",2
+"nylium",2
+"roots",2
+"primaries",2
+"premarin",2
+"deny",2
+"detectorrail",2
+"doubleplant",2
+"dragonbreath",2
+"dragonegg",2
+"dried",2
+"kelp",2
+"driedkelp",2
+"unknown",2
+"hydrogen",2
+"neon",2
+"fermium",2
+"mendelevium",2
+"nobelium",2
+"lawrencium",2
+"rutherfordium",2
+"dubnium",2
+"seaborgium",2
+"bohrium",2
+"hassium",2
+"meitnerium",2
+"sodium",2
+"darmstadtium",2
+"roentgenium",2
+"copernicium",2
+"nihonium",2
+"flerovium",2
+"moscovium",2
+"livermorium",2
+"tennessine",2
+"oganesson",2
+"magnesium",2
+"aluminum",2
+"silicon",2
+"phosphorus",2
+"sulphur",2
+"chlorine",2
+"argon",2
+"potassium",2
+"helium",2
+"calcium",2
+"scandium",2
+"titanium",2
+"vanadium",2
+"chromium",2
+"manganese",2
+"cobalt",2
+"nickel",2
+"copper",2
+"lithium",2
+"zinc",2
+"gallium",2
+"germanium",2
+"arsenic",2
+"selenium",2
+"bromine",2
+"krypton",2
+"rubidium",2
+"strontium",2
+"yttrium",2
+"beryllium",2
+"zirconium",2
+"niobium",2
+"molybdenum",2
+"technetium",2
+"ruthenium",2
+"rhodium",2
+"palladium",2
+"cadmium",2
+"indium",2
+"boron",2
+"tin",2
+"antimony",2
+"tellurium",2
+"iodine",2
+"xenon",2
+"cesium",2
+"barium",2
+"lanthanum",2
+"cerium",2
+"praseodymium",2
+"carbon",2
+"neodymium",2
+"promethium",2
+"samarium",2
+"europium",2
+"gadolinium",2
+"terbium",2
+"dysprosium",2
+"holmium",2
+"erbium",2
+"thulium",2
+"nitrogen",2
+"ytterbium",2
+"lutetium",2
+"hafnium",2
+"tantalum",2
+"tungsten",2
+"rhenium",2
+"osmium",2
+"iridium",2
+"platinum",2
+"oxygen",2
+"mercury",2
+"thallium",2
+"bismuth",2
+"polonium",2
+"astatine",2
+"radon",2
+"francium",2
+"radium",2
+"actinium",2
+"fluorine",2
+"thorium",2
+"protactinium",2
+"uranium",2
+"neptunium",2
+"plutonium",2
+"americium",2
+"curium",2
+"berkelium",2
+"californium",2
+"einsteinium",2
+"emptymap",2
+"enchantingtable",2
+"endcrystal",2
+"endportalframe",2
+"endrod",2
+"o'enchanting",2
+"experiencebottle",2
+"fermentedspidereye",2
+"field",2
+"masoned",2
+"fieldmasonedbannerpattern",2
+"firecharge",2
+"fireworkrocket",2
+"fireworkstar",2
+"fishingrod",2
+"fletching",2
+"fletchingtable",2
+"flintandsteel",2
+"flowerbannerpattern",2
+"flowerpot",2
+"ghasttear",2
+"glassbottle",2
+"glasspane",2
+"slice",2
+"glisteringmelonslice",2
+"goldingot",2
+"goldnugget",2
+"grasspath",2
+"hardenedclay",2
+"heartofthesea",2
+"honeybottle",2
+"hopperminecart",2
+"sac",2
+"inksac",2
+"jigsaw",2
+"jungleboat",2
+"junglesign",2
+"lapislazuli",2
+"lavabucket",2
+"lingeringpotion",2
+"o'lantern",2
+"litpumpkin",2
+"magmacream",2
+"melonseeds",2
+"melonslice",2
+"milkbucket",2
+"mobspawner",2
+"thing",2
+"mojangbannerpattern",2
+"infested",2
+"monsteregg",2
+"c",2
+"musicdisc",2
+"musicdiscblocks",2
+"musicdisccat",2
+"musicdiscchirp",2
+"musicdiscfar",2
+"musicdiscmall",2
+"musicdiscmellohi",2
+"lena",2
+"raine",2
+"step",2
+"pigstep",2
+"musicdiscpigstep",2
+"mesiodistal",2
+"musicdiscstrad",2
+"musicdiscward",2
+"nautilusshell",2
+"tairs",2
+"sprouts",2
+"scrap",2
+"ites",2
+"word",2
+"rack",2
+"oakboat",2
+"oaksign",2
+"packedice",2
+"membrane",2
+"phantommembrane",2
+"snout",2
+"piglinbannerpattern",2
+"brute",2
+"poisonouspotato",2
+"poppedchorusfruit",2
+"prismarinecrystals",2
+"prismarineshard",2
+"pufferfishbucket",2
+"pumpkinpie",2
+"pumpkinseeds",2
+"rabbitfoot",2
+"rabbithide",2
+"rabbitstew",2
+"cornflower",2
+"anchor",2
+"respawnanchor",2
+"rottenflesh",2
+"salmonbucket",2
+"scaffolding",2
+"pickle",2
+"seapickle",2
+"seagrass",2
+"shroomlight",2
+"shulkerbox",2
+"shulkershell",2
+"skullbannerpattern",2
+"smithing",2
+"smithingtable",2
+"snowlayer",2
+"spidereye",2
+"splashpotion",2
+"spruceboat",2
+"sprucesign",2
+"stainedglass",2
+"stainedglasspane",2
+"stainedhardenedclay",2
+"stickypiston",2
+"stripped",2
+"strippedcrimsonhyphae",2
+"strippedcrimsonstem",2
+"strippedwarpedhyphae",2
+"strippedwarpedstem",2
+"sugarcane",2
+"suspicious",2
+"suspiciousstew",2
+"berries",2
+"sweetberries",2
+"target",2
+"tntminecart",2
+"totemofundying",2
+"tripwirehook",2
+"tropical",2
+"tropicalfish",2
+"tropicalfishbucket",2
+"turtleegg",2
+"twisting",2
+"twistingvines",2
+"undyedshulkerbox",2
+"wandering",2
+"trader",2
+"waterbucket",2
+"weeping",2
+"weepingvines",2
+"wheatseeds",2
+"witherrose",2
+"bark",2
+"writablebook",2
+"writtenbook",2
+"zombified",2

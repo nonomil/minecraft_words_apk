@@ -6,7 +6,15 @@
   "scripts": {
     "android:add": "npx cap add android",
     "android:sync": "npx cap sync android",
-    "android:build": "cd android && ./gradlew assembleRelease"
+    "android:build": "cd android && ./gradlew assembleRelease",
+    "vocab:extract": "node scripts/vocab_quality/extract_vocab_inventory.js",
+    "vocab:validate": "node scripts/vocab_quality/validate_vocab.js",
+    "vocab:bench": "node scripts/vocab_quality/compare_benchmarks.js",
+    "vocab:autofix": "node scripts/vocab_quality/autofix_vocab.js",
+    "vocab:missing-images": "node scripts/vocab_quality/export_missing_images.js",
+    "vocab:merge-core": "node scripts/vocab_quality/build_merged_core_vocab.js",
+    "vocab:candidates": "node scripts/vocab_quality/generate_candidates.js",
+    "vocab:audit": "npm run vocab:extract && npm run vocab:validate && npm run vocab:bench && npm run vocab:candidates"
   },
   "dependencies": {
     "@capacitor/core": "^6.1.0"

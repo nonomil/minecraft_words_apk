@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-02-18T05:23:57.962Z",
+  "scannedFiles": 62,
+  "totals": {
+    "emptyChinese": 0,
+    "emptyImageArray": 0,
+    "emptyImageUrl": 0,
+    "badUnsplashQuery": 0
+  },
+  "bySeverity": {}
+}
