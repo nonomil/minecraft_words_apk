@@ -85,12 +85,43 @@ npx cap open android
 
 3. 在 Android Studio 中构建APK
 
-### GitHub Actions 自动构建
-项目配置了 GitHub Actions,推送代码后会自动构建:
-- Android Debug APK
-- Windows EXE (可选)
+### GitHub Actions 自动构建 (推荐)
 
-构建产物可在 Actions 页面下载。
+**最简单的发布方式:**
+
+1. 提交代码:
+```bash
+git add .
+git commit -m "feat: 添加新功能"
+```
+
+2. 使用 push.bat 推送 (Windows):
+```bash
+.\push.bat
+```
+
+或手动推送:
+```bash
+git push origin main
+```
+
+3. GitHub Actions 会自动:
+   - ✅ 递增版本号 (2.2.3 → 2.2.4)
+   - ✅ 更新 version.json 和 build.gradle
+   - ✅ 构建 Android Debug APK
+   - ✅ 上传 APK 到 Artifacts
+
+4. 在 [Actions 页面](https://github.com/nonomil/minecraft_words_apk/actions) 下载构建好的 APK
+
+**push.bat 功能:**
+- 自动检查 git 仓库状态
+- 显示当前版本信息和待推送提交
+- 自动处理网络问题并重试
+- 推送成功后显示 Actions 链接
+
+### 手动构建 APK
+
+如需本地构建:
 
 ## 📖 文档
 
