@@ -125,3 +125,30 @@ jobs:
         with:
           name: release-notes-${{ env.APK_VERSION }}
           path: release_notes.md
+
+      - name: Update or Create Latest Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest
+          name: Latest Build - v${{ steps.version.outputs.VERSION_NAME }}
+          bodyFile: release_notes.md
+          artifacts: ${{ env.APK_RENAMED }}
+          allowUpdates: true
+          removeArtifacts: true
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          makeLatest: true
+
+      - name: Commit version changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add version.json android-app/android/app/build.gradle
+          git diff --staged --quiet || git commit -m "chore: auto-bump version to ${{ steps.version.outputs.VERSION_NAME }} [skip ci]"
+
+      - name: Push version changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
