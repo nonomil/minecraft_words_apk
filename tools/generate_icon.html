@@ -81,16 +81,17 @@
             canvas.height = size;
             const ctx = canvas.getContext('2d');
 
-            // Minecraft 草方块配色 (绿色系 - 与 Mario 的红色系不同)
+            // Minecraft 草方块配色
             const grassGreen = '#7CB342';
             const darkGreen = '#558B2F';
             const dirtBrown = '#8D6E63';
+            const darkBrown = '#6D4C41';
 
             // 背景 - 草绿色
             ctx.fillStyle = grassGreen;
             ctx.fillRect(0, 0, size, size);
 
-            // 下半部分 - 泥土色
+            // 下半部分 - 泥土色 (1/3 高度)
             const dirtHeight = size / 3;
             ctx.fillStyle = dirtBrown;
             ctx.fillRect(0, size - dirtHeight, size, dirtHeight);
@@ -106,8 +107,8 @@
                 ctx.stroke();
             }
 
-            // 泥土纹理
-            ctx.strokeStyle = '#6D4C41';
+            // 泥土纹理线条
+            ctx.strokeStyle = darkBrown;
             for (let i = 1; i <= 2; i++) {
                 const y = size - dirtHeight + (dirtHeight / 3) * i;
                 ctx.beginPath();
@@ -116,7 +117,28 @@
                 ctx.stroke();
             }
 
-            // 外边框
+            // 添加方块像素化效果 (草地部分)
+            const pixelSize = Math.max(2, size / 16);
+            ctx.fillStyle = darkGreen;
+            for (let y = 0; y < size - dirtHeight; y += pixelSize * 2) {
+                for (let x = 0; x < size; x += pixelSize * 2) {
+                    if (Math.random() > 0.7) {
+                        ctx.fillRect(x, y, pixelSize, pixelSize);
+                    }
+                }
+            }
+
+            // 泥土部分的像素化效果
+            ctx.fillStyle = darkBrown;
+            for (let y = size - dirtHeight; y < size; y += pixelSize * 2) {
+                for (let x = 0; x < size; x += pixelSize * 2) {
+                    if (Math.random() > 0.7) {
+                        ctx.fillRect(x, y, pixelSize, pixelSize);
+                    }
+                }
+            }
+
+            // 绘制外边框
             ctx.strokeStyle = darkGreen;
             ctx.lineWidth = Math.max(2, size / 32);
             ctx.strokeRect(0, 0, size, size);

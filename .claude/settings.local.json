@@ -11,7 +11,18 @@
       "Bash(find:*)",
       "Bash(python:*)",
       "Bash(git checkout:*)",
-      "Bash(git rebase:*)"
+      "Bash(git rebase:*)",
+      "Bash(keytool:*)",
+      "Bash(where:*)",
+      "Bash(powershell -Command \"Get-Command java -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "Bash(powershell -Command \"[System.Environment]::GetEnvironmentVariable\\(''JAVA_HOME'', ''Machine''\\)\")",
+      "Bash(powershell -Command \"Get-Command keytool -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "Bash(\"C:\\\\Program Files\\\\Common Files\\\\Oracle\\\\Java\\\\javapath\\\\keytool.exe\" -genkeypair:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File generate_keystore.ps1)",
+      "Bash(powershell -ExecutionPolicy Bypass -File generate_keystore_complete.ps1)",
+      "Bash(powershell -ExecutionPolicy Bypass -File gen_key.ps1)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": [],
     "ask": []

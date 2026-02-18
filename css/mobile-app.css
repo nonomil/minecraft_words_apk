@@ -1,5 +1,12 @@
 /* Mobile App Layout - Dual Layout System */
 
+:root {
+    --mobile-safe-top: env(safe-area-inset-top, 0px);
+    --mobile-safe-right: env(safe-area-inset-right, 0px);
+    --mobile-safe-bottom: env(safe-area-inset-bottom, 0px);
+    --mobile-safe-left: env(safe-area-inset-left, 0px);
+}
+
 /* Desktop Layout - Default visible */
 .desktop-layout {
     display: block;
@@ -10,8 +17,8 @@
     display: none;
 }
 
-/* Mobile-specific styles (only when screen is small) */
-@media (max-width: 768px) {
+/* Mobile-specific styles (phone portrait + phone landscape) */
+@media (max-width: 768px), (orientation: landscape) and (max-height: 768px) {
 
     /* Hide desktop, show mobile */
     .desktop-layout {
@@ -37,6 +44,9 @@
         /* 全局半透明背景遮罩 */
         backdrop-filter: blur(5px);
         /* 背景模糊 */
+        padding-top: var(--mobile-safe-top);
+        padding-left: var(--mobile-safe-left);
+        padding-right: var(--mobile-safe-right);
     }
 
     /* Mobile Views Container */
@@ -83,6 +93,8 @@
         /* 确保层级最高 */
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
         padding-bottom: env(safe-area-inset-bottom);
+        padding-left: var(--mobile-safe-left);
+        padding-right: var(--mobile-safe-right);
     }
 
     .mobile-nav-item {
@@ -206,12 +218,34 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        gap: 8px;
     }
 
     .mobile-header-title {
         font-size: 1.1rem;
         font-weight: bold;
         color: #333;
+        flex: 1;
+        text-align: center;
+    }
+
+    .mobile-back-btn {
+        border: 1px solid #d1d9e6;
+        background: #fff;
+        color: #1f2937;
+        border-radius: 8px;
+        padding: 6px 10px;
+        font-size: 13px;
+        font-weight: 600;
+        min-height: 36px;
+        min-width: 72px;
+        cursor: pointer;
+    }
+
+    .mobile-fullscreen-progress {
+        min-height: 16px;
+        font-size: 12px;
+        color: #666;
     }
 
     .mobile-type-select {
@@ -226,7 +260,10 @@
 
     /* Mobile View Content */
     .mobile-view-content {
-        /* Content will be cloned from desktop */
+        overflow-y: auto;
+        overflow-x: hidden;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
     }
 
     /* 针对学习卡片的移动端优化 */
@@ -267,5 +304,61 @@
     #mobile-settings-content .device-mode-btn {
         flex: 1 1 40%;
         min-width: 80px;
+    }
+
+    .mobile-layout.fullscreen-mode .mobile-bottom-nav {
+        display: none;
+    }
+
+    .mobile-layout.fullscreen-mode .mobile-view {
+        padding-bottom: 16px;
+    }
+
+    .mobile-layout.fullscreen-mode .mobile-view.fullscreen-view {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mobile-layout.fullscreen-mode .mobile-view.fullscreen-view .mobile-view-content {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    .mobile-layout.fullscreen-mode .mobile-view.fullscreen-view .word-english {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+
+    .mobile-layout.fullscreen-mode .mobile-view.fullscreen-view .control-btn {
+        min-height: 44px;
+        font-size: clamp(14px, 2vw, 18px);
+    }
+
+    /* 横屏首页布局优化 - 必须放在通用规则之后以覆盖 */
+    @media (orientation: landscape) and (max-height: 768px) {
+        .mobile-home-cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .mobile-home-card {
+            min-height: 110px;
+            padding: 14px;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .mobile-home-card .card-icon {
+            font-size: 24px;
+        }
+
+        .mobile-home-card .card-title {
+            font-size: 0.95rem;
+        }
     }
 }

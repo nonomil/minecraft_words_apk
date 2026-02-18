@@ -63,9 +63,16 @@ function applyDeviceMode(mode) {
         }
     };
 
+    const getViewportShortSide = () => {
+        const vv = window.visualViewport;
+        const width = vv?.width || window.innerWidth || document.documentElement.clientWidth || 0;
+        const height = vv?.height || window.innerHeight || document.documentElement.clientHeight || 0;
+        return Math.min(width, height);
+    };
+
     if (mode === 'auto') {
-        // 自动模式：根据屏幕宽度决定
-        if (window.innerWidth <= 768) {
+        // 自动模式：根据短边阈值判定，避免横屏手机误判为桌面
+        if (getViewportShortSide() < 768) {
             desktopLayout.style.display = 'none';
             mobileLayout.style.display = 'flex';
             ensureMobileApp();
@@ -90,6 +97,16 @@ function applyDeviceMode(mode) {
 // 屏幕方向锁定逻辑
 async function lockScreenOrientation(mode) {
     try {
+        const isNativeApp = Boolean(
+            window.Capacitor?.isNative ||
+            (typeof window.Capacitor?.isNativePlatform === 'function' && window.Capacitor.isNativePlatform())
+        );
+
+        // Native APK orientation is controlled by AndroidManifest to avoid JS/native lock conflicts.
+        if (isNativeApp) {
+            return;
+        }
+
         // 尝试获取 Capacitor 插件
         const ScreenOrientation = window.Capacitor?.Plugins?.ScreenOrientation;
 

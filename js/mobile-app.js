@@ -3,6 +3,8 @@ class MobileAppManager {
     constructor() {
         this.currentView = 'home';
         this.initialized = false;
+        this.fullscreenViews = new Set(['learn', 'quiz']);
+        this.touchState = null;
         // Always try to init, but logic inside will check if needed or forced
         this.init();
     }
@@ -14,6 +16,7 @@ class MobileAppManager {
         this.setupNavigation();
         this.setupRewardSync();
         this.setupContentSharing();
+        this.setupFullscreenTouchGuard();
         this.initialized = true;
     }
 
@@ -39,6 +42,12 @@ class MobileAppManager {
     switchToView(viewName) {
         console.log('📱 Switching view to:', viewName);
         this.currentView = viewName;
+
+        if (this.fullscreenViews.has(viewName)) {
+            this.enterFullscreenView(viewName);
+        } else {
+            this.exitFullscreenView();
+        }
 
         // Update navigation
         document.querySelectorAll('.mobile-nav-item').forEach(item => {
@@ -79,6 +88,25 @@ class MobileAppManager {
                 }
             }
         }
+    }
+
+    enterFullscreenView(viewName) {
+        const mobileLayout = document.querySelector('.mobile-layout');
+        const targetView = document.getElementById(`mobile-${viewName}`);
+        if (!mobileLayout || !targetView) return;
+
+        mobileLayout.classList.add('fullscreen-mode');
+        targetView.classList.add('fullscreen-view');
+    }
+
+    exitFullscreenView() {
+        const mobileLayout = document.querySelector('.mobile-layout');
+        if (!mobileLayout) return;
+
+        mobileLayout.classList.remove('fullscreen-mode');
+        document.querySelectorAll('.mobile-view').forEach(view => {
+            view.classList.remove('fullscreen-view');
+        });
     }
 
     setupContentSharing() {
@@ -162,12 +190,74 @@ class MobileAppManager {
             observer.observe(desktopSwords, { childList: true, characterData: true, subtree: true });
         }
     }
+
+    setupFullscreenTouchGuard() {
+        document.addEventListener('touchstart', (event) => {
+            if (!this.isFullscreenActive()) return;
+            const scrollContainer = event.target.closest('.mobile-view.fullscreen-view .mobile-view-content');
+            if (!scrollContainer) {
+                this.touchState = null;
+                return;
+            }
+            this.touchState = {
+                scrollContainer,
+                startY: event.touches[0]?.clientY || 0
+            };
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (event) => {
+            if (!this.isFullscreenActive()) return;
+
+            const scrollContainer = event.target.closest('.mobile-view.fullscreen-view .mobile-view-content');
+            if (!scrollContainer) {
+                event.preventDefault();
+                return;
+            }
+
+            const touchY = event.touches[0]?.clientY || 0;
+            const prevY = this.touchState?.startY ?? touchY;
+            const deltaY = touchY - prevY;
+            const maxScrollTop = Math.max(0, scrollContainer.scrollHeight - scrollContainer.clientHeight);
+            const atTop = scrollContainer.scrollTop <= 0;
+            const atBottom = scrollContainer.scrollTop >= maxScrollTop - 1;
+
+            if ((atTop && deltaY > 0) || (atBottom && deltaY < 0)) {
+                // Prevent viewport bounce/chain scrolling when content reaches boundary.
+                event.preventDefault();
+            }
+
+            this.touchState = {
+                scrollContainer,
+                startY: touchY
+            };
+        }, { passive: false });
+
+        document.addEventListener('touchend', () => {
+            this.touchState = null;
+        }, { passive: true });
+    }
+
+    isFullscreenActive() {
+        const mobileLayout = document.querySelector('.mobile-layout');
+        return Boolean(mobileLayout?.classList.contains('fullscreen-mode'));
+    }
+}
+
+function getViewportShortSide() {
+    const vv = window.visualViewport;
+    const width = vv?.width || window.innerWidth || document.documentElement.clientWidth || 0;
+    const height = vv?.height || window.innerHeight || document.documentElement.clientHeight || 0;
+    return Math.min(width, height);
+}
+
+function shouldUseMobileLayout() {
+    return getViewportShortSide() < 768;
 }
 
 // Initialize on DOM ready if needed (auto mode)
 document.addEventListener('DOMContentLoaded', () => {
     // Only auto-init if screen is small, otherwise wait for manual switch or resize
-    if (window.innerWidth <= 768) {
+    if (shouldUseMobileLayout()) {
         if (!window.mobileApp) {
             window.mobileApp = new MobileAppManager();
         }
@@ -175,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Handle resize
-let wasDesktop = window.innerWidth > 768;
+let wasDesktop = !shouldUseMobileLayout();
 window.addEventListener('resize', () => {
     // Check if we are in a forced mode
     const settings = window.MinecraftWordGame ? window.MinecraftWordGame.getSettings() : null;
@@ -183,7 +273,7 @@ window.addEventListener('resize', () => {
 
     if (deviceMode !== 'auto') return; // Don't auto-switch if mode is forced
 
-    const isDesktop = window.innerWidth > 768;
+    const isDesktop = !shouldUseMobileLayout();
     if (wasDesktop !== isDesktop) {
         wasDesktop = isDesktop;
 

@@ -1,8 +1,5 @@
 {
-  "appId": "com.nonomil.minecraftwords",
-  "appName": "Minecraft Words",
-  "webDir": "www",
-  "server": {
-    "androidScheme": "https"
-  }
+  "appId": "com.example.mcwords",
+  "appName": "MineCraft学单词",
+  "webDir": "web"
 }
