@@ -1,0 +1,47 @@
+name: Vocab DB Quality Gate
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "js/vocabularies/**"
+      - "scripts/vocab_db/**"
+      - "scripts/vocab_quality/**"
+      - "package.json"
+      - ".github/workflows/vocabdb-quality.yml"
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "js/vocabularies/**"
+      - "scripts/vocab_db/**"
+      - "scripts/vocab_quality/**"
+      - "package.json"
+      - ".github/workflows/vocabdb-quality.yml"
+  workflow_dispatch:
+
+jobs:
+  vocabdb-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Vocab DB Pipeline
+        run: npm run vocabdb:pipeline
+
+      - name: Upload Vocab DB Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: vocabdb-artifacts
+          path: |
+            Data/vocab.db
+            reports/vocab/**
+            reports/vocab_db/**
+            js/vocabularies/normalized/**
+          if-no-files-found: warn
+

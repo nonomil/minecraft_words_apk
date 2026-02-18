@@ -14,7 +14,18 @@
     "vocab:missing-images": "node scripts/vocab_quality/export_missing_images.js",
     "vocab:merge-core": "node scripts/vocab_quality/build_merged_core_vocab.js",
     "vocab:candidates": "node scripts/vocab_quality/generate_candidates.js",
-    "vocab:audit": "npm run vocab:extract && npm run vocab:validate && npm run vocab:bench && npm run vocab:candidates"
+    "vocab:audit": "npm run vocab:extract && npm run vocab:validate && npm run vocab:bench && npm run vocab:candidates",
+    "vocabdb:build": "node scripts/vocab_db/build_vocab_db.js",
+    "vocabdb:export": "node scripts/vocab_db/export_vocab_db_csv.js",
+    "vocabdb:export-js": "node scripts/vocab_db/export_vocab_db_js.js",
+    "vocabdb:export-grouped-js": "node scripts/vocab_db/export_vocab_db_grouped_js.js",
+    "vocabdb:sync-runtime": "node scripts/vocab_db/sync_db_to_runtime_vocab.js",
+    "vocabdb:preview": "node scripts/vocab_db/export_vocab_markdown_preview.js",
+    "vocabdb:compare-external": "node scripts/vocab_db/compare_external_vocab.js",
+    "vocabdb:import-candidates": "node scripts/vocab_db/import_external_candidates.js",
+    "vocabdb:init": "npm run vocabdb:build && npm run vocabdb:export",
+    "vocabdb:manage": "node scripts/vocab_db/manage_vocab_db.js",
+    "vocabdb:pipeline": "npm run vocabdb:build && npm run vocabdb:export && npm run vocabdb:export-js && npm run vocabdb:export-grouped-js && npm run vocabdb:sync-runtime && npm run vocab:validate"
   },
   "dependencies": {
     "@capacitor/core": "^6.1.0"

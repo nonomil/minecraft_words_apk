@@ -2,7 +2,7 @@
 
 一款结合 Minecraft 主题的趣味英语单词学习应用,支持Web、Android APK等多平台。
 
-![Version](https://img.shields.io/badge/version-2.2.0-blue)
+![Version](https://img.shields.io/badge/version-2.2.3-blue)
 ![Platform](https://img.shields.io/badge/platform-Web%20%7C%20Android-green)
 ![License](https://img.shields.io/badge/license-MIT-orange)
 
@@ -102,6 +102,10 @@ npx cap open android
 - [部署指南](./docs/DEPLOYMENT.md) - 多平台部署方法
 - [API文档](./docs/API.md) - 核心API说明
 - [更新日志](./docs/CHANGELOG.md) - 版本更新记录
+- [词库数据库维护](./docs/VOCAB_DB.md) - SQLite 词库维护与导出流程
+- [词库维护新手指南](./docs/VOCAB_MAINTENANCE_BEGINNER_GUIDE.md) - 面向非技术维护者的步骤说明
+- [词库维护图文指南](./docs/VOCAB_MAINTENANCE_ILLUSTRATED_GUIDE.md) - 带截图位的逐步操作手册
+- [词库维护执行报告 (2026-02-18)](./docs/reports/2026-02-18-vocab-maintenance-run.md) - 本次去重/校验/外部对比的实操记录
 
 ## 🛠️ 技术栈
 

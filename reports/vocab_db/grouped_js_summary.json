@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-02-18T08:53:28.015Z",
+  "files": [
+    {
+      "group": "minecraft",
+      "file": "js\\vocabularies\\normalized\\db_minecraft.js",
+      "entries": 1735
+    },
+    {
+      "group": "kindergarten",
+      "file": "js\\vocabularies\\normalized\\db_kindergarten.js",
+      "entries": 979
+    },
+    {
+      "group": "stage",
+      "file": "js\\vocabularies\\normalized\\db_stage.js",
+      "entries": 185
+    },
+    {
+      "group": "common",
+      "file": "js\\vocabularies\\normalized\\db_common.js",
+      "entries": 0
+    },
+    {
+      "group": "other",
+      "file": "js\\vocabularies\\normalized\\db_other.js",
+      "entries": 23
+    }
+  ]
+}

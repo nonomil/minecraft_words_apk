@@ -1,0 +1,7 @@
+id,started_at,finished_at,scanned_files,raw_rows,merged_rows,notes
+"6","2026-02-18T08:53:01.724Z","2026-02-18T08:53:26.640Z","62","9627","2922","rebuild from js/vocabularies"
+"5","2026-02-18T08:26:07.446Z","2026-02-18T08:28:10.647Z","62","9627","2922","rebuild from js/vocabularies"
+"4","2026-02-18T08:23:38.348Z","2026-02-18T08:25:45.249Z","62","9627","2922","rebuild from js/vocabularies"
+"3","2026-02-18T06:51:04.140Z","2026-02-18T06:52:53.170Z","62","9627","2922","rebuild from js/vocabularies"
+"2","2026-02-18T06:25:46.531Z","2026-02-18T06:27:44.099Z","62","9627","2922","rebuild from js/vocabularies"
+"1","2026-02-18T06:13:42.980Z","2026-02-18T06:15:34.465Z","62","9627","2922","rebuild from js/vocabularies"

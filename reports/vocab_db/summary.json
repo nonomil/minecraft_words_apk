@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-02-18T08:53:27.100Z",
+  "database": "data\\vocab.db",
+  "outDir": "reports\\vocab_db",
+  "entries": 2922,
+  "images": 5954,
+  "sources": 8736,
+  "aliases": 373,
+  "importRuns": 6
+}

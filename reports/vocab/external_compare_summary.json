@@ -1,0 +1,436 @@
+{
+  "generatedAt": "2026-02-18T08:52:35.441Z",
+  "project": {
+    "totalEntries": 2922,
+    "normalizedLemmas": 2922,
+    "singleTokenEnglish": 1877
+  },
+  "sources": [
+    {
+      "id": "google_10000_en",
+      "label": "Google 10000 English (first20hours)",
+      "license": "MIT",
+      "licenseUrl": "https://github.com/first20hours/google-10000-english/blob/master/LICENSE.md",
+      "wordsUrl": "https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-usa-no-swears.txt",
+      "externalWords": 9884,
+      "overlapSingleToken": 1031,
+      "coverageSingleTokenPct": "10.43",
+      "missingSingleToken": 8853,
+      "topMissingPreview": [
+        {
+          "rank": 4,
+          "word": "to"
+        },
+        {
+          "rank": 5,
+          "word": "a"
+        },
+        {
+          "rank": 6,
+          "word": "in"
+        },
+        {
+          "rank": 7,
+          "word": "for"
+        },
+        {
+          "rank": 8,
+          "word": "is"
+        },
+        {
+          "rank": 10,
+          "word": "that"
+        },
+        {
+          "rank": 11,
+          "word": "by"
+        },
+        {
+          "rank": 12,
+          "word": "this"
+        },
+        {
+          "rank": 17,
+          "word": "not"
+        },
+        {
+          "rank": 18,
+          "word": "or"
+        },
+        {
+          "rank": 19,
+          "word": "be"
+        },
+        {
+          "rank": 20,
+          "word": "are"
+        },
+        {
+          "rank": 21,
+          "word": "from"
+        },
+        {
+          "rank": 22,
+          "word": "at"
+        },
+        {
+          "rank": 23,
+          "word": "as"
+        },
+        {
+          "rank": 24,
+          "word": "your"
+        },
+        {
+          "rank": 26,
+          "word": "have"
+        },
+        {
+          "rank": 29,
+          "word": "an"
+        },
+        {
+          "rank": 30,
+          "word": "was"
+        },
+        {
+          "rank": 35,
+          "word": "us"
+        },
+        {
+          "rank": 36,
+          "word": "about"
+        },
+        {
+          "rank": 37,
+          "word": "if"
+        },
+        {
+          "rank": 38,
+          "word": "page"
+        },
+        {
+          "rank": 39,
+          "word": "my"
+        },
+        {
+          "rank": 40,
+          "word": "has"
+        },
+        {
+          "rank": 41,
+          "word": "search"
+        },
+        {
+          "rank": 42,
+          "word": "free"
+        },
+        {
+          "rank": 43,
+          "word": "but"
+        },
+        {
+          "rank": 44,
+          "word": "our"
+        },
+        {
+          "rank": 49,
+          "word": "information"
+        },
+        {
+          "rank": 50,
+          "word": "time"
+        },
+        {
+          "rank": 52,
+          "word": "site"
+        },
+        {
+          "rank": 57,
+          "word": "which"
+        },
+        {
+          "rank": 58,
+          "word": "their"
+        },
+        {
+          "rank": 59,
+          "word": "news"
+        },
+        {
+          "rank": 60,
+          "word": "out"
+        },
+        {
+          "rank": 61,
+          "word": "use"
+        },
+        {
+          "rank": 62,
+          "word": "any"
+        },
+        {
+          "rank": 66,
+          "word": "so"
+        },
+        {
+          "rank": 67,
+          "word": "his"
+        },
+        {
+          "rank": 69,
+          "word": "contact"
+        },
+        {
+          "rank": 71,
+          "word": "business"
+        },
+        {
+          "rank": 78,
+          "word": "pm"
+        },
+        {
+          "rank": 79,
+          "word": "view"
+        },
+        {
+          "rank": 80,
+          "word": "online"
+        },
+        {
+          "rank": 82,
+          "word": "e"
+        },
+        {
+          "rank": 84,
+          "word": "am"
+        },
+        {
+          "rank": 85,
+          "word": "been"
+        },
+        {
+          "rank": 86,
+          "word": "would"
+        },
+        {
+          "rank": 88,
+          "word": "were"
+        }
+      ]
+    },
+    {
+      "id": "dwyl_words_alpha",
+      "label": "dwyl English Words Alpha",
+      "license": "Unlicense",
+      "licenseUrl": "https://github.com/dwyl/english-words/blob/master/LICENSE.md",
+      "wordsUrl": "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt",
+      "externalWords": 370105,
+      "overlapSingleToken": 1665,
+      "coverageSingleTokenPct": "0.45",
+      "missingSingleToken": 368440,
+      "topMissingPreview": [
+        {
+          "rank": 1,
+          "word": "a"
+        },
+        {
+          "rank": 2,
+          "word": "aa"
+        },
+        {
+          "rank": 3,
+          "word": "aaa"
+        },
+        {
+          "rank": 4,
+          "word": "aah"
+        },
+        {
+          "rank": 5,
+          "word": "aahed"
+        },
+        {
+          "rank": 6,
+          "word": "aahing"
+        },
+        {
+          "rank": 7,
+          "word": "aahs"
+        },
+        {
+          "rank": 8,
+          "word": "aal"
+        },
+        {
+          "rank": 9,
+          "word": "aalii"
+        },
+        {
+          "rank": 10,
+          "word": "aaliis"
+        },
+        {
+          "rank": 11,
+          "word": "aals"
+        },
+        {
+          "rank": 12,
+          "word": "aam"
+        },
+        {
+          "rank": 13,
+          "word": "aani"
+        },
+        {
+          "rank": 14,
+          "word": "aardvark"
+        },
+        {
+          "rank": 15,
+          "word": "aardvarks"
+        },
+        {
+          "rank": 16,
+          "word": "aardwolf"
+        },
+        {
+          "rank": 17,
+          "word": "aardwolves"
+        },
+        {
+          "rank": 18,
+          "word": "aargh"
+        },
+        {
+          "rank": 19,
+          "word": "aaron"
+        },
+        {
+          "rank": 20,
+          "word": "aaronic"
+        },
+        {
+          "rank": 21,
+          "word": "aaronical"
+        },
+        {
+          "rank": 22,
+          "word": "aaronite"
+        },
+        {
+          "rank": 23,
+          "word": "aaronitic"
+        },
+        {
+          "rank": 24,
+          "word": "aarrgh"
+        },
+        {
+          "rank": 25,
+          "word": "aarrghh"
+        },
+        {
+          "rank": 26,
+          "word": "aaru"
+        },
+        {
+          "rank": 27,
+          "word": "aas"
+        },
+        {
+          "rank": 28,
+          "word": "aasvogel"
+        },
+        {
+          "rank": 29,
+          "word": "aasvogels"
+        },
+        {
+          "rank": 30,
+          "word": "ab"
+        },
+        {
+          "rank": 31,
+          "word": "aba"
+        },
+        {
+          "rank": 32,
+          "word": "ababdeh"
+        },
+        {
+          "rank": 33,
+          "word": "ababua"
+        },
+        {
+          "rank": 34,
+          "word": "abac"
+        },
+        {
+          "rank": 35,
+          "word": "abaca"
+        },
+        {
+          "rank": 36,
+          "word": "abacay"
+        },
+        {
+          "rank": 37,
+          "word": "abacas"
+        },
+        {
+          "rank": 38,
+          "word": "abacate"
+        },
+        {
+          "rank": 39,
+          "word": "abacaxi"
+        },
+        {
+          "rank": 40,
+          "word": "abaci"
+        },
+        {
+          "rank": 41,
+          "word": "abacinate"
+        },
+        {
+          "rank": 42,
+          "word": "abacination"
+        },
+        {
+          "rank": 43,
+          "word": "abacisci"
+        },
+        {
+          "rank": 44,
+          "word": "abaciscus"
+        },
+        {
+          "rank": 45,
+          "word": "abacist"
+        },
+        {
+          "rank": 46,
+          "word": "aback"
+        },
+        {
+          "rank": 47,
+          "word": "abacli"
+        },
+        {
+          "rank": 48,
+          "word": "abacot"
+        },
+        {
+          "rank": 49,
+          "word": "abacterial"
+        },
+        {
+          "rank": 50,
+          "word": "abactinal"
+        }
+      ]
+    }
+  ]
+}
