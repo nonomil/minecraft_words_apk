@@ -95,8 +95,17 @@ class MobileAppManager {
         const targetView = document.getElementById(`mobile-${viewName}`);
         if (!mobileLayout || !targetView) return;
 
+        // Remove fullscreen from any other view first
+        document.querySelectorAll('.mobile-view').forEach(view => {
+            view.classList.remove('fullscreen-view');
+        });
+
         mobileLayout.classList.add('fullscreen-mode');
         targetView.classList.add('fullscreen-view');
+
+        // Scroll content to top when entering fullscreen
+        const content = targetView.querySelector('.mobile-view-content');
+        if (content) content.scrollTop = 0;
     }
 
     exitFullscreenView() {

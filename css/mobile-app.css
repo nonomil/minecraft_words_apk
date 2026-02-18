@@ -5,6 +5,7 @@
     --mobile-safe-right: env(safe-area-inset-right, 0px);
     --mobile-safe-bottom: env(safe-area-inset-bottom, 0px);
     --mobile-safe-left: env(safe-area-inset-left, 0px);
+    --mobile-nav-height: 60px;
 }
 
 /* Desktop Layout - Default visible */
@@ -26,10 +27,10 @@
     }
 
     body {
-        /* 在手机模式下，背景图可能会干扰阅读，这里加一个半透明遮罩效果 */
-        /* 或者直接使用伪元素在 .mobile-layout 上加遮罩 */
         background-attachment: scroll;
-        /* 手机上 fixed 背景可能有性能问题 */
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
     }
 
     .mobile-layout {
@@ -37,13 +38,10 @@
         flex-direction: column;
         height: 100vh;
         height: 100dvh;
-        /* 使用动态视口高度，解决浏览器地址栏问题 */
         overflow: hidden;
         position: relative;
         background: rgba(255, 255, 255, 0.85);
-        /* 全局半透明背景遮罩 */
         backdrop-filter: blur(5px);
-        /* 背景模糊 */
         padding-top: var(--mobile-safe-top);
         padding-left: var(--mobile-safe-left);
         padding-right: var(--mobile-safe-right);
@@ -52,6 +50,7 @@
     /* Mobile Views Container */
     .mobile-views {
         flex: 1;
+        min-height: 0;
         position: relative;
         overflow: hidden;
         width: 100%;
@@ -63,26 +62,23 @@
         left: 0;
         width: 100%;
         height: 100%;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        padding: 16px;
-        padding-bottom: 90px;
-        /* 增加底部留白，防止被导航栏遮挡 */
-        box-sizing: border-box;
         display: none;
+        flex-direction: column;
+        overflow: hidden;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     .mobile-view.active {
-        display: block;
+        display: flex;
     }
 
-    /* Mobile Bottom Navigation - 强制固定底部 */
+    /* Mobile Bottom Navigation */
     .mobile-bottom-nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        position: relative;
+        flex-shrink: 0;
         width: 100%;
-        height: 60px;
+        height: var(--mobile-nav-height);
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
         border-top: 1px solid #e0e0e0;
@@ -90,9 +86,8 @@
         justify-content: space-around;
         align-items: center;
         z-index: 9999;
-        /* 确保层级最高 */
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
-        padding-bottom: env(safe-area-inset-bottom);
+        padding-bottom: var(--mobile-safe-bottom);
         padding-left: var(--mobile-safe-left);
         padding-right: var(--mobile-safe-right);
     }
@@ -118,7 +113,7 @@
     }
 
     .mobile-nav-icon {
-        font-size: 24px;
+        font-size: 22px;
         margin-bottom: 2px;
     }
 
@@ -129,48 +124,53 @@
     /* Mobile Home View */
     .mobile-home-header {
         text-align: center;
-        margin-bottom: 20px;
-        padding-top: 10px;
+        padding: 12px 16px 8px;
+        flex-shrink: 0;
     }
 
     .mobile-home-header h2 {
-        font-size: 1.5rem;
-        margin: 0 0 10px 0;
+        font-size: 1.3rem;
+        margin: 0 0 8px 0;
         color: #1f2937;
         text-shadow: none;
-        /* 去除文字阴影，提高清晰度 */
     }
 
     .mobile-rewards {
-        font-size: 1rem;
+        font-size: 0.9rem;
         color: #666;
         background: #fff;
-        padding: 6px 12px;
+        padding: 4px 10px;
         border-radius: 20px;
         display: inline-block;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         border: 1px solid #eee;
+    }
+
+    /* Home view scrollable area */
+    #mobile-home {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
     }
 
     .mobile-home-cards {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
+        padding: 0 16px 16px;
         max-width: 100%;
-        margin: 0 auto;
     }
 
     .mobile-home-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border: none;
         border-radius: 12px;
-        padding: 20px;
+        padding: 16px;
         display: flex;
         flex-direction: row;
-        /* 改为横向排列，节省垂直空间 */
         align-items: center;
-        gap: 15px;
+        gap: 12px;
         cursor: pointer;
         transition: transform 0.2s, box-shadow 0.2s;
         box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
@@ -182,35 +182,33 @@
     }
 
     .mobile-home-card .card-icon {
-        font-size: 32px;
+        font-size: 28px;
+        flex-shrink: 0;
     }
 
     .mobile-home-card .card-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 600;
         color: white;
     }
 
     .mobile-home-card .card-desc {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         color: rgba(255, 255, 255, 0.8);
         margin-top: 2px;
     }
 
-    /* Mobile View Header */
+    /* Mobile View Header - compact, no overflow */
     .mobile-view-header {
-        position: sticky;
-        top: 0;
+        flex-shrink: 0;
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(5px);
-        padding: 10px 16px;
-        margin: -16px -16px 16px -16px;
+        padding: 8px 12px;
         border-bottom: 1px solid #e0e0e0;
         z-index: 100;
-        /* 提高层级 */
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     }
 
@@ -218,11 +216,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
     }
 
     .mobile-header-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: bold;
         color: #333;
         flex: 1;
@@ -234,67 +232,232 @@
         background: #fff;
         color: #1f2937;
         border-radius: 8px;
-        padding: 6px 10px;
-        font-size: 13px;
+        padding: 5px 8px;
+        font-size: 12px;
         font-weight: 600;
-        min-height: 36px;
-        min-width: 72px;
+        min-height: 32px;
+        min-width: 60px;
         cursor: pointer;
     }
 
     .mobile-fullscreen-progress {
-        min-height: 16px;
-        font-size: 12px;
+        min-height: 14px;
+        font-size: 11px;
         color: #666;
     }
 
     .mobile-type-select {
         width: 100%;
-        padding: 8px 12px;
+        padding: 6px 10px;
         border: 1px solid #d1d9e6;
         border-radius: 8px;
-        font-size: 14px;
+        font-size: 13px;
         background: #f8f9fa;
         color: #1f2937;
     }
 
-    /* Mobile View Content */
+    /* Mobile View Content - fills remaining space, scrollable */
     .mobile-view-content {
+        flex: 1;
+        min-height: 0;
         overflow-y: auto;
         overflow-x: hidden;
         overscroll-behavior: contain;
         -webkit-overflow-scrolling: touch;
+        padding: 10px 12px;
+        box-sizing: border-box;
     }
 
-    /* 针对学习卡片的移动端优化 */
+    /* Word card mobile adaptation */
     .mobile-view-content .word-card {
         margin: 0;
-        padding: 15px;
+        padding: 10px;
         background-image: none !important;
-        /* 去除卡片内部背景图 */
         background-color: #fff !important;
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
     }
 
     .mobile-view-content .word-image {
-        width: 120px;
-        height: 120px;
+        width: clamp(80px, 20vw, 120px);
+        height: clamp(80px, 20vw, 120px);
     }
 
     .mobile-view-content .word-english {
-        font-size: 1.8rem;
-        padding: 10px;
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        padding: 8px;
+        word-break: break-word;
     }
 
-    /* Optimize Settings Buttons for Mobile */
-    #mobile-settings-content .setting-item {
+    .mobile-view-content .word-phonetic {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+    }
+
+    .mobile-view-content .word-chinese {
+        font-size: clamp(1rem, 4vw, 1.4rem);
+    }
+
+    .mobile-view-content .word-category {
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+    }
+
+    /* Learn choices grid - 2 columns on mobile */
+    .mobile-view-content .learn-choices {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        margin: 8px 0;
+    }
+
+    .mobile-view-content .learn-choice {
+        padding: 8px 6px;
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .mobile-view-content .learn-options h3 {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+
+    .mobile-view-content .word-phrase {
+        font-size: clamp(0.8rem, 3vw, 0.95rem);
+        padding: 8px;
+    }
+
+    /* Control buttons mobile adaptation */
+    .mobile-view-content .control-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin: 8px 0;
         flex-wrap: wrap;
+    }
+
+    .mobile-view-content .control-btn {
+        padding: 6px 10px;
+        font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+        min-height: 40px;
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    /* Progress bar compact */
+    .mobile-view-content .progress-bar {
+        height: 10px;
+        margin: 8px 0;
+    }
+
+    /* Stats compact */
+    .mobile-view-content .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        margin: 8px 0;
+    }
+
+    .mobile-view-content .stat-item {
+        padding: 6px 4px;
+    }
+
+    .mobile-view-content .stat-value {
+        font-size: 1rem;
+    }
+
+    .mobile-view-content .stat-label {
+        font-size: 0.7rem;
+    }
+
+    /* Group progress compact */
+    .mobile-view-content .group-progress {
+        margin-bottom: 8px;
+    }
+
+    .mobile-view-content .group-info {
+        font-size: 0.85rem;
+    }
+
+    /* Quiz card mobile adaptation */
+    .mobile-view-content .quiz-card {
+        padding: 10px;
+        background-image: none !important;
+        background-color: #fff !important;
+        border-radius: 10px;
+        margin: 0;
+        max-width: 100%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .mobile-view-content .quiz-image {
+        width: clamp(80px, 20vw, 120px);
+        height: clamp(80px, 20vw, 120px);
+    }
+
+    .mobile-view-content .quiz-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        margin: 8px 0;
+    }
+
+    .mobile-view-content .quiz-option {
+        padding: 8px 6px;
+        font-size: clamp(0.8rem, 3vw, 1rem);
+        min-height: 40px;
+    }
+
+    .mobile-view-content .quiz-headline h3 {
+        font-size: 0.95rem;
+        margin: 6px 0;
+    }
+
+    /* Settings mobile adaptation */
+    .mobile-view-content .settings-group {
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+    }
+
+    .mobile-view-content .settings-group h3 {
+        display: block !important;
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+
+    .mobile-view-content .setting-item {
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    .mobile-view-content .setting-item label {
+        font-size: 0.85rem;
+        min-width: 80px;
+    }
+
+    .mobile-view-content .setting-item select {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 6px 8px;
+    }
+
+    .mobile-view-content .setting-item input[type="range"] {
+        flex: 1;
+        min-width: 100px;
     }
 
     #mobile-settings-content .control-btn {
         flex: 1 1 40%;
         margin: 4px !important;
-        min-width: 120px;
+        min-width: 100px;
         justify-content: center;
+        font-size: 0.85rem;
+        padding: 8px;
     }
 
     #mobile-settings-content .device-mode-buttons {
@@ -303,15 +466,14 @@
 
     #mobile-settings-content .device-mode-btn {
         flex: 1 1 40%;
-        min-width: 80px;
+        min-width: 70px;
+        font-size: 0.8rem;
+        padding: 6px;
     }
 
+    /* Fullscreen mode - hide nav, expand view */
     .mobile-layout.fullscreen-mode .mobile-bottom-nav {
         display: none;
-    }
-
-    .mobile-layout.fullscreen-mode .mobile-view {
-        padding-bottom: 16px;
     }
 
     .mobile-layout.fullscreen-mode .mobile-view.fullscreen-view {
@@ -328,37 +490,370 @@
     }
 
     .mobile-layout.fullscreen-mode .mobile-view.fullscreen-view .word-english {
-        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-size: clamp(1.2rem, 5vw, 2rem);
     }
 
     .mobile-layout.fullscreen-mode .mobile-view.fullscreen-view .control-btn {
-        min-height: 44px;
-        font-size: clamp(14px, 2vw, 18px);
+        min-height: 42px;
+        font-size: clamp(0.75rem, 2.5vw, 0.95rem);
     }
 
-    /* 横屏首页布局优化 - 必须放在通用规则之后以覆盖 */
+    /* Landscape-specific optimizations */
     @media (orientation: landscape) and (max-height: 768px) {
+
+        .mobile-home-header {
+            padding: 6px 16px 4px;
+        }
+
+        .mobile-home-header h2 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
         .mobile-home-cards {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 0 16px 12px;
         }
 
         .mobile-home-card {
-            min-height: 110px;
-            padding: 14px;
+            min-height: 80px;
+            padding: 10px;
             flex-direction: column;
             text-align: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .mobile-home-card .card-icon {
-            font-size: 24px;
+            font-size: 22px;
         }
 
         .mobile-home-card .card-title {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+        }
+
+        /* Landscape header more compact */
+        .mobile-view-header {
+            padding: 4px 12px;
+            gap: 4px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .mobile-header-top {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .mobile-type-select {
+            flex: 0 0 auto;
+            width: auto;
+            min-width: 120px;
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+
+        .mobile-fullscreen-progress {
+            min-height: 12px;
+            font-size: 10px;
+        }
+
+        /* Landscape content: use space efficiently */
+        .mobile-view-content {
+            padding: 6px 10px;
+        }
+
+        .mobile-view-content .word-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 12px;
+            padding: 8px;
+        }
+
+        .mobile-view-content .word-image {
+            width: clamp(60px, 15vh, 100px);
+            height: clamp(60px, 15vh, 100px);
+            flex-shrink: 0;
+        }
+
+        .mobile-view-content .word-english {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            padding: 4px 8px;
+        }
+
+        .mobile-view-content .learn-choices {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+        }
+
+        .mobile-view-content .learn-choice {
+            padding: 6px 4px;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            min-height: 34px;
+        }
+
+        .mobile-view-content .quiz-options {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+        }
+
+        .mobile-view-content .quiz-option {
+            padding: 6px 4px;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            min-height: 34px;
+        }
+
+        .mobile-view-content .control-buttons {
+            gap: 4px;
+            margin: 4px 0;
+        }
+
+        .mobile-view-content .control-btn {
+            padding: 4px 8px;
+            min-height: 34px;
+            font-size: clamp(0.7rem, 2vw, 0.85rem);
+        }
+
+        .mobile-view-content .stats {
+            gap: 4px;
+            margin: 4px 0;
+        }
+
+        .mobile-view-content .stat-item {
+            padding: 4px;
+        }
+
+        .mobile-view-content .progress-bar {
+            height: 6px;
+            margin: 4px 0;
+        }
+
+        /* Landscape nav more compact */
+        .mobile-bottom-nav {
+            height: 48px;
+        }
+
+        .mobile-nav-icon {
+            font-size: 18px;
+        }
+
+        .mobile-nav-label {
+            font-size: 9px;
         }
     }
+}
+
+/* Forced mobile mode on larger screens (when user selects mobile mode on tablet/desktop) */
+.mobile-layout.mobile-mode-forced {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    padding-top: var(--mobile-safe-top);
+    padding-left: var(--mobile-safe-left);
+    padding-right: var(--mobile-safe-right);
+}
+
+.mobile-mode-forced .mobile-views {
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.mobile-mode-forced .mobile-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mobile-mode-forced .mobile-view.active {
+    display: flex;
+}
+
+.mobile-mode-forced .mobile-bottom-nav {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    height: var(--mobile-nav-height);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 9999;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+    padding-bottom: var(--mobile-safe-bottom);
+}
+
+.mobile-mode-forced #mobile-home {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.mobile-mode-forced .mobile-home-header {
+    text-align: center;
+    padding: 12px 16px 8px;
+    flex-shrink: 0;
+}
+
+.mobile-mode-forced .mobile-view-header {
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 8px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mobile-mode-forced .mobile-view-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 12px;
+    box-sizing: border-box;
+}
+
+.mobile-mode-forced .mobile-view-content .word-card {
+    margin: 0;
+    padding: 10px;
+    background-image: none !important;
+    background-color: #fff !important;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.mobile-mode-forced .mobile-view-content .word-image {
+    width: clamp(80px, 20vw, 120px);
+    height: clamp(80px, 20vw, 120px);
+}
+
+.mobile-mode-forced .mobile-view-content .word-english {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    padding: 8px;
+    word-break: break-word;
+}
+
+.mobile-mode-forced .mobile-view-content .learn-choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin: 8px 0;
+}
+
+.mobile-mode-forced .mobile-view-content .learn-choice {
+    padding: 8px 6px;
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mobile-mode-forced .mobile-view-content .quiz-card {
+    padding: 10px;
+    background-image: none !important;
+    background-color: #fff !important;
+    border-radius: 10px;
+    margin: 0;
+    max-width: 100%;
+}
+
+.mobile-mode-forced .mobile-view-content .quiz-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin: 8px 0;
+}
+
+.mobile-mode-forced .mobile-view-content .quiz-option {
+    padding: 8px 6px;
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    min-height: 40px;
+}
+
+.mobile-mode-forced .mobile-view-content .control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin: 8px 0;
+    flex-wrap: wrap;
+}
+
+.mobile-mode-forced .mobile-view-content .control-btn {
+    padding: 6px 10px;
+    font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+    min-height: 40px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.mobile-mode-forced .mobile-view-content .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 8px 0;
+}
+
+.mobile-mode-forced .mobile-view-content .progress-bar {
+    height: 10px;
+    margin: 8px 0;
+}
+
+.mobile-mode-forced .mobile-view-content .settings-group {
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.mobile-mode-forced .mobile-view-content .settings-group h3 {
+    display: block !important;
+}
+
+.mobile-mode-forced .mobile-view-content .setting-item {
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+/* Forced fullscreen mode */
+.mobile-mode-forced.fullscreen-mode .mobile-bottom-nav {
+    display: none;
+}
+
+.mobile-mode-forced.fullscreen-mode .mobile-view.fullscreen-view {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-mode-forced.fullscreen-mode .mobile-view.fullscreen-view .mobile-view-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 }

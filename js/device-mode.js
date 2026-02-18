@@ -75,21 +75,25 @@ function applyDeviceMode(mode) {
         if (getViewportShortSide() < 768) {
             desktopLayout.style.display = 'none';
             mobileLayout.style.display = 'flex';
+            mobileLayout.classList.add('mobile-mode-forced');
             ensureMobileApp();
         } else {
             desktopLayout.style.display = 'block';
             mobileLayout.style.display = 'none';
+            mobileLayout.classList.remove('mobile-mode-forced');
             cleanupMobileApp();
         }
     } else if (mode === 'mobile') {
         // 强制手机模式
         desktopLayout.style.display = 'none';
         mobileLayout.style.display = 'flex';
+        mobileLayout.classList.add('mobile-mode-forced');
         ensureMobileApp();
     } else if (mode === 'tablet' || mode === 'desktop') {
         // 强制桌面/平板模式
         desktopLayout.style.display = 'block';
         mobileLayout.style.display = 'none';
+        mobileLayout.classList.remove('mobile-mode-forced');
         cleanupMobileApp();
     }
 }
