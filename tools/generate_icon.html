@@ -3,198 +3,207 @@
 <head>
     <title>Minecraft Words Icon Generator</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background: #f0f0f0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        canvas {
-            border: 2px solid #333;
-            margin: 10px;
-        }
-        button {
-            background: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 5px;
-        }
-        button:hover {
-            background: #45a049;
-        }
-        .preview {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .icon-item {
-            text-align: center;
-        }
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a2e; color: #eee; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { color: #7CB342; }
+        .block-selector { display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0; }
+        .block-option { cursor: pointer; padding: 10px; border: 3px solid transparent; border-radius: 8px; text-align: center; background: #2a2a4a; transition: all 0.2s; }
+        .block-option:hover { border-color: #667eea; }
+        .block-option.selected { border-color: #7CB342; background: #3a3a5a; }
+        .block-option canvas { display: block; margin: 0 auto 8px; }
+        .block-option span { font-size: 14px; }
+        .preview { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0; align-items: flex-end; }
+        .icon-item { text-align: center; }
+        .icon-item canvas { border: 1px solid #555; }
+        button { background: #7CB342; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; margin: 5px; }
+        button:hover { background: #558B2F; }
+        .instructions { margin-top: 20px; background: #2a2a4a; padding: 15px; border-radius: 8px; display: none; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎮 Minecraft Words Icon Generator</h1>
-        <p>生成带 "MW" 文字的草方块图标 (与 Mario 项目不同)</p>
+<div class="container">
+    <h1>Minecraft Words Icon Generator</h1>
+    <p>选择一种方块风格，然后下载图标</p>
 
-        <div class="preview" id="preview"></div>
+    <h3>选择方块类型:</h3>
+    <div class="block-selector" id="blockSelector"></div>
 
-        <div style="margin-top: 20px;">
-            <button onclick="generateAllIcons()">生成所有图标</button>
-            <button onclick="downloadAll()">下载所有图标</button>
-        </div>
+    <h3>预览 (所有尺寸):</h3>
+    <div class="preview" id="preview"></div>
 
-        <div id="instructions" style="margin-top: 20px; display: none;">
-            <h3>使用说明:</h3>
-            <ol>
-                <li>点击"下载所有图标"按钮</li>
-                <li>将下载的图标文件复制到对应的 mipmap 目录</li>
-                <li>提交并推送到 GitHub</li>
-            </ol>
-        </div>
+    <div style="margin-top: 20px;">
+        <button onclick="downloadAll()">下载所有图标</button>
     </div>
 
-    <script>
-        const sizes = {
-            'mdpi': 48,
-            'hdpi': 72,
-            'xhdpi': 96,
-            'xxhdpi': 144,
-            'xxxhdpi': 192
-        };
+    <div class="instructions" id="instructions">
+        <h3>使用说明:</h3>
+        <ol>
+            <li>将下载的图标文件复制到对应的 mipmap 目录</li>
+            <li>运行 tools/install_icons.bat</li>
+            <li>提交并推送到 GitHub</li>
+        </ol>
+    </div>
+</div>
 
-        const canvases = {};
+<script>
+const sizes = { 'mdpi': 48, 'hdpi': 72, 'xhdpi': 96, 'xxhdpi': 144, 'xxxhdpi': 192 };
+const canvases = {};
+let currentBlock = 'diamond';
 
-        function createMinecraftIcon(size) {
-            const canvas = document.createElement('canvas');
-            canvas.width = size;
-            canvas.height = size;
-            const ctx = canvas.getContext('2d');
+const blocks = {
+    diamond: { name: '钻石矿石', bg: '#8BE3E3', dark: '#5BBCBC', accent: '#2DE8E8', border: '#4AA8A8', text: 'MW' },
+    gold: { name: '金矿石', bg: '#C8A84E', dark: '#A68A3E', accent: '#FFD700', border: '#8B7332', text: 'MW' },
+    redstone: { name: '红石矿石', bg: '#8B4545', dark: '#6B2A2A', accent: '#FF0000', border: '#5A1A1A', text: 'MW' },
+    lapis: { name: '青金石矿石', bg: '#3B5998', dark: '#2A4070', accent: '#1E90FF', border: '#1E3050', text: 'MW' },
+    emerald: { name: '绿宝石矿石', bg: '#3D8B37', dark: '#2D6B27', accent: '#50C878', border: '#1D4B17', text: 'MW' },
+    obsidian: { name: '黑曜石', bg: '#1A0A2E', dark: '#0D0518', accent: '#4B0082', border: '#2A1A3E', text: 'MW' },
+    bookshelf: { name: '书架', bg: '#8B6914', dark: '#6B4E0A', accent: '#D2B48C', border: '#5A4008', text: 'MW' },
+    tnt: { name: 'TNT', bg: '#CC2200', dark: '#991100', accent: '#FFFFFF', border: '#660000', text: 'TNT' }
+};
 
-            // Minecraft 草方块配色
-            const grassGreen = '#7CB342';
-            const darkGreen = '#558B2F';
-            const dirtBrown = '#8D6E63';
-            const darkBrown = '#6D4C41';
+function drawOreSpots(ctx, size, color, count) {
+    const s = Math.max(2, size / 12);
+    for (let i = 0; i < count; i++) {
+        const x = Math.random() * (size - s * 2) + s;
+        const y = Math.random() * (size - s * 2) + s;
+        ctx.fillStyle = color;
+        ctx.fillRect(x, y, s, s);
+        ctx.fillRect(x + s, y, s, s);
+        ctx.fillRect(x, y + s, s, s);
+    }
+}
 
-            // 背景 - 草绿色
-            ctx.fillStyle = grassGreen;
-            ctx.fillRect(0, 0, size, size);
-
-            // 下半部分 - 泥土色 (1/3 高度)
-            const dirtHeight = size / 3;
-            ctx.fillStyle = dirtBrown;
-            ctx.fillRect(0, size - dirtHeight, size, dirtHeight);
-
-            // 草地纹理线条
-            ctx.strokeStyle = darkGreen;
-            ctx.lineWidth = Math.max(1, size / 64);
-            for (let i = 1; i <= 3; i++) {
-                const y = ((size - dirtHeight) / 4) * i;
-                ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineTo(size, y);
-                ctx.stroke();
-            }
-
-            // 泥土纹理线条
-            ctx.strokeStyle = darkBrown;
-            for (let i = 1; i <= 2; i++) {
-                const y = size - dirtHeight + (dirtHeight / 3) * i;
-                ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineTo(size, y);
-                ctx.stroke();
-            }
-
-            // 添加方块像素化效果 (草地部分)
-            const pixelSize = Math.max(2, size / 16);
-            ctx.fillStyle = darkGreen;
-            for (let y = 0; y < size - dirtHeight; y += pixelSize * 2) {
-                for (let x = 0; x < size; x += pixelSize * 2) {
-                    if (Math.random() > 0.7) {
-                        ctx.fillRect(x, y, pixelSize, pixelSize);
-                    }
-                }
-            }
-
-            // 泥土部分的像素化效果
-            ctx.fillStyle = darkBrown;
-            for (let y = size - dirtHeight; y < size; y += pixelSize * 2) {
-                for (let x = 0; x < size; x += pixelSize * 2) {
-                    if (Math.random() > 0.7) {
-                        ctx.fillRect(x, y, pixelSize, pixelSize);
-                    }
-                }
-            }
-
-            // 绘制外边框
-            ctx.strokeStyle = darkGreen;
-            ctx.lineWidth = Math.max(2, size / 32);
-            ctx.strokeRect(0, 0, size, size);
-
-            // 添加文字 "MW"
-            const fontSize = size / 2;
-            ctx.font = `bold ${fontSize}px Arial`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-
-            // 文字阴影
-            const shadowOffset = Math.max(2, size / 64);
-            ctx.fillStyle = '#000000';
-            ctx.fillText('MW', size / 2 + shadowOffset, size / 2 - size / 10 + shadowOffset);
-
-            // 文字
-            ctx.fillStyle = 'white';
-            ctx.fillText('MW', size / 2, size / 2 - size / 10);
-
-            return canvas;
+function drawPixelTexture(ctx, size, color, density) {
+    const ps = Math.max(2, size / 16);
+    ctx.fillStyle = color;
+    for (let y = 0; y < size; y += ps) {
+        for (let x = 0; x < size; x += ps) {
+            if (Math.random() > density) ctx.fillRect(x, y, ps, ps);
         }
+    }
+}
 
-        function generateAllIcons() {
-            const preview = document.getElementById('preview');
-            preview.innerHTML = '';
+function createIcon(size, blockType) {
+    const b = blocks[blockType];
+    const canvas = document.createElement('canvas');
+    canvas.width = size; canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    const ps = Math.max(2, size / 16);
+    const bw = Math.max(2, size / 24);
 
-            for (const [density, size] of Object.entries(sizes)) {
-                const canvas = createMinecraftIcon(size);
-                canvases[density] = canvas;
+    // 石头底色
+    ctx.fillStyle = '#808080';
+    ctx.fillRect(0, 0, size, size);
+    drawPixelTexture(ctx, size, '#707070', 0.7);
+    drawPixelTexture(ctx, size, '#909090', 0.8);
 
-                const item = document.createElement('div');
-                item.className = 'icon-item';
-                item.innerHTML = `<div>${density} (${size}x${size})</div>`;
-                item.appendChild(canvas);
-                preview.appendChild(item);
+    if (blockType === 'obsidian') {
+        ctx.fillStyle = b.bg;
+        ctx.fillRect(0, 0, size, size);
+        drawPixelTexture(ctx, size, '#2A1A4E', 0.6);
+        drawPixelTexture(ctx, size, '#0D0518', 0.75);
+        drawOreSpots(ctx, size, '#4B0082', 3);
+    } else if (blockType === 'bookshelf') {
+        ctx.fillStyle = '#8B6914';
+        ctx.fillRect(0, 0, size, size);
+        const shelfH = size / 3;
+        for (let row = 0; row < 3; row++) {
+            const sy = row * shelfH;
+            ctx.fillStyle = '#5A4008';
+            ctx.fillRect(0, sy, size, bw);
+            for (let i = 0; i < 4; i++) {
+                const bx = i * (size / 4) + ps;
+                const colors = ['#CC2200', '#2255CC', '#22AA44', '#8B6914'];
+                ctx.fillStyle = colors[i % 4];
+                ctx.fillRect(bx, sy + bw + 2, size / 4 - ps * 2, shelfH - bw - 4);
             }
-
-            document.getElementById('instructions').style.display = 'block';
         }
+    } else if (blockType === 'tnt') {
+        ctx.fillStyle = '#CC2200';
+        ctx.fillRect(0, 0, size, size);
+        drawPixelTexture(ctx, size, '#991100', 0.7);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, size * 0.35, size, size * 0.3);
+        ctx.fillStyle = '#CCCCCC';
+        ctx.fillRect(0, size * 0.35, size, bw);
+        ctx.fillRect(0, size * 0.65 - bw, size, bw);
+    } else {
+        drawOreSpots(ctx, size, b.accent, 5);
+        drawOreSpots(ctx, size, b.bg, 3);
+    }
 
-        function downloadAll() {
-            for (const [density, canvas] of Object.entries(canvases)) {
-                canvas.toBlob(blob => {
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `ic_launcher_${density}.png`;
-                    a.click();
-                    URL.revokeObjectURL(url);
-                });
-            }
-            alert('开始下载所有图标!\n\n请将文件重命名为 ic_launcher.png 并复制到对应的 mipmap-* 目录');
-        }
+    // 边框
+    ctx.strokeStyle = b.border;
+    ctx.lineWidth = bw;
+    ctx.strokeRect(0, 0, size, size);
 
-        // 页面加载时自动生成
-        window.onload = generateAllIcons;
-    </script>
+    // 文字
+    const fontSize = size / (b.text.length > 2 ? 3 : 2.5);
+    ctx.font = 'bold ' + fontSize + 'px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const so = Math.max(2, size / 32);
+    ctx.fillStyle = '#000000';
+    ctx.fillText(b.text, size / 2 + so, size / 2 + so);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText(b.text, size / 2, size / 2);
+
+    return canvas;
+}
+// __CONTINUE_HERE__
+
+function selectBlock(type) {
+    currentBlock = type;
+    document.querySelectorAll('.block-option').forEach(el => el.classList.remove('selected'));
+    document.querySelector('[data-block="' + type + '"]').classList.add('selected');
+    generateAllIcons();
+}
+
+function generateAllIcons() {
+    const preview = document.getElementById('preview');
+    preview.innerHTML = '';
+    for (const [density, size] of Object.entries(sizes)) {
+        const canvas = createIcon(size, currentBlock);
+        canvases[density] = canvas;
+        const item = document.createElement('div');
+        item.className = 'icon-item';
+        item.innerHTML = '<div>' + density + ' (' + size + 'x' + size + ')</div>';
+        item.appendChild(canvas);
+        preview.appendChild(item);
+    }
+    document.getElementById('instructions').style.display = 'block';
+}
+
+function downloadAll() {
+    for (const [density, canvas] of Object.entries(canvases)) {
+        canvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'ic_launcher_' + density + '.png';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+    }
+    alert('下载完成! 请运行 tools/install_icons.bat 安装图标');
+}
+
+window.onload = function() {
+    const selector = document.getElementById('blockSelector');
+    for (const [type, b] of Object.entries(blocks)) {
+        const div = document.createElement('div');
+        div.className = 'block-option' + (type === currentBlock ? ' selected' : '');
+        div.dataset.block = type;
+        div.onclick = function() { selectBlock(type); };
+        const canvas = createIcon(64, type);
+        div.appendChild(canvas);
+        const span = document.createElement('span');
+        span.textContent = b.name;
+        div.appendChild(span);
+        selector.appendChild(div);
+    }
+    generateAllIcons();
+};
+</script>
 </body>
 </html>
