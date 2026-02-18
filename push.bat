@@ -13,6 +13,13 @@ echo   Push Code To GitHub
 echo ========================================
 echo.
 
+REM Configure Git proxy for V2Ray (port 1080)
+echo [CONFIG] Setting up Git proxy (127.0.0.1:1080)...
+git config --global http.proxy http://127.0.0.1:1080
+git config --global https.proxy http://127.0.0.1:1080
+git config --global http.postBuffer 524288000
+echo.
+
 for /f "delims=" %%A in ('git rev-parse --show-toplevel 2^>nul') do set "REPO_ROOT=%%A"
 if not defined REPO_ROOT (
     echo [ERROR] Current folder is not a git repository.
