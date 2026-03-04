@@ -653,6 +653,23 @@ function getWeakWords(wordStats, limit = 5) {
         .slice(0, Math.max(1, limit));
 }
 
+function get7DayLearningTrend(account) {
+    const dailyStats = account?.vocabulary?.dailyStats || {};
+    const result = [];
+    const now = new Date();
+
+    for (let i = 6; i >= 0; i--) {
+        const date = new Date(now);
+        date.setDate(date.getDate() - i);
+        const dateStr = date.toISOString().split('T')[0];
+        const displayDate = `${date.getMonth() + 1}/${date.getDate()}`;
+        const count = dailyStats[dateStr] || 0;
+        result.push({ date: displayDate, count });
+    }
+
+    return result;
+}
+
 function renderLearningStats(account) {
     const stats = account?.vocabulary?.wordStats || {};
     const weak = getWeakWords(stats, 5);
@@ -669,6 +686,17 @@ function renderLearningStats(account) {
     const totalAttempts = totalCorrect + totalWrong;
     const accuracyPercent = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
 
+    // Task 2: 7天学习趋势
+    const dailyLearning = get7DayLearningTrend(account);
+    const trendHtml = dailyLearning.length > 0
+        ? dailyLearning.map(day => (
+            `<div class="trend-day-item">` +
+            `<span class="trend-date">${day.date}</span>` +
+            `<span class="trend-count">${day.count} 词</span>` +
+            `</div>`
+        )).join("")
+        : `<div class="trend-empty">暂无学习记录</div>`;
+
     const weakHtml = weak.length
         ? weak.map(item => (
             `<div class="weak-word-item">` +
@@ -683,6 +711,10 @@ function renderLearningStats(account) {
         `<div class="stat-card">已学 <strong>${learned}</strong></div>` +
         `<div class="stat-card">掌握 <strong>${mastered}</strong></div>` +
         `<div class="stat-card">正确率 <strong>${accuracyPercent}%</strong></div>` +
+        `</div>` +
+        `<div class="trend-section">` +
+        `<h3>最近7天学习</h3>` +
+        trendHtml +
         `</div>` +
         `<div class="weak-words-section">` +
         `<h3>弱词清单</h3>` +
@@ -704,6 +736,7 @@ function getAchievementProgress(id, accountStats) {
 window.handleExportSave = handleExportSave;
 window.handleImportSave = handleImportSave;
 window.getWeakWords = getWeakWords;
+window.get7DayLearningTrend = get7DayLearningTrend;
 window.renderLearningStats = renderLearningStats;
 window.getAchievementProgress = getAchievementProgress;
 
