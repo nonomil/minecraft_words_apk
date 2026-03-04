@@ -670,6 +670,58 @@ function get7DayLearningTrend(account) {
     return result;
 }
 
+function getWeeklyStats(account) {
+    const dailyStats = account?.vocabulary?.dailyStats || {};
+    const wordStats = account?.vocabulary?.wordStats || {};
+    const now = new Date();
+
+    // 计算本周和上周的日期范围
+    const dayOfWeek = now.getDay();
+    const thisWeekStart = new Date(now);
+    thisWeekStart.setDate(now.getDate() - dayOfWeek);
+    thisWeekStart.setHours(0, 0, 0, 0);
+
+    const lastWeekStart = new Date(thisWeekStart);
+    lastWeekStart.setDate(thisWeekStart.getDate() - 7);
+
+    const lastWeekEnd = new Date(thisWeekStart);
+    lastWeekEnd.setDate(thisWeekStart.getDate() - 1);
+
+    // 聚合本周数据
+    let thisWeekWords = 0;
+    let thisWeekCorrect = 0;
+    let thisWeekWrong = 0;
+
+    for (let d = new Date(thisWeekStart); d <= now; d.setDate(d.getDate() + 1)) {
+        const dateStr = d.toISOString().split('T')[0];
+        thisWeekWords += dailyStats[dateStr] || 0;
+    }
+
+    // 聚合上周数据
+    let lastWeekWords = 0;
+    let lastWeekCorrect = 0;
+    let lastWeekWrong = 0;
+
+    for (let d = new Date(lastWeekStart); d <= lastWeekEnd; d.setDate(d.getDate() + 1)) {
+        const dateStr = d.toISOString().split('T')[0];
+        lastWeekWords += dailyStats[dateStr] || 0;
+    }
+
+    // 计算正确率（从 wordStats 中获取，这里简化处理）
+    Object.values(wordStats).forEach(stat => {
+        thisWeekCorrect += Number(stat?.correct) || 0;
+        thisWeekWrong += Number(stat?.wrong) || 0;
+    });
+
+    const thisWeekTotal = thisWeekCorrect + thisWeekWrong;
+    const thisWeekAccuracy = thisWeekTotal > 0 ? Math.round((thisWeekCorrect / thisWeekTotal) * 100) : 0;
+
+    return {
+        thisWeek: { words: thisWeekWords, accuracy: thisWeekAccuracy },
+        lastWeek: { words: lastWeekWords, accuracy: 0 }
+    };
+}
+
 function renderLearningStats(account) {
     const stats = account?.vocabulary?.wordStats || {};
     const weak = getWeakWords(stats, 5);
@@ -697,6 +749,31 @@ function renderLearningStats(account) {
         )).join("")
         : `<div class="trend-empty">暂无学习记录</div>`;
 
+    // Task 3: 本周 vs 上周对比
+    const weeklyStats = getWeeklyStats(account);
+    const thisWeek = weeklyStats.thisWeek;
+    const lastWeek = weeklyStats.lastWeek;
+    const hasLastWeekData = lastWeek.words > 0;
+
+    let comparisonHtml = '';
+    if (hasLastWeekData) {
+        const wordsDiff = thisWeek.words - lastWeek.words;
+        const wordsPercent = lastWeek.words > 0 ? Math.round((wordsDiff / lastWeek.words) * 100) : 0;
+        const wordsDirection = wordsDiff >= 0 ? '↑' : '↓';
+        const wordsChange = Math.abs(wordsPercent);
+
+        comparisonHtml = (
+            `<div class="weekly-comparison">` +
+            `<div class="comparison-item">` +
+            `本周学习 <strong>${thisWeek.words}</strong> 词 ` +
+            `<span class="comparison-change ${wordsDiff >= 0 ? 'positive' : 'negative'}">${wordsDirection} ${wordsChange}%</span> vs 上周` +
+            `</div>` +
+            `</div>`
+        );
+    } else {
+        comparisonHtml = `<div class="weekly-comparison">暂无对比数据</div>`;
+    }
+
     const weakHtml = weak.length
         ? weak.map(item => (
             `<div class="weak-word-item">` +
@@ -715,6 +792,7 @@ function renderLearningStats(account) {
         `<div class="trend-section">` +
         `<h3>最近7天学习</h3>` +
         trendHtml +
+        comparisonHtml +
         `</div>` +
         `<div class="weak-words-section">` +
         `<h3>弱词清单</h3>` +
@@ -737,6 +815,7 @@ window.handleExportSave = handleExportSave;
 window.handleImportSave = handleImportSave;
 window.getWeakWords = getWeakWords;
 window.get7DayLearningTrend = get7DayLearningTrend;
+window.getWeeklyStats = getWeeklyStats;
 window.renderLearningStats = renderLearningStats;
 window.getAchievementProgress = getAchievementProgress;
 
