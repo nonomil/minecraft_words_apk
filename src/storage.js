@@ -101,6 +101,12 @@ window.MMWG_STORAGE = {
         return list.find(a => a.id === id) || null;
     },
     saveAccount(account) {
+        // Create backup before saving
+        const existing = this.getAccount(account.id);
+        if (existing) {
+            createBackup(account.id, existing);
+        }
+
         const accounts = this.getAccountList();
         const idx = accounts.findIndex(a => a.id === account.id);
         if (idx >= 0) {
@@ -302,7 +308,100 @@ function diagnoseStorage() {
     };
 }
 
+// Backup system
+function createBackup(accountId, accountData) {
+    try {
+        const backupKey = `mmwg_backup_${accountId}`;
+        const backups = JSON.parse(window.localStorage.getItem(backupKey) || "[]");
+
+        const backup = {
+            timestamp: Date.now(),
+            data: clone(accountData),
+            checksum: calculateChecksum(accountData)
+        };
+
+        backups.push(backup);
+
+        // Keep only last 3 backups
+        if (backups.length > 3) {
+            backups.shift();
+        }
+
+        window.localStorage.setItem(backupKey, JSON.stringify(backups));
+        return true;
+    } catch (e) {
+        console.warn("Backup creation failed:", e);
+        return false;
+    }
+}
+
+function getBackups(accountId) {
+    try {
+        const backupKey = `mmwg_backup_${accountId}`;
+        const backups = JSON.parse(window.localStorage.getItem(backupKey) || "[]");
+        return backups;
+    } catch {
+        return [];
+    }
+}
+
+function restoreFromBackup(accountId, backupIndex = -1) {
+    try {
+        const backups = getBackups(accountId);
+        if (backups.length === 0) {
+            throw new Error("No backups available");
+        }
+
+        // Default to latest backup
+        const index = backupIndex < 0 ? backups.length - 1 : backupIndex;
+        if (index >= backups.length) {
+            throw new Error("Invalid backup index");
+        }
+
+        const backup = backups[index];
+
+        // Verify checksum
+        const currentChecksum = calculateChecksum(backup.data);
+        if (currentChecksum !== backup.checksum) {
+            console.warn("Backup checksum mismatch, data may be corrupted");
+        }
+
+        // Restore account
+        window.MMWG_STORAGE.saveAccount(backup.data);
+
+        return {
+            success: true,
+            timestamp: backup.timestamp,
+            checksumValid: currentChecksum === backup.checksum
+        };
+    } catch (e) {
+        console.error("Restore from backup failed:", e);
+        return {
+            success: false,
+            error: e.message
+        };
+    }
+}
+
+function calculateChecksum(data) {
+    try {
+        const str = JSON.stringify(data);
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return hash.toString(36);
+    } catch {
+        return "";
+    }
+}
+
 window.exportSaveCode = exportSaveCode;
 window.importSaveCode = importSaveCode;
 window.checkStorageQuota = checkStorageQuota;
 window.diagnoseStorage = diagnoseStorage;
+window.createBackup = createBackup;
+window.getBackups = getBackups;
+window.restoreFromBackup = restoreFromBackup;
