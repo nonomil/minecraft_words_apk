@@ -40,6 +40,7 @@ function wireSettingsModal() {
     const optSpeechZh = document.getElementById("opt-speech-zh");
     const optSpeechZhEnabled = document.getElementById("opt-speech-zh-enabled");
     const optBgm = document.getElementById("opt-bgm");
+    const optSfx = document.getElementById("opt-sfx");
     const optUiScale = document.getElementById("opt-ui-scale");
     const optDeviceMode = document.getElementById("opt-device-mode");
     const optMotionScale = document.getElementById("opt-motion-scale");
@@ -152,6 +153,7 @@ function wireSettingsModal() {
         if (optSpeechZhEnabled) optSpeechZhEnabled.checked = !!settings.speechZhEnabled;
         if (optSpeechZh) optSpeechZh.disabled = !settings.speechZhEnabled;
         if (optBgm) optBgm.checked = !!settings.musicEnabled;
+        if (optSfx) optSfx.checked = settings.sfxEnabled !== false;
         if (optUiScale) optUiScale.value = String(settings.uiScale ?? 1.0);
         if (optDeviceMode) optDeviceMode.value = settings.deviceMode || "auto";
         if (optMotionScale) optMotionScale.value = String(settings.motionScale ?? 1.25);
@@ -206,6 +208,7 @@ function wireSettingsModal() {
         if (optSpeechZh) settings.speechZhRate = Number(optSpeechZh.value);
         if (optSpeechZhEnabled) settings.speechZhEnabled = !!optSpeechZhEnabled.checked;
         if (optBgm) settings.musicEnabled = !!optBgm.checked;
+        if (optSfx) settings.sfxEnabled = !!optSfx.checked;
         if (optUiScale) settings.uiScale = Number(optUiScale.value);
         if (optDeviceMode) settings.deviceMode = String(optDeviceMode.value || "auto");
         if (optMotionScale) settings.motionScale = Number(optMotionScale.value);

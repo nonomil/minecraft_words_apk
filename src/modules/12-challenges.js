@@ -739,6 +739,7 @@ function completeLearningChallenge(correct) {
     if (correct) {
         sessionCorrectStreak++;
         sessionWrongStreak = 0;
+        if (typeof playChallengeCorrectSfx === "function") playChallengeCorrectSfx();
         const quality = elapsed < 3000 ? "correct_fast" : "correct_slow";
         writeChallengeResultToProgress(wordObj, quality);
         if (wordPicker && typeof wordPicker.updateWordQuality === "function" && wordObj?.en) {
@@ -762,6 +763,7 @@ function completeLearningChallenge(correct) {
     } else {
         sessionWrongStreak++;
         sessionCorrectStreak = 0;
+        if (typeof playChallengeWrongSfx === "function") playChallengeWrongSfx();
         writeChallengeResultToProgress(wordObj, "wrong");
         if (wordPicker && typeof wordPicker.updateWordQuality === "function" && wordObj?.en) {
             wordPicker.updateWordQuality(wordObj.en, "wrong");
