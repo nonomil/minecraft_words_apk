@@ -658,6 +658,17 @@ function renderLearningStats(account) {
     const weak = getWeakWords(stats, 5);
     const learned = account?.vocabulary?.learnedWords?.length || 0;
     const mastered = Object.values(stats).filter(s => (Number(s?.correct) || 0) >= 3 && (Number(s?.wrong) || 0) === 0).length;
+
+    // Task 1: 计算学习统计正确率
+    let totalCorrect = 0;
+    let totalWrong = 0;
+    Object.values(stats).forEach(stat => {
+        totalCorrect += Number(stat?.correct) || 0;
+        totalWrong += Number(stat?.wrong) || 0;
+    });
+    const totalAttempts = totalCorrect + totalWrong;
+    const accuracyPercent = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
+
     const weakHtml = weak.length
         ? weak.map(item => (
             `<div class="weak-word-item">` +
@@ -671,6 +682,7 @@ function renderLearningStats(account) {
         `<div class="stats-summary">` +
         `<div class="stat-card">已学 <strong>${learned}</strong></div>` +
         `<div class="stat-card">掌握 <strong>${mastered}</strong></div>` +
+        `<div class="stat-card">正确率 <strong>${accuracyPercent}%</strong></div>` +
         `</div>` +
         `<div class="weak-words-section">` +
         `<h3>弱词清单</h3>` +
