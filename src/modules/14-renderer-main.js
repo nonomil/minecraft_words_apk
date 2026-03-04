@@ -11,6 +11,14 @@ function scheduleNextFrame() {
                 startMeasure('update');
             }
 
+            // Backup state periodically
+            if (typeof errorHandler !== 'undefined' && typeof backupGameState === 'function') {
+                errorHandler.framesSinceBackup++;
+                if (errorHandler.framesSinceBackup >= errorHandler.stateBackupInterval) {
+                    backupGameState();
+                }
+            }
+
             update();
 
             if (typeof endMeasure === 'function') {
@@ -29,23 +37,38 @@ function scheduleNextFrame() {
             if (typeof recordFrame === 'function') {
                 recordFrame();
             }
-        } catch (e) {
-            // Single-shot fatal guard: avoid freezing on an uncaught exception.
-            // Do not attempt retries here; pause and surface an error overlay instead.
-            try { console.error('[gameLoop] fatal:', e); } catch {}
-            try {
-                if (typeof window !== "undefined") {
-                    window.__MMWG_LAST_ERROR = (e && e.stack) ? String(e.stack) : String(e && e.message ? e.message : e);
-                }
-            } catch {}
-            if (typeof isModalPauseActive === "function" && isModalPauseActive()) {
-                paused = true;
-            } else if (typeof pushPause === "function") {
-                pushPause();
-            } else {
-                paused = true;
+
+            // Reset error count on successful frame
+            if (typeof resetErrorCount === 'function') {
+                resetErrorCount();
             }
-            try { setOverlay(true, "error"); } catch {}
+        } catch (e) {
+            // Enhanced error handling
+            let shouldContinue = true;
+
+            if (typeof handleGameLoopError === 'function') {
+                shouldContinue = handleGameLoopError(e, 'gameLoop');
+            } else {
+                // Fallback error handling
+                try { console.error('[gameLoop] fatal:', e); } catch {}
+                try {
+                    if (typeof window !== "undefined") {
+                        window.__MMWG_LAST_ERROR = (e && e.stack) ? String(e.stack) : String(e && e.message ? e.message : e);
+                    }
+                } catch {}
+            }
+
+            if (!shouldContinue) {
+                // Pause game
+                if (typeof isModalPauseActive === "function" && isModalPauseActive()) {
+                    paused = true;
+                } else if (typeof pushPause === "function") {
+                    pushPause();
+                } else {
+                    paused = true;
+                }
+                try { setOverlay(true, "error"); } catch {}
+            }
         }
     });
 }
