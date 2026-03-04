@@ -464,6 +464,15 @@ function showProfileModal() {
     renderAchievements();
     const learningPanelEl = document.getElementById("learning-stats-panel");
     if (learningPanelEl) learningPanelEl.innerHTML = renderLearningStats(currentAccount);
+
+    // Wire weak words practice button after rendering
+    const btnWeakWordsPractice = document.getElementById("btn-weak-words-practice");
+    if (btnWeakWordsPractice) {
+        btnWeakWordsPractice.addEventListener("click", () => {
+            showToast("弱词专项练习功能即将上线");
+        });
+    }
+
     modal.classList.add("visible");
     modal.setAttribute("aria-hidden", "false");
     if (typeof pushPause === "function") pushPause();
@@ -518,6 +527,8 @@ function wireProfileModal() {
     const btnSaveLeaderboard = document.getElementById("btn-profile-save-leaderboard");
     const btnExportSave = document.getElementById("btn-export-save");
     const btnImportSave = document.getElementById("btn-import-save");
+    const btnProfileExportSave = document.getElementById("btn-profile-export-save");
+    const btnProfileImportSave = document.getElementById("btn-profile-import-save");
     if (btnClose) btnClose.addEventListener("click", hideProfileModal);
     if (btnSaveLeaderboard) {
         btnSaveLeaderboard.addEventListener("click", () => {
@@ -527,6 +538,8 @@ function wireProfileModal() {
     }
     if (btnExportSave) btnExportSave.addEventListener("click", handleExportSave);
     if (btnImportSave) btnImportSave.addEventListener("click", handleImportSave);
+    if (btnProfileExportSave) btnProfileExportSave.addEventListener("click", handleExportSave);
+    if (btnProfileImportSave) btnProfileImportSave.addEventListener("click", handleImportSave);
     if (modal) {
         modal.addEventListener("click", e => {
             if (e.target === modal) hideProfileModal();
@@ -797,6 +810,7 @@ function renderLearningStats(account) {
         `<div class="weak-words-section">` +
         `<h3>弱词清单</h3>` +
         weakHtml +
+        `<button class="game-btn game-btn-small" id="btn-weak-words-practice" style="margin-top:12px;">🎯 弱词专项练习</button>` +
         `</div>`
     );
 }
