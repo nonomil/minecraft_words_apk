@@ -5,8 +5,30 @@
 function scheduleNextFrame() {
     requestAnimationFrame(() => {
         try {
+            // Performance monitoring: frame start
+            if (typeof startMeasure === 'function') {
+                startMeasure('frame_total');
+                startMeasure('update');
+            }
+
             update();
+
+            if (typeof endMeasure === 'function') {
+                endMeasure('update');
+                startMeasure('render');
+            }
+
             draw();
+
+            if (typeof endMeasure === 'function') {
+                endMeasure('render');
+                endMeasure('frame_total');
+            }
+
+            // Record frame count
+            if (typeof recordFrame === 'function') {
+                recordFrame();
+            }
         } catch (e) {
             // Single-shot fatal guard: avoid freezing on an uncaught exception.
             // Do not attempt retries here; pause and surface an error overlay instead.
