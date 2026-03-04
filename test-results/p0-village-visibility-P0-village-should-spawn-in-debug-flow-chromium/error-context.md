@@ -1,0 +1,82 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - generic [ref=e4]:
+          - generic [ref=e7]: "🪙 金币: 0"
+          - generic [ref=e8]:
+            - button "🎒 背包" [ref=e9] [cursor=pointer]
+            - button "💾 存档" [ref=e10] [cursor=pointer]
+        - generic:
+          - generic:
+            - generic: Start!
+        - generic [ref=e11]:
+          - generic [ref=e12]:
+            - generic [ref=e13]: ⚔️石剑
+            - generic [ref=e14]: 🌲 森林
+            - generic [ref=e15] [cursor=pointer]: 🛡️ 无
+          - generic [ref=e16]:
+            - button "⚙️ 设置" [ref=e17] [cursor=pointer]
+            - button "📋 档案" [ref=e18] [cursor=pointer]
+            - button "🔊 重读/暂停" [ref=e19] [cursor=pointer]
+      - generic [ref=e20]:
+        - generic "钻石" [ref=e21]:
+          - generic [ref=e22]: 💎
+          - generic [ref=e23]: "0"
+        - generic "南瓜" [ref=e24]:
+          - generic [ref=e25]: 🎃
+          - generic [ref=e26]: "0"
+        - generic "铁块" [ref=e27]:
+          - generic [ref=e28]: 🧱
+          - generic [ref=e29]: "0"
+        - generic "木棍" [ref=e30]:
+          - generic [ref=e31]: 🥢
+          - generic [ref=e32]: "0"
+        - generic "石剑" [ref=e33]:
+          - generic [ref=e34]: ⚔️
+          - generic [ref=e35]: "1"
+        - generic "铁镐" [ref=e36]:
+          - generic [ref=e37]: ⛏️
+          - generic [ref=e38]: "0"
+        - generic "弓" [ref=e39]:
+          - generic [ref=e40]: 🏹
+          - generic [ref=e41]: "1"
+        - generic "箭矢" [ref=e42]:
+          - generic [ref=e43]: 🏹
+          - generic [ref=e44]: "5"
+      - generic: 欢迎回来 pw_village_1772632465053
+      - generic:
+        - generic [ref=e47]:
+          - button "⬅️" [ref=e48] [cursor=pointer]
+          - button "➡️" [ref=e49] [cursor=pointer]
+        - generic [ref=e50]:
+          - button "💎" [ref=e51] [cursor=pointer]
+          - button "🧰" [ref=e52] [cursor=pointer]
+          - button "🔁" [ref=e53] [cursor=pointer]
+          - button "⤴️" [ref=e55] [cursor=pointer]
+          - button "🗡️" [ref=e56] [cursor=pointer]
+  - generic [ref=e58]:
+    - generic [ref=e59]: Minecraft 单词游戏
+    - generic [ref=e62]:
+      - generic [ref=e63]: 在冒险中学习单词，闯关解锁更多词库与装备。挑战关卡，获取奖励与新武器。
+      - generic [ref=e64]:
+        - generic [ref=e65]: 🎮 操作说明
+        - generic [ref=e66]:
+          - generic [ref=e67]: ⬅️ ➡️ 移动
+          - generic [ref=e68]: ⬆️ 跳跃（可二段跳）
+        - generic [ref=e69]:
+          - generic [ref=e70]: ⚔️ J 攻击
+          - generic [ref=e71]: 🔄 K 切换武器
+        - generic [ref=e72]:
+          - generic [ref=e73]: 💎 Z 使用钻石
+          - generic [ref=e74]: 📦 Y 互动/开箱
+      - generic [ref=e75]:
+        - generic [ref=e76]: ⚙️ 温馨提示
+        - generic [ref=e77]: 游戏速度、单词词库选择、学习设置等均可在右上角 ⚙️ 设置 中调整。
+    - generic [ref=e78]:
+      - button "跳过" [ref=e79] [cursor=pointer]
+      - button "选择档案" [ref=e80] [cursor=pointer]
+```
