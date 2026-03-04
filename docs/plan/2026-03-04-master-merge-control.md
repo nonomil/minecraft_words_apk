@@ -274,8 +274,14 @@ git commit -m "merge: resolve conflicts from parallel-X"
 
 _Master Agent 在此记录关键操作和决策_
 
-### 2026-03-04
+### 2026-03-04 20:42
 - 创建主分支合并控制文档
-- 初始化 4 个 worktree 状态为"待开始"
+- 成功创建 4 个 worktree：
+  - worktree-A: `G:/UserCode/Mario_Minecraft/worktree-A` (feature/parallel-account-stats)
+  - worktree-B: `G:/UserCode/Mario_Minecraft/worktree-B` (feature/parallel-save-ui)
+  - worktree-C: `G:/UserCode/Mario_Minecraft/worktree-C` (feature/parallel-pwa)
+  - worktree-D: `G:/UserCode/Mario_Minecraft/worktree-D` (feature/serial-audio-system)
+- 更新所有 worktree 状态为"进行中"
+- 准备启动并行开发流程
 
 <!-- Master Agent 追加日志到此处 -->
