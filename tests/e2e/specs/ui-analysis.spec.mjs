@@ -230,8 +230,20 @@ test.describe("UI一致性分析", () => {
       await page.waitForTimeout(500);
     }
 
+    // 避免学习挑战弹窗遮挡设置按钮
+    const challengeModal = page.locator("#challenge-modal.visible");
+    if (await challengeModal.isVisible().catch(() => false)) {
+      const closeBtn = challengeModal.locator("#btn-challenge-close, .close-btn, button").first();
+      if (await closeBtn.isVisible().catch(() => false)) {
+        await closeBtn.click({ force: true });
+      } else {
+        await page.keyboard.press("Escape");
+      }
+      await page.waitForTimeout(200);
+    }
+
     // 打开设置
-    await page.click("#btn-settings");
+    await page.click("#btn-settings", { force: true });
     await page.waitForTimeout(1000);
 
     // 截图
