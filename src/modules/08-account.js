@@ -804,8 +804,30 @@ function renderLearningStats(account) {
 function getAchievementProgress(id, accountStats) {
     const def = ACHIEVEMENTS && ACHIEVEMENTS[id] ? ACHIEVEMENTS[id] : null;
     if (!def) return null;
+
     const mappedKey = def.metric || def.id || "";
-    const currentRaw = Number(accountStats?.[mappedKey]) || 0;
+    let currentRaw = 0;
+
+    // 根据 metric 从不同的数据源获取当前值
+    if (mappedKey === "learnedWords") {
+        currentRaw = currentAccount?.vocabulary?.learnedWords?.length || 0;
+    } else if (mappedKey === "highScore") {
+        currentRaw = currentAccount?.progress?.highScore || 0;
+    } else if (mappedKey === "learningStreak") {
+        currentRaw = currentAccount?.stats?.learningStreak || 0;
+    } else if (mappedKey === "perfectRuns") {
+        currentRaw = currentAccount?.stats?.perfectRuns || 0;
+    } else if (mappedKey === "nightSessions") {
+        currentRaw = currentAccount?.stats?.nightSessions || 0;
+    } else if (mappedKey === "armorCollected") {
+        currentRaw = currentAccount?.inventory?.armorCollection?.length || 0;
+    } else if (mappedKey === "diamondsCollected") {
+        currentRaw = currentAccount?.stats?.diamondsCollected || 0;
+    } else {
+        // 默认从 accountStats 中获取
+        currentRaw = Number(accountStats?.[mappedKey]) || 0;
+    }
+
     const target = Math.max(1, Number(def.target) || 1);
     const current = Math.min(currentRaw, target);
     return { current, target, percent: Math.floor((current / target) * 100) };
