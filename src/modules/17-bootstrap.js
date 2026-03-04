@@ -256,6 +256,13 @@ async function start() {
         }
     });
 
+    // Register Service Worker for PWA support
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js')
+            .then(reg => console.log('SW registered:', reg.scope))
+            .catch(err => console.warn('SW registration failed:', err));
+    }
+
     bootReady = true;
     const loginVisible = document.getElementById("login-screen")?.classList.contains("visible");
     const startOverlayVisible = document.getElementById("screen-overlay")?.classList.contains("visible")
