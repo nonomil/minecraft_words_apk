@@ -222,3 +222,37 @@ function playHitSfx(intensity = 1) {
     osc.start(now);
     osc.stop(now + 0.16);
 }
+
+function diagnoseTts() {
+    const hasSpeech = "speechSynthesis" in window;
+    const voices = hasSpeech && window.speechSynthesis.getVoices ? window.speechSynthesis.getVoices() : [];
+    const voiceCount = voices ? voices.length : 0;
+
+    let providerHint = "unknown";
+    const nativeTts = getNativeTts();
+    if (nativeTts) {
+        providerHint = "native (Capacitor TTS)";
+    } else if (hasSpeech) {
+        providerHint = "web (speechSynthesis)";
+    } else {
+        providerHint = "none";
+    }
+
+    let error = null;
+    if (!hasSpeech && !nativeTts) {
+        error = "No TTS provider available";
+    } else if (hasSpeech && voiceCount === 0) {
+        error = "speechSynthesis available but no voices loaded";
+    }
+
+    return {
+        hasSpeech: hasSpeech,
+        audioUnlocked: audioUnlocked,
+        speechEnabled: !!settings.speechEnabled,
+        providerHint: providerHint,
+        voices: voiceCount,
+        error: error
+    };
+}
+
+window.diagnoseTts = diagnoseTts;
