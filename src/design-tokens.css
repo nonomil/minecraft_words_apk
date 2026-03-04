@@ -1,0 +1,28 @@
+:root {
+  --color-primary: #4caf50;
+  --color-primary-dark: #388e3c;
+  --color-accent: #ffd700;
+  --color-bg-overlay: rgba(0, 0, 0, 0.55);
+  --color-bg-panel: rgba(20, 20, 20, 0.95);
+  --color-border-primary: rgba(255, 255, 255, 0.4);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #e0e0e0;
+
+  --font-family-base: "Verdana", "Microsoft YaHei", "微软雅黑", sans-serif;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+}
