@@ -436,8 +436,8 @@ test.describe("深度UI测试 - 完整游戏流程", () => {
       data: uiData
     };
 
-    // 保存报告
-    const fs = require('fs');
+    // 保存报告（使用动态import）
+    const fs = await import('fs');
     fs.writeFileSync(
       'test-results/deep-ui/ui-analysis-complete.json',
       JSON.stringify(report, null, 2),
