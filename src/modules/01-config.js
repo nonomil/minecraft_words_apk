@@ -17,12 +17,47 @@ async function loadJsonWithFallback(path, fallback) {
     try {
         const response = await fetch(path, { cache: "no-store" });
         if (!response.ok) {
-            throw new Error("load failed");
+            console.warn(`Config load failed: ${path} (${response.status})`);
+            return JSON.parse(JSON.stringify(fallback));
         }
-        return await response.json();
-    } catch {
+        const data = await response.json();
+
+        // Validate config if schema available
+        if (fallback && typeof fallback === 'object') {
+            const validated = validateAndMergeConfig(data, fallback);
+            return validated;
+        }
+
+        return data;
+    } catch (error) {
+        console.error(`Config load error: ${path}`, error);
         return JSON.parse(JSON.stringify(fallback));
     }
+}
+
+// Validate and merge config with fallback
+function validateAndMergeConfig(config, fallback) {
+    if (!config || typeof config !== 'object') {
+        console.warn('Invalid config, using fallback');
+        return JSON.parse(JSON.stringify(fallback));
+    }
+
+    // Deep merge: fallback provides defaults, config overrides
+    const merged = JSON.parse(JSON.stringify(fallback));
+
+    function deepMerge(target, source) {
+        for (const key in source) {
+            if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+                if (!target[key]) target[key] = {};
+                deepMerge(target[key], source[key]);
+            } else {
+                target[key] = source[key];
+            }
+        }
+    }
+
+    deepMerge(merged, config);
+    return merged;
 }
 
 const canvas = document.getElementById("gameCanvas");
