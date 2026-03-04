@@ -946,7 +946,7 @@ function legacySpeakWord(wordObj, enText, zhText) {
                 if (zhVoice) uZh.voice = zhVoice;
                 uZh.rate = clamp(Number(settings.speechZhRate) || 0.9, 0.5, 2.0);
                 uEn.onend = () => {
-                    try { window.speechSynthesis.speak(uZh); } catch
+                    try { window.speechSynthesis.speak(uZh); } catch (e) { /* ignore */ }
                 };
             }
 
