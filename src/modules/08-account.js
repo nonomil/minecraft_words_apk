@@ -518,6 +518,8 @@ function wireProfileModal() {
     const btnSaveLeaderboard = document.getElementById("btn-profile-save-leaderboard");
     const btnExportSave = document.getElementById("btn-export-save");
     const btnImportSave = document.getElementById("btn-import-save");
+    const btnProfileExportSave = document.getElementById("btn-profile-export-save");
+    const btnProfileImportSave = document.getElementById("btn-profile-import-save");
     if (btnClose) btnClose.addEventListener("click", hideProfileModal);
     if (btnSaveLeaderboard) {
         btnSaveLeaderboard.addEventListener("click", () => {
@@ -527,6 +529,8 @@ function wireProfileModal() {
     }
     if (btnExportSave) btnExportSave.addEventListener("click", handleExportSave);
     if (btnImportSave) btnImportSave.addEventListener("click", handleImportSave);
+    if (btnProfileExportSave) btnProfileExportSave.addEventListener("click", handleExportSave);
+    if (btnProfileImportSave) btnProfileImportSave.addEventListener("click", handleImportSave);
     if (modal) {
         modal.addEventListener("click", e => {
             if (e.target === modal) hideProfileModal();
