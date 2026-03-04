@@ -10,45 +10,50 @@
 ## 📊 Worktree 状态监控
 
 ### Worktree A（账号统计增强）
-- **状态：** `待开始` ← Master Agent 更新此字段
+- **状态：** `进行中` ← Master Agent 更新此字段
 - **分支：** `feature/parallel-account-stats`
+- **Worktree 路径：** `G:/UserCode/Mario_Minecraft/worktree-A`
 - **计划文档：** `worktree-A-account-stats-plan.md`
 - **负责 Agent：** Worktree-A Agent
 - **预估工时：** 6-8h
-- **开始时间：** _待填写_
+- **开始时间：** 2026-03-04 20:42
 - **完成时间：** _待填写_
 - **备份文件：** _待填写_
 - **测试结果：** _待填写_
 
 ### Worktree B（存档与UI增强）
-- **状态：** `待开始` ← Master Agent 更新此字段
+- **状态：** `进行中` ← Master Agent 更新此字段
 - **分支：** `feature/parallel-save-ui`
+- **Worktree 路径：** `G:/UserCode/Mario_Minecraft/worktree-B`
 - **计划文档：** `worktree-B-save-ui-plan.md`
 - **负责 Agent：** Worktree-B Agent
 - **预估工时：** 2-3h
-- **开始时间：** _待填写_
+- **开始时间：** 2026-03-04 20:42
 - **完成时间：** _待填写_
 - **备份文件：** _待填写_
 - **测试结果：** _待填写_
 
 ### Worktree C（PWA 基础设施）
-- **状态：** `待开始` ← Master Agent 更新此字段
+- **状态：** `进行中` ← Master Agent 更新此字段
 - **分支：** `feature/parallel-pwa`
+- **Worktree 路径：** `G:/UserCode/Mario_Minecraft/worktree-C`
 - **计划文档：** `worktree-C-pwa-plan.md`
 - **负责 Agent：** Worktree-C Agent
 - **预估工时：** 3-4h
-- **开始时间：** _待填写_
+- **开始时间：** 2026-03-04 20:42
 - **完成时间：** _待填写_
 - **备份文件：** _待填写_
 - **测试结果：** _待填写_
 
 ### Worktree D（音频系统串行开发）
-- **状态：** `待开始` ← Master Agent 更新此字段
+- **状态：** `进行中` ← Master Agent 更新此字段
 - **分支：** `feature/serial-audio-system`
+- **Worktree 路径：** `G:/UserCode/Mario_Minecraft/worktree-D`
 - **计划文档：** `worktree-D-audio-system-plan.md`
 - **负责 Agent：** Worktree-D Agent
 - **预估工时：** 13-21h（分 3 个阶段：D1/D2/E）
-- **当前阶段：** _待填写_
+- **当前阶段：** D1
+- **开始时间：** 2026-03-04 20:42
 - **D1 完成时间：** _待填写_
 - **D2 完成时间：** _待填写_
 - **E 完成时间：** _待填写_
