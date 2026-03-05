@@ -90,7 +90,7 @@ body {
     font-size: clamp(12px, 2vw, 16px);
     font-weight: 900;
     margin-bottom: 10px;
-    color: #FFD700;
+    color: var(--color-accent);
     text-shadow: 2px 2px 0 #000;
 }
 
@@ -189,7 +189,7 @@ body {
     font-size: clamp(15px, 3vw, 21px);
     font-weight: 900;
     margin-bottom: 10px;
-    color: #FFD700;
+    color: var(--color-accent);
     text-shadow: 2px 2px 0 #000;
 }
 
@@ -238,7 +238,7 @@ body {
 .overlay-account-title {
     font-weight: 900;
     margin-bottom: 5px;
-    color: #FFD700;
+    color: var(--color-accent);
     text-shadow: 2px 2px 0 #000;
 }
 
@@ -270,7 +270,7 @@ body {
 .overlay-hints-title {
     font-weight: 900;
     margin-bottom: 4px;
-    color: #FFD700;
+    color: var(--color-accent);
     text-shadow: 2px 2px 0 #000;
 }
 
@@ -284,7 +284,7 @@ body {
     height: clamp(24px, 3vh, 30px);
     border-radius: 12px;
     border: 2px solid rgba(255,255,255,0.8);
-    background: #4CAF50;
+    background: var(--color-primary);
     color: #fff;
     font-size: clamp(8px, 1.45vw, 10px);
     font-weight: 900;
@@ -313,7 +313,7 @@ body {
 }
 
 .overlay-btn-primary {
-    background: #4CAF50;
+    background: var(--color-primary);
 }
 
 .overlay-btn-secondary {
@@ -322,7 +322,7 @@ body {
 }
 
 #btn-overlay-score-revive {
-    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    background: linear-gradient(135deg, var(--color-accent), #ffaa00);
     color: #333;
     border: none;
     padding: 12px 18px;
@@ -545,7 +545,7 @@ body {
 .match-timer {
     font-size: clamp(16px, 2.5vw, 20px);
     font-weight: 900;
-    color: #ffd700;
+    color: var(--color-accent);
 }
 
 .word-match-subtitle {
@@ -597,12 +597,12 @@ body {
 }
 
 .match-item.selected {
-    border-color: #ffd700;
+    border-color: var(--color-accent);
     transform: scale(1.02);
 }
 
 .match-item.correct {
-    background: #4caf50;
+    background: var(--color-primary);
     border-color: #1b5e20;
     color: #fff;
 }
@@ -720,7 +720,7 @@ canvas {
 }
 
 .word-display-title {
-    color: #FFD700;
+    color: var(--color-accent);
     font-weight: 900;
     font-size: 24px;
     letter-spacing: 0.18em;
@@ -789,11 +789,11 @@ canvas {
 }
 
 .hud-box-clickable:hover {
-    border-color: #FFD700;
+    border-color: var(--color-accent);
 }
 
 .hud-box-active {
-    border-color: #4CAF50;
+    border-color: var(--color-primary);
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
 }
 
@@ -826,7 +826,7 @@ canvas {
 }
 
 #word-display {
-    color: #FFD700;
+    color: var(--color-accent);
     font-size: 24px;
 }
 
@@ -835,7 +835,7 @@ canvas {
     top: 62px;
     left: 50%;
     transform: translateX(-50%);
-    color: #FFD700;
+    color: var(--color-accent);
     font-size: 24px;
     font-weight: 900;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
@@ -893,8 +893,8 @@ canvas {
 }
 
 .inv-slot.selected {
-    border: 3px solid #FFD700;
-    box-shadow: 0 0 10px #FFD700;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 0 10px var(--color-accent);
 }
 
 .inv-icon {
@@ -974,7 +974,7 @@ canvas {
     font-weight: bold;
     display: none;
     text-align: center;
-    border: 3px solid #FFD700;
+    border: 3px solid var(--color-accent);
     z-index: 100;
 }
 
@@ -1006,7 +1006,7 @@ canvas {
 .word-card-en {
     font-size: clamp(28px, 5vw, 40px);
     font-weight: 900;
-    color: #FFD700;
+    color: var(--color-accent);
     letter-spacing: 1px;
     text-shadow: 2px 2px 0 #000;
 }
@@ -1313,7 +1313,7 @@ canvas {
 }
 
 .armor-item.equipped {
-    border-color: #4CAF50;
+    border-color: var(--color-primary);
 }
 
 .armor-icon {
@@ -1339,7 +1339,7 @@ canvas {
 }
 
 .armor-defense {
-    color: #4CAF50;
+    color: var(--color-primary);
 }
 
 .armor-durability {
@@ -1380,7 +1380,7 @@ canvas {
     font-size: clamp(16px, 2.5vw, 20px);
     font-weight: 900;
     margin-bottom: 12px;
-    color: #FFD700;
+    color: var(--color-accent);
 }
 
 .inventory-tabs {
@@ -1401,7 +1401,7 @@ canvas {
 }
 
 .inventory-tab.active {
-    border-color: #4CAF50;
+    border-color: var(--color-primary);
     background: rgba(76, 175, 80, 0.2);
 }
 
@@ -1480,7 +1480,7 @@ canvas {
 .inventory-item-count {
     font-size: 12px;
     font-weight: 800;
-    color: #FFD700;
+    color: var(--color-accent);
     background: rgba(0, 0, 0, 0.35);
     border-radius: 999px;
     padding: 3px 8px;
@@ -1536,7 +1536,7 @@ canvas {
 /* 物品Tooltip */
 .item-tooltip {
     position: fixed;
-    background: rgba(20, 20, 20, 0.95);
+    background: var(--color-bg-panel);
     color: #FFF;
     padding: 12px 16px;
     border-radius: 10px;
@@ -1553,7 +1553,7 @@ canvas {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 6px;
-    color: #FFD700;
+    color: var(--color-accent);
 }
 
 .item-tooltip-desc {
@@ -1592,7 +1592,7 @@ canvas {
 
 .settings-progress {
     font-weight: 900;
-    color: #FFD700;
+    color: var(--color-accent);
     margin-left: auto;
 }
 
@@ -1692,7 +1692,7 @@ canvas {
     position: fixed;
     top: 20px;
     right: -320px;
-    background: linear-gradient(135deg, #ffd700, #ffa000);
+    background: linear-gradient(135deg, var(--color-accent), #ffa000);
     color: #222;
     padding: 12px 18px;
     border-radius: 10px;
@@ -1848,7 +1848,7 @@ canvas {
 
 .ach-progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #4caf50, #8bc34a);
+    background: linear-gradient(90deg, var(--color-primary), #8bc34a);
 }
 
 .ach-progress-text {
@@ -1866,7 +1866,7 @@ canvas {
 
 .leaderboard-save-section h3 {
     margin-bottom: 12px;
-    color: #FFD700;
+    color: var(--color-accent);
 }
 
 .leaderboard-input-group {
@@ -1886,7 +1886,7 @@ canvas {
 
 .leaderboard-input-group input:focus {
     outline: none;
-    border-color: #FFD700;
+    border-color: var(--color-accent);
 }
 
 .leaderboard-list-section {
@@ -1895,7 +1895,7 @@ canvas {
 
 .leaderboard-list-section h3 {
     margin-bottom: 12px;
-    color: #FFD700;
+    color: var(--color-accent);
 }
 
 .leaderboard-list {
@@ -1920,7 +1920,7 @@ canvas {
 
 .leaderboard-item.rank-1 {
     background: linear-gradient(90deg, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.1));
-    border: 1px solid #FFD700;
+    border: 1px solid var(--color-accent);
 }
 
 .leaderboard-item.rank-2 {
@@ -1940,7 +1940,7 @@ canvas {
     text-align: center;
 }
 
-.leaderboard-rank-1 { color: #FFD700; }
+.leaderboard-rank-1 { color: var(--color-accent); }
 .leaderboard-rank-2 { color: #C0C0C0; }
 .leaderboard-rank-3 { color: #CD7F32; }
 
@@ -1960,7 +1960,7 @@ canvas {
 }
 
 .leaderboard-score {
-    color: #4CAF50;
+    color: var(--color-primary);
     font-weight: bold;
 }
 
@@ -1971,7 +1971,7 @@ canvas {
     display: none;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.55);
+    background: var(--color-bg-overlay);
     z-index: 1400;
     padding: 16px;
 }
@@ -2136,7 +2136,7 @@ canvas {
 }
 
 .rest-prompt-content button {
-    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    background: linear-gradient(135deg, var(--color-primary), #2E7D32);
     border: none;
     border-radius: 8px;
     padding: 12px 32px;
@@ -2231,7 +2231,7 @@ canvas {
 /* 消耗品数量 */
 #consumable-count {
     font-size: clamp(10px, 1.5vw, 14px);
-    color: #FFD700;
+    color: var(--color-accent);
     display: inline-block;
     vertical-align: middle;
 }
