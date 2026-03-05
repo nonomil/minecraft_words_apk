@@ -382,14 +382,25 @@ body {
     color: #FFD54F;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
     gap: 10px;
- }
+    text-align: center;
+    padding-inline: 36px;
+}
 
 .challenge-hint-btn {
-    font-size: 12px;
-    padding: 4px 10px;
-    min-height: 30px;
+    font-size: 11px;
+    padding: 3px 8px;
+    min-height: 26px;
+    line-height: 1.1;
+}
+
+.learning-modal-header .challenge-hint-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .learning-modal-question {
@@ -1375,12 +1386,28 @@ canvas {
 
 .inventory-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    font-size: clamp(16px, 2.5vw, 20px);
+    position: relative;
+    font-size: clamp(18px, 3vw, 24px);
     font-weight: 900;
     margin-bottom: 12px;
     color: var(--color-accent);
+    text-align: center;
+}
+
+.inventory-header span {
+    text-align: center;
+}
+
+.inventory-header .game-btn-small {
+    position: absolute;
+    right: 0;
+    padding: 3px 8px;
+    font-size: 11px;
+    min-height: 26px;
+    line-height: 1.1;
+    min-width: auto;
 }
 
 .inventory-tabs {
