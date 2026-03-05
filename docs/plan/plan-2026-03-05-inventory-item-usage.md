@@ -7,11 +7,33 @@
 - [x] Phase 0：需求澄清与技术决策
 - [x] Phase 1：Plan 文档生成，用户确认内容
 - [x] Phase 2：Codex 工程审查完成（见 `plan-2026-03-05-inventory-item-usage-review.md`）
-- [ ] Phase 2.1：根据审查意见修改 Plan
+- [x] Phase 2.1：根据审查意见修改 Plan
 - [ ] Phase 3：交叉 Review 收敛，用户确认定稿
 - [ ] Phase 4：各 worktree 独立 steps 文档生成，用户确认
 - [ ] Phase 4.5：解耦审查通过，用户确认
 - [ ] Phase 6：用户说"开始开发"，进入执行阶段
+
+---
+
+## 修订摘要（Phase 2.1）
+
+**主要变更**：
+1. 删除新建模块 `24-consumables.js` 和 `25-effects.js`，复用现有逻辑
+2. 扩展 `16-events.js` 实现长按检测，而非新增 input handler
+3. 重构 `13-game-loop.js` 的物品使用逻辑，添加装备槽状态
+4. 补充 Debuff 系统实现细节（Enemy 类扩展）
+5. 明确长按进度条 UI 实现方案
+6. 改动量从 535 行降至 420 行（减少 21%）
+
+**Round 2 修订**：
+7. 修复 `equippedConsumable` 作用域问题（移至 01-config.js）
+8. 添加 Debuff 叠加防护（同类型 debuff 刷新而非叠加）
+9. 明确 EmberParticle 为复用现有类，非新增
+10. 改动量最终确定为 495 行（包含所有修正）
+
+**审查报告**：
+- Round 1（CC）：详见 `plan-2026-03-05-inventory-item-usage-review.md`
+- Round 2（Codex）：详见 `plan-2026-03-05-inventory-item-usage-review-round2.md`
 
 ---
 
@@ -163,18 +185,23 @@ enemy.debuffs = [
 | 文件 | 操作 | 说明 | 预估行数 |
 |------|------|------|---------|
 | `config/consumables.json` | 新建 | 消耗品配置（特效参数） | ~80 |
-| `src/modules/13-game-loop.js` | 修改 | 装备槽逻辑 + 长按检测集成 | ~80 |
-| `src/modules/16-events.js` | 修改 | 扩展触摸控制（bindTapOrHold） | ~80 |
-| `src/modules/15-entities-combat.js` | 修改 | Enemy debuff 系统 | ~40 |
+| `src/modules/01-config.js` | 修改 | 定义 CONSUMABLES_CONFIG + equippedConsumable 全局变量 | ~10 |
+| `src/modules/17-bootstrap.js` | 修改 | 加载 consumables.json 配置 | ~15 |
+| `src/modules/13-game-loop.js` | 修改 | 装备槽逻辑 + useInventoryItem 重构 | ~90 |
+| `src/modules/16-events.js` | 修改 | 扩展触摸控制（bindTapOrHold） | ~90 |
+| `src/modules/15-entities-combat.js` | 修改 | Enemy debuff 系统 | ~50 |
 | `src/modules/15-entities-particles.js` | 修改 | 粒子池 + 新粒子类 | ~60 |
-| `src/modules/10-ui.js` | 修改 | 消耗品槽 UI + 长按进度条 | ~70 |
-| `Game.html` | 修改 | 进度条元素 + 消耗品槽 DOM | ~10 |
-| **总计** | - | - | **~420 行** |
+| `src/modules/10-ui.js` | 修改 | 消耗品槽 UI 更新函数 | ~40 |
+| `Game.html` | 修改 | 进度条元素 + 消耗品槽 DOM + CSS | ~60 |
+| **总计** | - | - | **~495 行** |
 
 **关键变更**：
 - ❌ 删除 `24-consumables.js` 和 `25-effects.js`（复用现有逻辑）
 - ✅ 扩展 `16-events.js` 支持长按检测
-- ✅ 改动量从 535 行降至 420 行（减少 21%）
+- ✅ 补充配置加载机制（01-config.js + 17-bootstrap.js）
+- ✅ 包含 CSS 代码（在 Game.html 中）
+- ✅ 修复 Round 2 发现的问题（作用域、debuff 叠加、粒子说明）
+- ⚠️ 改动量从 535 行 → 420 行 → 495 行（补充遗漏部分后的最终值）
 
 ---
 
@@ -225,8 +252,31 @@ enemy.debuffs = [
 - [x] 长按时长阈值（已定：800ms）
 - [x] 材料清单（已定：炸药、末影珍珠、雪球、岩浆桶）
 - [x] 特效参数（已定：见配置设计）
-- [ ] 是否需要音效？（建议：炸药爆炸音、传送音）
-- [ ] 是否需要长按取消机制？（建议：松开按钮时若未达到阈值则取消）
+- [x] 长按取消机制（已定：未达到阈值不触发任何动作）
+- [x] 音效需求（已定：本期不包含音效，后续扩展）
+- [x] 长按进度条 UI（已定：移动端在按钮内显示，桌面端屏幕中央提示）
+- [x] 消耗品槽 UI 位置（已定：HUD 右侧，`#equip-status` 下方）
+
+---
+
+## 审查意见采纳记录
+
+### 已采纳的高优先级修改
+1. ✅ **删除新模块**：取消 `24-consumables.js` 和 `25-effects.js`，复用现有逻辑
+2. ✅ **扩展现有输入系统**：在 `16-events.js` 中实现 `bindTapOrHold`，而非新增 input handler
+3. ✅ **重构物品使用逻辑**：扩展 `13-game-loop.js` 的 `useInventoryItem` 函数
+4. ✅ **补充 Debuff 实现细节**：在 `15-entities-combat.js` 的 `Enemy` 类中添加 `updateDebuffs()` 方法
+5. ✅ **明确长按进度条 UI**：在 `Game.html` 的 `#btn-attack` 内添加进度条元素
+
+### 已采纳的中优先级修改
+6. ✅ **配置加载时机**：在 `17-bootstrap.js` 中加载 `consumables.json`
+7. ✅ **消耗品槽 UI 位置**：在 `.hud-right` 区域添加 `#consumable-status`
+8. ✅ **粒子池复用**：在 `15-entities-particles.js` 中实现粒子池机制
+
+### 延后处理的低优先级问题
+9. ⏸️ **音效**：本期不实现，后续扩展
+10. ⏸️ **难度系统集成**：初版使用固定参数，后续优化
+11. ⏸️ **测试覆盖**：在 Phase 6 执行阶段补充
 
 ---
 
@@ -258,7 +308,365 @@ enemy.debuffs = [
 
 | 分歧点 | CC 观点 | Codex 观点 | 决策 | 理由 |
 |--------|---------|------------|------|------|
-| （待 Phase 2 审查后填写） | - | - | - | - |
+| 是否新建独立模块 | 新建 `24-consumables.js` 解耦 | 复用现有 `13-game-loop.js` 逻辑 | **采纳 Codex** | 现有代码已实现炸药/末影珍珠使用，新建模块会导致重复和冲突 |
+| 输入处理架构 | 新增 input handler 模块 | 扩展现有 `16-events.js` | **采纳 Codex** | 现有架构中输入处理在 `16-events.js`，新增模块会破坏现有结构 |
+| 特效系统设计 | 新建 `25-effects.js` 统一管理 | 扩展现有粒子系统 | **采纳 Codex** | 现有粒子系统已支持多种特效，只需扩展粒子类 |
+| 改动量预估 | 535 行 | 420 行 | **采纳 Codex** | 复用现有逻辑后改动量减少 21%，降低回归风险 |
+
+---
+
+## 关键设计细节补充（根据审查意见）
+
+### 1. 长按检测实现（16-events.js）
+```javascript
+function bindTapOrHold(id, onTap, onHold, holdThreshold = 800) {
+  const btn = document.getElementById(`btn-${id}`);
+  if (!btn) return;
+
+  let pressStartTime = 0;
+  let holdTimer = null;
+  let isHolding = false;
+
+  const onStart = (e) => {
+    e.preventDefault();
+    pressStartTime = Date.now();
+    isHolding = false;
+
+    // 显示进度条
+    const progress = btn.querySelector('.hold-progress');
+    if (progress) {
+      progress.style.display = 'block';
+      progress.style.animation = `hold-fill ${holdThreshold}ms linear`;
+    }
+
+    holdTimer = setTimeout(() => {
+      isHolding = true;
+      onHold();
+      // 隐藏进度条
+      if (progress) progress.style.display = 'none';
+    }, holdThreshold);
+  };
+
+  const onEnd = (e) => {
+    e.preventDefault();
+    clearTimeout(holdTimer);
+
+    const progress = btn.querySelector('.hold-progress');
+    if (progress) {
+      progress.style.display = 'none';
+      progress.style.animation = '';
+    }
+
+    const duration = Date.now() - pressStartTime;
+    if (!isHolding && duration < holdThreshold) {
+      onTap(); // 短按触发普通攻击
+    }
+  };
+
+  const onCancel = (e) => {
+    onEnd(e); // 取消时按结束处理
+  };
+
+  const onMove = (e) => {
+    // 检查手指是否移出按钮区域
+    const touch = e.touches[0];
+    const rect = btn.getBoundingClientRect();
+    if (touch.clientX < rect.left || touch.clientX > rect.right ||
+        touch.clientY < rect.top || touch.clientY > rect.bottom) {
+      onEnd(e);
+    }
+  };
+
+  btn.addEventListener('touchstart', onStart);
+  btn.addEventListener('touchend', onEnd);
+  btn.addEventListener('touchcancel', onCancel);
+  btn.addEventListener('touchmove', onMove);
+  btn.addEventListener('mousedown', onStart);
+  btn.addEventListener('mouseup', onEnd);
+}
+```
+
+### 2. 装备槽状态管理（13-game-loop.js）
+```javascript
+// 注意：equippedConsumable 已在 01-config.js 中定义为全局变量
+
+// 装备消耗品到槽位
+function equipConsumable(itemKey) {
+  const count = Number(inventory[itemKey]) || 0;
+  if (count <= 0) {
+    showToast("❌ 没有该物品");
+    return false;
+  }
+
+  const config = CONSUMABLES_CONFIG[itemKey];
+  if (!config) return false;
+
+  equippedConsumable = {
+    itemKey: itemKey,
+    count: count,
+    icon: config.icon
+  };
+
+  updateConsumableUI();
+  showToast(`✅ 装备: ${config.icon} ${config.name}`);
+  return true;
+}
+
+// 使用已装备的消耗品
+function useEquippedConsumable() {
+  if (!equippedConsumable.itemKey) {
+    showToast("❌ 未装备消耗品");
+    return;
+  }
+
+  // 调用现有的 useInventoryItem 函数
+  // 注意：useInventoryItem 已经包含扣除数量、特效生成等逻辑
+  useInventoryItem(equippedConsumable.itemKey);
+
+  // 更新装备槽状态
+  equippedConsumable.count = Number(inventory[equippedConsumable.itemKey]) || 0;
+  if (equippedConsumable.count <= 0) {
+    showToast("⚠️ 消耗品已用完");
+    equippedConsumable = { itemKey: null, count: 0, icon: null };
+  }
+
+  updateConsumableUI();
+}
+
+// 修改现有的 useInventoryItem 函数，添加 debuff 支持
+// （在现有函数基础上扩展，不是完全重写）
+function useInventoryItem(itemKey) {
+  // ... 现有逻辑（炸药、末影珍珠等）
+
+  // 新增：根据配置应用 debuff
+  const config = CONSUMABLES_CONFIG[itemKey];
+  if (config && config.effect && config.effect.debuff) {
+    const debuff = config.effect.debuff;
+    // 对范围内敌人应用 debuff
+    enemies.forEach(enemy => {
+      const dist = Math.hypot(enemy.x - player.x, enemy.y - player.y);
+      if (dist < (config.effect.radius || 150)) {
+        enemy.addDebuff(
+          debuff.type,
+          debuff.duration,
+          {
+            damagePerFrame: debuff.damagePerSecond / 60,
+            speedMult: debuff.speedMult || 1.0
+          }
+        );
+      }
+    });
+  }
+}
+```
+
+### 3. Debuff 系统（15-entities-combat.js）
+```javascript
+class Enemy {
+  constructor(x, y, type) {
+    // ... 现有代码
+    this.debuffs = [];
+    this.originalSpeed = null; // 保存原始速度用于减速恢复
+  }
+
+  addDebuff(type, duration, params = {}) {
+    // 防止同类型 debuff 叠加
+    const existing = this.debuffs.find(d => d.type === type);
+    if (existing) {
+      // 刷新持续时间，取最大值
+      existing.duration = Math.max(existing.duration, duration);
+      return;
+    }
+
+    // 减速效果：保存原始速度
+    if (type === "slow" && !this.originalSpeed) {
+      this.originalSpeed = this.speed;
+    }
+
+    this.debuffs.push({
+      type: type,
+      duration: duration,
+      damagePerFrame: params.damagePerFrame || 0,
+      speedMult: params.speedMult || 1.0,
+      particleTimer: 0
+    });
+  }
+
+  updateDebuffs() {
+    this.debuffs = this.debuffs.filter(d => {
+      d.duration--;
+      if (d.duration <= 0) return false;
+
+      // 燃烧效果
+      if (d.type === "burn") {
+        this.hp -= d.damagePerFrame;
+        d.particleTimer++;
+        if (d.particleTimer % 10 === 0) {
+          // 使用现有的 EmberParticle 类（已存在于 15-entities-particles.js）
+          const ember = new EmberParticle(this.x + this.width/2, this.y);
+          particles.push(ember);
+        }
+      }
+
+      return true;
+    });
+
+    // 减速效果：应用速度修正
+    const slowDebuff = this.debuffs.find(d => d.type === "slow");
+    if (slowDebuff && this.originalSpeed) {
+      this.speed = this.originalSpeed * slowDebuff.speedMult;
+    } else if (!slowDebuff && this.originalSpeed) {
+      // 减速结束，恢复原始速度
+      this.speed = this.originalSpeed;
+      this.originalSpeed = null;
+    }
+  }
+
+  update() {
+    // ... 现有更新逻辑
+    this.updateDebuffs();
+  }
+}
+```
+
+### 4. 消耗品槽 UI（10-ui.js + Game.html）
+```html
+<!-- Game.html 中添加 -->
+<style>
+/* 长按进度条动画 */
+@keyframes hold-fill {
+  from {
+    background: conic-gradient(#4CAF50 0deg, transparent 0deg);
+  }
+  to {
+    background: conic-gradient(#4CAF50 360deg, transparent 360deg);
+  }
+}
+
+.hold-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
+  display: none;
+}
+
+/* 消耗品槽样式 */
+#consumable-status {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #FFD700;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: white;
+  display: none;
+  margin-top: 8px;
+}
+
+#consumable-status.active {
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+</style>
+
+<div class="hud-right">
+  <div class="hud-box" id="equip-status">⚔️ 剑</div>
+  <div class="hud-box" id="consumable-status">
+    <span id="consumable-icon">💣</span>
+    <span id="consumable-name">炸药</span>
+    <span id="consumable-count">x3</span>
+  </div>
+</div>
+
+<!-- 攻击按钮添加进度条 -->
+<button class="touch-btn" id="btn-attack" data-action="attack">
+  🗡️
+  <div class="hold-progress"></div>
+</button>
+```
+
+```javascript
+// 10-ui.js 中添加
+function updateConsumableUI() {
+  const statusEl = document.getElementById("consumable-status");
+  const iconEl = document.getElementById("consumable-icon");
+  const nameEl = document.getElementById("consumable-name");
+  const countEl = document.getElementById("consumable-count");
+
+  if (!equippedConsumable.itemKey) {
+    if (statusEl) statusEl.style.display = "none";
+    return;
+  }
+
+  const config = CONSUMABLES_CONFIG[equippedConsumable.itemKey];
+  if (!config) return;
+
+  if (statusEl) statusEl.style.display = "block";
+  if (iconEl) iconEl.innerText = config.icon;
+  if (nameEl) nameEl.innerText = config.name;
+  if (countEl) countEl.innerText = `x${equippedConsumable.count}`;
+}
+```
+
+### 5. 配置加载机制（01-config.js + 17-bootstrap.js）
+
+```javascript
+// 01-config.js 中添加全局变量定义
+let CONSUMABLES_CONFIG = {};
+let equippedConsumable = { itemKey: null, count: 0, icon: null }; // 全局状态，供所有模块访问
+
+// 17-bootstrap.js 中添加配置加载
+async function loadConsumablesConfig() {
+  try {
+    const response = await fetch('config/consumables.json');
+    if (!response.ok) {
+      console.warn('Failed to load consumables.json, using defaults');
+      CONSUMABLES_CONFIG = getDefaultConsumablesConfig();
+      return;
+    }
+    CONSUMABLES_CONFIG = await response.json();
+  } catch (error) {
+    console.warn('Error loading consumables.json:', error);
+    CONSUMABLES_CONFIG = getDefaultConsumablesConfig();
+  }
+}
+
+// 默认配置 fallback
+function getDefaultConsumablesConfig() {
+  return {
+    "gunpowder": {
+      "name": "炸药",
+      "icon": "💣",
+      "effect": {
+        "type": "explosion",
+        "radius": 150,
+        "damage": 30,
+        "debuff": {
+          "type": "burn",
+          "duration": 180,
+          "damagePerSecond": 0.1
+        }
+      }
+    },
+    "ender_pearl": {
+      "name": "末影珍珠",
+      "icon": "🔮",
+      "effect": {
+        "type": "teleport",
+        "range": 250
+      }
+    }
+  };
+}
+
+// 在 bootstrap 初始化流程中调用
+// （在现有的配置加载之后）
+await loadConsumablesConfig();
+```
 
 ---
 
