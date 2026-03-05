@@ -21,6 +21,19 @@
 - 所有文本文件读写必须显式指定 UTF-8 编码
 - Python 示例：`Path(f).read_text(encoding='utf-8')` / `Path(f).write_text(content, encoding='utf-8')`
 - 禁止依赖系统默认编码（Windows 默认 GBK，会导致中文乱码）
+- 新增/重写中文文档时，优先使用 `UTF-8 with BOM`（兼容 Windows 编辑器识别）
+- 禁止使用 `errors='replace'` 读取后再写回文本文件（会把异常字符静默替换成 `?` 或 `�`）
+- 在 PowerShell 中执行含中文输出的 Python 命令前，必须设置：`$env:PYTHONIOENCODING='utf-8'`
+- 禁止通过终端 here-string 直接“注入中文大段正文”再写文件；优先使用补丁工具直接改文件
+
+### 防乱码验收（新增）
+
+每次修改中文文档后，必须执行以下检查：
+
+- [ ] 文件编码为 UTF-8（建议 BOM）
+- [ ] 文件内不出现异常高比例 `?` 或 `�`
+- [ ] 首行标题可正常显示中文
+- [ ] 重新打开文件后中文仍可读（非一次性终端显示）
 
 ---
 

@@ -22,6 +22,23 @@ function replaceOnce(haystack, needle, replacement, label) {
   return haystack.replace(needle, replacement);
 }
 
+function stripQueryAndHash(p) {
+  const q = p.indexOf("?");
+  const h = p.indexOf("#");
+  let end = p.length;
+  if (q !== -1) end = Math.min(end, q);
+  if (h !== -1) end = Math.min(end, h);
+  return p.slice(0, end);
+}
+
+function normalizeRelPath(p) {
+  let s = p.trim();
+  s = stripQueryAndHash(s);
+  if (s.startsWith("./")) s = s.slice(2);
+  while (s.startsWith("/")) s = s.slice(1);
+  return s;
+}
+
 function buildPreludeDataScript(data) {
   const dataText = JSON.stringify(data, null, 2);
   return `(() => {
@@ -74,33 +91,142 @@ function makeInlineStyle(css) {
   return `<style>\n${css}\n</style>`;
 }
 
+function parseTagAttributes(tag) {
+  const attrs = {};
+  const re = /([^\s=]+)\s*=\s*(["'])(.*?)\2/g;
+  let m;
+  while ((m = re.exec(tag))) {
+    attrs[m[1].toLowerCase()] = m[3];
+  }
+  return attrs;
+}
+
+function resolveCssImportPath(fromCssPath, rawHref) {
+  const href = normalizeRelPath(rawHref);
+  const fromDir = path.dirname(fromCssPath);
+  const abs = path.resolve(fromDir, href);
+  return abs;
+}
+
+function inlineCssImports(css, cssPath, projectRoot, visiting) {
+  const key = path.resolve(cssPath);
+  if (visiting.has(key)) {
+    return "";
+  }
+  visiting.add(key);
+
+  const importRe = /@import\s+(?:url\(\s*)?(?:(["'])([^"']+)\1|([^;\s)]+))(?:\s*\))?\s*([^;]*);/gi;
+  let out = "";
+  let lastIndex = 0;
+  let m;
+  while ((m = importRe.exec(css))) {
+    out += css.slice(lastIndex, m.index);
+    lastIndex = importRe.lastIndex;
+
+    const href = (m[2] || m[3] || "").trim();
+    const media = (m[4] || "").trim();
+    const abs = resolveCssImportPath(cssPath, href);
+
+    const relToRoot = path.relative(projectRoot, abs);
+    const isInsideRoot = relToRoot && !relToRoot.startsWith("..") && !path.isAbsolute(relToRoot);
+    if (!isInsideRoot) {
+      out += m[0];
+      continue;
+    }
+    if (!abs.toLowerCase().endsWith(".css")) {
+      out += m[0];
+      continue;
+    }
+
+    const importedCssRaw = readText(abs);
+    const importedCss = inlineCssImports(importedCssRaw, abs, projectRoot, visiting);
+    if (!importedCss.trim()) {
+      continue;
+    }
+    if (media) {
+      out += `@media ${media} {\n${importedCss}\n}\n`;
+    } else {
+      out += `${importedCss}\n`;
+    }
+  }
+  out += css.slice(lastIndex);
+  visiting.delete(key);
+  return out;
+}
+
+function inlineLocalStylesheets(html, projectRoot) {
+  const re = /<link\b[^>]*>/gi;
+  let out = html;
+  let m;
+  let replacedCount = 0;
+  const candidates = [];
+  while ((m = re.exec(html))) {
+    const tag = m[0];
+    const attrs = parseTagAttributes(tag);
+    const rel = (attrs.rel || "").toLowerCase();
+    const hrefRaw = attrs.href || "";
+    if (!rel.includes("stylesheet")) continue;
+    if (!hrefRaw) continue;
+    const href = normalizeRelPath(hrefRaw);
+    if (!href.toLowerCase().endsWith(".css")) continue;
+    if (!href.toLowerCase().startsWith("src/")) continue;
+    candidates.push({ tag, hrefRaw, href });
+  }
+
+  for (const { tag, hrefRaw, href } of candidates) {
+    const cssPath = path.join(projectRoot, ...href.split("/"));
+    const cssRaw = readText(cssPath);
+    const css = inlineCssImports(cssRaw, cssPath, projectRoot, new Set());
+    out = out.replace(tag, makeInlineStyle(css));
+    replacedCount += 1;
+  }
+
+  if (replacedCount === 0) {
+    throw new Error(`Missing stylesheet link: rel=stylesheet href=src/*.css`);
+  }
+
+  if (/<link\b[^>]*\brel=(["'])stylesheet\1[^>]*\bhref=(["'])src\/[^"']+\.css\2/i.test(out)) {
+    throw new Error("build-singlefile: unresolved stylesheet link remains in output HTML");
+  }
+
+  return out;
+}
+
+function extractModuleScriptTagsFromHtml(html) {
+  const entries = [];
+  const re = /<script\b[^>]*\bsrc=(["'])(src\/modules\/[^"']+)\1[^>]*>\s*<\/script>/gi;
+  let m;
+  while ((m = re.exec(html))) {
+    const src = m[2];
+    if (!src.toLowerCase().startsWith("src/modules/")) continue;
+    const file = src.slice("src/modules/".length);
+    entries.push({ tag: m[0], file });
+  }
+  return entries;
+}
+
+function replaceScriptTagBySrcOnce(haystack, srcPath, replacement, label) {
+  const target = normalizeRelPath(srcPath).toLowerCase();
+  const re = /<script\b[^>]*\bsrc=(["'])([^"']+)\1[^>]*>\s*<\/script>/gi;
+  let m;
+  while ((m = re.exec(haystack))) {
+    const tag = m[0];
+    const src = normalizeRelPath(m[2]).toLowerCase();
+    if (src !== target) continue;
+    return haystack.replace(tag, replacement);
+  }
+  throw new Error(`Missing ${label || "script"}: ${srcPath}`);
+}
+
 function buildSingleFile({ projectRoot, templateHtmlPath, outPath }) {
   const templateHtml = readText(templateHtmlPath);
 
-  const stylesCss = readText(path.join(projectRoot, "src", "styles.css"));
   const defaultsJs = readText(path.join(projectRoot, "src", "defaults.js"));
   const storageJs = readText(path.join(projectRoot, "src", "storage.js"));
   const manifestJs = readText(path.join(projectRoot, "words", "vocabs", "manifest.js"));
 
-  // Read all module files in order (must match Game.html script tag order)
-  const moduleFiles = [
-    "01-config.js", "02-utils.js", "03-audio.js", "04-weapons.js",
-    "05-difficulty.js", "06-biome.js", "07-viewport.js", "08-account.js",
-    "09-vocab.js", "10-ui.js",
-    "15-entities-base.js", "15-entities-decorations.js",
-    "15-entities-particles.js", "15-entities-combat.js", "15-entities-boss.js",
-    "18-village.js", "18-village-render.js", "18-interaction-chains.js", "19-biome-visuals.js",
-    "20-enemies-new.js",
-    "21-decorations-new.js",
-    "11-game-init.js", "12-challenges.js", "12-village-challenges.js",
-    "13-game-loop.js", "14-renderer-main.js", "14-renderer-entities.js",
-    "14-renderer-decorations.js", "16-events.js",
-    "17-bootstrap.js"
-  ];
-  const moduleScripts = moduleFiles.map(f => {
-    const content = readText(path.join(projectRoot, "src", "modules", f));
-    return makeInlineScript(content);
-  }).join("\n");
+  const moduleEntries = extractModuleScriptTagsFromHtml(templateHtml);
+  const moduleFiles = moduleEntries.map((e) => e.file);
 
   const vocabFiles = extractVocabFilesFromManifest(manifestJs);
   const vocabScripts = vocabFiles.map((f) => makeInlineScript(readText(path.join(projectRoot, f)))).join("\n");
@@ -117,41 +243,24 @@ function buildSingleFile({ projectRoot, templateHtmlPath, outPath }) {
   const preludeScript = buildPreludeDataScript(embeddedJson);
 
   let html = templateHtml;
-  html = replaceOnce(
+  html = inlineLocalStylesheets(html, projectRoot);
+  html = replaceScriptTagBySrcOnce(html, "src/defaults.js", makeInlineScript(defaultsJs), "defaults script");
+  html = replaceScriptTagBySrcOnce(html, "src/storage.js", makeInlineScript(storageJs), "storage script");
+  html = replaceScriptTagBySrcOnce(
     html,
-    `<link rel="stylesheet" href="src/styles.css">`,
-    makeInlineStyle(stylesCss),
-    "stylesheet link"
-  );
-  html = replaceOnce(
-    html,
-    `<script src="src/defaults.js"></script>`,
-    makeInlineScript(defaultsJs),
-    "defaults script"
-  );
-  html = replaceOnce(
-    html,
-    `<script src="src/storage.js"></script>`,
-    makeInlineScript(storageJs),
-    "storage script"
-  );
-  html = replaceOnce(
-    html,
-    `<script src="words/vocabs/manifest.js"></script>`,
+    "words/vocabs/manifest.js",
     `${makeInlineScript(manifestJs)}\n${vocabScripts}\n${makeInlineScript(preludeScript)}`,
     "manifest script"
   );
 
-  // Replace all module script tags with inline scripts
-  moduleFiles.forEach(f => {
-    const pattern = `<script src="src/modules/${f}"></script>`;
-    if (html.indexOf(pattern) !== -1) {
-      html = html.replace(pattern, makeInlineScript(readText(path.join(projectRoot, "src", "modules", f))));
-    }
+  moduleEntries.forEach(({ tag, file }) => {
+    const jsPath = path.join(projectRoot, "src", "modules", file);
+    const content = readText(jsPath);
+    html = html.replace(tag, makeInlineScript(content));
   });
 
   // Hard check: fail build if any module script src remains un-inlined
-  if (/<script[^>]+src="src\/modules\/[^"]+"/i.test(html)) {
+  if (/<script[^>]+src=(["'])src\/modules\/[^"']+\1/i.test(html)) {
     throw new Error("build-singlefile: unresolved module script src remains in output HTML");
   }
 
