@@ -205,33 +205,40 @@ enemy.debuffs = [
 
 ---
 
-## Worktree 并行计划（已根据审查意见修正）
+## Worktree 并行计划（2026-03-05 更新：拆分为 4 个任务）
 
-由于总改动量 ~420 行，超过 200 行限制，需拆分为 3 个独立任务：
+由于总改动量 ~495 行，超过 200 行限制，需拆分为 4 个独立任务：
 
 | Worktree | 分支 | 任务 | 依赖 | 预估行数 | Steps 文档 |
 |----------|------|------|------|---------|-----------|
-| task-1 | feat/consumable-input | 长按检测 + 装备槽状态 | 无 | ~160 | docs/development/2026-03-05-consumable-task-1-steps.md |
+| task-1a | feat/consumable-config | 配置基础设施 | 无 | ~150 | docs/development/2026-03-05-consumable-task-1a-steps.md |
+| task-1b | feat/consumable-input | 长按检测 | task-1a | ~90 | docs/development/2026-03-05-consumable-task-1b-steps.md |
 | task-2 | feat/consumable-effects | Debuff 系统 + 粒子扩展 | 无 | ~140 | docs/development/2026-03-05-consumable-task-2-steps.md |
-| task-3 | feat/consumable-ui | UI + 配置 + 集成测试 | task-1, task-2 | ~120 | docs/development/2026-03-05-consumable-task-3-steps.md |
+| task-3 | feat/consumable-ui | UI + 集成测试 | task-1a, task-1b, task-2 | ~115 | docs/development/2026-03-05-consumable-task-3-steps.md |
 
 **并行策略**：
-- task-1 和 task-2 可并行开发（无文件重叠）
-  - task-1：修改 `16-events.js` + `13-game-loop.js`（装备槽部分）
+- **第一轮并行**：task-1a 和 task-2（无文件重叠）
+  - task-1a：新建 `config/consumables.json` + 修改 `01-config.js` + `17-bootstrap.js`
   - task-2：修改 `15-entities-combat.js` + `15-entities-particles.js`
-- task-3 串行依赖前两者（需要集成接口）
-  - task-3：修改 `10-ui.js` + `Game.html` + 新建 `config/consumables.json`
+- **第二轮串行**：task-1b（依赖 task-1a）
+  - task-1b：修改 `16-events.js`
+- **第三轮串行**：task-3（依赖 task-1a, task-1b, task-2）
+  - task-3：修改 `13-game-loop.js` + `10-ui.js` + `Game.html`
 
 **文件改动矩阵**（验证无冲突）：
-| 文件 | task-1 | task-2 | task-3 |
-|------|--------|--------|--------|
-| `16-events.js` | ✅ | - | - |
-| `13-game-loop.js` | ✅ | - | - |
-| `15-entities-combat.js` | - | ✅ | - |
-| `15-entities-particles.js` | - | ✅ | - |
-| `10-ui.js` | - | - | ✅ |
-| `Game.html` | - | - | ✅ |
-| `config/consumables.json` | - | - ✅ (新建) |
+| 文件 | task-1a | task-1b | task-2 | task-3 |
+|------|---------|---------|--------|--------|
+| `config/consumables.json` | ✅ (新建) | - | - | - |
+| `01-config.js` | ✅ | - | - | - |
+| `17-bootstrap.js` | ✅ | - | - | - |
+| `16-events.js` | - | ✅ | - | - |
+| `15-entities-combat.js` | - | - | ✅ | - |
+| `15-entities-particles.js` | - | - | ✅ | - |
+| `13-game-loop.js` | - | - | - | ✅ |
+| `10-ui.js` | - | - | - | ✅ |
+| `Game.html` | - | - | - | ✅ |
+
+**验证结果**：✅ 所有任务无文件重叠，依赖关系清晰
 
 ---
 
