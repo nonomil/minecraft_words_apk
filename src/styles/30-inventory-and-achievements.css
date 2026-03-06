@@ -233,6 +233,7 @@
     display: grid;
     gap: 8px;
     margin-bottom: 16px;
+    color: #fff;
 }
 
 .profile-achievements {
