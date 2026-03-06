@@ -60,19 +60,28 @@ test.describe('Bilingual Mode Basic Integration', () => {
         await page.click('#btn-language-mode-english');
         await page.waitForTimeout(1000);
 
-        // Wait for login screen to be visible
-        await page.waitForSelector('#username-input', { state: 'visible', timeout: 10000 });
+        // Check if we're on login screen or game screen
+        const loginVisible = await page.locator('#username-input').isVisible();
 
-        // Login
-        await page.fill('#username-input', 'TestUser');
-        await page.click('#btn-login');
-        await page.waitForTimeout(1000);
-
-        // Start game
-        const startBtn = page.locator('#btn-overlay-action');
-        if (await startBtn.isVisible()) {
-            await startBtn.click();
+        if (loginVisible) {
+            // Login flow
+            await page.fill('#username-input', 'TestUser');
+            await page.click('#btn-login');
             await page.waitForTimeout(1000);
+
+            // Start game
+            const startBtn = page.locator('#btn-overlay-action');
+            if (await startBtn.isVisible()) {
+                await startBtn.click();
+                await page.waitForTimeout(1000);
+            }
+        } else {
+            // Already in game, skip overlay if present
+            const skipBtn = page.locator('#btn-overlay-skip');
+            if (await skipBtn.isVisible()) {
+                await skipBtn.click();
+                await page.waitForTimeout(500);
+            }
         }
 
         // Open settings
@@ -99,19 +108,28 @@ test.describe('Bilingual Mode Basic Integration', () => {
         await page.click('#btn-language-mode-english');
         await page.waitForTimeout(1000);
 
-        // Wait for login screen to be visible
-        await page.waitForSelector('#username-input', { state: 'visible', timeout: 10000 });
+        // Check if we're on login screen or game screen
+        const loginVisible = await page.locator('#username-input').isVisible();
 
-        // Login
-        await page.fill('#username-input', 'TestUser');
-        await page.click('#btn-login');
-        await page.waitForTimeout(1000);
-
-        // Start game
-        const startBtn = page.locator('#btn-overlay-action');
-        if (await startBtn.isVisible()) {
-            await startBtn.click();
+        if (loginVisible) {
+            // Login flow
+            await page.fill('#username-input', 'TestUser');
+            await page.click('#btn-login');
             await page.waitForTimeout(1000);
+
+            // Start game
+            const startBtn = page.locator('#btn-overlay-action');
+            if (await startBtn.isVisible()) {
+                await startBtn.click();
+                await page.waitForTimeout(1000);
+            }
+        } else {
+            // Already in game, skip overlay if present
+            const skipBtn = page.locator('#btn-overlay-skip');
+            if (await skipBtn.isVisible()) {
+                await skipBtn.click();
+                await page.waitForTimeout(500);
+            }
         }
 
         // Open settings
