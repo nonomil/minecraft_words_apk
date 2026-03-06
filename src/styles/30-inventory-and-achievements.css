@@ -218,6 +218,8 @@
     border-radius: 20px;
     padding: 24px;
     width: min(460px, 90vw);
+    max-height: 80vh;
+    overflow-y: auto;
     border: 2px solid rgba(255, 215, 0, 0.6);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }

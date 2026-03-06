@@ -2,9 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.19.10] - 2026-03-06
 
-### Added - 2026-03-05
+### Added
 
 #### Consumable Equipment System
 - **Consumable Slot**: Added dedicated equipment slot for background materials (explosives, ender pearls, etc.)
