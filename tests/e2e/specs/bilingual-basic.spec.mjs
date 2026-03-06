@@ -53,6 +53,9 @@ test.describe('Bilingual Mode Basic Integration', () => {
         await page.click('#btn-language-mode-english');
         await page.waitForTimeout(500);
 
+        // Wait for login screen to be visible
+        await page.waitForSelector('#username-input', { state: 'visible', timeout: 10000 });
+
         // Login
         await page.fill('#username-input', 'TestUser');
         await page.click('#btn-login');
@@ -82,6 +85,9 @@ test.describe('Bilingual Mode Basic Integration', () => {
         await page.click('#btn-language-mode-english');
         await page.waitForTimeout(500);
 
+        // Wait for login screen to be visible
+        await page.waitForSelector('#username-input', { state: 'visible', timeout: 10000 });
+
         // Login
         await page.fill('#username-input', 'TestUser');
         await page.click('#btn-login');
@@ -109,7 +115,7 @@ test.describe('Bilingual Mode Basic Integration', () => {
         const hasChineseVocab = await page.evaluate(() => {
             if (!window.vocabManifest || !window.vocabManifest.packs) return false;
             return window.vocabManifest.packs.some(pack =>
-                pack.id && pack.id.includes('汉字')
+                pack.id && (pack.id.includes('hanzi') || pack.id.includes('汉字'))
             );
         });
 
