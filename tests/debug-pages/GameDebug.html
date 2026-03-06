@@ -71,6 +71,7 @@
 
   <script>
     const gameFrame = document.getElementById("game");
+    gameFrame.src = `../../Game.html?debug_frame_ts=${Date.now()}`;
     const statusEl = document.getElementById("status");
     let debugGodMode = false;
     let patched = false;
@@ -90,6 +91,21 @@
       return w;
     }
 
+    function readGameExpr(w, expr, fallback = null) {
+      if (!w || typeof w.eval !== "function") return fallback;
+      try {
+        const value = w.eval(expr);
+        return value == null ? fallback : value;
+      } catch (e) {
+        return fallback;
+      }
+    }
+
+    function runGameExpr(w, expr) {
+      if (!w || typeof w.eval !== "function") return undefined;
+      return w.eval(expr);
+    }
+
     function renderStatus(w) {
       if (!w) {
         if (!iframeLoaded) {
@@ -107,9 +123,12 @@
           "如果长时间不变，请用本地 HTTP 打开（不要用 IDE 预览/file://）。";
         return;
       }
-      const biomeId = w.currentBiome || "n/a";
+      const biomeId = readGameExpr(w, 'typeof currentBiome !== "undefined" ? currentBiome : null', w.currentBiome || "n/a") || "n/a";
+      const scoreValue = Number(readGameExpr(w, 'typeof score !== "undefined" ? score : 0', w.score || 0)) || 0;
+      const runBestScoreValue = Number(readGameExpr(w, 'typeof runBestScore !== "undefined" ? runBestScore : 0', w.runBestScore || 0)) || 0;
+      const enemyCount = Number(readGameExpr(w, 'Array.isArray(enemies) ? enemies.length : 0', Array.isArray(w.enemies) ? w.enemies.length : 0)) || 0;
       const stay = typeof w.getBiomeStayDebugInfo === "function"
-        ? w.getBiomeStayDebugInfo(Number(w.score) || 0)
+        ? w.getBiomeStayDebugInfo(scoreValue)
         : null;
       const rounds = typeof w.getBiomeVisitCountSnapshot === "function"
         ? w.getBiomeVisitCountSnapshot()
@@ -120,9 +139,9 @@
 
       statusEl.innerText =
         "biome=" + biomeId +
-        "  score=" + (Number(w.score) || 0) +
-        "  runBestScore=" + (Number(w.runBestScore) || 0) +
-        "  enemies=" + (Array.isArray(w.enemies) ? w.enemies.length : 0) + "\n" +
+        "  score=" + scoreValue +
+        "  runBestScore=" + runBestScoreValue +
+        "  enemies=" + enemyCount + "\n" +
         "stay: scoreInBiome=" + (stay ? Math.floor(stay.scoreInBiome) : "n/a") +
         "  timeInBiomeSec=" + (stay ? Math.floor(stay.timeInBiomeSec) : "n/a") +
         "  minScore=" + (stay ? stay.minScore : "n/a") +
@@ -173,13 +192,30 @@
       const biomeId = document.getElementById("biome").value;
       withGame(w => {
         patchGodMode(w);
-        const unlockScore = Number(w.getBiomeSwitchConfig?.().unlockScore?.[biomeId] ?? 0);
-        w.score = Math.max(Number(w.score) || 0, unlockScore);
-        w.runBestScore = Math.max(Number(w.runBestScore) || 0, unlockScore);
-        w.currentBiome = biomeId;
-        if (typeof w.updateWeatherForBiome === "function" && typeof w.getBiomeById === "function") {
-          w.updateWeatherForBiome(w.getBiomeById(biomeId));
-        }
+        runGameExpr(w, `(() => {
+          const biomeId = ${JSON.stringify(biomeId)};
+          const unlockScore = Number(typeof getBiomeSwitchConfig === "function"
+            ? (getBiomeSwitchConfig().unlockScore?.[biomeId] ?? 0)
+            : 0);
+          score = Math.max(Number(score) || 0, unlockScore);
+          runBestScore = Math.max(Number(runBestScore) || 0, unlockScore);
+          const nextBiome = typeof getBiomeById === "function" ? getBiomeById(biomeId) : null;
+          const progressScore = Math.max(
+            typeof getProgressScore === "function" ? (Number(getProgressScore()) || 0) : (Number(score) || 0),
+            unlockScore
+          );
+          if (nextBiome && typeof applyBiomeTransition === "function") {
+            applyBiomeTransition(nextBiome, progressScore, typeof hasHeatProtection === "function" ? hasHeatProtection() : false);
+          } else {
+            currentBiome = biomeId;
+            if (nextBiome && typeof updateWeatherForBiome === "function") {
+              updateWeatherForBiome(nextBiome);
+            }
+          }
+          const info = document.getElementById("level-info");
+          if (info && nextBiome && nextBiome.name) info.innerText = '生态: ' + nextBiome.name;
+          return currentBiome;
+        })()`);
       });
     }
 
@@ -201,11 +237,14 @@
       const s = Math.max(0, Number(document.getElementById("score").value) || 0);
       withGame(w => {
         patchGodMode(w);
-        w.score = s;
-        w.runBestScore = Math.max(Number(w.runBestScore) || 0, s);
-        const el = w.document.getElementById("score");
-        if (el) el.innerText = String(w.score);
-        if (typeof w.updateCurrentBiome === "function") w.updateCurrentBiome();
+        runGameExpr(w, `(() => {
+          score = ${s};
+          runBestScore = Math.max(Number(runBestScore) || 0, ${s});
+          const el = document.getElementById("score");
+          if (el) el.innerText = String(score);
+          if (typeof updateCurrentBiome === "function") updateCurrentBiome();
+          return score;
+        })()`);
       });
     }
 
@@ -231,12 +270,16 @@
       const enemyType = document.getElementById("enemy").value;
       withGame(w => {
         patchGodMode(w);
-        let e = null;
-        const x = (Number(w.player?.x) || 0) + 140;
-        const y = (Number(w.groundY) || 530) - 32;
-        if (typeof w.createBiomeEnemy === "function") e = w.createBiomeEnemy(enemyType, x, y);
-        if (!e && typeof w.Enemy === "function") e = new w.Enemy(x, y, enemyType);
-        if (e && Array.isArray(w.enemies)) w.enemies.push(e);
+        runGameExpr(w, `(() => {
+          const enemyType = ${JSON.stringify(enemyType)};
+          const x = (Number(player?.x) || 0) + 140;
+          const y = (Number(groundY) || 530) - 32;
+          let e = null;
+          if (typeof createBiomeEnemy === "function") e = createBiomeEnemy(enemyType, x, y);
+          if (!e && typeof Enemy === "function") e = new Enemy(x, y, enemyType);
+          if (e && Array.isArray(enemies)) enemies.push(e);
+          return e ? (e.type || enemyType) : null;
+        })()`);
       });
     }
 
@@ -275,8 +318,13 @@
       if (!item) return;
       withGame(w => {
         patchGodMode(w);
-        if (!w.inventory) return;
-        w.inventory[item] = (Number(w.inventory[item]) || 0) + count;
+        runGameExpr(w, `(() => {
+          const item = ${JSON.stringify(item)};
+          const count = ${count};
+          if (typeof inventory === "undefined" || !inventory) return 0;
+          inventory[item] = (Number(inventory[item]) || 0) + count;
+          return inventory[item];
+        })()`);
         if (typeof w.updateInventoryUI === "function") w.updateInventoryUI();
       });
     }
