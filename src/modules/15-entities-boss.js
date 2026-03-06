@@ -4,6 +4,159 @@ function isPlayerProtectedFromWitherInVillage() {
     return typeof playerInVillage !== 'undefined' && !!playerInVillage;
 }
 
+const BOSS_VISUAL_TOKENS = Object.freeze({
+    blazeCoreDark: '#38210A',
+    blazeCoreMid: '#5A3310',
+    blazeGlowWarm: '#FFB300',
+    blazeGlowHot: '#FFF59D',
+    blazeRodLight: '#FFD54F',
+    blazeRodMid: '#FFB300',
+    blazeRodShadow: '#A85A00',
+    blazeFace: '#251300',
+    blazeEye: '#FFE082',
+    blazeEmber: 'rgba(255, 140, 0, 0.55)',
+    ashDark: 'rgba(28, 28, 28, 0.78)',
+    ashLight: 'rgba(108, 108, 108, 0.48)',
+    boneDark: '#1A1A1A',
+    boneMid: '#343434',
+    boneLight: '#565656',
+    boneAsh: '#7A7A7A',
+    eyeRed: '#D32F2F',
+    eyeHot: '#FF6B6B',
+    swordEdge: '#A8B0B8',
+    swordMid: '#7E8791',
+    swordGuard: '#5D646B',
+    swordGrip: '#34261D'
+});
+
+const BOSS_REGISTRY = Object.freeze([
+    { id: 'wither', score: 2000, flying: true, debugCtor: 'WitherBoss' },
+    { id: 'ghast', score: 4000, flying: true, debugCtor: 'GhastBoss' },
+    { id: 'blaze', score: 6000, flying: true, debugCtor: 'BlazeBoss' },
+    { id: 'wither_skeleton', score: 8000, flying: false, debugCtor: 'WitherSkeletonBoss' },
+    { id: 'warden', score: 10000, flying: false, debugCtor: 'WardenBoss' },
+    { id: 'evoker', score: 12000, flying: false, debugCtor: 'EvokerBoss' }
+]);
+
+function getBossMetaEntry(type) {
+    const normalized = String(type || '').trim().toLowerCase();
+    return BOSS_REGISTRY.find((entry) => entry.id === normalized) || BOSS_REGISTRY[0];
+}
+
+function drawShadowEllipse(ctx, centerX, centerY, width, height, color) {
+    ctx.save();
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.ellipse(centerX, centerY, width / 2, height / 2, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+}
+
+function drawGlowOrb(ctx, centerX, centerY, innerRadius, outerRadius, innerColor, outerColor) {
+    const gradient = ctx.createRadialGradient(centerX, centerY, innerRadius, centerX, centerY, outerRadius);
+    gradient.addColorStop(0, innerColor);
+    gradient.addColorStop(1, outerColor);
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, outerRadius, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+function drawBlazeFigure(ctx, centerX, centerY, options = {}) {
+    const size = Number(options.size) || 1;
+    const timeValue = Number(options.timeValue) || (Date.now() / 220);
+    const flashActive = !!options.flashActive;
+    const rodCount = Math.max(6, Number(options.rodCount) || 12);
+    const coreWidth = 18 * size;
+    const coreHeight = 24 * size;
+    const outerRadius = 24 * size;
+    const innerRadius = 15 * size;
+    const faceWidth = 13 * size;
+    const faceHeight = 9 * size;
+    const faceY = centerY - 4 * size;
+
+    drawShadowEllipse(ctx, centerX, centerY + 24 * size, 32 * size, 8 * size, 'rgba(0, 0, 0, 0.28)');
+    drawGlowOrb(
+        ctx,
+        centerX,
+        centerY,
+        3 * size,
+        20 * size,
+        flashActive ? '#FFFFFF' : BOSS_VISUAL_TOKENS.blazeGlowHot,
+        'rgba(255, 140, 0, 0.18)'
+    );
+
+    ctx.save();
+    ctx.fillStyle = BOSS_VISUAL_TOKENS.blazeCoreDark;
+    ctx.fillRect(centerX - coreWidth / 2, centerY - coreHeight / 2, coreWidth, coreHeight);
+    ctx.fillStyle = BOSS_VISUAL_TOKENS.blazeCoreMid;
+    ctx.fillRect(centerX - coreWidth / 2 + 2 * size, centerY - coreHeight / 2 + 2 * size, coreWidth - 4 * size, coreHeight - 4 * size);
+    ctx.fillStyle = BOSS_VISUAL_TOKENS.blazeFace;
+    ctx.fillRect(centerX - faceWidth / 2, faceY - faceHeight / 2, faceWidth, faceHeight);
+    ctx.fillStyle = BOSS_VISUAL_TOKENS.blazeEye;
+    ctx.fillRect(centerX - 4 * size, faceY - 1 * size, 2 * size, 2 * size);
+    ctx.fillRect(centerX + 2 * size, faceY - 1 * size, 2 * size, 2 * size);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.24)';
+    ctx.fillRect(centerX - 2 * size, centerY - coreHeight / 2 + 2 * size, 4 * size, 3 * size);
+
+    const rodsPerRing = rodCount / 2;
+    for (let index = 0; index < rodCount; index++) {
+        const ringIndex = index < rodsPerRing ? 0 : 1;
+        const localIndex = index % rodsPerRing;
+        const radius = ringIndex === 0 ? outerRadius : innerRadius;
+        const rodHeight = (ringIndex === 0 ? 16 : 12) * size + (localIndex % 3) * 3 * size;
+        const rodWidth = 5 * size;
+        const angle = timeValue * (ringIndex === 0 ? 1.05 : -1.35) + ((Math.PI * 2) / rodsPerRing) * localIndex;
+        const verticalWave = Math.sin(timeValue * 2.1 + index * 0.9) * (ringIndex === 0 ? 7 : 4) * size;
+        const rodX = centerX + Math.cos(angle) * radius - rodWidth / 2;
+        const rodY = centerY + Math.sin(angle * 1.2) * 8 * size + verticalWave - rodHeight / 2;
+        const rodGradient = ctx.createLinearGradient(rodX, rodY, rodX, rodY + rodHeight);
+        rodGradient.addColorStop(0, BOSS_VISUAL_TOKENS.blazeRodLight);
+        rodGradient.addColorStop(0.55, BOSS_VISUAL_TOKENS.blazeRodMid);
+        rodGradient.addColorStop(1, BOSS_VISUAL_TOKENS.blazeRodShadow);
+        ctx.fillStyle = rodGradient;
+        ctx.fillRect(rodX, rodY, rodWidth, rodHeight);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.22)';
+        ctx.fillRect(rodX + 1 * size, rodY + 1 * size, Math.max(1, 1 * size), Math.max(2, rodHeight * 0.25));
+    }
+
+    const emberCount = options.emberCount || 5;
+    for (let index = 0; index < emberCount; index++) {
+        const emberX = centerX + Math.sin(timeValue * 1.7 + index * 1.3) * (8 + index * 2) * size;
+        const emberY = centerY + 20 * size - ((timeValue * 18 + index * 11) % (24 * size));
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.blazeEmber;
+        ctx.fillRect(emberX, emberY, Math.max(2, 2 * size), Math.max(2, 2 * size));
+    }
+    ctx.restore();
+}
+
+function drawWitherSkeletonMinion(ctx, drawX, drawY, minion, facing) {
+    const centerX = drawX + minion.width / 2;
+    drawShadowEllipse(ctx, centerX, drawY + minion.height + 4, minion.width * 0.8, 8, 'rgba(0, 0, 0, 0.22)');
+    ctx.save();
+    ctx.fillStyle = BOSS_VISUAL_TOKENS.boneDark;
+    ctx.fillRect(drawX + 6, drawY + 2, 12, 12);
+    ctx.fillStyle = BOSS_VISUAL_TOKENS.boneMid;
+    ctx.fillRect(drawX + 10, drawY + 16, 4, 16);
+    for (let ribIndex = 0; ribIndex < 3; ribIndex++) {
+        const ribY = drawY + 18 + ribIndex * 5;
+        ctx.fillStyle = ribIndex % 2 === 0 ? BOSS_VISUAL_TOKENS.boneLight : BOSS_VISUAL_TOKENS.boneMid;
+        ctx.fillRect(drawX + 6, ribY, 12, 2);
+    }
+    ctx.fillStyle = BOSS_VISUAL_TOKENS.boneLight;
+    ctx.fillRect(drawX + 4, drawY + 16, 3, 15);
+    ctx.fillRect(drawX + 17, drawY + 16, 3, 15);
+    ctx.fillRect(drawX + 8, drawY + 32, 3, 14);
+    ctx.fillRect(drawX + 13, drawY + 32, 3, 14);
+    ctx.fillStyle = BOSS_VISUAL_TOKENS.eyeRed;
+    ctx.fillRect(drawX + 8, drawY + 6, 2, 2);
+    ctx.fillRect(drawX + 14, drawY + 6, 2, 2);
+    const swordX = facing >= 0 ? drawX + minion.width : drawX - 4;
+    ctx.fillStyle = BOSS_VISUAL_TOKENS.swordMid;
+    ctx.fillRect(swordX, drawY + 18, 4, 14);
+    ctx.restore();
+}
+
 // BOSS 基类
 class Boss {
     constructor(config) {
@@ -27,7 +180,9 @@ class Boss {
         this.flashTimer = 0;
         this.particles = [];
         this.damage = config.damage || 1;
-        this.type = 'boss';
+        this.type = config.id || 'boss';
+        this.visualKey = config.visualKey || 'boss_v1';
+        this.debugState = config.debugState || 'idle';
         this.phaseInvulnerableTimer = 0;
     }
 
@@ -148,14 +303,22 @@ globalThis.bossArena = globalThis.bossArena || {
     victoryTimer: 0,
     phaseFlashTimer: 0,
     phaseBannerText: '',
-    bossTypes: ['wither', 'ghast', 'blaze', 'wither_skeleton'],
-    bossScores: [2000, 4000, 6000, 8000],         // 触发分数阈值
+    bossTypes: BOSS_REGISTRY.map((entry) => entry.id),
+    bossScores: BOSS_REGISTRY.map((entry) => entry.score),         // ??????
     spawned: {},           // 已生成的BOSS记录
     gateBossRotationCursor: 0,
     weaponLockActive: false,
     weaponBeforeBoss: "sword",
 
 // PLACEHOLDER_ARENA_METHODS
+
+    getBossMeta(type) {
+        return getBossMetaEntry(type);
+    },
+
+    getBossTypes() {
+        return this.bossTypes.slice();
+    },
 
     normalizeBossType(type) {
         const normalized = String(type || "").trim().toLowerCase();
@@ -238,7 +401,7 @@ globalThis.bossArena = globalThis.bossArena || {
         if (options.markSpawned !== false) this.spawned[resolvedType] = true;
         this.boss = this.createBoss(resolvedType);
         this.lockWeaponForBossFight();
-        const isFlyingBoss = resolvedType === 'wither' || resolvedType === 'ghast' || resolvedType === 'blaze';
+        const isFlyingBoss = !!this.getBossMeta(resolvedType).flying;
         let grantedRangedSupport = false;
         if (isFlyingBoss) {
             const minArrows = 12;
@@ -286,6 +449,8 @@ globalThis.bossArena = globalThis.bossArena || {
             case 'ghast': return new GhastBoss(spawnX);
             case 'blaze': return new BlazeBoss(spawnX);
             case 'wither_skeleton': return new WitherSkeletonBoss(spawnX);
+            case 'warden': return (typeof WardenBoss === 'function') ? new WardenBoss(spawnX) : new WitherSkeletonBoss(spawnX);
+            case 'evoker': return (typeof EvokerBoss === 'function') ? new EvokerBoss(spawnX) : new BlazeBoss(spawnX);
             default: return new WitherBoss(spawnX);
         }
     },
@@ -898,6 +1063,8 @@ class GhastBoss extends Boss {
 class BlazeBoss extends Boss {
     constructor(spawnX) {
         super({
+            id: 'blaze',
+            visualKey: 'blaze_v2',
             name: '烈焰人 Blaze',
             maxHp: 28,
             color: '#FFD700',
@@ -1104,90 +1271,59 @@ class BlazeBoss extends Boss {
     render(ctx, camX) {
         const drawX = this.x - camX;
         const drawY = this.y;
-        const rotationSpeed = this.phase >= 3 ? 0.12 : this.phase === 2 ? 0.09 : 0.07;
+        const centerX = drawX + this.width / 2;
+        const centerY = drawY + this.height / 2;
+        const timeValue = Date.now() / 220;
+        const rotationSpeed = this.phase >= 3 ? 0.15 : this.phase === 2 ? 0.11 : 0.08;
         this.rotationAngle += rotationSpeed;
-        const cx = drawX + this.width / 2;
-        const cy = drawY + this.height / 2;
 
-        // 中心发光核心
-        const coreGradient = ctx.createRadialGradient(cx, cy, 4, cx, cy, 18);
-        coreGradient.addColorStop(0, this.flashTimer > 0 ? '#FFFFFF' : '#FFF59D');
-        coreGradient.addColorStop(1, this.phase >= 3 ? '#FF8F00' : '#FFD54F');
-        ctx.fillStyle = coreGradient;
-        ctx.beginPath();
-        ctx.arc(cx, cy, 18, 0, Math.PI * 2);
-        ctx.fill();
-
-        // 12 根环绕烈焰棒
-        for (let i = 0; i < 12; i++) {
-            const angle = this.rotationAngle + (Math.PI * 2 / 12) * i;
-            const radius = 24 + ((i % 3) - 1) * 5;
-            const rodHeight = 14 + (i % 4) * 4;
-            const bx = cx + Math.cos(angle) * radius - 3;
-            const by = cy + Math.sin(angle) * radius - rodHeight / 2;
-            ctx.fillStyle = i % 2 === 0 ? '#FFC107' : '#FFB300';
-            ctx.fillRect(bx, by, 6, rodHeight);
-        }
-
-        // 火焰粒子环绕
-        const particleCount = this.phase >= 3 ? 6 : 4;
-        for (let i = 0; i < particleCount; i++) {
-            const px = cx + Math.cos(Date.now() / 180 + i * 1.4) * (18 + i * 2);
-            const py = cy + Math.sin(Date.now() / 180 + i * 1.4) * 18;
-            ctx.fillStyle = `rgba(255, ${100 + Math.random() * 100 | 0}, 0, 0.6)`;
-            ctx.fillRect(px - 2, py - 2, 4, 4);
-        }
-
-        // 渲染火焰柱
-        this.fireColumns.forEach(col => {
-            const colX = col.x - camX;
-            const alpha = col.life > 60 ? 0.8 : (col.life / 60) * 0.8;
-            ctx.fillStyle = `rgba(255, 69, 0, ${alpha})`;
-            ctx.fillRect(colX, col.y - col.height, col.width, col.height);
-            ctx.fillStyle = '#FFD700';
-            ctx.fillRect(colX - 2, col.y - col.height - 8, col.width + 4, 8);
+        drawBlazeFigure(ctx, centerX, centerY, {
+            size: 1,
+            timeValue: this.rotationAngle + timeValue,
+            flashActive: this.flashTimer > 0,
+            rodCount: this.phase >= 3 ? 12 : 10,
+            emberCount: this.phase >= 2 ? 6 : 4
         });
 
-        // 渲染小烈焰人
-        this.minions.forEach(m => {
-            if (!m.alive) return;
-            const mx = m.x - camX;
-            if (m.type === "blaze_mini") {
-                const cx = mx + m.width / 2;
-                const cy = m.y + m.height / 2;
-                ctx.beginPath();
-                ctx.arc(cx, cy, m.width / 2, 0, Math.PI * 2);
-                ctx.fillStyle = "#FF6D00";
-                ctx.fill();
+        this.fireColumns.forEach((column) => {
+            const columnX = column.x - camX;
+            const alpha = column.life > 60 ? 0.8 : (column.life / 60) * 0.8;
+            const glowGradient = ctx.createLinearGradient(columnX, column.y, columnX, column.y - column.height);
+            glowGradient.addColorStop(0, `rgba(255, 111, 0, ${alpha})`);
+            glowGradient.addColorStop(0.55, `rgba(255, 196, 0, ${alpha * 0.9})`);
+            glowGradient.addColorStop(1, `rgba(255, 245, 157, ${alpha * 0.72})`);
+            ctx.fillStyle = glowGradient;
+            ctx.fillRect(columnX, column.y - column.height, column.width, column.height);
+            ctx.fillStyle = `rgba(255, 245, 157, ${alpha * 0.8})`;
+            ctx.fillRect(columnX - 2, column.y - column.height - 8, column.width + 4, 8);
+        });
 
-                ctx.beginPath();
-                ctx.arc(cx, cy, m.width / 4, 0, Math.PI * 2);
-                ctx.fillStyle = "#FFEB3B";
-                ctx.fill();
-
-                for (let i = 0; i < 3; i++) {
-                    const px = cx + (Math.random() - 0.5) * m.width;
-                    const py = cy - m.height / 2 - Math.random() * 8;
-                    ctx.beginPath();
-                    ctx.arc(px, py, 2, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(255, ${100 + Math.floor(Math.random() * 100)}, 0, 0.8)`;
-                    ctx.fill();
-                }
+        this.minions.forEach((minion, index) => {
+            if (!minion.alive) return;
+            const bobOffset = Math.sin(timeValue * 2 + index * 0.9) * 3;
+            minion.y = this.floatY + 24 + bobOffset;
+            const minionDrawX = minion.x - camX;
+            if (minion.type === 'blaze_mini') {
+                drawBlazeFigure(ctx, minionDrawX + minion.width / 2, minion.y + minion.height / 2, {
+                    size: 0.42,
+                    timeValue: this.rotationAngle + index,
+                    flashActive: false,
+                    rodCount: 6,
+                    emberCount: 3
+                });
             } else {
-                ctx.fillStyle = "#FF8C00";
-                ctx.fillRect(mx, m.y, m.width, m.height);
+                ctx.fillStyle = '#FF8C00';
+                ctx.fillRect(minionDrawX, minion.y, minion.width, minion.height);
             }
-            // 小血条
-            const hpPct = m.hp / m.maxHp;
+            const hpPercent = minion.hp / minion.maxHp;
             ctx.fillStyle = '#F44336';
-            ctx.fillRect(mx, m.y - 6, m.width * hpPct, 3);
+            ctx.fillRect(minionDrawX, minion.y - 6, minion.width * hpPercent, 3);
         });
 
-        // 粒子
-        this.particles.forEach(p => {
-            ctx.globalAlpha = p.life;
+        this.particles.forEach((particle) => {
+            ctx.globalAlpha = particle.life;
             ctx.fillStyle = '#FF6600';
-            ctx.fillRect(p.x - camX, p.y, 3, 3);
+            ctx.fillRect(particle.x - camX, particle.y, 3, 3);
         });
         ctx.globalAlpha = 1;
     }
@@ -1197,6 +1333,8 @@ class BlazeBoss extends Boss {
 class WitherSkeletonBoss extends Boss {
     constructor(spawnX) {
         super({
+            id: 'wither_skeleton',
+            visualKey: 'wither_skeleton_v2',
             name: '凋零骷髅 Wither Skeleton',
             maxHp: 40,
             color: '#1A1A1A',
@@ -1479,70 +1617,98 @@ class WitherSkeletonBoss extends Boss {
         const drawY = this.y;
         const squat = this.jumpAttackPhase === 1 ? 0.85 : 1;
         const swing = this.state === 'combo' ? Math.sin(Date.now() / 90) * 10 : 0;
+        const bodyOffsetY = this.height * (1 - squat);
+        const skullY = drawY - 6 + bodyOffsetY;
+        const torsoY = drawY + 22 + bodyOffsetY;
+        const pelvisY = drawY + 66 + bodyOffsetY;
+        const eyeColor = this.phase >= 3 ? BOSS_VISUAL_TOKENS.eyeHot : BOSS_VISUAL_TOKENS.eyeRed;
 
-        // 身体（高瘦骨架）
-        ctx.fillStyle = this.flashTimer > 0 ? '#FFF' : '#1A1A1A';
-        ctx.fillRect(drawX + 8, drawY + this.height * (1 - squat), 32, this.height * squat);
-        ctx.fillStyle = '#242424';
-        ctx.fillRect(drawX + 14, drawY + 28 + this.height * (1 - squat), 20, 44 * squat);
+        drawShadowEllipse(ctx, drawX + this.width / 2, drawY + this.height + 6, 46, 10, 'rgba(0, 0, 0, 0.26)');
 
-        // 骷髅头
-        ctx.fillStyle = '#2A2A2A';
-        ctx.fillRect(drawX + 8, drawY - 4 + this.height * (1 - squat), 32, 28);
-        // 眼睛
-        ctx.fillStyle = this.phase >= 3 ? '#FF0000' : '#CC0000';
-        ctx.fillRect(drawX + 14, drawY + 4 + this.height * (1 - squat), 6, 6);
-        ctx.fillRect(drawX + 28, drawY + 4 + this.height * (1 - squat), 6, 6);
+        ctx.save();
+        ctx.fillStyle = this.flashTimer > 0 ? '#FFFFFF' : BOSS_VISUAL_TOKENS.boneDark;
+        ctx.fillRect(drawX + 8, skullY, 32, 22);
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.boneMid;
+        ctx.fillRect(drawX + 10, skullY + 4, 28, 15);
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.boneLight;
+        ctx.fillRect(drawX + 12, skullY + 18, 24, 5);
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.boneAsh;
+        ctx.fillRect(drawX + 16, skullY + 22, 16, 4);
+        ctx.fillStyle = eyeColor;
+        ctx.fillRect(drawX + 15, skullY + 7, 5, 4);
+        ctx.fillRect(drawX + 28, skullY + 7, 5, 4);
 
-        // 石剑
-        ctx.fillStyle = '#808080';
-        const swordX = this.facing > 0 ? drawX + this.width : drawX - 12;
-        ctx.fillRect(swordX, drawY + 20 + swing, 8, 40);
-        ctx.fillStyle = '#A0A0A0';
-        ctx.fillRect(swordX - 4, drawY + 56 + swing, 16, 6);
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.boneMid;
+        ctx.fillRect(drawX + 22, torsoY - 6, 4, 44 * squat);
+        for (let ribIndex = 0; ribIndex < 5; ribIndex++) {
+            const ribY = torsoY + ribIndex * 7;
+            const ribWidth = 20 - ribIndex;
+            ctx.fillStyle = ribIndex % 2 === 0 ? BOSS_VISUAL_TOKENS.boneLight : BOSS_VISUAL_TOKENS.boneMid;
+            ctx.fillRect(drawX + 14, ribY, ribWidth, 3);
+        }
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.boneDark;
+        ctx.fillRect(drawX + 16, pelvisY, 16, 6 * squat);
 
-        // 煤灰粒子（环境态）
-        for (let i = 0; i < 3; i++) {
-            const ashX = drawX + 8 + ((Date.now() / 9 + i * 17) % 32);
-            const ashY = drawY + ((Date.now() / 22 + i * 21) % this.height);
-            ctx.fillStyle = 'rgba(90,90,90,0.45)';
+        const armBaseY = torsoY + 6;
+        const legBaseY = pelvisY + 6;
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.boneLight;
+        ctx.fillRect(drawX + 10, armBaseY, 4, 24 * squat);
+        ctx.fillRect(drawX + 34, armBaseY, 4, 24 * squat);
+        ctx.fillRect(drawX + 8, armBaseY + 20, 4, 16 * squat);
+        ctx.fillRect(drawX + 36, armBaseY + 20, 4, 16 * squat);
+        ctx.fillRect(drawX + 16, legBaseY, 4, 26 * squat);
+        ctx.fillRect(drawX + 28, legBaseY, 4, 26 * squat);
+        ctx.fillRect(drawX + 14, legBaseY + 24, 4, 18 * squat);
+        ctx.fillRect(drawX + 30, legBaseY + 24, 4, 18 * squat);
+
+        const swordX = this.facing > 0 ? drawX + this.width + 2 : drawX - 12;
+        const bladeY = drawY + 14 + swing;
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.swordMid;
+        ctx.fillRect(swordX, bladeY, 7, 44);
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.swordEdge;
+        ctx.fillRect(swordX + 1, bladeY + 2, 2, 36);
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.swordGuard;
+        ctx.fillRect(swordX - 4, bladeY + 42, 15, 5);
+        ctx.fillStyle = BOSS_VISUAL_TOKENS.swordGrip;
+        ctx.fillRect(swordX + 2, bladeY + 47, 3, 12);
+
+        for (let ashIndex = 0; ashIndex < 5; ashIndex++) {
+            const ashX = drawX + 10 + ((Date.now() / 11 + ashIndex * 19) % 28);
+            const ashY = drawY + ((Date.now() / 24 + ashIndex * 17) % this.height);
+            ctx.fillStyle = ashIndex % 2 === 0 ? BOSS_VISUAL_TOKENS.ashDark : BOSS_VISUAL_TOKENS.ashLight;
             ctx.fillRect(ashX, ashY, 2, 2);
         }
+        ctx.restore();
 
-        // 格挡状态 - 蓝色防护罩
         if (this.state === 'blocking') {
-            ctx.strokeStyle = 'rgba(66,165,245,0.75)';
+            ctx.strokeStyle = 'rgba(66, 165, 245, 0.75)';
             ctx.lineWidth = 3;
             ctx.beginPath();
             ctx.arc(drawX + this.width / 2, drawY + this.height / 2, 50, 0, Math.PI * 2);
             ctx.stroke();
         }
 
-        // 眩晕状态 - 头顶星星
         if (this.state === 'stunned') {
-            for (let i = 0; i < 3; i++) {
-                const sx = drawX + 10 + i * 14 + Math.sin(Date.now() / 200 + i) * 5;
+            for (let starIndex = 0; starIndex < 3; starIndex++) {
+                const starX = drawX + 10 + starIndex * 14 + Math.sin(Date.now() / 200 + starIndex) * 5;
                 ctx.fillStyle = '#FFD700';
                 ctx.font = '14px Arial';
-                ctx.fillText('⭐', sx, drawY - 20);
+                ctx.fillText('*', starX, drawY - 20);
             }
         }
 
-        // 渲染小兵
-        this.minions.forEach(m => {
-            if (!m.alive) return;
-            const mx = m.x - camX;
-            ctx.fillStyle = '#333';
-            ctx.fillRect(mx, m.y, m.width, m.height);
+        this.minions.forEach((minion) => {
+            if (!minion.alive) return;
+            const minionDrawX = minion.x - camX;
+            drawWitherSkeletonMinion(ctx, minionDrawX, minion.y, minion, this.facing);
             ctx.fillStyle = '#F44336';
-            ctx.fillRect(mx, m.y - 5, m.width * (m.hp / m.maxHp), 3);
+            ctx.fillRect(minionDrawX, minion.y - 5, minion.width * (minion.hp / minion.maxHp), 3);
         });
 
-        // 粒子
-        this.particles.forEach(p => {
-            ctx.globalAlpha = p.life;
+        this.particles.forEach((particle) => {
+            ctx.globalAlpha = particle.life;
             ctx.fillStyle = '#666';
-            ctx.fillRect(p.x - camX, p.y, 3, 3);
+            ctx.fillRect(particle.x - camX, particle.y, 3, 3);
         });
         ctx.globalAlpha = 1;
     }
