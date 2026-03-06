@@ -26,3 +26,11 @@ test("Visual smoke: wither skeleton blocking summon scene renders upgraded silho
     await tickGame(page, 10);
   });
 });
+
+
+test("Visual smoke: warden attack scene renders heavy silhouette", async ({ page }) => {
+  await captureBossScene(page, "warden", async () => {
+    await setBossPhase(page, 3);
+    await tickGame(page, 220);
+  });
+});
