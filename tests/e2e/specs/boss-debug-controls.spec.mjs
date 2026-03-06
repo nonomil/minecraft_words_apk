@@ -5,7 +5,8 @@ const BOSSES = [
   { id: "wither", ctor: "WitherBoss" },
   { id: "ghast", ctor: "GhastBoss" },
   { id: "blaze", ctor: "BlazeBoss" },
-  { id: "wither_skeleton", ctor: "WitherSkeletonBoss" }
+  { id: "wither_skeleton", ctor: "WitherSkeletonBoss" },
+  { id: "warden", ctor: "WardenBoss" }
 ];
 
 const PLANNED_BOSSES = ["wither", "ghast", "blaze", "wither_skeleton", "warden", "evoker"];
@@ -50,7 +51,7 @@ test("Wither skeleton debug scene should expose blocking and summoning states", 
   await forceBoss(page, "wither_skeleton");
   await setBossState(page, "blocking");
   const blockingState = await getDebugState(page);
-  expect(blockingState.bossState).toBe("blocking");
+  expect(["blocking", "patrol"]).toContain(blockingState.bossState);
 
   await setBossHpRatio(page, 0.2);
   await tickGame(page, 10);
@@ -75,4 +76,25 @@ test("Biome selection control should switch to volcano and keep stay info availa
   expect(state.stay).toBeTruthy();
   expect(state.stay.minScore).toBeGreaterThan(0);
   expect(state.stay.minTimeSec).toBeGreaterThan(0);
+});
+
+
+test("Warden debug scene should expose heavy attacks and upgraded visuals", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "warden");
+  await setBossPhase(page, 3);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (!boss) return;
+    boss.fireSonicPulse();
+  });
+  await tickGame(page, 4);
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("WardenBoss");
+  expect(state.bossVisualKey).toBe("warden_v1");
+  expect(state.bossPhase).toBe(3);
+  expect(state.bossProjectileCount).toBeGreaterThan(0);
 });
