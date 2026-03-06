@@ -63,8 +63,11 @@ test.describe('双语学习模式功能测试', () => {
     await page.goto(`${BASE_URL}/index.html`);
     await page.waitForLoadState('networkidle');
 
-    // 等待单词卡片加载
-    await page.waitForSelector('.word-card', { timeout: 10000 });
+    // 点击"开始学习"按钮进入学习模式
+    await page.locator('button:has-text("开始学习")').click();
+
+    // 等待单词卡片显示
+    await page.waitForSelector('.word-card:visible', { timeout: 10000 });
 
     // 检查主文字是英文（应该更大）
     const primaryText = await page.locator('.word-primary').textContent();
@@ -87,8 +90,11 @@ test.describe('双语学习模式功能测试', () => {
     await page.goto(`${BASE_URL}/index.html`);
     await page.waitForLoadState('networkidle');
 
-    // 等待单词卡片加载
-    await page.waitForSelector('.word-card', { timeout: 10000 });
+    // 点击"开始学习"按钮进入学习模式
+    await page.locator('button:has-text("开始学习")').click();
+
+    // 等待单词卡片显示
+    await page.waitForSelector('.word-card:visible', { timeout: 10000 });
 
     // 检查主文字是中文
     const primaryText = await page.locator('.word-primary').textContent();
@@ -114,17 +120,23 @@ test.describe('双语学习模式功能测试', () => {
     await page.goto(`${BASE_URL}/index.html`);
     await page.waitForLoadState('networkidle');
 
-    // 打开设置
-    await page.locator('#settings-button').click();
+    // 点击底部导航栏的设置按钮
+    await page.locator('button:has-text("游戏设置")').click();
+
+    // 等待设置模态框显示
+    await page.waitForSelector('#language-mode-select', { state: 'visible', timeout: 5000 });
+
+    // 设置对话框监听器
+    page.once('dialog', async dialog => {
+      expect(dialog.message()).toContain('切换学习模式后，进度将分别记录');
+      await dialog.accept();
+    });
 
     // 切换到汉字模式
     await page.locator('#language-mode-select').selectOption('chinese');
 
-    // 应该显示确认对话框
-    page.on('dialog', async dialog => {
-      expect(dialog.message()).toContain('切换学习模式后，进度将分别记录');
-      await dialog.accept();
-    });
+    // 等待一下让对话框处理完成
+    await page.waitForTimeout(500);
 
     // 验证模式已切换
     const languageMode = await page.evaluate(() => localStorage.getItem('languageMode'));
@@ -143,8 +155,11 @@ test.describe('双语学习模式功能测试', () => {
     await page.goto(`${BASE_URL}/index.html`);
     await page.waitForLoadState('networkidle');
 
-    // 打开设置
-    await page.locator('#settings-button').click();
+    // 点击底部导航栏的设置按钮
+    await page.locator('button:has-text("游戏设置")').click();
+
+    // 等待设置模态框显示
+    await page.waitForSelector('#show-pinyin-toggle', { state: 'visible', timeout: 5000 });
 
     // 拼音开关应该可见
     const pinyinToggle = page.locator('#show-pinyin-toggle');
@@ -188,6 +203,7 @@ test.describe('双语学习模式功能测试', () => {
     // 模拟旧版本数据
     await page.goto(BASE_URL);
     await page.evaluate(() => {
+      localStorage.clear();
       localStorage.setItem('dataVersion', '2.1.0');
       localStorage.setItem('kgProgress', JSON.stringify({ uniqueCount: 20 }));
       localStorage.setItem('wordGameProgress', JSON.stringify({ level: 5 }));
@@ -196,19 +212,24 @@ test.describe('双语学习模式功能测试', () => {
     await page.goto(`${BASE_URL}/index.html`);
     await page.waitForLoadState('networkidle');
 
+    // 等待迁移完成
+    await page.waitForTimeout(1000);
+
     // 验证迁移后版本号
     const dataVersion = await page.evaluate(() => localStorage.getItem('dataVersion'));
     expect(dataVersion).toBe('2.2.0');
 
     // 验证数据已复制到新键
-    const englishProgressKg = await page.evaluate(() =>
-      JSON.parse(localStorage.getItem('englishProgress_kg') || '{}')
-    );
+    const englishProgressKg = await page.evaluate(() => {
+      const data = localStorage.getItem('englishProgress_kg');
+      return data ? JSON.parse(data) : {};
+    });
     expect(englishProgressKg.uniqueCount).toBe(20);
 
-    const englishProgressGame = await page.evaluate(() =>
-      JSON.parse(localStorage.getItem('englishProgress_game') || '{}')
-    );
+    const englishProgressGame = await page.evaluate(() => {
+      const data = localStorage.getItem('englishProgress_game');
+      return data ? JSON.parse(data) : {};
+    });
     expect(englishProgressGame.level).toBe(5);
 
     // 验证汉字进度已初始化
