@@ -6,7 +6,8 @@ const BOSSES = [
   { id: "ghast", ctor: "GhastBoss" },
   { id: "blaze", ctor: "BlazeBoss" },
   { id: "wither_skeleton", ctor: "WitherSkeletonBoss" },
-  { id: "warden", ctor: "WardenBoss" }
+  { id: "warden", ctor: "WardenBoss" },
+  { id: "evoker", ctor: "EvokerBoss" }
 ];
 
 const PLANNED_BOSSES = ["wither", "ghast", "blaze", "wither_skeleton", "warden", "evoker"];
@@ -78,7 +79,6 @@ test("Biome selection control should switch to volcano and keep stay info availa
   expect(state.stay.minTimeSec).toBeGreaterThan(0);
 });
 
-
 test("Warden debug scene should expose heavy attacks and upgraded visuals", async ({ page }) => {
   await openDebugPage(page);
   await forceBoss(page, "warden");
@@ -95,6 +95,26 @@ test("Warden debug scene should expose heavy attacks and upgraded visuals", asyn
 
   expect(state.bossType).toBe("WardenBoss");
   expect(state.bossVisualKey).toBe("warden_v1");
+  expect(state.bossPhase).toBe(3);
+  expect(state.bossProjectileCount).toBeGreaterThan(0);
+});
+
+test("Evoker debug scene should expose fang spells and upgraded visuals", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "evoker");
+  await setBossPhase(page, 3);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (!boss) return;
+    boss.castFangLine({ x: boss.x + 180 });
+  });
+  await tickGame(page, 4);
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("EvokerBoss");
+  expect(state.bossVisualKey).toBe("evoker_v1");
   expect(state.bossPhase).toBe(3);
   expect(state.bossProjectileCount).toBeGreaterThan(0);
 });
