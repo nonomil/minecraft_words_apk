@@ -12,7 +12,8 @@
       "Bash(pytest*)",
       "Bash(python -m pytest*)",
       "Bash(test -d .git)",
-      "Bash(npm run test:e2e -- ui-analysis.spec.mjs)"
+      "Bash(npm run test:e2e -- ui-analysis.spec.mjs)",
+      "Bash(git worktree add .worktrees/task-1-dragon-entity -b feat/summon-dragon-entity)"
     ]
   },
   "hooks": {
