@@ -4,8 +4,8 @@
 > 状态：草稿
 
 ## 流程进度
-- [ ] Phase 1：Plan 文档生成，用户确认内容
-- [ ] Phase 2：Codex 工程审查完成，用户确认采纳意见
+- [x] Phase 1：Plan 文档生成，用户确认内容
+- [x] Phase 2：工程审查完成（见 2026-03-06-engineering-review.md）
 - [ ] Phase 3：交叉 Review 收敛，用户确认定稿
 - [ ] Phase 4：各 worktree 独立 steps 文档生成，用户确认
 - [ ] Phase 4.5：解耦审查通过，用户确认
@@ -65,7 +65,7 @@
     ↓
 创建 EnderDragon 实例 (15-entities-combat.js)
     ↓
-加入 golemList（复用傀儡管理）
+加入 dragonList（独立管理，语义清晰）⚠️ 已修改
     ↓
 玩家碰撞检测 → 进入骑乘状态
     ↓
@@ -73,8 +73,9 @@
   - 玩家位置跟随末影龙
   - WASD 控制末影龙移动
   - 攻击键触发火球发射
+  - skipPlayerGravity 标志跳过重力更新 ⚠️ 已修改
     ↓
-末影龙血量耗尽 → 自动下龙 → 移除实例
+末影龙血量耗尽 → 自动下龙（60帧无敌+缓降）→ 移除实例 ⚠️ 已修改
 ```
 
 #### 关键设计决策
@@ -87,18 +88,21 @@ class EnderDragon extends Entity {
 }
 ```
 
-**2. 骑乘状态管理**
+**2. 骑乘状态管理**（已优化）
 ```javascript
 // 全局状态（13-game-loop.js）
+let dragonList = []; // 独立管理末影龙
 let ridingDragon = null; // 当前骑乘的末影龙引用
+let skipPlayerGravity = false; // 跳过重力更新标志
+let dismountInvincibleFrames = 0; // 下龙无敌帧
 
 // 每帧更新
 if (ridingDragon) {
-  player.x = ridingDragon.x;
-  player.y = ridingDragon.y - ridingDragon.height;
+  player.x = ridingDragon.x + (ridingDragon.width - player.width) / 2;
+  player.y = ridingDragon.y - player.height;
   player.velX = 0;
   player.velY = 0;
-  player.grounded = false; // 禁用重力
+  skipPlayerGravity = true; // 使用标志而非修改 grounded
 }
 ```
 
@@ -152,34 +156,42 @@ dragon.hp <= 0 → ridingDragon = null → dragon.remove = true
 
 | 文件 | 操作 | 说明 | 预估行数 |
 |------|------|------|---------|
-| `src/modules/15-entities-combat.js` | 修改 | 新增 EnderDragon 类、EnderDragonFireball 类 | +120 |
-| `src/modules/13-game-loop.js` | 修改 | 骑乘状态管理、龙蛋使用逻辑、碰撞检测 | +80 |
-| `src/modules/04-weapons.js` | 修改 | 火药效果增强（地面火焰） | +50 |
+| `src/modules/15-entities-combat.js` | 修改 | 新增 EnderDragon 类、EnderDragonFireball 类、投射物碰撞检测更新 | +130 |
+| `src/modules/13-game-loop.js` | 修改 | 骑乘状态管理、龙蛋使用逻辑、碰撞检测、下龙保护 | +105 |
+| `src/modules/04-weapons.js` | 修改 | 火药效果增强（地面火焰）、火焰区域更新 | +50 |
+| `src/modules/14-renderer-entities.js` | 修改 | 末影龙渲染逻辑 | +20 |
 | `config/consumables.json` | 修改 | 更新龙蛋配置（type: summon_dragon） | +5 |
-| `src/modules/10-ui.js` | 修改（可选） | 骑乘状态UI提示 | +20 |
 
-**总计：~275 行**
+**总计：~310 行**（已包含审查发现的遗漏点）
 
 ## Worktree 并行计划
 
-由于涉及文件有交叉依赖（13-game-loop.js 需要调用 15-entities-combat.js 的新类），建议拆分为2个串行任务：
+优化后拆分为3个任务，Task 3 可与 Task 1 并行：
 
 | Worktree | 分支 | 任务 | 依赖 | 预估行数 |
 |----------|------|------|------|---------|
-| task-1-dragon-entity | feat/summon-dragon-entity | 实现 EnderDragon 和 EnderDragonFireball 类 | 无 | ~120 |
-| task-2-integration | feat/summon-dragon-integration | 骑乘逻辑、火药增强、配置更新 | task-1 | ~155 |
+| task-1-dragon-entity | feat/summon-dragon-entity | 实现 EnderDragon 和 EnderDragonFireball 类 + 投射物碰撞更新 | 无 | ~130 |
+| task-2-riding-system | feat/summon-dragon-riding | 骑乘逻辑、龙蛋使用、下龙保护、末影龙渲染 | task-1 | ~125 |
+| task-3-gunpowder | feat/gunpowder-enhancement | 火药效果增强（地面火焰） | 无 | ~50 |
 
-**依赖关系**：task-2 需要 task-1 的 EnderDragon 类定义
+**依赖关系**：
+- Task 1 与 Task 3 无依赖，可并行开发
+- Task 2 依赖 Task 1 的 EnderDragon 类定义（串行）
+
+**合并顺序**：Task 1 → Task 2，Task 3 独立合并
 
 ## 风险点
 
 | 风险 | 概率 | 影响 | 缓解方案 |
 |------|------|------|----------|
-| 骑乘状态下玩家碰撞检测异常 | 中 | 高 | 骑乘时禁用玩家的地面碰撞，只保留敌人伤害判定 |
-| 末影龙飞出屏幕边界 | 中 | 中 | 限制飞行范围在 camera 视野内 |
-| 火球 AOE 伤害误伤玩家 | 低 | 中 | faction 设为 "player"，跳过玩家碰撞检测 |
-| 大范围火焰粒子影响性能 | 中 | 中 | 限制同时存在的火焰粒子数量（最多50个） |
-| 末影龙与现有傀儡冲突 | 低 | 低 | 使用独立的 dragonList 管理，或在 golemList 中标记 type |
+| 末影龙死亡时玩家悬空坠落伤害 | 高 | 高 | ✅ 下龙时给予60帧无敌 + 缓降效果（velY = -2） |
+| 骑乘状态下玩家碰撞检测异常 | 中 | 高 | ✅ 使用 skipPlayerGravity 标志，不修改 grounded 状态 |
+| 末影龙飞出屏幕边界 | 中 | 中 | ✅ 限制飞行范围：cameraX ± 50 ~ canvas.width + 50 |
+| 大范围火焰粒子影响性能 | 高 | 中 | ✅ 限制同时存在火焰数量（最多50个）+ 对象池 |
+| 火球 AOE 误伤玩家 | 低 | 中 | ✅ faction 设为 "player"，跳过玩家碰撞检测 |
+| 多次召唤导致多只末影龙 | 中 | 中 | ✅ 使用龙蛋前检查 dragonList.length > 0 |
+
+**所有风险已提供缓解方案（见工程审查报告）**
 
 ## 待确认问题
 
@@ -215,33 +227,67 @@ dragon.hp <= 0 → ridingDragon = null → dragon.remove = true
 
 ## 已知权衡
 
-暂无（等待 Phase 2 Codex 审查）
+### Phase 2 工程审查采纳的修改
+
+1. **架构调整**：使用独立 `dragonList` 而非 `golemList`
+   - 权衡：需在投射物碰撞检测中新增 dragonList 判断（+10行）
+   - 收益：语义清晰，避免与傀儡系统混淆
+
+2. **骑乘系统优化**：使用 `skipPlayerGravity` 标志
+   - 权衡：新增全局标志变量
+   - 收益：避免修改 player.grounded 导致的状态异常
+
+3. **下龙保护机制**：60帧无敌 + 缓降效果
+   - 权衡：+10行代码
+   - 收益：防止高空坠落伤害，提升用户体验
+
+4. **任务拆分优化**：从2个任务拆分为3个
+   - 权衡：增加1个 worktree 管理成本
+   - 收益：Task 3 可并行开发，降低单次改动风险
+
+5. **遗漏文件补充**：新增末影龙渲染逻辑
+   - 权衡：+20行代码
+   - 收益：完整的视觉呈现
+
+**详细审查报告**：见 `docs/plan/召唤机制/2026-03-06-engineering-review.md`
 
 ## 实施顺序
 
-1. **Task 1**：实现 EnderDragon 和 EnderDragonFireball 类
-   - 定义类结构
+1. **Task 1**：实现 EnderDragon 和 EnderDragonFireball 类（~130行）
+   - 定义 EnderDragon 类（继承 Entity）
+   - 定义 EnderDragonFireball 类（继承 Projectile，AOE效果）
+   - 更新投射物碰撞检测（支持 dragonList）
    - 实现基础移动和攻击逻辑
    - 实现血量管理和死亡逻辑
 
-2. **Task 2**：集成骑乘系统和火药增强
-   - 实现骑乘状态管理
-   - 实现龙蛋使用逻辑
-   - 实现火药地面火焰效果
-   - 更新配置文件
+2. **Task 3**：火药效果增强（~50行，可与 Task 1 并行）
+   - 实现地面火焰区域生成
+   - 实现火焰区域更新和伤害判定
+   - 保留原有爆炸伤害
+   - 粒子效果优化
 
-3. **测试与调优**
+3. **Task 2**：集成骑乘系统（~125行，依赖 Task 1）
+   - 实现骑乘状态管理（ridingDragon, skipPlayerGravity）
+   - 实现龙蛋使用逻辑（检查数量限制）
+   - 实现上龙/下龙逻辑（碰撞检测、下龙保护）
+   - 实现骑乘控制（WASD移动、攻击键发射火球）
+   - 实现末影龙渲染（14-renderer-entities.js）
+   - 更新配置文件（consumables.json）
+
+4. **测试与调优**
    - 测试骑乘流畅度
    - 测试火球伤害和AOE
    - 测试性能（火焰粒子）
-   - 边界情况测试（末影龙死亡时玩家状态）
+   - 边界情况测试（末影龙死亡时玩家状态、飞出边界）
 
 ## 预估工作量
 
 - Task 1：2-3小时（实体类实现）
+- Task 3：1-2小时（火药增强，可并行）
 - Task 2：3-4小时（集成和测试）
-- 总计：5-7小时
+- 总计：6-9小时（并行开发可节省1-2小时）
 
 ---
 
-**Phase 1 完成，等待用户确认 Plan 内容。**
+**Phase 2 已完成，Plan 已根据工程审查意见更新。**
+**等待用户确认后进入 Phase 3：交叉 Review。**
