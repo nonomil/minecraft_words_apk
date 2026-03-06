@@ -49,9 +49,16 @@ test.describe('Bilingual Mode Basic Integration', () => {
     });
 
     test('should have language mode setting in settings modal', async ({ page }) => {
+        // Clear localStorage to ensure fresh state
+        await page.evaluate(() => localStorage.clear());
+
+        // Reload page
+        await page.goto('http://localhost:4173/Game.html');
+        await page.waitForLoadState('networkidle');
+
         // Skip onboarding
         await page.click('#btn-language-mode-english');
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(1000);
 
         // Wait for login screen to be visible
         await page.waitForSelector('#username-input', { state: 'visible', timeout: 10000 });
@@ -81,9 +88,16 @@ test.describe('Bilingual Mode Basic Integration', () => {
     });
 
     test('should have pinyin display setting in settings modal', async ({ page }) => {
+        // Clear localStorage to ensure fresh state
+        await page.evaluate(() => localStorage.clear());
+
+        // Reload page
+        await page.goto('http://localhost:4173/Game.html');
+        await page.waitForLoadState('networkidle');
+
         // Skip onboarding
         await page.click('#btn-language-mode-english');
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(1000);
 
         // Wait for login screen to be visible
         await page.waitForSelector('#username-input', { state: 'visible', timeout: 10000 });
