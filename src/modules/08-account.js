@@ -751,6 +751,9 @@ function renderLearningStats(account) {
     const totalAttempts = totalCorrect + totalWrong;
     const accuracyPercent = totalAttempts > 0 ? Math.round((totalCorrect / totalAttempts) * 100) : 0;
 
+    // Get challenge success count from progress
+    const challengeSuccessCount = progress?.challengeSuccessCount || 0;
+
     // Task 2: 7天学习趋势
     const dailyLearning = get7DayLearningTrend(account);
     const trendHtml = dailyLearning.length > 0
@@ -801,6 +804,7 @@ function renderLearningStats(account) {
         `<div class="stat-card">已学 <strong>${learned}</strong></div>` +
         `<div class="stat-card">掌握 <strong>${mastered}</strong></div>` +
         `<div class="stat-card">正确率 <strong>${accuracyPercent}%</strong></div>` +
+        `<div class="stat-card">挑战成功 <strong>${challengeSuccessCount}</strong></div>` +
         `</div>` +
         `<div class="trend-section">` +
         `<h3>最近7天学习</h3>` +
