@@ -47,7 +47,7 @@ export function toLearnType(word, phrase) {
 
 export function parseManifest() {
     const code = fs.readFileSync(manifestPath, "utf8");
-    const sandbox = { window: {}, globalThis: {}, module: { exports: undefined }, exports: {} };
+    const sandbox = { window: {}, globalThis: {}, module: { exports: {} }, exports: {} };
     vm.createContext(sandbox);
     vm.runInContext(code, sandbox, { filename: manifestPath });
     const rawManifest =
