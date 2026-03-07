@@ -96,6 +96,45 @@ test("Boss victory should grant boss-specific reward drops", async ({ page }) =>
   expect(after.blazePowder).toBeGreaterThan(before.blazePowder);
 });
 
+
+
+test("Wither phase 3 should expose an air-pressure barrage intent", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "wither");
+  await setBossPhase(page, 3);
+  await tickGame(page, 80);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (boss && typeof boss.shootTrackingBalls === "function") boss.shootTrackingBalls(5);
+  });
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("WitherBoss");
+  expect(state.bossIntentKey).toBe("tracking_barrage");
+  expect(state.bossProjectileTypes).toContain("wither_tracking_orb");
+});
+
+test("Ghast phase 3 should expose an air-pressure bombardment intent", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "ghast");
+  await setBossPhase(page, 3);
+  await tickGame(page, 80);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    const playerRef = w && w.player ? w.player : { x: 0, y: 0, width: 0, height: 0 };
+    if (boss && typeof boss.shootFireball === "function") boss.shootFireball(playerRef, 3);
+  });
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("GhastBoss");
+  expect(state.bossIntentKey).toBe("bombardment");
+  expect(state.bossProjectileTypes).toContain("ghast_fireball_volley");
+});
+
 test("Blaze debug scene should expose upgraded visuals, projectiles, and minions", async ({ page }) => {
   await openDebugPage(page);
   await forceBoss(page, "blaze");
