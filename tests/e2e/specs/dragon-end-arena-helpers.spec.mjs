@@ -18,3 +18,23 @@ test("Dragon arena helpers can enter, inspect, phase shift, and exit", async ({ 
   expect(exited.dragonArenaActive).toBeFalsy();
   expect(exited.dragonArenaState).toBeNull();
 });
+
+
+test("Dragon arena switches biome context and restores it on exit", async ({ page }) => {
+  await openDebugPage(page);
+
+  const state = await page.evaluate(() => {
+    window.MMDBG.setBiome("end");
+    const before = window.MMDBG.getState();
+    window.MMDBG.enterDragonArena();
+    const during = window.MMDBG.getDragonArenaState();
+    window.MMDBG.exitDragonArena();
+    const after = window.MMDBG.getState();
+    return { before, during, after };
+  });
+
+  expect(state.before.biome).toBe("end");
+  expect(state.during.biome).toBe("end_arena");
+  expect(state.after.biome).toBe("end");
+  expect(state.after.dragonArenaActive).toBeFalsy();
+});

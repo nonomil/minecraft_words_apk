@@ -9,6 +9,25 @@
         return Math.max(1, Math.min(3, Number(value) || 1));
     }
 
+    function readCurrentBiome() {
+        if (typeof globalThis.eval === "function") {
+            try {
+                return globalThis.eval('typeof currentBiome !== "undefined" ? currentBiome : null');
+            } catch (error) {}
+        }
+        return typeof globalThis.currentBiome !== "undefined" ? globalThis.currentBiome : null;
+    }
+
+    function writeCurrentBiome(nextBiome) {
+        if (typeof globalThis.eval === "function") {
+            try {
+                globalThis.eval(`currentBiome = ${JSON.stringify(String(nextBiome || "forest"))}`);
+                return;
+            } catch (error) {}
+        }
+        globalThis.currentBiome = String(nextBiome || "forest");
+    }
+
     class EnderDragonBoss {
         constructor(phase = 1, state = "intro") {
             this.name = "Ender Dragon";
@@ -110,9 +129,12 @@
             this.victoryTimer = 0;
             this.updateCount = 0;
             this.entryContext = {
-                biome: typeof globalThis.currentBiome !== "undefined" ? globalThis.currentBiome : null
+                biome: readCurrentBiome(),
+                playerX: globalThis.player ? Number(globalThis.player.x) || 0 : null,
+                playerY: globalThis.player ? Number(globalThis.player.y) || 0 : null
             };
-            this.returnContext = this.entryContext;
+            this.returnContext = Object.assign({}, this.entryContext);
+            writeCurrentBiome("end_arena");
             return this;
         },
         setPhase(phase) {
@@ -172,7 +194,15 @@
             }
         },
         exit() {
+            const context = this.returnContext ? Object.assign({}, this.returnContext) : null;
             this.reset();
+            if (context && context.biome) {
+                writeCurrentBiome(context.biome);
+            }
+            if (context && globalThis.player) {
+                if (Number.isFinite(context.playerX)) globalThis.player.x = context.playerX;
+                if (Number.isFinite(context.playerY)) globalThis.player.y = context.playerY;
+            }
         },
         reset() {
             this.active = false;
