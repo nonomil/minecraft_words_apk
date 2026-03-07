@@ -671,6 +671,7 @@ class WitherBoss extends Boss {
 
     // 阶段一：每3秒1个黑球
     phaseOne(playerRef) {
+        this.setIntent('skull_shot');
         this.attackTimer++;
         if (this.attackTimer >= 180) {
             this.shootBlackBall(playerRef, 1);
@@ -680,7 +681,12 @@ class WitherBoss extends Boss {
 
     // 阶段二：每2秒3个扇形黑球 + 冲刺
     phaseTwo(playerRef) {
-        if (this.charging) { this.executeCharge(playerRef); return; }
+        if (this.charging) {
+            this.setIntent('charge_sweep');
+            this.executeCharge(playerRef);
+            return;
+        }
+        this.setIntent('fan_shot');
         this.attackTimer++;
         if (this.attackTimer >= 120) {
             this.shootBlackBall(playerRef, 3);
@@ -695,6 +701,7 @@ class WitherBoss extends Boss {
 
     // 阶段三：固定中央，每1秒5个追踪弹
     phaseThree(playerRef) {
+        this.setIntent('tracking_barrage');
         const centerX = playerRef.x;
         this.x += (centerX - this.x) * 0.03;
         this.x += (Math.random() - 0.5) * 4;
@@ -722,7 +729,8 @@ class WitherBoss extends Boss {
                 vy: Math.sin(angle + spread) * 4,
                 damage: this.phase >= 2 ? 2 : 1,
                 size: 12, color: '#1A1A1A',
-                tracking: false, life: 300
+                tracking: false, life: 300,
+                type: 'wither_orb'
             });
         }
     }
@@ -737,7 +745,8 @@ class WitherBoss extends Boss {
                 vx: Math.cos(angle) * 3,
                 vy: Math.sin(angle) * 3,
                 damage: 1, size: 10, color: '#4A0080',
-                tracking: true, trackDelay: 60, life: 300
+                tracking: true, trackDelay: 60, life: 300,
+                type: 'wither_tracking_orb'
             });
         }
     }
@@ -917,6 +926,7 @@ class GhastBoss extends Boss {
     updateBehavior(playerRef) {
         // 哭泣状态更新
         if (this.crying) {
+            this.setIntent('crying');
             this.cryTimer--;
             if (this.cryTimer % 10 === 0) {
                 this.particles.push({
@@ -931,6 +941,7 @@ class GhastBoss extends Boss {
 
         // 突进逻辑
         if (this.rushing) {
+            this.setIntent('rush');
             this.executeRush(playerRef);
             return;
         }
@@ -943,6 +954,7 @@ class GhastBoss extends Boss {
         this.y = 80 + Math.sin(this.moveAngle * 2) * 60;
 
         // 攻击
+        this.setIntent(this.phase >= 3 ? 'bombardment' : 'hover_fire');
         const interval = this.phase === 1 ? 150 : this.phase === 2 ? 90 : 60;
         this.attackTimer++;
         if (this.attackTimer >= interval) {
@@ -977,7 +989,8 @@ class GhastBoss extends Boss {
                 color: '#FF4500',
                 reflectable: true,
                 reflected: false,
-                tracking: false, life: 300
+                tracking: false, life: 300,
+                type: count >= 3 ? 'ghast_fireball_volley' : 'ghast_fireball'
             });
         }
     }
