@@ -33,8 +33,6 @@ for (const boss of BOSSES) {
   });
 }
 
-
-
 test("GameDebug boss state should expose second-pass intent and reward metadata", async ({ page }) => {
   await openDebugPage(page);
   await forceBoss(page, "blaze");
@@ -57,8 +55,6 @@ test("GameDebug boss state should expose second-pass intent and reward metadata"
   expect(Array.isArray(wardenState.bossProjectileTypes)).toBeTruthy();
   expect(typeof wardenState.bossVictoryReady).toBe("boolean");
 });
-
-
 
 test("Boss victory should grant boss-specific reward drops", async ({ page }) => {
   await openDebugPage(page);
@@ -95,8 +91,6 @@ test("Boss victory should grant boss-specific reward drops", async ({ page }) =>
   expect(after.score).toBeGreaterThan(before.score);
   expect(after.blazePowder).toBeGreaterThan(before.blazePowder);
 });
-
-
 
 test("Wither phase 3 should expose an air-pressure barrage intent", async ({ page }) => {
   await openDebugPage(page);
@@ -157,6 +151,12 @@ test("Wither skeleton debug scene should expose blocking and summoning states", 
   expect(["blocking", "patrol"]).toContain(blockingState.bossState);
 
   await setBossHpRatio(page, 0.2);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (boss && typeof boss.summonMinions === "function") boss.summonMinions();
+  });
   await tickGame(page, 10);
   const summonState = await getDebugState(page);
 
@@ -180,8 +180,6 @@ test("Biome selection control should switch to volcano and keep stay info availa
   expect(state.stay.minScore).toBeGreaterThan(0);
   expect(state.stay.minTimeSec).toBeGreaterThan(0);
 });
-
-
 
 test("Blaze phase 3 should expose a flame-ring pressure intent", async ({ page }) => {
   await openDebugPage(page);
@@ -215,6 +213,40 @@ test("Wither skeleton phase 3 should expose a bone-wall pressure intent", async 
   expect(state.bossType).toBe("WitherSkeletonBoss");
   expect(state.bossIntentKey).toBe("bone_wall");
   expect(state.bossProjectileTypes).toContain("bone_wall_shard");
+});
+
+test("Warden phase 3 should expose a darkness-pulse elite intent", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "warden");
+  await setBossPhase(page, 3);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (boss && typeof boss.emitDarkPulse === "function") boss.emitDarkPulse();
+  });
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("WardenBoss");
+  expect(state.bossIntentKey).toBe("dark_pulse");
+  expect(state.bossProjectileTypes).toContain("warden_dark_pulse");
+});
+
+test("Evoker phase 3 should expose a spellburst elite intent", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "evoker");
+  await setBossPhase(page, 3);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (boss && typeof boss.castSpellBurst === "function") boss.castSpellBurst();
+  });
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("EvokerBoss");
+  expect(state.bossIntentKey).toBe("spellburst");
+  expect(state.bossProjectileTypes).toContain("evoker_spellburst");
 });
 
 test("Warden debug scene should expose heavy attacks and upgraded visuals", async ({ page }) => {

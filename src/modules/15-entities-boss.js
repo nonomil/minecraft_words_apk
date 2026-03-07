@@ -1862,10 +1862,13 @@ class WardenBoss extends Boss {
         this.slamTimer = 0;
         this.sonicTimer = 180;
         this.chestPulse = 0;
+        this.darkPulseCooldown = 150;
     }
 
     updateBehavior(playerRef) {
         this.facing = playerRef.x > this.x ? 1 : -1;
+        const hasDarkPulse = this.bossProjectiles.some((projectile) => projectile && projectile.type === 'warden_dark_pulse' && (projectile.life || 0) > 0);
+        this.setIntent(hasDarkPulse ? 'dark_pulse' : (this.state || 'stalk'));
         this.chestPulse += this.phase >= 3 ? 0.18 : this.phase === 2 ? 0.14 : 0.1;
         if (this.actionCooldown > 0) this.actionCooldown--;
         this.sonicTimer++;
@@ -1902,6 +1905,14 @@ class WardenBoss extends Boss {
         }
         if (this.phase >= 2 && distance >= 116 && this.actionCooldown <= 0 && this.sonicTimer >= 180) {
             this.startSonicCast();
+        }
+        if (this.phase >= 3) {
+            this.darkPulseCooldown--;
+            if (this.darkPulseCooldown <= 0 && this.actionCooldown <= 0) {
+                this.emitDarkPulse();
+                this.darkPulseCooldown = 220;
+                this.actionCooldown = 50;
+            }
         }
     }
 
@@ -1965,6 +1976,27 @@ class WardenBoss extends Boss {
         });
     }
 
+    emitDarkPulse() {
+        this.setIntent('dark_pulse');
+        const centerX = this.x + this.width / 2;
+        const centerY = this.y + 42;
+        for (const direction of [-1, 1]) {
+            this.bossProjectiles.push({
+                x: centerX,
+                y: centerY,
+                vx: direction * 2.2,
+                vy: 0,
+                damage: 1,
+                size: 22,
+                color: '#4DD0E1',
+                tracking: false,
+                life: 55,
+                type: 'warden_dark_pulse'
+            });
+        }
+        showFloatingText('??', centerX, this.y - 28, '#80DEEA');
+    }
+
     renderProjectile(ctx, projectile, camX) {
         const drawX = projectile.x - camX;
         if (projectile.type === 'warden_shockwave') {
@@ -1983,6 +2015,14 @@ class WardenBoss extends Boss {
             ctx.lineWidth = 2;
             ctx.beginPath();
             ctx.arc(drawX, projectile.y, projectile.size * 0.55, 0, Math.PI * 2);
+            ctx.stroke();
+            return;
+        }
+        if (projectile.type === 'warden_dark_pulse') {
+            ctx.strokeStyle = 'rgba(77, 208, 225, 0.8)';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(drawX, projectile.y, projectile.size, 0, Math.PI * 2);
             ctx.stroke();
             return;
         }
@@ -2082,10 +2122,13 @@ class EvokerBoss extends Boss {
         this.actionCooldown = 40;
         this.repositionTimer = 0;
         this.staffGlow = 0;
+        this.spellburstCooldown = 120;
     }
 
     updateBehavior(playerRef) {
         this.facing = playerRef.x > this.x ? 1 : -1;
+        const hasSpellburst = this.bossProjectiles.some((projectile) => projectile && projectile.type === 'evoker_spellburst' && (projectile.life || 0) > 0);
+        this.setIntent(hasSpellburst ? 'spellburst' : (this.state === 'casting' ? 'spellcast' : this.state || 'reposition'));
         this.staffGlow += this.phase >= 3 ? 0.2 : 0.14;
         if (this.actionCooldown > 0) this.actionCooldown--;
 
@@ -2112,6 +2155,16 @@ class EvokerBoss extends Boss {
             this.x += this.facing * this.moveSpeed * 0.5;
         }
 
+        if (this.phase >= 3) {
+            this.spellburstCooldown--;
+            if (this.spellburstCooldown <= 0 && this.actionCooldown <= 0) {
+                this.castSpellBurst();
+                this.spellburstCooldown = 180;
+                this.actionCooldown = 60;
+                return;
+            }
+        }
+
         if (this.actionCooldown <= 0) this.startCast();
     }
 
@@ -2120,6 +2173,28 @@ class EvokerBoss extends Boss {
         this.castTimer = this.phase >= 3 ? 22 : 28;
         this.actionCooldown = this.phase >= 3 ? 90 : 120;
         showFloatingText('?', this.x + this.width / 2, this.y - 26, '#D1C4E9');
+    }
+
+    castSpellBurst() {
+        this.setIntent('spellburst');
+        const centerX = this.x + this.width / 2;
+        const centerY = this.y + 30;
+        for (let index = 0; index < 6; index++) {
+            const angle = (Math.PI * 2 / 6) * index;
+            this.bossProjectiles.push({
+                x: centerX,
+                y: centerY,
+                vx: Math.cos(angle) * 2.6,
+                vy: Math.sin(angle) * 2.6,
+                damage: 1,
+                size: 10,
+                color: '#C7B5FF',
+                tracking: false,
+                life: 65,
+                type: 'evoker_spellburst'
+            });
+        }
+        showFloatingText('?', centerX, this.y - 22, '#D1C4E9');
     }
 
     castFangLine(playerRef) {
@@ -2151,8 +2226,18 @@ class EvokerBoss extends Boss {
     }
 
     renderProjectile(ctx, projectile, camX) {
-        if (projectile.type !== 'evoker_fang') return;
         const drawX = projectile.x - camX;
+        if (projectile.type === 'evoker_spellburst') {
+            ctx.save();
+            ctx.strokeStyle = 'rgba(199, 181, 255, 0.85)';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(drawX, projectile.y, projectile.size, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+            return;
+        }
+        if (projectile.type !== 'evoker_fang') return;
         const alpha = Math.min(1, projectile.life / 18);
         ctx.save();
         ctx.globalAlpha = alpha;
