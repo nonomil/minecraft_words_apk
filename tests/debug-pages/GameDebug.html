@@ -472,6 +472,20 @@
           }
         });
       },
+      destroyDragonCrystal(index) {
+        withGame((w) => {
+          if (w.endDragonArena && typeof w.endDragonArena.destroyCrystal === "function") {
+            w.endDragonArena.destroyCrystal(index);
+          }
+        });
+      },
+      forceDragonVictory() {
+        withGame((w) => {
+          if (w.endDragonArena && typeof w.endDragonArena.forceVictory === "function") {
+            w.endDragonArena.forceVictory();
+          }
+        });
+      },
       getState() {
         const w = gw();
         if (!w) return { ready: false };
@@ -509,6 +523,10 @@
           dragonBossMaxHp: dragonBoss ? Number(dragonBoss.maxHp) || 0 : 0,
           dragonBossIntentKey: dragonBoss && dragonBoss.intentKey ? dragonBoss.intentKey : '',
           dragonCrystalCount: dragonArena && Array.isArray(dragonArena.crystals) ? dragonArena.crystals.length : 0,
+          dragonAliveCrystalCount: dragonArena && Array.isArray(dragonArena.crystals) ? dragonArena.crystals.filter((entry) => entry && entry.alive).length : 0,
+          dragonHazardCount: dragonArena && Array.isArray(dragonArena.hazards) ? dragonArena.hazards.length : 0,
+          dragonVictoryReady: Boolean(dragonArena && dragonArena.victoryReady),
+          dragonExitPortalReady: Boolean(dragonArena && dragonArena.exitPortalReady),
           ridingDragon: Boolean(w.ridingDragon),
           equippedConsumable: w.equippedConsumable && w.equippedConsumable.itemKey ? w.equippedConsumable.itemKey : null,
           stay

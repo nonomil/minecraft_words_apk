@@ -27,6 +27,11 @@
             this.refreshIntent();
         }
 
+        heal(amount) {
+            const value = Math.max(0, Number(amount) || 0);
+            this.hp = Math.min(this.maxHp, this.hp + value);
+        }
+
         refreshIntent() {
             const intents = PHASE_INTENTS[this.phase] || PHASE_INTENTS[1];
             const index = intents.length <= 1 ? 0 : Math.floor(this.updateCount / 8) % intents.length;
@@ -65,11 +70,17 @@
 
     function createPlaceholderCrystals() {
         return [
-            { id: 1, alive: true, x: 180, y: 120 },
-            { id: 2, alive: true, x: 320, y: 96 },
-            { id: 3, alive: true, x: 520, y: 110 },
-            { id: 4, alive: true, x: 700, y: 132 }
+            { id: 1, alive: true, x: 180, y: 120, beamActive: false },
+            { id: 2, alive: true, x: 320, y: 96, beamActive: false },
+            { id: 3, alive: true, x: 520, y: 110, beamActive: false },
+            { id: 4, alive: true, x: 700, y: 132, beamActive: false }
         ];
+    }
+
+    function findCrystalByIndex(crystals, index) {
+        const value = Number(index);
+        if (!Array.isArray(crystals) || value < 0 || !Number.isFinite(value)) return null;
+        return crystals[value] || null;
     }
 
     const existing = globalThis.endDragonArena || {};
@@ -83,6 +94,8 @@
         hazards: [],
         victoryReady: false,
         exitPortalReady: false,
+        victoryTimer: 0,
+        updateCount: 0,
         entryContext: null,
         returnContext: null,
         enter(options = {}) {
@@ -94,6 +107,8 @@
             this.hazards = [];
             this.victoryReady = false;
             this.exitPortalReady = false;
+            this.victoryTimer = 0;
+            this.updateCount = 0;
             this.entryContext = {
                 biome: typeof globalThis.currentBiome !== "undefined" ? globalThis.currentBiome : null
             };
@@ -113,6 +128,49 @@
             if (!this.dragon || typeof this.dragon.takeDamage !== "function") return;
             this.dragon.takeDamage(amount);
         },
+        destroyCrystal(index) {
+            const crystal = findCrystalByIndex(this.crystals, index);
+            if (!crystal || !crystal.alive) return;
+            const linked = Boolean(crystal.beamActive);
+            crystal.alive = false;
+            crystal.beamActive = false;
+            if (linked && this.dragon && this.dragon.alive) {
+                this.dragon.takeDamage(10);
+            }
+        },
+        spawnBreathHazard() {
+            this.hazards.push({
+                id: `hazard-${this.updateCount}-${this.hazards.length}`,
+                ttl: 24,
+                phase: this.phase
+            });
+        },
+        updateCrystals() {
+            const aliveCrystals = this.crystals.filter((entry) => entry && entry.alive);
+            this.crystals.forEach((entry, index) => {
+                if (!entry) return;
+                entry.beamActive = index === 0 && entry.alive && this.phase === 1 && this.dragon && this.dragon.alive;
+            });
+            if (this.phase === 1 && aliveCrystals.length > 0 && this.dragon && this.dragon.alive && this.updateCount % 5 === 0) {
+                this.dragon.heal(4);
+            }
+        },
+        updateHazards() {
+            if (this.phase >= 2 && this.updateCount % 6 === 0) {
+                this.spawnBreathHazard();
+            }
+            this.hazards = this.hazards
+                .map((entry) => Object.assign({}, entry, { ttl: (Number(entry.ttl) || 0) - 1 }))
+                .filter((entry) => entry.ttl > 0);
+        },
+        forceVictory() {
+            this.victoryReady = true;
+            this.victoryTimer = 0;
+            if (this.dragon) {
+                this.dragon.alive = false;
+                this.dragon.state = "defeated";
+            }
+        },
         exit() {
             this.reset();
         },
@@ -125,16 +183,28 @@
             this.hazards = [];
             this.victoryReady = false;
             this.exitPortalReady = false;
+            this.victoryTimer = 0;
+            this.updateCount = 0;
             this.entryContext = null;
             this.returnContext = null;
         },
         update() {
             if (!this.active || !this.dragon) return;
+            this.updateCount += 1;
             if (this.state === "intro") {
                 this.state = "combat";
             }
+            if (this.victoryReady) {
+                this.victoryTimer += 1;
+                if (this.victoryTimer >= 8) {
+                    this.exitPortalReady = true;
+                }
+                return;
+            }
             this.dragon.update();
             this.phase = this.dragon.phase;
+            this.updateCrystals();
+            this.updateHazards();
         },
         renderBackground() {},
         renderEntities() {},
