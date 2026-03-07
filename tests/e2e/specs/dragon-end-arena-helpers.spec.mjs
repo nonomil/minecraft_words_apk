@@ -24,7 +24,12 @@ test("Dragon arena switches biome context and restores it on exit", async ({ pag
   await openDebugPage(page);
 
   const state = await page.evaluate(() => {
-    window.MMDBG.setBiome("end");
+    window.MMDBG.setBiome("forest");
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    if (w && typeof w.eval === "function") {
+      w.eval('currentBiome = "end"');
+    }
     const before = window.MMDBG.getState();
     window.MMDBG.enterDragonArena();
     const during = window.MMDBG.getDragonArenaState();
@@ -37,4 +42,19 @@ test("Dragon arena switches biome context and restores it on exit", async ({ pag
   expect(state.during.biome).toBe("end_arena");
   expect(state.after.biome).toBe("end");
   expect(state.after.dragonArenaActive).toBeFalsy();
+});
+
+
+test("Switching into the End biome auto-enters the dragon arena", async ({ page }) => {
+  await openDebugPage(page);
+
+  const state = await page.evaluate(() => {
+    window.MMDBG.setBiome("forest");
+    window.MMDBG.setBiome("end");
+    return window.MMDBG.getState();
+  });
+
+  expect(state.dragonArenaActive).toBeTruthy();
+  expect(state.biome).toBe("end_arena");
+  expect(state.dragonBossName).toBe("Ender Dragon");
 });
