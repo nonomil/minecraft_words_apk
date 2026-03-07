@@ -1134,10 +1134,13 @@ class BlazeBoss extends Boss {
         this.burstQueue = [];
         this.burstTimer = 0;
         this.fireColumnTimer = 0;
+        this.ringCooldown = 180;
     }
 
     updateBehavior(playerRef) {
         this.updateFloat();
+        const hasFlameRing = this.bossProjectiles.some((projectile) => projectile && projectile.type === 'blaze_ring_orb' && (projectile.life || 0) > 0);
+        this.setIntent(hasFlameRing ? 'flame_ring' : (this.phase >= 3 ? 'ember_pressure' : 'fireburst'));
         this.updateBurstQueue(playerRef);
         this.updateFireColumns(playerRef);
         this.updateMinions(playerRef);
@@ -1163,6 +1166,33 @@ class BlazeBoss extends Boss {
         if (this.phase >= 3 && !this.minionsSummoned) {
             this.summonMinions();
         }
+        if (this.phase >= 3) {
+            this.ringCooldown--;
+            if (this.ringCooldown <= 0) {
+                this.castFlameRing();
+                this.ringCooldown = 240;
+            }
+        }
+    }
+
+    castFlameRing() {
+        this.setIntent('flame_ring');
+        const cx = this.x + this.width / 2;
+        const cy = this.y + this.height / 2;
+        const count = 8;
+        for (let index = 0; index < count; index++) {
+            const angle = (Math.PI * 2 / count) * index;
+            this.bossProjectiles.push({
+                x: cx, y: cy,
+                vx: Math.cos(angle) * 3.2,
+                vy: Math.sin(angle) * 3.2,
+                damage: 1, size: 9,
+                color: '#FFB300',
+                tracking: false, life: 90,
+                type: 'blaze_ring_orb'
+            });
+        }
+        showFloatingText('?? ??!', cx, this.y - 20, '#FFB300');
     }
 // PLACEHOLDER_BLAZE_CONTINUE
 
@@ -1197,7 +1227,8 @@ class BlazeBoss extends Boss {
                 vy: Math.sin(angle) * 4,
                 damage: 1, size: 10,
                 color: '#FF4500',
-                tracking: false, life: 300
+                tracking: false, life: 300,
+                type: 'blaze_fireball'
             });
         }
         if (this.burstQueue.length === 0) this.burstTimer = 0;
@@ -1409,11 +1440,14 @@ class WitherSkeletonBoss extends Boss {
         this.vy = 0;
         this.gravity = 0.5;
         this.actionCooldown = 0;
+        this.boneWallCooldown = 150;
     }
 
     updateBehavior(playerRef) {
         this.facing = playerRef.x > this.x ? 1 : -1;
         const dist = Math.abs(playerRef.x - this.x);
+        const hasBoneWall = this.bossProjectiles.some((projectile) => projectile && projectile.type === 'bone_wall_shard' && (projectile.life || 0) > 0);
+        this.setIntent(hasBoneWall ? 'bone_wall' : (this.phase >= 3 ? 'bone_pressure' : this.state || 'patrol'));
 
         // 重力
         if (this.y < groundY - this.height) {
@@ -1453,7 +1487,34 @@ class WitherSkeletonBoss extends Boss {
         }
 
         if (this.hp / this.maxHp < 0.3) this.summonMinions();
+        if (this.phase >= 3) {
+            this.boneWallCooldown--;
+            if (this.boneWallCooldown <= 0 && this.state === 'patrol') {
+                this.raiseBoneWall();
+                this.boneWallCooldown = 220;
+            }
+        }
         this.updateMinions();
+    }
+
+    raiseBoneWall() {
+        this.setIntent('bone_wall');
+        const centerX = this.x + this.width / 2 + this.facing * 48;
+        const shardCount = 5;
+        for (let index = 0; index < shardCount; index++) {
+            this.bossProjectiles.push({
+                x: centerX + (index - 2) * 16,
+                y: groundY - 16 - index * 8,
+                vx: this.facing * 0.8,
+                vy: -0.2,
+                damage: 1, size: 8,
+                color: '#9E9E9E',
+                tracking: false, life: 80,
+                type: 'bone_wall_shard'
+            });
+        }
+        this.actionCooldown = Math.max(this.actionCooldown, 50);
+        showFloatingText('?? ??!', centerX, this.y - 24, '#BDBDBD');
     }
 // PLACEHOLDER_WSKEL_CONTINUE
 

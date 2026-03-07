@@ -142,6 +142,42 @@ test("Biome selection control should switch to volcano and keep stay info availa
   expect(state.stay.minTimeSec).toBeGreaterThan(0);
 });
 
+
+
+test("Blaze phase 3 should expose a flame-ring pressure intent", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "blaze");
+  await setBossPhase(page, 3);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (boss && typeof boss.castFlameRing === "function") boss.castFlameRing();
+  });
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("BlazeBoss");
+  expect(state.bossIntentKey).toBe("flame_ring");
+  expect(state.bossProjectileTypes).toContain("blaze_ring_orb");
+});
+
+test("Wither skeleton phase 3 should expose a bone-wall pressure intent", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "wither_skeleton");
+  await setBossPhase(page, 3);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (boss && typeof boss.raiseBoneWall === "function") boss.raiseBoneWall();
+  });
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("WitherSkeletonBoss");
+  expect(state.bossIntentKey).toBe("bone_wall");
+  expect(state.bossProjectileTypes).toContain("bone_wall_shard");
+});
+
 test("Warden debug scene should expose heavy attacks and upgraded visuals", async ({ page }) => {
   await openDebugPage(page);
   await forceBoss(page, "warden");
