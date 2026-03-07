@@ -486,6 +486,16 @@
           }
         });
       },
+      exitDragonArena() {
+        withGame((w) => {
+          if (w.endDragonArena && typeof w.endDragonArena.exit === "function") {
+            w.endDragonArena.exit();
+          }
+        });
+      },
+      getDragonArenaState() {
+        return this.getState();
+      },
       getState() {
         const w = gw();
         if (!w) return { ready: false };
@@ -516,17 +526,17 @@
           bossMinionTypes: boss && Array.isArray(boss.minions) ? boss.minions.filter((entry) => entry && entry.alive !== false).map((entry) => entry.type || "skeleton_minion") : [],
           dragonCount: Array.isArray(w.dragonList) ? w.dragonList.length : 0,
           dragonArenaActive: Boolean(dragonArena && dragonArena.active),
-          dragonArenaState: dragonArena && dragonArena.state ? dragonArena.state : null,
-          dragonArenaPhase: dragonArena && dragonArena.phase ? dragonArena.phase : null,
-          dragonBossName: dragonBoss && dragonBoss.name ? dragonBoss.name : null,
-          dragonBossHp: dragonBoss ? Number(dragonBoss.hp) || 0 : 0,
-          dragonBossMaxHp: dragonBoss ? Number(dragonBoss.maxHp) || 0 : 0,
-          dragonBossIntentKey: dragonBoss && dragonBoss.intentKey ? dragonBoss.intentKey : '',
-          dragonCrystalCount: dragonArena && Array.isArray(dragonArena.crystals) ? dragonArena.crystals.length : 0,
-          dragonAliveCrystalCount: dragonArena && Array.isArray(dragonArena.crystals) ? dragonArena.crystals.filter((entry) => entry && entry.alive).length : 0,
-          dragonHazardCount: dragonArena && Array.isArray(dragonArena.hazards) ? dragonArena.hazards.length : 0,
-          dragonVictoryReady: Boolean(dragonArena && dragonArena.victoryReady),
-          dragonExitPortalReady: Boolean(dragonArena && dragonArena.exitPortalReady),
+          dragonArenaState: dragonArena && dragonArena.active && dragonArena.state ? dragonArena.state : null,
+          dragonArenaPhase: dragonArena && dragonArena.active && dragonArena.phase ? dragonArena.phase : null,
+          dragonBossName: dragonArena && dragonArena.active && dragonBoss && dragonBoss.name ? dragonBoss.name : null,
+          dragonBossHp: dragonArena && dragonArena.active && dragonBoss ? Number(dragonBoss.hp) || 0 : 0,
+          dragonBossMaxHp: dragonArena && dragonArena.active && dragonBoss ? Number(dragonBoss.maxHp) || 0 : 0,
+          dragonBossIntentKey: dragonArena && dragonArena.active && dragonBoss && dragonBoss.intentKey ? dragonBoss.intentKey : '',
+          dragonCrystalCount: dragonArena && dragonArena.active && Array.isArray(dragonArena.crystals) ? dragonArena.crystals.length : 0,
+          dragonAliveCrystalCount: dragonArena && dragonArena.active && Array.isArray(dragonArena.crystals) ? dragonArena.crystals.filter((entry) => entry && entry.alive).length : 0,
+          dragonHazardCount: dragonArena && dragonArena.active && Array.isArray(dragonArena.hazards) ? dragonArena.hazards.length : 0,
+          dragonVictoryReady: Boolean(dragonArena && dragonArena.active && dragonArena.victoryReady),
+          dragonExitPortalReady: Boolean(dragonArena && dragonArena.active && dragonArena.exitPortalReady),
           ridingDragon: Boolean(w.ridingDragon),
           equippedConsumable: w.equippedConsumable && w.equippedConsumable.itemKey ? w.equippedConsumable.itemKey : null,
           stay
