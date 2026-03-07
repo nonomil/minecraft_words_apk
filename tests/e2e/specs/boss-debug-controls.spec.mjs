@@ -142,6 +142,42 @@ test("Biome selection control should switch to volcano and keep stay info availa
   expect(state.stay.minTimeSec).toBeGreaterThan(0);
 });
 
+
+
+test("Warden phase 3 should expose a darkness-pulse elite intent", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "warden");
+  await setBossPhase(page, 3);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (boss && typeof boss.emitDarkPulse === "function") boss.emitDarkPulse();
+  });
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("WardenBoss");
+  expect(state.bossIntentKey).toBe("dark_pulse");
+  expect(state.bossProjectileTypes).toContain("warden_dark_pulse");
+});
+
+test("Evoker phase 3 should expose a spellburst elite intent", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "evoker");
+  await setBossPhase(page, 3);
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (boss && typeof boss.castSpellBurst === "function") boss.castSpellBurst();
+  });
+  const state = await getDebugState(page);
+
+  expect(state.bossType).toBe("EvokerBoss");
+  expect(state.bossIntentKey).toBe("spellburst");
+  expect(state.bossProjectileTypes).toContain("evoker_spellburst");
+});
+
 test("Warden debug scene should expose heavy attacks and upgraded visuals", async ({ page }) => {
   await openDebugPage(page);
   await forceBoss(page, "warden");
