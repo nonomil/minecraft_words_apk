@@ -450,10 +450,19 @@
       prepareDragonLongPressSummon() {
         prepareDragonLongPressSummon();
       },
+      enterDragonArena() {
+        withGame((w) => {
+          if (w.endDragonArena && typeof w.endDragonArena.enter === "function") {
+            w.endDragonArena.enter();
+          }
+        });
+      },
       getState() {
         const w = gw();
         if (!w) return { ready: false };
         const boss = w.bossArena && w.bossArena.boss ? w.bossArena.boss : null;
+        const dragonArena = w.endDragonArena || null;
+        const dragonBoss = dragonArena && dragonArena.dragon ? dragonArena.dragon : null;
         const stay = typeof w.getBiomeStayDebugInfo === "function" ? w.getBiomeStayDebugInfo(Number(w.score) || 0) : null;
         return {
           ready: true,
@@ -477,6 +486,11 @@
           bossMinionCount: boss && Array.isArray(boss.minions) ? boss.minions.filter((entry) => entry && entry.alive !== false).length : 0,
           bossMinionTypes: boss && Array.isArray(boss.minions) ? boss.minions.filter((entry) => entry && entry.alive !== false).map((entry) => entry.type || "skeleton_minion") : [],
           dragonCount: Array.isArray(w.dragonList) ? w.dragonList.length : 0,
+          dragonArenaActive: Boolean(dragonArena && dragonArena.active),
+          dragonArenaState: dragonArena && dragonArena.state ? dragonArena.state : null,
+          dragonArenaPhase: dragonArena && dragonArena.phase ? dragonArena.phase : null,
+          dragonBossName: dragonBoss && dragonBoss.name ? dragonBoss.name : null,
+          dragonCrystalCount: dragonArena && Array.isArray(dragonArena.crystals) ? dragonArena.crystals.length : 0,
           ridingDragon: Boolean(w.ridingDragon),
           equippedConsumable: w.equippedConsumable && w.equippedConsumable.itemKey ? w.equippedConsumable.itemKey : null,
           stay
