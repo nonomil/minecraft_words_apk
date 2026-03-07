@@ -38,6 +38,20 @@ const BOSS_REGISTRY = Object.freeze([
     { id: 'evoker', score: 12000, flying: false, debugCtor: 'EvokerBoss' }
 ]);
 
+const DEFAULT_BOSS_REWARDS = Object.freeze({
+    wither: Object.freeze({ key: 'wither_relic', drops: Object.freeze(['diamond', 'diamond', 'potion']) }),
+    ghast: Object.freeze({ key: 'ghast_tear_cache', drops: Object.freeze(['diamond', 'iron', 'potion']) }),
+    blaze: Object.freeze({ key: 'blaze_powder_cache', drops: Object.freeze(['blaze_powder', 'magma_cream']) }),
+    wither_skeleton: Object.freeze({ key: 'ashen_bone_cache', drops: Object.freeze(['coal', 'iron']) }),
+    warden: Object.freeze({ key: 'echo_cache', drops: Object.freeze(['echo_shard', 'sculk_vein']) }),
+    evoker: Object.freeze({ key: 'arcane_cache', drops: Object.freeze(['emerald', 'potion']) })
+});
+
+function getBossRewardConfig(type) {
+    const normalized = String(type || '').trim().toLowerCase();
+    return DEFAULT_BOSS_REWARDS[normalized] || Object.freeze({ key: `${normalized || 'boss'}_cache`, drops: Object.freeze(['iron']) });
+}
+
 function getBossMetaEntry(type) {
     const normalized = String(type || '').trim().toLowerCase();
     return BOSS_REGISTRY.find((entry) => entry.id === normalized) || BOSS_REGISTRY[0];
@@ -183,6 +197,10 @@ class Boss {
         this.type = config.id || 'boss';
         this.visualKey = config.visualKey || 'boss_v1';
         this.debugState = config.debugState || 'idle';
+        this.intentKey = config.intentKey || this.debugState || 'idle';
+        const rewardConfig = config.rewardConfig || getBossRewardConfig(this.type);
+        this.rewardKey = config.rewardKey || rewardConfig.key || `${this.type}_cache`;
+        this.rewardDrops = Array.isArray(config.rewardDrops) ? config.rewardDrops.slice() : Array.isArray(rewardConfig.drops) ? rewardConfig.drops.slice() : [];
         this.phaseInvulnerableTimer = 0;
     }
 
@@ -206,6 +224,28 @@ class Boss {
             this.phase = 3;
             this.onPhaseChange(3);
         }
+    }
+
+    setIntent(key) {
+        this.intentKey = String(key || 'idle');
+        return this.intentKey;
+    }
+
+    setReward(config = {}) {
+        const drops = Array.isArray(config.drops) ? config.drops.slice() : this.rewardDrops.slice();
+        this.rewardKey = String(config.key || this.rewardKey || `${this.type}_cache`);
+        this.rewardDrops = drops;
+        return { key: this.rewardKey, drops: this.rewardDrops.slice() };
+    }
+
+    getProjectileTypeSnapshot() {
+        if (!Array.isArray(this.bossProjectiles) || !this.bossProjectiles.length) return [];
+        const seen = new Set();
+        this.bossProjectiles.forEach((projectile) => {
+            const type = projectile && projectile.type ? String(projectile.type) : 'default';
+            if (type) seen.add(type);
+        });
+        return Array.from(seen);
     }
 // PLACEHOLDER_BOSS_METHODS
 
@@ -469,12 +509,22 @@ globalThis.bossArena = globalThis.bossArena || {
         if (this.victoryTimer > 0) return;
         this.victoryTimer = 1;
         this.viewportLocked = false;
-        // 奖励
+        const defeatedBoss = this.boss;
+        const rewardDrops = defeatedBoss && Array.isArray(defeatedBoss.rewardDrops) ? defeatedBoss.rewardDrops.slice() : [];
+        const rewardKey = defeatedBoss && defeatedBoss.rewardKey ? defeatedBoss.rewardKey : 'boss_cache';
+        const rewardName = defeatedBoss && defeatedBoss.name ? defeatedBoss.name : 'BOSS';
         score += 500;
         inventory.iron = (inventory.iron || 0) + 5;
         addArmorToInventory('diamond');
-        showFloatingText('🏆 BOSS DEFEATED!', player.x, player.y - 60, '#FFD700');
-        showToast('🏆 击败BOSS! 获得丰厚奖励!');
+        rewardDrops.forEach((itemKey) => {
+            if (!itemKey) return;
+            inventory[itemKey] = (inventory[itemKey] || 0) + 1;
+        });
+        showFloatingText('?? BOSS DEFEATED!', player.x, player.y - 60, '#FFD700');
+        if (rewardDrops.length) {
+            showFloatingText(`?? ${rewardDrops.join(' + ')}`, player.x, player.y - 88, '#FFE082');
+        }
+        showToast(`?? ??${rewardName}! ?? ${rewardKey} ??!`);
         const callback = this.currentEncounter && typeof this.currentEncounter.onVictory === "function"
             ? this.currentEncounter.onVictory
             : null;

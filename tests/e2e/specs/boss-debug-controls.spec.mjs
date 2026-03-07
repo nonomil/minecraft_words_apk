@@ -33,6 +33,69 @@ for (const boss of BOSSES) {
   });
 }
 
+
+
+test("GameDebug boss state should expose second-pass intent and reward metadata", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "blaze");
+  await setBossPhase(page, 3);
+  await tickGame(page, 40);
+  const blazeState = await getDebugState(page);
+
+  expect(blazeState.bossRewardKey).toBeTruthy();
+  expect(typeof blazeState.bossIntentKey).toBe("string");
+  expect(Array.isArray(blazeState.bossProjectileTypes)).toBeTruthy();
+  expect(typeof blazeState.bossVictoryReady).toBe("boolean");
+
+  await forceBoss(page, "warden");
+  await setBossPhase(page, 3);
+  await tickGame(page, 40);
+  const wardenState = await getDebugState(page);
+
+  expect(wardenState.bossRewardKey).toBeTruthy();
+  expect(typeof wardenState.bossIntentKey).toBe("string");
+  expect(Array.isArray(wardenState.bossProjectileTypes)).toBeTruthy();
+  expect(typeof wardenState.bossVictoryReady).toBe("boolean");
+});
+
+
+
+test("Boss victory should grant boss-specific reward drops", async ({ page }) => {
+  await openDebugPage(page);
+  await forceBoss(page, "blaze");
+
+  const before = await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    return {
+      score: w && typeof w.eval === "function" ? (Number(w.eval('typeof score !== "undefined" ? score : 0')) || 0) : (Number(w && w.score) || 0),
+      blazePowder: w && typeof w.eval === "function" ? (Number(w.eval('inventory && inventory.blaze_powder ? inventory.blaze_powder : 0')) || 0) : (Number(w && w.inventory && w.inventory.blaze_powder) || 0)
+    };
+  });
+
+  await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    const boss = w && w.bossArena ? w.bossArena.boss : null;
+    if (!boss) return;
+    boss.phaseInvulnerableTimer = 0;
+    boss.takeDamage(9999);
+  });
+  await tickGame(page, 4);
+
+  const after = await page.evaluate(() => {
+    const frame = document.getElementById("game");
+    const w = frame && frame.contentWindow ? frame.contentWindow : null;
+    return {
+      score: w && typeof w.eval === "function" ? (Number(w.eval('typeof score !== "undefined" ? score : 0')) || 0) : (Number(w && w.score) || 0),
+      blazePowder: w && typeof w.eval === "function" ? (Number(w.eval('inventory && inventory.blaze_powder ? inventory.blaze_powder : 0')) || 0) : (Number(w && w.inventory && w.inventory.blaze_powder) || 0)
+    };
+  });
+
+  expect(after.score).toBeGreaterThan(before.score);
+  expect(after.blazePowder).toBeGreaterThan(before.blazePowder);
+});
+
 test("Blaze debug scene should expose upgraded visuals, projectiles, and minions", async ({ page }) => {
   await openDebugPage(page);
   await forceBoss(page, "blaze");
