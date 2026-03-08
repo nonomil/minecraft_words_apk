@@ -731,8 +731,8 @@ function renderVillageInterior(ctx) {
   ctx.fillStyle = colors.plank || "#B8945A";
   ctx.fillRect(panelX + 24, panelY + 72, panelW - 48, 86);
 
-  const doorW = 28;
-  const doorH = 52;
+  const doorW = 40;
+  const doorH = 70;
   const doorShapeX = doorPx - doorW * 0.5;
   const doorShapeY = floorY - doorH;
   ctx.fillStyle = "#6D4C41";
@@ -1322,7 +1322,7 @@ function renderTraderBuyMaterials(modal, village) {
   body.innerHTML = `
     <h3 style="margin:0 0 12px;color:#FFD54F;">用钻石买材料和武器 ⚔️</h3>
     <p style="margin:0 0 8px;color:#E0E0E0;">当前钻石：<b>${diamondCount}</b> 💎</p>
-    <div id="trader-buy-list" style="display:flex;flex-direction:column;gap:8px;"></div>
+    <div id="trader-buy-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;max-height:400px;overflow-y:auto;padding:8px;"></div>
     <div style="margin-top:12px;">
       <button id="trader-btn-back-main" class="game-btn">返回</button>
     </div>
@@ -1331,7 +1331,8 @@ function renderTraderBuyMaterials(modal, village) {
   TRADER_BUY_ITEMS.forEach(({ id, label, cost, type, amount }) => {
     const btn = document.createElement("button");
     btn.className = "game-btn";
-    btn.textContent = `${label}（${cost}💎）`;
+    btn.innerHTML = `<div style="font-weight:bold;margin-bottom:4px;">${label}</div><div style="font-size:14px;opacity:0.9;">${cost}💎</div>`;
+    btn.style.cssText = "min-height:80px;padding:14px;display:grid;place-items:center;text-align:center;gap:6px;transition:transform 0.2s;width:100%;";
     bindTraderTap(btn, () => {
       handleTraderBuyMaterialItem(id, cost, type, amount);
       renderTraderBuyMaterials(modal, village);
