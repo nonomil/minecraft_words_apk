@@ -34,7 +34,7 @@ window.vocabManifest.packs.push({
   mode: 'english',
   type: 'basic',
   file: 'words/vocabs/03_小学_高年级/小学低年级基础.js',
-  globals: ['VOCAB_ELEMENTARY_LOWER_BASIC']
+  globals: ['STAGE_ELEMENTARY_LOWER']
 });
 
 // 小学-中级（高年级基础）
@@ -48,7 +48,7 @@ window.vocabManifest.packs.push({
   mode: 'english',
   type: 'intermediate',
   file: 'words/vocabs/03_小学_高年级/小学高年级基础.js',
-  globals: ['VOCAB_ELEMENTARY_UPPER_BASIC']
+  globals: ['STAGE_ELEMENTARY_UPPER']
 });
 
 // 小学-完整
@@ -62,7 +62,7 @@ window.vocabManifest.packs.push({
   mode: 'english',
   type: 'merged',
   file: 'words/vocabs/03_小学_高年级/小学全阶段合并词库.js',
-  globals: ['MERGED_ELEMENTARY_VOCAB']
+  globals: ['MERGED_VOCABULARY']
 });
 
 // ========================================
@@ -80,7 +80,7 @@ window.vocabManifest.packs.push({
   mode: 'english',
   type: 'basic',
   file: 'words/vocabs/05_初中/junior_high_basic.js',
-  globals: ['VOCAB_JUNIOR_HIGH_BASIC']
+  globals: ['STAGE_JUNIOR_HIGH_BASIC']
 });
 
 // 初中-中级
@@ -94,7 +94,7 @@ window.vocabManifest.packs.push({
   mode: 'english',
   type: 'intermediate',
   file: 'words/vocabs/05_初中/junior_high_intermediate.js',
-  globals: ['VOCAB_JUNIOR_HIGH_INTERMEDIATE']
+  globals: ['STAGE_JUNIOR_HIGH_INTERMEDIATE']
 });
 
 // 初中-完整
@@ -108,7 +108,7 @@ window.vocabManifest.packs.push({
   mode: 'english',
   type: 'merged',
   file: 'words/vocabs/05_初中/junior_high_full.js',
-  globals: ['VOCAB_JUNIOR_HIGH_FULL']
+  globals: ['STAGE_JUNIOR_HIGH']
 });
 
 // ========================================
