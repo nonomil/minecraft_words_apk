@@ -544,16 +544,20 @@ REM 清理主仓库远端 URL（防止 URL 被反引号/引号/空格污染）
 REM -----------------------------
 for /f "delims=" %%U in ('git -C "%MAIN_REPO%" remote get-url %REMOTE% 2^>nul') do set "MAIN_ORIGIN_URL_RAW=%%U"
 if defined MAIN_ORIGIN_URL_RAW (
-    set "MAIN_ORIGIN_URL=%MAIN_ORIGIN_URL_RAW%"
-    set "MAIN_ORIGIN_URL=%MAIN_ORIGIN_URL:`=%"
-    set "MAIN_ORIGIN_URL=%MAIN_ORIGIN_URL: =%"
-    set "MAIN_ORIGIN_URL=%MAIN_ORIGIN_URL:"=%"
-    set "MAIN_ORIGIN_URL=%MAIN_ORIGIN_URL:'=%"
-    if not "%MAIN_ORIGIN_URL%"=="%MAIN_ORIGIN_URL_RAW%" (
-        echo [修复] 主仓库远端 URL 已清理：
-        echo   原始: %MAIN_ORIGIN_URL_RAW%
-        echo   修复: %MAIN_ORIGIN_URL%
-        git -C "%MAIN_REPO%" remote set-url %REMOTE% "%MAIN_ORIGIN_URL%"
+    set "MAIN_ORIGIN_URL=!MAIN_ORIGIN_URL_RAW!"
+    set "MAIN_ORIGIN_URL=!MAIN_ORIGIN_URL:`=!"
+    set "MAIN_ORIGIN_URL=!MAIN_ORIGIN_URL: =!"
+    set "MAIN_ORIGIN_URL=!MAIN_ORIGIN_URL:"=!"
+    set "MAIN_ORIGIN_URL=!MAIN_ORIGIN_URL:'=!"
+    if not "!MAIN_ORIGIN_URL!"=="!MAIN_ORIGIN_URL_RAW!" (
+        if defined MAIN_ORIGIN_URL (
+            echo [修复] 主仓库远端 URL 已清理：
+            echo   原始: !MAIN_ORIGIN_URL_RAW!
+            echo   修复: !MAIN_ORIGIN_URL!
+            git -C "%MAIN_REPO%" remote set-url %REMOTE% "!MAIN_ORIGIN_URL!"
+        ) else (
+            echo [警告] 主仓库远端 URL 清理结果为空，已跳过 set-url。
+        )
     )
 )
 
