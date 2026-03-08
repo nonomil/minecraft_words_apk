@@ -5,24 +5,10 @@ window.vocabManifest = window.vocabManifest || { version: '2.4.0', packs: [] };
 // 幼儿园 (Kindergarten)
 // ========================================
 
-// 幼儿园-初级
-window.vocabManifest.packs.push({
-  id: 'vocab.kindergarten.basic',
-  title: '幼儿园-初级',
-  stage: 'kindergarten',
-  difficulty: 'basic',
-  level: 'basic',
-  weight: 1,
-  mode: 'english',
-  type: 'basic',
-  file: 'words/vocabs/01_幼儿园/幼儿园基础.js',
-  globals: ['VOCAB_KINDERGARTEN_BASIC']
-});
-
-// 幼儿园-完整
+// 幼儿园（不分等级，使用完整词库）
 window.vocabManifest.packs.push({
   id: 'vocab.kindergarten.full',
-  title: '幼儿园-完整',
+  title: '幼儿园',
   stage: 'kindergarten',
   difficulty: 'full',
   level: 'full',
