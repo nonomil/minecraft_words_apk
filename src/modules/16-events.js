@@ -660,6 +660,14 @@ function wireTouchControls() {
         if (window._inputLocked) return;
         keys.right = true;
     }, () => { keys.right = false; });
+    bindHold("up", () => {
+        if (window._inputLocked) return;
+        keys.up = true;
+    }, () => { keys.up = false; });
+    bindHold("down", () => {
+        if (window._inputLocked) return;
+        keys.down = true;
+    }, () => { keys.down = false; });
     bindTap("jump", () => {
         if (window._inputLocked) return;
         jumpBuffer = gameConfig.jump.bufferFrames;

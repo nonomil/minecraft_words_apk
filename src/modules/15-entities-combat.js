@@ -120,11 +120,28 @@ class EnderDragonFireball extends Projectile {
         this.aoeRadius = 30;
         this.width = 16;
         this.height = 16;
+        const unit = Math.max(1, worldScale.unit || 1);
+        const dx = targetX - x;
+        const dy = targetY - y;
+        const dirX = dx === 0 ? 1 : Math.sign(dx);
+        const horizontalSpeed = 4.2 * unit;
+        const verticalBias = Math.max(-0.35 * unit, Math.min(0.18 * unit, (dy / Math.max(Math.abs(dx), 1)) * horizontalSpeed * 0.28));
+        this.velX = dirX * horizontalSpeed;
+        this.velY = verticalBias;
+        this.dropDelayFrames = 9;
+        this.gravity = 0.32 * unit;
+        this.maxFallSpeed = 6.5 * unit;
     }
 
     update(playerRef, golemList, enemyList) {
         this.x += this.velX;
-        this.y += this.velY;
+        if (this.dropDelayFrames > 0) {
+            this.y += this.velY;
+            this.dropDelayFrames--;
+        } else {
+            this.velY = Math.min(this.maxFallSpeed, this.velY + this.gravity);
+            this.y += this.velY;
+        }
         this.lifetime--;
 
         // 检测敌人碰撞
@@ -664,39 +681,54 @@ class EnderDragon extends Entity {
         this.color = "#8B00FF";
         this.state = "standby";
         this.animationTime = 0;
+        this.facingRight = true;
         this.standbyOffsetX = 96;
-        this.standbyOffsetY = -92;
-        this.hoverAmplitude = 6;
+        this.standbyOffsetY = 0;
+        this.standbyAnchor = { x, y };
         this.returnThreshold = 14;
     }
 
     getStandbyAnchor(playerRef) {
-        const baseX = (playerRef?.x || 0) + this.standbyOffsetX;
-        const baseY = (playerRef?.y || 0) + this.standbyOffsetY;
-        const hoverY = Math.sin(this.animationTime / 18) * this.hoverAmplitude;
-        return { x: baseX, y: baseY + hoverY };
+        if (playerRef) {
+            const groundLevel = typeof groundY === "number" ? groundY - this.height : this.y;
+            return {
+                x: (playerRef.x || 0) + this.standbyOffsetX,
+                y: groundLevel + this.standbyOffsetY
+            };
+        }
+        return {
+            x: Number(this.standbyAnchor?.x) || this.x,
+            y: Number(this.standbyAnchor?.y) || this.y
+        };
     }
 
     setStandbyState(playerRef = null) {
         this.state = "standby";
         this.rider = null;
         if (playerRef) {
-            const anchor = this.getStandbyAnchor(playerRef);
-            this.x = anchor.x;
-            this.y = anchor.y;
+            this.standbyAnchor = this.getStandbyAnchor(playerRef);
         }
+        const anchor = this.getStandbyAnchor();
+        this.x = anchor.x;
+        this.y = anchor.y;
         this.velX = 0;
         this.velY = 0;
     }
 
-    setReturningState() {
+    setReturningState(playerRef = null) {
         this.state = "returning";
         this.rider = null;
+        if (playerRef) {
+            this.standbyAnchor = this.getStandbyAnchor(playerRef);
+        }
     }
 
     setRiddenState(rider) {
         this.state = "ridden";
         this.rider = rider;
+        if (rider && typeof rider.facingRight === "boolean") {
+            this.facingRight = rider.facingRight;
+        }
         this.velX = 0;
         this.velY = 0;
     }
@@ -706,7 +738,7 @@ class EnderDragon extends Entity {
     }
 
     moveTowardAnchor(playerRef, speedMultiplier = 1) {
-        const anchor = this.getStandbyAnchor(playerRef);
+        const anchor = playerRef ? this.getStandbyAnchor(playerRef) : this.getStandbyAnchor();
         const dx = anchor.x - this.x;
         const dy = anchor.y - this.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -757,6 +789,9 @@ class EnderDragon extends Entity {
 
         if (this.rider) {
             this.state = "ridden";
+            if (typeof this.rider.facingRight === "boolean") {
+                this.facingRight = this.rider.facingRight;
+            }
             return;
         }
 
@@ -764,7 +799,11 @@ class EnderDragon extends Entity {
             const arrived = this.moveTowardAnchor(playerRef, 1.35);
             if (arrived) this.setStandbyState();
         } else if (this.state === "standby") {
-            this.moveTowardAnchor(playerRef, 0.45);
+            const anchor = this.getStandbyAnchor();
+            this.x = anchor.x;
+            this.y = anchor.y;
+            this.velX = 0;
+            this.velY = 0;
         } else {
             this.setStandbyState();
         }
@@ -773,7 +812,8 @@ class EnderDragon extends Entity {
             this.x = Math.max(cameraX - 50, Math.min(this.x, cameraX + canvas.width + 50));
         }
         if (typeof groundY !== 'undefined') {
-            this.y = Math.max(50, Math.min(this.y, groundY - this.height - 50));
+            const maxY = this.state === "ridden" ? groundY - this.height - 50 : groundY - this.height;
+            this.y = Math.max(50, Math.min(this.y, maxY));
         }
     }
 
