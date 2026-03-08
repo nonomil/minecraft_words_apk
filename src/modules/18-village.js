@@ -680,13 +680,13 @@ function renderVillageInterior(ctx) {
   ctx.fillStyle = "rgba(255,255,255,0.9)";
   ctx.textAlign = "center";
   ctx.font = "bold 13px sans-serif";
-  ctx.fillText("\u95e8\u53e3\uff08\u81ea\u52a8\u79bb\u5f00\uff09", doorPx, floorY - 22);
+  ctx.fillText("\u95e8\u53e3\uff08\u81ea\u52a8\u79bb\u5f00\uff09", doorPx, buildingType === "bed_house" ? floorY - 108 : floorY - 22);
   const actionHeader = buildingType === "bed_house"
     ? "\ud83d\udecf\ufe0f \u5e8a\uff08\u6309\u5b9d\u7bb1\u952e\uff09"
     : (buildingType === "word_house"
       ? "\ud83d\udcd8 \u5355\u8bcd\u4e66\uff08\u6309\u5b9d\u7bb1\u952e\uff09"
       : "\ud83e\uddd1\u200d\ud83c\udf3e \u5546\u4eba\uff08\u77ed\u6309\u5b9d\u7bb1\u952e\uff09");
-  ctx.fillText(actionHeader, actionPx, floorY - 22);
+  ctx.fillText(actionHeader, actionPx, buildingType === "bed_house" ? floorY - 92 : floorY - 22);
 
   const steveX = playerPx - (Number(player?.width) || 26) * 0.5;
   const steveY = floorY - (Number(player?.height) || 52);
@@ -724,15 +724,19 @@ function renderVillageInterior(ctx) {
 
   ctx.fillStyle = "#222";
   ctx.font = "18px sans-serif";
+  let bedBaseX = actionPx - 48;
+  let bedBaseY = floorY - 42;
   if (buildingType === "bed_house") {
-    drawVillageBed(ctx, panelX + panelW - 170, panelY + panelH - 110, colors);
+    bedBaseX = actionPx - 48;
+    bedBaseY = floorY - 42;
+    drawVillageBed(ctx, bedBaseX, bedBaseY, colors);
   }
   // Requirement update: keep door as auto-exit, bed/word use chest-key trigger.
   ctx.fillStyle = colors.plank || "#B8945A";
   ctx.fillRect(panelX + 24, panelY + 72, panelW - 48, 86);
 
-  const doorW = 40;
-  const doorH = 70;
+  const doorW = 56;
+  const doorH = 96;
   const doorShapeX = doorPx - doorW * 0.5;
   const doorShapeY = floorY - doorH;
   ctx.fillStyle = "#6D4C41";
@@ -775,9 +779,16 @@ function renderVillageInterior(ctx) {
   ctx.fillStyle = "rgba(255,255,255,0.95)";
   ctx.textAlign = "center";
   ctx.font = "bold 13px sans-serif";
-  ctx.fillText("\u95e8", doorPx, floorY - 24);
-  ctx.fillText("\u9760\u8fd1\u81ea\u52a8\u79bb\u5f00", doorPx, floorY - 8);
-  ctx.fillText(buildingType === "bed_house" ? "床" : (buildingType === "word_house" ? "单词书" : "商人"), actionPx, floorY - 12);
+  if (buildingType === "bed_house") {
+    ctx.fillText("\u95e8\u53e3", doorPx, doorShapeY - 22);
+    ctx.fillText("\u9760\u8fd1\u81ea\u52a8\u79bb\u5f00", doorPx, doorShapeY - 6);
+    ctx.fillText("\u5e8a", actionPx, bedBaseY - 18);
+    ctx.fillText("\u6309\u5b9d\u7bb1\u952e\u4f11\u606f", actionPx, bedBaseY - 2);
+  } else {
+    ctx.fillText("\u95e8", doorPx, floorY - 24);
+    ctx.fillText("\u9760\u8fd1\u81ea\u52a8\u79bb\u5f00", doorPx, floorY - 8);
+    ctx.fillText(buildingType === "word_house" ? "单词书" : "商人", actionPx, floorY - 12);
+  }
 
   ctx.textAlign = "left";
   return true;
