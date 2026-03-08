@@ -344,7 +344,7 @@ globalThis.bossArena = globalThis.bossArena || {
     phaseFlashTimer: 0,
     phaseBannerText: '',
     bossTypes: BOSS_REGISTRY.map((entry) => entry.id),
-    bossScores: BOSS_REGISTRY.map((entry) => entry.score),         // ??????
+    bossScores: BOSS_REGISTRY.map((entry) => entry.score),         // BOSS分数阈值
     spawned: {},           // 已生成的BOSS记录
     gateBossRotationCursor: 0,
     weaponLockActive: false,
@@ -702,7 +702,7 @@ globalThis.bossArena = globalThis.bossArena || {
         if (environmentSnapshot && environmentSnapshot.environmentId) {
             ctx.fillStyle = 'rgba(255,255,255,0.82)';
             ctx.font = '12px Verdana';
-            ctx.fillText(`???${environmentSnapshot.label || environmentSnapshot.environmentId}`, canvas.width / 2, by + barH + 16);
+            ctx.fillText(`环境：${environmentSnapshot.label || environmentSnapshot.environmentId}`, canvas.width / 2, by + barH + 16);
         }
         if (this.phaseFlashTimer > 0 && this.phaseBannerText) {
             const bannerAlpha = Math.min(1, this.phaseFlashTimer / 20);
@@ -2124,7 +2124,7 @@ class WardenBoss extends Boss {
                 type: 'warden_dark_pulse'
             });
         }
-        showFloatingText('??', centerX, this.y - 28, '#80DEEA');
+        showFloatingText('🌀 暗脉冲!', centerX, this.y - 28, '#80DEEA');
     }
 
     renderProjectile(ctx, projectile, camX) {
@@ -2162,9 +2162,9 @@ class WardenBoss extends Boss {
         super.onPhaseChange(newPhase);
         this.actionCooldown = 0;
         if (newPhase === 2) {
-            showToast('?? ?????????!');
+            showToast('⚠️ 监守者释放音波!');
         } else if (newPhase === 3) {
-            showToast('?? ???????!');
+            showToast('⚠️ 监守者进入狂暴!');
         }
     }
 
@@ -2234,7 +2234,7 @@ class EvokerBoss extends Boss {
         super({
             id: 'evoker',
             visualKey: 'evoker_v1',
-            name: '??? Evoker',
+            name: '唤魔者 Evoker',
             maxHp: 44,
             color: '#5E35B1',
             x: spawnX,
@@ -2302,7 +2302,7 @@ class EvokerBoss extends Boss {
         this.state = 'casting';
         this.castTimer = this.phase >= 3 ? 22 : 28;
         this.actionCooldown = this.phase >= 3 ? 90 : 120;
-        showFloatingText('?', this.x + this.width / 2, this.y - 26, '#D1C4E9');
+        showFloatingText('✨', this.x + this.width / 2, this.y - 26, '#D1C4E9');
     }
 
     castSpellBurst() {
@@ -2324,7 +2324,7 @@ class EvokerBoss extends Boss {
                 type: 'evoker_spellburst'
             });
         }
-        showFloatingText('?', centerX, this.y - 22, '#D1C4E9');
+        showFloatingText('🌟', centerX, this.y - 22, '#D1C4E9');
     }
 
     castFangLine(playerRef) {
@@ -2387,9 +2387,9 @@ class EvokerBoss extends Boss {
         super.onPhaseChange(newPhase);
         this.actionCooldown = 20;
         if (newPhase === 2) {
-            showToast('?? ?????????!');
+            showToast('⚠️ 唤魔者增强法术!');
         } else if (newPhase === 3) {
-            showToast('?? ?????????!');
+            showToast('⚠️ 唤魔者释放禁咒!');
         }
     }
 

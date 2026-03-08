@@ -37,7 +37,9 @@
       <button id="btnScore">设置分数</button>
       <label>BOSS</label>
       <select id="boss"><option>wither</option><option>ghast</option><option>blaze</option><option>wither_skeleton</option><option>warden</option><option>evoker</option></select>
-      <button id="btnBoss">触发BOSS</button>
+      <button id="btnBoss">触发BOSS（正常关卡）</button>
+      <button id="btnBossGate">触发BOSS（门禁模式）</button>
+      <button id="btnEnderDragon">末影龙竞技场</button>
       <button id="btnVillage">生成村庄</button>
       <button id="btnGod">无敌: OFF</button>
     </div>
@@ -265,6 +267,17 @@
       });
     }
 
+    function spawnBossGate() {
+      const boss = document.getElementById("boss").value;
+      const currentBiome = document.getElementById("biome").value;
+      withGame(w => {
+        patchGodMode(w);
+        if (w.bossArena && typeof w.bossArena.enterBiomeGate === "function") {
+          w.bossArena.enterBiomeGate(currentBiome, "next_biome", { markSpawned: false });
+        }
+      });
+    }
+
     function spawnVillage() {
       withGame(w => {
         patchGodMode(w);
@@ -363,6 +376,15 @@
     document.getElementById("btnBiomeRound").addEventListener("click", setBiomeRound);
     document.getElementById("btnScore").addEventListener("click", setScore);
     document.getElementById("btnBoss").addEventListener("click", spawnBoss);
+    document.getElementById("btnBossGate").addEventListener("click", spawnBossGate);
+    document.getElementById("btnEnderDragon").addEventListener("click", function() {
+      withGame(w => {
+        patchGodMode(w);
+        if (w.endDragonArena && typeof w.endDragonArena.enter === "function") {
+          w.endDragonArena.enter();
+        }
+      });
+    });
     document.getElementById("btnVillage").addEventListener("click", spawnVillage);
     document.getElementById("btnEnemy").addEventListener("click", spawnEnemy);
     document.getElementById("btnChallenge").addEventListener("click", triggerChallenge);
@@ -407,7 +429,12 @@
         if (el && type) el.value = String(type);
         spawnBoss();
       },
-      setBossPhase(phaseValue) {
+      spawnBossGate(type) {
+        const el = document.getElementById("boss");
+        if (el && type) el.value = String(type);
+        spawnBossGate();
+      },
+      enterDragonArena() {
         withGame((w) => {
           const boss = w.bossArena && w.bossArena.boss ? w.bossArena.boss : null;
           if (!boss) return;
