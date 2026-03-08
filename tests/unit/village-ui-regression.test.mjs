@@ -26,11 +26,11 @@ function testBedHouseInteriorUsesEnlargedBedWithLegs() {
 
   assert.deepEqual(
     calls[0]?.args,
-    [100, 200, 60, 16],
-    "床屋室内应使用放大后的床体尺寸 60x16"
+    [100, 200, 96, 28],
+    "床屋室内应使用肉眼可见的大床体尺寸 96x28"
   );
 
-  const legCalls = calls.filter(({ args }) => args[2] === 4 && args[3] === 4);
+  const legCalls = calls.filter(({ args }) => args[2] === 6 && args[3] === 8);
   assert.equal(legCalls.length, 2, "床屋室内应绘制两条床腿装饰");
 }
 
@@ -40,8 +40,8 @@ function testBedHouseInteriorUsesLargerDoor() {
   runScriptInContext(context, "src/modules/18-village.js");
 
   const renderSource = String(context.renderVillageInterior);
-  assert.match(renderSource, /const doorW = 40\b/, "床屋室内门宽应放大到 40");
-  assert.match(renderSource, /const doorH = 70\b/, "床屋室内门高应放大到 70");
+  assert.match(renderSource, /const doorW = 56\b/, "床屋室内门宽应放大到 56");
+  assert.match(renderSource, /const doorH = 96\b/, "床屋室内门高应放大到 96");
 }
 
 function testTraderDialogUsesMultiColumnGrid() {
