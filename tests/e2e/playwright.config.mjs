@@ -26,6 +26,6 @@ export default defineConfig({
     cwd: "../..",
     url: `${baseURL}/Game.html`,
     timeout: 120_000,
-    reuseExistingServer: false
+    reuseExistingServer: true
   }
 });
