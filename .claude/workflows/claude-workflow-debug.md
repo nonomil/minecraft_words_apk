@@ -93,7 +93,7 @@ git diff HEAD~3 -- [相关文件路径]            # 对比改动内容
 
 ```
 mcp__codex__codex({
-  model: "gpt-5.3-codex",
+  model: "gpt-5.4",
   sandbox: "danger-full-access",
   "approval-policy": "on-failure",
   prompt: "

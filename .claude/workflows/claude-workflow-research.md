@@ -88,7 +88,7 @@ WebSearch: "[技术关键词] official documentation"
 
 ```
 mcp__codex__codex({
-  model: "gpt-5.3-codex",
+  model: "gpt-5.4",
   sandbox: "danger-full-access",
   "approval-policy": "on-failure",
   prompt: "

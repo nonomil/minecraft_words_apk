@@ -48,7 +48,7 @@ python .claude/skills/largebase-structured-scan/scan.py scan \
 必填参数：
 ```javascript
 {
-  model: "gpt-5.3-codex",
+  model: "gpt-5.4",
   sandbox: "danger-full-access",
   "approval-policy": "on-failure"
 }

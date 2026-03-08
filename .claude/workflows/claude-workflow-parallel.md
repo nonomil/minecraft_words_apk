@@ -124,7 +124,7 @@ git worktree list   # 验证
 ```
 # worktree-task-1 的 Codex Session
 mcp__codex__codex({
-  model: "gpt-5.3-codex",
+  model: "gpt-5.4",
   sandbox: "danger-full-access",
   "approval-policy": "on-failure",
   cwd: "[根据 BRANCH_MODE 选择上方对应路径]",

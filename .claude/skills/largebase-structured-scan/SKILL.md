@@ -94,7 +94,7 @@ python .claude/skills/largebase-structured-scan/scan.py extract \
 
 1. 检查 `mcp__codex__codex` 工具是否可用
 2. 调用 Codex，使用 `references/prompt-pack.md` 模板
-3. 必填参数：`model: "gpt-5.3-codex"`, `sandbox: "danger-full-access"`, `approval-policy: "on-failure"`
+3. 必填参数：`model: "gpt-5.4"`, `sandbox: "danger-full-access"`, `approval-policy: "on-failure"`
 4. 若 Step 1.5 的 `extract-data.json` 存在，在 Prompt 中引用其模块清单和函数列表
 5. 输出 `scan-data.json` 和 `00-06` 文档
 

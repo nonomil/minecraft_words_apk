@@ -237,7 +237,7 @@ M1 与 Cartographer Markdown 兼容规则：
 ## 5. Codex Prompt 模板（可直接复制）
 
 > 固定参数（不得更改）：
-> `model: "gpt-5.3-codex"` / `sandbox: "danger-full-access"` / `approval-policy: "on-failure"`
+> `model: "gpt-5.4"` / `sandbox: "danger-full-access"` / `approval-policy: "on-failure"`
 
 ### 5.1 全量扫描模板（M4）
 

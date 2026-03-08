@@ -425,7 +425,7 @@ grep -r "claude-workflow-constants" ../claude.md
 - **2026-02-27**：v2 — 合并参考文档
   - 创建 `.claude/reference/` 目录，合入 13 个参考文档（中文命名，按流程编号）
   - 合并缺失内容到 workflow 文件（research/debug/complex/parallel/constants）
-  - 修复全局 CLAUDE.md 模型版本冲突（gpt-5-codex → gpt-5.3-codex）
+  - 修复全局 CLAUDE.md 模型版本冲突（gpt-5-codex → gpt-5.4）
   - 修复 Session ID 字段名冲突（conversationId → threadId）
 - **2026-02-27**：v1 — 初版
   - 创建 `.claude/README.md`

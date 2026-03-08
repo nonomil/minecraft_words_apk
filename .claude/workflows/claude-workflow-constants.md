@@ -10,7 +10,7 @@
 
 ```javascript
 {
-  model: "gpt-5.3-codex",
+  model: "gpt-5.4",
   sandbox: "danger-full-access",
   "approval-policy": "on-failure",
   reasoning: "high" | "medium" | "low"  // 见下方 reasoning 选择规则
@@ -34,7 +34,7 @@
 **首次调用**：
 ```javascript
 mcp__codex__codex({
-  model: "gpt-5.3-codex",
+  model: "gpt-5.4",
   sandbox: "danger-full-access",
   "approval-policy": "on-failure",
   prompt: "<结构化 Prompt>"

@@ -3,7 +3,7 @@
 ## 固定参数
 
 ```text
-model: "gpt-5.3-codex"
+model: "gpt-5.4"
 sandbox: "danger-full-access"
 approval-policy: "on-failure"
 ```
