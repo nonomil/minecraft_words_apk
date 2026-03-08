@@ -406,7 +406,7 @@ echo   推送成功
 echo ========================================
 echo.
 echo GitHub Actions 将自动开始构建（如果本次提交影响 apk/ 或 workflow）。
-echo(Actions 地址: https://github.com/nonomil/mario-minecraft-game/actions
+echo Actions 地址: https://github.com/nonomil/mario-minecraft-game/actions
 echo.
 call :exit_with_pause 0
 exit /b 0
@@ -676,7 +676,7 @@ echo   推送成功（主仓库）
 echo ========================================
 echo.
 echo GitHub Actions 将自动开始构建（针对 main/apk）。
-echo(Actions 地址: https://github.com/nonomil/mario-minecraft-game/actions
+echo Actions 地址: https://github.com/nonomil/mario-minecraft-game/actions
 echo.
 call :exit_with_pause 0
 exit /b 0
