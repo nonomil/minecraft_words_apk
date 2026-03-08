@@ -218,6 +218,31 @@ window.vocabManifest.packs.push({
   globals: ['kindergartenHanzi']
 });
 
+// Add getRaw() method to each pack
+window.vocabManifest.packs.forEach(pack => {
+  if (!pack.getRaw) {
+    pack.getRaw = function() {
+      const words = [];
+      if (Array.isArray(pack.globals)) {
+        pack.globals.forEach(globalName => {
+          if (typeof window[globalName] !== 'undefined' && Array.isArray(window[globalName])) {
+            words.push(...window[globalName]);
+          }
+        });
+      }
+      return words;
+    };
+  }
+});
+
+// Create byId index
+const byId = Object.create(null);
+window.vocabManifest.packs.forEach(p => { byId[p.id] = p; });
+window.vocabManifest.byId = byId;
+
+// Expose as MMWG_VOCAB_MANIFEST for compatibility
+window.MMWG_VOCAB_MANIFEST = window.vocabManifest;
+
 // Node.js compatibility (for build tools)
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = window.vocabManifest.packs;
