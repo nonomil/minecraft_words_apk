@@ -260,6 +260,7 @@
     }
 
     function spawnBoss() {
+      ensureRunning();
       const boss = document.getElementById("boss").value;
       withGame(w => {
         patchGodMode(w);
@@ -268,6 +269,7 @@
     }
 
     function spawnBossGate() {
+      ensureRunning();
       const boss = document.getElementById("boss").value;
       const currentBiome = document.getElementById("biome").value;
       withGame(w => {
