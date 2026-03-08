@@ -346,19 +346,62 @@ function drawEnderDragon(dragon) {
     const y = dragon.y;
     const w = dragon.width;
     const h = dragon.height;
+    const flap = Math.sin((dragon.animationTime || 0) / 7) * h * 0.12;
+    const hoverGlow = dragon.state === "ridden" ? "#FFD54F" : "#7E57C2";
 
-    ctx.fillStyle = "#2B0A3D";
-    ctx.fillRect(x + w * 0.15, y + h * 0.25, w * 0.55, h * 0.45);
+    ctx.fillStyle = "rgba(52, 18, 72, 0.18)";
+    ctx.beginPath();
+    ctx.ellipse(x + w * 0.45, y + h * 0.92, w * 0.34, h * 0.12, 0, 0, Math.PI * 2);
+    ctx.fill();
 
-    ctx.fillStyle = "#4B0082";
-    ctx.fillRect(x + w * 0.68, y + h * 0.18, w * 0.2, h * 0.22);
-    ctx.fillRect(x + w * 0.05, y + h * 0.15, w * 0.18, h * 0.12);
-    ctx.fillRect(x + w * 0.22, y + h * 0.08, w * 0.2, h * 0.12);
-    ctx.fillRect(x + w * 0.22, y + h * 0.56, w * 0.2, h * 0.12);
+    ctx.fillStyle = "#201124";
+    ctx.beginPath();
+    ctx.moveTo(x + w * 0.2, y + h * 0.54);
+    ctx.quadraticCurveTo(x + w * 0.02, y + h * (0.24 - flap * 0.01), x + w * 0.25, y + h * 0.1);
+    ctx.lineTo(x + w * 0.42, y + h * 0.34);
+    ctx.quadraticCurveTo(x + w * 0.18, y + h * 0.44, x + w * 0.2, y + h * 0.54);
+    ctx.closePath();
+    ctx.fill();
 
-    ctx.fillStyle = "#8A2BE2";
-    ctx.fillRect(x + w * 0.72, y + h * 0.26, w * 0.03, h * 0.05);
-    ctx.fillRect(x + w * 0.8, y + h * 0.26, w * 0.03, h * 0.05);
+    ctx.beginPath();
+    ctx.moveTo(x + w * 0.38, y + h * 0.5);
+    ctx.quadraticCurveTo(x + w * 0.1, y + h * (0.92 + flap * 0.01), x + w * 0.46, y + h * 0.76);
+    ctx.lineTo(x + w * 0.56, y + h * 0.6);
+    ctx.quadraticCurveTo(x + w * 0.28, y + h * 0.58, x + w * 0.38, y + h * 0.5);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "#2A202F";
+    ctx.beginPath();
+    ctx.moveTo(x + w * 0.22, y + h * 0.45);
+    ctx.quadraticCurveTo(x + w * 0.4, y + h * 0.16, x + w * 0.6, y + h * 0.26);
+    ctx.quadraticCurveTo(x + w * 0.84, y + h * 0.32, x + w * 0.8, y + h * 0.54);
+    ctx.quadraticCurveTo(x + w * 0.58, y + h * 0.7, x + w * 0.3, y + h * 0.62);
+    ctx.quadraticCurveTo(x + w * 0.2, y + h * 0.57, x + w * 0.22, y + h * 0.45);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "#171019";
+    ctx.beginPath();
+    ctx.moveTo(x + w * 0.68, y + h * 0.35);
+    ctx.quadraticCurveTo(x + w * 0.9, y + h * 0.18, x + w * 0.95, y + h * 0.3);
+    ctx.quadraticCurveTo(x + w * 0.92, y + h * 0.52, x + w * 0.7, y + h * 0.54);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(x + w * 0.12, y + h * 0.5);
+    ctx.quadraticCurveTo(x + w * 0.02, y + h * 0.46, x + w * 0.06, y + h * 0.36);
+    ctx.quadraticCurveTo(x + w * 0.14, y + h * 0.22, x + w * 0.18, y + h * 0.26);
+    ctx.quadraticCurveTo(x + w * 0.15, y + h * 0.42, x + w * 0.12, y + h * 0.5);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = hoverGlow;
+    ctx.beginPath();
+    ctx.ellipse(x + w * 0.8, y + h * 0.39, w * 0.028, h * 0.045, 0, 0, Math.PI * 2);
+    ctx.ellipse(x + w * 0.88, y + h * 0.39, w * 0.028, h * 0.045, 0, 0, Math.PI * 2);
+    ctx.fill();
 
     if (dragon.rider) {
         ctx.strokeStyle = "#FFD54F";

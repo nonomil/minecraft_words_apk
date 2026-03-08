@@ -651,17 +651,80 @@ class Golem extends Entity {
 // ============ EnderDragon 类 ============
 class EnderDragon extends Entity {
     constructor(x, y) {
-        super(x, y, 64, 48); // 尺寸：64x48
+        super(x, y, 96, 56);
         this.hp = 30;
         this.maxHp = 30;
         this.speed = 2.5;
-        this.faction = "golem"; // 友军阵营
+        this.faction = "golem";
         this.rideable = true;
         this.rider = null;
         this.fireballCooldown = 0;
         this.velX = 0;
         this.velY = 0;
-        this.color = "#8B00FF"; // 紫色
+        this.color = "#8B00FF";
+        this.state = "standby";
+        this.animationTime = 0;
+        this.standbyOffsetX = 96;
+        this.standbyOffsetY = -92;
+        this.hoverAmplitude = 6;
+        this.returnThreshold = 14;
+    }
+
+    getStandbyAnchor(playerRef) {
+        const baseX = (playerRef?.x || 0) + this.standbyOffsetX;
+        const baseY = (playerRef?.y || 0) + this.standbyOffsetY;
+        const hoverY = Math.sin(this.animationTime / 18) * this.hoverAmplitude;
+        return { x: baseX, y: baseY + hoverY };
+    }
+
+    setStandbyState(playerRef = null) {
+        this.state = "standby";
+        this.rider = null;
+        if (playerRef) {
+            const anchor = this.getStandbyAnchor(playerRef);
+            this.x = anchor.x;
+            this.y = anchor.y;
+        }
+        this.velX = 0;
+        this.velY = 0;
+    }
+
+    setReturningState() {
+        this.state = "returning";
+        this.rider = null;
+    }
+
+    setRiddenState(rider) {
+        this.state = "ridden";
+        this.rider = rider;
+        this.velX = 0;
+        this.velY = 0;
+    }
+
+    canAcceptRider() {
+        return !this.remove && this.rideable && !this.rider && this.state !== "ridden";
+    }
+
+    moveTowardAnchor(playerRef, speedMultiplier = 1) {
+        const anchor = this.getStandbyAnchor(playerRef);
+        const dx = anchor.x - this.x;
+        const dy = anchor.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist <= this.returnThreshold) {
+            this.x = anchor.x;
+            this.y = anchor.y;
+            this.velX = 0;
+            this.velY = 0;
+            return true;
+        }
+
+        const moveSpeed = this.speed * speedMultiplier;
+        const step = Math.min(dist, moveSpeed);
+        this.velX = dist > 0 ? (dx / dist) * step : 0;
+        this.velY = dist > 0 ? (dy / dist) * step : 0;
+        this.x += this.velX;
+        this.y += this.velY;
+        return false;
     }
 
     takeDamage(amount) {
@@ -686,36 +749,31 @@ class EnderDragon extends Entity {
     }
 
     update(playerRef) {
-        // 如果有骑手，由骑手控制移动（在 13-game-loop.js 中处理）
+        this.animationTime += 1;
+
+        if (this.fireballCooldown > 0) {
+            this.fireballCooldown--;
+        }
+
         if (this.rider) {
+            this.state = "ridden";
             return;
         }
 
-        // 无骑手时：悬停在玩家附近
-        const targetX = playerRef.x + 100;
-        const targetY = playerRef.y - 80;
-        const dx = targetX - this.x;
-        const dy = targetY - this.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist > 20) {
-            this.velX = (dx / dist) * this.speed;
-            this.velY = (dy / dist) * this.speed;
-            this.x += this.velX;
-            this.y += this.velY;
+        if (this.state === "returning") {
+            const arrived = this.moveTowardAnchor(playerRef, 1.35);
+            if (arrived) this.setStandbyState();
+        } else if (this.state === "standby") {
+            this.moveTowardAnchor(playerRef, 0.45);
+        } else {
+            this.setStandbyState();
         }
 
-        // 边界限制（需要 cameraX, canvas, groundY 全局变量）
         if (typeof cameraX !== 'undefined' && typeof canvas !== 'undefined') {
             this.x = Math.max(cameraX - 50, Math.min(this.x, cameraX + canvas.width + 50));
         }
         if (typeof groundY !== 'undefined') {
             this.y = Math.max(50, Math.min(this.y, groundY - this.height - 50));
-        }
-
-        // 冷却计时
-        if (this.fireballCooldown > 0) {
-            this.fireballCooldown--;
         }
     }
 

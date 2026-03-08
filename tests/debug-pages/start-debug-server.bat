@@ -57,7 +57,7 @@ for /L %%P in (%BASE_PORT%,1,%END_PORT%) do (
     )
 )
 
-echo [错误] 无法找到可用端口
+echo [错误] 无法找到可用端口
 echo 已尝试端口范围: %BASE_PORT%-%END_PORT%
 echo.
 pause
@@ -69,14 +69,14 @@ echo ✓ 使用端口: %FINAL_PORT%
 echo.
 
 if "%USE_NODE%"=="1" if exist "tools\serve-apk.mjs" (
-    echo [3/4] 使用 Node.js 服务器 (tools/serve-apk.mjs)
+    echo [3/4] 使用 Node.js 服务器 ^(tools/serve-apk.mjs^)
     echo [4/4] 启动服务器: http://localhost:%FINAL_PORT%
     echo.
     echo 按 Ctrl+C 停止服务器
     echo ========================================
     echo.
     echo Opening debug page with cache-busting URL...
-    start "" cmd /c "timeout /t 2 /nobreak ^>nul ^& start \"\" \"%DEBUG_URL%\""
+    start "" powershell -NoProfile -WindowStyle Hidden -Command "Start-Sleep -Seconds 2; Start-Process '%DEBUG_URL%'"
     node tools\serve-apk.mjs --port %FINAL_PORT%
     goto :end
 )
@@ -89,12 +89,12 @@ if "%USE_PYTHON%"=="1" (
     echo ========================================
     echo.
     echo Opening debug page with cache-busting URL...
-    start "" cmd /c "timeout /t 2 /nobreak ^>nul ^& start \"\" \"%DEBUG_URL%\""
+    start "" powershell -NoProfile -WindowStyle Hidden -Command "Start-Sleep -Seconds 2; Start-Process '%DEBUG_URL%'"
     python -m http.server %FINAL_PORT%
     goto :end
 )
 
-echo [错误] 未找到可用的服务器脚本
+echo [错误] 未找到可用的服务器脚本
 echo.
 pause
 goto :end

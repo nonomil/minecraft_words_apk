@@ -262,7 +262,7 @@ if "%DRY_RUN%"=="1" (
     echo [DRY-RUN] 已启用 --dry-run，不会执行 git fetch / git push。
     echo   git -c http.version=HTTP/1.1 fetch %REMOTE% %BRANCH% --prune
     echo   git rev-list --left-right --count %REMOTE%/%BRANCH%...HEAD
-    echo   git log %REMOTE%/%BRANCH%..HEAD --oneline
+    echo   git --no-pager log %REMOTE%/%BRANCH%..HEAD --oneline
     if /i "%PRIMARY%"=="proxy" (
         echo   git -c http.proxy=http://127.0.0.1:1080 -c https.proxy=http://127.0.0.1:1080 -c http.sslBackend=openssl push %REMOTE% HEAD:%BRANCH%
     ) else (
@@ -327,7 +327,7 @@ if not "%BEHIND%"=="0" (
 )
 
 echo [检查] 等待推送的提交：
-git log %REMOTE%/%BRANCH%..HEAD --oneline 2>nul
+git --no-pager log %REMOTE%/%BRANCH%..HEAD --oneline 2>nul
 if errorlevel 1 (
     echo [信息] 无法对比 %REMOTE%/%BRANCH%（可能缺少远端引用）。
 )

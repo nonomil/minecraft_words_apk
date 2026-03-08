@@ -668,6 +668,10 @@ function wireTouchControls() {
     bindTapOrHold("attack",
         () => { handleAttack("tap"); },  // 短按：普通攻击
         () => {                           // 长按：使用消耗品
+            if (typeof ridingDragon !== "undefined" && ridingDragon) {
+                dragonShootFireball();
+                return;
+            }
             if (typeof useEquippedConsumable === "function") {
                 useEquippedConsumable();
             } else {

@@ -568,10 +568,15 @@ function update() {
 
         // 检测上龙
         for (const dragon of dragonList) {
-            if (rectIntersect(player.x, player.y, player.width, player.height, dragon.x, dragon.y, dragon.width, dragon.height)) {
+            if (
+                typeof dragon.canAcceptRider === "function" &&
+                dragon.canAcceptRider() &&
+                rectIntersect(player.x, player.y, player.width, player.height, dragon.x, dragon.y, dragon.width, dragon.height)
+            ) {
                 ridingDragon = dragon;
-                dragon.rider = player;
-                showToast("🐉 骑乘末影龙");
+                if (typeof dragon.setRiddenState === "function") dragon.setRiddenState(player);
+                else dragon.rider = player;
+                showToast("🐉 骑乘末影龙：攻击键喷火，切换键下龙");
                 break;
             }
         }
@@ -710,17 +715,24 @@ function useDragonEgg() {
 
     // 召唤末影龙
     const dragon = new EnderDragon(player.x + 50, player.y - 100);
+    if (typeof dragon.setStandbyState === "function") {
+        dragon.setStandbyState(player);
+    }
     dragonList.push(dragon);
-    showToast("🐉 召唤末影龙");
+    showToast("🐉 召唤末影龙，靠近即可上龙");
     return true;
 }
 
 function dismountRider(rider) {
     if (!ridingDragon || !rider) return;
 
-    ridingDragon.rider = null;
+    const dragon = ridingDragon;
+    dragon.rider = null;
     ridingDragon = null;
     skipPlayerGravity = false;
+    if (!dragon.remove && typeof dragon.setReturningState === "function") {
+        dragon.setReturningState(player);
+    }
 
     // 给予缓降效果
     rider.velY = -2;
@@ -729,7 +741,7 @@ function dismountRider(rider) {
     dismountInvincibleFrames = 60;
     playerInvincibleTimer = Math.max(Number(playerInvincibleTimer) || 0, 60);
 
-    showToast("⬇️ 已下龙");
+    showToast("⬇️ 已下龙，末影龙回到身边");
 }
 
 function dragonShootFireball() {
@@ -1762,13 +1774,14 @@ function handleDecorationInteract() {
 
 function handleAttack(mode = "press") {
     if (typeof isVillageInteriorActive === "function" && isVillageInteriorActive()) return;
-    if (playerWeapons.attackCooldown > 0) return;
-    if (typeof addDeepDarkNoise === "function") addDeepDarkNoise(10, "", "attack");
 
     if (ridingDragon) {
         dragonShootFireball();
         return;
     }
+
+    if (playerWeapons.attackCooldown > 0) return;
+    if (typeof addDeepDarkNoise === "function") addDeepDarkNoise(10, "", "attack");
 
     const weapon = WEAPONS[playerWeapons.current] || WEAPONS.sword;
 
