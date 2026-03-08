@@ -532,11 +532,11 @@ globalThis.bossArena = globalThis.bossArena || {
             if (!itemKey) return;
             inventory[itemKey] = (inventory[itemKey] || 0) + 1;
         });
-        showFloatingText('?? BOSS DEFEATED!', player.x, player.y - 60, '#FFD700');
+        showFloatingText('🎉 击败BOSS!', player.x, player.y - 60, '#FFD700');
         if (rewardDrops.length) {
-            showFloatingText(`?? ${rewardDrops.join(' + ')}`, player.x, player.y - 88, '#FFE082');
+            showFloatingText(`🎁 ${rewardDrops.join(' + ')}`, player.x, player.y - 88, '#FFE082');
         }
-        showToast(`?? ??${rewardName}! ?? ${rewardKey} ??!`);
+        showToast(`🎉 击败${rewardName}! 🎁 ${rewardKey} 掉落!`);
         const callback = this.currentEncounter && typeof this.currentEncounter.onVictory === "function"
             ? this.currentEncounter.onVictory
             : null;
@@ -1335,7 +1335,7 @@ class BlazeBoss extends Boss {
                 type: 'blaze_ring_orb'
             });
         }
-        showFloatingText('?? ??!', cx, this.y - 20, '#FFB300');
+        showFloatingText('🔥 火焰环!', cx, this.y - 20, '#FFB300');
     }
 // PLACEHOLDER_BLAZE_CONTINUE
 
@@ -1657,7 +1657,7 @@ class WitherSkeletonBoss extends Boss {
             });
         }
         this.actionCooldown = Math.max(this.actionCooldown, 50);
-        showFloatingText('?? ??!', centerX, this.y - 24, '#BDBDBD');
+        showFloatingText('💀 骨墙!', centerX, this.y - 24, '#BDBDBD');
     }
 // PLACEHOLDER_WSKEL_CONTINUE
 
@@ -1974,7 +1974,7 @@ class WardenBoss extends Boss {
         super({
             id: 'warden',
             visualKey: 'warden_v1',
-            name: '??? Warden',
+            name: '监守者 Warden',
             maxHp: 52,
             color: '#163E42',
             x: spawnX,
@@ -2050,7 +2050,7 @@ class WardenBoss extends Boss {
         this.state = 'slam_charge';
         this.slamTimer = this.phase >= 3 ? 18 : 28;
         this.actionCooldown = 100;
-        showFloatingText('?', this.x + this.width / 2, this.y - 24, '#80DEEA');
+        showFloatingText('⚡', this.x + this.width / 2, this.y - 24, '#80DEEA');
     }
 
     releaseGroundSlam(playerRef) {
@@ -2080,7 +2080,7 @@ class WardenBoss extends Boss {
                 life: 1
             });
         }
-        showFloatingText('??', impactCenterX, this.y - 28, '#80DEEA');
+        showFloatingText('💥 震地!', impactCenterX, this.y - 28, '#80DEEA');
     }
 
     startSonicCast() {
